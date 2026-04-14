@@ -1,0 +1,331 @@
+﻿Une image contenant plein air, eau, canoë, embarcation
+
+Description générée automatiquement 
+  
+  
+
+
+
+
+
+
+
+INFORMATION COLLECTION FOR THE FIRST TECHNICAL REPORT
+
+
+________________
+  
+
+
+
+1. Partner identification
+	“Insert here the identification of your organization”
+	
+
+
+
+2. Work Package you are reporting on
+	”WP number and title”
+	
+
+
+
+3. Description of activities & results
+	“Please describe in detail (but concisely) the activities performed between September 01st, 2024 to February 28th, 2026 and your main results. However not more than 2.5 pages per task + 1 figure. Please restrict yourself to the most important results and link to milestones & deliverables when possible. 
+For more extensive results, please refer to the supporting documents (deliverables, publications, public presentations/poster etc.). 
+For figures and tables imported from another publication, ensure that you include the source / copyrights / acknowledgement information after the title of the figure / table. Also include here any limitations such as copyright for figures/photos you have produced yourself.
+
+
+Please organize this information per task:
+Task X.X – Description of activities…
+Task X.X – Description of results…
+Task X.Y – Description of activities…
+Task X.Y – Description of results…”
+	
+
+
+
+
+
+________________
+
+
+WP6
+
+
+Task 6.[a][b]2: Model harmonization and interfacing for holistic digital product development (M12 – M26) 
+Lead: IFE. Participants: Sunlit, TNO.
+Activities performed in the period of the report:[c]
+
+
+To support Sunlit’s product development, several testing and modelling activities have been undertaken at IFE. The focus of this has been to evaluate the polyurethane (PU) that plays a key role in the new design, acting not only has hinge material connecting the floats but also as a barrier to minimize moisture ingress into the panels. PU can have varying hardness, which affects both its strength and flexibility. The tensile strength of three PU types with different hardness was therefore evaluated, using coupon samples consisting of thin strips of PU. For one of the materials, which was known to be of inferior quality, maximum tensile strength of around 6 MPa was found at a strain of around 400%. The other two materials showed tensile strengths above 10 MPa with strains exceeding 750%. Due to the way in which the PU was casted, tensile testing until failure was not possible for the two stronger materials, as the samples slipped out of the tester before breaking, even when mitigation approaches such as roughening of the surface were applied. Ultimate stress and strains of these two materials thus exceed the values found in these tests.
+
+
+To help understand how the PU performs after long-term outdoor exposure, coupon samples were exposed to UV radiation, which is an important environmental stressor. UV testing was performed inside a Xenon arc test chamber, following condition A3 of IEC TS 62788-7-2 (Measurement procedures for materials used in PV modules – accelerated weathering tests for polymeric materials): chamber temperature 65 °C, black panel temperature 90 °C, irradiance over 300-400 nm 81 W/m2, but with relative humidity at 70% instead of 20%. A higher relative humidity level was chosen to evaluate the ability of the PU to resist moisture ingress. For this purpose, minipatch samples were prepared with different PU types casted around the edges of a box consisting of a glass top plate, an aluminium bottom plate and sides and a desiccant-filled void in between. Moisture ingress was evaluated using gravimetric measurements. The minipatch samples were made by Sunlit’s manufacturer and thus represented the casting procedure as planned for the final product. These minipatches also allowed for quantitative assessment of the adhesion between the PU and the glass/aluminium before and after UV exposure.
+
+
+After about 205 hours of UV exposure, routine inspection revealed that the PU on all samples had severely darkened, with the PU of the coupon samples showing cracking, and the PU on the minipatches, which were closer to the light sources (and thus warmer) because of their size, displaying burn marks. Upon these results, UV exposure was halted and Sunlit’s manufacturer was consulted. They indicated that the PU, no matter the type, should not exceed 70 °C. This shifted the focus to the temperature behaviour of the PU, as such temperatures can be expected during outdoor exposure in hot climates.
+
+
+To give more insight into the thermal behaviour of the PU, IFE performed thermal modelling on Sunlit’s design using its CFD modelling framework also used in Task 3.2. As a worst case scenario for outdoor exposure, five years of data (air temperature, sea temperature, wind speed and global horizontal irradiance) just off the coast of Singapore were acquired from ERA5. From these data, the hour with the highest resulting module temperature (combination of high air and sea temperature and irradiance with low wind speed) was identified and used as model input. The simulations showed that the absorptivity and thermal emissivity of the PU had a significant effect on its temperature. These two values were therefore determined experimentally at IFE using reflectance measurements and an infrared camera on coupon samples that had not been exposed to UV. An absorptivity of 0.9 and an emissivity of 0.85 were found for these dark blue samples. Using these values, simulations showed that under the worst case exposure conditions in Singapore, the PU temperature exceeded far above 70 °C. However, they also indicated that lowering the absorptivity, which can be achieved in practice by changing the colour of the PU, significantly reduced the temperature to well below the 70 °C threshold. As a result, Sunlit decided to change its PU from dark blue to white. No further tests were done using the dark blue PU at IFE as this was not representative of the newest materials anymore.
+
+
+Recently, new midpatch samples (similar to minipatch but larger in size and including the full hinge design) consisting of white PU have arrived at IFE. Experiments on strength of attachment testing and UV exposure are currently being planned.
+
+
+  
+  
+
+Figure 1. Thermal model outputs of a cross-section of Sunlit’s design under the warmest conditions observed in the 5-year Singapore dataset. Left shows outputs for a PU hinge material with an absorptivity of 0.9, which was the value experimentally determined for the dark blue PU samples at IFE. Right shows outputs for a PU hinge material with an absorptivity of 0.35, which is typical for a white material. Due to this difference, the maximum PU temperature decreases from 84 to 48 °C, while the wafer (= cell) temperature is largely unaffected.
+To evaluate the strength of the PU beyond the tensile testing possible in the lab, Sunlit’s design has been implemented into IFE’s in-house finite element method (FEM) modelling software SiSim. Right now, simulations are underway to not only evaluate the stress on the PU and its attachment with the float in a single float under different mechanical loading conditions, but also to evaluate the stresses on interconnections between several floats. Where possible, model results will be validated with the midpatch samples at IFE. Initially, pre-defined loading scenarios will be evaluated, but once the interface between 3DFloat and SiSim as described in Task 2.3 is ready (second half 2026), simulations will be performed under realistic wave conditions as well.
+
+
+Sunlit has provided TNO with the necessary data to perform life cycle analysis (LCA). This work is currently underway and is expected to be finished in Q2 2026. More details on this are described under Task 1.3. 
+
+
+Results obtained in this reporting period: 
+Tensile stress tests carried out on different PU coupons. UV exposure of PU coupons and midpatches. Thermal modelling of Sunlit design with focus on worst-case PU temperature.
+________________
+4. Links to objectives
+	Indicate in the table below using quantifiable KPIs whenever possible how the activities performed between September 01st, 2024 to February 28th, 2026 contribute to achieve the objectives in the Grant Agreement. Please describe the progress in SuRE related to your WP and answer topics from proposal (see Table below).
+	
+
+
+
+SO1: Improve design and reduce material consumption to decrease CAPEX 
+	
+
+	Proposal:
+1.1a) Develop a new CTI FPV tech. including a 5 MW pilot by M18. New O&M strategy to reduce BoS cost. 
+1.1b) Reduce BoS costs for ZIM FPV tech through new schemes for interconnects and mooring + more accurate models for the forces on the structure. 5 MW pilot starting construction in M18. 
+1.1c) Tool for multi-dimensional optimization of cost, efficiency, and structural robustness for Sunlit’s FPV structure. 
+1.1d) Collaboration among the strong value chains represented in SuRE will contribute to transferability across sites, water body types, and manufacturers.
+
+
+KPIs: 
+CTI: LCOE reduction compared to Hydrelio.
+ZIM: reduction in Structural BoS. 
+Sunlit: potential LCOE reduction
+
+
+	Progress in SuRE by M18:
+
+
+
+
+	WPs: 2,3,4,5
+	SO2: Improved FPV designs and O&M tools to decrease OPEX for all FPV tech
+	
+
+	Proposal:
+1.2a) CTI: lowering O&M costs. 
+1.2.b) IFE: algorithm for endogenous determination of optimal cleaning intervals – to be tested on existing power plants from the different consortium participants 
+1.2d) Existing O&M routines will be adapted to be applicable at higher SSC.
+1.2e) Fraunhofer and IFE will develop a digital twin for the CTI technology 
+1.2.f) Collaborative R&D among commercial partners and research institutes in SuRE will contribute to establish and publish pre-normative practices. 
+
+
+KPIs: 
+CTI : New CTI O&M strategy implemented on pilot. 
+IFE : Best practice O&M for FPV published in IEA PVPS
+IFE : Algorithm for Optimal Cleaning Intervals for FPV published. Open access publication of algorithm for cleaning optimization for FPV. 
+
+
+	Progress in SuRE by M18:
+
+
+
+
+	WPs: 3,4,5,6
+	SO3: Develop tools to improve yield for all FPV technologies and apply the tools for concrete optimization of the 3 FPV technologies in SuRE
+	
+
+	Proposal:
+1.3a) IFE and Fraunhofer: model for calculating the operating temp including the cooling mechanisms: evaporative, conductive, convective, and radiative.
+1.3b) Thermal model used to optimize cooling of FPV designs
+1.3c) TNO and IFE: new model for WIL
+
+
+KPIs: 
+CTI: A significant reduction of thermal losses compared to Hydrelio. 
+Sunlit: reduce thermal losses for Sunlit tech of ~3%
+Quantify and verify U-values for 3 FPV techs. 
+Open access publication on thermal model for FPV
+Guidelines for predictive EYA of FPV in PVsyst. 
+
+
+	Progress in SuRE by M18:
+
+
+
+
+	WPs: 
+3,4,5,6
+	SO4: Demonstrate system components that satisfy structural and functional requirements for the entire lifecycle
+	
+
+	Proposal:
+ 2.1a) Expand ZIM Float design standards from SSC 3 to SSC 4 (Moderate, wave height 1.25 - 2.5 m) through optimization, increased structural integrity of their steel components, development of new mooring solutions. 
+2.1b) Stress fatigue crack testing of interconnects 
+2.1c) Test steel coatings for higher salinity water. 
+2.1d) Validate Sunlit design up to SSC 5 (Rough, 2.5 – 4 m) wrt structural integrity and moisture ingress 
+2.1e) Develop and verify plastics components with satisfactory UV stability. 
+2.1f) Reliability challenges resulting from soiling and fouling and potential mitigation measures at module level. 
+2.1g) Analyze expected increased loads on mooring and floating structures due to algae growth. 
+2.1h) Analyze performance loss rates (PLR) from new pilots and existing systems. 
+
+
+KPIs: 
+ZIM: New design standard for ZIM Float for SSC4. Sunlit: Validation of Sunlit technology for SSC5. 
+Report on corrosion of steel components. 
+Report on UV stability of plastic components. 
+Report on PLR. 
+Quantify soiling-induced hot spot loss in 2 pilots. 
+
+
+	Progress in SuRE by M18:
+
+
+
+
+	WPs: 
+2, 4, 5, 6
+	SO5: Accelerated stress testing procedures for FPV components
+	
+
+	Proposal:
+2.2a) Develop new accelerated stress tests designed explicitly for FPV by combining degradation mode statistics, quantified field stress levels, and insights from modelling for three key stressors/degradation. 
+KPIs: 
+Publication and revision of pre-normative procedures. Adoption of, engagement with, and refinement suggestions of procedures by FPV producers and installers.
+	Progress in SuRE by M18:
+
+
+
+
+	WPs: 2
+	SO6: Develop realistic targets, measurements, and monitoring to assess FPV sustainability
+	
+
+	3.1a) Fraunhofer & Deltares - develop and validate monitoring and modelling methodologies for assessing the interaction of FPV with waterbodies and ecosystems. 
+3.1b) Use CTI and ZIM 5 MW pilot plants as monitoring and measurement testbeds.
+3.1c) Simulation tool-chain for modeling the impact of FPV plant coverage on waterbody (oxygen levels, temperature change and others). 
+
+
+KPIs: 
+Pilot plants w/ additional measurement and monitoring 
+Sustainability data from FPV plants other than pilots. Simulation tool-chain 
+SuRE tech developers/off takers meet or exceed the targets developed in SuRE for positive environmental impact. 
+Adoption of targets by non-SuRE commercial actor.
+ 
+	Progress in SuRE by M18:
+
+
+
+
+	WPs: 
+1, 4, 5
+	SO8: Guidelines for FPV Sustainability and potential mitigation measures
+	
+
+	3.2a) develop sustainability report with prenormative guideline to assess the direct impacts of FPV on aquatic systems, including on water quality and toxicity, biodiversity, potential mitigation measures and circularity. 
+3.2b) If negative impact is found, potential mitigation measures will be suggested and included in the guidelines. 
+3.2c) Further selected FPV plants available to the consortium will be used for broad-scale testing to ensure EU-wide applicability. 
+3.2d) Measurements of water quality and toxicity will be carried out for 10 of CTI’s existing FPV sites. 
+
+
+KPIs: publish sustainability report w/ guidelines to assess direct impacts of FPV + mitigation measures. 
+
+
+	Progress in SuRE by M18:
+
+
+	WPs:
+1, 4, 5, 6
+	SO9: End-of-life recycling aspects and reduced carbon footprints for FPV components
+	
+
+	3.3a) CTI and SABIC will work to increase the use of recycled materials in the production processes of the new CTI technology. They will explore alternative materials, moving from post-industrial recycled HDPE to post-consumer recycled HDPE or PP, with lower carbon footprints. 
+3.3b) ZIM technology will have reduced material consumption because of more accurate engineering for different SSC.
+3.3c) Sunlit will explore if recycled and/or thinner Al can fulfil the requirements of their float
+3.2d) Ensure that the components satisfy end-of-life recycling aspects. 
+
+
+KPIs: 
+ZIM: reduce material consump + CO2 footprint 
+CTI: post-industrial to post-consumer recycled material. 
+Sunlit: 50% cut in Al, increase use of recycled Al. 
+LCAs and end-of-life recycling aspects for each tech.
+
+
+	
+
+	WPs:
+1,4,5,6
+	SO9: Enable accurate prediction of LCOE for FPV Power Plants
+	
+
+	4.1a) Develop add-ins and tables to improve accuracy of EYA
+for FPV power plants using existing, bankable tools.
+4.1b) Streamline LCOE calculations to accelerate investment process, including uncertainty analysis. 
+4.1c) Identify the most sensitive parameters through Pareto front analysis for historical and forthcoming FPV plants. 
+
+
+KPIs: 
+Publications on detailed EYA inputs
+for FPV in PVsyst. 
+Sensitivity analysis of FPV plant decisions on LCOE. 
+
+
+	
+
+	WPs:
+3, 4, 5, 6
+	Specific Objective 10: Reduce “soft” barriers for deployment of PV power plants
+	
+
+	4.2a) Facilitate communication between the public and FPV providers through documentary film, social media platforms, and hearing sessions with societal stakeholders. 
+
+
+KPIs: 
+Attendance and engagement with hearing sessions, social media engagement, distribution of documentaries. 
+	
+
+	WPs: 
+7, 8
+	
+
+
+
+
+
+
+
+5. Publication and dissemination activities
+	“Please make sure this list: SURE_ partners' C&D activities.xlsx is updated. The document is found in Teams – General – 0.5 Dissemination"
+	
+
+6. Technical deviations
+	“Please identify and explain any deviations that might have occurred relatively to the planed progress in the GA. Do not include financial information here.”
+	
+
+7. Additional information/remarks
+	“Include the description of other relevant elements to include in technical annual report that didn’t belong to the previous tables”.
+	
+
+
+
+
+
+[a]As reminder, below is the T6.2 description in the grant agreement.
+
+
+Digital product development cycle implementation, using all key design parameters of the aluminum float. Sunlit guide establishing and implementing interfaces between the following modelling tools: i) Combined FEM and CFD model
+chain to get mechanical stress profiles on the float for a given design case, developed in WT2.3 (IFE). ii) CFD modelling of fluid and heat flows, developed in WT 3.2 (IFE). iii) FEM model of the aluminum pressing, developed in WT6.1 (IFE). iv) LCA model developed in WT1.3 (TNO). Especially important is harmonizing input and output data from the
+different models to enable automated mapping of the parameter space and rapid iteration turnover. Results are modelling
+capabilities at different accuracy-levels will be used actively to quickly screen the parameter space and converge to promising design candidates. Results are used in Task 6.3 (and further in 6.4).
+[b]D6.1 is related:
+
+
+Data-format and inter-model data-transfer specifications for digital product development. Including modelling of mechanical load, heat transfer, float production and LCA as necessary to achieve efficient screening of the parameter
+space for Sunlit’s float development.
+[c]There should probably be some explanation why these things have been carried out instead of model harmonization/interfacing as described in Task 6.2. I think this is similar for Task 6.1, so maybe best to have the report start with such an explanation and then let if follow by these descriptions. I leave that up to you - Eirik ☺️

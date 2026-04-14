@@ -1,0 +1,106 @@
+﻿Mail Nathan:
+Hei Eirik,
+
+
+ 
+
+
+After a period of illness and an intense sprint in application writing, I have finally been able to get back to SuRE reporting. There are two parts to address, Deliverable 6.1 and the first periodic reporting (M18).
+
+
+ 
+
+
+Deliverable 6.1
+To be fully honest, I found it difficult to directly implement the points from your document into text that could fit the deliverable, so have not done much with it. Instead, I focused on what the deliverable asked for and came up with a way to structure the report. As reminder, this is the text:
+
+
+ 
+
+
+D6.1 – Sunlit model chain: Data-format and inter-model data-transfer specifications for digital product development. Including modelling of mechanical load, heat transfer, float production and LCA as necessary to achieve efficient screening of the parameter space for Sunlit’s float development.
+
+
+ 
+
+
+How I see it, we haven’t delivered on the main promise, which is the inter-model data-transfer. We will have to explain why we have not done this, and think you are best able to do so. However, to take the focus a bit away from what we have not done and showcase what has been achieved, I propose we dedicate a chapter explaining what has been done so far on each of the four mentioned models: mechanical load, heat transfer, float production and LCA. I propose that I cover the heat transfer and mechanical load (with your input), while you write on the float production and LCA (with SUREWAVE overlap). Then we keep the model data transfer as last chapter. Does this sound like a good approach? I have made a deliverable template with this structure and with a couple more notes per chapter under the ‘General’ channel in the SuRE teams: ​docx icon D6.1 Sunlit model chain.docx. For inspiration on expected length/level of detail for a deliverable, see here the final report of D1.1: ​pdf icon D1.1-Monitoring Concepts_V10_Final.pdf.
+
+
+ 
+
+
+On the timeline for D6.1: The report is due 30/4, but needs to be reviewed internally (by MetSolar and Fraunhofer), for which we should give them a couple of weeks. Let’s say we send it to them 17/4 at the latest – we should inform them of this in advance. I will be on vacation from 16/3 to 9/4 so will try to write IFEs parts before I leave, and then will review the document after I return.
+
+
+ 
+
+
+Periodic reporting
+As Josefine emailed about on 28/01, there is periodic reporting coming up in SuRE. For every task, a 2.5-page report needs to be sent to Josefine by February 27th. In WP6, only T6.1 and T6.2 have started, so a report is needed for each of them. I have made two templates for these in the SuRE WP6 teams channel: ​docx icon T6.1 SuRE technical report M18.docx, ​docx icon T6.2 SuRE technical report M18.docx, where you can also find instructions and an example from WP3. I suggest that you write T6.1 on the product development, and I will write on IFEs activities so far in T6.2. Feel free to rearrange the content between the tasks later on. If we do it well, we can recycle text into the D6.1 deliverable.
+
+
+ 
+
+
+I have taken next week off for thesis writing so will add my inputs by the end of this week.
+
+
+ 
+
+
+Note that D6.1 is sensitive, but will be seen by the other project partners, while the M18 reports are not seen by anyone other than the EU office. So in the M18 reports, sensitive info can be added that would not be in D6.1 (but unsure what that would be in this case).
+
+
+ 
+
+
+I hope that this is a good step forward in the reporting. Let me know if anything is unclear or if you want to discuss more (can be in a meeting also).
+
+
+ 
+
+
+All the best,
+
+
+Nathan
+
+
+—
+
+
+Hi Eirik,
+ 
+I have now written in IFEs activities in the T6.2 report (link in email below). I think some explanation of why our activities have been different than described in the grant agreement is missing, but, as I write in the comment in that document, I think it is best suited to start off with that in T6.1. I think you have all information from my side now to complete the midterm reporting, good luck!  😊  Could you add me in CC when you send the final report to Josefine? We should be able to recycle much of this content in the D6.1. My plan is to write on that in the first week of march (as said, I am out of office next week). Regarding D6.1, I moved the report template from the general channel to the WP6 channel so only we have access:  D6.1_Sunlit model chain.
+ 
+All the best,
+Nathan
+
+
+
+
+—
+
+
+Hi both, 
+
+
+How we formulate this report will be important in order not to raise any red flags with CINEA. I spent a few hours on this report yesterday (started in the existing document, but then decided not to mess it up completely and uploaded a second document, D6.1 Sunlit model chain_v1). Please read through carefully, Eirik, there may be several mistakes and misunderstandings on my end that should be corrected. I have not included text in the sections that you said you would write, Nathan. I was primarily concerned with how we describe the change from generation 1 to generation 2 and the fact that we do not have a fully integrated modelling chain - as was written in the original deliverable. 
+
+
+There is also a new deliverable coming up in the not too distant future that we should have in mind when writing D6.1. What more will be done that can be described in D6.2?
+
+
+Please reach out when you start working on this again and/or have questions.
+
+
+Best,
+Josefine
+
+
+
+
+
+
+Oppgavetekst:

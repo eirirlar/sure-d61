@@ -1,0 +1,52 @@
+flowchart TB
+
+    FDS["Functional Design Specification<br/>Principal: Energy production, Certification<br/>Constraints: Flotation, Watertight, Loads, Cost<br/>Secondary: Walkability, Fast production, Fast install"]
+
+    FDS --> RISK["Risk-based prioritisation<br/>Uncertainty x Impact x Effort"]
+
+    RISK --> F5
+    RISK --> F2
+    RISK --> F4
+    RISK --> F1
+    RISK --> F3
+    RISK --> F6
+
+    F5["Manufacturability"] -.-> E1
+    F2["Flotation<br/>performance"] -.-> E1
+    F2 -.-> E2
+    F4["Environmental<br/>resistance"] -.-> E2
+    F3["Mechanical<br/>interconnection"] -.-> E2
+    F1["Energy<br/>production"] -.-> E3
+    F4 -.-> E3
+    F3 -.-> E4
+    F6["Operation and<br/>maintenance"] -.-> E4
+    F5 -.-> E5
+
+    E1["Float manufacturing<br/>FEM forming"]
+    E2["Structural behaviour<br/>FEM and testing"]
+    E3["Thermal behaviour<br/>CFD modelling"]
+    E4["Component<br/>integration"]
+    E5["Manufacturing<br/>economics"]
+
+    E1 --> CAD
+    E2 --> CAD
+    E3 --> CAD
+    E4 --> CAD
+    E5 --> CAD
+
+    subgraph CYCLE ["Model-supported development cycle"]
+        direction LR
+        CAD["Parametric<br/>CAD"]
+        CAD --> SIM["Numerical<br/>simulation"]
+        SIM --> PROTO["Prototype<br/>generation"]
+        PROTO --> TEST["Physical<br/>testing"]
+        TEST --> VAL["Validation and<br/>comparison"]
+        VAL --> ITER["Update models<br/>and design"]
+        ITER -->|next iteration| CAD
+    end
+
+    DP["Design parameters<br/>geometry, materials, configuration"] -->|input| CAD
+    PP["Process parameters<br/>forming pressure, temperature,<br/>boundary conditions"] -->|input| SIM
+    SIM -->|output| PO["Performance outputs<br/>stress, thinning, temperature, cost"]
+    TEST -->|output| PO
+    PO -->|evaluate| VAL

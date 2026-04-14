@@ -1,0 +1,363 @@
+﻿SUREWAVE – Structural Reliable Offshore Floating PV Solution Integrating Circular Concrete Floating Breakwater
+	Interim report on sustainability 
+definitions and settings
+	Disclaimer:
+The SUREWAVE project is funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union. Neither the European Union nor the granting authority can be held responsible for them.
+	
+
+	The SUREWAVE project has received funding from the European Union's Horizon Europe Research and innovation funding programme under GA No. 101083342.
+	  	
+
+Deliverable details
+Work package:
+	7
+	Task:
+	7.1
+	Document name:
+	D7.1 - Interim report on sustainability definitions and settings
+	Lead beneficiary:
+	IFEU
+	Dissemination level:
+	SEN
+	Deliverable type:
+	R
+	Due date:
+	31.12.2023
+	Delivery date:
+	08.01.2024
+	
+
+version
+	Date
+	Author
+	Comments[1]
+	1.0
+	15.12.2023
+	Heiko Keller, Guido Reinhardt, Taalke Sieckmann
+	Final draft
+	1.1
+	20.12.2023
+	Balram Panjwani
+	Revision
+	1.2
+	26.12.2023
+	Maria Aurora Casado Barrasa 
+	Revision
+	1.3
+	27.12.2023
+	Thomas Pehlke 
+	Revision
+	2
+	05.02.2023
+	Heiko Keller, Guido Reinhardt, Taalke Sieckmann
+	Final
+	
+
+Dissemination level
+	PU
+	Public: fully open
+	SEN
+	Sensitive: limited under the conditions of the Grant Agreement
+	EU classified
+	EU classified: restraint – UE/EU-restricted, confidential, secret-UE/EU, secret under Decision 2015/444
+	Deliverable type
+	R
+	Document, report (excluding the periodic and final reports) 
+	DEM
+	Demonstrator, pilot, prototype, plan designs 
+	DEC
+	Websites, patents filing, press & media actions, videos, etc.
+	OTHER
+	Software, technical diagram, etc.
+	Executive summary 
+Photovoltaics (PV) are among the most promising techniques to meet the energy demand of the European union (EU) in a sustainable way. While onshore PV installations are established in many countries, the large potential of maritime areas with increased solar irradiation has not been exploited yet. The reason is a technically challenging environment defined by wind and wave turbulences that counteract the prominent advantages. SUREWAVE aims to tackle this problem by designing and testing a floating PV (FPV) solution that relies on a novel type of breakwater protection. However, medium-term stakeholder acceptance will not only depend on technical and economic feasibility but also on environmental as well as social sustainability.
+The sustainability assessment within SUREWAVE is carried out by WP7 (Integrated sustainability assessment). Individual aspects of sustainability (technological, environmental, economic and social) are studied in separate tasks within WP7 and joined into an overall picture in task 7.6 on integrated assessment of sustainability. A prerequisite for the compatibility of results from these individual assessments is that the same systems are analysed and that the work is carried out on the basis of common definitions and settings. The common definitions and settings are also relevant for the whole consortium since all partners responsible for technology development are asked to deliver data in compliance with these common definitions and settings (section 2).
+As SUREWAVE describes a future-oriented, novel concept, there is not just one single SUREWAVE system to be analysed. Instead, a spectrum of potential implementations combining several of the developed elements need to be considered as described in the system description (section 3).
+This deliverable D7.1 “Interim report on sustainability definitions and settings” describes both the definitions and settings as well as the elements of the SUREWAVE system (system description). It serves as a basis to start the data collection and first analyses.
+  
+
+
+
+
+
+
+
+Deliverable Review
+
+
+	Reviewer #1: Balram Panjwani
+	Reviewer #2: 
+	Answer
+	Comments
+	Type*
+	Answer
+	Comments
+	Type*
+	1. Is the deliverable in accordance with
+	   1. The Description of Work?
+	☐ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	   2. The international State of the Art?
+	☐ Yes
+☐ No
+	Not applicable for this deliverable
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐ No
+	Not applicable for this deliverable
+	☐ M
+☐ m
+☐ a
+	2. Is the quality of the deliverable in a status
+	   3. That allows it to be sent to European Commission?
+	☐ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	   4. That needs improvement of the writing by the originator of the deliverable?
+	☐ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐No
+	
+
+	☐ M
+☐ m
+☐ a
+	   5. That need further work by the Partners responsible for the deliverable?
+	☐ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐No
+	
+
+	☐ M
+☐ m
+☐ a
+	* Type of comments: M = Major comment; m = minor comment; a = advice
+
+
+Table of Contents
+1.        Introduction: Integrated sustainability  assessment in SUREWAVE        6
+1.1.        Background: Sustainability assessment        6
+1.2.        Implementation of sustainability assessment within SUREWAVE        7
+2.        Common definitions and settings        10
+2.1.        Goal definition        10
+2.2.        Scope definition        11
+3.        System description        14
+3.1.        Production of main elements        14
+3.2.        Transportation and assembly        16
+3.3.        Operation and maintenance        17
+3.4.        Decommissioning        17
+3.5.        Reference system        17
+3.6.        Variants to be assessed        18
+4.        Final remark        19
+5.        Abbreviations, Acronyms and Definitions        19
+6.        References        19
+7.        Annex: Minutes of the “Internal workshop for sustainability”        19
+
+
+
+
+1. Introduction: Integrated sustainability         assessment in SUREWAVE
+Photovoltaics (PV) are among the most promising techniques to meet the energy demand of the European union (EU) in a sustainable way. While onshore PV installations are established in many countries, the large potential of maritime areas with increased solar irradiation has not been exploited yet. The reason is a technically challenging environment defined by wind and wave turbulences that counteract the prominent advantages. SUREWAVE aims to tackle this problem by designing and testing a floating PV (FPV) solution that relies on a novel type of breakwater protection. However, medium-term stakeholder acceptance will not only depend on technical and economic feasibility but also on environmental as well as social sustainability.
+The sustainability assessment within SUREWAVE is carried out by WP7 (Integrated sustainability assessment). Individual aspects of sustainability (technological, environmental, economic and social) are studied in separate tasks within WP7 and joined into an overall picture in task 7.6 on integrated assessment of sustainability.
+This deliverable D7.1 “Interim report on sustainability definitions and settings” describes both the definitions and settings as well as the elements of the SUREWAVE system (system description). It serves as a basis to start the data collection and first analyses and is based on the handout for and minutes of the “Internal workshop for sustainability” (see Annex), which was held at the project meeting in Wageningen, Netherlands on 14th and 15th November 2023. All partners were represented on this day, participated actively in the workshop, agreed to the decisions taken and approved the minutes. IFEU prepared this document based on the approved minutes.
+   1. Background: Sustainability assessment
+The most well-known definition of sustainability can be found in the report of the Brundtland Commission: ‘sustainable development is development that meets the needs of the present without compromising the ability of future generations to meet their own needs’ [UN 1987]. At the 2005 World Summit it was noted that this requires the reconciliation of environmental, social and economic demands – the "three pillars" of sustainability. This view has been expressed as a scheme using three overlapping ellipses indicating that the three pillars of sustainability are not mutually exclusive and can be mutually reinforcing (Figure 1).
+  
+
+Figure 1: Scheme of sustainable development: at the confluence of three constituent parts
+	  
+
+Figure 2: Scheme indicating the relationship between the three pillars of sustainability [Scott-Cato 2008]
+	The UN definition is not universally accepted and has undergone various interpretations. For many environmentalists the idea of sustainable development is an oxymoron as development seems to entail environmental degradation. From this perspective, the economy is a subsystem of human society, which is itself a subsystem of the ecosphere, and a gain in one sector is a loss from another. This can be illustrated as three concentric circles (Figure 2).
+As a result of the growing pressure on the environment and increased scarcity of natural resources, the sustainability discussion is often focussed on the environment, as both society and economy are constrained by environmental limits. There is abundant scientific evidence that mankind is currently living unsustainably and jeopardising the living conditions of future generations, e.g. by excessive use of resources and excessive use of the environment as a sink, e.g. for greenhouse gas emissions etc. Hence, strong efforts are needed to identify and develop sustainable technologies which are able to reconcile economic, social and environmental demands. 
+   2. Implementation of sustainability assessment within         SUREWAVE
+The integrated assessment of sustainability carried out in WP7 of the SUREWAVE project takes into account all three pillars of sustainability. 
+In order to achieve reliable and robust sustainability assessment results, it is inevitable that the principles of comprehensiveness and life cycle thinking (LCT) are applied. LCT means that all life cycle stages for products are considered, i.e. the complete supply or value chains, from the production of technological components as well as their respective material inputs, through transportation and system assembly, to the operational phase and end-of-life treatment / final disposal (Figure 3). Through such a systematic overview and perspective, the unintentional shifting of environmental burdens, economic benefits and social well-being between life cycle stages or individual processes can be identified and possibly avoided or at least minimised. 
+  
+
+Figure 3: Sustainability assessment in SUREWAVE: Life cycle sustainability assessment compares the whole life cycles of all involved technologies/products
+
+
+The performance of each technological approach is compared to alternative reference technologies, e.g. conventional energy production. All three pillars of sustainability will be analysed using techniques that are based on LCT (environmental life cycle assessment, social life cycle assessment and life cycle costing). Subsequently, these complementary sustainability aspects will be brought together according to the methodology of integrated life cycle sustainability assessment (ILCSA) [Keller et al. 2015]. 
+The sustainability assessment within SUREWAVE is carried out by WP7 (Integrated sustainability assessment). The individual aspects of sustainability (technological, environmental, economic and social) are studied in separate tasks within WP7 and joined into an overall picture in task 7.6 on integrated assessment of sustainability.
+The structure of WP7 is depicted in Figure 4. 
+  
+
+Figure 4: Structure of the work package on sustainability assessment in SUREWAVE
+2. Common definitions and settings
+A well-founded sustainability assessment requires common definitions and settings on which the environmental, economic and social assessment will be based. Thus, general definitions and settings lead to an efficient professional communication between the project partners in WP7 and ensure consistent data and results for the integrated sustainability assessment. The goal and scope definition is the first phase of any sustainability assessment and is relevant for all sub-analyses on the technological, environmental, economic and social impacts.
+   3. Goal definition
+The comprehensiveness and depth of detail of the sustainability assessment can differ considerably depending on its goal. Therefore, the intended applications, the reasons for carrying out the study, and the decision context have to be described within the goal definition.
+      1. Intended applications
+The sustainability assessment within the SUREWAVE project aims at two separate applications:
+1. Project-internal support of ongoing process development. This makes this study an ex-ante assessment because the systems to be assessed are not yet implemented in this particular form on a relevant scale and for a sufficiently long time.
+2. To provide a basis to communicate findings of the SUREWAVE project to external stakeholders, especially science, industry, and policy makers. 
+      1. Guiding questions
+The following questions will guide the sustainability assessment.
+Main question:
+Which sustainability impacts are associated with the production of renewable electricity via offshore floating photovoltaic in Europe?
+Additionally, the following sub-questions have been identified in the workshop:
+* Which parameters or life cycle stages determine the sustainability impacts (on environment, economy and society) significantly and what are the resulting optimisation potentials?
+* Which are the differences of sustainability implications if FPV is compared to coal-based electricity, European electricity mix and European finite energy mix?
+* Which are the differences of sustainability implications if FPV is placed in North Sea, Baltic Sea or Mediterranean Sea representing different conditions?
+Further questions to be answered in excursuses:
+* Which are the differences of sustainability implications associated with a split FPV concept (5x 2 MW) in contrast to 1x 10 MW?
+* Which are the differences of sustainability implications if the SUREWAVE FPV is placed within an existing offshore wind park?
+* Which are the differences concerning the C-footprint of the innovative SUREWAVE “new” breakwater systems compared with conventional breakwater (polyfoam)?
+   1. Scope definition
+With the scope definition, the object of the sustainability assessment (i.e. the exact product or other system(s) to be analysed) is identified and described. The scope should be sufficiently well defined to ensure that the comprehensiveness, depth and detail of the study are compatible and sufficient to address the stated goal. Resulting definitions and settings are used in the subsequent analyses (tasks) to guarantee the consistency between the different assessments of environmental, economic and social implications.
+      2. System boundaries
+System boundaries determine which processes are included into the assessment and which not, e. g. if the whole life cycle will be analysed or only a part of it. 
+In SUREWAVE, the entire supply chain including input production, assembly, operational phase, and decommissioning will be assessed (cradle-to-grave). These boundaries apply to the environmental, economic, and social assessment. 
+This setting was chosen as the concept of life cycle thinking, which integrates existing consumption and production strategies, thereby preventing a piece-meal approach. Life cycle approaches avoid problem shifting from one life cycle stage to another, from one geographic area to another and from one environmental medium or protection target to another.
+For local environmental impacts, however, analysis will include impacts on marine and coastal ecosystems only. Here, most relevant impacts are expected while least knowledge is available.
+      3. Geographical coverage
+Geography determines a range of used background data. Within SUREWAVE this concerns e.g. metocean conditions and available transport systems, which are primarily relevant for LCoE and LCA, and information on depth range, hydrography and type of sea floor, current, distance to shoreline and other parameters that are primarily relevant for the assessment of local environmental impacts. 
+Generally, the assessment covers European seas. To make best use of available resources and to achieve a good balance of specificity and coverage, it uses exemplary locations to derive relevant insights including research questions for possible future studies.
+Three exemplary locations were chosen for further analyses in D2.1 on metocean data acquirement based on various project considerations (see D2.1 for details). These are
+* The Greater North Sea (56°54'N, 05°00'E) representing harsh conditions
+* The Western Mediterranean (39°00'N, 00°00'E) representing standard conditions
+* The Baltic Sea (54°12'N, 14°24'E) representing mild conditions. 
+They were adopted to form the basis for more generic scenarios of the sustainability assessment. In particular for the investigation of local environmental impacts, more generic areas will be analysed, in which conditions are very similar to the specific conditions at the selected locations. Thus, this analysis will not cover the locations listed in terms of an approval process. 
+      4. Technical reference
+The technical reference describes the technology to be assessed in terms of scale, development status, and maturity. 
+The SUREWAVE system will be assessed as mature, industrial-scale technology to ensure comparability to established alternatives. This goes beyond the TRL5 pursued with the technical work done within the project.
+      5. Time frame
+The SUREWAVE system must be described not only in space but also in time. The timeframe of the assessment determines e.g. the development status of used technology. Likewise, the environmental impact associated with conventional products changes over time, e.g. greenhouse gas emissions associated with electricity generation. Like geography, the time frame of the assessment hence determines background datasets used.
+2030 was selected as first realistic year in which the technology could be mature and available.
+      6. Functional unit
+The functional unit is a key element of sustainability assessment. It is a reference to which the environmental, social and economic effects of the studied system are related, and is typically a measure for the function of the studied system. Consequently, it is the basis for the comparison of different systems.
+For the SUREWAVE assessment, produced electricity is used as the functional unit. A suitable unit, e.g. 1 TWh, will be used. Further functional units for sub-questions and excursuses will be decided later if necessary.
+3. System description
+In this section, the current status of life cycle of the SUREWAVE value chains is summarized. Figure 5 displays a simplified scheme of the SUREWAVE FPV life cycle from production of the FPV to decommissioning and disposal.
+  
+
+Figure 5: Simplified scheme of the SUREWAVE FPV life cycle
+   2. Production of main elements
+The SUREWAVE floating PV solution primarily consists of floating PV modules surrounded by innovative floating breakwater elements. The breakwater will be moored to the anchoring system while the FPV array will be moored to the breakwater. The modules are obtained from Sunlit Sea as a commercial product originally designed for land locked systems, and the breakwater is produced specifically for the SUREWAVE system. Therefore, its production is modelled for these specific layouts while typical production schemes are used for the production of further components such as strings and accessory components.
+      7. Breakwater
+The breakwater elements consist of a concrete structural shell and an inorganic inner core, designed with a box-shaped cross section (Figure 6) and a size of 5m (wide), 2.5 m (height), 20 m (length) (see D3.2). Cellular lightweight concrete is used for the core, a material with higher water absorption (>20,0 Vol.-%) compared to the widely used polystyrene. In contrast to conventional breakwater designs, the SUREWAVE breakwater concept therefore prevents direct contact of the core material to water by complete enclosure.
+  
+
+Figure 6: Concept of a single breakwater element, consisting of a concrete structural shell and an inorganic inner core (taken from D3.2)
+Modular breakwater elements are produced in a pre-cast plant close to the final location. Input materials are obtained from local suppliers.  
+Status: Two circular breakwater shell material options are currently tested: high-performance concrete and light weight aggregate concrete. As soon as a decision has been made on the shell material, data collection can be initiated.
+      8. FPV module
+SUREWAVE relies on a very flat solar solution that minimizes wind drag. The concept is based on individual modules made from pressed, rolled marine grade aluminium, which are assembled into prefabricated complete strings (Figure 7). Its light, aluminium shell design makes it very resistant to external loads and to corrosion. Its modular conception makes it easy to be stacked into a common shipping container / barge deck, enabling rapid deployment, and covering large area on the water.
+The modules will be produced in Norway. If individual components are imported, their production in the country of origin will be considered.
+  
+
+Figure 7: FPV modules assembled in complete strings (as given in the “Description of the action”)
+   3. Transportation and assembly
+Breakwater elements, strings of FPV modules and accessory components such as mooring lines, anchoring, and electrical as well as physical connections are transported to the location at sea and assembled there. The breakwater units will enclose the FPV modules in a circular shape with crossed bridge elements (Figure 8), and two overall assembly designs will be investigated: a single 10 ha plant and a split 5x 2 ha plant. Both designs reflect a power yield of 10 MW, comprising approx. 19.000 FPV panels. In case of a single 10 ha plant, 91 breakwater elements are required for protection of the FPV panels (see D3.3 for details).
+Status: As soon as final design on mooring, anchoring, and connections is provided, data collection can be initiated. As of now, a preliminary multi-point anchorage concept including driven anchor piles and chains has been specified for the 10 ha design and all three locations in D3.3.
+   
+Figure 8: Global geometry of the SUREWAVE FPV concept in terms of the single 10 ha design (taken from D3.3)
+      9. Transportation of FPV components
+Ocean transport of all SUREWAVE FPV components will be done by boat. Land transportation of components to the harbour depend on the respective investigated installation site.   
+      10. Assembly process incl. anchoring and mooring
+Breakwater elements and strings of FPV modules are connected at sea with dedicated connectors. They are fixed to the seabed using specifically designed anchoring and mooring solutions. An electric connection to the shore is established via cables. 
+      11. Accessory devices
+Warning lights for the assembly and operational phase are determined by local authorities and regulation and no concept was considered yet. 
+Status: Concepts for transformers and inverters are under development.
+   4. Operation and maintenance
+      1. Operation time and lifetime
+While the total lifetime of the FPV modules is 20 years, the breakwater and anchoring system sustain for 50 years. It is hence possible to use the same breakwater installation for the next generation of PV with improved efficiency, which will be considered in the environmental and economic assessments. 
+Status: The average lifetime, determined by loss of efficiency over time as well as breakdown of modules with/without repairment, deviates from the total lifetime and is currently evaluated.
+      2. Processes for cleaning
+No cleaning devices are included. 
+Status: An alternative cleaning concept including frequency, materials, and transportation is currently investigated. 
+   5. Decommissioning
+Status: A detailed process for decommissioning has not been considered yet. Regarding the FPV modules, aluminium is recyclable while the remaining components are currently investigated.
+   6. Reference system
+Next to the product under investigation also so-called reference systems have to be considered. Usually they represent the same function the product under investigation serves. As stated in section 2.1.2, one of the raised sub-questions concerns potential differences of sustainability implications if FPV is compared to different conventional electricity productions. Therefore, SUREWAVE will be compared to the following reference systems: 
+1. Coal-based electricity production
+2. European electricity mix
+3. European finite energy mix
+   1. Variants to be assessed
+Table 1 contains a summary of all variants that will be assessed in the SUREWAVE sustainability assessment.
+Table 1: List of process and design variants to be compared in the SUREWAVE sustainability assessment.
+Process/Design
+	Description
+	Breakwater design
+	Innovative breakwater shell material (to be decided) + cellular lightweight concrete core
+	Conventional concrete shell + expanded polystyrene (EPS) core (excursus)
+	Location (with impact on mooring and anchoring design as well as transportation)
+	North Sea (harsh conditions)
+	Western Mediterranean (standard conditions)
+	Baltic Sea (mild conditions)
+	Size
+	One large 10 MV plant
+	Combination of five smaller 2 MW plants (excursus)
+	Installation environment
+	In marine area without previous installations
+	In existing offshore wind park (excursus)
+	Reference system
+	Coal-based electricity production
+	European electricity mix
+	European finite energy mix
+	4. Final remark
+In this document the general definitions and settings and system descriptions for the sustainability assessment in WP7 of the SUREWAVE project have been set as agreed upon with all partners as of December 2023. This document forms the basis and starting point of future updates on definitions and settings as well as of the data collection process. It is a living document that will be adapted to new insights within the project as needed.
+
+
+5. Abbreviations, Acronyms and Definitions
+        
+EU        European Union
+FPV        Floating photovoltaics
+ILCSA        Integrated life cycle sustainability assessment
+LCT        Life cycle thinking
+PV        Photovoltaics
+
+
+6. References
+Keller, H., Rettenmaier, N., Reinhardt, G. A. (2015): Integrated life cycle sustainability assessment – A practical approach applied to biorefineries. Applied Energy, Vol. 154, pp. 1072–1081.
+Scott-Cato, M. (2008): Green Economics: An Introduction to Theory, Policy and Practice. Earthscan, London, UK.
+UN (1987): Report of the World Commission on Environment and Development: Our Common Future (Brundtland Report). Annex to document A/42/427 Oxford University Press. http://www.un-documents.net/wced-ocf.htm.
+
+
+7. Annex: Minutes of the “Internal workshop for sustainability”
+
+
+  
+  
+  
+
+________________
+[1] Creation, modification, final version for evaluation, revised version following evaluation, final

@@ -1,0 +1,157 @@
+*CONTROL_ACCURACY
+$#     osu       inn    pidosu      iacc
+         1         4         0         0
+*CONTROL_ADAPSTEP
+$#  factin    dfactr
+       1.0      0.01
+*CONTROL_BULK_VISCOSITY
+$#      q1        q2      type     btype    tstype
+       1.5      0.06        -2         0         0
+*CONTROL_CONTACT
+$#  slsfac    rwpnal    islchk    shlthk    penopt    thkchg     orien    enmass
+       0.1       1.0         2         0         4         1         1         0
+$#  usrstr    usrfrc     nsbcs    interm     xpene     ssthk      ecdt   tiedprj
+         0         0         0         0       4.0         1         0         0
+$#   sfric     dfric       edc       vfc        th     th_sf    pen_sf
+       0.0       0.0       0.0       0.0       0.0       0.0       0.0
+$#  ignore    frceng   skiprwg    outseg   spotstp   spotdel   spothin
+         0         1         0         0         0         1       0.0
+$#    isym    nserod    rwgaps    rwgdth     rwksf      icov    swradf    ithoff
+         0         0         1       0.0       1.0         0       0.0         0
+$#  shledg    pstiff    ithcnt    tdcnof     ftall    unused    shltrw    igactc
+         0         0         0         0         1                 0.0         0
+*CONTROL_ENERGY
+$#    hgen      rwen    slnten     rylen     irgen
+         2         2         2         2         2
+*CONTROL_HOURGLASS
+$#     ihq        qh
+         4       0.1
+*CONTROL_MPP_DECOMPOSITION_AUTOMATIC
+*CONTROL_MPP_IO_LSTC_REDUCE
+*CONTROL_MPP_IO_NODUMP
+*CONTROL_OUTPUT
+$#   npopt    neecho    nrefup    iaccop     opifs    ipnint    ikedit    iflush
+         1         3         1         0       0.0         0       100      5000
+$#   iprtf    ierode   tet10s8    msgmax    ipcurv      gmdt   ip1dblt      eocs
+         0         1         2        50         0       0.0         0         2
+$#   tolev    newleg    frfreq     minfo    solsig    msgflg    cdetol
+         2         0         1         0         0         0      10.0
+$# phschng    demden   icrfile   spc2bnd    penout    shlsig   hisnout    engout
+         0         0         0         0         0         0         1         0
+$#    insf    isolsf      ibsf      issf    mlkbag
+         0         0         0         0         0
+*CONTROL_SHELL
+$#  wrpang     esort     irnxx    istupd    theory       bwc     miter      proj
+      30.0         1        -1         4         1         2         1         1
+$# rotascl    intgrd    lamsht    cstyp6    thshel
+       1.0         0         0         1         0
+$# psstupd   sidt4tu     cntco    itsflg    irquad    w-mode   stretch      icrq
+         0         0         1         0         2       0.0       0.0         0
+$#  nfail1    nfail4   psnfail    keepcs     delfr   drcpsid    drcprm   intperr
+         0         1         0         0         0         0       1.0         0
+*CONTROL_SOLID
+$#   esort   fmatrix   niptets    swlocl    psfail   t10jtol    icohed    tet13k
+         1         0         4         1         0       0.0         0         0
+$#   pm1     pm2     pm3     pm4     pm5     pm6     pm7     pm8     pm9    pm10
+       0       0       0       0       0       0       0       0       0       0
+*CONTROL_SOLUTION
+$#    soln       nlq     isnan     lcint     lcacc     ncdcf
+         0         0         1       101         0         1
+*CONTROL_TERMINATION
+$#  endtim    endcyc     dtmin    endeng    endmas     nosol
+{{runtime_pad10 }}         0       0.0       0.01.000000E8         0
+*CONTROL_TIMESTEP
+$#  dtinit    tssfac      isdo    tslimt     dt2ms      lctm     erode     ms1st
+       0.0       0.9         0       0.0     -2e-5         0         0         0
+$#  dt2msf   dt2mslc     imscl    unused    unused     rmscl    unused      ihdo
+       0.0         0         0                           0.0                   0
+*DATABASE_BINARY_D3PLOT
+$#      dt      lcdt      beam     npltc    psetid
+       0.0         0         0       100         0
+$#   ioopt      rate    cutoff    window      type      pset
+         0       0.0       0.0       0.0         0         0
+*DATABASE_ELOUT
+$#      dt    binary      lcur     ioopt   option1   option2   option3   option4
+{{runtime_pad10}}         1         0         1         0         0         0         0
+*DATABASE_GLSTAT
+$#      dt    binary      lcur     ioopt
+     0.022         0         0         1
+*DATABASE_NODFOR
+$#      dt    binary      lcur     ioopt
+{{runtime_pad10}}         1         0         1
+*DATABASE_NODOUT
+$#      dt    binary      lcur     ioopt   option1   option2
+    0.0011         0         0         1       0.0         0
+*DATABASE_RCFORC
+$#      dt    binary      lcur     ioopt
+    0.0011         1         0         1
+*DATABASE_RBDOUT
+$#      dt    binary
+    0.0011         1
+*DATABASE_EXTENT_BINARY
+$#   neiph     neips    maxint    strflg    sigflg    epsflg    rltflg    engflg
+         0         0         3         1         1         1         1         1
+$#  cmpflg    ieverp    beamip     dcomp      shge     stssz    n3thdt   ialemat
+         0         1         0         1         2         1         2         1
+$# nintsld   pkp_sen      sclp     hydro     msscl     therm    intout    nodout
+         0         0       1.0         0         1         0
+$#    dtdt    resplt     neipb     quadr     cubic
+         0         0         0         0         0
+*DATABASE_HISTORY_NODE_SET
+$#     id1       id2       id3       id4       id5       id6       id7       id8
+         1         2         0         0         0         0         0         0
+*DATABASE_HISTORY_SHELL_SET
+$#     id1       id2       id3       id4       id5       id6       id7       id8
+         2         0         0         0         0         0         0         0
+*CONTACT_FORMING_ONE_WAY_SURFACE_TO_SURFACE_ID
+$#     cid                                                                 title
+         1contact_sheet_punch
+$#   surfa     surfb  surfatyp  surfbtyp   saboxid   sbboxid      sapr      sbpr
+         1         2         3         3         0         0         1         1
+$#      fs        fd        dc        vc       vdc    penchk        bt        dt
+       0.0       0.0       0.0       0.0      20.0         0       0.01.00000E20
+$#    sfsa      sfsb      sast      sbst     sfsat     sfsbt       fsf       vsf
+       0.0       0.0       0.0    -0.001       1.0       1.0       1.0       1.0
+$#    soft    sofscl    lcidab    maxpar     sbopt     depth     bsort    frcfrq
+         0       0.1         0     1.025       2.0         2         0         1
+$#  penmax    thkopt    shlthk     snlog      isym     i2d3d    sldthk    sldstf
+       0.0         0         0         1         0         0       0.0       0.0
+$#    igap    ignore    dprfac    dtstif    unused    unused    flangl   cid_rcf
+         1         0       0.0       0.0                           0.0         0
+*MAT_WTM_STM_TITLE
+alu_sheet
+$#     mid        ro         e        pr     numfi      npsc        wc      tauc
+         12.65000E-9   72000.0      0.33       3.0      -0.5       0.0       0.0
+$#  sigma0       qr1       cr1       qr2       cr2         k        lc       flg
+  153.7148  94.32927  2.352399  187.1067  15.35487       4.0       0.0         1
+$#     s00       s45       s90       sbb       r00       r45       r90       rbb
+       1.0    0.9752    0.9908       1.0    0.7142    0.8357     0.641    1.1263
+$#     qx1       cx1       qx2       cx2      edot         m      emin      s100
+       0.0       0.0       0.0       0.0       0.0       0.0       0.0       0.0
+$#    aopt      beta
+       3.0       0.0
+$#      xp        yp        zp        a1        a2        a3
+       0.0       0.0       0.0       0.0       0.0       0.0
+$#      v1        v2        v3        d1        d2        d3
+       0.0       1.0       0.0       0.0       0.0       0.0
+*SECTION_SHELL_TITLE
+sheet_shell
+$#   secid    elform      shrf       nip     propt   qr/irid     icomp     setyp
+         1         2     0.833         5       1.0         0         0         1
+$#      t1        t2        t3        t4      nloc     marea      idof    edgset
+{{alu_thick_pad10}}{{alu_thick_pad10}}{{alu_thick_pad10}}{{alu_thick_pad10}}       0.0       0.0       0.0         0
+*PART
+$#                                                                         title
+punch
+$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
+         2         1         2         0         0         0         0         0
+*PERTURBATION_SHELL_THICKNESS
+$#    type       eid       scl    icoord       cid
+         4         20.00517023         0         0
+$#  cstype    ellip1    ellip2       rnd
+         1       1.0       1.0         0
+$#  cftype      cfc1      cfc2      cfc3
+         1       1.0       1.0       1.0
+*TERMINATION_DELETED_SHELLS
+$#     pid       nds
+         1        15

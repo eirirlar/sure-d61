@@ -1,0 +1,35 @@
+flowchart TB
+subgraph FPV
+
+
+  subgraph PV
+    Frame
+    Glass
+    JBox
+    Cables
+    MC4
+  end
+
+
+Frame <--> Glass
+Glass <--> JBox
+JBox <--> Infill
+Glass <--> Infill
+Frame <--> Infill
+Infill <--> Bottom
+Frame <--> Bottom
+Cables <--> MC4
+Frame <--> Cables
+FloatStructure <--> Cables
+JBox <--> Cables
+Infill <--> Cables
+Frame <--> Grounding
+Frame <--> FloatStructure
+FloatStructure <--> Hinges
+FloatStructure <--> Bottom
+FloatStructure <--> Glass
+FloatStructure <--> Grounding
+Hinges <--> Connectors
+
+
+end

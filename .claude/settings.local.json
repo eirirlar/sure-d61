@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /tmp)",
+      "Bash(rm -rf word customXml media rels docProps* [Content_Types].xml *.rels)",
+      "Bash(unzip -q \"/c/Users/eirirlar/Documents/sunlitsea/sure/WP6/background/surewave/lca/SUREWAVE_D7.5_Social_Report_V3.docx\")",
+      "Bash(mkdir -p /tmp/doc_work)",
+      "Read(//tmp/**)",
+      "Bash(mkdir -p /tmp/doc_work2)",
+      "Bash(unzip -q \"/c/Users/eirirlar/Documents/sunlitsea/sure/WP6/background/surewave/lca/SUREWAVE_D8.2_Report on societal needs and engagement_V2.docx\")"
+    ]
+  }
+}

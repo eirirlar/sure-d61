@@ -1,0 +1,37 @@
+stepreadconfig MM 1 1
+open step "{{stepfile}}"
+meshing circleshell create 0 0 0 {{cup_cyl_rad}} 384 0 0 360 0 0 1 0 1 0
+meshing circleshell accept 1 100000 100000 sheet
+genselect target element
+quat 0.000000 0.000000 0.000000 1.000000;
+genselect element add part 1/0
+{{#each n_smooths}}
+smooth saveelements
+smooth smooth 3 30.000000 1
+{{/each}}
+genselect target geomobject
+occfilter add Face
+genselect geomobject add geomobject  1f
+genselect geomobject add geomobject  2f
+genselect geomobject add geomobject  3f
+occmesh mesh 1, 1 0 1 0.688 16.5 0.103 2 0 1 1
+occmesh accept 2 0.0001 1 1
+genselect clear
+quat 0 0 0 1
+setnode
+genselect target node
+genselect clear
+genselect propagate on
+genselect node add shell 131967/E1/0
+setnode createset 1 1 0 0 0 0 "sheet_set_edge"
+setshell
+genselect target shell
+genselect propagate off
+genselect clear
+genselect shell add part 1/0
+setshell createset 2 1 0 0 0 0 "sheet_set_shell"
+save keywordabsolute 0
+save keywordbylongfmt 0
+save keywordbyi10fmt 0
+save outversion 10
+save keyword "{{kfile}}"

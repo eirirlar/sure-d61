@@ -1,0 +1,600 @@
+﻿SuRE – Status og videre plan for produktutvikling (Generasjon 2) – Sunlit Sea
+0. Avgrensning og kontekst
+Denne teksten beskriver status og videre plan for Sunlit Sea sitt arbeid i EU-prosjektet SuRE, hvor Sunlit Sea har som ambisjon å videreutvikle eget produkt for flytende solkraft til en andre generasjon.
+Arbeidet i SuRE er naturlig nok basert på:
+1. Generasjon 1 av produktet som Sunlit Sea utviklet før oppstart av SuRE, og
+
+2. erfaringer og resultater fra testing/simulering gjennomført i EU-prosjektet Surewave.
+Gjennom teksten fokuserer vi på følgende overordnede “design drivers” (kravdrivere) som går igjen i alle arbeidsspor:
+   1. Overlevelse i bølger og fatigue (inkludert “snapping loads” og høyere makslaster enn dagens koblingspunkter tåler).
+
+   2. Vanninngress, lekkasjestrømmer og elektrisk robusthet (forsterket av nærhet til vann).
+
+   3. O&M (drift og vedlikehold), inkludert utskiftbarhet i felt og kvalitetskontroll under installasjon.
+
+   4. Skalerbar produksjon og kostnadseffektivitet, inkludert materialforbruk, støpe-/pressverktøy, og prosessforenkling.
+
+   5. Ytelse og driftsegenskaper, særlig termikk/kjøling, panelvinkel og selvrens etter tilgrising.
+
+Teksten er strukturert etter arbeidsspor som senere kan kobles mot spesifikke arbeidspakker (WP-er), med tydelig status per i dag og plan videre i hver del.
+________________
+
+
+1. Utgangspunkt: Produkt Generasjon 1 – konstruksjon og nøkkelfunksjoner
+Før vi startet SuRE-prosjektet hadde Sunlit Sea utviklet et produkt for flytende solkraft. Produktet besto av et custom kvadratisk solcellepanel laminert flatt på en flottør av aluminium.
+1.1. Funksjoner (“features”) i Generasjon 1
+Generasjon 1-produktet hadde følgende nøkkelfunksjoner:
+      * Lav høyde og flate paneler → lav visuell profil og lite vindfang.
+
+      * Flate paneler og robust flottør → man kan gå på flottørene, som gir enklere vedlikehold og reduserer behov for ekstra flottører til “gangways” og kabler.
+
+      * Integrerte kabler → færre MC4-kontakter og mindre elektrisk eksponering for miljø.
+
+      * Skreddersydde solcellepanel → eksponert kant muliggjør ekstra flate for laminering og dermed lavere vanninngress.
+
+      * Flottører i to like deler av kaldpressede aluminiumsark, med integrert bærestruktur i flottøren.
+
+      * Hengsler av polyuretan festet med braketter av aluminium.
+
+      * Buffermateriale: 2-komponent silikonpotting mellom solcellepanel og flottør → (a) hydrostatisk trykk under panelet slik at det kunne gås på, og (b) buffer mot ulik termisk ekspansjon mellom solcellepanelglass og aluminiumsflottør.
+
+      * Jording mot vann.
+
+      * Egenutviklede koblingsbokser med sensorikk for bevegelse m.m.
+
+1.2. Konservative designvalg i Generasjon 1 (bevisst MVP-tilnærming)
+Alle komponentene i Generasjon 1 var konservativt designet. Dette var et bevisst valg: vi ønsket færrest mulig overraskelser i første generasjon og raskest mulig utvikling til et “minimum viable product”, vel vitende om at vi senere kunne optimalisere mye.
+Konkrete eksempler på konservative valg / optimaliseringsmuligheter:
+         * Tykkelse på aluminium i flottør: 1.5 mm, hvor en estimert tykkelse på 0.8 mm ville vært tilstrekkelig.
+
+         * Dybde på pressing av aluminiumsflottørene var grunnere enn forventet maksimal dybde.
+
+         * Festemekanisme: “clinching” kombinert med silikon → fungerer, men er tidkrevende og materialkrevende.
+
+         * Utilstrekkelig lufting i aluminiumsflottørene: kun et lite drillet hull for å forhindre termisk ekspansjon av luft inne i flottørene.
+
+         * Braketter for polyuretan-hengsler: tidkrevende og lite robust mekanisme, kun egnet for lavere bølger.
+
+         * Polyuretan-hengsler: utforming egnet for lavere bølger, men fikk mye slitasje ved bølger grunnet:
+
+            1. “snapping loads” ved enkelte bølgelengder, og
+
+            2. slitasje fra bevegelse mot brakett og flottør.
+
+               * “Skuldre” langs kanten på flottøren: mer enn god nok plass til vanntetting (2-komponent silikonpotting, butyl og silikon), men førte til unødvendig stort materialforbruk uten økt beskyttelse mot vanninngress.
+
+               * Metode for applikasjon av 2-komponent potting ga høyt materialforbruk.
+
+               * Enkapsulering av elektriske kontaktpunkter: designet for å redusere vanninngress i MC4-kontakter, men fjernet mulighet for enkel bytting av paneler. Dette viste seg viktigere for O&M-prosedyrer enn først antatt.
+
+               * Prosess for tilpasning av kabler var dyr og kostnadsdrivende.
+
+               * Egenutviklede koblingsbokser fordyret produksjon og reduserte beskyttelsen mot vanninngress.
+
+Noe av dette kan endres relativt enkelt; andre punkter krever større investeringer i automatisering og produksjonsutstyr for å optimalisere.
+________________
+
+
+2. Arbeidsspor A: Flottøroptimering og formpressing av aluminium (“kopper”)
+2.1. Målbilde og motstridende delmål
+En “lavthengende frukt” er å øke flytevolumet i flottøren og samtidig minimere forbruk av aluminium. To mål pekte seg ut:
+                  * Redusere tykkelsen på aluminiumsflottørene, og
+
+                  * Øke dybden på pressing av aluminium.
+
+Disse er delvis motstridende: større pressedybde og høyere volum kan kreve mer “formbarhet” og kan øke risiko for buckling/revning når man samtidig reduserer tykkelsen.
+2.2. Parametrisering av problemdomenet: “honeycomb” og pressbar geometri
+Vi valgte å angripe problemstillingen ved å parametrisere problemdomenet. Et aluminiumsark presses med “kopper”. Presseoperasjonen skal resultere i en struktur som ligner en “honeycomb”-konstruksjon, med relativt flate områder der kopper fra nedre flottørhalvdel og øvre flottørhalvdel møtes. Målet med de flate møtepunktene er å muliggjøre enklest mulig sammenføyning (f.eks. ved liming).
+I områdene mellom koppene er man avhengig av et så flatt område som mulig etter pressing, fordi dette er området hvor solcellepanelet hviler. Pressing av koppformer i aluminium introduserer ofte såkalt buckling. Det finnes ulike teknikker for å motvirke buckling, men buckling er uansett en parameter man ønsker å minimere i en slik operasjon.
+2.3. Geometri- og prosessparametere som inngår i optimalisering
+Selve formen på koppen kan varieres. Den vil typisk ha en form liknende en sirkel, da dette muliggjør jevnest mulig flyt av aluminium gjennom presseoperasjonen. Samtidig er aluminiumsplater valset fra en tykk plate til en tynnere plate; i denne prosessen blir fibrene i aluminiumet ofte lengre i x- enn y-retning. Dette gjør at en mer elliptisk form kan være optimal. Eksentrisiteten av ellipsen er derfor en relevant parameter.
+Vi har identifisert og variert følgende parametere:
+                     * Koppens dybde: dypere kopp gir mer volum i konstruksjonen.
+
+                     * Avstand mellom kopper: påvirker hvor mye materiale som kan dras på mellom koppene og påvirker flyteevne. Avstanden kan ikke være for stor, da det negativt påvirker muligheten til å gå oppe på flottøren.
+
+                     * Koppens eksentrisitet i z-retning: påvirker hvor bratt/krapp veggene i koppen er, påvirker materialforbruk og til en viss grad strukturell integritet, samt hvordan aluminiumet flyter og krøller seg gjennom pressoperasjonen.
+
+                     * Koppens radius: påvirker kontaktflaten mellom seksjonen mellom koppene og solcellepanelet.
+
+                     * Koppens “leppe”-radius (avrundingen fra det flate partiet koppen presses ned fra): påvirker effektiv kopp-radius og dermed kontaktflaten mellom aluminiumsflate og solcellepanel. Avrundingen påvirker også hvordan aluminiumet krøller seg under pressing.
+
+2.4. Hvorfor simulering er nødvendig: fysisk pressing er svært tidkrevende
+Pressing av aluminium er svært tidkrevende. Det mest tidkrevende er å:
+                        * utforme nye pressverktøy for koppene,
+
+                        * sørge for eksakt rett form og overflatebehandling,
+
+                        * applisere eksakt rett mengde smøremiddel for å få mest mulig like forsøk.
+
+Hver test kan ta en uke. Da vi utviklet første generasjon av produktet jobbet vi på denne måten og jobbet fram et konservativt “godt nok” resultat.
+2.5. Simuleringspipeline i SuRE: FreeCAD + Python + LS-Dyna
+I SuRE har vi jobbet med simulering av pressing:
+                           1. Parametrisert CAD-modell i FreeCAD
+ Vi har designet en parametrisert modell av koppen i FreeCAD ved hjelp av et programmatisk API mot FreeCAD som er tilgjengeliggjort via bindinger mot programmeringsspråket Python. Dette lar oss beskrive i CAD alle parameterne beskrevet over. For hver parameter har vi definert fornuftige minimums- og maksimumsverdier.
+
+                           2. Generator for normaliserte parametere
+ Vi har laget en generator som tar normaliserte parameterverdier mellom 0 og 1 som input, og genererer en CAD-modell av koppen ut fra dette.
+
+                           3. Python scripting for generering av LS-Dyna-prosjektfiler
+ CAD-modellen brukes som input til videre Python scripting for å generere prosjektfiler for LS-Dyna (FEM-simulering). Prosjektfilene beskriver et case hvor vi tar en plate av aluminium og en koppformet “form”, hvor vi bruker trykk fra en inkompressibel væske og presser aluminiumsplaten inn i koppformen for å lage den faktiske koppen.
+
+                           4. Observasjoner/outputs fra simuleringen
+ Underveis i simuleringen kan vi observere:
+
+                              * om vi kan presse ut hele koppformen, og
+
+                              * om aluminiumsplaten revner på noe sted.
+
+Selve simuleringen tar ca. 1 til 50 minutter, og gir en svært god indikasjon på om en gitt kopp lar seg formpresse.
+                                 5. Validering mot tidligere fysisk testing
+ Vi validerte utvalgte koppformer som vi tidligere hadde fysisk testet mot simuleringen og fant meget godt samsvar.
+
+2.6. Hvordan vi velger hvilke kopper vi simulerer: tre tilnærminger
+Fordi selv simulering er tidkrevende, må vi velge modeller av koppen på en smart måte. Vi har initielt to (senere tre) hovedtilnærminger:
+                                    1. Tilfeldig modell innenfor det normaliserte parameterrommet.
+
+                                    2. Nabomodell: en modell basert på en tidligere simulert modell, med små justeringer for å gjøre den mer eller mindre sannsynlig å kunne presses.
+
+                                    3. (Senere i prosessen) ML-styrt generering: bruke en trent modell til å foreslå input-parametere med høy sannsynlighet for god output.
+
+2.7. Iterativ “pressbarhets-søking” med Python-script og logging
+Vi designet et Python-script for å simulere pressing:
+                                       * Scriptet starter med en randomisert modell av koppen og kjører en simulering. Resultatene loggføres.
+
+                                       * For neste simulering velges en tilfeldig parameter. Input fra forrige simulering kopieres, og den valgte parameteren justeres slik:
+
+                                          * Hvis forrige pressing gikk bra, justeres parameteren slik at neste forsøk blir mindre sannsynlig å gå bra.
+
+                                          * Hvis forrige pressing feilet, justeres parameteren slik at neste forsøk blir mer sannsynlig å gå bra.
+
+                                             * Resultatet loggføres.
+
+                                             * Prosessen gjentas inntil man har optimert alle parametere på denne måten og nærmet seg en versjon av koppen som er nær opp til “pareto-fronten” av optimale parametere.
+
+Her brukes “pareto-front” i betydningen: vi nærmer oss parameterkombinasjoner som balanserer motstridende mål (pressbarhet uten revning/buckling vs volum/pressedybde vs kontaktflate og strukturelle hensyn).
+2.8. Databehandling: “culling”/filtrering og høykvalitets datasett langs pareto-fronten
+Når vi har simulert et antall kopper sitter vi med et datasett som beskriver input/output, men som inneholder overflødig data.
+I søken etter optimal parameterverdi tester vi binært mot en grenseverdi. Det skaper flere datapunkter som kan erstattes med:
+                                                * datapunktet på grensen,
+
+                                                * datapunktet rett over grensen, og
+
+                                                * datapunktet rett før grensen.
+
+Underveis i presse-simulerings-algoritmen gjør vi jevnlig “culling”/filtrering av datasettet på denne måten for å holde det ryddig og presist. Resultatet er et høykvalitets datasett som beskriver input/output for mange parametersett langs pareto-fronten.
+2.9. Maskinlæring: modelltrening for å estimere output og styre videre sampling
+Vi bruker datasettet til å trene en maskinlæringsmodell. Vi bruker Pythonbibliotekene tensorflow, scikit-learn, deap og keras-tuner.
+Maskinlæringsmodellen gjør oss i stand til å estimere output-parametere med bedre og bedre presisjon etter hvert som det filtrerte datasettet vokser.
+Dette muliggjør den tredje tilnærmingen for å generere input til koppmodeller:
+                                                   * i stedet for randomiserte inputs kan vi bruke ML-modellen til å foreslå input-parametere med høy sannsynlighet for god output når datasettet er stort nok.
+
+En mulig videre utvidelse (som vi foreløpig ikke har valgt) er at når datasettet er stort nok kan man:
+                                                      * kun bruke ML-modellen sammen med en algoritme for å kartlegge pareto-front.
+Ulempen er at pareto-fronten da kun delvis er validert av simulering (og enda mindre av fysisk pressing), så dette har vi så langt ikke gått for.
+
+2.10. Digresjon: to hovedmetoder for “koppforming” i metall
+Pressing av koppformer kan i hovedsak gjøres på to måter:
+                                                         1. Punch die + gripper ring
+ Et koppformet pressverktøy dyttes inn i aluminiumsplaten. Dette krever ofte en “gripper ring” som kontrollerer materialflyt over “kanten/leppen” inn i koppen. Gripperringen reduserer også området man kan dra materiale fra, og man ender derfor ofte opp med en mindre dyp kopp enn med alternativet under.
+
+                                                         2. Hydroforming med inkompressibel væske (metoden beskrevet tidligere)
+Her brukes trykk fra en inkompressibel væske til å presse platen inn i formen. Dette kan muliggjøre dypere forming sammenliknet med punch die med gripper ring.
+
+I vårt konservative Generasjon 1-produkt brukte vi likevel punch die + gripper ring fordi det er et enklere og billigere oppsett.
+2.11. Fysisk prototyp av pressverktøy: epoxy-støp og vanninjeksjon
+Etter at vi hadde gjort mye av arbeidet med å finne en optimal kopp, så vi for oss å engasjere en leverandør til å bygge en prototype. For å kunne stille en ordentlig kravspesifikasjon prototypet vi først et pressverktøy:
+                                                            * Vi 3D-printet en støpeform og støpte den med epoxy.
+
+                                                            * Vi festet en 0.8 mm aluminiumsplate til støpeformen og sikret kantene med silikon.
+
+                                                            * Vi designet et vanninnjeksjonssystem og testet forming med vann.
+
+                                                            * Vi fant at selv om oppsettet er litt tidkrevende kan vi få slik pressing til å fungere.
+
+                                                            * Basert på dette laget vi en kravspesifikasjon og satte i gang undersøkelser mot leverandører.
+
+2.12. Status per i dag og plan videre (Arbeidsspor A)
+Status per i dag
+                                                               * Parametrisert CAD→LS-Dyna-simuleringspipeline etablert (FreeCAD API via Python, LS-Dyna prosjektgenerering).
+
+                                                               * Simuleringstider i størrelsesorden 1–50 minutter per case, med god indikasjon på pressbarhet og revning.
+
+                                                               * Validering mot tidligere fysisk testede koppformer viser meget godt samsvar.
+
+                                                               * Iterativ søkealgoritme (justering av parameter sannsynlighet gitt forrige suksess/feil) implementert med logging.
+
+                                                               * Datasett “culling”/filtrering implementert for å bygge et mer presist datasett langs pareto-fronten.
+
+                                                               * ML-trening satt opp (tensorflow, scikit-learn, deap, keras-tuner) for å estimere output og etter hvert foreslå bedre input-parametere.
+
+                                                               * Enkel fysisk “proof of concept” på vannpressing gjennomført (epoxy-verktøy + 0.8 mm plate + vanninjeksjon) og brukt til kravspesifikasjon mot leverandør.
+
+Plan videre
+                                                                  * Videreføre simuleringsbasert utforsking av parameterrommet med økende grad av ML-støttet sampling når datasettet tillater det.
+
+                                                                  * Vurdere om og når en mer “ML-only paretofront”-tilnærming blir relevant, med bevissthet om at den da blir mindre validert av simulering/fysikk.
+
+                                                                  * Fortsette leverandørdialog basert på kravspesifikasjon og erfaring fra proof of concept-verktøyet.
+
+                                                                  * Integrere presset bakplate-valg tettere mot øvrige spor (hengsler, termikk, vanninngress), siden endelig bakplateutforming i Gen 2 også påvirker konstruksjonens øvrige egenskaper
+
+________________
+
+
+3. Arbeidsspor B: Hengselsystem, sammenkobling, standardpaneler og prototyping
+3.1. Bakgrunn: hvorfor hengsler ble prioritert (læring fra Surewave)
+I parallell med optimering av presseoperasjonen har vi sett nærmere på design av hengsler for systemet. Bakgrunnen er både forenklingene beskrevet tidligere, og tester gjort i EU-prosjektet Surewave.
+I Surewave testet vi i bølgetank og med simulering hvordan laster fordelte seg mellom våre flottører i en matrise på bølgete vann. Dette ga to viktige funn:
+                                                                     1. Ved enkelte bølgelengder som korrelerer med lengden på flottøren oppstår såkalte “snapping loads”, som gir ekstra høy belastning på koblingspunktene mellom flottørene.
+
+                                                                     2. Makslast er høyere enn dagens brackets og hengsler tåler.
+
+Vi undersøkte også fatigue over tid. For selve materialet polyuretan (som hengslene er laget av) er motstandsdyktigheten mot fatigue høy nok til å vare i 25 år på havet. Merk at dette funnet ikke i seg selv sier om det totale designet tåler bølgebelastningene over tid; øvrige tester indikerer at designet likevel ikke er tilstrekkelig robust.
+3.2. Beslutning: midlertidig pause i aluminiumspressing for å redusere største usikkerhet
+Disse funnene ledet oss til å midlertidig parkere arbeidet med formpressing av aluminium. Begrunnelsen var:
+                                                                        * Arbeidet med aluminiumspressing var på et “godt nok”-stadium for nå,
+
+                                                                        * mens hengselsystemet fortsatt hadde betydelig usikkerhet og representerte en større risiko for funksjon, levetid og pålitelighet.
+
+Konsekvensen var at ressurser ble flyttet til hingekonsept/prototyper/testregime.
+3.3. Krav og mål for videre utvikling av hengselsystemet
+Arbeidet i Surewave indikerte at vi trengte mer robuste hengsler som både tåler høyere last og har et design som tåler fatigue bedre. Selve materialet polyuretan var det ingen grunn til å gå bort fra basert på arbeidet så langt.
+Samtidig ønsket vi å forbedre flere aspekter:
+                                                                           * Forenkle feltmontasje og kobling av flottører, fordi Gen 1-design var tidkrevende og gjorde det vanskelig å opprettholde god kvalitetskontroll under installasjon.
+
+                                                                           * Bevare “lavt mot vannet”-fordeler hvis mulig, fordi:
+
+                                                                              * vi ønsket å opprettholde hydrostatisk trykk bak solcellepanelet slik at det kunne gås på uten å måtte installere ekstra flottører for gangveier og kabling, og
+
+                                                                              * kjølingen fra vannet blir bedre jo nærmere man er vannet.
+
+                                                                                 * Samtidig var nærhet til vannet i Gen 1 ikke utelukkende positivt:
+
+                                                                                    * vanninngress og lekkasjestrømmer er større problem jo nærmere vannet man er.
+
+                                                                                    * med dette i bakhodet ønsket vi en løsning hvor panelet var så langt opp fra vannet som mulig (for å redusere disse problemene), uten å miste for mye av kjøle- og hydrostatikk-fordelen.
+
+Ytterligere kravdrivere:
+                                                                                       * Selvrens/tilgrising: erfaring med helt flate paneler indikerte mulighet for bedre selvrens (f.eks. regn etter fugleskitt) dersom panelet har en liten vinkel. En vinkel hjelper også på utnyttelsen av solinnstrålingen.
+
+                                                                                       * Kommersiell driver / panelvalg: I Gen 1 brukte vi skreddersydde solcellepanel uten ramme. Disse hadde, siden vi startet selskapet, ikke falt like mye i pris som “off-the-shelf” standardpaneler. Vi ønsket derfor å revidere produktet basert på vanlige glass-glass paneler med ramme fra markedet.
+
+3.4. Generasjon 2-konsept: “mobildeksel”, plugger, gjennomgående stav og PU-skum
+Sunlit Sea hadde et utkast til Generasjon 2-design basert på følgende prinsipper:
+                                                                                          1. Hengslene er utformet ganske likt som et stort mobiltelefon-deksel som man trer rundt kanten på et solcellepanel.
+
+                                                                                          2. Hengslene består av flere “plugger” langs kanten, ikke ulikt gym-matter som man kan “pusle” sammen.
+
+                                                                                          3. Hengslene holdes sammen med en stav som tres igjennom midten.
+
+                                                                                          4. Staven er av polyuretan-skum og sørger for mesteparten av flyteevnen til systemet.
+
+3.5. Identifiserte utfordringer og avklaringer (ikke uttømmende)
+Et slikt design har utfordringer som ikke var til stede i Gen 1, men har også potensial til å løse problemer vi har identifisert. Vi definerte følgende punkter som må evalueres:
+                                                                                             1. Forventet vanninngress i solcellepanelet som funksjon av høyde over vann.
+
+                                                                                             2. Vanninngress i forhold til om vi støper polyuretan-hengslene direkte på solcellepanelrammen, eller støper separat og monterer i etterkant.
+
+                                                                                             3. Hvis polyuretan støpes på rammen: evaluere om modifikasjon av rammen kan forbedre mekanisk vedheft mellom hengselsystem og ramme.
+
+                                                                                             4. Hvis polyuretan støpes på panelet: evaluere hvordan vedheft mellom polyuretan og solcellepanel-glass kan optimeres.
+
+                                                                                             5. Mekaniske laster på hengselsystemet må evalueres.
+
+                                                                                             6. Mekaniske laster på solcellepanelet (overført fra hengselsystem) må evalueres.
+
+                                                                                             7. Flyteevne må evalueres.
+
+                                                                                             8. Mulighet for å presse vinkelen ned til vannflaten med kroppsvekt for å oppnå hydrostatisk trykk under gange på panelene må evalueres.
+
+                                                                                             9. Termisk funksjon, spesielt kritiske temperaturer for polyuretan på kritiske deler (f.eks. der polyuretan er laminert på glass) må evalueres.
+
+                                                                                             10. Ukjente faktorer må avdekkes og undersøkes (problemstillinger vi ikke kjenner i dag, men må forvente dukker opp).
+
+                                                                                             11. Prototyping må gjøres i flere iterasjoner for å avdekke designfeil og tilgjengeliggjøre produkt for testing.
+
+________________
+
+
+4. Prototyping i Arbeidsspor B: iterasjoner, funn og konsekvenser
+For å gjøre prototypeløpet lett å lese, gis først en komprimert tabell. Deretter beskrives hver prototype i detalj.
+4.1. Oversiktstabell: Prototype 1–6 (hensikt → test → hovedfunn → konsekvens)
+Prototype
+	Hensikt / hypotese
+	Hva ble testet
+	Hovedfunn
+	Konsekvens / neste steg
+	P1
+	Verifisere grunnkonsept for plugger + kant rundt ramme, vinkel, alternativ “stav”
+	40% størrelse støp, asymmetri, alu-rør vs PP-tau, strekkbenk (maks/fatigue)
+	Plugghøyde underdimensjonert; må økes for robusthet og for PU-skumstav
+	Revidere plugger; muliggjøre PU-skum som kobling + flyt
+	P2
+	Primært: vanninngress og laminering mot glass/ramme; sekundært: mekanisk inntrykk
+	Mini-panel med ekte rammer og glasstopp, silica gel, PU-innkapsling, primer vs ingen, nedsenking + vekt over tid; trekk (vert/horiz/diag); UV-kammer
+	Primer mot glass nødvendig (uten → bobler/dårlig laminering/raske vektøkninger). Med primer → forventet vanninntrenging og platå. UV-overtemp >70°C → PU degraderer
+	Primervalg blir kritisk; termikk/overtemp må kontrolleres; videre avklaring av areal/vedheft og fatigue
+	P3
+	Hybrid av P1 og P2 i reell størrelse; integrere kabler; teste bølger/plugger
+	Dummy panel ca 25×35 cm; isopor infill; kabler gjennom ramme; PU slange på kabler; støpt PU; lengre plugger, buffer-uthulning; 100% størrelse; støpeformutvikling
+	Krappe bølger ga permanent dislokasjon av plugger → økt last på PU/glass og delaminering. Mold hadde luftlommer → løst med luftehull. Prosess: heloppvarming + mange deler skalerer dårlig
+	Designjustering av plugger og lastvei nødvendig. Støpeform må redesignes for skalerbar produksjon (varme, åpne/lukke, ventilering, modularitet)
+	P4
+	Redusere vanninngress ved å heve panelet, uten å miste kjøling/hydrostatikk; forbedre støpeform
+	Revidert panelhøyde; støpeform med varmeelementer, enklere mekanikk, kanaler for luft; 3D-print i karbonforsterket nylon; lab-prøvestøp
+	(Pågående) Mål: mindre panel-under-vann, bedre prosesskontroll og iterasjon i lab
+	Resultater fra P4 avgjør støpeprosessen (ett/flere steg) og premisser for P5
+	P5
+	Pilotrelevant delsystem: beslutning om støp på ramme vs separat; bakplatevalg; større skala
+	Støp-på-ramme med evt ramme-mod, eller separat og montering; støpeprosesser; modularisering av mold; bakplatealternativer 1–4; større prototype/fullstørrelse?
+	(Planlagt) Avhenger av P4 og parallelle spor
+	Avklarer endelig arkitektur for Gen 2 og produksjonsstrategi
+	P6
+	Fullskala panel + pilot-testbart hengselsystem; serieproduksjonserfaring
+	Full størrelse, større serie, produksjonseffektivitet
+	(Planlagt)
+	Ikke forventet behov for P7
+	4.2. Prototype 1 (P1): 40% støp, alternativ “stav”, mekaniske tester
+Prototyp 1 besto av en del av hengselsystemet med 4 “plugger” og en polyuretan-kant ment til å omslutte et solcellepanels ramme. Assymetri i høyderetning var bygget inn for å understøtte en vinkel på solcellepanelet. Prototypen ble støpt i 40% størrelse.
+I stedet for en koblingsstang basert på polyuretanskum, ble to alternativer testet:
+                                                                                                1. aluminiumsrør, og
+
+                                                                                                2. tau av polypropylen.
+
+Pluggenes høyde viste seg å være underdimensjonerte. Fra denne prototypen lærte vi at vi burde endre dette for å:
+                                                                                                   1. gjøre pluggene mer robuste, og
+
+                                                                                                   2. tillate bruk av polyuretanskum som kombinert koblingsstang og flyteelement.
+
+To deler av systemet ble koblet sammen og installert i en strekkbenk, hvor maks last, fatigue og andre parametere ble evaluert.
+4.3. Prototype 2 (P2): vanninngress, primer, nedsenking/vekter, og tilleggstester
+Prototyp 2 handlet i hovedsak om å teste vanninngress.
+Vi laget en miniatyr av et solcellepanel ved å bruke ekte solcellepanelrammer, men med en glasstopp i stedet for laminert solcelleglass. Vi fylte dette “panelet” med små kuler av silika-gel for å absorbere mest mulig vann som eventuelt skulle trenge inn.
+Undersiden av rammen med panel ble festet til en bunnplate av aluminium ved bruk av silikon.
+Hele konstruksjonen ble påstøpt en omsluttende polyuretan-innkapsling. Der polyuretanet laminerte mot glass ble det testet både med og uten bruk av “primer” som skal øke vedheftet og minimere vanninntrenging.
+Vi testet å senke ned flere av prototypene under vann og la dem ligge der over lang tid, med daglige og etter hvert ukentlige vektmålinger for å evaluere hvor mye vann som hadde trengt inn.
+Det ble raskt klart at primer mot glasset var helt nødvendig. Manglende primer resulterte nesten alltid i ett eller flere områder med dårlig laminering. Der kunne vi observere luftbobler under nedsenking, og mye raskere vektøkning.
+Vanninngress på prototypene som hadde primer var som forventet. Polyuretan tillater noe vanngjennomtrenging, og vi kunne se at vektøkningen gikk mot et stabilt platå over flere måneder.
+Det ble også utført strekktester av prototypen, både vertikalt, horisontalt og diagonalt. På denne prototypen kunne vi ikke umiddelbart observere delaminering fra glass raskere enn fra aluminiumsrammen. Vi fikk inntrykk av at lamineringen til både glass og aluminium holdt svært godt for formålet, under forutsetning av at øvrige laster absorberes i hengselsystemet på en måte som minimerer lasten i grensesnittet mellom polyuretan og glass/aluminium.
+Vi testet også UV-stråling av prototypen. Prototypen ble plassert i UV-kammer og utsatt for stråling over tid. Temperaturen gikk godt over polyuretanens maksimaltemperatur på rundt 70°C. Som forventet degraderte polyuretanet og mistet mye av sin funksjon.
+4.4. Prototype 3 (P3): hybrid i reell størrelse, kabelgjennomføring, og funn fra bølger
+I prototyp 3 tok vi med oss læringene fra prototyp 1 og 2 og utviklet en hybrid mellom P1 og P2 med revidert design.
+Et dummy solcellepanel ble konstruert i ca. 25 × 35 cm. I stedet for silika-gel brukte vi en fylling av isopor, limt til glasstopp og aluminium bunnplate med silikon.
+Solcellekabler ble ført gjennom drillede hull i rammen til prototypen. Vi brukte vanlige solcellekabler, men testet å dekke dem i en slange av polyuretan for å forbedre vedheft til den støpte polyuretanen i hengselsystemet.
+Hengselsystemet ble støpt rundt konstruksjonen, igjen med høydeforskjell mellom venstre og høyre side for å få en vinkel på panelet.
+Pluggene i hengselsystemet var lengre i prototyp 3 enn i prototyp 1. Pluggene hadde en ekstra uthulning for å ha et bedre buffer mot de forventede kreftene på bølgete vann, og for å beskytte grensesnittet mellom polyuretan-støpet og aluminium/glass bedre. Høyden på pluggene var mye større enn i prototyp 1. I tillegg var hengselsystemet konstruert i reell størrelse (100%).
+Vi oppdaget noen designfeil i prototyp 3: krappe bølger førte til permanent dislokasjon av plugger i forhold til hverandre, på en måte som skapte økt belastning i grensesnittet mellom polyuretan og glass, og påfølgende delaminering.
+Prototypene ble transportert videre for testing som per i dag ikke er gjennomført. Testene er forventet å påvirke designet av prototyp 5.
+4.4.1. Støpeformutvikling i P3: materialflyt, luftlommer, og skalerbarhet
+I forbindelse med prototyp 3 ble det nødvendig å utvikle en mer avansert støpeform. Merk at vi i forkant ikke hadde simulert hvordan flytende polyuretan oppfører seg i støpeformen. I stedet støttet vi oss på leverandørens erfaring og bygde et utkast som ble testet.
+Støpeformen hadde noen små feil knyttet til materialflyt, som gjorde at polyuretan ble blokkert av enkelte luftlommer. Dette ble korrigert ved å drille luftehull.
+Etter at den endelige støpeformen var klar jobbet vi on site sammen med leverandøren av polyuretan-støpet for å vurdere effektiviteten av støpeprosessen, som er essensiell for kostnadseffektivisering.
+Det viste seg at støpeformen ble varmet opp i sin helhet. Dette lar seg gjøre for prototyping, men skalerer dårlig til et stort solcellepanel på 1303 × 2384 mm², hvor støpeformen kan veie 500–1000 kg.
+Videre viste det seg at støpeformens konstruksjon og sammenføyning besto av mange små deler som hver krevde nøye manuell plassering og bruk av skruer for å holdes på plass. Dette representerer et område med stort potensial for forbedring og effektivisering.
+4.5. Prototype 4 (P4): hevet panel, forbedret moldarkitektur, lab-iterasjon før produksjon
+I parallell med at prototyp 3 testes (og med forbehold om at testene per i dag ikke er utført), har prototyp 4 allerede blitt designet.
+Det har blitt gjort små korreksjoner i solcellepanelets høyde. Prototyp 3 hadde panelet delvis ned inn under vann, noe som skapte unødvendig stor vanninngress. Prototyp 4 løfter panelet høyere over vannflaten, samtidig som vi ivaretar kjølefunksjon og hydrostatisk trykk under panelet ved gange på panelet.
+I forbindelse med prototyp 4 ser vi også nærmere på designet av selve støpeformen basert på læringen fra prototyp 3. Planen er:
+                                                                                                      * Støpeformen designes med innebygde varmeelementer,
+
+                                                                                                      * forenklede åpne/lukke-mekanismer,
+
+                                                                                                      * innbygde kanalganger for utslipp av lufttrykk i kritiske seksjoner,
+
+                                                                                                      * støpeformen 3D-printes i varmebestandig materiale (karbonforsterket nylon),
+
+                                                                                                      * prøvestøp gjøres i lab for å iterere over støpeprosessen før prototypen sendes til produksjon.
+
+4.6. Prototype 5 (P5): arkitekturvalg, prosessoptimalisering, bakplatealternativer og økt skala
+Planen for prototyp 5 er avhengig av annet arbeid som foregår i parallell.
+Før prototyp 5 designes er målet å ha klarlagt:
+                                                                                                         * om hengselsystemet skal støpes direkte på solcellepanelrammen, og hvis ja, om rammen skal modifiseres for bedre mekanisk vedheft,
+eller
+
+                                                                                                         * om hengselsystemet skal støpes separat fra solcellepanelrammen og påmonteres i etterkant, f.eks. i felt under installasjon av en solcellepark.
+
+Videre mål er å optimere støpeprosessen. Viktige avklaringer (avhengig av P4-resultater) er om støpet bør gjøres i ett eller flere steg.
+I tillegg skal vi evaluere om støpeformen i seg selv skal modulariseres:
+                                                                                                            * for enklere støpeprosess,
+
+                                                                                                            * enklere produksjon av støpeformen, og
+
+                                                                                                            * enklere vedlikehold (slik at man kan bytte ut deler uten å erstatte hele formen).
+
+Bakplaten av solcellepanelet vil bli undersøkt nærmere i prototyp 5. Vi vil ta stilling til om vi skal:
+                                                                                                               1. bruke koppformene sammen med et “infill” av PU-skum,
+
+                                                                                                               2. kun koppformene festet til solcellepanelglasset med luft mellom,
+
+                                                                                                               3. kun en flat bakplate med PU-skum,
+
+                                                                                                               4. flat bakplate med ribber av aluminium for bedre varmeveksling.
+
+Hva valget faller på avhenger av utfallet av andre parallelle arbeidsspor.
+For å teste disse aspektene må størrelsen på prototyp 5 økes. Det er ikke avklart om vi går for full-størrelse solcellepanel eller en ny prototypestørrelse.
+4.7. Prototype 6 (P6): fullskala panel + pilot-testbart hengselsystem, serie for produksjonslæring
+Planen for prototyp 6 er et full-størrelse solcellepanel omsluttet av et pilot-testbart hengselsystem.
+Vi forventer å produsere en større serie av dette for å få klarlagt i hvilken grad dette lar seg produsere effektivt.
+Per i dag er det ikke forventet at vi vil trenge en prototyp 7.
+________________
+
+
+5. Tverrgående del: Vanninngress (testing, vedheft, primer og beslutningsrelevans)
+Arbeidet med vanninngress foregår i hovedsak gjennom testing av prototyper, supplert av konkrete tester av kjemisk og mekanisk vedheft som hjelp til designarbeidet.
+Under produksjonen av prototyp 1 testet vi ulike former for primere mellom glass og polyuretan, med og uten forbehandling av glasset.
+Det gjenstår å undersøke hvordan ulike typer primere responderer på trekk-krefter avhengig av hvor mye areal som er tilgjengelig for vedheft mot glass. Både makslast og fatigue må undersøkes.
+Resultatet av dette arbeidet vil gi viktig input på:
+                                                                                                                  1. hvor mye areal vi allokerer for vedheft, og
+
+                                                                                                                  2. om levetiden for polyuretan støpt mot glass på solcellepanel innenfor vårt designspace i det hele tatt er lang nok til at det er meningsfullt å støpe fast hengselsystemet i solcellepanelet, eller om vi heller bør kompensere med økt høyde over vannet for å minimere vanninngress.
+
+Status per i dag
+                                                                                                                     * P2 viste tydelig at primer mot glass er nødvendig for å unngå dårlig laminering (luftbobler og rask vektøkning ved nedsenking uten primer).
+
+                                                                                                                     * Med primer: forventet vanninntrenging gjennom PU og platå over måneder observert.
+
+Plan videre
+                                                                                                                        * Systematisk evaluering av primer-typer og forbehandling opp mot:
+
+                                                                                                                           * makslast,
+
+                                                                                                                           * fatigue,
+
+                                                                                                                           * vedheftsområde (geometri/areal),
+
+                                                                                                                           * og implikasjon for arkitekturvalget “støp-på-ramme/panel” vs “separat og monter i etterkant”.
+
+________________
+
+
+6. Tverrgående del: Termikk (kriterier, simuleringer, fargevalg og fremtidige avklaringer)
+Systemet har flere faktorer som påvirkes av termikk.
+Når det gjelder solcellepanelers ytelse er det dokumentert at kalde paneler yter bedre, og at stabilt kalde paneler har lavere degradering.
+Jo nærmere ekvator man installerer solkraft, jo viktigere blir kjølingen fra vannet under panelene. Lengre fra ekvator er lufttemperaturen generelt kaldere gjennom året, og mer-effekten av kjøling fra vannet er dermed lavere.
+Videre er det et poeng at kjølingen av panelet er tilnærmet uniform. Inhomogen kjøling kan påvirke panelet negativt. Den eksakte effekten er utenfor omfanget av dette prosjektet, men vi forholder oss til dette som en rettesnor.
+For å oppnå homogen kjøling er det ideelle at panelet ligger nært vannet med et kjølemedium som er i kontakt med panel og vann. Dette designelementet må veies mot:
+                                                                                                                              * behov for vinkel på panelet,
+
+                                                                                                                              * panelets høyde over vannet,
+
+                                                                                                                              * flyteevne,
+
+                                                                                                                              * materialkostnad, og
+
+                                                                                                                              * produksjonskostnad.
+
+Vi har allerede simulert termikk for prototyp 3, dvs. hvor panelet ligger delvis i vann, med en “infill” under panelet av polyuretan-skum.
+Vi har sett at fargen på polyuretanet har mye å si for absorpsjon av varme fra sollys, noe som ledet oss til å endre farge fra mørk blå i prototyp 1 og 2 til off-white i prototyp 3.
+Utviklingen er ekstra kritisk i seksjonen hvor polyuretan er støpt mot glass. Simuleringen viste at dette ikke blir over 70°C, som er temperaturen hvor polyuretan begynner å degradere.
+Videre viste simuleringen at prototyp 3-design blir varmest på toppen av hengselsystemet, noe som ikke er overraskende da det er her varmeledningsevnen er dårligst.
+Simuleringen viste også at temperaturutviklingen ikke var veldig inhomogen.
+Status per i dag
+                                                                                                                                 * Termisk simulering gjennomført for P3 (delvis nedsenket, PU-skum infill).
+
+                                                                                                                                 * Fargeendring implementert (mørk blå → off-white) for å redusere absorpsjon.
+
+                                                                                                                                 * Kritisk område (PU mot glass) simulert under 70°C i P3, mens UV-kammertest viste overtemp kan degradere PU når man overstiger ca 70°C.
+
+Plan videre
+                                                                                                                                    * Analysere/simulere hvordan P4 (hevet mer over vannet enn P3) oppfører seg termisk.
+
+                                                                                                                                    * Bruke termikk som beslutningsgrunnlag for materialvalg, geometri og prosess (inkl. hvor i konstruksjonen PU kan ligge og hvilke flater som må beskyttes mot overtemp).
+
+________________
+
+
+7. Tverrgående del: Mekanikk (lastvei, testmatrise og gjenbrukbar simuleringsrigg)
+Vi har gjort noen mekaniske analyser av prototyp 3 som en del av designarbeidet.
+Hovedpoenget er å sørge for at designet absorberer mest mulig av kreftene mellom to flottører så nært senter av koblingspunktet mellom flottører som mulig.
+Det er ønskelig å flytte absorpsjon av kreftene lengst mulig vekk fra grensesnittet mellom:
+                                                                                                                                       * polyuretan og glass, og
+
+                                                                                                                                       * polyuretan og aluminium,
+da disse grensesnittene er kritiske områder for vanninngress.
+
+Vi har gjort en analyse av ulike typer krefter som virker på hengselsystemet og designet et sett med tester som kan simuleres og eventuelt vurderes fysisk:
+Testmatrise (lasttilfeller)
+ 1a) XY bending test
+1b) XZ bending test
+1c) XY compression test
+1d) XY stretch test
+1e) YZ bending test
+1f) XZ shear test
+For hver test bør vi samle belastningsdata på bestemte punkter på hengselet:
+Målepunkter (interfaces/områder)
+ 2a) PU/alu frame top interface
+2b) PU/glass interface
+2c) PU/alu plate interface
+2d) PU around PU foam rod, top
+2e) PU/alu frame back interface
+2f) PU around PU foam rod, bottom
+Simulering av dette må settes opp på en måte som er gjenbrukbar over flere iterasjoner av designet, slik at vi kan bruke simuleringene aktivt i prototypingen og observere hvordan endringer påvirker mekanikk.
+Status per i dag
+                                                                                                                                          * Mekanisk intensjon/arkitektur formulert: lastabsorpsjon nær senter, avlastning av kritiske interfaces.
+
+                                                                                                                                          * Testmatrise (1a–1f) og målepunkter (2a–2f) definert som struktur for simulerings- og testarbeid.
+
+Plan videre
+                                                                                                                                             * Implementere gjenbrukbar simuleringsrigg som kan kjøres for flere prototyperevisjoner, slik at designendringer kan kobles direkte til endringer i last- og spenningsnivå ved 2a–2f.
+
+                                                                                                                                             * Vurdere hvilke lasttilfeller som i tillegg bør testes fysisk, basert på hva som er mest kritisk for vanninngress og delaminering.
+
+________________
+
+
+8. Status- og planoppsummering (på tvers av spor)
+8.1. Status per i dag
+                                                                                                                                                * Gen 1: konservativ MVP med lav profil, gåbarhet, integrerte kabler, spesialpanel, aluminium-flottører, PU-hengsler; identifiserte kost- og robusthetsbegrensninger (materialtykkelse, pressing, clinching/silikon, lufting, bracket-mekanikk, MC4-innkapsling vs utskiftbarhet, kabelkost, koblingsbokser).
+
+                                                                                                                                                * Flottør/pressing (Spor A): etablert parametrisert simuleringspipeline (FreeCAD+Python+LS-Dyna), validert mot fysisk test, utviklet iterativ søkealgoritme, datasett-filtrering og ML-trening, samt fysisk proof of concept (0.8 mm plate, epoxyverktøy, vannforming) og kravspes mot leverandør.
+
+                                                                                                                                                * Hengsel/Gen 2-arkitektur (Spor B): prioritering basert på Surewave-funn (snapping loads og utilstrekkelig makslast i brackets/hengsler). Konsept utviklet (mobildeksel-ramme, plugger, gjennomgående stav, PU-skum flyt). Prototypeløp P1–P3 gjennomført med konkrete funn (plugghøyde, primerkrav, vanninngress-platå, UV-overtemp degradering, bølgedrevet plugglås/dislokasjon → delaminering), P4 designet (hevet panel, ny moldarkitektur), P5/P6 definert.
+
+                                                                                                                                                * Vanninngress: primer mot glass identifisert som nødvendig; videre primer/areal/fatigue-studier planlagt for å avgjøre støp-på-ramme vs separat montering.
+
+                                                                                                                                                * Termikk: P3 termisk simulert; farge påvirker absorpsjon; kritisk PU/glass under 70°C i simulering, men UV-kammer viste at overtemp >70°C degraderer PU. P4 må evalueres termisk.
+
+                                                                                                                                                * Mekanikk: definert lasttilfeller (1a–1f) og interface-målepunkter (2a–2f), med mål om å flytte last bort fra kritiske PU/glass- og PU/alu-grensesnitt.
+
+8.2. Plan videre
+                                                                                                                                                   * Fortsette simuleringsbasert utvikling av formpresset bakplate og leverandørdialog (Spor A).
+
+                                                                                                                                                   * Gjennomføre P4 med fokus på:
+
+                                                                                                                                                      * redusert vanninngress via hevet panel,
+
+                                                                                                                                                      * validere forbedret mold-design (varmeelementer, enklere mekanikk, luftkanaler),
+
+                                                                                                                                                      * og lab-iterasjon før produksjon.
+
+                                                                                                                                                         * Etablere beslutningsgrunnlag for P5:
+
+                                                                                                                                                            * støp-på-ramme/panel vs separat støp og montering,
+
+                                                                                                                                                            * primer- og vedheftsstudier (maks/fatigue vs areal),
+
+                                                                                                                                                            * støpeprosess (ett vs flere steg),
+
+                                                                                                                                                            * mold-modularisering og vedlikehold,
+
+                                                                                                                                                            * bakplatevalg (alternativ 1–4) og skala (fullstørrelse vs mellomstørrelse).
+
+                                                                                                                                                               * Bygge gjenbrukbar mekanisk simulerings- og testmetodikk (1a–1f + 2a–2f) som kan brukes aktivt i iterasjoner fra P4→P5→P6.
+
+                                                                                                                                                               * Utvide termisk analyse til P4 og (senere) P5s bakplate/infill-alternativer, med fokus på hotspot og kritiske grensesnitt (PU mot glass, PU mot alu, infill vedheft).
+
+________________
+
+
+9. Risiko og mitigering (basert på observerte funn og planlagte tiltak)
+Nedenfor listes de mest sentrale risikoene som allerede fremgår av arbeidet, samt hvordan de adresseres gjennom planlagt test/simulering.
+                                                                                                                                                                  1. Delaminering ved bølger / “krappe bølger” og plugglås/dislokasjon (P3)
+
+                                                                                                                                                                     * Risiko: Permanent dislokasjon gir økt last på PU/glass-interface → delaminering → økt vanninngress.
+
+                                                                                                                                                                     * Mitigering: Revidere geometri og lastvei; mekanisk simuleringsrigg (1a–1f) og målepunkter (2a–2f) brukes for å flytte last til PU-rod/pluggsenter og bort fra kritiske interfaces.
+
+                                                                                                                                                                        2. Vanninngress via dårlig vedheft mot glass (P2 uten primer)
+
+                                                                                                                                                                           * Risiko: Luftbobler/dårlig laminering gir rask vanninntrenging.
+
+                                                                                                                                                                           * Mitigering: Primer og overflateforbehandling som standard; videre testing av primer-typer vs makslast/fatigue og vedheftareal for å definere designregler.
+
+                                                                                                                                                                              3. Overtemperatur og UV-relatert degradering av polyuretan (UV-kammer, >70°C)
+
+                                                                                                                                                                                 * Risiko: PU mister funksjon ved overtemp.
+
+                                                                                                                                                                                 * Mitigering: Termiske simuleringer (P3→P4→P5), fargevalg (mørk blå → off-white), og konstruksjonsvalg som reduserer hotspots i kritiske områder (spesielt PU mot glass).
+
+                                                                                                                                                                                    4. Skalerbarhet i støpeprosess og støpeform (P3 læring)
+
+                                                                                                                                                                                       * Risiko: Heloppvarming av stor mold og mange små deler/skrueoperasjoner skalerer dårlig (1303×2384 mm² panel; mold 500–1000 kg).
+
+                                                                                                                                                                                       * Mitigering: P4 mold-redesign med innebygde varmeelementer, enklere åpne/lukke, kanaler for lufttrykk; lab-iterasjon; senere modularisering for vedlikehold.
+
+                                                                                                                                                                                          5. Arkitekturvalg (støp på ramme vs separat) påvirker både vanninngress, O&M og produksjon
+
+                                                                                                                                                                                             * Risiko: Feil valg kan gi enten for høy vanninngress eller for krevende feltmontasje/vedlikehold.
+
+                                                                                                                                                                                             * Mitigering: Beslutning i forkant av P5 basert på primer/vedheft/fatigue-resultater, vanninngressdata og produksjonsmessige konsekvenser.

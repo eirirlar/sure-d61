@@ -1,0 +1,237 @@
+﻿Plan for report writing
+1. Start from the proposal: what WP6 and D6.1 were supposed to do
+The technical description clarifies the original promise of the work you are reporting on.
+For Sunlit specifically, the proposal states that SuRE would develop:
+* A digital optimization cycle for the Sunlit floater design
+* by coupling models for:
+   * aluminum pressing
+   * mechanical loads
+   * heat transfer
+* enabling multi-dimensional digital optimization of the floater design
+ Copy of SuRE FINAL Version
+This integrated modelling chain was intended to replace the slow prototype-based design cycle currently used by Sunlit.
+Copy of SuRE FINAL Version
+In the innovation ladder, the expected output is:
+“Integrated model-chain for Sunlit floater optimization (Al pressing, heat transfer & structural integrity)”
+Copy of SuRE FINAL Version
+So the core expectation behind Deliverable 6.1 is:
+Define how these models interact and exchange data in a digital design framework.
+________________
+
+
+2. Understand the role of WP6 in the project structure
+The proposal organizes the project into:
+   * General research WPs
+   * WP1 Sustainability
+   * WP2 Reliability
+   * WP3 Efficiency
+   * Technology-specific WPs
+   * WP4 CTI
+   * WP5 ZIM
+   * WP6 Sunlit
+ Copy of SuRE FINAL Version
+WP6 therefore:
+      * applies general modelling developments from WP1–3
+      * to optimize Sunlit’s technology specifically.
+For Sunlit the project goal is:
+      * reduce aluminium consumption
+      * accelerate design iteration
+      * improve thermal and structural performance.
+Copy of SuRE FINAL Version
+________________
+
+
+3. What Deliverable D6.1 is expected to contain
+From the deliverable description and template:
+D6.1 should contain:
+“Data-format and inter-model data-transfer specifications for digital product development.”
+Notes
+Including modelling of:
+         * mechanical load
+         * heat transfer
+         * float production
+         * life cycle assessment.
+So the deliverable must demonstrate the modelling ecosystem, not just individual models.
+________________
+
+
+4. Compare expectations with actual work
+From the emails, the main discrepancy is clear:
+The deliverable expected:
+an integrated modelling chain
+But what exists today is:
+         * several individual modelling efforts, including:
+         * aluminium pressing simulation
+         * heat transfer modelling
+         * mechanical modelling
+         * early LCA work
+         * no fully implemented integrated chain yet.
+Notes
+This discrepancy must be addressed carefully in the report.
+________________
+
+
+5. Extract the real work done (from your draft)
+Your draft contains several substantial pieces of work that are relevant to the deliverable.
+Float production modelling
+You have developed a simulation pipeline for aluminium pressing, involving:
+            * parametric CAD models
+            * LS-Dyna FEM simulations
+            * automated parameter exploration
+            * machine learning optimization.
+WP6 report draft 2
+This is directly aligned with the proposal goal of optimizing aluminum usage.
+________________
+
+
+Mechanical modelling
+From the periodic report text:
+               * tensile testing of polyurethane hinge materials
+               * FEM modelling of float stresses
+               * simulations of loads on interconnections
+               * future coupling with wave models.
+T6.2 SuRE technical report M18.…
+This addresses structural reliability goals in WP2.
+________________
+
+
+Heat transfer modelling
+Also already performed:
+                  * CFD modelling of temperature behaviour
+                  * analysis of PU hinge temperatures
+                  * design change (dark blue → white PU) to reduce temperature.
+T6.2 SuRE technical report M18.…
+This relates to the thermal modelling objective in WP3.
+________________
+
+
+LCA
+Work underway with TNO on life-cycle assessment.
+________________
+
+
+6. Reframe the deliverable narrative
+Instead of presenting the work as “the integrated modelling chain”, the report should present it as:
+The emerging modelling framework for Sunlit’s digital product development.
+The narrative should be:
+                     1. Several modelling components have been developed.
+                     2. These components target key design drivers.
+                     3. Integration between them is ongoing.
+                     4. Full integration will occur in later phases (D6.2).
+This framing matches the project goals while avoiding red flags.
+________________
+
+
+7. Structure the deliverable around the modelling framework
+The final document should therefore be structured roughly like this.
+________________
+
+
+Proposed structure of the D6.1 deliverable
+Executive summary
+Explain:
+                     * purpose of the model chain
+                     * modelling activities performed
+                     * current status of integration.
+________________
+
+
+1. Introduction
+Explain:
+                     * Sunlit FPV design concept
+                     * need for digital design tools
+                     * link to SuRE objectives (LCOE reduction, reliability).
+The proposal text describing Sunlit’s floater design is useful here.
+Copy of SuRE FINAL Version
+________________
+
+
+2. Modelling framework for Sunlit digital product development
+Describe each modelling component.
+2.1 Float production modelling
+Aluminium pressing simulations.
+2.2 Mechanical modelling
+Structural and hinge loads.
+2.3 Heat transfer modelling
+Thermal performance of the design.
+2.4 Life cycle assessment
+Environmental evaluation.
+________________
+
+
+3. Conceptual model chain and data exchange
+Explain:
+                     * how the models should interact.
+Example flow:
+float geometry → mechanical loads → thermal behaviour → LCA
+Describe:
+                     * required data inputs
+                     * outputs exchanged between models.
+Even if not implemented yet, the architecture must be described.
+________________
+
+
+4. Results and insights for Sunlit design
+Explain how modelling already influenced design decisions:
+Examples:
+                     * hinge material evaluation
+                     * PU color change
+                     * float geometry optimization.
+________________
+
+
+5. Risks and deviations from the proposal
+Explain clearly:
+                     * why the full modelling chain is not yet implemented.
+Likely reasons:
+                     * design evolution from Gen1 → Gen2
+                     * focus on validating key physical processes first
+                     * integration planned later.
+________________
+
+
+6. Interconnections with other deliverables
+Explain links to:
+                     * periodic reports
+                     * upcoming D6.2
+                     * modelling work in WP2 and WP3.
+________________
+
+
+7. Conclusions and next steps
+Explain:
+                     * progress achieved
+                     * next steps toward integrated modelling.
+________________
+
+
+8. Tone and strategy for EU reporting
+Important principle:
+Do not frame missing integration as failure.
+Instead say:
+                     * “initial modelling framework established”
+                     * “integration between models is under development”
+                     * “full coupling planned in the next phase”.
+This aligns with the expected TRL progression in the proposal.
+Copy of SuRE FINAL Version
+________________
+
+
+Final summary — what you must actually do
+Practically, the work is:
+                     1. Re-read the proposal expectations for WP6.
+                     2. Identify the modelling components already developed.
+                     3. Map them to the deliverable requirements.
+                     4. Describe the intended model chain architecture.
+                     5. Explain deviations from the original plan.
+                     6. Frame results in terms of progress toward digital design optimization.
+________________
+
+
+If you want, I can also help with the next extremely useful step, which is:
+Building a very concrete “before → after” mapping
+between:
+                     * the proposal promises
+                     * the current draft text
+                     * the sections needed in D6.1
+This usually makes writing the report much faster and safer politically.

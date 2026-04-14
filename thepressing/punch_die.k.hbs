@@ -1,0 +1,59 @@
+*DEFINE_CURVE_TITLE
+punch_curve
+$#    lcid      sidr       sfa       sfo      offa      offo    dattyp     lcint
+         1         0       1.0       1.0       0.0       0.0         0         0
+$#                a1                  o1
+{{#each curve_lines}}
+{{this}}
+{{/each}}
+*PART
+$#                                                                         title
+die
+$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
+         3         1         3         0         0         0         0         0
+*BOUNDARY_PRESCRIBED_MOTION_RIGID_ID
+$#      id                                                               heading
+         1PrescribedMotion_PUNCH
+$#     pid       dof       vad      lcid        sf       vid     death     birth
+         2         3         0         1      -1.0         01.00000E28       0.0
+*MAT_RIGID_TITLE
+steel_punch
+$#     mid        ro         e        pr         n    couple         m     alias
+         27.80000E-9     210.0      0.28       0.0       0.0       0.0
+$#     cmo      con1      con2
+       1.0         4         7
+$#lco or a1        a2        a3        v1        v2        v3
+       0.0       0.0       0.0       0.0       0.0       0.0
+*MAT_RIGID_TITLE
+steel_die
+$#     mid        ro         e        pr         n    couple         m     alias
+         37.80000E-9     210.0      0.28       0.0       0.0       0.0
+$#     cmo      con1      con2
+       1.0         7         7
+$#lco or a1        a2        a3        v1        v2        v3
+       0.0       0.0       0.0       0.0       0.0       0.0
+*BOUNDARY_SPC_SET_ID
+$#      id                                                               heading
+         1sheet_edge_constrain_xy
+$#    nsid       cid      dofx      dofy      dofz     dofrx     dofry     dofrz
+         1         0         1         1         1         1         1         1
+*CONTACT_FORMING_ONE_WAY_SURFACE_TO_SURFACE_ID
+$#     cid                                                                 title
+         2contact_sheet_die
+$#   surfa     surfb  surfatyp  surfbtyp   saboxid   sbboxid      sapr      sbpr
+         1         3         3         3         0         0         1         1
+$#      fs        fd        dc        vc       vdc    penchk        bt        dt
+       0.0       0.0       0.0       0.0      20.0         0       0.01.00000E20
+$#    sfsa      sfsb      sast      sbst     sfsat     sfsbt       fsf       vsf
+       0.0       0.0       0.0    -0.001       1.0       1.0       1.0       1.0
+$#    soft    sofscl    lcidab    maxpar     sbopt     depth     bsort    frcfrq
+         0       0.1         0     1.025       2.0         2         0         1
+$#  penmax    thkopt    shlthk     snlog      isym     i2d3d    sldthk    sldstf
+       0.0         0         0         1         0         0       0.0       0.0
+$#    igap    ignore    dprfac    dtstif    unused    unused    flangl   cid_rcf
+         1         0       0.0       0.0                           0.0         0
+*PART
+$#                                                                         title
+sheet
+$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
+         1         1         1         0         0         0         0         0

@@ -1,0 +1,30 @@
+Req,Topic,Status,Finding
+REQ-1.1,Data-format and inter-model transfer specs,PARTIAL,Core mandate of D6.1. Ch 6 describes the chain conceptually but never provides actual format specifications — no tables no field definitions no formal interface specs.
+REQ-1.2,Document T6.1 and T6.2 outcomes,MET,Ch 4 (T6.1) and Ch 6 (T6.2) both covered.
+REQ-1.3,Digital product development cycle (O6.1.1),MET,Ch 3 covers this well.
+REQ-1.4,Foundation for prototype selection (O6.2.1),MET,Ch 7 screening.
+REQ-2.1,FEM model for Al pressing described,MET,Ch 4.
+REQ-2.2,Large plastic deformations handled,MET,Sec 4.2.
+REQ-2.3,Anisotropic yield stress model,GAP,DoW T6.1 explicitly required this. The report mentions cup eccentricity relating to grain direction but the FEM section only says elasto-plastic constitutive models — no mention of anisotropic yield.
+REQ-2.4,FEM outputs feed downstream models,PARTIAL,Section 6.3 describes the as-formed thickness map conceptually but it is not actually passed to the structural model.
+REQ-2.5,Feasible design space characterised,MET,Ch 7.
+REQ-3.1,Four specific interfaces defined (WP2 WP3 T6.1 WP1/LCA),PARTIAL,Structural and thermal interfaces described. LCA interface (TNO 4th required tool) has only one sentence. Tools not identified by their WP/task origins.
+REQ-3.2,Per-interface data transfer specified,GAP,No formal specification of what data crosses each interface in what format.
+REQ-3.3,Automated cross-domain mapping,NOT MET,Acknowledged in Ch 6.5 and Ch 9 as future work for D6.2 — documented deviation acceptable.
+REQ-3.4,Multi-accuracy-level screening,MET,Ch 7 multi-stage approach.
+REQ-4.1,Four key parameters covered,PARTIAL,Cup design and Al thickness well covered. Floater size not treated as a systematic design variable.
+REQ-4.2,Sustainability / reliability / cost simultaneously,PARTIAL,Reliability well covered. Cost brief (Sec 5.4.1). LCA/sustainability thin (one paragraph 5.4.2).
+REQ-5.1,Structured data format defined,PARTIAL,CSV with hash described but not formally specified.
+REQ-5.2,Unique design identifiers,MET,Input hash in Sec 4.3 and 6.4.
+REQ-5.3,Long-format field list documented,NOT MET,Fields mentioned in activities.md but not in the report body. Minor.
+REQ-5.4,ISO 8601 timestamps,NOT MET,Not mentioned. Minor.
+REQ-6.1,Validation against physical data described,MET,Sec 4.5 and 5.3.2.
+REQ-6.2,Agreement demonstrated for Al pressing,MET,Sec 4.5 — very good agreement.
+REQ-6.3,Validation traceable to prototypes,MET,P3 testing referenced throughout.
+REQ-7.1,Consistent with ~100 kW pilot at Singløya,MINOR GAP,MWp claim removed. Body refers to Haugaland Næringspark (old location); pilot scale not referenced in body.
+REQ-7.2,Design covers SSC 5 / Hs 1.5m,MET,FC7 in FDS (Sec 3.2) and structural FEM uses wave loading.
+REQ-8.1,Thermal BCs: solar air water wind,MET,Sec 5.2.3.
+REQ-8.2,Structural BCs: wave/current loading,MET,Sec 5.3.3.
+REQ-8.3,Worst-case scenarios defined,PARTIAL,Singapore scenario in activities.md but not named in report body (Sec 5.2.3 says representative climate datasets only).
+REQ-9.1,LCA interface with TNO described,GAP,One sentence only. Fourth formally required interface in DoW T6.2 — almost no coverage.
+REQ-9.2,Al pressing outputs compatible with LCA inputs,GAP,Not addressed.

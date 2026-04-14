@@ -1,0 +1,9 @@
+flowchart LR
+A[Design Parameters] --> B[Manufacturing Model]
+A --> C[Structural Model]
+A --> D[Thermal Model]
+B --> E[Performance Metrics]
+C --> E
+D --> E
+E --> F[Decision Layer]
+F --> A

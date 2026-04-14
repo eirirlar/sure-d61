@@ -1,0 +1,7 @@
+flowchart LR
+A[Parametric CAD<br/>FreeCAD + Python] --> B[LS-DYNA setup<br/>template generation]
+B --> C[FEM Simulation<br/>LS-DYNA]
+C --> D[Post-processing<br/>crack detection]
+D --> E[Evaluation<br/>pass/fail criteria]
+E --> F[Data storage<br/>CSV dataset]
+F --> A

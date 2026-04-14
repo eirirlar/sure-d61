@@ -1,0 +1,239 @@
+﻿Confidential
+	
+
+	Next gen product FDS
+	
+
+	
+
+Document number:
+	DES-2024-0003
+	Revision:
+	0
+	Date of issue:
+	2024-08-27
+	
+
+Design change description:
+	Product B design main document
+
+
+	
+
+Prepared by:
+	Controlled by:
+	Approved by:
+	
+
+	
+
+	
+
+	
+
+Guillaume Kegelart
+	
+
+Name
+	
+
+Name
+	Lead Engineer
+	Title
+	Title
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+Copyright Notice: © Sunlit Sea AS 2021. All rights reserved. 
+	
+
+________________
+
+
+Revision history
+Rev.
+	Date 
+	Prepared by
+	Approved by
+	Design change
+	Process concerned
+	0
+	2024-08-27
+	Guillaume Kegelart
+
+
+	
+
+	First issue
+
+
+	All
+	
+
+
+
+Contents
+1 Introduction        4
+2 Functions        4
+3 Solutions        5
+4 References        5
+
+
+________________
+
+
+1. Introduction
+Time has come to organize the design work on our product B.
+
+
+2. Functions
+FP = Function principal
+FC = Function constraint
+FS = Function secondary
+
+
+FP1: Produces power
+FP2: is certified
+
+
+FC1: Floats on water
+FC2: Is water tight
+FC3: Mechanically attached
+FC4: Does not go submarining under stream exposure, 3 m/s
+FC5: Feasible to change panel type, i.e from Chinese to US
+FC6: Resists high wind
+FC7: Resists waves up to 1.5 Hs
+FC8: Cheap to produce, cheaper total cost to install than competitors
+FC9: Grounding of the FPV unit
+
+
+FS1: Can walk on it
+FS2: Fast to produce, not necessarily mass producible
+FS3: Fast to install
+
+
+assessment of current products degree of fulfillment of the requirements:
+Prod A Function assessment
+
+
+________________
+
+
+3. Solutions
+FP1 (produces power)
+We use a high power chinese standard PV and its frame.
+Risen
+
+Panels are interconnected using standard MC4 connectors
+
+
+FP2 (certified)
+The PV panels we use are certified
+
+
+FC1 (floats)
+The PV is attached on a “float” that provides enough buoyancy for the PV to stay above water? Dip in water to take advantage of the water cooling ? 
+We will use as much experience from our previous experiences that we can (Aluminum floating)
+Keep in mind that we will have to walk across the matrix carrying anther solar panel, together with another person.
+FC2 (Is watertight)
+The PV and the float must resist water intrusion, We will be sealing the float with sealing technology that we have experience with. 
+We will also protect the PV (cells + junction box) from water. 
+FC3 (Is attached to other FPV)
+Each individual FPV will be equipped with a set of connectors that will link the FPV unit together. 
+
+
+FC4 (resist to current flow)
+We should design a “head” FPV that will protect a string of FPV to dip into water when exposed to current flow
+
+
+FS1 (Can walk on it)
+The PV glass should be supported enough to enable a human to walk on it without breaking. Therefore, we need to set up a support  behind the PV glass if we want to walk on the PV.
+
+
+
+
+4. Solutions
+Hinges/Octopatch 
+
+Hinder floats bumping into each other
+Allow movement in all directions
+Allow stretch and stop
+Disallow snatch
+Cost efficient
+Interchangeable
+Can be preassembled
+Can be assembled at site
+Resists wear and tear
+UV radiation and heat resistant
+Possible to add multiple at edges and fewer in the center[a][b]
+
+Float 
+Float joined by, for instance, roller hemming, glue, friction stir welding.
+P-joint (also called teardrop or rope hem)
+Allows for pinching hinge onto
+Safe to touch
+Neat looking
+Cost efficient
+
+
+
+Filled with foam
+        Cannot sink
+        Will disallow gas expansion (contained in mini bubbles)
+        Allows for very thin Al, perhaps 0.7 mm.
+        Very strong sandwich construction.
+        Bonds very well to Al.
+        PU foam is a well known marine material.
+        Might be difficult, due to safety issues, used in norway.
+        Poorer heat transfer, but better thermal mass.
+        Less thermal cycling
+
+
+Solar panels mechanically attached to the top of the float.
+Ideally using CD weld studs and nuts.
+        Probably using end clamps
+
+
+Float/PV may have a few degrees angle for shedding off water (and bumping up power production?).
+
+
+Honeycomb alu structure between glass and the bottom plate.
+Will trap air inside each honeycomb. Can be alleviated with small channels between each honeycomb.
+Challenging to fasten to glass and bottom plate.
+
+
+The frame exposes the edge of the glass panel to water ingress. This can be minimized by i.e PU foam. Foam can be along the edge or outside of a honeycomb, polystyrene or fluid formed alu cups.
+
+
+The float and panel sandwich will trap air. The air will expand and contract. We need to make sure this does not delaminate anything (ie glue or silicon) and that it does not cause fatigue in the solar panel. A potential solution is to let each float breathe via a narrow hole.
+
+
+
+
+Prod B roadmap
+
+
+
+
+
+
+
+
+Next gen FPV – Design report, rev. 0 Page 
+
+
+
+
+[a]Not in itself a requirement. Install speed and cost could regulage this though
+[b]Yes, it is not an absolute requirement. Other functions could overpower this one

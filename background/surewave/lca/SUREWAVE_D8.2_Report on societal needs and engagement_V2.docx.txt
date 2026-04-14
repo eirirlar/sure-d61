@@ -1,0 +1,491 @@
+﻿SUREWAVE – Structural Reliable Offshore Floating PV Solution Integrating Circular Concrete Floating Breakwater
+	Societal aspects and stakeholder engagement in offshore floating PV Systems
+	Disclaimer:
+The SUREWAVE project is funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union. Neither the European Union nor the granting authority can be held responsible for them.
+	
+
+	The SUREWAVE project has received funding from the European Union's Horizon Europe Research and innovation funding programme under GA No. 101083342.
+	  	
+
+Deliverable details
+Work package:
+	8
+	Task:
+	8.1
+	Document name:
+	D8.2 – Report on societal needs and engagement
+	Lead beneficiary:
+	IFEU
+	Dissemination level:
+	PU
+	Deliverable type:
+	R
+	Due date:
+	31.09.2025
+	Delivery date:
+	###
+	
+
+Document version
+	Date
+	Author
+	Comments[1]
+	1.0
+	1 September 2025
+	Dr Hanna Karg, Dr Heiko Keller
+	
+
+	2.0
+	24 September 2025
+	Dr Hanna Karg, Dr Heiko Keller
+	
+
+	
+
+Dissemination level
+	PU
+	Public: fully open
+	SEN
+	Sensitive: limited under the conditions of the Grant Agreement
+	EU classified
+	EU classified: restraint – UE/EU-restricted, confidential, secret-UE/EU, secret under Decision 2015/444
+	Deliverable type
+	R
+	Document, report (excluding the periodic and final reports) 
+	DEM
+	Demonstrator, pilot, prototype, plan designs 
+	DEC
+	Websites, patents filing, press & media actions, videos, etc.
+	OTHER
+	Software, technical diagram, etc.
+	
+
+
+
+Deliverable Review
+
+
+	Reviewer #1: 
+	Reviewer #2: 
+	Answer
+	Comments
+	Type*
+	Answer
+	Comments
+	Type*
+	1. Is the deliverable in accordance with
+	   1. The Description of Work?
+	☒ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	   2. The international State of the Art?
+	☐ Yes
+☐ No
+	Not applicable for this deliverable
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐ No
+	Not applicable for this deliverable
+	☐ M
+☐ m
+☐ a
+	2. Is the quality of the deliverable in a status
+	   3. That allows it to be sent to European Commission?
+	☒ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	   4. That needs improvement of the writing by the originator of the deliverable?
+	☐ Yes
+☒ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐No
+	
+
+	☐ M
+☐ m
+☐ a
+	   5. That need further work by the Partners responsible for the deliverable?
+	☐ Yes
+☒ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐No
+	
+
+	☐ M
+☐ m
+☐ a
+	* Type of comments: M = Major comment; m = minor comment; a = advice
+Contact
+Dr Hanna Karg, hanna.karg@ifeu.de
+IFEU – Institute for Energy and Environmental Research Heidelberg
+Wilckensstr. 3, 69120 Heidelberg, Germany; www.ifeu.de
+Suggested citation
+Karg, H. & Keller, H. (2025): Societal aspects and stakeholder engagement in offshore floating PV Systems (D8.2). In: SUREWAVE project reports, supported by the EU’s Horizon 2020 research and innovation programme under grant agreement No 101083342, IFEU - Institute for Energy and Environmental Research Heidelberg, Heidelberg, Germany.         https://www.ifeu.de/en/project/surewave.
+
+
+Table of Contents
+1.        Introduction        5
+1.1.        Background        5
+1.2.        Aim        5
+2.        Methodological approach        6
+2.1.        Stakeholder engagement: SWOT analysis        6
+2.2.        Procedure        7
+3.        Results I: Overview of potential societal impacts        8
+3.1.        Strengths        8
+3.2.        Opportunities        8
+3.3.        Weaknesses        9
+3.4.        Threats        9
+4.        Results II: Rating of impacts        12
+4.1.        General trends        12
+4.2.        Specific results        15
+4.2.1.        Societal impacts considered important        15
+4.2.2.        Societal impacts with mixed ratings        16
+4.2.3.        Societal impacts considered less important        17
+5.        Conclusions        18
+6.        References        19
+7.        Acknowledgements        19
+
+
+________________
+
+
+1. Introduction
+   1. Background 
+Offshore floating PV (FPV) is considered a promising option to complement existing renewable energy sources in the energy transition. Therefore, the European Commission has funded the project "Structurally reliable offshore floating PV solution integrating circular concrete floating breakwater" (SUREWAVE) under the European Union's Horizon Europe research and innovation funding programme. The main purpose of this project is to develop and test a new concept for floating photovoltaic systems in offshore marine environments. The main challenge is to protect the solar modules from the sometimes harsh weather and marine conditions. To address this challenge, the project has developed floating breakwaters made of innovative concrete mixtures and innovative, stable connectors between the individual solar modules. The aim is to massively expand the area suitable for PV installations and thus to support the European Union’s decarbonisation ambitions.
+Apart from technical challenges, offshore floating PV may have negative impacts on different societal groups or may be perceived negatively, potentially threatening its future implementation. For instance, competing claims to maritime space could create conflicts among stakeholders. Such issues may lead to opposition against renewable offshore energy projects. While potentially negative impacts of new technologies tend to be widely discussed, potentially positive impacts often fail to receive public attention. To address societal impacts and needs at an early stage, the project has identified potential social challenges and benefits associated with offshore floating PV.
+   1. Aim 
+The aim of this assessment is to support the socially beneficial implementation of the offshore floating PV concept and to ensure that its design is compatible with other marine activities. Addressing potential adverse impacts will also increase social acceptance of offshore floating PV.
+Therefore, a SWOT analysis was carried out to identify Strengths, Weaknesses, Opportunities and Threats associated with offshore floating PV. The analysis involved key stakeholders from different societal groups, including all project partners. This approach was chosen to identify societal needs from different stakeholder perspectives on the one hand and to raise awareness within the consortium for social aspects early on in the development process on the other hand.
+This report provides an overview of the methodological approach taken, a list of the societal aspects of offshore floating PV systems that were identified, as well as the perceived importance of these aspects.
+________________
+
+
+2. Methodological approach
+Offshore floating PV is an innovative system that has not yet been implemented. At this stage of development, a method with a low access barrier was chosen to collect qualitative perceptions and stakeholder opinions. These were compiled into a SWOT matrix (section 2.1) through an iterative process (section 2.2).
+   2. Stakeholder engagement: SWOT analysis
+We conducted a SWOT analysis to compile the perspectives of various stakeholder groups on offshore floating PV. SWOT analysis originates from business management and is a strategic planning tool used to identify and evaluate the Strengths (S), Weaknesses (W), Opportunities (O) and Threats (T) of the system under study [Puyt et al. 2023]. It can be used to evaluate any venture, whether a project, product, company or specific aspect thereof. Strengths and weaknesses are defined as internal characteristics of the assessed system, while opportunities and threats are external factors that determine the venture's success or failure. The results of a SWOT analysis are usually summarised in a SWOT matrix. Figure 1 shows the general structure of a SWOT matrix.
+
+
+
+
+	Helpful factors
+to achieving the objective
+	Harmful factors
+to achieving the objective
+	Internal
+(attributes of the organisation/product)
+	Strengths
+	Weaknesses
+	External
+(attributes of the environment)
+	Opportunities
+	Threats
+	Figure 1: Structure of a SWOT matrix, containing Strengths, Weaknesses, Opportunities and Threats as internal and external attributes of a venture.
+________________
+
+
+   3. Procedure
+In an iterative approach, we gradually built a compilation of key benefits and challenges relating to offshore floating PV, as perceived by different stakeholder groups. 
+Specifically, the compilation of inputs involved four steps:
+1. As a first step, a set of potential social impacts was developed as a result of an internal expert assessment, involving staff from ifeu. There, social impacts were classified according to category (Strengths, Weaknesses, Opportunities and Threats) and stakeholder group, e.g., the society as a whole, tourism, fisheries.
+2. In a second step, the preliminary list was reviewed and extended by members of the Stakeholder Advisory Board (SAB). They include project developers and representatives of environmental agencies and regulatory authorities among others.
+3. The third step involved the SUREWAVE project members who rated and extended the list of societal impacts. This was done using an online survey tool. There, participants could rate the impacts as "not relevant", "less important", "important", "very important", and "no opinion", comment on each of the impacts and provide general feedback.
+4. In a final step, the latest SWOT matrix of potential impacts was shared with the project members and discussed during the SWOT workshop carried out as part of the SUREWAVE project meeting in Madrid in April 2025.
+________________
+
+
+3. Results I: Overview of potential societal impacts 
+This chapter gives an overview of potential societal impacts of offshore floating PV, as identified by different stakeholders and project members after various rounds of review. Specifically, potential societal impacts are classified as strengths, weaknesses, opportunities and threats, and grouped by stakeholder group. Figure 2 summarises these impacts in a SWOT matrix. Note that the order by which the impacts are listed does not reflect the level of importance (see chapter 4 for the rating of impacts).
+   4. Strengths
+Society: Society can benefit from an offshore floating PV system in several ways: it contributes to the diversification of energy sources, which increases resilience to shocks and can e.g. reduce dependence on energy supply from autocratic countries. Renewable energy production contributes to climate change mitigation when fossil energy sources are replaced. In the case of offshore floating PV, available marine space is used efficiently.
+Local community: The local community can experience direct and indirect economic benefits, for example through the creation of employment opportunities for local people and through the demand for local services, especially during the installation and maintenance phases.
+(Renewable) Energy sector: The energy sector can benefit from diversification of energy sources, creating investment and employment opportunities. In general, the production of environmentally friendly energy can count on widespread public support.
+   5. Opportunities
+Tourism: There may be new opportunities for local tourism, such as boat trips to the site or diving on artificial reefs. For recreational aviation, additional landmarks support navigation (North Sea).
+Environmental organisations: The restriction of fishing around the FPV and the creation of artificial reefs may increase marine biodiversity and therefore environmental organisations may consider SUREWAVE to be worthy of support.
+Local community: As society widely supports environmentally friendly energy production, the local community may also feel positive about being associated with green energy. If not associated with positive features, offshore floating PV may be less controversial than wind farms or large-scale ground-mounted solar parks, as it does not destroy or pollute the immediate environment of the local community.
+Society: Consumers may see a reduction in the price of electricity if more projects like SUREWAVE are implemented and if the technology continues to develop and initial investments are supported by policy mechanisms.
+(Renewable) Energy sector: There may be synergies with offshore wind farms or fish farms to channel or use the electricity generated by offshore floating PV, which reduces infrastructure and costs. In general, an increasing market for solar power may further boost offshore floating PV.
+(Spatial) Planning: In general, potential negative social impacts can be minimised by carefully considering spatial planning aspects of offshore floating PV, such as potential reflection of solar modules, visibility from the coast, etc.
+Research & Development: The use of circular materials, in particular in the breakwaters, can stimulate R&D in materials research, durability and simplified recycling and maintenance through design.
+   6. Weaknesses
+(Renewable) Energy sector: High installation and maintenance costs were identified as a weakness of offshore floating PV.
+Tourism: Offshore floating PV may have a negative impact on tourism, particularly on recreational boating such as sailing, which is likely to be restricted around the site.
+Local community: Although the local community can benefit from direct and indirect economic effects (see section ‘Strengths’), there are expected to be fewer opportunities for participation in offshore PV projects compared to onshore PV projects, such as community ownership. As a result, community acceptance may be lower than for onshore projects.
+Fisheries: Fishing grounds and routes for fishing vessels may face restrictions around the site.
+Shipping: Shipping and ferry routes may be restricted, placing a burden on businesses. In general, the presence of marine infrastructure, such as FPVs, increases the risk of collisions for civil and military boats and submarines.
+Infrastructure security: As long as the floating PV is within sovereign water, i.e., within a radius of 12 nautical miles of the coastline, the risk of sabotage is expected to be low (Mediterranean, Baltic Sea), but more remote locations (North Sea) make the FPV vulnerable to sabotage, thus threatening energy security. Offshore floating PV is also vulnerable to damage through winter storms.
+Plant employees: Employees installing and maintaining the FPV work in challenging offshore conditions, requiring appropriate safety measures.
+Society: Unreliable weather conditions can result in fluctuating energy production.
+   7. Threats
+Environmental organisations: Coastal areas are often ecologically sensitive areas, and a land connection in these areas may have a negative ecological impact and is unlikely to be supported by environmental organisations. The introduction of artificial habitats, such as offshore solar panels, can attract non-native or even invasive biodiversity, which can compete with natural biodiversity for available resources. The deployment of offshore floating PV may alter coastal dynamics, such as currents.
+Administration: Offshore floating PV is a new technology and regulatory uncertainty may affect the administration at different levels. For example, the processing of permit applications may be delayed due to a lack of established handling guidelines.
+Plant operators: Similar to the administration, plant operators have to navigate an unfamiliar regulatory landscape and bureaucracy.
+Competing energy supplier: As offshore floating PV and other renewable energy projects take off, jobs are expected to be lost in the fossil fuel sector, requiring programmes to mitigate unemployment.
+Society: A general threat to the acceleration of renewable energy production and the transition away from fossil fuels may be the public's lack of sense of urgency regarding climate change and the need to act.
+(Renewable) Energy sector: The dependence of the EU on other world regions for the production of solar panels poses a supply chain risk and may affect the supply of solar panels in the future.
+Marine spatial planning: Although space at sea may seem abundant, a lot of space is already designated for existing services (wind farms, nature conservation, fishery, military, maritime traffic), and conflicts of space are expected.
+
+
+
+
+  
+
+	Helpful 
+to achieving the objective
+	Harmful 
+to achieving the objective
+	Internal origin 
+(attributes of the organisation/product)
+	Society
+1. Contribution to energy security (diversification of energy sources)
+2. Reduced dependence on autocratic energy suppliers
+3. Climate change mitigation
+4. Efficient use and availability of marine space to install offshore FPV systems
+Local community
+1. Employment opportunities for installation and maintenance of PV power plant
+2. Benefits for local economy (e.g. lodging of staff, demand for local services)
+(Renewable) Energy sector
+1. Diversification of energy sources
+2. Higher income
+3. More jobs 
+4. Wide support for environmentally friendly energy generation
+	(Renewable) Energy sector
+1. High installation and maintenance costs
+Tourism 
+1. Limitation of recreational boating (sailing etc.)
+Local community
+1. Limited community participation
+Fisheries
+1. Potential restriction of fishing grounds and routes for fishing vessels 
+Shipping
+1. Potential restriction of ship and ferry routes
+2. Collision risk for ships, ferries and submarines (military)
+Infrastructure security
+1. North Sea: Vulnerable to sabotage and subsequent threat to energy security
+2. Damage from winter storms
+Plant employees
+1. Challenging working conditions 
+Society
+1. Relatively unreliable weather, fluctuations in energy production
+	External origin
+(attributes of the environment)
+	Tourism 
+1. New opportunities for tourism (boat trips to plant)
+2. Creation of artificial reefs (diving) 
+3. Additional navigation landmarks for recreational aviation
+Environmental organisations
+1. Limitation of fisheries
+2. Creation of artificial reefs
+Local community
+1. Pride in being associated with green energy, or at least less controversial than wind mills or huge ground mounted solar parks
+Society
+1. Potential electricity price reduction in the longer term if the technology continues to develop and initial investments are supported by policy mechanisms
+(Renewable) Energy sector
+1. Potential synergies with offshore wind farms / fish farms
+2. Increasing market for solar power
+(Spatial) Planning
+1. Minimising potential harmful consequences by considering spatial planning aspects of SUREWAVE such as potential reflection of solar modules, visibility from the coast, etc.
+Research & Development
+1. Stimulating R&D in materials research, durability and simplified recycling and maintenance through design.
+	Environmental organisations
+1. Potential land connection in ecologically sensitive area
+2. Competition over available resources between natural and non-native biodiversity attracted by the artificial habitat
+3. Potential alteration of coastal dynamics
+Administration
+1. Regulatory uncertainty, e.g. lack of established guidelines for handling permit applications
+Plant operator
+1. Need to navigate unfamiliar regulatory landscape & bureaucracy 
+Competing energy supplier
+1. Loss of jobs in fossil energy sector
+Society
+1. Lack of public sense of urgency to accelerate renewable energy production and move away from fossil fuels
+(Renewable) Energy sector
+1. Production of PV panels outside of the EU (vulnerability of supply chains)
+Marine spatial planning
+1. Conflicts of space usage with existing and planned other activities/services at sea
+
+
+	Figure 2: SWOT matrix on the social aspects related to offshore floating PV as investigated in the SUREWAVE project. Note: Grey font indicates that the impact was considered ‘not relevant’ by more than 20% of respondents.
+1. Results II: Rating of impacts
+   1. General trends
+The impacts identified by the stakeholders and project members (see chapter 3) were rated by the survey participants according to their level of importance: "not relevant", "less important", "important", "very important", and "no opinion". Participants could also comment on each impact and provide general feedback.
+Overall, the positive features ('Strengths' and 'Opportunities') were considered more important than the negative features (Figure 3). This may reflect the survey participants' general support for and belief in renewable energy, and specifically for offshore floating PV.
+
+
+  
+
+Figure 3: Rating results at the level of strengths, opportunities, weaknesses and threats by the survey participants.
+
+
+
+
+
+
+
+
+
+
+
+
+________________
+
+
+The level of importance also varied by topic and affected stakeholder group. Figure 4 shows the importance of impacts by stakeholder group:
+* Impacts concerning the society as a whole, the (renewable) energy sector and future plant employees were rated more important.
+* Impacts affecting tourism, the shipping industry and the military were rated less important.
+* Impacts related to environmental organisation, the local community and fisheries were considered of medium importance.
+
+
+This result is likely to be strongly influenced by the own background of the survey participants, supporting renewable energies and acknowledging their benefit to the society. Also, the majority of strengths listed in the SWOT matrix (Figure 2) refer to the society and (renewable) energy sector, which, according to Figure 3, were rated more important than weaknesses. This also suggests that greater involvement from stakeholders with a more critical perspective, who are expected to be represented to a higher degree in the tourism industry, the shipping industry and the military, could change the results. This however requires a more concrete background for a discussion such as implementation plans for an offshore floating PV plant at a specific site.
+The relevant stakeholder groups are likely to vary depending on the site. Where the distance to shore is long and co-location is targeted (see the next page), co-location owners (e.g. offshore wind and oil and gas) certainly belong to the relevant group of stakeholders. At near-shore sites, however, tourism and coastal businesses, as well as port authorities, play an important role. Where the sea can freeze over in winter, winter users such as fisheries, search and rescue (SAR) services and maritime safety should also be included.
+
+
+  
+
+Figure 4: Stakeholder groups arranged in order of importance (source: online survey).
+________________
+
+
+Figure 5 shows the ratings of the impacts by topic, which are consistent with the previous results (Figure 4): 
+* Impacts related to green energy and energy security, work safety and synergies with other marine infrastructure were considered more important.
+* Impacts affecting tourism, the shipping industry, the risk of collision and infrastructure security (including the risk of sabotage) were rated less important.
+* Impacts relating to fishing, the bureaucracy resulting from regulatory uncertainty, local ecological impacts, and public acceptance were considered to be of medium importance or had mixed ratings (see section 4.2.2 for more details).
+Most topics are closely related to certain stakeholder groups. For instance, co-locating offshore FPV with existing marine infrastructure was identified as an important way of tapping into synergies and sharing resources, particularly at sites far from the shore (see [Keller et al. 2025]). The type of co-location — such as offshore wind/oil and gas (O&G), remote microgrids or diesel replacement — will determine the key stakeholders, who may be asset owners, transmission system operators (TSOs), distribution system operators (DSOs), platform operators or maritime regulators.
+This confirms that, in order to target key stakeholders, more concrete implementation plans are required for an offshore floating PV plant at a specific site.
+
+
+  
+
+Figure 5: Topics arranged in order of importance (source: online survey).
+
+
+________________
+
+
+   2. Specific results
+The following shows specific survey results and related (anonymous) free-text comments. These contain unambiguous impacts that were rated as either important or not important by the majority of respondents, as well as impacts with mixed ratings. 
+      1. Societal impacts considered important
+Figure 6 shows the three most important impacts, relating to benefits for the society as a whole (diversification of energy sources; climate change mitigation) and the work safety of plant employees. 
+The contribution of offshore floating PV to the diversification of energy sources was considered important for different reasons:
+“We have seen that the dependency on fossil fuels from countries with totalitarian regimes lead to a disruption of energy flows, large inflation and economic uncertainty […].”
+“[…] Independence is desirable not only from autocratic suppliers, but also from any price-setting monopolies.”
+
+
+Work safety of plant employees was considered essential:
+“Offshore safety compliance is a non-negotiable factor […].”
+
+
+  
+
+Figure 6: Impacts rated as important by the survey participants.
+________________
+      2. Societal impacts with mixed ratings
+Other impacts were rated differently by the survey participants (Figure 7). One such impact was the general public support for environmentally friendly energy production, from which the energy sector could benefit. Some considered it important, while others did not consider public support given and to be a relevant driver for the energy sector:
+“I wonder to what extent the "general" support (not so general at the moment, it seems to me...) benefits the energy sector. The energy sector simply moves where the money can be made […].”
+Similarly, the acceptance of offshore floating PV by the local community has been questioned:
+“I think the reverse is equally true. We like the energy from wind parks and offshore PV, but we do not want them in our landscapes. So they're being pushed offshore where we can't see them […].”
+Studies on the social acceptance of offshore wind in Norway show that public acceptance varies depending on the specific implementation conditions, among other factors. For example, locating offshore wind projects alongside traditional offshore industries, such as aquaculture, increases acceptance of offshore wind projects [Nytte et al. 2024]. Other important factors influencing the acceptance of offshore wind plants were ownership (national vs. international) and intended use of the generated electricity, but in general acceptance increased with increasing distance from the shore [Linnerud et al. 2022]. Offshore floating PV may be more acceptable in near-offshore locations than offshore wind, given that floating PV systems cannot be seen from distances greater than 10 km [Soppe et al. 2022].
+  
+
+Figure 7: Mixed rating of impacts by the survey participants.
+________________
+
+
+      3. Societal impacts considered less important
+As already indicated above (see Figure 4), impacts related to the tourism industry, both positive and negative, and the military were rated as less important or not relevant by the survey participants (Figure 8). 
+Specifically, new opportunities for local tourism such as boat trips to the site and diving were not considered feasible by most survey participants, e.g.:
+“I don't think it will be possible to enter project areas, nor will diving.”
+
+
+On the other hand, the restrictions on recreational boating resulting from the installation of the offshore floating PV plant were considered less important for various reasons:
+“Change to renewable energy is more important than tourism.”
+“Most offshore solar targets wind parks, where there is no access for recreation purposes.”
+“There is a lot of space available.”
+
+
+The risk of collision for submarines was considered low and therefore less important: 
+“The FPV is visible on radars.”
+“They probably have excellent navigation systems.”
+
+
+  
+
+Figure 8: Impacts rated as less important by the survey participants.
+4. Conclusions
+The SWOT analysis identified the potential societal impacts of offshore floating PV plants in Europe, as investigated in the SUREWAVE project, perceptions of stakeholders of such impacts and societal needs regarding the implementation of offshore FPV. 
+The analysis helped to raise the awareness for different perspectives and needs of various stakeholder groups during the project’s research and development phase, ensuring that social aspects are already considered in the floating PV design. Once the technology is mature enough and candidate sites for potential investment have been identified, a wider range of local actors should be involved. 
+The study showed that the list of potential social impacts grows with the involvement of additional and diverse actors, and with each subsequent review. Therefore, it is important to acknowledge that such an analysis will never capture the full range of potential societal impacts, but will always provide a snapshot of the situation. It is also important to note that responses are subjective and reflect the respondents' backgrounds and interests, and that there is no single truth regarding the potential societal impacts identified. Therefore, it is important to involve a wide range of stakeholder groups at different levels of the project. 
+The analysis also showed that, while an online survey tool can be used to compile stakeholders’ perspectives on a topic, it should definitely allow respondents to provide free text responses in order to capture the qualitative aspects of their feedback (e.g., explaining why an impact is considered important or when they disagree with the basic premise of a question).
+Outlook
+* The careful planning and governance of space-sharing between offshore floating PV and more traditional offshore industries can prevent conflicts between different marine industries and increase public acceptance of offshore PV.
+* Therefore, stakeholders and communities that depend on maritime economic activities must be involved in the planning process. 
+* The successful implementation of offshore floating PV systems in Europe, once they are technologically mature enough, requires consideration of societal aspects, such as those outlined in this report, as well as other sustainability aspects related to the environment, social responsibility in supply chains, and the economy [Keller et al. 2025]. 
+________________
+
+
+5. References
+Keller, H., Breyer, M., Karg, H., Reinhardt, G. (2025): Integrated sustainability assessment of offshore floating PV systems. SUREWAVE project reports. IFEU - Institut für Energie- und Umweltforschung Heidelberg.
+Linnerud, K., Dugstad, A., Rygg, B. J. (2022): Do people prefer offshore to onshore wind energy? The role of ownership and intended use. Renewable and Sustainable Energy Reviews, Vol. 168, p. 112732.
+Nytte, S., Navrud, S., Alfnes, F. (2024): Social acceptance of new floating offshore wind power: Do attitudes towards existing offshore industries matter? Renewable Energy, Vol. 230, p. 120855.
+Puyt, R. W., Lie, F. B., Wilderom, C. P. M. (2023): The origins of SWOT analysis. Long Range Planning, Vol. 56, No.3, p. 102304.
+Soppe, W., Kingma, A., Hoogeland, M., Folkerts, W. (2022): Challenges and potential for offshore solar. TKI Wind op Zee (TKI Offshore Wind).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6. Acknowledgements
+The authors would like to thank the members of the Stakeholder Advisory Board (SAB) for reviewing and extending the initial list of potential social impacts. We are also grateful to all SUREWAVE project partners for their valuable contributions to this report by participating in the online survey and in the SWOT workshop. In particular, we would like to thank Eirik Larsen (Sunlit Sea) for facilitating the contact to the members of the Stakeholder Advisory Board (SAB) and for his useful remarks. Moreover, we would like to thank our IFEU colleagues Dr Guido Reinhardt, Dr Maximilian Breyer, Nils Rettenmaier and Sven Gärtner for valuable discussions and contributing the initial set of potential social impacts. We would also like to extend our gratitude to Balram Panjwani, PhD, from SINTEF for the professional coordination and management of the project.
+This deliverable is part of the SUREWAVE project which has received funding from the European Union's Horizon Europe Research and innovation funding programme under GA No. 101083342.
+
+
+  
+  
+  
+
+________________
+[1] Creation, modification, final version for evaluation, revised version following evaluation, final

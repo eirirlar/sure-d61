@@ -1,0 +1,1101 @@
+﻿SUREWAVE – Structural Reliable Offshore Floating PV Solution Integrating Circular Concrete Floating Breakwater
+	Social risks of offshore floating photovoltaic systems
+	Disclaimer:
+The SUREWAVE project is Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union. Neither the European Union nor European Climate, Infrastructure and Environment Executive Agency (CINEA) can be held responsible for them.
+	
+
+	The SUREWAVE project has received funding from the European Union's Horizon Europe Research and innovation funding programme under GA No. 101083342.
+	  	
+
+Deliverable details
+Work package:
+	7
+	Task:
+	7.5
+	Document name:
+	D7.5 – Report on social assessment
+	Lead beneficiary:
+	IFEU
+	Dissemination level:
+	PU
+	Deliverable type:
+	R
+	Due date:
+	31.05.2025
+	Delivery date:
+	06.10.2025
+	
+
+Document version
+	Date
+	Author
+	Comments[1]
+	1.0
+	26.05.2025
+	Dr. Hanna Karg, Dr. Heiko Keller
+	
+
+	2.0
+	10.07.2025
+	Dr. Hanna Karg, Dr. Heiko Keller
+	
+
+	3.0
+	25.09.2025
+	Dr. Hanna Karg, Dr. Heiko Keller
+	Revision following new insights in the project
+	
+
+Dissemination level
+	PU
+	Public: fully open
+	SEN
+	Sensitive: limited under the conditions of the Grant Agreement
+	EU classified
+	EU classified: restraint – UE/EU-restricted, confidential, secret-UE/EU, secret under Decision 2015/444
+	Deliverable type
+	R
+	Document, report (excluding the periodic and final reports) 
+	DEM
+	Demonstrator, pilot, prototype, plan designs 
+	DEC
+	Websites, patents filing, press & media actions, videos, etc.
+	OTHER
+	Software, technical diagram, etc.
+	Deliverable Review
+
+
+	Reviewer #1: Eirik Larsen
+	Reviewer #2: 
+	Answer
+	Comments
+	Type*
+	Answer
+	Comments
+	Type*
+	1. Is the deliverable in accordance with
+	   1. The Description of Work?
+	☒ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	   2. The international State of the Art?
+	☐ Yes
+☐ No
+	Not applicable for this deliverable
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐ No
+	Not applicable for this deliverable
+	☐ M
+☐ m
+☐ a
+	2. Is the quality of the deliverable in a status
+	   3. That allows it to be sent to European Commission?
+	☒ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐ No
+	
+
+	☐ M
+☐ m
+☐ a
+	   4. That needs improvement of the writing by the originator of the deliverable?
+	☐ Yes
+☒ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐No
+	
+
+	☐ M
+☐ m
+☐ a
+	   5. That need further work by the Partners responsible for the deliverable?
+	☐ Yes
+☒ No
+	
+
+	☐ M
+☐ m
+☐ a
+	☐ Yes
+☐No
+	
+
+	☐ M
+☐ m
+☐ a
+	* Type of comments: M = Major comment; m = minor comment; a = advice
+Contact
+Dr Hanna Karg, hanna.karg@ifeu.de
+IFEU – Institute for Energy and Environmental Research Heidelberg
+Wilckensstr. 3, 69120 Heidelberg, Germany; www.ifeu.de
+Suggested citation
+Karg, H. & Keller, H. (2025): Social risks of offshore floating photovoltaic systems (D7.5). In: SUREWAVE project reports, funded by the European Union's Horizon Europe Research and innovation funding programme under grant agreement No 101083342, IFEU - Institute for Energy and Environmental Research Heidelberg, Heidelberg, Germany. https://www.ifeu.de/en/project/surewave.
+Executive summary 
+The SUREWAVE project "Structurally reliable offshore floating PV solution integrating circular concrete floating breakwater", funded by the European Union's Horizon Europe research and innovation funding programme, is developing and testing a new concept for floating photovoltaic (FPV) systems in offshore marine environments. The main challenge is to protect the solar modules from the sometimes harsh weather and marine conditions. The aim is to massively expand the area suitable for PV installations and thus to support the European Union’s decarbonisation ambitions. Among other things, the project has developed floating breakwaters made of innovative concrete mixtures and innovative, more stable connectors between the individual solar modules. 
+The project is accompanied by an integrated sustainability assessment. The sustainability of the innovative concept was analysed from a technological, environmental, social and economic perspective. This study presents the results of the social assessment carried out by IFEU - Institute for Energy and Environmental Research Heidelberg. 
+Social risks of offshore floating PV
+We conducted a social life cycle assessment (S-LCA) to assess the social risks associated with the supply chain of inputs required to build the offshore FPV as well as those relating to the construction, maintaining and dismantling. 
+The results show that purchased inputs contribute most to the social risk associated with electricity produced by the offshore FPV. Although social risks arising from construction, maintenance and dismantling are small, specific risks relating to work safety, particularly in offshore conditions, as well as labour rights, must be managed. Social risks hotspots include the supply chains of solar cells, metals such as steel (for anchoring and breakwater reinforcement), aluminium and copper (as part of cables and frames), and the marine fuel used for the installation and maintenance of the offshore FPV- depending on the assessed scenario and the respective origin of the input. The extent of the overall social risks depends, on the one hand, on the material intensity of any future offshore FPV implementation scenario and, on the other hand, on the origin of the materials.
+The material intensity per kWh of electricity primarily depends on the conditions at the offshore FPV location. Social risks can be significantly reduced by selecting locations with high solar irradiation and by minimising the length of the cable to the shore (e.g. by choosing a coastal location or connecting the FPV plant to another existing offshore facility). In contrast, the type of breakwater and the layout (five smaller units vs. a single uniform unit) have no substantial impact on overall social risk.
+The origin of inputs has the biggest influence on the overall social risks. The highest social risks arise from those (parts of the) supply chains, that are located in countries with poorly regulated and/or enforced social and labour standards. Of particular relevance for offshore FPV is that solar cell production is concentrated in China, where social risks can be very high depending on the region. While metals used for non-cell materials, such as copper, can originate from countries with even higher risks, they can partially be substituted, and their production capacity is distributed among a wider range of supplier countries with varying social risk environments.
+The social risks associated with offshore FPV can be clearly lower than those of the fossil fuel reference scenario, if supplies from high-risk countries and long, material-intensive cables to the shore are avoided and if locations with a high solar irradiation are chosen. Even if one of these conditions applies, thorough optimisation of all other risk-relevant aspects can lead to overall acceptable risks.
+Avoiding adverse social impacts 
+From a social point of view, the SUREWAVE concept and similar offshore FPV systems should be implemented once they are mature enough from a technological standpoint, provided that they primarily replace fossil-based electricity and that social risk mitigation practices are adopted. The following recommendations contribute to the socially beneficial implementation of offshore FPV systems:
+* Responsible sourcing: The majority of social risks in the offshore FPV supply chain can be mitigated by responsibly sourcing key materials such as solar cells, steel and copper. In general, there are three responsible sourcing options:
+   * Sourcing from low-risk countries if the majority of production takes place in these countries.
+   * Sourcing from certified suppliers that follow trusted standards, when purchasing inputs from high-risk countries, or when substantial parts of the upstream processes take place in high-risk countries.
+   * Sourcing from medium- and high-risk countries if direct engagement with responsible suppliers is possible.
+Sourcing from high-risk countries can improve the living and working conditions of stakeholders in these countries, but this requires access to first-hand information, such as supplier audits, and the leverage to hold suppliers accountable for non-compliance. If none of the above options are possible, e.g., due to a concentration of production in a higher-risk country or a lack of access to trusted suppliers and producers, at least those suppliers should be excluded that have been proven to be implicated in human rights violations.
+* Cable: A connection to existing offshore facilities (e.g., offshore wind farms) should be considered and favoured. This would minimise the length of the cable to the shore, which can pose significant social risks if the required material intensity is high.
+* Location: Locations with higher solar irradiation should be chosen, even if they have unfavourable metocean conditions and therefore require more material for anchoring.
+* Vessel logistics: The amount of marine fuel required for the installation, maintenance and dismantling of FPV systems can be reduced by optimising vessel logistics.
+* Working conditions: Existing safety measures should be rigorously applied in offshore conditions, and particular attention should be given to ensuring that subcontracted workers have fair working conditions and wages.
+* Regulatory measures: In certain cases, it is necessary to facilitate socially beneficial sourcing options for companies at a higher political level. This could include political support for certification schemes for mineral resources and import bans on products made under unethical conditions. Full support for the implementation of the EU Corporate Sustainability Due Diligence Directive (CSDDD) without further limitations is required to provide a framework for such measures and creating a level playing field for companies across the EU. 
+* Diversified supply chains: Politics should support the development of PV production capacity in the EU. A more diverse range of sources not only enables socially acceptable production, but also reduces dependence on individual countries and the likelihood of supply chain disruption. Overall, diversified supply chains enhance the resilience of renewable energy systems.
+Further details on the social risk hotspots identified by the S-LCA in the supply chain of electricity generated by the offshore FPV and recommendations on how to mitigate these risks can be found in chapters 4 and 5 of this report. This type of information will become increasingly important for companies in this sector when the EU Corporate Sustainability Due Diligence Directive comes into effect and requires large companies to identify and address potential and actual adverse impacts on human rights in their supply chains. 
+Summary and outlook
+This study highlights several potential social impacts that could arise in the supply chain and during the construction and operation of offshore FPV. It shows that, if risk mitigation measures are applied, the social risks of electricity generated by offshore FPV can be lower than those of fossil fuel-based electricity. These findings should be considered early in the commercialisation process to proactively minimise social risks at various implementation stages. In addition to social risks, it is important to consider relevant environmental, technological and economic aspects as well, in order to cover all dimensions of sustainability.
+
+
+
+
+Table of Contents
+1.        Introduction        9
+1.1.        Background: Sustainability assessment        9
+1.2.        Implementation of sustainability assessment within  SUREWAVE        10
+2.        Methodology        12
+2.1.        Common definitions and settings        12
+2.1.1.        Goal definition        12
+2.1.2.        Scope definition        13
+2.2.        Specific definitions and settings for social life cycle assessment (S-LCA)        15
+2.2.1.        Choice of assessment approach        15
+2.2.2.        Background database        16
+2.2.3.        Activity variable        16
+2.2.4.        Indicators, impact categories and aggregation        17
+2.2.5.        Choices specific for the assessed system        17
+3.        System description        20
+3.1.        General concept        20
+3.1.1.        Main concept: one unit        20
+3.1.2.        Alternative concept: split units        21
+3.2.        Life cycle stages        22
+3.2.1.        Components and their production        22
+3.2.2.        Installation        26
+3.2.3.        Maintenance        26
+3.2.4.        Dismantling and end of life        26
+3.3.        Locations        27
+3.4.        Reference systems        29
+3.5.        SUREWAVE scenarios        29
+3.6.        Input data        29
+4.        Social Life Cycle Assessment results        31
+4.1.        Contributions to overall social risks        31
+4.1.1.        Social risk hotspots of offshore FPV        31
+4.1.2.        Contribution of inputs to sub categories of risks        33
+4.2.        Parameters that influence social risks        35
+4.2.1.        Influence of local conditions        35
+4.2.2.        Excursus: influence of cable to shore        36
+4.2.3.        Influence of layout        38
+4.2.4.        Influence of breakwater type        38
+4.3.        Influence of country of origin        40
+4.4.        Social risks of offshore PV and conventional electricity        42
+5.        Key findings, conclusions and recommendations        44
+5.1.        Key findings        44
+5.2.        Conclusions        46
+5.3.        Recommendations        48
+6.        Outlook        50
+7.        Acknowledgements        51
+8.        Abbreviations        52
+9.        References        53
+
+
+
+
+1. Introduction
+The SUREWAVE project "Structurally reliable offshore floating PV solution integrating circular concrete floating breakwater", funded by the European Union's Horizon Europe research and innovation funding programme, is developing and testing a new concept for floating photovoltaic (PV) systems in offshore marine environments. The main challenge is to protect the solar modules from the sometimes harsh weather and marine conditions. The aim is to massively expand the area suitable for PV installations and thus to support the European Union’s decarbonisation ambitions. Among other things, the project has developed floating breakwaters made of innovative concrete mixtures and innovative, more stable connectors between the individual solar modules. 
+The project is accompanied by an integrated sustainability assessment. The sustainability of the innovative concept was analysed from a technological, environmental, social and economic perspective. This study presents the results of the social assessment carried out by IFEU-Institute for Energy and Environmental Research Heidelberg.          
+
+
+   1. Background: Sustainability assessment
+The most well-known definition of sustainability can be found in the report of the Brundtland Commission: ‘sustainable development is development that meets the needs of the present without compromising the ability of future generations to meet their own needs’ [UN 1987]. At the 2005 World Summit it was noted that this requires the reconciliation of environmental, social and economic demands – the "three pillars" of sustainability. This view has been expressed as a scheme using three overlapping ellipses indicating that the three pillars of sustainability are not mutually exclusive and can be mutually reinforcing (Figure 1).
+   
+Figure 1: Scheme of sustainable development: at the confluence of three constituent parts
+	   
+Figure 2: Scheme indicating the relationship between the three pillars of sustainability [Scott-Cato 2008]
+	The UN definition is not universally accepted and has undergone various interpretations. For many environmentalists the idea of sustainable development is an oxymoron as development seems to entail environmental degradation. From this perspective, the economy is a subsystem of human society, which is itself a subsystem of the ecosphere, and a gain in one sector is a loss from another. This can be illustrated as three concentric circles (Figure 2).
+As a result of the growing pressure on the environment and increased scarcity of natural resources, the sustainability discussion is often focussed on the environment, as both society and economy are constrained by environmental limits. There is abundant scientific evidence that mankind is currently living unsustainably and jeopardising the living conditions of future generations, e.g. by excessive use of resources and excessive use of the environment as a sink, e.g. for greenhouse gas emissions etc. Hence, strong efforts are needed to identify and develop sustainable technologies which are able to reconcile economic, social and environmental demands. 
+   2. Implementation of sustainability assessment within         SUREWAVE
+The integrated assessment of sustainability carried out in the SUREWAVE project takes into account all major pillars of sustainability. The work flow structure of the related integrated life cycle sustainability assessment is depicted in Figure 3.
+
+
+  
+
+Figure 3: Structure of the work package on sustainability assessment in SUREWAVE
+In order to achieve reliable and robust sustainability assessment results, it is inevitable that the principles of comprehensiveness and life cycle thinking (LCT) are applied. LCT means that all life cycle stages for products are considered, i.e. the complete supply or value chains, from the production of technological components as well as their respective material inputs, through installation and operation, to dismantling and end-of-life treatment / final disposal (see section 2.1.2). Through such a systematic overview and perspective, the unintentional shifting of environmental burdens, economic benefits and social well-being between life cycle stages or individual processes can be identified and possibly avoided or at least minimised. 
+
+
+  
+
+Figure 4: Sustainability assessment in SUREWAVE: Life cycle sustainability assessment compares the whole life cycles of all involved technologies/products
+
+
+The performance of each technological approach is compared to alternative reference technologies, e.g. conventional energy production. Relevant aspects of sustainability are analysed using methodologies that are based on LCT. In this project, relevant sustainability impacts are covered using (environmental) life cycle assessment (LCA), social life cycle assessment (S-LCA) and an economic analysis based on the levelised costs of electricity (LCoE) complemented by life cycle environmental impact assessment (LC-EIA) and a technological assessment. Subsequently, these complementary sustainability aspects are brought together according to the methodology of integrated life cycle sustainability assessment (ILCSA) [Keller et al. 2015]. This report covers the results of the social assessment.
+2. Methodology
+This chapter describes the methodology and settings applied for the assessment of social risks. Definitions and settings common to all sustainability assessments within the SUREWAVE project (compare Figure 3 in section 1.2) such as goal and scope are described in section 2.1 and the specific methodologies and settings applied for the social assessment are described in section 2.2.  
+
+
+   3. Common definitions and settings
+A well-founded sustainability assessment requires common definitions and settings on which the technological, environmental, economic and social assessment are based. Thus, general definitions and settings lead to an efficient professional communication between the project partners in WP7 and ensure consistent data and results for the integrated sustainability assessment. The goal and scope definition is the first phase of any sustainability assessment and is relevant for all sub-analyses on technological, environmental, economic and social impacts.
+      1. Goal definition
+The comprehensiveness and depth of detail of the sustainability assessment can differ considerably depending on its goal. Therefore, the intended applications, the reasons for carrying out the study, and the decision context have to be described within the goal definition.
+Intended applications
+The sustainability assessment within the SUREWAVE project aims at two separate applications:
+1. Project-internal support of ongoing process development. This makes this study an ex-ante assessment because the systems to be assessed are not yet implemented in this particular form on a relevant scale and for a sufficiently long time.
+2. To provide a basis to communicate findings of the SUREWAVE project to external stakeholders, especially science, industry, and policy makers. 
+Guiding questions
+The following questions will guide the sustainability assessment.
+Main question:
+Which sustainability impacts are associated with the production of renewable electricity via offshore floating photovoltaic in Europe?
+Additionally, the following sub-questions have been identified in an internal workshop with all project partners:
+* Which parameters or life cycle stages determine the sustainability impacts (on environment, economy and society) significantly and what are the resulting optimisation potentials?
+* Which are the differences of sustainability impacts if offshore PV is compared to fossil fuels such as coal-based electricity?
+* Which are the differences of sustainability implications if FPV is placed in North Sea, Baltic Sea or Mediterranean Sea representing different conditions?
+Further questions to be answered in excursuses:
+* Which are the differences of sustainability implications associated with a split FPV concept (5x 2 MW) in contrast to 1x 10 MW?
+* Which are the differences of sustainability implications if the SUREWAVE FPV is placed within an existing offshore wind park?
+* Which are the differences concerning the carbon footprint of the innovative SUREWAVE “new” breakwater systems compared with conventional breakwaters (expanded polystyrene core)?
+      1. Scope definition
+With the scope definition, the object of the sustainability assessment (i.e. the exact product or other system(s) to be analysed) is identified and described. The scope should be sufficiently well defined to ensure that the comprehensiveness, depth and detail of the study are compatible and sufficient to address the stated goal. Resulting definitions and settings are used in the subsequent analyses (tasks) to guarantee the consistency between the different assessments of environmental, economic and social implications.
+System boundaries
+System boundaries determine which processes are included into the assessment and which not, e. g. if the whole life cycle will be analysed or only a part of it. 
+In SUREWAVE, the entire supply chain including input production, assembly, operational phase, and decommissioning is assessed (cradle-to-grave). These boundaries apply to the environmental, economic, and social assessment. 
+This setting was chosen as the concept of life cycle thinking, which integrates existing consumption and production strategies, thereby preventing a piece-meal approach. Life cycle approaches avoid problem shifting from one life cycle stage to another, from one geographic area to another and from one environmental medium or protection target to another.
+Geographical coverage
+Geography determines a range of used background data. Within SUREWAVE this concerns e.g. metocean conditions and available transport systems, which are primarily relevant for LCoE and LCA, and information on depth range, hydrography and type of sea floor, current, distance to shoreline and other parameters that are primarily relevant for the assessment of local environmental impacts. 
+Generally, the assessment covers European seas. To make best use of available resources and to achieve a good balance of specificity and coverage, it uses exemplary locations to derive relevant insights including research questions for possible future studies.
+Three exemplary locations were chosen for further analyses in D2.1 “Use case scenario basis for typical, rough location” based on various project considerations (see D2.1 for details). These are
+* The Greater North Sea (56°54'N, 05°00'E) representing harsh conditions
+* The Western Mediterranean (39°00'N, 00°00'E) representing standard conditions
+* The Baltic Sea (54°47′N, 13°23′E) representing mild conditions. 
+They were adopted to form the basis for more generic scenarios of the sustainability assessment. In particular for the investigation of local environmental impacts, more generic areas are analysed, in which conditions are very similar to the specific conditions at the selected locations. Thus, this analysis does not aim at studying the specific locations listed as it would be needed e.g. for an approval process.
+Technical reference
+The technical reference describes the technology to be assessed in terms of scale, development status, and maturity. 
+The SUREWAVE system is assessed as mature, industrial-scale technology to ensure comparability to established alternatives. This goes beyond the TRL5 pursued with the technical work done within the project.
+Time frame
+The SUREWAVE system must be described not only in space but also in time. The timeframe of the assessment determines e.g. the development status of used technology. Likewise, the environmental impact associated with conventional products changes over time, e.g. greenhouse gas emissions associated with electricity generation. Like geography, the time frame of the assessment hence determines background datasets used.
+2030 was selected as first realistic year in which the technology could be mature and available.
+Reference unit - Functional unit
+The functional unit is a key element of sustainability assessment. It is a reference to which the environmental, social and economic effects of the studied system are related, and is typically a measure for the function of the studied system. Consequently, it is the basis for the comparison of different systems.
+For the SUREWAVE assessment, 1 MWh of produced electricity is used as the functional unit. In individual cases, however, it can be convenient to show the results with other units of references. For instance, investment costs in the economic assessment are usually provided per installed peak power.  
+________________
+
+
+   4. Specific definitions and settings for social life cycle assessment (S-LCA)
+Social life cycle assessment (S-LCA) is based on life cycle thinking and its requirements are specified in the international S-LCA standard [ISO 2024]. The methodology of this S-LCA study follows the guidelines for social life cycle assessment of products and organisations [Benoît Norris et al. 2020] and uses generic country- and sector-specific data on social issues to identify social risk hotspots in the supply chain [Benoît Norris et al. 2019]. The common definitions and settings described in section 2.1 apply to this S-LCA study, however, several specific settings and methodological choices have to be made for each individual S-LCA study. In the following, these choices are detailed.
+      2. Choice of assessment approach
+We used the Reference Scale Assessment (RS) as impact assessment method. It allows estimating the magnitude and significance of potential social risks associated with a product system. It classifies the observed social risks of activities related to a product system compared to a reference scale. This classification can be based on international standards, local legislation or industry best practice – but also on other documented criteria [Benoît Norris et al. 2020]. 
+The methodology for assessing potential social risks is shown schematically in Figure 5. Information on the mass and energy balance, prices of inputs, utilities and activities, the country from where these inputs and utilities are purchased or where these activities take place, and information on labour for production, installation and maintenance of the system (foreground system) are combined with data provided by the Social Hotspots Database (SHDB)[Benoît Norris et al. 2019]. For each country-specific sector (CSS) (defined by the type of input and its country of origin), the work performed in that sector and purchases from other country-specific sectors are taken into account. The SHDB uses the multiregional input/output (MRIO) model GTAP (Global Trade Analysis Project) to trace back the purchases from other country-specific sectors [Aguiar et al. 2016]. The social risks associated with work in these sectors are assessed using a reference scale. In the SHDB, the social risks observed in a country-specific sector for each indicator are classified into the social risk levels ‘low’, ‘medium’, ‘high’ and ‘very high’, using the criteria described in [Benoît Norris et al. 2019]. Risks are expressed in medium risk work-hours equivalent (mrwh eq) for each input or activity at the level of 5 categories or 25 subcategories.
+
+
+
+
+  
+
+Figure 5: Methodology for evaluating the social risks of the SUREWAVE value chain with the Social Hotspots Database (SHDB).
+      3. Background database
+Background data on social risks are taken from the Social Hotspots Database (SHDB, version 2019 (V4) [Benoît Norris et al. 2019], which is based on the multiregional input/output (MRIO) model GTAP version V9 (reference year 2011)[Aguiar et al. 2016]. 
+      4. Activity variable
+Observed social risks classified according to the reference scale approach are related to an activity variable to allow a link to a product system. Following the approach of the SHDB, the activity variable chosen is the number of hours worked in the individual country-specific sector. This reflects the labour intensity of a production activity. The activity variable is multiplied by a factor associated with the social risk level of an indicator in a country-specific sector in order to calculate the medium risk work-hours equivalent. In this project, the factors proposed by [Benoît Norris et al. 2019] are used. 
+________________
+
+
+      5. Indicators, impact categories and aggregation
+The aim of the S-LCA is to identify potential social risks affecting stakeholders along the supply chain, including workers, local community, value chain actors, and society. These risks are assessed using the full set of risk indicators grouped into 25 subcategories or five impact categories provided by the SHDB [Benoît Norris et al. 2019]: 
+1. Labour rights and decent work
+2. Health and safety
+3. Human rights
+4. Governance
+5. Community
+In order to display all results in one graph, the equally weighted sum of the category values was used to calculate a single risk score because data for an alternative normalisation approach is not available. This was done for the purpose of screening for sources of high social risks among all inputs. Contributions were additionally verified individually on the level of all 25 subcategories. Aggregation for the purpose of normative weighting of largely independent social impacts is necessarily based on value-based choices, for which each affected person may have an individual set of preferences, and therefore was not done. This procedure allows for social hotspots to be identified, but does not allow further conclusions to be drawn about the severity of potential impacts or about trade-offs, such as reducing one risk at the cost of increasing another, unless differences in results are very high. 
+      6. Choices specific for the assessed system
+Data on background system
+The mass and energy balance provided by Task 7.1 and the prices of the economic assessment (Task 7.2), were used to calculate the costs of each input. 
+* Conversion of prices:        
+Current prices (2024) were provided in EUR by the economic assessment (Task 7.2). To convert EUR 2024 to USD 2011, the reference of the GTAP input/output model, prices in EUR 2024 were multiplied by a factor of 0.77. This factor is based on the mean exchange rate of EUR and USD in 2024 [European Central Bank 2024] and the USD inflation between 2011 and 2024 [US Inflation Calculator 2024]. 
+* Assigning inputs to country-specific sectors:         
+Table 2 lists the sectors and countries assigned to inputs for the offshore FPV as designed by the SUREWAVE project. The countries were classified as 1) domestic (including solar cells from China), and 2) high-risk countries. For the purpose of this study, ‘domestic‘ refers to European countries, including Germany, Lithuania, and Norway. ‘High-risk countries‘ are potential suppliers to the EU, as determined by import statistics [United Nations 2024] and literature values, such as from [World Bank Group 2017]. These countries often represent middle- and low-income countries with poor social and labour standards. If the allocation to a sector is unclear, a sensitivity analysis was carried out.
+* Reference scenario:
+The social risks associated with the offshore FPV system are related to those of fossil fuel-based electricity. The SHDB does not differentiate between renewable and fossil fuel-based electricity. Therefore, as the reference scenario, we selected the electricity sector in Poland for the reference year 2011, when Poland’s electricity generation was based to 92% on coal [International Energy Agency (IEA) 2011]. In line with the social risks included for the offshore FPV system, only risks related to material and energy inputs, as well as work in the foreground system, were taken into account. Social risks associated with so-called ‘soft costs’, including insurance, rent and financing, were not assessed.
+   * Infrastructure:
+That part of the infrastructure is included in the inventory of the foreground system that is required to reach the goal of this study given the current state of development. The floating FPV installation itself, its maintenance and disassembly are included, the production equipment to manufacture the FPV modules elements and breakwaters are not included. 
+   * Recycling: 
+Social risks associated with recycling were not quantified in this report due to high uncertainties associated with future recycling technologies and their associated social risks.
+Approach to foreground system 
+The foreground system includes the social risks associated with the construction, installation, maintenance and dismantling of the offshore PV. Construction includes the production of the breakwaters and the assembly of the solar panels with aluminium floats and other PV components (see Table 1 for the assignment of country-specific sectors). Only risks directly related to work in these sectors were taken into account, not indirect risks resulting from purchases from other sectors upstream. 
+________________
+Table 1: List of inputs used in the offshore PV, corresponding GTAP sectors [Center for Global Trade Analysis 2019], and countries of origin under the domestic and high-risk scenario. 
+Item
+	Sector
+	Country
+	SUREWAVE system
+	
+
+	Domestic 
+	High-risk 
+
+	Breakwater
+	
+
+	
+
+	
+
+	Concrete
+	Mineral products 
+	Germany
+	Germany
+	Steel
+	Ferrous metals
+	Germany
+	China
+	Chemicals and polymers
+	Chemical, rubber, plastic products
+	Germany
+	Germany
+	Water
+	Water 
+	Germany
+	Germany
+	Aluminium
+	Minerals / Metals 
+	Germany
+	Guinea / China[2]
+	Power
+	Electricity
+	Germany
+	Germany
+	Land transport
+	Transport
+	Germany
+	Germany
+	Water transport
+	Water transport 
+	Germany
+	Germany
+	Fuel
+	Petroleum, coal products
+	Germany
+	Germany
+	Breakwater: work in foreground system
+	Construction
+	Germany
+	Germany
+	FPV & installation
+	
+
+	
+
+	
+
+	Plastics 
+	Chemical, rubber, plastic products
+	Germany
+	China
+	Steel
+	Ferrous metals
+	Germany
+	China
+	Aluminium
+	Metals / Minerals
+	Germany
+	Guinea / China2
+	Solar panel thereof solar cells
+	Minerals 
+	China
+	China
+	Solar panel thereof glass and frame
+	Machinery and equipment / Manufactures
+	Lithuania
+	Lithuania
+	Electronics 
+	Electronic equipment
+	Germany
+	China
+	Power
+	Electricity
+	Norway
+	Norway
+	Copper
+	Metals / Minerals
+	Germany
+	China
+	Land transport
+	Transport 
+	Germany
+	Germany
+	Water transport
+	Water transport
+	Germany
+	Germany
+	Waste
+	Public Administration, Defense, Education, Health
+	Germany
+	Germany
+	FPV: work in foreground system
+	Machinery and equipment 
+	Norway
+	Norway
+	Installation, maintenance, dismantling (fuel)
+	Petroleum, coal products
+	Germany
+	Germany
+	Installation, maintenance, dismantling: work in foreground system
+	Construction
+	Germany
+	Germany
+	Reference system
+	
+
+	Fossil fuel-based electricity
+	Electricity
+	Poland
+	      3. System description
+To assess the offshore floating PV system from an environmental point of view, environmental impacts from all life cycle stages must be taken into account. This chapter therefore provides a detailed description of the offshore PV system as well as the assessed scenarios, reference systems, and final scenarios. Figure 6 displays a simplified scheme of the offshore PV life cycle.
+
+
+  
+
+Figure 6: Simplified scheme of the offshore PV life cycle.
+
+
+The floating PV solution primarily consists of floating PV modules surrounded by innovative floating breakwater elements. Section 3.1 presents the general concept of the system, while section 3.2 describes all life cycle stages from the production of components to the final dismantling (cradle to grave).
+      1. General concept
+      1. Main concept: one unit
+The main layout concept investigated in this study follows one large uniform circular layout as depicted in Figure 7. The outer boundary of the system is formed by a closely interconnected line of floating breakwater pontoons which enclose a network of floating photovoltaic modules, i.e. photovoltaic panels mounted to aluminium floats. The modules are arranged in matrices of several dozen modules each. Neighbouring matrices are interrupted by a single row of so-called dummy floats which reflect the same aluminium floats, however, without the photovoltaic panels, enabling maintenance and cleaning of the modules. The outer photovoltaic modules are connected to a surrounding circular PVC pipe by elastic polypropylene ropes, while the pipe in turn is connected to the breakwaters. To secure geometrical integrity of the layout, two additional lines of bridge breakwaters cross the photovoltaic setup and are connected to the adjacent modules via PVC pipes and polypropylene ropes. To hold the system in place, several breakwaters along the circle as well as several bridge breakwaters are moored to the seabed via steel chains and anchoring steel piles. The system is equipped with electrical devices specified in section 3.2.1 that are required to transport the produced electricity to shore.
+  
+
+Figure 7: Layout for a 9 MWp plant. © by Sunlit Sea AS.
+
+
+      2. Alternative concept: split units
+To address potential differences in environmental impacts, a second layout concept with the same electricity yield is investigated. Compared to the large uniform concept described in section 3.1.1, the required number of floating photovoltaic modules is split into five smaller units equidistantly arranged in a pentagon and individually encircled by breakwaters similar to the main concept. Bridge breakwaters, as they cross the system following the large concept, are not required in the split concept.  In total, the concept translates to an 75 % increase of the breakwater number due to a less favourable circumference to area ratio. Each of the five smaller units is individually moored to the seabed. To prevent entanglement of the anchoring and mooring, the individual units are installed with a minimum distance. The split concept is investigated for harsh conditions (i.e. North Sea) only.
+      2. Life cycle stages  
+         1. Components and their production
+
+
+Floating photovoltaic (PV) modules
+The floating PV modules reflect a commercial product originally designed by the project partner Sunlit Sea for land locked systems. They consist of monocrystalline solar panels which are mounted on floating substructures. The floats are made from two opposing pressed and rolled marine grade aluminium sheets with cup-shaped dimples which are filled with Styrofoam. Individual modules are connected via a combination of flexible polyurethane hinges as well as metal brackets and electrically wired in series according to the layout presented in section 3.1.
+  
+
+Figure 8: Concept of the floating photovoltaic modules, showing the dimple structure in the aluminium floats. © by Sunlit Sea AS.
+The solar panels are assembled in Lithuania. The final modules are produced in Norway and transported to the respective harbour.
+Breakwater
+The breakwater pontoons, which are connected via a combination of steel ropes and rubber, consist of a reinforced concrete structural shell and a non-structural inner core, designed with a box-shaped cross section (Figure 9) (see D3.2). 
+         * For the shell, two different material solutions were developed by the project partner ACCIONA: high-performance concrete (HPC) and lightweight aggregate concrete (LWAC). HPC requires less material than conventional concrete due to its high strength. It further incorporates blast-furnace slag and fly ash, reducing the clinker content in 20%. LWAC replaces 100% conventional lightweight aggregates with recycled glass aggregates and 20% of the weight of natural coarse aggregates with recycled concrete aggregates from construction and demolition waste (CDW). The respective shell material is structurally supported by steel reinforcement. 
+         * For the core of the breakwater, a circular cellular lightweight concrete (CCLC) is employed, using a minimum amount of cement and recycled glass aggregates. To assess the advantages of the new material solutions with regard to the greenhouse gas balance, they are compared to conventional breakwaters using polystyrene as core material and conventional concrete (CC) which complies with the requirements of the applicable concrete standards for floating concrete structures. In addition, a hybrid design is considered which combines CCLC and polystyrene as core materials. Table 2 shows the material combinations investigated in this study.
+Table 2: Material combinations regarding the breakwater shell and core investigated in this study.
+Name
+	Shell material
+	Core material
+	Conventional design
+	CC
+	Expanded polystyrene (EPS)
+	Hybrid design
+	LWAC
+	40% CCLC + 60% EPS (approx. % v/v)
+	SUREWAVE design with LWAC concrete
+	LWAC
+	CCLC
+	SUREWAVE design with HPC concrete
+	HPC
+	CCLC
+	LWAC: lightweight aggregate concrete; HPC: high-performance concrete; CCLC: circular cellular lightweight concrete 
+The breakwaters are produced in a production facility directly at the harbour. The individual components of the respective concrete solutions for shell and core are cast using a mobile concrete mixing plant. The shell is cast directly around the core. After hardening, pontoons are transported within the facility with a crawler crane. The components for the shell and core, respectively, are available in Europe and transported by trailers on land.
+ 
+  
+
+Figure 9: Cross section of a single breakwater pontoon. © by Clement Germany GmbH.
+
+
+Anchoring
+To hold the floating system in place and transfer wave loads to the ground, multiple breakwaters are anchored to the sea bed while the photovoltaic matrices are secured by their breakwater connection. The multi point anchoring is realized with two steel chains attached to the longitudinal inside and outside of anchored breakwaters, respectively. While each outer chain leads radially to a separate driven tubular anchor pile, the inner chain configuration differs for harsh, mid, and mild metocean conditions. 
+In case of mild conditions, each outer anchor pile is opposed by an equidistant pile inside of the breakwater line and connected to the inner chain. 
+For mid and harsh conditions, however, all inner chains are anchored to one single tubular steel pile beneath the center of the floating system (Figure 10). 
+For logistic reasons, this center pile is assembled from several smaller piles. In the final installation, the steel chains follow a catenary line. The number of required anchor points is specific for the metocean condition and additionally differs between the uniform and split concept at the North Sea location. 
+The tubular steel piles are available in Europe and transported by trailers on land. The chains are produced in China and transported overseas.
+
+
+  
+
+Figure 10: Anchoring concept of the uniform system using the example of mid conditions. © by Clement Germany GmbH.
+Split concept: The outer anchor points are not opposed by anchor points within the breakwater line but on the opposite site of the circular assembly (Figure 11). Furthermore, single anchor piles used with the split concept are smaller compared to the piles used with the uniform concept.
+  
+
+Figure 11: Anchoring concept for one unit of the split layout at harsh conditions (North Sea). © by Clement Germany GmbH.
+Electrical connection
+The produced electricity from each module matrix is collected in individual combiner boxes located on the dummy floats. These combiners are connected to inverters that convert DC electricity generated by solar panels into AC electricity. The inverters are located on the bridge breakwaters and lead to a single transformer station at the center of the floating system. A single AC power cable is installed on the seabed and connects the floating PV system to the shore. At the shore, a small distribution unit is used as the interface to the grid or local consumers. Each breakwater is further equipped with a sensor developed by the project partner CEIT to monitor the structural integrity. 
+Split concept: The individual units are electrically connected to their respective left and right neighbours, while, again, a single AC power cable leads to the shore.         
+Excursus: Connection of the system to an existing offshore installation such as a wind park is investigated as an excursus. In this case, the power cable to shore is replaced by a short floating cable supported by buoys. 
+Accessory devices
+Beacons are installed on top of the breakwaters to ensure visibility for passing ships.
+  
+
+         2. Installation
+All components of the offshore PV concept, i.e. floating PV modules, Breakwaters, anchoring steel piles, chains, connections, and electrical components, are loaded to appropriately sized vessels and transported to the installation site. Depending on the layout concept (see section 3.1) as well as the location (see section 3.3), this requires two to four journeys of crane ships with different operation times on site. Anchoring piles are vibrated into the seabed, and breakwaters are offloaded and connected. Breakwaters are towed into their final position by small tug boats. PV modules are installed separately from the breakwaters and anchoring. After installation, the ships return to the harbour. While all other components remain at the installation site for 50 years, the floating PV modules are exchanged after 25 years. 
+ Tools mit einfarbiger Füllung 
+
+         3. Maintenance
+Maintenance at the breakwater pontoon connections is done four times a year. Maintenance of the breakwaters themselves is performed remotely due to the monitoring sensors so that no on-site operatives are required. The floating PV are maintained and cleaned four times a year using drones.
+ 
+  
+
+         4. Dismantling and end of life
+After 50 years of operation, the breakwaters as well as the second installation of floating PV modules (see section 3.2.2) are dismantled using appropriately sized vessels. The mooring chains are cut from the anchor piles below the water line in such a way that 75 % of the steel is transported away for recycling, while 25 % of the respective chain remains on the seabed together with the anchoring piles. Breakwaters, PV modules and chains are loaded to the vessels and transported back to shore. As the polyurethane hinges are tightly connected to the aluminium floats, only limited areas of the floats can be recycled. All others parts of the PV modules are subjected to energy production by combustion in a combined heat and power plant. The cable to shore remains at the seabed. Due to the impacts of biofouling, the breakwaters are sent to landfill.
+
+
+Excursus: Alternative vessel logistics are investigated as an excursus. They may involve pre-assembly of parts of the floating PV system at the harbour and subsequent tugging to the final location. Another aspect could be the prevention of overnight positioning of vessels during installation by returning into the port by the end of each day. This approach may also affect dismantling activities. Further, maintenance could be performed directly from the shoreline, likewise preventing overnight positioning. All these alternatives lead towards less vessel fuel consumption.
+         3. Locations
+In this study, the offshore PV concept is assessed at three different European locations to investigate the effect of different meteorological and oceanographical (metocean) conditions on the environmental performance of the system.
+         1. Greater North Sea (56°54'N, 05°00'E): This location reflects harsh metocean conditions, i.e. high wave-induced turbulences and extreme weather events. Therefore, the anchoring must meet higher standards which implies increased amounts of material. In addition, solar irradiation is lower compared to the other two locations and the distance to shore is much higher.
+         2. The Western Mediterranean (39°00'N, 00°00'E): This location possesses medium metocean conditions and material consumption for anchoring is therefore lower than in the North Sea. At the same time, it has the largest solar irradiation and is the closest to the shore. 
+         3. The Baltic Sea (54°47′N, 13°23′E): This location shows only mild metocean conditions which place the lowest structural demands on the offshore PV system. The amounts of material required for anchoring of the system are lowest, while the solar irradiation lies between those at the North Sea and the Mediterranean. The distance to shore is comparable to that of the location in the Mediterranean Sea.
+The solar irradiation represents the main driver of the achievable electricity yield, which decreases over the years due to technical degradation of the PV panels. Table 3 provides a more detailed geographical classification of the three locations and Figure 12 shows the locations in relation to the coast.
+Note: At the beginning of the project, a different location was chosen for the Baltic Sea scenario (coordinates: 54°12'N, 14°24'E, yellow square in Figure 12). However, during an early scoping performed for the assessment of local environmental impacts, the location was identified to be within a marine environmental protection area. It was hence relocated to another location with similar metocean conditions yet outside of any environmental protection areas.
+Table 3: Geographical classification of the three locations in SUREWAVE.
+Component of the plant
+	North Sea
+	Baltic Sea
+	Mediterranean
+	State
+	Norway
+	Germany
+	Spain
+	Floating PV and anchoring
+	EEZ* and continental shelf
+	12-mile zone
+	12-mile zone
+	Cable (land connection)
+	EEZ*, continental shelf, coastal waters, coast (land)
+	Continental shelf, coastal waters, coast (land)
+	Continental shelf, coastal waters, coast (land)
+	Power distributor (not part of the SUREWAVE concept)
+	Coast (land)
+	Coast (land)
+	Coast (land)
+	* Exclusive Economic Zone
+  
+  
+
+  
+
+	Figure 12: Locations of the offshore PV plant in the North Sea (top), Baltic Sea (centre), and Mediterranean (bottom) assessed.
+         4. Reference systems
+Due to existing policies in most countries of the European Union, fossil energy sources should be replaced by renewable energy carriers.  
+Therefore, the offshore PV concept is compared to fossil-based electricity production, with coal-based electricity as primary example because of the high priority of replacement. For this, a European average mix based on hard coal and lignite is applied.
+Excursus: For comparison purposes, offshore PV is contrasted with PV on land.
+
+
+         5. SUREWAVE scenarios
+Taking into account the goal and scope questions, the system description, and the requirements for the integrated sustainability assessment, the following main scenarios need to be considered in the technological, environmental, economic, and social assessments:
+         1. North Sea location, uniform layout, innovative breakwater
+         2. Baltic Sea location, uniform layout, innovative breakwater
+         3. Mediterranean location, uniform layout, innovative breakwater
+For North Sea location only:
+         4. North Sea location, split layout, innovative breakwater
+         5. North Sea location, uniform layout, conventional breakwater
+
+
+         6. Input data
+Table 4 provides an extract of the most important primary quantitative input data, i.e. mass and energy balances, for the environmental assessment. All inputs < 1 t / plant are not listed here, e.g. monitoring sensors or silicon edges of the floats.
+Since the S-LCA is based on economic databases, the prices used in the parallel economic assessment [Larsen 2025] were used to convert the mass and energy inputs into costs. In addition, the number of working hours was also taken into account based on the economic assessment in order to evaluate the social risks associated with the construction, installation, maintenance and dismantling of offshore FPV. The S-LCA did not include costs such as for insurance, rent and financing (‘soft costs’).
+Table 4: Summary of the most important quantitative input data for the environmental assessment.
+Material
+	Baltic Sea
+	Mediterranean
+	North Sea
+	Unit
+	Breakwater
+	
+
+	LWAC
+	8,200
+	8,200
+	8,200
+	t / plant
+	Cellular concrete core
+	5,100
+	5,100
+	5,100
+	t / plant
+	Reinforcement
+	680
+	680
+	680
+	t / plant
+	Breakwater connections
+	
+
+	Structural steel
+	210
+	210
+	210
+	t / plant
+	Rubber
+	32
+	32
+	32
+	t / plant
+	Anchoring
+	
+
+	Tubular piles: steel
+	630
+	1,500
+	2,200
+	t / plant
+	Chains: steel
+	660
+	800
+	1200
+	t / plant
+	Transition elements
+	
+
+	PVC pipe
+	57
+	57
+	57
+	t / plant
+	Polypropylen ropes
+	4.1
+	4.1
+	4.1
+	t / plant
+	Floating PV modules
+	
+
+	Aluminium sheet
+	88
+	88
+	88
+	t / plant
+	Solar panel
+	490
+	490
+	490
+	t / plant
+	Transport pallet: wood
+	40
+	40
+	40
+	t / plant
+	Hinges: polyurethane
+	38
+	38
+	38
+	t / plant
+	EVA sheet
+	40
+	40
+	40
+	t / plant
+	EPS
+	14
+	14
+	14
+	t / plant
+	Polyurethane
+	15
+	15
+	15
+	t / plant
+	Power
+	48,000
+	48,000
+	48,000
+	kWh / plant
+	Dummy floats
+	
+
+	Aluminium sheet
+	12
+	12
+	12
+	t / plant
+	Transport pallet: wood
+	5.4
+	5.4
+	5.4
+	t / plant
+	Hinges: polyurethane
+	5.1
+	5.1
+	5.1
+	t / plant
+	EVA sheet
+	5.4
+	5.4
+	5.4
+	t / plant
+	EPS
+	1.9
+	1.9
+	1.9
+	t / plant
+	Polyurethane
+	2
+	2
+	2
+	t / plant
+	Power
+	480
+	480
+	480
+	kWh / plant
+	Electrical components
+	
+
+	Combiner boxes
+	68
+	68
+	68
+	number / plant
+	DC cable
+	4,100
+	4,100
+	4,100
+	m / plant
+	Inverter
+	20
+	20
+	20
+	number / plant
+	AC cable
+	1,800
+	1,800
+	1,800
+	m / plant
+	Transformer station
+	1
+	1
+	1
+	number / plant
+	Cable to shore
+	30
+	11
+	170
+	km / plant
+	Ship fuel consumption
+	
+
+	Transport and installation
+	1,200
+	1,200
+	1,500
+	t of ship fuel / plant
+	Replacement of PV after 25 a 
+	500
+	500
+	570
+	t of ship fuel / plant
+	Maintenance 
+	1,300
+	1,300
+	1,600
+	t of ship fuel / 25 a
+	Dismantling
+	740
+	740
+	1,000
+	t of ship fuel / plant
+	         4. Social Life Cycle Assessment results
+The objective of the social assessment was to identify social risks in the supply chain of the offshore floating PV (FPV) concept. This also includes the social risks associated with the construction, installation and maintenance of the FPV. Therefore, a social life cycle assessment (S-LCA) using the Social Hotspots Database (SHDB) was carried out. For details on the methods and analysed systems see chapter 2 and 3, respectively. This chapter presents the S-LCA results starting with an analysis of the largest contribution to social risks (risk hotspots) under low-risk conditions (section 4.1). The subsequent section shows how social risks vary depending on local conditions, the FPV layout, and breakwater type (section 4.2). Section 4.3 examines how the origin of inputs (i.e., the supply chain) influences the social risks of offshore floating PV. Section 4.4 puts the social risks of offshore FPV into perspective by examining those of electricity generated from fossil energy sources. 
+         5. Contributions to overall social risks
+In this section, the contributions of the various inputs to overall social risks are determined. The aim is to identify social risk hotspots to be addressed with priority. All social risks provided by the background database (Social Hotspots Database, SHDB), which are represented by 25 subcategories and five categories, are covered (see also section 2.2.4). Most results in this report are presented as the sum of category scores, showing how the total result varies according to scenario selection and supply chain. 
+         7. Social risk hotspots of offshore FPV 
+The extent of social risks determined in S-LCA is commonly expressed in medium risk working hours equivalents (mrwh eq). It depends on the (physical) quantity of material and energy inputs, unit prices and risk scores, which are usually taken from a database and depend on the country of origin and the economic sector to which inputs are assigned (see S-LCA methodology in section 2.2 for details). 
+Figure 13 shows the total social risks in mrwh eq per MWh electricity produced by offshore FPV at a location far from the coast, represented by the North Sea scenario. In total, about 100 mrwh eq are associated with one MWh electricity produced by offshore FPV. The supply chain of the solar panel is the biggest contributor to social risks, accounting for almost half of the total risks, most of which originates from the solar cells. While this scenario generally considers inputs from domestic sources, i.e., within the EU and Norway, solar cells are sourced from China in all scenarios because China dominates every solar PV supply chain segment, from raw materials to module production [International Energy Agency 2022]. For instance, it is a major producer of polysilicon, which is required for monocrystalline silicon, accounting for 79% of global production. Therefore, the risk ratings for China’s mineral sector from the social hotspot database (SHDB) are important for the overall results. 
+  
+  
+Figure 13: Contribution of inputs to social risks of offshore FPV. Social risks associated with inputs used to produce one MWh of electricity (mrwh eq). Location: North Sea; Breakwater type: LWAC/CCLC (shell made of lightweight aggregate concrete and core made of circular cellular lightweight concrete); Layout: uniform; Supplier country: domestic (EU, Norway) and China (solar cells).
+These risks of solar cell production could be underestimated when considering the local distribution of the production within China: Between one third and one half of global polysilicon production is concentrated in the Chinese Xinjiang region [Crawford & Murphy 2023]. The Chinese government has been accused of operating forced labour programmes targeting ethnic minorities, including Uyghurs, Kyrgyz, Kazakhs and Tajiks, in the region. Major polysilicon producers in the region are listed under the Uyghur Forced Labour Prevention Act (UFLPA) Entity List[3] and increased international awareness has led to certain shifts in production to other regions of China [European Bank for Reconstruction and Development 2024; Mulvaney & Bazilian 2023; Murphy & Elimä 2021]. While the Chinese government strictly refutes all allegations [Global Times 2021], there is a lack of transparency that would be needed to document fair working conditions, with companies failing to disclose sufficient information about their supply chains [Crawford & Murphy 2023]. Apart from the general uncertainties arising from assigning specific inputs, such as a solar cells, to broad economic sectors, such as the ’minerals’ sector (see S-LCA methodology in section 2.2), regional social risks associated with solar cell production may exceed the national sector average. However, uncertainties remain high due to a lack of verifiable information on actual regional working conditions in China’s solar industry. Find more information on high-risk inputs in section 4.3. 
+Other relevant contributions to the overall social risks can arise from the supply chains of the breakwater, the steel for anchoring, the cable to the shore and the marine fuel used for the installation and maintenance of the offshore FPV. Note that alternative logistics for the vessels, such as the pre-assembly of parts of the offshore FPV system in the harbour before being tugged to the final location, can reduce fuel consumption [Breyer et al. 2025]. To a lesser extent, work in the production of the breakwaters, the assembly of the PV components, and the installation, maintenance and dismantling of the offshore FPV plant also contributes, accounting for about 5% of overall risks. 
+The S-LCA results are consistent with previous publications on social risks in the supply chains of land-based PV, emphasising the social risks associated with solar cells and minerals (e.g. [European Bank for Reconstruction and Development 2024; MacLeod & Racionero Gómez 2017]). Depending on the module type, the materials used for solar cells differ. Crystalline silicon (c-Si) modules, which have the highest market shares, are considered in the SUREWAVE concept. The main component of c-Si solar cells is silicon, with silver accounting for only 0.05% [European Commission Joint Research Centre 2020]. Compared to other technologies, c-Si uses more silver but less of other potentially critical metals such as cadmium, tellurium and indium, which are important for other PV technologies [MacLeod & Racionero Gómez 2017]. In addition to solar cells, PV modules are associated with critical minerals as part of the electrical components, frame and mounting structure of the PV module, particularly copper and aluminium [International Energy Agency (IEA) 2021]. 
+         8. Contribution of inputs to sub categories of risks
+Figure 14 illustrates the contribution of the individual inputs to the social risks at sub category level. These include 25 social issues that comprise the five main impact categories 1) labour rights and decent work, 2) health and safety, 3) human rights, 4) governance and 5) community.
+The results show that social risks in most sub categories are dominated by solar panels, and, to a lesser extent, the four other main inputs (breakwaters, anchoring, cable to shore and fuel). Notably, the contribution of work on the offshore FPV system itself varies depending on the sub category. According to the data underlying the SHDB, work is particularly at risk of labour law violations, as well as injuries and fatalities, as reflected in Figure 14. These are specific risks that need to be managed when implementing FPV, particularly in offshore conditions.
+The following sections focus on the total score to identify differences in social risk hotspots between scenarios and to derive optimisation potentials. 
+  
+
+Figure 14: Contribution of inputs to subcategories (%) in the generation of one MWh electricity (mrwh eq). Location: North Sea; Breakwater type: LWAC/ CLCC; Layout: uniform; Supplier country: domestic (EU, Norway) and China (solar cells).
+
+
+Findings:
+         * Solar cells sourced from China are likely to be a social risk hotspot in offshore FPV and the actual risks in certain regions may exceed those presented in the national-level results in this report.
+         * Other relevant risk contributions include the supply chains of breakwaters, anchoring, cable to shore and fuel. Together, these account for almost half of the total social risks.
+         * Work on the construction of the FPV and offshore activities account for about 5% of aggregated social risks, but specific risks relating to labour rights and work safety can be high, particularly in offshore conditions.
+         1. Parameters that influence social risks 
+Different FPV scenarios are analysed to identify parameters that cause relevant differences in overall results to identify optimisation potentials. The scenarios differ by: 
+         * Local site conditions
+         * Close to the coast, mild metocean conditions (represented by the Baltic Sea location)
+         * Far from the coast, harsh metocean conditions (represented by the North Sea location)
+         * Close to the coast, medium metocean conditions (represented by the Mediterranean Sea location)
+         * Offshore FPV layout
+         * Uniform (single uniform unit)
+         * Split (split into five smaller units)
+         * Type of breakwater
+         * Lightweight aggregate concrete (LWAC) shell with an innovative circular cellular lightweight concrete (CCLC) core
+         * Conventional concrete (CC) shell with a conventional polystyrene (EPS) core 
+Section 3 provides an overview of the scenarios analysed. 
+         5. Influence of local conditions
+This section compares the social risks associated with offshore FPV in locations with different local conditions. Figure 15 shows that the social risks differ significantly between the three locations. The North Sea scenario has twice the social risks of the Mediterranean scenario. The social risks of the Baltic Sea scenario fall between those of the other two scenarios. This is due to different factors:
+         * Higher solar irradiation increases the electricity output per operation period, thereby reducing the social risks associated with all inputs per MWh of electricity produced. Solar irradiation is highest at the Mediterranean site and lowest at the North Sea site.
+         * Metocean conditions vary greatly, ranging from very harsh (North Sea) to mild conditions (Baltic Sea). This has an impact on the amount of material used for anchoring and the associated social risks, as higher standards are required in harsher conditions.
+         * The distance from the shore affects the length of the cable required to connect the offshore FPV plant to the coast, and therefore the amount of material required. As the North Sea site is 169 km from the coast, it has a higher social risk associated with the cable than the other two sites. 
+  
+ 
+Figure 15: Social risks of offshore FPV in the North Sea, the Baltic Sea and the Mediterranean Sea (mrwh eq). Location: various; Breakwater type: LWAC/ CLCC; Layout: uniform; Supplier country: domestic (EU, Norway) and China (solar cells). 
+         6. Excursus: influence of cable to shore
+The subsea cable connecting the offshore FPV to the coast can be associated with high social risks, depending on the type, amount and origin of material. Copper and aluminium, which serve as electrical conductors, are the two main materials used in wires and cables. Copper is widely used in subsea cables due to its superior technical properties and higher weight compared to aluminium, but in some instances aluminium can also be used for subsea cables [International Energy Agency (IEA) 2021]. A wide variety of subsea power cables is available to meet diverse technical, environmental, and operational requirements, resulting in different amounts of materials being used. 
+Figure 16 illustrates the impact of different subsea power cables on the overall social risks for the North Sea and the Mediterranean Sea. The difference is greatest when the offshore FPV is located far away from the coast. For the North Sea scenario, a material-intensive subsea cable means an almost 50% increase of overall social risks compared to the same scenario with a cable with low material intensity (base scenario). Reducing the social risks associated with the subsea cable further can be achieved by connecting the offshore FPV to an existing offshore facility, such as an offshore wind farm, rather than connecting it to the coast or by choosing a location close to the coastline. 
+  
+
+Figure 16: Range of social risks of offshore FPV in the North Sea and Mediterranean Sea, depending on the type of subsea power cable (cable to shore; MV floating cable to substation) (mrwh eq). Location: various; Breakwater type: LWAC/ CLCC; Layout: uniform; Supplier country: domestic (EU, Norway) and China (solar cells).
+Depending on the type of subsea cable, connecting to a nearby wind farm rather than the coast can reduce overall social risks by:
+         * Ca. 5 – 35% (North Sea site)
+         * Ca. 1 – 10% (Baltic Sea site)
+         * Ca. 0.5 – 5% (Mediterranean Sea site) 
+________________
+
+
+         7. Influence of layout
+Figure 17 shows the social risks of offshore FPV plants consisting of either a single large unit (uniform layout) or five smaller units with a very similar combined area (split layout; see also section 3.1) for the North Sea scenario, i.e., at identical solar irradiation and hence very similar electricity yield. The split layout requires higher number of breakwaters, more material for the anchoring, as well as more fuel for installation, maintenance, and dismantling. This translates into a slight increase of social risks associated with the split system, particularly due to higher material requirement for anchoring.  However, this difference in social risks is not a deciding factor given the overall uncertainties related to the methodology.
+  
+
+Figure 17: Social risks of offshore FPV in the North Sea according to a uniform and a split layout (mrwh eq). Location: North Sea; Breakwater type: LWAC/ CLCC; Layout: uniform & Split; Supplier country: domestic (EU, Norway) and China (solar cells).
+         8. Influence of breakwater type
+Social risks are assessed for two combinations of breakwater options either consisting of an innovative floating concrete mixture core and a lightweight aggregate concrete shell or a conventional polystyrene core and a conventional concrete shell as specified in section 3.2.1. Figure 18 shows that the risk difference between the innovative and conventional breakwater is negligible and therefore not a deciding factor.
+
+
+  
+
+Figure 18: Social risks of offshore FPV in the North Sea according to a conventional and innovative breakwater core (mrwh eq). Location: North Sea; Breakwater types: LWAC/CCLC (shell made of lightweight aggregate concrete and core made of circular cellular lightweight concrete) and CC/EPS (shell made of conventional concrete and core made of expanded polystyrene); Layout: Uniform; Supplier country: domestic (EU, Norway) and China (solar cells).
+Findings:
+         * Local site conditions can have a considerable impact on the social risks associated with offshore FPV per kWh electricity. Most important for social risks can either be the distance from the shore (depending on the material intensity of the cable) or solar irradiation, which affects the power output. Metocean conditions can also influence the results by affecting the material input required.
+         * Copper and aluminium are key components of submarine cables and can be associated with high social risks, depending on the material intensity of the cable and the origin of primary resources and refining.
+         * Therefore, connecting the offshore FPV to an existing offshore facility can be an effective measure to reduce the social risks of offshore FPV. 
+         * The layout and type of breakwater have no impact on the overall social risks.
+________________
+
+
+         2. Influence of country of origin
+This assessment considers two different groups of input origins: 
+1) Mainly domestic supplies, in which inputs are sourced from the EU and Norway except for solar cells, which are sourced from China
+2) Origin of supplies includes high-risk countries. The key inputs steel, aluminium, electronic equipment and plastic parts are sourced from countries that have relevant world market shares for the respective products and substantially higher social risks than EU countries such as China or Guinea, where bauxite is extracted for the production of aluminium. 
+Social risks tend to be high in middle- and low-income countries, where social rights and labour laws are poorly regulated and/or enforced, which increases the risk of local companies failing to comply with international standards. Table 1 in section 2.2.5 lists the countries of origin of the inputs, based on the major global producers and suppliers.
+Figure 19 shows that the social risks per MWh electricity can triple if key inputs are sourced from high-risk countries. Additionally, the ranking of contributions of individual inputs can change substantially. The biggest changes can be observed for steel used in breakwaters and for anchoring, and for the cable connecting to the shore. Social risks also increase for other FPV and electronic components, but to a far lesser extent. Note that the social risks associated with the cable connecting to the shore can still be significantly higher if material-intensive cables are used instead of the advantageous variant in the scenario shown in Figure 19 (s. section 4.2.2). 
+  
+
+Figure 19: Social risks of offshore FPV in the North Sea according to low- and high-risk supplier countries of inputs (mrwh eq). Location: North Sea; Breakwater type: LWAC/CLCC; Layout: uniform; Supplier country: domestic (EU, Norway) and various (Table 1 in section 2.2.5). 
+According to [MacLeod & Racionero Gómez 2017], most of the aluminium and silica supplier countries are countries with poor or very poor governance. Over 40% of the world’s copper reserves are located in states with high levels of fragility and corruption [Church & Crawford 2018]. Chile, China and Peru are the world’s leading copper producers, but a non-negligible share of copper production takes place in the Democratic Republic of the Congo [World Bank Group 2017], where copper mining is associated with extremely high social risks. China has bauxite reserves, but major bauxite deposits, the primary ore of aluminium, are located in states with high levels of fragility and corruption, such as Guinea in West Africa, which is estimated to hold a quarter of the world’s reserves [Church & Crawford 2018]. Copper and aluminium are abundant commodity materials [Jean et al. 2015]. This makes it possible to change the supplier to ensure that social and labour standards are in place and enforced. This can be achieved by sourcing from low-risk countries or certified suppliers, or engaging with responsible producers. Sourcing from high-risk countries can even improve the living and working conditions of people if precautions are taken to reduce the risk. Therefore, reducing the social risk is not the primary goal but social risks should be taken as an indicator where in the supply chain more attention for social impacts is needed. However, this is limited for solar cells, where the extraction and processing of minerals is concentrated in China, making source substitution difficult, particularly if this would be associated with substantially higher costs. 
+The trade model underlying the SHDB allows tracing back the origin of the risks to specific economic sectors in a given country. Using steel as an example, it reveals that 50% of the social risks associated with German steel production (sector “ferrous metals”) originate from other higher-risk countries, whereas 95% of the social risks associated with steel from China originate from the country itself. This shows that purchasing from a specific country does not eliminate the possibility of risks being 'embedded' in a product from upstream suppliers in other countries. 
+
+
+Findings:
+         * High-risk countries tend to be middle- and low-income countries where social rights and labour laws are poorly regulated and/or enforced.
+         * The total social risks of offshore FPV can triple if key inputs are sourced from higher-risk countries. The actual social risks may be even higher, as material inputs (cable to shore) may be greater.
+         * For commodity materials such as copper and aluminium, it is easier to switch suppliers than it is for solar cells, for which mineral extraction and processing capacity is concentrated in China.
+________________
+
+
+         3. Social risks of offshore PV and conventional electricity 
+Figure 20 illustrates the social risks associated with electricity generation from different FPV variants and fossil fuels. As the SHDB does not differentiate between renewable and fossil fuel-based electricity, the electricity sector in Poland in 2011 was selected to represent fossil fuel-based electricity. In this year, 92% of Poland’s electricity generation was based on coal [International Energy Agency (IEA) 2011] (see section 2.2.5). Importantly, the uncertainty of the data underlying the social risk scoring does not allow for a substantiated comparison between FPV and fossil fuel-based electricity, only for approximate contextualisation of the social risks of offshore FPV. Like for offshore FPV, the social risks associated with European fossil fuel-based electricity can vary, depending on the country or fuel. Furthermore, origins of uncertainties for fossil fuel-based and FPV-based electricity are very different and thus add up.
+The results nevertheless show that the social risks of fossil fuel-based electricity tend to be higher than those of many offshore FPV scenarios considered in the SUREWAVE project. Only if the FPV is located far away from the coast, connected to the shore by a material-intensive subsea cable, and if inputs are sourced from high-risk countries, the fossil fuel-based reference is most likely to have clearly lower risks than the offshore FPV from a social perspective. In contrast, offshore FPV is most likely to be associated with clearly lower risks if short cables and mainly domestic supplies are used. Therefore, there is a wide range of social risks associated with both offshore FPV- and fossil fuel-based electricity generation, making a direct comparison between the two difficult. Nevertheless, the social risks associated with FPV-generated electricity can and should be reduced to levels that make a deployment instead of fossil fuel-based electricity acceptable by reducing material requirements per kWh of electricity generated and by responsibly sourcing inputs.
+Compared to land-based PV systems, the offshore FPV plant requires more material to mount and stabilise the solar panels, particularly in harsh conditions (such as those at the North Sea location), and to connect the system to the shore (see 4.2.2 for an excursus on alternative power connections). They also require marine fuel, unlike land-based PV systems. Due to the wide variety of land-based PV systems, including rooftop and agri-photovoltaics, it is difficult to make a direct comparison between offshore FPV and land-based systems. Comparing the material inputs of the assessed offshore FPV in the North Sea scenario (see section 4.1.1) with the material intensity estimates for land-based solar PV from [European Commission Joint Research Centre 2020] results in a 12-fold increase in concrete input and a two- to three-fold increase in metals (steel, aluminium, copper) [European Commission Joint Research Centre 2020; International Energy Agency (IEA) 2021]. In this case, the increased material input for the offshore FPV can result in social risks that are more than 50% higher than those associated with land-based PV. These risks can be even higher when using a material-intensive cable to the shore (see section 4.2.2). While efficiency measures reduce the quantified social risks associated with inputs when unit risks are high, it is important to note that purchasing inputs, particularly from high-risk countries, also has benefits such as job creation that are not captured in this assessment. This highlights the need for risk mitigation measures through responsible sourcing inputs. 
+Taken together, these results support the targeted concept to extend the area suitable for PV deployment by offshore FPV to replace fossil fuel-based electricity where land-based PV reaches its limits.
+  
+
+Figure 20: Range of social risks of offshore FPV depending on local conditions, domestic or high-risk supplies and type of cable, as well as social risks of exemplary fossil fuel-based electricity (mrwh eq). Locations: North Sea, Baltic Sea, Mediterranean Sea; Breakwater type: LWAC/CLCC; Layout: uniform; Supplier country: various (Table 1 in section 2.2.5).
+Findings:
+         * Offshore FPV can be designed to have lower social risks than the fossil fuel-based reference.
+         * Only if the offshore FPV is located far away from the coast, connected to the shore by a material-intensive subsea cable, and if the inputs are sourced from high-risk countries, can the fossil fuel-based reference have clearly lower social risks than the offshore FPV.
+         * Compared to land-based PV systems, offshore FPV requires more materials, resulting in higher social risks that can still be acceptable if managed properly.
+         5. Key findings, conclusions and recommendations
+This chapter summarises the key results from chapter 4 and derives conclusions and recommendations from these.
+         1. Key findings
+This S-LCA study assesses the social risks associated with the offshore FPV supply chain and work on the offshore FPV system itself. The assessment revealed the following key findings:
+         * Comparison with social risks from fossil fuel-based electricity: The wide range of both offshore FPV and fossil fuel-based electricity generation, combined with uncertainties in the underlying social risk data, makes direct comparison between the two energy sources difficult. However, if inputs are from low-risk sources and a long cable to the shore is not required, offshore FPV is likely to have clearly lower social risks than the fossil fuel-based reference scenario. If the offshore FPV is far away from the coast, connected to the shore by a material-intensive subsea cable and if inputs are sourced from high-risk countries, the offshore FPV could have considerably higher social risks than the fossil fuel-based reference. In other cases, social risks can be similarly high.
+         * Comparison with land-based PV: Although the major supply chain risks of land-based and offshore FPV originating from the solar cells are similar, offshore FPV requires larger quantities of further potentially critical materials, such as steel, aluminium and copper than most land-based installations and is therefore associated with increased social risks.
+         * Social risk hotspots: The greatest contributor to social risks are solar cells and metals such as steel (for anchoring and breakwater reinforcement), aluminium and copper (as part of cables and frames) – depending on the assessed scenario and the respective supply chain. These findings are in line with previous publications on social risks related to solar PV (e.g. [European Bank for Reconstruction and Development 2024; MacLeod & Racionero Gómez 2017]). Vessel fuel consumption for installation, maintenance, and dismantling can also have a substantial impact on the social risks associated with offshore FPV.
+         * Work on the FPV system itself: The contribution of work on the construction of breakwaters, manufacturing of FPV and offshore activities (installation, maintenance and dismantling) to the total social risks is small, but specific risks related to labour rights and work safety can be high, particularly in offshore conditions.
+         * Cable to shore connection: For offshore FPV sites further away from the coast, the cable to the shore becomes a relevant factor if the conditions require a material-intense subsea cable. Therefore, connecting the offshore PV to an existing offshore facility is a meaningful measure to reduce the social risks.
+         * Most relevant location parameters: The electricity yield due to different solar irradiation is the largest determinant of social risks of offshore FPV per kWh of electricity in different locations such as the North Sea or the Mediterranean Sea. The social risk differences due to higher material inputs and a greater work load caused by higher waves or greater distances from the coast, are less substantial. 
+         * Differences between type of breakwaters and layout: The layout (split into 5 smaller units / single uniform unit) and the type of breakwater have no substantial impact on the overall social risks.
+         * Social risks of imported inputs: The total social risks of offshore PV can more than triple if key inputs are sourced from higher-risk countries. Such countries tend to be middle- and low-income countries where social rights and labour laws are poorly regulated and/or enforced. 
+The S-LCA results revealed that solar cells from China were a social risk hotspot. According to reports of forced labour in China’s Xinjiang region, where a substantial share of the solar cells is produced, Chinese solar cells may pose a greater social risk than represented in the national-level S-LCA results[4]. The Chinese government strictly refutes all allegations; however, these claims have not been independently verified by an international organisation. Therefore, more supply chain transparency and disclosure would be required. 
+The social risks associated with primary resources and refining of metals, such as steel, aluminium and copper can vary widely, depending on the supply chain. According to the database used (Social Hotspots Database: SHDB), the social risks associated with steel used for anchoring are substantially higher when sourced from China compared to steel from Germany. Copper and aluminium, which are key components of submarine cables, can be associated with high social risks, if they are sourced from countries with substantial reserves and production capacity that are considered high-risk, such as Guinea for bauxite, the primary ore of aluminium, or the Democratic Republic of the Congo, an important copper producer.
+________________
+
+
+         2. Conclusions
+General conclusions
+         * The social risks associated with offshore FPV can be clearly lower than those of the fossil fuel reference scenario, if high-risk supplies and long, material-intensive cables to the shore are avoided and if locations with a high solar irradiation are chosen. Even if only one of these conditions is met, thorough optimisation of all other risk-relevant aspects can lead to overall acceptable risks. Therefore, the offshore FPV can be a good option for expanding the portfolio of technologies used to decarbonise electricity.
+         * The S-LCA assesses social risks, i.e., the likelihood of adverse social conditions. This means that the actual social impacts may differ depending on the specific local conditions in which the inputs are extracted or produced. Therefore, social risks should be considered as an indicator of where in the supply chain more attention for social impacts is needed.
+         * The majority of social risks come from purchased inputs rather than on-site activities. Therefore, risks associated with purchased supplies are the social hotspots to focus on. 
+         * Work within the EU (+Norway) are associated with overall low social risks but specific risks related to work safety, particularly in offshore conditions, and labour rights must be taken into account and managed. 
+         * Social risk hotspots include solar cells from China. These are difficult to avoid because of the high level of dependence on a single supplier country, unless alternative PV technologies are used (see section 4.1.1). Other social risk hotspots include steel (for anchoring), aluminium and copper (for the cable to shore), depending on the material intensity and the supply chain, and vessel fuel. The metals may originate from countries with very high risk levels. However, some of these metals can be substituted (e.g. aluminium for copper), and extraction and refining capacity is distributed among a wider range of supplier countries with varying social risk environments. Optimising vessel logistics can reduce vessel fuel consumption and, consequently, the overall social risks.
+         * A reduction in social risks can be achieved by reducing the material intensity or by responsible sourcing. 
+Impacts of local site conditions on social risks
+         * The conditions at the location of the offshore PV affect overall social risks: 
+         * Risks can be significantly reduced by selecting locations with a high solar irradiation. 
+         * The distance to the coast can be an important factor, if 1) the PV plant is connected to the shore, and 2) the cable to the shore is on the higher end of material intensity. 
+         * Harsh metocean conditions require more material, steel in particular, but the increase in social risks is less substantial.
+         * The most important parameters for site selection are therefore high solar irradiation and minimising the length of the cable to the shore. While other parameters can be optimised, the most important factor is the implementation of offshore FPV as an alternative to electricity generated from fossil fuels. 
+         * The type of breakwater and the layout do not affect the overall social risks much, i.e., they are not a deciding factor. 
+Social risks of imported inputs to FPV
+         * Social risks are strongly influenced by the countries from which inputs are sourced. Overall risks can more than triple when key inputs are sourced from high-risk countries outside the EU that account for a significant proportion of the global market for those products. Therefore, responsible sourcing is a major lever to reduce supply chain social risks (see recommendations for concrete options).
+         * Whereas most inputs can be sourced from lower-risk countries, the production of solar cells is concentrated in China. This not only makes it challenging to purchase solar cells from other, lower-risk countries, but increases the vulnerability of PV supply chains in the event of a disruption. 
+         * For commodity materials, such as steel and copper, it is more feasible to choose between different suppliers, thus avoiding the purchase of materials extracted and produced under adverse social conditions. However, care must be taken to ensure that products from lower-risk countries do not contain materials sourced from high-risk environments.
+         * Sourcing from high-risk countries is not generally something to be avoided, and can even improve people's living and working conditions if precautions are taken to reduce the risk.
+________________
+
+
+         3. Recommendations
+Recommendations derived from the S-LCA results for a socially beneficial implementation of the offshore FPV developed in the SUREWAVE project target three groups:
+         1. Technology developers and scientific community 
+         2. Industry and operators
+         3. Policy makers and research funding agencies
+To technology developers and the scientific community 
+         * From a social point of view, the offshore FPV systems, such as those designed by the SUREWAVE project, should be implemented provided that they are technologically mature enough and there are realistic deployment options that primarily replace electricity generated from fossil fuels. 
+         * Decisions on further technical development should be based on sustainability indicators other than those addressed in this report, since the assessed technical scenarios (breakwater type and layout) do not differ substantially in terms of social risks. 
+         * When considering major configuration changes, such as those affecting the type of solar cells, screen for potential additional social risks. These may include high social risks associated with critical materials. For instance, if poorly managed, the mining, recycling and refining of cadmium used in CdTe PV technology can cause severe health problems [MacLeod & Racionero Gómez 2017].
+To industry and operators
+         * Examine and generally favour a connection to existing offshore facilities, such as offshore wind farms or a short cable to shore. Otherwise, the associated social risks can be very high, particularly if material intensity is high.
+         * Ensure that the logistics of the vessels used for installation, maintenance and dismantling are as efficient as possible. For example, reduce the vessels' operating time offshore by pre-assembling parts of the offshore FPV system in the harbour before pulling them to the final location.
+         * Most of the social risks associated with the offshore FPV supply chain can be mitigated by responsibly sourcing key materials, such as solar cells, steel, and copper. In general, there are three options for responsible sourcing:
+         * Sourcing from low-risk countries if the majority of production takes place there.
+         * Sourcing from certified suppliers that follow trusted standards, when purchasing inputs from high-risk countries, or when substantial parts of the upstream process take place in high-risk countries.
+         * Sourcing from high-risk countries if direct engagement with responsible suppliers is possible.
+Importantly, social risks do not necessarily result in negative social impacts, but can also lead to highly positive outcomes. Therefore, they should be managed rather than avoided. Sourcing from high-risk countries can substantially improve people’s living and working conditions in these countries, but this requires engagement, access to first-hand information, such as supplier audits, and the leverage to hold suppliers accountable for non-compliance. Then, the benefits of sourcing from these countries, such as job creation and income generation, may outweigh the negative social impacts when sourcing inputs responsibly, meaning that efficiency measures could be detrimental from a social standpoint.
+If none of the above options are possible, e.g., due to a concentration of production in a higher-risk country or a lack of access to trusted suppliers and producers, at least those suppliers should be excluded that have been proven to be implicated in human rights violations.
+         * Where it is challenging to source from low-risk countries, e.g., because production is concentrated in one country, advocate for socially beneficial sourcing options at a higher political level. This could include providing political support for certification schemes for mineral resources and import bans on products made under unethical conditions (see recommendations to policy makers below).  
+         * Be aware of social risks potentially embedded in products from lower-risk countries through upstream suppliers from high-risk countries, which can be difficult to trace. This may include raw materials sourced from mines in high-risk countries. 
+         * Existing safety measures should be rigorously applied in offshore conditions. Particular attention should be given to ensuring that subcontracted workers have fair working conditions and wages.
+         * If you are free to choose, select locations with higher solar irradiation, even if they have unfavourable metocean conditions and therefore require more material for anchoring.
+To policy makers and research funding agencies
+         * Support concepts of producing electricity from offshore FPV to replace fossil fuel-based electricity, thereby expanding the portfolio of renewable energy sources and driving forward the energy transition. 
+         * Build production capacity for solar cells and other key inputs within the EU, including the circular resource use. A more diverse range of sources not only enables a socially acceptable production, but also reduces dependence on individual countries and the likelihood of supply chain disruption. This enhances value chain resilience and is in line with existing frameworks, such as the EU Critical Raw Materials Act[5]. 
+         * Cost increases associated with responsible sourcing and domestic PV capacity building should be considered an investment in long-term strategic industrial planning. These higher costs can be offset through a combination of public grants to complement private investment, subsidies and financial incentives such as tax credits, as well as premium prices for products that meet sustainability and resilience standards. The effectiveness of specific measures in keeping the costs of low-risk PV panels manageable should be evaluated comprehensively, taking into account all relevant circumstances.
+         * Public funding and procurement could support ethical sourcing by linking tenders to traceable and certified supply chains (see below).
+         * Support and enforce regulations that prohibit the entry of products made using forced labour into the domestic market such as the ‘EU Forced Labour Ban Regulation’, and require transparency from suppliers. Advocate for the implementation of certification schemes, such as the ‘Responsible Mining Assurance (IRMA)’, the ‘Aluminium Stewardship Initiative (ASI)’, ‘Copper Mark’, and the ‘SSI Supply Chain Traceability Standard Initiative’ [European Bank for Reconstruction and Development 2024]. The effective enforcement of such initiatives requires alternative sourcing options (s. above).
+         * Ensure a rigorous EU-wide enforcement of the EU Corporate Sustainability Due Diligence Directive (CSDDD) to create a level playing field for companies across the EU. Following the update in 2025, a risk assessment among indirect business partners will only be required if there is credible information indicates potential issues [ECIIA 2025]. Make sure that information about such potential issues is widely available and is used to address human rights impacts further down the supply chain.
+         * As long as dependence on solar cells from China is high, provide companies with higher-level support for responsible sourcing. For example, provide them with easy access to trusted information on PV suppliers along the value chain, e.g. through shared supplier registries.
+
+
+         1. Outlook
+The social life cycle assessment (S-LCA) is a method for analysing and evaluating social risks in the supply chain of products. However, to represent the full sustainability spectrum, other aspects should also be considered, particularly environmental and economic ones. In addition to classical sustainability considerations, any implementation plans and site selection should take into account security and geopolitical factors, including supply chain diversity and local risks relating to sabotage. This can be achieved through an integrated life cycle sustainability assessment (ILCSA), as described by [Keller et al. 2015], which enables a comprehensive evaluation of all aspects. This helps decision-makers understand a system's overall complexity and initiate appropriate steering measures.
+
+
+
+
+         2. Acknowledgements
+The authors would like to thank all SUREWAVE project partners sincerely for the provision of information and data. In particular, we would like to express our gratitude to Eirik Larsen (Sunlit Sea) for providing the relevant price data required for the social life cycle assessment and for reviewing the report. Moreover, we would like to thank our IFEU colleagues Dr Guido Reinhardt, Dr Maximilian Breyer, Nils Rettenmaier and Sven Gärtner for valuable discussions, comments and support in preparing the report. We would also like to extend our gratitude to Balram Panjwani, PhD, from SINTEF for the professional coordination and management of the project.
+This deliverable is part of the SUREWAVE project which has received funding from the European Union's Horizon Europe Research and innovation funding programme under GA No. 101083342.
+
+
+
+
+         3. Abbreviations
+        
+AC        Alternating current
+CCLC        Circular cellular lightweight concrete
+CdTe        Cadmium telluride
+CDW        Construction and demolition waste
+CSDDD        Corporate Sustainability Due Diligence Directive
+c-Si        Crystalline silicon
+CSS        Country-specific sector
+DC        Direct current
+EPS        Expanded polystyrene
+EVA        Ethylene-vinyl acetate
+FPV        Floating Photovoltaic
+GTAP        Global Trade Analysis Project
+HPC        High-performance concrete
+ILCSA        Integrated life cycle sustainability assessment
+LCA        Life cycle assessment
+LC-EIA        Life cycle environmental impact assessment
+LCoE        Levelised costs of electricity
+LCT        Life cycle thinking
+LWAC        Lightweight aggregate concrete
+MRIO        Multi-Regional Input-Output
+mrwh eq        medium risk working hours equivalents
+PV        photovoltaic
+PVC        Polyvinyl chloride
+RS        Reference Scale
+SHDB        Social Hotspots Database
+S-LCA        Social life cycle assessment
+UFLPA        Uyghur Forced Labour Prevention Act
+
+
+         4. References
+Aguiar, A., Narayanan, B., McDougall, R. (2016): An Overview of the GTAP 9 Data Base. Journal of Global Economic Analysis, Vol. 1, No.1, pp. 181–208.
+Benoît Norris, C., Bennema, M., Norris, G. (2019): The social hotspot database - Supporting documentation - Update 2019 (V4). NewEarth B, York, Maine, USA. p. 115.
+Benoît Norris, C., Traverso, M., Neugebauer, S., Ekener, E., Schaubroeck, T., Russo Garrido, S., Berger, M., Valdivia, S., Lehmann, A., Finkbeiner, M., Arcese, G. (2020): Guidlines for social life cycle assessment of products and organizations. United Nations Environment Programme (UNEP).
+Breyer, M., Gärtner, S., Keller, H., Reinhardt, G., Wallmann, N. (2025): Environmental assessment of offshore floating photovoltaic systems. SUREWAVE project reports IFEU - Institut für Energie- und Umweltforschung Heidelberg.
+Center for Global Trade Analysis (2019): GTAP Data Bases: Detailed Sectoral List. <https://www.gtap.agecon.purdue.edu/databases/contribute/detailedsector57.asp> (Jul. 9, 2024).
+Church, C., Crawford, A. (2018): Green Conflict Minerals: The fuels of conflict in the transition to a low-carbon economy. IISD Report, International Institute for Sustainable Development.
+Crawford, A., Murphy, L. (2023): Over-Exposed: Uyghur Region Exposure Assessment for Solar Industry Sourcing. Sheffield Hallam University Helena Kennedy Centre for International Justice, Sheffield, UK.
+ECIIA (2025): Coporate Sustainability Due Diligence Directive. Changes proposed by Omnibus. Brussels, Belgium.
+European Bank for Reconstruction and Development (2024): Sector supply-chain guidance – solar energy. London, UK.
+European Central Bank (2024): Euro exchange rates charts. <https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.de.html> (Nov. 13, 2024).
+European Commission Joint Research Centre (2020): Raw materials demand for wind and solar PV technologies in the transition towards a decarbonised energy system. Publications Office, LU.
+Global Times (2021): China firmly opposes US’ so-called Uyghur Forced Labor Prevention Act, will make further response: FM. https://www.globaltimes.cn/page/202112/1243292.shtml.
+International Energy Agency (2022): Special Report on Solar PV Global Supply Chains. OECD.
+International Energy Agency (IEA) (2011): Energy Policies of IEA Countries - Poland 2011 Review. Paris, France.
+International Energy Agency (IEA) (2021): The Role of Critical Minerals in Clean Energy Transitions. World Energy Outlook Special Report, International Energy Agency (IEA).
+ISO (2024): ISO 14075:2024 Environmental management - Principles and framework for social life cycle assessment. International Organization for Standardization.
+Jean, J., Brown, P. R., Jaffe, R. L., Buonassisi, T., Bulović, V. (2015): Pathways for solar photovoltaics. Energy & Environmental Science, Vol. 8, No.4, pp. 1200–1219.
+Keller, H., Rettenmaier, N., Reinhardt, G. A. (2015): Integrated life cycle sustainability assessment – A practical approach applied to biorefineries. Applied Energy, Vol. 154, pp. 1072–1081.
+Larsen, E. (2025): Economic assessment (D7.4). SUREWAVE project reports Sunlit Sea.
+MacLeod, K., Racionero Gómez, B. (2017): Solar Photovoltaic and Energy Storage in the Electric Grid. GREEN ECONOMY SERIES, Levin Sources.
+Mulvaney, D., Bazilian, M. (2023): Price volatility, human rights, and decarbonization challenges in global solar supply chains. Energy Research & Social Science, Vol. 102, p. 103167.
+Murphy, L., Elimä, N. (2021): In Broad Daylight: Uyghur Forced Labour and Global Solar Supply Chains. Sheffield, UK: Sheffield Hallam University Helena Kennedy Centre for International Justice.
+Scott-Cato, M. (2008): Green Economics: An Introduction to Theory, Policy and Practice. Earthscan, London, UK.
+UN (1987): Report of the World Commission on Environment and Development: Our Common Future (Brundtland Report). Annex to document A/42/427 Oxford University Press. http://www.un-documents.net/wced-ocf.htm.
+United Nations (2024): UN Comtrade. https://comtradeplus.un.org/.
+US Inflation Calculator (2024): Inflation Calculator | Find US Dollar’s Value From 1913-2024. <https://www.usinflationcalculator.com/> (Nov. 13, 2024).
+World Bank Group (2017): The Growing Role of Minerals and Metals for a Low Carbon Future. World Bank, Washington, DC.
+
+
+  
+  
+  
+
+________________
+[1] Creation, modification, final version for evaluation, revised version following evaluation, final
+[2] Guinea was chosen as the country to extract ore, and China as the producer of aluminium.
+[3] List of entities identified by the US government as engaging in or benefiting from forced labour involving Uyghurs and other ethnic minorities in China (goods from these entities are subject to import restrictions into the United States of America) [European Bank for Reconstruction and Development 2024].
+[4] See section 4.1.1 and [Crawford & Murphy 2023; European Bank for Reconstruction and Development 2024; Mulvaney & Bazilian 2023; Murphy & Elimä 2021].
+[5] https://ec.europa.eu/commission/presscorner/detail/en/ip_23_1661
