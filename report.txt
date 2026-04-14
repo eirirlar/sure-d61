@@ -468,6 +468,8 @@ Evaluation against criteria: results are compared against manufacturability crit
 
 Storage and traceability: input parameters and outputs are stored in a structured CSV dataset. Each simulation is identified by a unique hash of its input parameters, enabling traceability and comparison across the full simulation campaign.
 
+The CSV dataset stores one row per simulation, keyed by input_hash — a hash of the concatenated input parameter values that serves as a unique identifier. The nine input fields are cup_rad, cup_lip, cup_depth, cup_angle, cup_y_to_x, cup_tip, space, alu_thick and pressure, corresponding one-to-one with the design parameters defined in Section 4.1. The three output fields are time_to_crack (the key manufacturability metric, capturing how far through the forming process the simulation progresses before material failure), lip_mean (a quality metric averaged over the cup lip region) and edge_mean (a quality metric averaged over the cup edge region). Two versions of the dataset are maintained: collect_full.csv contains all executed simulations (approximately 3,900 rows at the time of writing), while collect.csv contains the curated subset along the Pareto front (approximately 1,300 rows) retained after data culling. Both files share the same schema, so the machine-learning workflows and other downstream consumers can operate on either without modification.
+
 [FIGURE 5-1]
 
 flowchart LR
@@ -546,7 +548,7 @@ To support the thermal modelling, the optical properties of the polyurethane (PU
 
 5.2.3 Boundary conditions and scenarios
 
-To evaluate worst-case conditions, environmental inputs are derived from representative climate datasets. Parameters include air temperature, water temperature, wind speed and solar irradiance. Simulations focus on extreme conditions where combinations of high irradiance and low wind speed lead to elevated temperatures.
+To evaluate worst-case conditions, environmental inputs are derived from ERA5 reanalysis climate data covering a representative period of five years. The selected worst-case location is Singapore (latitude 1.25° N, longitude 104° E), which combines high solar irradiance with typically low wind speeds and high ambient temperatures, and therefore represents a thermally demanding site for the system. From the ERA5 record, the worst-case instance used in the simulations has a global horizontal irradiance of 943 W/m², an air temperature of 28.1°C, a water temperature of 21.5°C and a wind speed of 0.5 m/s. Under these conditions, module temperatures predicted by the Faiman model reach 60.2–61.3°C, establishing the thermal loading for the CFD simulations described in the following section.
 
 
 5.2.4 Key findings and design implications
@@ -711,7 +713,7 @@ On the geometry side, the system geometry is transferred via STEP file from Sunl
 
 Material surface properties have been characterised experimentally by Sunlit Sea and communicated to IFE as scalar values. The relevant properties for the thermal model are absorptivity (A = 0.88–0.91 for dark blue PU; significantly lower for off-white PU — to be measured) and emissivity (ε = 0.85, measured with handheld IR camera). These values are currently communicated informally. [TODO for IFE: confirm the full list of material properties required by the CFD model beyond absorptivity and emissivity — e.g. thermal conductivity, specific heat, density for each material domain — and confirm whether these are sourced from Sunlit, from standard material databases, or from IFE's own material library.]
 
-Environmental boundary conditions are derived from ERA5 reanalysis climate data. The worst-case scenario used to date corresponds to a high-irradiance, low-wind instance at Singapore (latitude 1.25°N, longitude 104°E): GHI = 943 W/m², T_air = 28.1°C, T_water = 21.5°C, wind speed = 0.5 m/s. This scenario was identified as worst-case from five years of ERA5 data and yielded the peak module temperatures used in the design evaluation.
+Environmental boundary conditions follow the Singapore worst-case scenario described in Section 5.2.3, which provides the air and water temperatures, wind speed and solar irradiance used as inputs to the CFD model.
 
 The CFD model outputs temperature fields across all component domains. The primary performance metric extracted is the peak temperature of the PU hinge material, evaluated against the 70°C material stability limit. [TODO for IFE: confirm what output format the CFD results are delivered in, and whether spatial temperature fields or only scalar peak/average values are archived; confirm whether output data is stored in a format compatible with the WP6 data framework.]
 
