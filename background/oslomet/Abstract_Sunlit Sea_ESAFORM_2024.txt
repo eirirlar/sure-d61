@@ -1,0 +1,87 @@
+MS # number
+
+Forming limit parameter space of a deep-drawn photovoltaic
+aluminum structure
+TVEIT Sigbjørn1,a*, REYES Aase 1,b and ERDURAN Emrah 1,c
+1
+
+Department of Built Environment, Oslo Metropolitan University, Postboks 4, St. Olavs plass, NO-0130
+Oslo, Norway
+a
+
+sigbjorn.tveit@oslomet.no, baase.reyes@oslomet.no, cemrah.erduran@oslomet.no (*corresponding
+author)
+
+Keywords: Aluminum alloys, Anisotropy, Deep-drawing, Forming limits.
+Background.
+In the competitive race towards developing the
+next renewable energy production method, the
+floating solar company Sunlit Sea AS has
+designed an innovative solution where formed
+aluminum alloy sheet structures are used as
+supports for floating photovoltaic (FPV) panels.
+In addition to providing a rigid support, the choice
+of material represents a key attribute of the
+design: As the power output of FPV modules
+decreases with operational temperature, the
+highly conductive aluminum body, which acts as
+a thermal bridge between the FPV module and the
+cool sea water, allows the units to operate with
+increased efficiency.
+For the technology to reach its potential with
+respect to cost per energy output, the structural
+geometry must be optimized with respect to
+several parameters, including heat transfer, and
+material costs. An absolute constraint of this
+optimization process is that the 1.5 mm thick
+AA5083-H111 sheets remain intact during
+forming of the structure’s elliptical cups. Hence,
+in this study, we explore the limits of various
+geometric design-parameters on the forming
+limits, with a special dedication to the material’s
+anisotropic plasticity characteristics.
+Procedure
+A finite element (FE) model is established to
+simulate the deep-drawing process in LS-DYNA.
+
+The geometry of the forming tools is
+parametrized, and modeled as rigid parts, while
+the deformable blank is equipped with a nonquadratic anisotropic yield criterion [1], a sixparameter Voce hardening law [2], and a nonlocal plastic instability criterion [3].
+The direction of the major principal elliptic
+axis to the to the principal direction anisotropy is
+taken as a design parameter, in addition to those
+related to the geometry.
+
+(a)
+
+(b)
+
+Figure 1 – (a) First generation of Sunlit Sea’s FPV
+design and (b) FE deep-drawing model
+Key findings
+The objective of the upcoming numerical study is
+to:
+•
+
+Obtain a forming limit parameter space
+that can be used as a constraint for
+optimization procedures on the PV
+structure, and
+
+•
+
+Determine the optimal angle between the
+principal directions of the elliptic
+geometry, and the anisotropic material.
+
+References
+[1] H. Aretz, A non-quadratic plane stress yield function for orthotropic sheet metals, J. Mater. Process.
+Tech 168 (2005) 1-9. https://doi.org/10.1016/j.jmatprotec.2004.10.008
+[2] E. Voce, The relationship between stress and strain for homogeneous deformation, J. Inst. Met. 74
+(1948) 537-562.
+[3] T. Berstad, O.-G. Lademo, K. Pedersen, O. Hopperstad, Formability modeling with LS-DYNA, 8th
+Int. LS-DYNA Users Conf. (2004)
+
+ESAFORM 2024, Toulouse (France)
+
+

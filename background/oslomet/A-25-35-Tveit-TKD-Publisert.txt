@@ -1,0 +1,3566 @@
+Forming and fatigue in floating
+photovoltaic structures
+
+Approaches based on continuum mechanics
+Sigbjørn Tveit
+
+Thesis for the degree of Philosophiae Doctor
+Faculty of Technology, Art and Design (TKD)
+OsloMet – Oslo Metropolitan University
+Norway
+Spring 2025
+
+CC-BY-SA versjon 4.0
+OsloMet Avhandling 2025 nr. 35
+ISSN 2535-471X
+ISBN 978-82-8364-680-1
+
+OsloMet – storbyuniversitetet
+Universitetsbiblioteket
+Skriftserien
+St. Olavs plass 4,
+0130 Oslo,
+Telefon (47) 64 84 90 00
+Postadresse:
+Postboks 4, St. Olavs plass
+0130 Oslo
+Trykket hos Byråservice
+Trykket på Scandia 2000 white, 80 gram på materiesider/200 gram på coveret
+
+Preface
+This thesis was submitted to Oslo Metropolitan University to partially
+fulfill the requirements for the degree of Philosophiae Doctor (PhD) in
+Engineering Science.
+The research was conducted at the Department of Built Environment at
+Oslo Metropolitan University under the supervision of Professor Aase
+Reyes and Associate Professor Emrah Erduran. Significant contributions
+also came about during a two-month research stay at the Division of
+Solid Mechanics at Lund University, hosted by Professor Emeritus Niels
+Saabye Ottosen.
+The project was realized in collaboration with Sunlit Sea AS who
+provided material samples for experimental testing and access to CAD
+models and design basis. Per Lindström, CEO of Sunlit Sea AS, also
+assisted in developing the initial project proposal.
+
+Sigbjørn Tveit, Oslo, January 2025
+
+i
+
+Acknowledgments
+As I submit this thesis, I am approaching my 10th anniversary as a
+student at Oslo Metropolitan University. When I enrolled in the fall of
+2015, I was unsure whether a STEM-based education was for me. I
+want to thank the inspiring lecturers at what was then Oslo and Akershus
+University College for igniting a passion for natural sciences that I didn’t
+know I had in me.
+I want to express my sincere gratitude towards my main supervisor
+Prof. Aase Reyes. You have given me the freedom to carve my own path
+while providing priceless guidance and moral backing. I always leave our
+meetings more enthusiastic and optimistic than when I arrived. My
+sincere thanks also go to Ass. Prof. Emrah Erduran, my co-supervisor.
+Your expertise, good mood and crystal-clear perspectives have been
+precious to the research project. The level of availability that the two of
+you have shown demonstrates your dedication to this project. I could not
+have been happier with your efforts. Truly.
+Co-supervisor Dr. Per Lindberg, CEO of Sunlit Sea AS has also had an
+important role in charting the course of the PhD project. Moreover,
+Mr. Eirik Larsen, Mr. Guillaume Kegelart and Dr. Bjørn Hervold Riise
+have been instrumental to the collaboration with the company.
+Although not a supervisor in the formal sense, Prof. Niels Saabye
+Ottosen has played a very important role in this project. In the spring of
+2024 I had the privilege of visiting the Division of Solid Mechanics at
+Lund University. The two months that we shared a restricted office space
+sparked not just a scientific collaboration, but a friendship. I often think of
+our many conversations on topics ranging from politics to continuum
+mechanics. Thank you for sharing your deep knowledge and cheerful
+personality.
+Many more individuals have directly or indirectly influenced the
+presented work. I had enlightening discussions with Prof. Stefan B.
+Lindström during my visit to Mid Sweden University, and with Prof. Reijo
+Kouhia from Tampere University during his visit in Lund. A huge thanks
+
+ii
+
+goes to Mr. Rune Orderløkken and Mr. Paban Acharya for their efforts in
+the experimental campaign, Mr. Jon Nassir Jibrail for his contributions to
+the validation of the LS-DYNA analysis model, and the DYNAmore
+Nordic AB team for their superb support services. The list goes on, but I
+will keep it brief.
+This experience would not have been the same without my great
+colleagues among the PhD candidates and postdocs at the Department
+of Built Environment. Looking back, the off-topic interruptions are as
+highly valued as our most productive discussions.
+I wish to thank my family and close friends, who have been of utmost
+importance to my well-being. There were times during the past four
+years when your support was in demand more than ever. Thank you for
+being there for me. Above all, I want to thank my beloved Thea for her
+encouragement, patience and love throughout the process. You have
+been tested in the high-cycle domain and beyond (cf. Section 2.3.1).
+
+iii
+
+Declaration of generative AI use
+The author has used Grammarly and ChatGPT to improve the language
+and readability of selected paragraphs in the thesis.
+
+iv
+
+Abstract
+The research presented in this thesis are related to the structural
+analyses of a floating photovoltaic (FPV) concept developed by Sunlit
+Sea AS. They use a metallic buoyant float structure that acts as a
+thermal bridge between the water body and the photovoltaic panels. For
+the solution to be commercially viable, the structure must be efficient in
+terms of heat transportation and material use. This has motivated the
+company to explore innovative structural designs, where the current
+solution is a shallow-draft shell structure made up of two formed
+aluminum alloy sheet components. As the platform must maintain its
+structural integrity throughout the intended lifetime, fatigue failure due to
+ocean wave-induced wave loads is a concern.
+This thesis presents new models and approaches for the analysis of
+such structures. One of the key contributions is a submodeling technique
+that incorporates sheet metal forming (SMF) effects in the structural
+analysis of formed components. For a critical component region, sheet
+metal forming simulations are conducted in LS-DYNA to obtain realistic
+geometric configurations and distributions of residual stresses and
+material thinning. Then, a simplified service load analysis of the
+complete structure is performed to obtain boundary conditions for the
+LS-DYNA model by using a mapping technique based on normalized
+segment length interpolation. It is shown how a continuum mechanicsbased fatigue model can be combined with SMF submodeling to
+estimate the structure’s fatigue life under high-cycle loading.
+It is revealed that the continuum mechanics fatigue model cannot
+correctly predict shear stress-dominated fatigue failure for materials that
+display brittle or very ductile fatigue behavior. This results in two
+proposed modifications to enhance the model’s efficacy. The first
+modification adopts a Hershey-Hosford function to generalize the
+endurance surface formulation. This solves the issue for isotropic ductile
+metallic materials where the relationship between the fatigue limits in
+fully reversed shear stress and fully reversed normal stress varies from
+1/2 to 0.585. The second modification proposes a conditionally convex
+
+v
+
+endurance surface that allows the model to take on any relationship
+between the shear and normal stress fatigue limits by considering the
+effect of the Lode angle. This is of significant interest for exploring float
+designs based on additive manufacturing, since these materials
+reportedly display highly brittle fatigue behavior.
+
+vi
+
+Samandrag
+Dette arbeidet tek føre seg problemstillingar knytt til
+konstruksjonstekniske analysar av eit konsept for flytande solcellepanel
+utvikla av Sunlit Sea AS. Konseptet baserer seg på ein flåtekonstruksjon
+av metall som fungerer som ei kjølande bru mellom vatnet og
+solcellepanela. For at løysinga skal vere kommersielt levedyktig, må
+flåten fungere effektivt med omsyn til varmetransport og materialbruk.
+Difor utforskar selskapet kreative konstruksjonsløysingar. I dag består
+flåten av ein skallkonstruksjon, sett saman av to forma
+platekomponentar av aluminium. I alle tilfelle må konstruksjonen vere
+levedyktig gjennom den tiltenkte levetida. Sidan solcelleanlegga er
+tiltenkt bruk i mellom anna marine miljø, er utmattingsbrot grunna
+bølgelaster ei utfordring.
+Denne avhandlinga presenterer nye metodar og modellar for
+konstruksjonsanalyse av slike komponentar. Eit av dei viktigaste bidraga
+er ein delmodelleringsmetode for å innlemme ringverknadar frå
+formingsprosessen av metallplater. Plateforminga vert simulert i LSDYNA for ein kritisk del av konstruksjonen for å kartlegge realistisk
+geometri, materialtynning og fordeling av restspenningar. Ein forenkla
+analysemodell som omfattar heile flåten vert brukt til å berekne
+randvilkåra for delmodellen. Desse vert så overført mellom modellane
+ved å interpolere langs ekvivalente randgrenser. Det vert vist korleis ein
+utmattingsmodell basert på kontinuumsmekanikk kan kombinerast med
+delmodellering av formingsprosessen for å estimere flåtekonstruksjonen
+si levetid under høgsykliske laster.
+Det vert avdekka at utmattingsmodellen, for svært sprø eller svært
+duktile materiale, gjev uriktige predikasjonar når skjerspenningar er
+dominerande. Dette resulterer i to ulike forslag til modifikasjonar av
+modellen. Fyrst vert det føreslått å ta i bruk ein Hershey-Hosfordfunksjon for å skildre uthaldsflata i spenningsrommet. Dette løyser
+problemet for duktile materiale der forholdet mellom utmattingsgrensene
+for skjer- og normalspenning varierer frå 1/2 til 0.552. Deretter vert det
+føreslått å bruka ei vilkårsbunden konveks uthaldsflate som tek omsyn til
+
+vii
+
+Lode-vinkeleffekten. Med denne formuleringa gjev modellen korrekte
+utmattingsgrenser for skjer-dominerte spenningshøve, uavhengig av kva
+forholdet mellom utmattingsgrensene for skjer- og normalspenning er.
+Dette er interessant for vidare utforsking av flåtedesign basert på additiv
+tilverknad, då desse materiala viser seg å ha svært sprø
+utmattingseigenskapar.
+
+viii
+
+Contents
+Preface ....................................................................................... i
+Acknowledgments ...................................................................... ii
+Declaration of generative AI use ............................................... iv
+Abstract ..................................................................................... v
+Samandrag ............................................................................... vii
+Contents .................................................................................... 1
+List of Figures ........................................................................ 2
+Publications ........................................................................... 4
+Abbreviations ............................................................................ 5
+1 Introduction ............................................................................ 6
+Context and motivation .................................................... 6
+Objectives and scope ...................................................... 9
+Research questions ....................................................... 10
+Research strategy ..........................................................11
+Thesis structure ............................................................. 12
+2 Background and theoretical framework ................................ 14
+Basic theory ................................................................... 15
+2.1.1 Strain tensor ............................................................ 15
+2.1.2 Stress tensor ........................................................... 16
+Constitutive models ....................................................... 19
+2.2.1 Isotropic linear elasticity .......................................... 20
+2.2.2 Yield criteria ............................................................ 20
+2.2.3 Strain hardening ...................................................... 26
+2.2.4 Flow and hardening rule ......................................... 28
+High-cycle fatigue .......................................................... 29
+1
+
+2.3.1 S-N curve ................................................................ 31
+2.3.2 Mean stress ............................................................ 32
+2.3.3 Multiaxial stress ...................................................... 35
+2.3.4 Non-periodic stress ................................................. 37
+2.3.5 Continuum mechanics-based fatigue modeling ...... 39
+Sheet metal forming and fatigue .................................... 46
+3 Contributions ........................................................................ 52
+Publication I ................................................................... 52
+Publication II .................................................................. 55
+Publication III ................................................................. 57
+Publication IV ................................................................. 60
+Publication V .................................................................. 62
+4 Concluding remarks ............................................................. 64
+5 Further work ......................................................................... 67
+
+2
+
+List of Figures
+Figure 1.1 Current FPV design ................................................. 7
+Figure 1.2 Metallic FPV structure ............................................. 7
+Figure 1.3 Overview of research activities. ............................ 12
+Figure 2.1 Background and theoretical framework: Overview 14
+Figure 2.2 Stress tensor in Cartesian coordinates. ................ 17
+Figure 2.3 Hershey-Hosford criterion: Yield loci ..................... 24
+Figure 2.4 Hershey-Hosford criterion: Relationship between
+𝜏𝑌 ⁄𝜎𝑌 and the exponent 𝑚 ...................................................... 24
+Figure 2.5 Hardening rules ..................................................... 29
+Figure 2.6 Schematic Wöhler diagram ................................... 32
+Figure 2.7 Continuum mechanics fatigue model: Endurance
+surface .................................................................................... 41
+Figure 2.8 Continuum mechanics fatigue model: Non-periodic
+uniaxial stress ......................................................................... 44
+Figure 2.9 Bending-induced springback ................................. 49
+Figure 3.1 Overview of methodology in Publication I ............. 54
+Figure 3.2 Overview of methodology in Publication II ............ 56
+Figure 3.3 Overview of methodology in Publication III ........... 59
+Figure 3.4 Overview of methodology in Publication IV ........... 61
+Figure 3.5 Overview of methodology in Publication V ............ 63
+
+3
+
+Publications
+I.
+
+S. Tveit, A. Reyes, E. Erduran, Parametric failure limit detection for
+the sheet metal forming of a Floating Photovoltaic (FPV) aluminum
+alloy structure, Materials Research Proceedings, 41, 2024, pp
+1048-1057. https://doi.org/10.21741/9781644903131-115
+
+II.
+
+S. Tveit, A. Reyes, E. Erduran, Forming effects on high-cycle
+fatigue in an aluminum sheet structure using the OttosenStenström-Ristinmaa model, 8th European Congress on
+Computational Methods in Applied Sciences and Engineering
+(ECCOMAS), 2022. https://doi.org/10.23967/eccomas.2022.127
+
+III.
+
+S. Tveit, A. Reyes, A submodeling technique for incorporating
+sheet metal forming effects in an AA5083 FPV structure,
+Structures, 67 (2024) 107030.
+https://doi.org/10.1016/j.istruc.2024.107030
+
+IV.
+
+S. Tveit, A. Reyes, E. Erduran, A continuum approach to multiaxial
+high-cycle fatigue modeling for ductile metallic materials, Results
+in Engineering, 22 (2024) 102171.
+https://doi.org/10.1016/j.rineng.2024.102171
+
+V.
+
+S. Tveit, N.S. Ottosen, E. Erduran, A. Reyes, Generalized
+continuum mechanics fatigue model for arbitrary ratios of shear
+and normal stress fatigue strengths, (2025). In review.
+
+4
+
+Abbreviations
+ANN
+BCC
+CAD
+DIC
+DOF
+FCC
+FE
+FLS
+FPV
+HCF
+IP
+LPBF
+LCF
+MK
+MSST
+ND
+NLIC
+OOP
+OSR
+PLC
+PV
+PTFE
+RD
+SMF
+S-N
+STM
+TD
+TTDC
+TTSIC
+ULS
+UT
+VHCF
+
+Artificial neural network
+Body-centered cubic
+Computer-aided design
+Digital image correlation
+Degrees of freedom
+Face-centered cubic
+Finite element
+Fatigue limit state
+Floating photovoltaic
+High-cycle fatigue
+In-phase
+Laser powder bed fusion
+Low-cycle fatigue
+Marciniak-Kuczynski
+Maximum shear stress theory
+Normal direction
+Non-local instability criterion
+Out-of-phase
+Ottosen-Stenström-Ristinmaa
+Portevin-Le Chatelier
+Photovoltaic
+Polytetrafluoroethylene
+Rolling direction
+Sheet metal forming
+Stress - Number of cycles at failure
+Strong texture model
+Transverse direction
+Through-thickness disc compression
+Through-thickness shear instability criterion
+Ultimate limit state
+Uniaxial tension
+Very high-cycle fatigue
+
+5
+
+Introduction
+
+1 Introduction
+Context and motivation
+The utilization of new global surface areas is one of the main reasons
+why floating photovoltaics (FPV) are multiplying [1]. So far, the
+technology has been developed for use in lakes and other freshwater
+reservoirs. As 65% of the world's largest cities are situated near the
+coast [2,3], adaptation to marine environments opens new possibilities
+for upscaling, especially in countries with competing interests for
+available land due to high population densities. Thus, FPVs can
+contribute significantly to locally produced renewable energy, avoiding
+the area conflicts increasingly seen in land-based solar and wind
+power [4-6].
+The FPV technology developer Sunlit Sea AS delivers a system of
+prefabricated floating solar installations designed to handle freshwater
+as well as in-shore marine environment. The system comprises several
+interconnected FPV units that are kept in position by a mooring system,
+see Figure 1.1.a). The matrix of FPV units can be scaled to meet the
+desired production capacity of the customer. Each unit consists of a
+photovoltaic (PV) panel that is directly attached to a low profile, metallic
+float structure that provides buoyancy while acting as a thermal gateway
+to transport heat from the solar panels into the cool seawater. This
+allows the PVs to operate at lower temperatures, which increases the
+solar-cell efficiency [7,8]. For the technology to reach its potential, the
+design must be efficient with respect to heat transfer and material costs.
+These challenges have motivated the developer to look into innovative
+designs and production techniques for the metallic float structure. In the
+current design, each FPV unit, approximately 2 x 2 m in size, consists of
+two formed aluminum alloy sheet components. The components are
+joined together, back-to-back, and sealed along the edges to form a
+hollow shell structure, see Figure 1.1.b). With its indented cups, the
+concept was inspired by honeycomb sandwich structures, which are
+
+6
+
+Introduction
+
+widely applied as lightweight rigid structures in the aerospace
+industry [9,10].
+The cups provide structural rigidity against out-of-plane loading and
+creates a thermal bridge through the hollow structure, see Figure 1.2.a).
+For the design that is currently in production, Sunlit Sea’s collaborative
+partner Accura Engineering has developed a cupcake tray-like shape
+that is feasible to manufacture by deep-drawing sheets of 1.5 mm thick
+AA5083-H111 close to their forming limits. The component is illustrated
+in Figure 1.2.b). While more cups would enhance the cooling effect, the
+aluminum alloy sheets must remain intact during forming of the
+components.
+Figure 1.1
+Current FPV design: a) FPV matrix and mooring system for a 25 kWP
+system; b) Float assembly. Courtesy of Sunlit Sea AS.
+
+a)
+
+b)
+
+Figure 1.2
+Metallic FPV structure: a) Cooling of PV through heat transportation
+effect; b) Current design of float structure. Courtesy of Sunlit Sea AS.
+
+a)
+
+b)
+
+7
+
+Introduction
+
+Aggressively pushing the material’s drawing limits can lead to increased
+failure rates in the production line. Avoiding this requires a good
+understanding of the material’s mechanical behavior and the various
+parameters that control the sheet metal forming process. Additionally,
+the sheet metal forming may influence the structure’s properties through
+the introduction of residual stresses [11,12], plastic hardening [13],
+material thinning, and geometric deviations. Such effects should be
+accounted for when assessing the structural capacity towards the limit
+states specified by the recommended practices for the design and
+development of floating photovoltaic systems, e.g. DNV-RP-0548 [14].
+The structures must be designed to handle potential extreme events
+accounted for in the ultimate limit state (ULS). Moreover, repeated stress
+can cause high-cycle fatigue (HCF) failure due to stresses well below
+the material’s static capacity [15]. Thus, the design must also consider
+the fatigue limit state (FLS) to ensure that the structure endures the
+design life.
+Expanding FPV technologies from freshwaters to marine environments
+requires operating in deeper waters and higher wind velocities. As a
+result, the structures must handle increased hydrodynamic
+loading [16,17]. The total wave load is the combined effects of wind-sea
+and swell waves [18]. Swell waves are unidirectional waves of larger
+wave lengths that are unaffected by local weather systems. Wind-sea
+waves are chaotic short-crested waves and their directionality is spread
+about the local wind direction [19], independently of the direction of the
+swell waves [20]. Thus, the fatigue analysis of the marine FPV structure
+should account for loading due to waves of varying amplitudes and
+frequencies attacking from different directions simultaneously. Such
+loading can induce complex multiaxial stress histories where the stress
+components vary independently of each other.
+In multiaxial HCF analysis the traditional approach relies on converting
+stress histories into a finite set of cycles using cycle-counting
+techniques, see e.g. ref. [21]. The treatment of arbitrary multiaxial stress
+histories remains a challenge for this methodology due to its intrinsic
+assumption that any stress history consists of distinct cycles. This issue
+
+8
+
+Introduction
+
+has spurred a branch of alternative fatigue models where the stress
+history dictates the evolution of the fatigue damage in an approach
+consistent with principles from continuum mechanics [22]. This modeling
+appraoch shows promise, but its novelty implies the requirement of
+further development. For instance, the model can make inaccurate
+fatigue predictions for brittle and very ductile materials, and for certain
+stress histories [23,24].
+
+Objectives and scope
+The thesis aims to enhance the understanding of the high-cycle fatigue
+capacity of formed structural components subjected to complex load
+histories. The study seeks to advance and improve existing
+methodologies for sheet metal forming and fatigue analysis that can be
+used as parts of a comprehensive structural analysis process.
+The objectives of the current study are to:
+• explore how numerical sheet metal forming analysis can be used
+for the development and design of new products;
+• gain a deeper understanding of how the high-cycle fatigue capacity
+of formed structures are affected by the sheet metal forminginduced plastic deformations;
+• develop and advance analysis methods for integrating sheet metal
+forming effects in the fatigue assessment of formed components,
+aiming to inspire industrial players to imporve current practices;
+and
+• investigate and improve state-of-the-art theories for predicting
+high-cycle fatigue failure induced by complex load histories.
+Although the study is largely motivated by the engineering challenges
+faced by Sunlit Sea AS, it strives to obtain generalizable knowledge with
+relevance beyond specific types of structures or alloys. Thus, its purpose
+is not to validate the proposed FPV concept with respect to the fatigue
+limit state. Nor is the objective to perform a comprehensive fatigue
+
+9
+
+Introduction
+
+assessment to account for all relevant effects. Such an interdisciplinary
+exercise would involve several research topics that are outside the
+scope of this thesis.
+For instance, obtaining realistic scenarios for the loads induced by
+waves, winds and currents requires a good understanding of the FPV
+system’s hydrodynamic behavior. The loads experienced by the float
+structures heavily depend on the size of the matrix (cf. Figure 1.1.a)), the
+properties of the connective hinges that transfer loads between the FPV
+units [25], the local metocean conditions, and the presence of highfrequency waves [25]. Such analyses will not be discussed in this thesis.
+In addition to sheet metal forming, the fatigue capacity of the floats may
+be influenced by other manufacturing effects. Currently, the two
+aluminum alloy components that make up the structure are joined using
+friction stir welding or clinching. Challenges remain in accurately
+estimating the static strength and fatigue life of such
+connections [26-30]. The fatigue capacity may also be affected by the
+presence of chlorides in the marine environment, which can cause
+fatigue cracks to initiate in corrosion pits on the surface of the aluminum
+sheets [31-33]. This work does not consider these aspects.
+
+Research questions
+The research questions of this thesis aim to guide the study in directions
+that align with the objectives and scope in Section 1.2, by addressing
+open questions and gaps in the literature.
+R1:
+
+How do parameters related to the sheet metal forming process
+influence the drawing limits, and how can the dependencies
+between different parameters be explored efficiently?
+
+R2:
+
+How and to what extent does sheet metal forming influence the
+operational stress levels in formed components, and can such
+effects be accounted for in the fatigue assessments of structures?
+
+10
+
+Introduction
+
+R3:
+
+Which models can be used to analyze fatigue induced by arbitrary
+multiaxial stress histories?
+
+R4:
+
+Can the continuum mechanics fatigue model be revised to
+overcome its limitations related to brittle and very ductile
+materials?
+
+Research strategy
+The activities that constitute the work in this thesis consist of four main
+components. An overview is provided Figure 1.3.
+The first component is a literature study that provides an overview of
+relevant theory and state-of-the-art methodologies for sheet metal
+forming and fatigue analysis. It identifies research gaps and directions
+for further research. The work is presented in Section 2, and in the
+respective introduction-sections of this thesis’ publications.
+The second task involves the experimental characterization of the plastic
+behavior of the AA5083-H111 sheets. This work provides data that is be
+used to calibrate anisotropic yield criteria and strain hardening functions
+for use in finite element-based numerical analyses in LS-DYNA. Details
+about this campaign are provided in Publication III.
+The third activity is finite element-based analyses of the sheet metal
+forming process, and the structure in operation in LS-DYNA. The
+purpose of this work is to assist the design development process of the
+FPV solution (Publication I), and to investigate the effects that the sheet
+metal forming process has on the operational stresses and the fatigue
+capacity (Publications II and III). Specific information about these
+investigations are found in the respective publications.
+The fourth and last component is the application and further
+development of an existing high-cycle fatigue model suitable for analysis
+of multiaxial arbitrary stress histories. In Publication II it is demonstrated
+how the model can be used in combinations with sheet metal forming
+analysis to account for forming effects in the fatigue analysis of the FPV
+
+11
+
+Introduction
+
+Figure 1.3
+Overview of research activities.
+
+Literature
+review
+
+Material
+characterization
+
+• Section 2
+
+• Publication III
+
+FE analysis
+• Publication I
+• Publication II
+• Publication III
+
+Fatigue
+modeling
+• Publication II
+• Publication IV
+• Publication V
+
+structures. Publications IV and V address shortcomings in the continuum
+mechanics fatigue model in its treatment of brittle and very ductile
+materials and present generalized formulations to overcome these
+issues.
+
+Thesis structure
+The thesis is comprised of five main sections. The current section has
+provided context and motivation, presented the research questions and
+the research strategy.
+In the following, Section 2 provides the background and theoretical
+framework for the study, covering relevant topics within material
+modeling for sheet metal forming and high-cycle fatigue analysis. It
+begins with a brief introduction to stresses and strains, before presenting
+relevant theoretical concepts and constitutive models for sheet metal
+forming applications. Special emphasis is placed on the topic of yield
+functions due to their high relevance for later discussions. The section
+also introduces the topic of high-cycle fatigue. It starts with basic theory
+and leads up to a review of state-of-the-art methodologies with
+emphasize on a continuum mechanics-based framework for fatigue
+modeling. Lastly, it concludes with a review of the existing literature on
+sheet metal forming and its impacts on high-cycle fatigue.
+
+12
+
+Introduction
+
+Section 3 provides an overview of the thesis’ contributions. It is
+organized in subsections, addressing each of the thesis’ publications in a
+thematic order. Graphical abstracts outline the work in each publication,
+and a meta-discussion relates their findings and conclusions to the
+objectives and research questions presented in the previous sections.
+Based on this, Section 4 presents the overall conclusions of the thesis,
+before Section 5 provides future perspectives and suggestions for
+further work.
+
+13
+
+Background and theoretical framework
+
+2 Background and theoretical
+framework
+This section summarizes key topics related to material models for sheet
+metal forming and high-cycle fatigue analysis. It offers a brief
+introduction to fundamental theoretical concepts, and a review of stateof-the-art methodologies. Additionally, it establishes consistent
+mathematical notations and clear definitions of central terms. Although
+consistency is strived for, some of the publications may use slightly
+different terminology and notation than what is presented here. The
+reader is therefore encouraged to carefully review the definitions
+provided in each publication. Figure 2.1 provides an overview of the
+subsections and how their contents relate to the publications of the
+thesis.
+Figure 2.1
+Background and theoretical framework: Overview of subsections and
+their relevance to the publications of the thesis.
+2.1 Basic theory
+2.2 Constitutive models
+Publication
+I
+
+Publication
+II
+
+Publication
+III
+
+Publication
+IV
+
+Publication
+V
+
+2.4 SMF and fatigue
+2.3 High-cycle fatigue
+
+14
+
+Background and theoretical framework
+
+Basic theory
+This thesis consistently refers to right-handed Cartesian coordinate
+systems with orthogonal axes denoted as 𝑥, 𝑦, and 𝑧. Mainly three types
+of coordinate systems are encountered. The fatigue analyses in
+Publications IV, and V refer to stress states on cylindrical or tubular test
+specimens where 𝑥 and 𝑦 respectfully align with in the specimen’s
+longitudinal and circumferential directions, while 𝑧 is normal to the
+material’s surface. The finite element analyses in Publications I, II, and
+III employ a global coordinate system where 𝑧 is the upward direction,
+and 𝑥 and 𝑦 align with the square FPV float’s edges. These models also
+employ co-rotational coordinate systems that rotate with the
+material [34,35]. Throughout the current section, 𝑥, 𝑦, and 𝑧 will refer to
+the co-rotational material coordinates.
+Vectors and tensors are referred to using bold font, e.g. 𝒙 represents the
+position of a particle with the coordinates 𝑥, 𝑦, and 𝑧. When it is
+convenient to adopt a numbered form, the notations 𝑥1 , 𝑥2 , and 𝑥3 are
+taken as synonymous with 𝑥, 𝑦, and 𝑧. Lower case Latin letters will be
+used for short forms, e.g. 𝑥𝑖 , where 𝑖 = 1, 2, 3, represent the components
+of 𝒙. Moreover, we adopt the Einstein summation convention, where if
+an index appears twice within a term, it implies a summation over that
+index. For example, 𝐴𝑖𝑖 = 𝐴11 + 𝐴22 + 𝐴33 , where 𝑖 = 1, 2, 3, is a dummy
+index, meaning its label is arbitrary (see e.g. [36]). Exceptions occur
+when the letters directly refer to the Cartesian axes, i.e. 𝑥𝑥, 𝑦𝑦, and 𝑧𝑧,
+in which case summation is not implied.
+
+2.1.1 Strain tensor
+The symmetric second order strain tensor 𝜺 describes the current strains
+in a deformable body
+𝜀11
+𝜺 = [𝜀12
+𝜀31
+
+𝜀12
+𝜀22
+𝜀23
+
+𝜀31
+𝜀23 ]
+𝜀33
+
+(2.1)
+
+15
+
+Background and theoretical framework
+
+Due to the symmetry 𝜀𝑖𝑗 = 𝜀𝑗𝑖 , the strain tensor can be fully described in
+terms of six unique components: the normal strain components 𝜀11 , 𝜀22 ,
+and 𝜀33 , and the shear strain components 𝜀12 , 𝜀23 , and 𝜀31 .
+In Publications I, II, and III, the sheet metal forming process is analyzed
+in LS-DYNA [35]. This code adopts a rate-based (hypoelastic)
+formulation where the symmetric part of the co-rotational velocity
+gradient is taken as the rate of the strain tensor 𝜺̇ . The current strain is
+then obtained by the integration of 𝜺̇ in time.
+
+2.1.2 Stress tensor
+The triaxial stress state of a continuum body in static equilibrium can be
+described by the second-order Cauchy stress tensor, 𝝈. With reference
+to the co-rotational Cartesian coordinate system, the components of 𝝈
+describe the stresses acting on the faces of an infinitesimal cube with
+side lengths 𝑑𝑥1 , 𝑑𝑥2 , and 𝑑𝑥3 , oriented such that its sides align with the
+coordinate axes. The tensor components 𝜎𝑖𝑗 describe the stresses acting
+on the faces 𝑖, in the directions 𝑗.
+In many of the scenarios encountered in this thesis, the stresses and
+strains reduce to states of plane stress. While this simplifies the
+mathematical descriptions, the following presentation considers the full
+triaxial desciptions to maintain generality.
+As moment equilibrium requires that 𝜎𝑖𝑗 = 𝜎𝑗𝑖 [36], the stress tensor, like
+the strain tensor, can be expressed in terms of six independent
+components. It can be written in matrix form as
+𝜎11
+𝝈 = [𝜎12
+𝜎31
+
+𝜎12
+𝜎22
+𝜎23
+
+𝜎31
+𝜎23 ]
+𝜎33
+
+(2.2)
+
+Here, the diagonal elements, 𝜎11 , 𝜎22 and 𝜎33 , are the normal stresses,
+which act normal on the cubic planes, and the off-diagonal elements,
+𝜎12 , 𝜎23 and 𝜎31 , are the shear stress components, which act in the
+planar directions of the cubic faces. Figure 2.2 illustrates the situation.
+
+16
+
+Background and theoretical framework
+
+For any physical stress state 𝝈, there exists a frame of reference where
+all the off-diagonal components are zero. The normal components in the
+principal reference frame, the principal stresses, are referred to by the
+notation 𝜎1 , 𝜎2 , and 𝜎3 . Obtaining the values of 𝜎1 , 𝜎2 , and 𝜎3 is a matter
+of solving the characteristic equation
+𝜎11 − 𝜆
+𝑑𝑒𝑡(𝝈 − 𝜆𝑰) = 𝑑𝑒𝑡 [ 𝜎12
+𝜎31
+
+𝜎12
+𝜎22 − 𝜆
+𝜎23
+
+𝜎31
+𝜎23 ] = 0
+𝜎33 − 𝜆
+
+(2.3)
+
+By expanding Eq. (2.3), we obtain the characteristic polynomial
+−𝜆3 + 𝐼1 𝜆2 − 𝐼2 𝜆 + 𝐼3 = 0
+
+(2.4)
+
+where 𝐼1 , 𝐼2 and 𝐼3 are the invariants of the stress tensor 𝝈, defined as
+𝐼1 = 𝑡𝑟(𝝈) = 𝜎𝑖𝑖
+
+(2.5)
+
+1
+1
+𝐼2 = 𝝈: 𝝈 = (𝜎𝑖𝑖 𝜎𝑗𝑗 − 𝜎𝑖𝑗 𝜎𝑗𝑖 )
+2
+2
+
+(2.6)
+
+𝐼3 = 𝑑𝑒𝑡(𝝈) = 𝑑𝑒𝑡(𝜎𝑖𝑗 )
+
+(2.7)
+
+Eq. (2.4) can be solved to obtain three real roots 𝜆𝑖 , where the first
+principal stress is the largest root, the third principal stress is the
+smallest root, and the second principal stress is the root in between
+(𝜎1 ≥ 𝜎2 ≥ 𝜎3 ) , i.e.
+Figure 2.2
+Stress tensor in Cartesian coordinates.
+
+𝜎23
+
+𝜎23
+
+𝑥2
+
+𝜎31
+
+𝑥1
+𝑥3
+
+𝜎22
+𝜎12
+𝜎12
+
+𝜎33
+
+17
+
+𝜎11
+
+𝜎31
+
+Background and theoretical framework
+
+𝜎1 = max(𝜆𝑖 )
+
+(2.8)
+
+𝜎3 = min(𝜆𝑖 )
+
+(2.9)
+(2.10)
+
+𝜎2 = 𝐼1 − 𝜎1 − 𝜎3
+
+For reasons that will become apparent in the following sections, it is
+sometimes convenient to consider the stress tensor as the combination
+of a hydrostatic stress tensor 𝝈𝐻 , and a deviatoric stress tensor 𝒔.
+(2.11)
+
+𝝈 = 𝝈𝐻 + 𝒔
+
+The hydrostatic stress tensor 𝝈𝐻 , describes the isotropic stress exerted
+by the mean normal stresses in all three directions. It is written as
+𝜎𝑚
+𝝈𝐻 = [ 0
+0
+
+0
+𝜎𝑚
+0
+
+0
+0]
+𝜎𝑚
+
+(2.12)
+
+where the mean hydrostatic stress is
+𝜎𝑚 =
+
+𝐼1 𝜎𝑘𝑘
+=
+3
+3
+
+(2.13)
+
+With reference to the cubic element in Figure 2.2, the hydrostatic stress
+tensor causes only volumetric changes, without distorting the shape of
+the element. In contrast, the deviatoric stress tensor induces shape
+distortion, without affecting the element’s volume. According to
+Eq. (2.11), 𝒔 is written as
+(2.14)
+
+𝒔 = 𝝈 − 𝝈𝐻
+
+The six components of the deviatoric stress tensor can be expressed in
+terms of the stress tensor components 𝜎𝑖𝑗 as
+1
+𝑠𝑖𝑗 = 𝜎𝑖𝑗 − 𝜎𝑘𝑘 𝛿𝑖𝑗
+3
+
+(2.15)
+
+where 𝛿𝑖𝑗 is the Kronecker delta function, which is defined as 𝛿𝑖𝑗 = 1 if
+𝑖 = 𝑗 and 𝛿𝑖𝑗 = 0 if 𝑖 ≠ 𝑗.
+
+18
+
+Background and theoretical framework
+
+Since 𝒔 is a second-order tensor, it has its own set of invariants that can
+be obtained by the same procedure as for the stress tensor 𝝈, cf. Eqs.
+(2.5)-(2.10). The characteristic equation becomes
+𝜆3 − 𝐽1 𝜆2 − 𝐽2 𝜆 − 𝐽3 = 0
+
+(2.16)
+
+where
+𝐽1 = 𝑡𝑟(𝒔) = 0
+
+(2.17)
+
+1
+1
+𝐽2 = 𝒔: 𝒔 = 𝑠𝑖𝑗 𝑠𝑗𝑖
+2
+2
+
+(2.18)
+
+1
+𝐽3 = 𝑑𝑒𝑡(𝒔) = 𝑠𝑖𝑗 𝑠𝑗𝑘 𝑠𝑘𝑖
+3
+
+(2.19)
+
+Another invariant quantity that is useful in stress analysis is the Lode
+angle 𝜃𝑐 , which is defined as
+𝐽3 3 3⁄2
+cos 3 𝜃𝑐 = ( )
+2 𝐽2
+
+(2.20)
+
+It is of interest to note that while the numerical representation of tensor
+components depends on the coordinate system used for their
+description, the values of the stress tensor invariants do not. Thus, the
+relations in Eqs. (2.5)-(2.10) and Eqs. (2.17)-(2.20) are valid regardless
+the orientation of the coordinate system. It will become apparent in the
+following sections that the principal stresses and the invariants are
+useful measures in material modeling, since they guarantee that material
+objectivity is satisfied.
+
+Constitutive models
+This chapter provides relevant information about the elastoplastic
+constitutive models that are used in this work. This includes the
+formulations that govern the material’s elastic response and a
+conceptual introduction to the different components that constitute the
+plasticity model. For specific information about the plastic formulations
+
+19
+
+Background and theoretical framework
+
+used in each of the investigations, the reader is referred to the
+publications of this thesis.
+In the FE analyses in LS-DYNA (cf. Publications I, II and III), large
+rotations are accounted for in the co-rotational Belytschko-Lin-Tsay
+elements [35]. In the following presentation, small strains and rotations
+are assumed for the sake of simplicity in the discussion.
+
+2.2.1 Isotropic linear elasticity
+Throughout this thesis, the elastic response is taken to be linear and
+isotropic. The constitutive relation is then uniquely defined in terms of
+two material parameters; the Young’s modulus 𝐸, and Poisson’s ratio 𝜈.
+It is assumed that the strain tensor can be additively decomposed as
+𝜺 = 𝜺𝑒 + 𝜺𝑝𝑙 . Then, the relationship between the Cauchy stress tensor
+and the elastic strain tensor can be expressed as 𝝈 = 𝑪𝜺𝑒 = 𝑪(𝜺 − 𝜺𝑝𝑙 ).
+Here, 𝑪 is the forth-rank elastic stiffness tensor, which can be written
+as [36]
+𝐶𝑖𝑗𝑘𝑙 =
+
+𝐸
+1
+𝜈
+𝛿 𝛿 ]
+[ (𝛿𝑖𝑘 𝛿𝑗𝑙 + 𝛿𝑖𝑙 𝛿𝑗𝑘 ) +
+(1 + 𝜐) 2
+1 − 2𝜈 𝑖𝑗 𝑘𝑙
+
+(2.21)
+
+where 𝑪 is the compliance tensor and 𝐺 = 𝐸 ⁄2(1 + 𝜐) is the shear
+modulus [36].
+
+2.2.2 Yield criteria
+The concept of a yield surface is a crucial element of the plasticity
+model. Not only does it define the onset of yielding for triaxial stress
+states. In most applications, and in this thesis, it also serves as the
+potential for the plastic strain rate. As will be discussed in Section 2.3,
+some of the presented surface formulations also have applications in
+fatigue analysis.
+
+20
+
+Background and theoretical framework
+
+The yield criterion is written as
+𝑓 = 𝜎𝑒 (𝝈) − 𝜎𝑌 ≤ 0
+
+(2.22)
+
+where 𝑓 is the yield function, and 𝜎𝑒 is the effective stress function. The
+yield surface, defined by 𝑓 = 0, can be interpreted as a six-dimensional
+hypersurface in the stress space. Inside the surface, i.e. 𝑓 ≤ 0, is the
+stress space governed by elastic deformations. On the surface, loading
+results in plastic deformations. For the context of the discussion in
+Section 2.3.5, it is worth to mention that formulations in viscoplasticity
+allow the stress point to travel outside the static yield surface [36].
+However, in this work, any rate-dependencies related to the plastic
+deformations are neglected.
+Although 𝜎𝑒 in the general case is written as a function of the stress
+tensor 𝝈, the yield functions considered here are all independent of the
+hydrostatic stress 𝝈𝐻 . From Eq. (2.11), it follows that 𝑓 can be fully
+described in terms of the deviatoric stress 𝒔.
+
+Tresca criterion
+For many engineering purposes, the onset of yielding can be descried
+with satisfactory accuracy by using simple isotropic formulations. A prime
+example is the Tresca criterion, which assumes that the material
+experiences yielding when the maximum shear stress,
+𝜏𝑚𝑎𝑥 = (𝜎1 − 𝜎3 )⁄2, exceeds a critical limit. Since the effective stress
+function should reduce to 𝜎1 for uniaxial tension, such a criterion must
+necessarily take the form
+(2.23)
+
+𝑓 = 𝜎1 − 𝜎3 − 𝜎𝑌 ≤ 0
+
+where the effective stress function in Eq. (2.22) is taken as 𝜎𝑒 = 2𝜏𝑚𝑎𝑥 .
+In principal stress space, the Tresca criterion, is a regular hexagonal
+prism centered on hydrostatic axis (𝜎1 = 𝜎2 = 𝜎3 ). For a material point
+subjected to pure shear in e.g. the 𝑥𝑦-plane, 𝜎𝑥𝑦 = 𝜏 is the only non-zero
+stress component. It follows from Eq. (2.23) and the definition of the
+principal stresses that 𝜏 = 𝜏𝑌 = 𝜎𝑌 ⁄2 at yielding. As this provides a
+
+21
+
+Background and theoretical framework
+
+conservative approximation for the yield limit of isotropic materials, the
+Tresca criterion is widely applied in engineering.
+
+Von Mises criterion
+For the yield function to be used as the potential for the the plastic strain
+rate, the function must be smooth, convex, and closed in the deviatoric
+space [37]. The Tresca loci, illustrated in Figure 2.3, has sharp corners
+where the gradients are undefined. Hence, it doesn’t fulfil the criterion of
+smoothness. This is in contrast to the von Mises criterion [38], another
+widely applied yield criterion. This formulation assumes that the yield
+limit is proportional to the square root of the second deviatoric stress
+invariant, i.e. 𝜎𝑒 ∝ √𝐽2 . Recalling the definition of 𝐽2 , cf. Eq. (2.18), the
+effective stress function must take the form 𝜎𝑒 = √3𝐽2 to comply with the
+scenario of uniaxial stress. In terms of the principal stresses, the
+criterion is written as
+(𝜎1 − 𝜎2 )2 + (𝜎2 − 𝜎3 )2 + (𝜎3 − 𝜎1 )2
+𝑓=√
+− 𝜎𝑌 ≤ 0
+2
+
+(2.24)
+
+A physical interpretation of Eq. (2.24) is that yielding occurs when the
+elastic distortional strain energy reaches a critical value [39]. It is
+commonly used as a design criterion to avoid yielding in metallic
+materials, and in many engineering contexts, 𝜎𝑒 = √3𝐽2 is simply
+referred to as the effective stress. Its locus forms a cylinder centered on
+the hydrostatic axis and, as Figure 2.3 demonstrates, the surface
+circumscribes the Tresca prism. Hence, the model is less conservative,
+and it predicts that the material yields under simple shear when
+𝜏𝑌 = 𝜎𝑌 ⁄√3.
+
+Hershey-Hosford criterion
+The criteria of Tresca and von Mises provide reasonable results for
+many purposes, however, experimental evidence shows that most
+materials have yield limits that lie between the two. This motivated the
+
+22
+
+Background and theoretical framework
+
+phenomenological yield criterion by Hershey [40] and Hosford [41],
+which takes the non-quadratic form
+1
+
+|𝜎1 − 𝜎2 |𝑚 + |𝜎2 − 𝜎3 |𝑚 + |𝜎3 − 𝜎1 |𝑚 𝑚
+𝑓=(
+) − 𝜎𝑌 ≤ 0
+2
+
+(2.25)
+
+where 𝑚 is the Hershey-Hosford exponent. For 𝑚 = 2 and 𝑚 = 4, it
+reduces to the von Mises criterion, and for 𝑚 = 1 and 𝑚 → ∞, we obtain
+the formulation of Tresca. Evaluating Eq. (2.25) for simple shear and
+uniaxial stress, provides the relationship
+1
+
+(2.26)
+
+𝜏𝑌 = 𝜎𝑌 (1 + 2𝑚−1 )−𝑚
+
+If 𝑚 is a value on the interval 1 < 𝑚 < 2 (or equivalently ∞ > 𝑚 > 4), the
+Hershey-Hosford surface takes on shapes between that of Tresca and
+von Mises, allowing for more accurate material descriptions. For
+example, 𝑚 = 6 and 𝑚 = 8 are typically used when modeling the plastic
+behavior of isotropic body-centered cubic (BCC) and face-centered
+cubic (FCC) materials, respectively. The parameter interval 2 < 𝑚 < 4 is
+less frequently discussed in the literature. In this domain, 𝜏𝑌 exceeds
+𝜎𝑌 ⁄√3, which is seldom seen in experiments. An extreme state is
+obtained at 𝑚 ≃ 2.767, when 𝜏𝑌 ≃ 0.585.
+Figure 2.3 depicts loci of the Hershey-Hosford function in the normalized
+principal plane stress space, and Figure 2.4 shows the relationship
+𝜏𝑌 ⁄𝜎𝑌 implied in Eq. (2.26). In Publication II of this thesis, the HersheyHosford yield criterion with 𝑚 = 8 is employed as an isotropic
+approximation for sheet metal forming analysis of the AA5083-H111
+sheets.
+
+23
+
+Background and theoretical framework
+
+Figure 2.3
+Hershey-Hosford criterion: Yield loci of in the space of normalized plane
+stress.
+
+Figure 2.4
+Hershey-Hosford criterion: Relationship between 𝜏𝑌 ⁄𝜎𝑌 and the
+exponent 𝑚.
+
+Anisotropic criteria
+Until now, we have considered isotropic formulations which utilize
+principal stresses or stress tensor invariants to describe the yield
+surface. However, many materials display mechanical properties that are
+dependent on the material direction. This is the case for rolled aluminum
+
+24
+
+Background and theoretical framework
+
+alloy sheets, where grains in the polycrystalline material can take on
+preferred orientations [42] and induce orthotropic characteristics. The
+rolled sheets often display different behaviors in the rolling direction
+(RD), the transverse direction (TD) and the normal direction (ND) [37].
+Anisotropic yield functions have been successfully applied to model the
+phenomenological behavior of such materials on the continuum scale.
+The yield function is then taken to represent the average behavior of the
+textured sheet metal by referring to a co-rotational Cartesian coordinate
+system where the axes 𝑥, 𝑦, and 𝑧, are aligned with the material
+directions RD, TD, and ND.
+A large number of different anisotropic yield functions have been
+proposed in the literature. Banabic [37] provides an historical overview of
+the most prominent ones, from the classical anisotropic formulation by
+von Mises [43], via the Hill criteria [44-46], to the formulations based on
+linear transformation-based stress components.
+The latter category was popularized by Barlat and co-workers through a
+series of yield function proposals [47-50], some which are commonly
+applied in the modeling of sheet metal forming operations today. They
+take advantage of isotropic functions, written in terms of principal
+stresses or stress invariants, that are convex with respect to the stress
+input. Linear transformations are applied to the stress tensor to account
+for anisotropy. Since the isotropic function is convex for any input, the
+surface remains convex for the transformed stress input. To increase the
+number of anisotropy coefficients, the yield function can be written as the
+sum of multiple subfunctions, in which the stress tensor is subjected to
+different transformations.
+For an isotropic function that is divided into 𝑘 subfunctions, the
+associated transformed stress tensors are written as
+𝒙(𝑘) = 𝑩(𝑘) 𝝈
+
+(2.27)
+
+where 𝑩(𝑘) are transformation matrices constituted by the anisotropy
+parameters. The superscript in Eq. (2.27) is not an exponent term, but
+refers to the number of prime marks used to distinguish the 𝑘 different
+
+25
+
+Background and theoretical framework
+
+transformations. For instance, for 𝑘 = 2 there are two transformed
+stress tensors, each referred to as 𝒙′ = 𝒙(1) and 𝒙′′ = 𝒙(2) . The yield
+function takes the form
+𝑓 = ∑ 𝑓 (𝑘) (𝒙(𝑘) ) − 𝜎𝑌 ≤ 0
+
+(2.28)
+
+𝑘
+
+where 𝑓 (𝑘) represents the different subfunctions that take the
+corresponding transformed stress tensors 𝒙(𝑘) as inputs.
+Two such formulations, appropriate for plane-stress situations, are
+applied in this work. The first formulation is the Yld2000-2d yield criterion
+proposed by Barlat et al. [49], which is employed in Publication III of this
+thesis. The formulation has been recognized for its accurate description
+of plastic anisotropy in aluminum alloy sheets, and its excellent
+computational efficiency when implemented in FE codes for SMF
+analysis [51]. It takes advantage of the Hershey-Hosford formulation, cf.
+Eq. (2.25), and separates it into two subfunctions 𝑓 ′ and 𝑓 ′′ . The two
+subfunction respectively take the input 𝒙′ = 𝑩′ 𝝈 and 𝒙′′ = 𝑩′′ 𝝈. The
+second formulation is the Yld2003 yield criterion by Aretz [52], which is
+employed in Publication I of this thesis. Like the formulation of Barlat et
+al. [49], it employs a plane stress Hershey-Hosford function that is
+separated into two subfunctions. Yld2003 takes a somewhat simpler
+mathematical form, but has proven to produce nearly identical results as
+Yld2000-2d [52]. Descriptions of the Yld2000-2d and the Yld2003 criteria
+are respectively found in Publication III and I of this thesis.
+
+2.2.3 Strain hardening
+When a metallic material is deformed beyond the initial yield limit, it
+starts to plastically deform. As the plastic strains accumulate, the
+material hardens, i.e. the yield stress of the material increases. The
+current yield stress, sometimes referred to as the flow stress, can be
+written as a function of the equivalent plastic strain 𝜀𝑝𝑙 as
+(2.29)
+
+𝜎𝑌 (𝜀𝑝𝑙 ) = 𝜎𝑌,0 + 𝐾(𝜀𝑝𝑙 )
+
+26
+
+Background and theoretical framework
+
+where 𝜎𝑌,0 is the initial yield stress, 𝐾(𝜀𝑝𝑙 ) ≥ 0 is the strain hardening1
+and 𝜀𝑝𝑙 is expressed in rate form as
+2
+𝜀̇𝑝𝑙 = √ 𝜺̇ 𝑝𝑙 : 𝜺̇ 𝑝𝑙
+3
+
+(2.30)
+
+The relationship between the effective stresses and the equivalent
+plastic strains can be observed experimentally by subjecting the material
+to monotonic proportional straining. In a uniaxial tensile test, the
+equivalent plastic strain in the direction of the applied stress becomes
+𝜀𝑝𝑙 = 𝜀 − 𝜎⁄𝐸
+
+(2.31)
+
+Prior to diffuse necking, the stress is described as 𝜎 = 𝐹(1 + Δ𝐿⁄𝐿0 )⁄𝐴0
+and the strain in the direction of applied stress as 𝜀 = ln(1 + Δ𝐿⁄𝐿0 ).
+Here, 𝐹 is the applied force, 𝐴0 is the initial cross-section area, 𝐿0 is the
+initial gauge length, and Δ𝐿 is the change in length.
+A mathematical expression can be adopted to describe the observed
+relationship between 𝜎𝑌 and 𝜀𝑝𝑙 , using the experimental data to calibrate
+its parameters. An arsenal of strain hardening formulations exist in the
+literature, see e.g. the recent review paper by Pham & Kim [53]. In this
+thesis we take advantage of two formulations; the exponential hardening
+formulation [54] (sometimes referred to as Swift hardening or power law
+hardening), and the Voce relation [55]. The exponential hardening
+formulation follows the simple relation
+𝜎𝑌 (𝜀𝑝𝑙 ) = 𝑘(𝜀𝑌,0 + 𝜀𝑝𝑙 )
+
+𝑛
+
+(2.32)
+
+where 𝜀𝑌,0 = 𝜎𝑌,0 ⁄𝐸 is the strain at yield. The Voce relation can be
+expressed in general terms as
+𝜎𝑌 (𝜀𝑝𝑙 ) = 𝜎𝑌,0 + ∑ 𝑄𝑅,𝑖 [1 − exp(−𝐶𝑅,𝑖 𝜀𝑝𝑙 )]
+
+(2.33)
+
+𝑖
+
+In Publication III of this thesis, 𝜎𝑓 denotes the flow stress (here referred to as 𝜎𝑌 ), while the symbol
+𝜎𝑌 is reserved for the initial yield stress (here referred to as 𝜎𝑌,0 ).
+1
+
+27
+
+Background and theoretical framework
+
+where 𝑄𝑅,𝑖 and 𝐶𝑅,𝑖 are the Voce parameters. The number of Voce terms
+𝑖 is chosen as required to obtain a good fit between experimental test
+data and the mathematical function.
+
+2.2.4 Flow and hardening rule
+While the isotropic Hooke’s law is used as the constitutive relation for 𝜺𝑒 ,
+cf. Eq. (2.25), the plastic strain tensor 𝜺𝑝𝑙 is taken to follow the
+associated flow rule. The yield function 𝑓 is then used as a potential
+function for the plastic strain rates, which implies that the directions of
+the increments are normal to the yield surface. We can then write the
+plastic strain tensor in rate form as:
+𝜺̇ 𝑝𝑙 = 𝜆̇
+
+𝜕𝑓
+𝜕𝒔
+
+(2.34)
+
+The magnitude of the plastic multiplier 𝜆̇ can be determined by enforcing
+that the stress point remains on the yield surface during plastic
+loading [56], i.e. 𝑓 = 0 and 𝑓̇ = 0. In order to satisfy this condition, the
+yield surface must expand (isotropic hardening) and/or translate
+(kinematic hardening) in the deviatoric plane when the material strain
+hardens, cf. Figure 2.5.
+Purely isotropic hardening is described by letting the yield strain be a
+function of the equivalent plastic strain 𝜎𝑌 (𝜀𝑝𝑙 ), as discussed in
+Section 2.2.3. To describe kinematic hardening, a plastic back-stress
+tensor 𝜶 is used. The effective stress is then formulated in terms of the
+difference between the stress tensor and the plastic back-stress tensor,
+i.e. 𝜎𝑒 (𝝈 − 𝜶). Various linear and non-linear kinematic formulations exist
+in the literature [57].
+This work adopts a mixed formulation that combines isotropic and linear
+kinematic hardening, where the back-stress evolution is described
+as [35]
+𝜕𝑓
+𝜕𝜀𝑝𝑙 𝜕𝑓
+𝜶̇ = 𝜆̇𝐵
+𝜕𝑓 𝜕𝑓 𝜕𝒔
+:
+𝜕𝒔 𝜕𝒔
+
+(2.35)
+
+28
+
+Background and theoretical framework
+
+Figure 2.5
+Hardening rules in the principal stress space: a) Isotropic hardening, and
+b) Kinematic hardening.
+
+𝜎1
+
+a)
+
+𝜎1
+
+b)
+
+𝜶
+
+𝜎2
+
+𝜎3
+Initial
+
+𝜎2
+
+𝜎3
+Initial
+
+Current
+
+Current
+
+In Eqs. (2.35), 0 ≤ 𝐵 ≤ 1 is the isotropic-kinematic mixing coefficient.
+The yield function then takes the form
+𝑓 = 𝜎𝑒 (𝝈 − 𝜶) − 𝜎𝑌 (𝜀𝑝𝑙 ) − 𝐵[𝜎𝑌,0 − 𝜎𝑌 (𝜀𝑝𝑙 )] ≤ 0
+
+(2.36)
+
+It is evident from Eqs. (2.35) and (2.36) that 𝐵 = 0 corresponds to
+isotropic hardening, 𝐵 = 1 to kinematic hardening, while 0 < 𝐵 < 1
+provides a mixed isotropic-kinematic form.
+
+High-cycle fatigue
+The fatigue failure of a structural component is the ultimate destiny of a
+material that has gone through various consecutive stages, each
+governed by different physical phenomena. A structural component that
+is subjected to cyclic stresses over a certain threshold level may
+experience microscopic cracking on the free surface of the material. If
+these microscopic cracks are allowed to accumulate through repeated
+stress cycles, a macroscopic crack eventually forms. The tip of the
+macroscopic crack gives rise to a stress concentration that causes the
+crack to propagate in a stable manner through the material. This
+
+29
+
+Background and theoretical framework
+
+gradually reduces the cross-section and leads to an increase in the
+nominal stress levels. Eventually, the ultimate capacity of the material is
+reached, at which the component fails in a sudden and often
+catastrophic event.
+When designing structures to avoid high-cycle fatigue failure, several
+approaches exist. The engineer may design the structure so that the
+magnitude of the cyclic stress does not exceed the material’s fatigue
+limit. The stress level at which a material can endure an infinite (or very
+large) number of cycles without failing due to fatigue is called the fatigue
+limit. While such a strategy may provide confidence in the structure’s
+integrity, it can result in overly conservative designs and non-optimal
+resource allocations.
+A second approach is more refined, and allows some formation of
+microcracks during the structure’s service life. In this case, stress levels
+that exceed the material’s fatigue limit are tolerated, as long as
+macroscopic crack formation is avoided. While this allows utilizing more
+of the structure’s capacity, it requires increased knowledge about the
+material, and how it behaves under various loading conditions.
+It is also possible to consider the total fatigue life of the structure. By
+allowing the formation and growth of macroscopic cracks, the full
+capacity of the structure can be utilized, as long as the structure is taken
+out of service prior to total collapse. The modeling of fatigue crack
+propagation requires specific information about how the material
+behaves in the crack propagation phase.
+As the majority of the fatigue life is often spent in the crack initiation
+phase, this thesis will focus on the first two approaches. It will be
+conservatively assumed that the number of cycles required to initiate a
+macroscopic fatigue crack defines the fatigue life of a structure.
+Moreover, the scope is limited to fatigue due to local stress histories,
+disregarding effects related to specimen size, surface roughness,
+temperature and chemical environments.
+
+30
+
+Background and theoretical framework
+
+2.3.1 S-N curve
+Research on fatigue started in the middle of the 19th century with the
+experiments of August Wöhler. He carried out the first organized studies
+on materials that failed under constant harmonic loading at stress
+amplitudes far below the material’s static strength [58]. When studying
+the fatigue of railroad axles, Wöhler observed an inverse relationship
+between the applied stress range, and the number of cycles at failure.
+The most common experimental fatigue test is that of uniaxial stress,
+which is achieved by subjecting test specimens to repeated bending or
+axial loading. If the specimen is aligned with the 𝑥-direction, 𝜎𝑥𝑥 = 𝜎 is
+the only non-zero stress components, and the stress history is defined
+as
+(2.37)
+
+𝜎 = 𝜎𝑚 + 𝜎𝑎 sin 𝜔𝑡
+
+where 𝜎𝑚 is the mean stress and 𝜎𝑎 is the stress amplitude. By
+assuming that the angular frequency 𝜔 and the time 𝑡 does not influence
+result, the fatigue stress can simply be written as 𝜎 = 𝜎𝑚 ± 𝜎𝑎 .
+The results from such tests are typically represented in an S-N diagram
+(often referred to as a Wöhler’s diagram) with the stress amplitude or
+range (2𝜎𝑎 ) on the vertical axis and the number of cycles at failure on
+the horizontal axis. Figure 2.6 displays a schematic S-N diagram in the
+log-log space of the stress amplitude 𝜎𝑎 , and the number of cycles at
+failure 𝑁𝑓 . The diagram is divided in three domains; the low-cycle, the
+high-cycle fatigue, and the very high-cycle fatigue domain. Within each
+domain, the relationship between 𝜎𝑎 and 𝑁𝑓 can be approximated with a
+straight line in the log-log-space.
+The low-cycle fatigue (LCF) domain is found from > 1 to around 103 -104
+cycles at failure. At these stress levels, the material normally
+experiences macroscopic plastic deformations. The high-cycle (HCF)
+fatigue domain is found from around 103 -104 to around 106 -107 cycles at
+failure. While microscopic plastic deformations can occur, the
+
+31
+
+Background and theoretical framework
+
+Figure 2.6
+Schematic Wöhler diagram with the different fatigue regimes.
+
+macroscopic response is here predominantly elastic. The very high-cycle
+fatigue (VHCF) domain is found beyond 106 -107 cycles at failure. In this
+domain, the log-log S-N displays a plateau where the curve flattens.
+Wöhler concluded that the materials displayed a fatigue limit, or
+endurance limit, at around 106 cycles at failure, and that below this limit
+the material could withstand an infinite number of cycles. This has later
+been refuted by experimental exploration of the very high-cycle fatigue
+regime [59], thanks to the introduction of ultrasonic test
+techniques [60,61]. Yet, in the design of structures, the existence of a
+fatigue limit can be taken to correspond with a number of cycles at
+failure that cannot possibly be exceeded during the design life of the
+specific structure [62].
+
+2.3.2 Mean stress
+For uniaxial stress, the fatigue depends on the mean stress level
+𝜎𝑚 [58]. The fatigue stress ratio 𝑅 is a useful measure in this respect. It
+is expressed as
+𝑅=
+
+𝜎𝑚𝑖𝑛 𝜎𝑚 − 𝜎𝑎
+=
+𝜎𝑚𝑎𝑥 𝜎𝑚 + 𝜎𝑎
+
+(2.38)
+
+32
+
+Background and theoretical framework
+
+We establish the notation 𝜎𝑅 as the fatigue limit for a certain stress ratio
+𝑅. For example, 𝜎−1 is the fatigue limit for fully reversed loading
+(𝜎𝑎 = 𝜎−1 and 𝜎𝑚 = 0) and 𝜎0 is the fatigue limit for pulsating loading
+(𝜎𝑎 = 𝜎𝑚 = 𝜎0 ⁄2).
+The S-N curve is thus only a representation of the fatigue life at a
+particular mean stress level, or a particular 𝑅-ratio. Experiments show
+that the S-N curve is shifted downwards by tensile mean stresses and
+upward for compressive mean stresses [63].
+If fatigue tests at different mean stress levels exist, interpolation can be
+used to describe the effect. If e.g. 𝜎−1 and 𝜎0 is known, a fatigue limit
+criterion for periodic uniaxial stress can be written as
+(2.39)
+
+𝜎𝑎 + 𝐴𝜎𝑚 ≤ 𝜎−1
+where
+𝐴=
+
+2𝜎−1
+−1
+𝜎0
+
+(2.40)
+
+is the mean stress sensitivity parameter. In this form, the left-hand side
+of Eq. (2.39) represents an equivalent fatigue stress that takes into
+account the effect of the uniaxial mean stress.
+When fatigue data for cyclic loading at two different stress ratios are not
+available, the mean stress sensitivity can be approximated by methods
+that utilize the material’s yield strength or ultimate stress limit. The FKM
+Guideline [62], a set of recommendations for the analytical strength
+assessment of components in mechanical engineering, provides an
+expression to estimate the mean stress sensitivity for different classes of
+materials. Besides this, the relation
+𝑧
+
+𝜎𝑎
+𝜎𝑚
++(
+) ≤1
+𝜎−1
+𝜎𝑟𝑒𝑓
+
+(2.41)
+
+summarizes the most commonly applied methods, including the
+Soderberg line (𝜎𝑟𝑒𝑓 = 𝜎𝑌 and 𝑧 = 1), the modified Goodman
+
+33
+
+Background and theoretical framework
+
+line (𝜎𝑟𝑒𝑓 = 𝜎𝑢 and 𝑧 = 1), and the Gerber parabola (𝜎𝑟𝑒𝑓 = 𝜎𝑢 and
+𝑧 = 2) [15]. The relation in Eqs. (2.41) can be rewritten as
+𝐴=
+
+𝜎−1
+𝜎 𝑧−1
+𝜎𝑟𝑒𝑓 𝑧 𝑚
+
+(2.42)
+
+to comply with the format in Eqs. (2.39) and (2.40).
+While the mean values of the uniaxial stresses significantly influence the
+fatigue capacity, experiments on specimens subjected to torsional
+loading show that the mean stress effect is less pronounced for shear
+stresses. Sines [64] evaluated previously reported data from a vast
+selection of materials and concluded that the static shear stresses do
+not have a notable influence the torsional fatigue limit in the elastic
+regime. Papuga & Halama [65] and Davoli et al. [66] have reviewed
+more recent datasets and reported that a slight influence is present for
+some materials. While Papuga & Halama [65] argues that the mean
+shear stress effect should be accounted for in modeling, Davoli et al. [66]
+concludes that the effect may be neglected from a design point of view,
+in line with the overwhelming experimental evidence provided by
+Sines [64].
+Constant amplitude torsional loading induces a stress state of pure
+shear described by
+(2.43)
+
+𝜏 = 𝜏𝑚 + 𝜏𝑎 sin 𝜔𝑡
+
+or simply 𝜏 = 𝜏𝑚 ± 𝜏𝑎 , where 𝜏𝑥𝑦 = 𝜏 is the only non-zero component of
+the stress tensor. Assuming that 𝜏𝑚 does not influence the result, it is
+trivial to establish a fatigue limit criterion with reference to the fatigue
+limit for fully reversed uniaxial stress as
+𝜎−1
+𝜏 ≤ 𝜎−1
+𝜏𝑅 𝑎
+
+(2.44)
+
+where 𝜏𝑅 is commonly taken as the fatigue limit for fully reversed shear
+stress 𝜏−1 .
+
+34
+
+Background and theoretical framework
+
+2.3.3 Multiaxial stress
+In the previous section, we discussed fatigue due to periodic singlecomponent stress, cf. Eqs. (2.37) and (2.43). A more general periodic
+multiaxial stress history can be expressed as
+𝜎𝑖𝑗 (𝑡) = 𝜎𝑖𝑗,𝑚 + 𝜎𝑖𝑗,𝑎 sin(𝜔𝑡 + 𝜑𝑖𝑗 )
+
+(2.45)
+
+where 𝜎𝑖𝑗,𝑚 and 𝜎𝑖𝑗,𝑎 are respectively the components of the mean stress
+tensor and the amplitude stress tensor. Moreover, 𝜔 is the angular
+frequency, and 𝜑𝑖𝑗 is the phase shift angle.
+Similar to the simple fatigue limit criteria for normal stress and shear
+stress, cf. Eqs. (2.39) and (2.44), multiaxial fatigue limit criteria can be
+expressed as inequalities. On the left-hand side is an expression for the
+equivalent multiaxial fatigue stress, and on the right-hand side is a
+reference fatigue limit. This section will provide a brief overview of such
+theories. Most multiaxial fatigue criteria can be classified as invariantbased, critical plane-based, or integral-based.
+Invariant-based criteria depend on the mean values and amplitudes of
+the stress invariants [64,67,68]. The most common invariant-based
+multiaxial fatigue limit criteria can be written on the general form
+(2.46)
+
+𝜎𝑆𝐼 (𝐽2,𝑎 , 𝐽2,𝑚 , 𝐼1,𝑎 , 𝐼1,𝑚 ) ≤ 𝜎−1
+
+where 𝜎𝑆𝐼 is the equivalent fatigue stress2. Various invariant-based
+formulations exist [69-72], among which the Sines criterion [64] is the
+most frequently used. This criterion disregards the effects of 𝐼1,𝑎 and 𝐽2,𝑚 ,
+and takes the form
+(2.47)
+
+𝜎𝑆𝐼 = √𝐽2,𝑎 + 𝐴𝐼1,𝑚 ≤ 𝜎−1
+
+Without loss of generalization, 𝜎−1 is placed on the right-hand side of fatigue limit inequalities as a
+reference fatigue limit throughout this thesis. Any experimental fatigue limit can be adopted as a
+reference fatigue limit by appropriately manipulating the parameters of the fatigue limit criterion.
+2
+
+35
+
+Background and theoretical framework
+
+For uniaxial stress, the criterion reduces to Eq. (2.39), and for pure
+shear stress it becomes
+(2.48)
+
+√3𝜏𝑎 ≤ 𝜎−1
+
+Hence, the Sines criterion implies a relationship between the fatigue limit
+for pure shear and in fully reversed uniaxial stress 𝜏−1 ⁄𝜎−1 = 1⁄√3.
+Experimental data show that the ratio 𝜏−1 ⁄𝜎−1 is around 0.6 for many of
+the metallic materials that are used for structural applications [73]. For
+these materials, the Sines criterion describes in-phase combinations of
+shear stress and normal stress with close accuracy. However, there are
+many other materials where the relationship significantly deviates from
+this value. Very ductile materials display 𝜏−1 ⁄𝜎−1 -ratios in the range from
+1⁄2 to 1⁄√3. For instance, Gough et al. [74] reports a ratio
+𝜏−1 ⁄𝜎−1 = 0.519 for a NiCrMo steel (75/80 ton). On the other hand,
+brittle materials show higher 𝜏−1 ⁄𝜎−1 -ratios. Various casted alloys
+display 𝜏−1 ⁄𝜎−1 -ratios approaching unity [75,76]. More recent
+experiments on metallic additively manufactured materials produced by
+laser powder bed fusion (LPBF) even show that 𝜏−1 can exceed 𝜎−1
+[77,78]. For these materials, the Sines criterion introduces inaccuracies
+that are unacceptable for many engineering applications.
+Critical plane-based criteria consider the traction vector 𝑺 = 𝝈 ∙ 𝒏 on a
+critical plane. The equivalent fatigue stress is constructed from the mean
+values and the amplitudes of the traction vector’s normal component 𝑆𝑛 ,
+and shear component 𝑆𝜏 . The most common critical plane-based criteria
+can be written on the general form
+(2.49)
+
+𝜎𝐶𝑃 (𝑆𝜏,𝑎 , 𝑆𝜏,𝑚 , 𝑆𝑛,𝑎 , 𝑆𝑛,𝑚 ) ≤ 𝜎−1
+
+where 𝜎𝐶𝑃 is the equivalent fatigue stress. The different existing criteria
+adopt various formulations for 𝜎𝐶𝑃 , and different definitions of the critical
+plane. Most criteria consider the plane where the value of 𝜎𝐶𝑃 is
+maximized [65,79], or the plane where the maximum shear stress
+amplitude 𝑆𝜏,𝑎 occurs [75,80].
+
+36
+
+Background and theoretical framework
+
+Integral-based criteria consider the average value of the traction vector
+components over all the material planes [81-83]. As the critical planebased and the invariant-based criteria require calculations on multiple
+planes, they are more computationally demanding than the invariantbased formulations.
+Obtaining the mean values and amplitudes of 𝐼1 and the normal
+component 𝑆𝑛 is straight-forward for arbitrary periodic stress histories.
+However, the mean values and amplitudes of 𝐽2 and 𝑆𝜏 are not a trivially
+obtained when the stress histories are non-proportional, e.g. when there
+is a non-zero difference between any of the phase shift angles 𝜑𝑖𝑗 , cf.
+Eq. (2.45). Several methods exist in the literature (see e.g. [84-89]).
+Some of these methods utilize various geometric shapes to circumscribe
+the cyclic stress paths. For critical plane-based criteria, this is typically
+the path on the critical plane, while for invariant-based criteria, the path
+is in a five-dimensional deviatoric stress space.
+The formal similarities between the invariant-based, the critical planebased, and the integral-based criteria are clear by comparison of
+Eqs. (2.46) and (2.49). Moreover, Sines showed that 𝐼1 is proportional to
+the average value of 𝑆𝑛 over all the material planes [90], and interpreted
+𝐽2,𝑎 as a measure of the average effect of slippage over all material
+planes caused by the resolved shear stress [64]. Thus, integral-based
+criteria may employ invariants in their formulations.
+Several reviews that present quantitative comparisons between existing
+criteria have been published in the literature, see refs. [73,85,91,92]. As
+stated by Pedersen [93], most authors conclude that their own criterion
+is superior. While the criteria that use the plane-based approach are
+more computational expensive, they are often regarded as more
+accurate.
+
+2.3.4 Non-periodic stress
+Usually, variable amplitude stress histories due to e.g. irregular wave
+and wind loads [94-96] are tackled by applying cycle-counting
+
+37
+
+Background and theoretical framework
+
+techniques. This involves first converting the stress tensor history into a
+scalar variable by using an effective stress function. Next, this
+continuous signal is filtered into a sequence of valley and peaks. A cyclecounting technique then converts the sequence into a finite set of distinct
+equivalent cycles. The fatigue damage associated with each stress cycle
+is calculated using S-N curves, which relate the stress amplitude and the
+associated number of cycles at failure. Finally, the total damage is
+calculated from the contributions of each cycle by applying a damageaccumulation rule. As cycle-counting techniques often rely on making
+alterations to the stress sequence that introduce additional cycles to the
+analysis, the linear Palmer-Miner accumulation rule [97,98], which
+disregards sequence effects, must be used.
+Numerous cycle-counting techniques exist, where different variations of
+the rain-flow technique by Matsuishi & Endo [21] are the most commonly
+applied. The Bannantine-Socie method [99], the Wang-Brown
+method [100,101] and the modified Wang-Brown method proposed by
+Meggiolaro & Castro [87] represent some prominent examples. Rovinelli
+et al. [102] compared four rain-flow-based cycle-counting techniques for
+multiaxial loading and concluded that the predicted damage among the
+different approaches varied up to 20%. Carpinteri et al. [103] reviewed
+the state-of-the-art of multiaxial fatigue modeling for non-periodic loading
+and highlighted the complex nature of the analysis methods, which
+combine various equivalent stress formulations, critical plane-definitions,
+and cycle-counting techniques. Although cycle-counting-based methods
+may be appropriately applied for many engineering applications, the
+authors of the study concluded that the existing approaches all reveal
+various deficiencies. Thus, there is no consensus on a generally valid
+theory for arbitrary stress histories.
+Other authors have pointed to the fallacy in the assumption that all
+stress histories consist of well-defined cycles [22]. In principle, the
+stresses in a structure are described by six stress tensor components
+that are independent of each other. Thus, their stress reversals do not
+necessarily occur simultaneously [104]. When they do not, the methods
+
+38
+
+Background and theoretical framework
+
+fail to define equivalent cycles without the potential loss of important
+information [105].
+The practical shortcomings of employing cycle-counting-based methods
+in combination with large FE models were discussed by Lilja et al. [106].
+As the cycle-counting algorithms require access to the entire stress
+history, the fatigue analysis must be carried out as a post-processing
+step. To determine the maxima and minima of non-proportional stress
+histories with satisfying accuracy requires high-frequency stress output.
+If the FE model consists of a large number of integration points, the
+amount of stored data can become substantial.
+
+2.3.5 Continuum mechanics-based fatigue
+modeling
+Lately, an increased interest has emerged for incremental fatigue
+models. These models are based on time-continuous formulations where
+the fatigue damage is assumed to accumulate continuously, opposed to
+in the cycle-based formulations discussed before.
+Stephanov [107] proposed a model for multiaxial fatigue analysis where
+the fatigue damage was continuously integrated along stress
+trajectories. The model allowed evaluating fatigue due to arbitrary
+histories of plane stress.
+Ottosen et al. [22] proposed an incremental theory that accounted for all
+six stress tensor components. The model, here referred to as the
+continuum mechanics fatigue model, uses the concept of an endurance
+surface that moves in the stress space according to a deviatoric backstress tensor. The inside of the surface is defined as the safe domain,
+and the outside of the surface is defined as the unsafe domain. In the
+unsafe domain, the fatigue damage may evolve if the stress point is
+moving away from the surface. The same conditions apply for the
+evolution of the back-stress tensor. Unlike cycle-counting-based
+methods, which require access to entire stress histories, the continuum
+mechanics fatigue model employ the current stress tensor 𝝈 and its
+
+39
+
+Background and theoretical framework
+
+rate 𝝈̇ . Thus, the method is suited for implementation in FE-based codes
+as a user-defined material subroutine [108,109].
+In the complete machinery simulation of a rock drill, Lilja et al. [106]
+demonstrated that the continuum mechanics fatigue model [22]
+outperformed conventual cycle-counting-based methods with respect to
+integration speed, data storage, and user-friendliness.
+Publications IV and V of this thesis provide detailed descriptions of the
+continuum mechanics fatigue model [22]. The following section offers a
+brief overview of the mathematical formulation.
+The model assumes that a Drucker-Prager endurance surface defines
+the boundary between the safe and the unsafe domain of the stress
+space. The surface is defined by 𝛽 = 0 where
+𝛽=
+
+1
+(𝜎̅ + 𝐴𝐼1 − 𝜎−1 )
+𝜎−1 𝑒
+
+(2.50)
+
+Here, 𝐴 is the mean stress sensitivity parameter, cf. Eq. (2.40).
+Moreover, 𝜎̅𝑒 is a back-stress-reduced effective stress term on the von
+Mises-form, i.e.
+3
+𝜎̅𝑒 = √3𝐽2̅ = √ 𝒔̅: 𝒔̅
+2
+
+where
+
+𝒔̅ = 𝒔 − 𝝁
+
+(2.51)
+
+Here, 𝝁 is the fatigue back-stress tensor, which should not be confused
+with the plastic back-stress tensor, which occupies the notation 𝜶 in
+thesis3. The surface is represented in Figure 2.7 in the positive principal
+stress space for 𝝁 = 𝟎.
+
+In this thesis and Publication II, both the plastic back-stress tensor and the fatigue back-stress
+tensor are dealt with. They are then respectively referred to with the notations 𝜶, and 𝝁. In
+Publications IV and V, where only the fatigue back-stress is discussed, the literature convention 𝜶 is
+taken to denote the fatigue back-stress.
+3
+
+40
+
+Background and theoretical framework
+
+Figure 2.7
+Continuum mechanics fatigue model: Endurance surface in the space of
+positive principal stresses for 𝝁 = 𝟎.
+
+With the initial condition 𝝁 = 𝟎 at 𝑡 = 0, the evolution of the back-stress
+is defined by
+𝝁̇ = 𝛽̇ 𝐶𝒔̅
+
+(2.52)
+
+where 𝐶 is a positive dimensionless model parameter. It follows that 𝝁 is
+a deviatoric tensor. The rate of the fatigue damage is defined as
+𝐷̇ = 𝛽̇ 𝐾 exp(𝐿𝛽)
+
+(2.53)
+
+with 𝐾 and 𝐿 as positive dimensionless parameters. A virgin, undamaged
+material implies 𝐷 = 0, while 𝐷 = 1 implies the initiation of a
+macroscopic fatigue crack. Moreover, Eqs. (2.52) and (2.53) obey the
+following loading/unloading criteria
+𝛽 > 0 𝑎𝑛𝑑 𝛽̇ > 0
+𝑂𝑡ℎ𝑒𝑟𝑤𝑖𝑠𝑒
+
+⇒
+
+𝝁̇ ≠ 𝟎 𝑎𝑛𝑑 𝐷̇ ≠ 0
+
+⇒
+
+𝝁̇ = 𝟎 𝑎𝑛𝑑 𝐷̇ = 0
+
+(2.54)
+
+The endurance function rate 𝛽̇ is obtained by differentiation of Eq. (2.50)
+with respect to time. The expression is inserted into Eqs. (2.52)
+and (2.53) to obtain a system of seven evolution equations that for
+
+41
+
+Background and theoretical framework
+
+general stress histories must be solved using a numerical integration
+scheme.
+For some specific stress histories, analytical forms are presented [22]. It
+is shown that the model reduces to the invariant-based Sines criterion
+(cf. Eq. (2.47)) for periodic linear loading at infinite fatigue lifetimes.
+Moreover, in the finite fatigue life domain, the same loading results in
+stable cyclic damage accumulation. This is used to develop closed-form
+expressions for the damage increase per cycle Δ𝐷 of uniaxial loading.
+For uniaxial loading, i.e. 𝜎𝑥𝑥 = 𝜎 and 𝜇𝑥𝑥 = −2𝜇𝑦𝑦 = −2𝜇𝑧𝑧 = 𝜇,
+Eq. (2.51) becomes
+3
+𝜎̅𝑒 = 𝑘 (𝜎 − 𝜇)
+2
+
+(2.55)
+
+where
+1 𝑖𝑓
+𝑘={
+1 𝑖𝑓
+
+3
+𝜎− 𝜇>0
+2
+3
+𝜎− 𝜇<0
+2
+
+(2.56)
+
+Insertion into Eq. (2.50) yields
+𝛽=
+
+1
+3
+[𝑘 (𝜎 − 𝜇) + 𝐴𝜎 − 𝑆𝑜 ]
+𝑆𝑜
+2
+
+(2.57)
+
+The stress varies periodically between the two extreme stress states
+𝜎𝑚𝑎𝑥 = 𝜎𝑚 + 𝜎𝑎 , and 𝜎𝑚𝑖𝑛 = 𝜎𝑚 − 𝜎𝑎 . As demonstrated by Ottosen et
+al. [22], the back-stress quickly takes on a stable behavior where it
+alternates between the extremals 𝜇𝑚𝑎𝑥 and 𝜇𝑚𝑖𝑛 . It can then be shown
+that 𝜇𝑚𝑎𝑥 may be obtained from
+3
+𝜇
+− (𝐴 + 1)𝜎𝑚𝑎𝑥 + 𝑆𝑜
+2 𝑚𝑎𝑥
+𝑆
+3
+1 − 𝑜 (𝜎𝑚𝑎𝑥 − 𝜇𝑚𝑎𝑥 )
+𝑆𝑜
+𝐶𝐴
+2
+(𝐴 + 1)ln [
+−
+]=0
+𝑆𝑜
+3
+𝐶𝐴
+1−
+(𝑆 − 𝐴𝜇 )
+𝐶𝐴(𝐴 + 1) 𝑜 2 𝑚𝑖𝑛
+
+42
+
+(2.58)
+
+Background and theoretical framework
+
+and 𝜇𝑚𝑖𝑛 from
+3
+− 𝜇𝑚𝑖𝑛 − (𝐴 − 1)𝜎𝑚𝑖𝑛 + 𝑆𝑜
+2
+𝑆
+3
+1 − 𝑜 (𝜎𝑚𝑖𝑛 − 𝜇𝑚𝑖𝑛 )
+𝑆𝑜
+𝐶𝐴
+2
+(𝐴 − 1)ln [
+−
+]=0
+𝑆
+3
+𝐶𝐴
+𝑜
+1−
+(𝑆 − 𝐴𝜇
+)
+𝐶𝐴(𝐴 + 1) 𝑜 2 𝑚𝑎𝑥
+
+(2.59)
+
+By neglecting the brief transient behavior, the number of cycles at failure
+can be computed as
+1
+𝐾
+𝐿
+3
+= Δ𝐷 = (𝑒𝑥𝑝 { [(𝐴 + 1)𝜎𝑚𝑎𝑥 − 𝜇𝑚𝑎𝑥 − 𝑆𝑜 ]}
+𝑁𝑓
+𝐿
+𝑆𝑜
+2
+𝐿
+3
++ 𝑒𝑥𝑝 { [(𝐴 − 1)𝜎𝑚𝑖𝑛 − 𝜇𝑚𝑖𝑛 − 𝑆𝑜 ]} − 2)
+𝑆𝑜
+2
+
+(2.60)
+
+The closed form expression above is used to calibrate the parameters 𝐶,
+𝐾, and 𝐿 to at least three datapoints from an S-N curve, by minimizing
+the error function
+𝑛≥3
+
+(𝑖)
+
+𝐸 = ∑ (1 −
+𝑖=1
+
+ln 𝑁𝑓
+
+(𝑖)
+
+ln 𝑁𝑓,𝑒𝑥𝑝
+
+(2.61)
+
+)
+
+(𝑖)
+
+where 𝑁𝑓,𝑒𝑥𝑝 is the experimentally determined number of cycles at failure
+for a given experimental datapoint 𝑖.
+Figure 2.8 demonstrates how the model works for a non-periodic
+uniaxial stress history. Figure 2.8.a) shows the stress history, the backstress, and the upper and lower endurance limits. As the absolute stress
+increases beyond the endurance limits, the back-stress evolves, and the
+endurance limit follows behind. The corresponding fatigue damage
+evolution is shown in Figure 2.8.b). A comparison of the two plots
+demonstrate that the fatigue damage and the back-stress evolves
+simultaneously, in accordance with the loading/unloading criteria, cf.
+Eq. (2.54). As a result, the accumulated damage increases in a
+continuous, but step-wise manner.
+
+43
+
+Background and theoretical framework
+
+Figure 2.8
+Continuum mechanics fatigue model: Non-periodic uniaxial stress. a)
+Back-stress evolution, and b) Fatigue damage accumulation.
+
+a)
+
+b)
+
+Since its publication in 2008, the continuum mechanics fatigue model
+has received attention in the scientific community as a promising
+framework for fatigue analysis. It has been used in statistical fatigue
+analyses [110,111], in studies on topology optimization [112-115], and in
+the fatigue assessments of various structures and
+materials [24,106,108,109,116-120]. Moreover, several generalizations
+have been proposed to expand its applicability. This includes the
+consideration of notch effects [121-124], sequence effects [125],
+
+44
+
+Background and theoretical framework
+
+low-cycle fatigue [126], anisotropy [127], non-linear mean stress effects
+[108,128,129], ductility [130], and brittleness [131].
+Despite these efforts, questions and limitations have remained unsolved.
+Various studies present inaccurate results for certain out-of-phase
+combinations of shear stress and normal stress [23,106,109], including
+Publication IV of this thesis. The issue arises for stress histories defined
+by
+𝜎𝑥𝑥 = 𝜎𝑥𝑥,𝑎 sin(𝜔𝑡)
+
+(2.62)
+
+𝜎𝑥𝑦 = 𝜎𝑥𝑦,𝑎 sin(𝜔𝑡 + 𝜑𝑥𝑦 )
+specifically when the shear stress amplitude is ~ 𝜎𝑥𝑥,𝑎 ⁄√3, and the
+
+phase shift 𝜑𝑥𝑦 is close to 90 degrees. For such loading, Lindström et
+al. [23] obtained non-conservative finite fatigue life predictions for
+AA7075-T651. They theorized whether this was due to the stresses
+moving tangentially to the endurance surface in the stress space. The
+results presented in Publication IV demonstrate similar behavior for
+infinite lifetimes. Ruiz et al. [132] applied an alternative calibration
+method and reported results that were qualitatively consistent with
+experimental data. In an article published shortly before the submission
+of this thesis, Lindström et al. [109] obtained conservative predictions for
+PBF-LB Ti6Al4V under similar loading conditions when using an altered
+endurance surface formulation with a non-linear dependency on 𝐼1 [108].
+Another limitation of the model has been related to its predictions for
+shear-dominated stress histories in very ductile or brittle materials.
+Because the continuum mechanics fatigue model reduces to the Sines
+criterion under periodic linear loading, it assumes that the relationship
+𝜏−1 ⁄𝜎−1 = 1⁄√3 holds for all materials, cf. Eqs. (2.47) and (2.48).
+However, experimental data demonstrate that 𝜏−1 ⁄𝜎−1 can vary
+significantly depending on the material’s ductility or brittleness (cf. the
+discussion in Section 2.3.3). When calibrated to uniaxial fatigue test
+data, the model is thus prone to non-conservative predictions for
+
+45
+
+Background and theoretical framework
+
+materials with 𝜏−1 ⁄𝜎−1 ≤ 1⁄√3, and overly conservative predictions for
+materials where 𝜏−1 ⁄𝜎−1 significantly exceeds 1⁄√3.
+Barriere et al. [117] attempted to rectify this constraint when modelling
+fatigue in a glassy polymer. They proposed to scale the off-diagonal
+components of the stress tensor matrix. While this provides a solution
+applicable in the specific reference frame, it makes the material behavior
+dependent on the orientation of the applied coordinate system. Thus, the
+approach violates material objectivity.
+Publication IV of this thesis proposes a generalization for ductile
+materials that allows the ratio 𝜏−1 ⁄𝜎−1 to take on values from 1⁄2 to
+0.585. This is done by adopting a Hershey-Hosford function, cf.
+Eq. (2.25), to replace the original von Mises-like back-stress-modified
+effective stress term in the endurance surface formulation. As the
+expression is written in terms of the principal stress components,
+material objectivity is satisfied.
+Modeling the behavior of brittle materials where 𝜏−1 ⁄𝜎−1 > 2/3 requires
+the use of a non-convex effective stress term [133]. In Publication V of
+this thesis, it is shown that the endurance surface can take on nonconvex configurations without violating the requirements placed by the
+second law of thermodynamics. This opens for a variety of possible
+endurance surface formulations. The publication presents a generalized
+form written in terms of stress tensor invariants that can take on arbitrary
+𝜏−1 ⁄𝜎−1 -ratios.
+
+Sheet metal forming and fatigue
+In their current design, Sunlit Sea utilize a metallic FPV structure that
+consists of two aluminum alloy sheet components that are manufactured
+through sheet metal forming. This technique is widely applied across
+various industries due to its ability to efficiently produce durable,
+lightweight components in high volumes. Formed components are used
+in for a range of applications, although the technological development
+has largely been driven by the automotive industry.
+
+46
+
+Background and theoretical framework
+
+In conventional sheet metal forming processes, thin metal sheets are
+plastically deformed into desired geometric shapes through mechanical
+interactions with forming tools. In this process, the flat metal blank is
+punched into a die shape, forcing the blank to take on its form. Blank
+holders are used to keep the surrounding areas in place, preventing the
+sheet material from wrinkling. During forming, the sheets are subjected
+to large plastic and small elastic deformations. After the force from the
+forming tools are released, the formed component experiences
+springback due to the elastic unloading.
+Developing the design of a formed component involves designing a
+forming process that allows the component to be produced without
+defects. As the sheets are subjected to large strains, a sequence of
+instability phenomena can occur. It often starts with diffuse necking,
+followed by localized necking and/or shear instability, and ends with
+ductile failure due to the coalescence of voids in the material [134].
+Thus, a vital part of the design is to avoid the onset of local necking or
+shear localization. In the last decades, the tool making industry has
+gradually replaced expensive trial-and-error procedures with computeraided FE analysis [135,136]. FE-based analysis models are then
+equipped with calibrated material models to simulate the sheet metal
+forming process [51,137,138], or to predict the forming limits of
+materials [134,139-141].
+Although these numerical tools are mainly used to analyze formability in
+production, they may also be used to study the functionality of
+components. The sheet metal forming process induces a series of
+effects that influence the mechanical behavior of the formed
+components. The integration of such effects is essential for realistically
+predicting their fatigue life [142].
+For instance, the fatigue capacity may be influenced by the plastic
+straining. Experimental studies have shown that the increased
+dislocation density associated with high plastic strains often increases
+the fatigue strength of materials [143]. Several authors have studied the
+effect for various steels used for sheet metal forming applications. For
+
+47
+
+Background and theoretical framework
+
+instance, Gustavsson et al. [144] tested pre-strained and virgin steel
+sheets, and reported that the fatigue strength of the virgin sheets were
+about 15-30% lower than in the pre-strained sheets. Moreover, Zhao et
+al. [143] performed tests on SAPH440 steel sheets and reported that the
+pre-strain had a beneficial effect of the fatigue strength, and that the
+effect was mostly pronounced in the low-cycle domain.
+However, there are also reports of materials where the fatigue strength
+is reduced due to plastic pre-strain. For instance, Froustey &
+Lataillade [145] tested two different aluminium alloy sheets and found
+that one alloy was insensitive to the pre-strain (AA5454-O), while the
+other experienced a pronounced decrease in the fatigue strength
+(A2017A-T3). Similar results were obtained by Lanning et al. [146] who
+saw that the pre-strain had a detrimental effect on the high-cycle fatigue
+properties of a titanium alloy. Kang et al. [147] also reported that the
+fatigue strength of a carbon steel was reduced when subjected to high
+pre-strains, likely due to pre-crack formation. Moreover, Das et al. [148]
+found that the pre-strain effect was path-dependent, showcasing the
+complexity of the relationship between plastic pre-straining and fatigue
+strength.
+When the sheet material is subjected to tensile plastic deformations in
+the planar directions, the material experiences thinning. The reduced
+sheet thickness implies that the stress levels must rise in order for the
+cross-section to carry the same load. Several studies have reported that
+thinning due to plastic deformation negatively impacts the fatigue
+capacity of structures [13,149-151].
+During the forming process, elastic strains are stored in the component.
+This causes springback of the component upon release of the forming
+tools, see Figure 2.9. Although springback can be accounted for in the
+design of forming tools, some geometric deviations between the desired
+shape and the actual component occur in practice. Since the
+component’s shape influences how stresses from external loads
+distribute, these deviations between the real components and the
+
+48
+
+Background and theoretical framework
+
+Figure 2.9
+Bending-induced springback.
+
+After springback
+
+Before springback
+
+idealized analysis models can lead to inaccurate stress predictions,
+which in turn affects the accuracy of fatigue analyses [152].
+In the formed component, inhomogeneous distributions of plastic strains
+prevent some elastic strains from returning to the stress-free state. This
+gives rise to residual stresses [153], which also have an impact on
+fatigue [142]. The residual stresses are often opposite to the stresses
+acting at the end of the forming; the elongated side of a radius often
+experience compressive residual stresses, and the compressed side
+typically sees tensile residual stresses [154]. These act as superimposed
+mean stresses and can thus significantly influence the fatigue capacity
+of the component (cf. Section 2.3.2).
+Nevertheless, it has been ordinary practice to analyze the fatigue life of
+formed automotive components using idealized models that do not
+explicitly account for any of these effects [150]. It has been a common
+perception that the negative effects of sheet thinning are cancelled by
+the positive effects of plastic strains [151], but as demonstrated by e.g.
+Froustey & Lataillade [145], this cannot be appropriately assumed for all
+materials. The effects of residual stresses are simply disregarded,
+despite that the importance of accounting for such effects in fatigue
+analysis is widely recognized in the research community [155-157].
+There are few studies that combine forming simulations and fatigue
+analysis, and the ones that do are often smaller investigations
+
+49
+
+Background and theoretical framework
+
+conducted by industry players in the automotive sector, see
+refs. [149-152].
+Dannbauer et al. [150] integrated the effects of plastic straining and
+sheet thinning in the fatigue analysis of a deep-drawn steering knuckle
+made from ZStE380 steel sheets. The sheet metal forming analysis was
+performed in a specialized software, and the results of sheet thinning
+and plastic strains were mapped to a simplified ABAQUS model that was
+used to obtain operational stresses for fatigue analysis. To account for
+the effect of plastic straining, the authors adopted two different
+approaches (proposed by Masendorf [158] and Hatscher [159], as cited
+in [150]) where the effective plastic strain always has a favorable effect
+on the fatigue life. While this assumption may have been appropriate for
+the material subject to investigation, these methods would not be
+capable of capturing the adverse effects reported by Froustey &
+Lataillade [145] and Kang et al. [147].
+Facchinetti et al. [149] considered forming effects in the fatigue life
+assessment of a suspension arm made from S460MC steel sheets.
+Thickness variations, plastic strains and residual stresses were obtained
+from forming simulations, and the results were mapped onto a simplified
+ABAQUS model where the service stress analysis was performed. The
+critical plane-based Dang-Van model [81] was employed for a multiaxial
+fatigue analysis. Plastic strain effects were accounted for by an
+approach similar to that of Masendorf [158], as cited in Dannbauer et
+al. [150], which assumes that plastic strains always improves the fatigue
+strength. Moreover, a simple von Mises yield function with linear strain
+hardening was used for the forming analysis, which raises questions
+about the accuracy of the forming predictions.
+Kose & Rietmann [152] investigated the fatigue performance of a
+chassis part by including the effects of forming and joining. Sheet
+thinning, plastic strain-effects, and residual stresses were accounted for,
+but the methods that were used to obtain the predictions were not
+presented. Nevertheless, the results from these process simulations
+were mapped to a simplified model for fatigue analysis, where the
+
+50
+
+Background and theoretical framework
+
+integration points of the new mesh adopted the state variable of the
+nearest integration points in the old mesh. The authors concluded that
+the fatigue capacity of the specific component was improved, but did not
+discuss the different effects separately. Moreover, they highlighted the
+limitation of not accounting for the geometric effects of springback,
+particularly in combination with the applied mapping technique.
+Hariharan & Prakash [142] reviewed scenarios and challenges related to
+the integration of forming effects in fatigue life predictions, as of 2012.
+They discussed the importance of employing advanced constitutive
+models to obtain realistic predictions of the state variables that affect the
+fatigue lives of formed components. They further emphasized that the
+accuracy of the sheet metal forming predictions is dependent on the
+constitutive models. In particular, it was argued that appropriate yield
+criteria and hardening rules that can account for mixed isotropickinematic behavior should be employed. Yet, to the author’s knowledge,
+no studies have performed high-cycle fatigue analysis where the sheet
+metal forming effects are accounted for with sophisticated anisotropic
+plasticity models.
+The challenges of mapping results from finely meshed forming
+simulation models to more coarsely meshed fatigue models were also
+discussed in the review [142]. In forming simulations, adaptive meshing
+is commonly used to capture the details of geometric features. This often
+results in large analysis models that are impractical for use in fatigue
+analysis. Limitations related to mapping algorithms could be avoided by
+analyzing sheet metal forming effects locally, and not for the whole
+structure. Then, submodelling could be used to perform a service load
+analysis for the local region. Boundary conditions for the local submodel
+could be obtained from a simplified global model established from the
+idealized CAD geometry of the component. Such an approach requires a
+robust submodeling technique that can deal with the lack of geometric
+compatibility that arises due to springback-induced geometric
+imperfections. This issue is addressed in Publication III of this thesis.
+Here, the conventional shell-to-shell mapping technique is replaced by
+interpolation along normalized submodel boundary segment lengths.
+
+51
+
+Contributions
+
+3 Contributions
+The research questions in Section 1.3 are addressed in the scientific
+publications of this thesis. This section briefly outlines the contributions
+and how they relate to the specific research questions and the
+overarching objectives.
+The order of the publications follows a thematic structure; the first
+publication concerns the sheet metal forming process, the second and
+third publication consider how the process influences fatigue, while the
+last two publications specifically deal with the fatigue models.
+
+Publication I
+The study focuses on the sheet metal forming process used in Sunlit
+Sea’s current FPV concept. It was motivated by the company’s goal of
+developing an artificial neural network (ANN) capable of classifying a
+given cup shape as formable or non-formable, to facilitate the search for
+improved FPV designs. The planned ANN would be trained on results
+obtained from FE-based SMF analyses, requiring a large number of
+simulations to be conducted to cover the multi-dimensional parameter
+space. This space would be divided into regions of formable and nonformable parameter combinations. To efficiently train the ANN, the
+training dataset should ideally have many data points near the
+boundaries that separate these regions.
+Publication I presents a methodology for detecting the parametric failure
+limits, meant to be expanded upon in further studies. It explores the
+deep-drawing of the indented cups of the current design of Sunlit Sea’s
+FPV structure through FE-based analyses in LS-DYNA. The FE model
+employs the non-quadratic anisotropic yield criterion Yld2003 by
+Aretz [52] and the two-term Voce hardening law [55]. The material
+models are calibrated to experimental data obtained from tests on
+AA5083-H111 sheets (cf. Publication III). The preliminary study explored
+the relationship between two geometric parameters, the cup depth and
+
+52
+
+Contributions
+
+the drawbead distance. A simple algorithm was employed to detect the
+boundary between the parameter combinations that lead to successful
+and unsuccessful forming operations, revealing that larger drawbead
+distances allowed increased cup depths. Figure 3.1 presents a
+schematic overview of the methodology.
+In addition to identifying the relationship between the SMF process
+parameters, the approach generates a dataset that can be used to train
+an ANN to classify potential designs as formable or non-formable.
+Thus, the study fulfils the objectives stated in Section 1.2 and provides
+answers to research question R1 (cf. Section 1.3) by demonstrating
+innovative use of numerical sheet metal forming analysis for the
+development of new FPV designs.
+
+53
+
+Contributions
+
+Figure 3.1
+Schematic overview of the methodology in Publication I.
+CAD: Press
+machine
+
+Parametrized
+cup geometry
+
+Anisotropic plasticity tests of
+AA5083-H111
+
+Material models
+
+Parametric failure limit
+detection
+
+Parametrized FE model
+
+Friction
+
+Failure
+
+54
+
+Contributions
+
+Publication II
+In this preliminary study, we present a simple approach to incorporate
+the effects of sheet metal forming into fatigue analyses by focusing on
+the float component’s cup structures.
+We take advantage of the component’s repeated geometry to establish a
+130 x 130 mm submodel. The forming of this region is analyzed in LSDYNA as two consecutive forming operations, each followed by elastic
+unloading. We establish a global service load model to obtain the nodal
+translations at the location of the submodel boundary for a simplified
+operational load case. The submodel region’s average elongation and
+contraction in the two planar directions are calculated and applied as
+boundary conditions on the model obtained from the SMF analysis. This
+allows performing a simplified submodel analysis to approximate the
+operational stresses by including the effects of sheet thinning and
+residual stresses from forming. After that, the continuum mechanics
+fatigue model by Ottosen et al. [22] is used to perform a fatigue analysis
+at a critical location. Figure 3.2 displays the research strategy
+schematically.
+The results from this preliminary study show that the fatigue capacity of
+the component could be compromised by the residual stresses induced
+by sheet metal forming. Moreover, the effect is heavily influenced by the
+constitutive relation, and specifically the isotropic-kinematic mixing
+coefficient.
+At the time of the investigation, no experimental tests had been
+conducted on the AA5083-H111 sheets. Consequently, simple isotropic
+materials models are used and calibrated with data reported in the
+literature for the same alloy.
+In line with the objectives stated in Section 1.2, the work is a first step in
+the exploration of how sheet metal forming-effects can be integrated in
+the fatigue analysis of formed components. It also provides answers to
+research question R3 (cf. Section 1.3) by demonstrating the use of the
+continuum mechanics fatigue model in such analyses.
+
+55
+
+Contributions
+
+Figure 3.2
+Schematic overview of the methodology in Publication II.
+CAD model: Structure
+
+Local SMF model
+
+Global service
+load model
+
+Boundary DOF
+averaging
+
+Constitutive
+models
+
+Local service
+load analysis
+
+Fatigue model
+
+SMF results
+
+Fatigue analysis
+
+56
+
+Contributions
+
+Publication III
+This work continues to explore how the sheet metal forming process
+influences operational stresses in Sunlit Sea’s FPV structure. It is based
+on the further developments and refinements of methodologies
+established in Publication II.
+While the preliminary investigation considers the repeated cup structure,
+Publication III examines the location of maximum stress, identified near
+the inlet of the float’s electrical compartment. A 420 × 520 mm region
+around this location is taken as the submodel. The SMF process for this
+region is analyzed in LS-DYNA using the non-quadratic anisotropic
+Yld2000-2d yield criterion by Barlat et al. [49], and the Voce hardening
+law [55]. To calibrate the models, directional tensile tests and disc
+compression tests are performed on the AA5083-H111 sheets. The
+global model (established from CAD geometry files) and the local model
+(obtained from the SMF analysis) are combined in a submodeling
+analysis. Due to the springback in the SMF model, the two models are
+not geometrically compatible at the submodel boundary. This creates a
+problem for the conventional shell-to-shell mapping procedures that are
+typically implemented in FE analysis software. We overcome this by
+interpolating the nodal DOFs with respect to normalized submodel
+boundary segment lengths.
+Figure 3.3 presents an overview of the methodology. The application of
+this submodeling technique enables a detailed investigation of how
+sheet thinning, residual stresses, and springback-induced geometric
+deviations influence the predicted operational stress levels. Emphasis is
+put on the aspects that influence fatigue. The study concludes that the
+altered geometry (compared to the idealized CAD geometry) and the
+residual stresses has a negative effect on fatigue. The equivalent fatigue
+stress 𝑆 according to the Sines criterion is substantially increased when
+including the combined effects of SMF. Due to lack of experimental
+evidence about the material’s behavior under cyclic plastic deformations,
+a parametric investigation on the effect of the isotropic-kinematic mixing
+coefficient 𝐵 is conducted. It is shown that the predicted equivalent
+
+57
+
+Contributions
+
+fatigue stress 𝑆 at the surface is increased by a factor of 2.75 for purely
+isotropic hardening (𝐵 = 0), and 1.61 in the purely kinematic case
+(𝐵 = 1). Although the variation is approximately linear between these
+extremes, a bifurcation occurs at 0.4 > 𝐵 > 0.5, where the critical
+location moves from the inner surface to a nearby location on the outer
+surface, where the equivalent fatigue stress 𝑆 is heavily dominated by
+residual stresses. These results provide new insights to how sheet metal
+forming processes influence the high-cycle fatigue capacity of the
+formed components, thus offering specific answers to research question
+R2.
+The numerical investigation required the development of a new
+submodeling technique that could overcome the lack of geometric
+compatibility between the local model and the global model. The
+proposed methodology provides an answer to research question R3.
+
+58
+
+Contributions
+
+Figure 3.3
+Schematic overview of the methodology in Publication III.
+Anisotropic plasticity tests of
+AA5083-H111
+
+Structure
+CAD
+
+Global
+model
+
+Submodel
+region
+
+Material models
+
+Local SMF model
+
+DOFs at
+boundary
+
+CAD: Press
+tool
+
+SMF results
+
+Nodal interpolation
+
+Local service load analysis
+
+59
+
+Contributions
+
+Publication IV
+In this work, we propose a generalization of the continuum mechanics
+fatigue model by Ottosen et al. [22] to account for the 𝜏−1 ⁄𝜎−1 -ratios
+observed in very ductile materials. Experiments show that the ratio may
+approach 1⁄2 for very ductile materials, while the original continuum
+mechanics fatigue model employs a formulation where the ratio is
+always 1⁄√3. When fatigue data based on uniaxial loading is used for
+calibration, it follows that the original model makes non-conservative
+predictions of shear stress fatigue in materials where 𝜏−1 ⁄𝜎−1 < 1⁄√3.
+To rectify this, we replace the von Mises-like back-stress-reduced
+effective stress function in the original model by the high-exponent
+Hershey-Hosford-formulation (cf. Section 2.2.2). The new formulation
+allows the model to take on 𝜏−1 ⁄𝜎−1 -ratios ranging from 1⁄2 to 0.585 by
+calibrating the exponential parameter of the Hershey-Hosford function.
+We systematically validate the proposed model towards experimental
+multiaxial fatigue limit data from eight different materials with 𝜏−1 ⁄𝜎−1
+ranging from 0.5 to 0.6. Application of the modified formulation results in
+an overall better prediction accuracy. The largest improvement is seen
+for a NiCrMo 75/80-ton steel where 𝜏−1 ⁄𝜎−1 = 0.519. For fully reversed
+torsional loading, the new formulation completely eliminates the nonconservative prediction error of 11.3%.
+Figure 3.4 provides a schematic overview of the research strategy. The
+study fulfils objectives of Section 1.2 by exploring ways to improve
+theories that can be used to predict high-cycle fatigue failure due to
+complex load histories. It targets research questions R4 and provides an
+answer to how very ductile materials can be modelled in the continuum
+mechanics fatigue modeling framework.
+
+60
+
+Contributions
+
+Figure 3.4
+Schematic overview of the methodology in Publication IV.
+Continuum mechanics fatigue
+model
+
+Hershey-Hosford deviatoric
+function
+
+Continuum mechanics fatigue
+model for ductile materials
+
+Validation
+
+61
+
+Contributions
+
+Publication V
+The previous publication demonstrates how the continuum mechanics
+fatigue model can be generalized to provide a solution for ductile
+materials with 𝜏−1 ⁄𝜎−1 -ratios between 1⁄2 and 0.585. However, in many
+hard and brittle materials, 𝜏−1 ⁄𝜎−1 significantly exceeds 0.585. In this
+work, we propose a unified solution for ductile and brittle materials
+where 𝜏−1 ⁄𝜎−1 can take arbitrary values. A schematic overview of the
+work is given in Figure 3.5.
+Materials with 𝜏−1 ⁄𝜎−1 -ratios larger than 2⁄3 necessitates the use of
+non-convex endurance surfaces. We demonstrate that non-convex
+formulations satisfy the dissipation inequality, and thus any requirements
+placed by the second law of thermodynamics. This allows us to construct
+a new endurance surface that accounts for the effect of the Lode-angle,
+taking a 60-degree symmetry in the deviatoric plane. The formulation is
+written terms of stress tensor invariants and introduces one new model
+parameter that can be expressed explicitly in terms of 𝜏−1 and 𝜎−1 .
+The proposed formulation is validated towards a large amount of
+experimental multiaxial fatigue data from the literature, considering both
+infinite and finite fatigue lives. Materials with 𝜏−1 ⁄𝜎−1 -ratios ranging from
+0.519 to 1.414 are considered. Overall, the predictions are in excellent
+agreement with the experimental data, demonstrating a substantial
+enhancement of the model. The greatest improvements are seen for
+materials where the 𝜏−1 ⁄𝜎−1 -ratio deviates substantially from 1⁄√3. For
+LPBF 316L steel, which has the highest 𝜏−1 ⁄𝜎−1 -ratio among the
+materials that were considered (𝜏−1 ⁄𝜎−1 = 1.411), the proposed
+formulation accurately captures the observed fatigue limit of
+𝜏−1 = 127 𝑀𝑃𝑎. In contrast, the original model strongly underestimates
+the material’s strength, with a prediction of only 52 𝑀𝑃𝑎.
+The work in this publication continues to explore ways to improve stateof-the-art fatigue models with application to non-periodic multiaxial
+stress histories, in line with the objectives of the thesis. While the
+previous publication partly answers research question R4, the present
+
+62
+
+Contributions
+
+work provides a decisive answer to how the continuum mechanics
+fatigue model can be generalized to apply for brittle and very ductile
+materials.
+Figure 3.5
+Schematic overview of the methodology in Publication V.
+Continuum mechanics fatigue
+model
+
+Thermodynamic
+requirements
+
+Non-convex
+function
+
+𝝈: 𝜺̇ − 𝜌𝜓̇ ≥ 0
+↓
+𝜕𝜓 𝑑 ⁄𝜕𝐷 < 0
+
+Generalized continuum
+mechanics fatigue model
+
+Validation
+
+63
+
+Concluding remarks
+
+4 Concluding remarks
+The work presented in this thesis was inspired by engineering
+challenges related to the structural assessment of metallic floating
+photovoltaic structures. It aimed to develop generalizable knowledge
+about sheet metal forming and high-cycle fatigue by addressing four
+research questions.
+The thesis discussed opportunities and challenges related to the floating
+photovoltaic concept that inspired the research. The current sheet metal
+forming-based design was introduced, and aspects related to the highcycle fatigue capacity of such structures were briefly addressed.
+Objectives, research questions, and strategies were presented.
+Section 2 introduced important theoretical concepts, and reviewed stateof-the-art analysis approaches with the purpose of identifying research
+gaps. Extra attention was dedicated to continuum mechanics-based
+fatigue modeling approaches, and previous work that combines sheet
+metal forming and fatigue analyses.
+The research gaps were targeted in five scientific publications, with their
+contributions outlined in Section 3. A brief summary of each publication
+was provided, highlighting their relevance to the specific research
+questions.
+Publication I studied the sheet metal forming of a repeated cup shape in
+the floating photovoltaic structure. A parametrized numerical model was
+used to study the relationship between two geometric parameters in LSDYNA: the cup depth, and the drawbead distance. For a given
+parameter combination, the calibrated model predicted whether the
+forming operation would turn out successful or not. An algorithm was
+developed to run a series of analyses by varying the parameter values
+based on the outcome. This was used to construct a failure limit diagram
+in terms of the two parameters. The results showed that increased
+drawbead distances allowed larger cup depths.
+Publications II and III explored how the sheet metal forming process
+influences the fatigue capacity of the floating photovoltaic floats. Results
+
+64
+
+Concluding remarks
+
+from local sheet metal forming simulations were used in submodel
+analyses to predict the operational stresses in the floating photovoltaic
+structure. This involved developing a submodeling technique that could
+accommodate for geometric imperfections caused by springback. The
+results suggested that the fatigue capacity was compromised by
+springback-induced geometric deviations and residual stresses.
+Moreover, the results were sensitive to the parameter that controls the
+isotropic-kinematic hardening formulation.
+Although a simple load case was analyzed, Publication II demonstrated
+the use of a continuum mechanics fatigue model to analyze fatigue in
+the floating photovoltaic structure. This model treats arbitrary stress
+histories in a unified manner and is thus appropriate for use in timedomain analysis of structures that experience complex non-periodic
+loading. However, as the model assumes that the ratio between the
+fatigue limits for fully reversed shear stress and normal stress has a
+fixed value of 𝜏−1 ⁄𝜎−1 = 1⁄√3, the model cannot describe fatigue in very
+ductile materials where 𝜏−1 ⁄𝜎−1 < 0.5, or brittle materials, where 𝜏−1 ⁄𝜎−1
+is significantly larger than 1.
+Publications IV and V took a closer look at the continuum mechanics
+fatigue model and its shortcomings for very ductile or brittle materials. In
+a first attempt to rectify the model’s limitation, a Hershey-Hosford
+function was adopted as the deviatoric part of the endurance surface.
+This provided a solution for ductile materials with 𝜏−1 ⁄𝜎−1 -ratios ranging
+from 1⁄2 to 0.585. To further extend the model to describe brittle fatigue
+behavior, it was shown that the continuum mechanics fatigue model
+complies with the second law of thermodynamics for non-convex
+endurance surfaces. This enabled us to develop a formulation for
+arbitrary 𝜏−1 ⁄𝜎−1 -ratios, providing a unified formulation for very ductile
+and brittle materials. Both formulations were validated towards an
+extensive amount of multiaxial fatigue data from experiments reported in
+the literature.
+Taken together, the thesis provides important scientific contributions to
+the state-of-the-art of sheet metal forming and fatigue analysis. The
+
+65
+
+Concluding remarks
+
+introduction of a submodeling technique that allows users to predict
+operational stresses in formed components with improved realism have
+enabled a better understanding of how the forming process influences
+the fatigue capacity. Moreover, the generalizations of a continuum
+mechanics fatigue model [22] have expanded its application domain to
+very ductile and brittle materials.
+
+66
+
+Further work
+
+5 Further work
+Due to the restricted scope of this thesis, several related topics remain
+open for further investigation. The author would like to emphasize the
+importance of the following areas as promising directions for further
+research:
+• Obtaining realistic load scenarios for marine FPV structures:
+Knowledge of realistic load histories is required for the presented
+methodologies to be used as parts of comprehensive fatigue
+assessment. Research should explore how the loads depend on
+the matrix size, the properties of the connective hinges, and the
+local metocean conditions.
+• Experimental validation of sheet metal forming analyses:
+The analyses obtained with calibrated sheet metal forming models
+in LS-DYNA require experimental validation. Various plasticity
+models’ ability to predict forming limits have been widely explored,
+but little effort has been directed towards the accuracy of the
+residual stress predictions. The present investigation employed a
+hypoelastic formulation that is path-dependent [34]. It should be
+examined whether a hyperelastic formulation is required to achieve
+satisfactory accuracy in the subsequent fatigue analysis.
+• The Portevin-Le Chatelier phenomenon and fatigue:
+The AA5083-H111 demonstrated serrated stress-strain curves due
+to the Portevin-Le Chatelier effect [160]. It should be investigated
+whether the phenomenon introduces effects that should be
+considered in the fatigue analysis of formed structures made from
+materials where this effect is present.
+• Strain hardening and its influence on fatigue:
+Strain hardening can influence the fatigue capacity of formed
+components. In this study, such effects were disregarded due to
+poor experimental evidence about their impact on the fatigue
+capacity. Future research should strive to better understand the
+
+67
+
+Further work
+
+underlying mechanisms, and find ways to account for the effect in
+fatigue analyses of formed components.
+• Fatigue induced by out-of-phase bending and torsion:
+More experimental data is needed to fully understand the effect of
+the phase shift between cyclic loading in bending and torsion.
+Future experimental campaigns should examine the phase-shifteffect for finite and infinite fatigue lifetimes. Moreover, materials
+with various 𝜏−1 ⁄𝜎−1 -ratios should be tested.
+• Out-of-phase bending and torsion in the continuum
+mechanics fatigue model:
+The behavior of the continuum mechanics fatigue model for out-ofphase combinations of bending and torsion is still ambiguous.
+These issues should be thoroughly investigated and, if necessary,
+modified formulations should be proposed.
+
+68
+
+References
+[1]
+
+Y. Wei, D. Khojasteh, C. Windt, L. Huang, An interdisciplinary
+literature review of floating solar power plants, Renew Sustain
+Energy Rev, 209 (2025) 115094.
+https://doi.org/10.1016/j.rser.2024.115094.
+
+[2]
+
+M.L. Martínez, A. Intralawan, G. Vázquez, O. Pérez-Maqueo, P.
+Sutton, R. Landgrave, The coasts of our world: Ecological,
+economic and social importance, Ecological Economics, 63 (2007)
+254-272. https://doi.org/10.1016/j.ecolecon.2006.10.022.
+
+[3]
+
+S. Blackburn, M. Pelling, C. Marques, Chapter 38 - Megacities and
+the Coast: Global Context and Scope for Transformation, in:
+Coasts and Estuaries, Elsevier, 2019, pp. 661-669.
+
+[4]
+
+M. Braima, T. Butt, M. Maraqa, S. Goodhew, S. Sundaram, M.
+Mohamed, A perspective on solar railway potential for the UK,
+Environ Prog Sustain Energy, (2024) e14488.
+https://doi.org/10.1002/ep.14488.
+
+[5]
+
+H.-W. Wang, A. Dodd, Y. Ko, Resolving the conflict of greens: A
+GIS-based and participatory least-conflict siting framework for
+solar energy development in southwest Taiwan, Renew Energy,
+197 (2022) 879-892. https://doi.org/10.1016/j.renene.2022.07.094.
+
+[6]
+
+S. Haikola, J. Anshelm, J. Niskanen, Beyond the backyard: Scaling
+up of resistance to wind power in Sweden, Environ Chall, 16
+(2024) 100987. https://doi.org/10.1016/j.envc.2024.100987.
+
+[7]
+
+W. Charles Lawrence Kamuyu, J.R. Lim, C.S. Won, H.K. Ahn,
+Prediction model of photovoltaic module temperature for power
+performance of floating PVs, Energies, 11 (2018) 447.
+https://doi.org/10.3390/en11020447.
+
+[8]
+
+E. Skoplaki, J.A. Palyvos, On the temperature dependence of
+photovoltaic module electrical performance: A review of
+efficiency/power correlations, Sol Energy, 83 (2009) 614-624.
+https://doi.org/10.1016/j.solener.2008.10.008.
+
+69
+
+[9]
+
+L. Wahl, S. Maas, D. Waldmann, A. Zürbes, P. Frères, Shear
+stresses in honeycomb sandwich plates: Analytical solution, finite
+element method and experimental verification, J Sandw Struct
+Mater, 14 (2012) 449-468.
+https://doi.org/10.1177/1099636212444655.
+
+[10] L.J. Gibson, M.F. Ashby, The mechanics of honeycombs, in:
+Cellular Solids: Structure and Properties, Cambridge University
+Press, 1997, pp. 93-174.
+[11] M. Kleiner, R. Krux, W. Homberg, Analysis of Residual Stresses in
+High-Pressure Sheet Metal Forming, CIRP Annals, 53 (2004) 211214. https://doi.org/10.1016/S0007-8506(07)60681-7.
+[12] G. Kajal, M.R. Tyagi, G. Kumar, A review on the effect of residual
+stresses in incremental sheet metal forming used in automotive
+and medical sectors, Mater Today, 78 (2023) 524-534.
+https://doi.org/10.1016/j.matpr.2022.11.235.
+[13] W.R. Wang, G.L. Chen, Z.Q. Lin, The study on the fatigue FEM
+analysis considering the effect of stamping, Mater Design, 30
+(2009) 1588-1594. https://doi.org/10.1016/j.matdes.2008.07.046.
+[14] DNV-RP-0584 Design, development and operation of floating solar
+photovoltaic systems, Technical Report, DNV AS, 2021.
+[15] S. Suresh, Fatigue of Materials, 2nd ed., Cambridge University
+Press, Cambridge, 1998.
+[16] S. Oliveira-Pinto, J. Stokkermans, Marine floating solar plants: An
+overview of potential, challenges and feasibility, in: Proceedings of
+the Institution of Civil Engineers-Maritime Engineering, Thomas
+Telford Ltd, 2020, pp. 120-135.
+[17] R. Claus, M. López, Key issues in the design of floating
+photovoltaic structures for the marine environment, Renew Sustain
+Energy Rev, 164 (2022) 112502.
+https://doi.org/10.1016/j.rser.2022.112502.
+
+70
+
+[18] M.A.C. Ibarra, M.L. Simão, P.M. Videiro, L.V.S. Sagrilo, Long-term
+fatigue analysis of mooring lines considering wind-sea and swell
+waves using the Univariate Dimension-Reduction Method, Appl
+Ocean Res, 118 (2022) 102997.
+https://doi.org/10.1016/j.apor.2021.102997.
+[19] I.R. Young, Chapter 4 - Physical Mechanisms of Wave Evolution,
+Elsevier Ocean Engineering Series, Elsevier, 1999, pp. 41-81.
+[20] J.-T. Horn, J.R. Krokstad, J. Amdahl, Long-term fatigue damage
+sensitivity to wave directionality in extra-large monopile
+foundations, Proc Inst Mech Eng M: J Eng Marit Environ, 232
+(2018) 37-49. https://doi.org/10.1177/1475090217727136.
+[21] M. Matsuishi, T. Endo, Fatigue of metals subjected to varying
+stress, Jpn Soc Mech Eng, 68 (1968) 37-40.
+[22] N.S. Ottosen, R. Stenstrom, M. Ristinmaa, Continuum approach to
+high-cycle fatigue modeling, Int J Fatigue, 30 (2008) 996-1006.
+https://doi.org/10.1016/j.ijfatigue.2007.08.009.
+[23] S.B. Lindstrom, C.J. Thore, S. Suresh, A. Klarbring, Continuoustime, high-cycle fatigue model: Validity range and computational
+acceleration for cyclic stress, Int J Fatigue, 136 (2020).
+https://doi.org/10.1016/j.ijfatigue.2020.105582.
+[24] Z. Kapidžic, S.B. Lindström, J. Lundgren, Incremental fatigue
+damage model: Application to plane problems with nonproportional loading, in: 33rd congress of the international council
+of the aeronautical sciences, 2022.
+[25] J. van der Zanden, T. Bunnik, A. Cortés, V. Delhaye, G. Kegelart,
+T. Pehlke, B. Panjwani, Wave Basin Tests of a Multi-Body Floating
+PV System Sheltered by a Floating Breakwater, Energies, 17
+(2024) 2059. https://doi.org/10.3390/en17092059.
+[26] Y. Lu, H. Wen, C. Chen, Performance evaluation and testing
+methods of clinched joint, J Adv Manuf Technol, 132 (2024) 1-26.
+
+71
+
+[27] Z.-M. Su, P.-C. Lin, W.-J. Lai, J. Pan, Fatigue analyses of selfpiercing rivets and clinch joints in lap-shear specimens of
+aluminum sheets, Int J Fatigue, 72 (2015) 53-65.
+https://doi.org/10.1016/j.ijfatigue.2014.09.022.
+[28] L. Huang, Y. Shi, H. Guo, X. Su, Fatigue behavior and life
+prediction of self-piercing riveted joint, Int J Fatigue, 88 (2016) 96110. https://doi.org/10.1016/j.ijfatigue.2016.03.015.
+[29] Z. Shen, Y. Ding, A.P. Gerlich, Advances in friction stir spot
+welding, Crit Rev Solid State Mater Sci, 45 (2020) 457-534.
+https://doi.org/10.1080/10408436.2019.1671799.
+[30] Y. Tozaki, Y. Uematsu, K. Tokaji, Effect of processing parameters
+on static strength of dissimilar friction stir spot welds between
+different aluminium alloys, Fatigue Fract Eng M, 30 (2007) 143148. https://doi.org/10.1111/j.1460-2695.2006.01096.x.
+[31] K. Mutombo, M. Du Toit, Corrosion fatigue behaviour of aluminium
+5083-H111 welded using gas metal arc welding method, Arc
+Welding, 139 (2011) 105789.
+https://doi.org/10.1016/j.ijfatigue.2011.06.012.
+[32] R.M. Chlistovsky, P.J. Heffernan, D.L. DuQuesnay, Corrosionfatigue behaviour of 7075-T651 aluminum alloy subjected to
+periodic overloads, Int J Fatigue, 29 (2007) 1941-1949.
+https://doi.org/10.1016/j.ijfatigue.2007.01.010.
+[33] M.M. Elhasslouk, İ. Esen, H. Ahlatcı, B. Akın, Effect of a 3.5%
+NaCl− 10% HCl Corrosive Environment on the Fatigue Behavior of
+Hot Rolled Aluminum 5083-H111, Materials, 16 (2023) 4996.
+https://doi.org/10.3390/ma16144996.
+[34] T. Belytschko, W.K. Liu, B. Moran, K. Elkhodary, Nonlinear finite
+elements for continua and structures, John Wiley & Sons, 2014.
+[35] Livermore Software Technology Corporation, LS-DYNA® Theory
+Manual, 2019.
+
+72
+
+[36] N.S. Ottosen, M. Ristinmaa, The mechanics of constitutive
+modeling, Elsevier, 2005.
+[37] D. Banabic, Sheet metal forming processes: constitutive modelling
+and numerical simulation, Springer Science & Business Media,
+2010.
+[38] R. von Mises, On saint venant's principle, Bull Amer Math Soc
+(1945). https://doi.org/10.1090/S0002-9904-1945-08394-3.
+[39] H. Hencky, Zur Theorie plastischer Deformationen und der
+hierdurch im Material hervorgerufenen Nachspannungen, ZAMM Z
+Angew Math Mech, 4 (1924) 323-334.
+https://doi.org/10.1002/zamm.19240040405.
+[40] A.V. Hershey, The Elasticity of an Isotropic Aggregate of
+Anisotropic Cubic Crystals, J Appl Mech, 21 (1954) 236-240.
+https://doi.org/10.1115/1.4010899.
+[41] W.F. Hosford, A Generalized Isotropic Yield Criterion, J Appl Mech,
+39 (1972) 607-609. https://doi.org/10.1115/1.3422732.
+[42] O. Engler, Texture and anisotropy in the Al–Mg alloy AA 5005 –
+Part I: Texture evolution during rolling and recrystallization, Mat Sci
+Eng A, 618 (2014) 654-662.
+https://doi.org/10.1016/j.msea.2014.08.037.
+[43] R. Von Mises, Mechanics of plastic deformation of crystals, 1928.
+[44] R. Hill, A Theory of the Yielding and Plastic Flow of Anisotropic
+Metals, Proc R Soc Lond A Math Phys Sci, 193 (1948) 281-297.
+https://doi.org/10.1098/rspa.1948.0045.
+[45] R. Hill, A user-friendly theory of orthotropic plasticity in sheet
+metals, Int J Mech Sci, 35 (1993) 19-25.
+https://doi.org/10.1016/0020-7403(93)90061-X.
+[46] R. Hill, Theoretical plasticity of textured aggregates, in:
+Mathematical proceedings of the cambridge philosophical society,
+Cambridge University Press, 1979, pp. 179-191F. Barlat, J. Lian,
+
+73
+
+Plastic Behavior and Stretchability of Sheet Metals. Part I. A Yield
+Function for Orthotropic Sheets under Plane-Stress Conditions, Int
+J Plasticity, 5 (1989) 51-66. https://doi.org/10.1016/07496419(89)90019-3.
+[47] F. Barlat, D.J. Lege, J.C. Brem, A six-component yield function for
+anisotropic materials, Int J Plasticity, 7 (1991) 693-712.
+https://doi.org/10.1016/0749-6419(91)90052-Z.
+[48] F. Barlat, J.C. Brem, J.W. Yoon, K. Chung, R.E. Dick, D.J. Lege, F.
+Pourgoghrat, S.H. Choi, E. Chu, Plane stress yield function for
+aluminum alloy sheets - part 1: theory, Int J Plasticity, 19 (2003)
+1297-1319. https://doi.org/10.1016/S0749-6419(02)00019-0.
+[49] F. Barlat, H. Aretz, J.W. Yoon, M.E. Karabin, J.C. Brem, R.E. Dick,
+Linear transfomation-based anisotropic yield functions, Int J
+Plasticity, 21 (2005) 1009-1039.
+https://doi.org/10.1016/j.ijplas.2004.06.004.
+[50] J.W. Yoon, S.H. Hong, Modeling of aluminum alloy sheets based
+on new anisotropic yield functions, J Mater Process Tech, 177
+(2006) 134-137. https://doi.org/10.1016/j.jmatprotec.2006.03.189.
+[51] H. Aretz, A non-quadratic plane stress yield function for orthotropic
+sheet metals, J Mater Process Tech, 168 (2005) 1-9.
+https://doi.org/10.1016/j.jmatprotec.2004.10.008.
+[52] Q.T. Pham, Y.-S. Kim, Evaluation on Flexibility of
+Phenomenological Hardening Law for Automotive Sheet Metals,
+Metals, 12 (2022) 578. https://doi.org/10.3390/met12040578.
+[53] Livermore Software Technology, LS-DYNA Manual R12.0 - Vol II,
+2020.
+[54] E. Voce, The relationship between stress and strain for
+homogeneous deformation, J Inst Met, 74 (1948) 537-562.
+[55] J. Lubliner, Plasticity theory, Courier Corporation, 2008.
+
+74
+
+[56] A.S. Khan, S. Huang, Continuum theory of plasticity, John Wiley &
+Sons, 1995.
+[57] A. Wöhler, Wöhler’s experiments on the strength of metals,
+Engineering, 4 (1867) 160-161.
+[58] T. Sakai, Historical review and future prospect for researches on
+very high cycle fatigue of metallic materials, Fatigue Fract Eng M,
+46 (2023) 1217-1255. https://doi.org/10.1111/ffe.13885.
+[59] C. Bathias, N. Jingang, Determination of fatigue limit between 10 5
+and 10 9 cycles using an ultrasonic fatigue device, in: Advances in
+Fatigue Lifetime Predictive Techniques: Second Volume, ASTM
+International, 1993.
+[60] T. Wu, J. Ni, C. Bathias, An automatic ultrasonic fatigue testing
+system for studying low crack growth at room and high
+temperatures, in: Automation in fatigue and fracture: testing and
+analysis, ASTM International, 1994.
+[61] R. Rennert, E. Kullig, M. Vormwald, A. Esderts, D. Siegele, FKM
+Guideline: Analytical strength assessment of components, Int J
+Fatigue, 182 (2024) 108165.
+https://doi.org/10.1016/j.ijfatigue.2024.108165.
+[62] L. Pallares-Santasmartas, J. Albizuri, A. Aviles, R. Aviles, Mean
+stress effect on the axial fatigue strength of DIN 34CrNiMo6
+quenched and tempered steel, Metals, 8 (2018) 213.
+https://doi.org/10.3390/met8040213.
+[63] G. Sines, Failure of materials under combined repeated stresses
+with superimposed static stresses, California University at Los
+Angeles, 1955.
+[64] J. Papuga, R. Halama, Mean stress effect in multiaxial fatigue limit
+criteria, Archive of Applied Mechanics, 89 (2019) 823-834.
+https://doi.org/10.1007/s00419-018-1421-7.
+[65] P. Davoli, A. Bernasconi, M. Filippini, S. Foletti, I.V. Papadopoulos,
+Independence of the torsional fatigue limit upon a mean shear
+
+75
+
+stress, Int J Fatigue, 25 (2003) 471-480.
+https://doi.org/10.1016/S0142-1123(02)00174-3.
+[66] B. Crossland, Effect of large hydrostatic pressures on the torsional
+fatigue strength of an alloy steel, in: Proc Int Conf on Fatigue of
+Metals, Institution of Mechanical Engineers London, 1956, pp. 1212.
+[67] H. Kakuno, Y. Kawada, A new criterion of fatigue strength of a
+round bar subjected to combined static and repeated bending and
+torsion, Fatigue Fract Eng M, 2 (1979) 229-236.
+https://doi.org/10.1111/j.1460-2695.1979.tb01358.x.
+[68] B. Crossland, Effect of large hydrostatic pressures on the torsional
+fatigue strength of an alloy steel, in: The third International
+Conference on Fatigue of Metals, 1956.
+[69] J. Marin, Interpretation of fatigue strengths for combined stresses,
+in: Proceedigs of International Conference on Fatigue of Metals,
+1956, pp. 184-194.
+[70] B. Li, M. de Freitas, A procedure for fast evaluation of high-cycle
+fatigue under multiaxial random loading, J Mech Des, 124 (2002)
+558-563. https://doi.org/10.1115/1.1485291.
+[71] A. Cristofori, R. Tovo, An invariant‐based approach for high‐cycle
+fatigue calculation, Fatigue Fract Eng M, 32 (2009) 310-324.
+https://doi.org/10.1111/j.1460-2695.2009.01331.x.
+[72] Ø.A. Bruun, G. Härkegård, A comparative study of design code
+criteria for prediction of the fatigue limit under in-phase and out-ofphase tension–torsion cycles, Int J Fatigue, 73 (2015) 1-16.
+https://doi.org/10.1016/j.ijfatigue.2014.10.015.
+[73] H.J. Gough, H. Pollard, W. Clenshaw, Some experiments on the
+resistance of metals to fatigue under combined stresses, Cranfield
+University (1951).
+
+76
+
+[74] T. Matake, An explanation on fatigue limit under combined stress,
+Bulletin of JSME, 20 (1977) 257-263.
+https://doi.org/10.1299/jsme1958.20.257.
+[75] H. Gough, H. Pollard, Properties of some materials for cast
+crankshafts, with special reference to combined stresses,
+Proceedings of the Institution of Automobile Engineers, 31 (1936)
+821-893. https://doi.org/10.1243/PIAE_PROC_1936_031_040_02.
+[76] X. Liang, A. Hor, C. Robert, M. Salem, F. Lin, F. Morel, High cycle
+fatigue behavior of 316L steel fabricated by laser powder bed
+fusion: Effects of surface defect and loading mode, Int J Fatigue,
+160 (2022) 106843. https://doi.org/10.1016/j.ijfatigue.2022.106843.
+[77] J. Zhang, A. Fatemi, Surface roughness effect on multiaxial fatigue
+behavior of additive manufactured metals and its modeling, Theor
+Appl Fract Mec, 103 (2019) 102260.
+https://doi.org/10.1016/j.tafmec.2019.102260.
+[78] W.N. Findley, A theory for the effect of mean stress on fatigue of
+metals under combined torsion and axial load or bending, J Ind
+Eng, 81 (1959) 301-305. https://doi.org/10.1115/1.4008327.
+[79] D. McDiarmid, Mean stress effects in biaxial fatigue where the
+stresses are out-of-phase and at different frequencies, Fatigue
+under Biaxial/Multiaxial loading, ESIS, 10 (1991) 321-335.
+[80] K. Dang-Van, Sur la résistance à la fatigue des métaux, Sciences
+et Techniques de l’Armement, 47 (1973) 641.
+[81] I.V. Papadopoulos, A new criterion of fatigue strength for out-ofphase bending and torsion of hard metals, Int J Fatigue, 16 (1994)
+377-384. https://doi.org/10.1016/0142-1123(94)90449-9.
+[82] J. Papuga, L. Suchý, M. Růžička, Mean shear stress effect built
+into the multiaxial fatigue strength estimation method of an integral
+type, in: MATEC Web of Conferences, EDP Sciences, 2019, pp.
+16010.
+
+77
+
+[83] J. Lemaitre, J.-L. Chaboche, Mechanics of solid materials,
+Cambridge university press, 1994.
+[84] I.V. Papadopoulos, P. Davoli, C. Gorla, M. Filippini, A. Bernasconi,
+A comparative study of multiaxial high-cycle fatigue criteria for
+metals, Int J Fatigue, 19 (1997) 219-235.
+https://doi.org/10.1016/S0142-1123(96)00064-3.
+[85] G. Petrucci, A critical assessment of methods for the determination
+of the shear stress amplitude in multiaxial fatigue criteria belonging
+to critical plane class, Int J Fatigue, 74 (2015) 119-131.
+https://doi.org/10.1016/j.ijfatigue.2015.01.001.
+[86] M.A. Meggiolaro, J.T.P. de Castro, An improved multiaxial rainflow
+algorithm for non-proportional stress or strain histories–Part I:
+Enclosing surface methods, Int J Fatigue, 42 (2012) 217-226.
+https://doi.org/10.1016/j.ijfatigue.2011.10.014.
+[87] A. Bernasconi, Efficient algorithms for calculation of shear stress
+amplitude and amplitude of the second invariant of the stress
+deviator in fatigue criteria applications, Int J Fatigue, 24 (2002)
+649-657. https://doi.org/10.1016/S0142-1123(01)00181-5.
+[88] E.N. Mamiya, J.A. Araújo, F.C. Castro, Prismatic hull: A new
+measure of shear stress amplitude in multiaxial high cycle fatigue,
+Int J Fatigue, 31 (2009) 1144-1153.
+https://doi.org/10.1016/j.ijfatigue.2008.12.010.
+[89] G. Sines, G. Ohgi, Fatigue Criteria Under Combined Stresses or
+Strains, J Eng Mater Technol, 103 (1981) 82-90.
+https://doi.org/10.1115/1.3224995.
+[90] J. Papuga, M. Nesládek, A. Hasse, E. Cízová, L. Suchý,
+Benchmarking Newer Multiaxial Fatigue Strength Criteria on Data
+Sets of Various Sizes, Metals, 12 (2022) 289.
+https://doi.org/10.3390/met12020289.
+
+78
+
+[91] J. Papuga, A survey on evaluating the fatigue limit under multiaxial
+loading, Int J Fatigue, 33 (2011) 153-165.
+https://doi.org/10.1016/j.ijfatigue.2010.08.001.
+[92] M.M. Pedersen, Introduction to metal fatigue (compendium),
+Aarhus University, (2018).
+[93] X. Gao, X. Liu, X. Xue, N.Z. Chen, Fracture mechanics-based
+mooring system fatigue analysis for a spar-based floating offshore
+wind turbine, Ocean Engineering, 223 (2021).
+https://doi.org/10.1016/j.oceaneng.2021.108618.
+[94] J. Xu, S. Benson, B. Wetenhall, Comparative analysis of fatigue
+life of a wind turbine yaw bearing with different support
+foundations, Ocean Engineering, 235 (2021).
+https://doi.org/10.1016/j.oceaneng.2021.109293.
+[95] V. Piscopo, A. Scamardella, G.B. Rossi, F. Crenna, M. Berardengo,
+Fatigue Assessment of Moorings for Floating Offshore Wind
+Turbines by Advanced Spectral Analysis Methods, J Mar Sci Eng,
+10 (2022). https://doi.org/10.3390/jmse10010037.
+[96] J.J. Kauzlarich, The Palmgren-Miner rule derived, in: Tribology
+Series, Elsevier, 1989, pp. 175-179.
+[97] M.A. Miner, Cumulative damage in fatigue, J Appl Mech, (1945).
+https://doi.org/10.1115/1.4009458.
+[98] J.A. Bannantine, A variable amplitude multiaxial fatigue life
+prediction method, University of Illinois at Urbana-Champaign,
+1989, Report No. 151.
+[99] C. Wang, M. Brown, Life prediction techniques for variable
+amplitude multiaxial fatigue—part 1: theories, J Eng Mater Technol
+(1996). https://doi.org/10.1115/1.2806821.
+[100] C. Wang, M. Brown, Life prediction techniques for variable
+amplitude multiaxial fatigue—part 2: comparison with experimental
+results, J Eng Mater Technol (1996).
+https://doi.org/10.1115/1.2806822.
+
+79
+
+[101] A. Rovinelli, M.C. Messner, T.-L. Sham, A comprehensive
+comparison between different multiaxial cycle counting procedure,
+in: Pressure Vessels and Piping Conference, American Society of
+Mechanical Engineers, 2021, V001T001A038.
+https://doi.org/10.1115/PVP2021-62067.
+[102] A. Carpinteri, A. Spagnoli, S. Vantadori, A review of multiaxial
+fatigue criteria for random variable amplitude loads, Fatigue Fract
+Eng M, 40 (2017) 1007-1036. https://doi.org/10.1111/ffe.12619.
+[103] M.A. Meggiolaro, J.T.P.d. Castro, H. Wu, Non-linear incremental
+fatigue damage calculation for multiaxial non-proportional
+histories, Int J Fatigue, 100 (2017) 502-511.
+https://doi.org/10.1016/j.ijfatigue.2016.12.008.
+[104] J. Huo, D. Zhu, N. Hou, W. Sun, J. Dong, Application of a smalltimescale fatigue, crack-growth model to the plane stress/strain
+transition in predicting the lifetime of a tunnel-boring-machine
+cutter head, Engineering Failure Analysis, 71 (2017) 11-30.
+https://doi.org/10.1016/j.engfailanal.2016.11.002.
+[105] M. Lilja, J. Karlsson, A. Jonsson, D. Hilding, S.B. Lindström, D.
+Leidermark, P. Schmidt, Incremental damage model for fatigue life
+assessment in complete machinery simulation, in: 16th
+international LS-DYNA users conference, 2020.
+[106] S. Stephanov, A curvilinear integral method for multiaxial fatigue
+life computing under non-proportional, arbitrary or random
+stressing, Int J Fatigue, 15 (1993) 467-472.
+https://doi.org/10.1016/0142-1123(93)90258-R.
+[107] S.B. Lindström, J. Moverare, J. Xu, D. Leidermark, R. Eriksson, H.
+Ansell, Z. Kapidžić, Service-life assessment of aircraft integral
+structures based on incremental fatigue damage modeling, Int J
+Fatigue, 172 (2023) 107600.
+https://doi.org/10.1016/j.ijfatigue.2023.107600.
+[108] S.B. Lindström, J. Moverare, M. Franke, J. Persson, D.
+Leidermark, C.-J. Thore, T. Lindström, Z. Kapidžić, Fatigue life
+
+80
+
+prediction for PBF-LB Ti6A14V with as-built surface under
+nonproportional loads using an incremental fatigue damage model,
+Int J Fatigue, 193 (2025) 108777.
+https://doi.org/10.1016/j.ijfatigue.2024.108777.
+[109] T. Frondelius, T. Kaarakka, R. Kouhia, J. Mäkinen, H. Orelma, J.
+Vaara, Stochastic continuum approach to high-cycle fatigue:
+Modelling stress history as a stochastic process, 'Eur J Mech
+A/Solids, (2021) 104454.
+https://doi.org/10.1016/j.euromechsol.2021.104454.
+[110] O. Kaleva, H. Orelma, Statistical properties of the model
+parameters in the continuum approach to high-cycle fatigue,
+Probabilist Eng Mech, 63 (2021).
+https://doi.org/10.1016/j.probengmech.2021.103117.
+[111] S. Suresh, S.B. Lindström, A. Klarbring, M. Wallin, C.-J. Thore,
+Non-proportional high-cycle fatigue-constrained gradient-based
+topology optimization using a continuous-time model, Computer
+Methods in Applied Mechanics and Engineering, 435 (2025)
+117594. https://doi.org/10.1016/j.cma.2024.117594.
+[112] S. Suresh, S.B. Lindström, C.-J. Thore, A. Klarbring, Acceleration
+of continuous-time, high-cycle fatigue constrained problems in
+topology optimization, Eur J Mech A/Solids, 96 (2022) 104723.
+https://doi.org/10.1016/j.euromechsol.2022.104723.
+[113] S. Suresh, S.B. Lindström, C.-J. Thore, A. Klarbring, Topology
+optimization for transversely isotropic materials with high-cycle
+fatigue as a constraint, Struct Multidiscip O, 63 (2021) 161-172.
+https://doi.org/10.1007/s00158-020-02677-2.
+[114] S. Suresh, S.B. Lindström, C.-J. Thore, B. Torstenfelt, A. Klarbring,
+Topology optimization using a continuous-time high-cycle fatigue
+model, Struct Multidiscip O, 61 (2020) 1011-1025.
+https://doi.org/10.1007/s00158-019-02400-w.
+[115] B. Skallerud, S.K. As, N.S. Ottosen, A gradient-based multiaxial
+criterion for fatigue crack initiation prediction in components with
+
+81
+
+surface roughness, Int J Fatigue, 117 (2018) 384-395.
+https://doi.org/10.1016/j.ijfatigue.2018.08.020.
+[116] T. Barriere, S. Carbillet, X. Gabrion, S. Holopainen, Prediction of
+Short- to Long-Term Cyclic Deformation Behavior and Fatigue Life
+of Polymers, Polymers, 16 (2024) 1640.
+https://doi.org/10.3390/polym16121640.
+[117] S. Holopainen, T. Barriere, Modeling of mechanical behavior of
+amorphous solids undergoing fatigue loadings, with application to
+polymers, Computers & Structures, 199 (2018) 57-73.
+https://doi.org/10.1016/j.compstruc.2018.01.010.
+[118] S. Holopainen, T. Barriere, G. Cheng, R. Kouhia, Continuum
+approach for modeling fatigue in amorphous glassy polymers.
+Applications to the investigation of damage-ratcheting interaction
+in polycarbonate, Int J Plasticity, 91 (2017) 109-133.
+https://doi.org/10.1016/j.ijplas.2016.12.001.
+[119] S. Tveit, A. Reyes, E. Erduran, Forming effects on high-cycle
+fatigue in an aluminum sheet structure using the OttosenStenström-Ristinmaa model, 8th European Congress on
+Computational Methods in Applied Sciences and Engineering
+(ECCOMAS Congress 2022), (2022).
+https://doi.org/10.23967/eccomas.2022.127.
+[120] R. Brighenti, A. Carpinteri, S. Vantadori, Fatigue life assessment
+under a complex multiaxial load history: an approach based on
+damage mechanics, Fatigue Fract Eng M, 35 (2012) 141-153.
+https://doi.org/10.1111/j.1460-2695.2011.01600.x.
+[121] R. Brighenti, A. Carpinteri, A notch multiaxial-fatigue approach
+based on damage mechanics, Int J Fatigue, 39 (2012) 122-133.
+https://doi.org/10.1016/j.ijfatigue.2011.02.003.
+[122] R. Brighenti, A. Carpinteri, N. Corbari, Damage mechanics and
+Paris regime in fatigue life assessment of metals, International Int.
+J Press Vessel Pip, 104 (2013) 57-68.
+https://doi.org/10.1016/j.ijpvp.2013.01.005.
+
+82
+
+[123] N.S. Ottosen, M. Ristinmaa, R. Kouhia, Enhanced multiaxial
+fatigue criterion that considers stress gradient effects, Int J
+Fatigue, 116 (2018) 128-139.
+https://doi.org/10.1016/j.ijfatigue.2018.05.024.
+[124] O. Kaleva, H. Orelma, D. Petukhov, Parameter estimation of a
+high-cycle fatigue model combining the Ottosen-StenstromRistinmaa approach and Lemaitre-Chaboche damage rule, Int J
+Fatigue, 147 (2021).
+https://doi.org/10.1016/j.ijfatigue.2021.106153.
+[125] T. Frondelius, S. Holopainen, R. Kouhia, N.S. Ottosen, M.
+Ristinmaa, J. Vaara, A continuum based macroscopic unified lowand high cycle fatigue model, 12th International Conference on
+Multiaxial Fatigue and Fracture, (2019).
+[126] S. Holopainen, R. Kouhia, T. Saksala, Continuum approach for
+modelling transversely isotropic high-cycle fatigue, Eur J Mech
+A/Solids, 60 (2016) 183-195.
+https://doi.org/10.1016/j.euromechsol.2016.06.007.
+[127] S.B. Lindstrom, Continuous-time, high-cycle fatigue model for
+nonproportional stress with validation for 7075-T6 aluminum alloy,
+Int J Fatigue, 140 (2020).
+https://doi.org/10.1016/j.ijfatigue.2020.105839.
+[128] S.B. Lindström, J. Moverare, D. Leidermark, H. Ansell, Z. Kapidžić,
+Incremental fatigue damage modeling of 7050-T7 aluminum alloy
+at stress-raisers, Int J Fatigue, 161 (2022) 106878.
+https://doi.org/10.1016/j.ijfatigue.2022.106878.
+[129] S. Tveit, A. Reyes, E. Erduran, A continuum approach to multiaxial
+high-cycle fatigue modeling for ductile metallic materials, Results
+in Engineering, 22 (2024) 102171.
+https://doi.org/10.1016/j.rineng.2024.102171.
+[130] S. Tveit, N.S. Ottosen, A. Reyes, E. Erduran, Generalized
+continuum mechanics fatigue model for arbitrary ratios of shear
+and normal stress fatigue strengths, in review, (2025).
+
+83
+
+[131] A. Rubio Ruiz, T. Saksala, D. Baroudi, M. Hokka, R. Kouhia, Highcycle fatigue model calibration with a deterministic optimization
+approach, Int J Fatigue, 175 (2023) 107747.
+https://doi.org/10.1016/j.ijfatigue.2023.107747.
+[132] M.-h. Yu, Advances in strength theories for materials under
+complex stress state in the 20th Century, Applied Mechanics
+Reviews, 55 (2002) 169-218. https://doi.org/10.1115/1.1472455.
+[133] D. Banabic, D.-S. Comsa, P. Eyckens, A. Kami, M. Gologanu,
+Advanced models for the prediction of forming limit curves, in:
+Multiscale Modelling in Sheet Metal Forming, 2016, pp. 205-300.
+[134] M. Firat, Computer aided analysis and design of sheet metal
+forming processes: Part I – The finite element modeling concepts,
+Materials & Design, 28 (2007) 1298-1303.
+https://doi.org/10.1016/j.matdes.2006.01.026.
+[135] M. Firat, Computer aided analysis and design of sheet metal
+forming processes: Part III: Stamping die-face design, Materials &
+Design, 28 (2007) 1311-1320.
+https://doi.org/10.1016/j.matdes.2006.01.025.
+[136] L. Pérez Caro, M. Schill, K. Haller, E.-L. Odenberger, M.
+Oldenburg, Damage and fracture during sheet-metal forming of
+alloy 718, Int J Mater Form, 13 (2020) 15-28.
+https://doi.org/10.1007/s12289-018-01461-4.
+[137] Y. Kiliclar, I.N. Vladimirov, S. Wulfinghoff, S. Reese, O. Demir, C.
+Weddeling, A. Tekkaya, M. Engelhardt, C. Klose, H. Maier, Finite
+element analysis of combined forming processes by means of rate
+dependent ductile damage modelling, Int J Mater Form, 10 (2017)
+73-84. https://doi.org/10.1007/s12289-015-1278-z.
+[138] O. Lademo, T. Berstad, O. Hopperstad, K. Pedersen, A numerical
+tool for formability analysis of aluminium alloys. Part I: Theory,
+Steel Grips, 2 (2004) 427-431.
+
+84
+
+[139] O. Lademo, T. Berstad, O. Hopperstad, K. Pedersen, A numerical
+tool for formability analysis of aluminium alloys. Part II:
+Experimental validation, Steel Grips, 2 (2004) 433-437.
+[140] Ø. Fyllingen, O. Hopperstad, O.-G. Lademo, M. Langseth,
+Estimation of forming limit diagrams by the use of the finite
+element method and Monte Carlo simulation, Computers &
+Structures, 87 (2009) 128-139.
+https://doi.org/10.1016/j.compstruc.2008.07.002.
+[141] K. Hariharan, R.V. Prakash, Integrating effect of forming in fatigue
+life prediction: review of present scenario and challenges, P I
+Mech Eng B-J Eng, 226 (2012) 967-979.
+https://doi.org/10.1177/0954405412437621.
+[142] L.-H. Zhao, H.-C. Cai, S. Weng, S.-L. Zheng, Effect of pre-strain on
+the fatigue behavior of SAPH440 steel, Materials Express, 9
+(2019) 1001-1008. https://doi.org/10.1166/mex.2019.1586.
+[143] A. Gustavsson, M. Larsson, A. Melander, Fatigue life of pressed
+steel sheet components, Int J Fatigue, 19 (1997) 613-619.
+https://doi.org/10.1016/S0142-1123(97)00073-X.
+[144] C. Froustey, J.L. Lataillade, Influence of large pre-straining of
+aluminium alloys on their residual fatigue resistance, Int J Fatigue,
+30 (2008) 908-916. https://doi.org/10.1016/j.ijfatigue.2007.06.011.
+[145] D. Lanning, T. Nicholas, G. Haritos, Effect of plastic prestrain on
+high cycle fatigue of Ti–6Al–4V, Mechanics of Materials, 34 (2002)
+127-134. https://doi.org/10.1016/S0167-6636(01)00105-3.
+[146] M. Kang, Y. Aono, H. Noguchi, Effect of prestrain on and prediction
+of fatigue limit in carbon steel, Int J Fatigue, 29 (2007) 1855-1862.
+https://doi.org/10.1016/j.ijfatigue.2007.01.024.
+[147] B. Das, A. Singh, K.S. Arora, M. Shome, S.K. Paul, Influence of
+pre-straining path on high cycle fatigue performance of DP 600
+steel, Int J Fatigue, 126 (2019) 369-380.
+https://doi.org/10.1016/j.ijfatigue.2019.05.017.
+
+85
+
+[148] M.L. Facchinetti, B. Weber, C. Doudard, S. Calloch, Taking into
+account the forming process in fatigue design computations, 2007.
+[149] H. Dannbauer, Gaier, C., Aichberger, W., Integrating the Results
+from Process Simulation into Fatigue Life Prediction, in: SAE
+Technical Paper, 2007.
+[150] G. Chen, S.D. Liu, K. Sato, J. Liu, Residual Forming Effects on Full
+Vehicle Frontal Impact and Body-in-White Durability Analyses,
+SAE Trans, 111 (2002) 405-410.
+[151] K.R. Kose, B., Plasticity effects in subsequent simulations of car
+structures, in: 7th International Conference on Computational
+Plasticity, COMPLAS, 2003.
+[152] D. Bhattacharyya, W. Thorpe, M. Painter, Residual stress
+prediction in large autobody panels, J Mater Shap Technol, 5
+(1988) 221-229. https://doi.org/10.1007/BF02836002.
+[153] C. Kella, P.K. Mallick, Residual Stress Distribution in
+Aluminum/Polypropylene/Aluminum Sandwich Laminates in UChannel Draw Bending, J Mater Eng Perform, (2024) 1-10.
+https://doi.org/10.1007/s11665-024-09421-7.
+[154] X. Zhang, Y.e. Ma, W. Li, W. Huang, W. Zhang, Z. Wang, A review
+of residual stress effects on fatigue properties of friction stir welds,
+Critical Reviews in Solid State and Materials Sciences, 48 (2023)
+775-813. https://doi.org/10.1080/10408436.2022.2138828.
+[155] H. Abdelbaset, Z. Zhu, Behavior and fatigue life assessment of
+orthotropic steel decks: A state-of-the-art-review, Structures, 60
+(2024) 105957. https://doi.org/10.1016/j.istruc.2024.105957.
+[156] J. Schijve, Fatigue of structures and materials in the 20th century
+and the state of the art, Int J Fatigue, 25 (2003) 679-702.
+https://doi.org/10.1016/S0142-1123(03)00051-3.
+[157] R. Masendorf, Einfluss der Umformung auf die zyklischen
+Werkstoffkennwerte von Feinblech, Papierflieger, 2000.
+
+86
+
+[158] A. Hatscher, Abschätzung der zyklischen Kennwerte von Stählen:
+Konflikte, Kosten, Bewertungsverfahren, Papierflieger, 2004.
+[159] E. Rizzi, P. Hähner, On the Portevin–Le Chatelier effect: theoretical
+modeling and numerical results, Int J Plasticity, 20 (2004) 121-165.
+https://doi.org/10.1016/S0749-6419(03)00035-4.
+
+87
+
+Publications
+
+Publication I
+S. Tveit, A. Reyes, E. Erduran, Parametric failure limit detection for the
+sheet metal forming of a Floating Photovoltaic (FPV) aluminum alloy
+structure, Materials Research Proceedings, 41, 2024, pp 1048-1057.
+https://doi.org/10.21741/9781644903131-115
+
+Publication II
+S. Tveit, A. Reyes, E. Erduran, Forming effects on high-cycle fatigue in
+an aluminum sheet structure using the Ottosen-Stenström-Ristinmaa
+model, 8th European Congress on Computational Methods in Applied
+Sciences and Engineering (ECCOMAS), 2022.
+https://doi.org/10.23967/eccomas.2022.127
+
+Publication III
+S. Tveit, A. Reyes, A submodeling technique for incorporating sheet
+metal forming effects in an AA5083 FPV structure, Structures, 67 (2024)
+107030. https://doi.org/10.1016/j.istruc.2024.107030
+
+Publication IV
+S. Tveit, A. Reyes, E. Erduran, A continuum approach to multiaxial highcycle fatigue modeling for ductile metallic materials, Results in
+Engineering, 22 (2024) 102171.
+https://doi.org/10.1016/j.rineng.2024.102171
+
+Publication V
+S. Tveit, N.S. Ottosen, E. Erduran, A. Reyes, Generalized continuum
+mechanics fatigue model for arbitrary ratios of shear and normal stress
+fatigue strengths, (2025).
+Status: Under review for possible publication at the time of thesis
+submission.
+
+Errata list
+Doctoral candidate: Sigbjørn Tveit
+Title of thesis: Forming and fatigue in floating photovoltaic structures
+Abbreviations for different types of corrections:
+Cor – correction of language
+Cpltf – change of page layout or text format
+The list of revisions requested by the candidate is provided below.
+Requests
+
+Page/Line/Footnote
+
+Title on different
+line than name
+
+Page ii/Line 7
+
+“ Prof. [line shift]
+Aase Reyes”
+
+(type of correction)
+Corrected text
+(Cor) “[line shift]
+Prof. Aase Reyes”
+
+Title on different
+line than name
+
+Page ii/Line 17
+
+“ Mr. [line shift] Eirik
+Larsen”
+
+(Cor) “[line shift] Mr.
+Eirik Larsen”
+
+Typo in second line
+from the bottom:
+Plural form should
+be singular
+
+Page 21/Line 29
+
+“… non-zero stress
+components.”
+
+(Cor) “… non-zero
+stress component.”
+
+Error in annotation
+
+Page 29/ Fig 2.5.b)
+
+“Current” (left) and
+“Initial” (right)
+
+(Cor) “Initial” (left)
+and “Current” (right)
+
+Misplaced word:
+“specimen’s”
+
+Page 30/Line 1
+
+“… reduces the
+specimen’s crosssection …”
+
+(Cor) “… reduces the
+cross-section …”
+
+Line shift
+
+Page 44/Last line (to
+Page 45/First line)
+
+“low-[line shift]cycle
+fatigue”
+
+(Cor) “[line shift]
+low-cycle fatigue”
+
+Change of status
+
+Appendix: Publication
+V, front page
+
+“Under review for
+possible publication
+in European Journal
+of Mechanics –
+A/Solids (submitted
+December 20, 2025)”
+
+(Cor) “Under review
+for possible journal
+publication at the time
+of thesis submission.”
+
+Correction of minor Appendix: Publication V
+errors in the
+(page 6), line 2
+description of
+equation
+
+“In Eq. (1), the
+division by 𝜎−1 […]
+that −1 ≤ 𝛽 ≤ 0
+corresponds to […]”
+
+(Cor) “In Eq. (1), the
+division and
+subtraction by 𝜎−1
+[…] that 𝛽 ≤ 0
+corresponds to […]”
+
+Correction of
+annotation in figure
+
+“𝛽 > 0”
+
+(Cor) “𝛽̇ > 0”
+
+Appendix: Publication V
+(page 8), Fig. 2(b)
+
+Original text
+
+

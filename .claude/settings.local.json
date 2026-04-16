@@ -7,7 +7,8 @@
       "Bash(mkdir -p /tmp/doc_work)",
       "Read(//tmp/**)",
       "Bash(mkdir -p /tmp/doc_work2)",
-      "Bash(unzip -q \"/c/Users/eirirlar/Documents/sunlitsea/sure/WP6/background/surewave/lca/SUREWAVE_D8.2_Report on societal needs and engagement_V2.docx\")"
+      "Bash(unzip -q \"/c/Users/eirirlar/Documents/sunlitsea/sure/WP6/background/surewave/lca/SUREWAVE_D8.2_Report on societal needs and engagement_V2.docx\")",
+      "Bash(pandoc:*)"
     ]
   }
 }

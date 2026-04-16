@@ -1,0 +1,545 @@
+Parametric failure limit detection for the sheet metal forming
+of a Floating Photovoltaic (FPV) aluminum alloy structure
+TVEIT Sigbjørn1,a *, REYES Aase1,b and ERDURAN Emrah1,c
+1
+
+Department of Built Environment, Oslo Metropolitan University, Postboks 4, St. Olavs plass,
+NO-0130 Oslo, Norway
+a
+
+sigbjorn.tveit@oslomet.no, baase.reyes@oslomet.no, cemrah.erduran@oslomet.no
+
+Keywords: Sheet metal forming, Aluminum alloys, Parametric analysis.
+Abstract. The sheet metal forming process of a floating photovoltaic (FPV) structure is simulated
+in LS-DYNA. An anisotropic yield criterion and a two-term Voce hardening law are used to model
+the plastic behavior of AA5083-H111 sheets. The numerical model incorporates thickness
+variations to trigger local necking and uses a critical thickness strain as a fracture criterion. To
+establish a methodology that can be expanded for further studies, the research explores the
+relationship between cup depth and drawbead distance by proposing an algorithm to distinguish
+between successful and unsuccessful sheet metal forming operations.
+Introduction
+In the competitive race of developing new methods for renewable energy production, the floating
+solar producer Sunlit Sea AS has come up with an innovative solution where formed aluminum
+alloy sheet structures are used as supports for floating photovoltaic (FPV) panels. In each FPV
+float, two formed components are joined together back-to-back, and sealed off along the rim to
+create a buoyant platform. The choice of material represents a key attribute of the design: As the
+power output of FPV modules decreases at elevated operational temperatures, the highly
+conductive aluminum alloy body, which acts as a thermal bridge between the FPV module and the
+cool sea water, allows the units to operate with increased efficiency.
+A critical feature in the design is the repeated cup shape, which acts as a spacer to provide
+structural integrity to the platform. This allows for walking on top of the solar panels, which
+facilitates effortless installation, operation, and maintenance. The cup depth directly influences the
+buoyancy of the platform, and, as the cups transfer heat and forces, their geometry and
+constellation have a massive influence on the FPV’s operational performance. Hence, for the
+technology to reach its potential with respect to cost per unit energy output, the optimization of
+the structural geometry with respect to several parameters, including the heat transfer, and the
+material costs, is vital.
+A challenge emerges in the radical deep-drawing of marine-grade aluminum, as aggressively
+pushing the drawing limit can lead to increased failure rates in the production line. Sunlit Sea’s
+collaborative partners have painstakingly developed a shape that is feasible to manufacture by
+deep-drawing 1.5 mm thick AA5083-H111 sheets close to their forming limit. However, in
+developing the next generation of floats, the company seeks a more flexible and efficient design
+process, that enables rapid testing of multiple design variations in a virtual environment, by
+combining explicit non-linear finite element (FE) simulations in LS-DYNA [1], with machine
+learning techniques.
+As an initial part of this work, the current paper presents the precursory investigations of the
+comprehensive study on the influence of various geometric parameters on the sheet metal forming
+process of the Sunlit Sea’s FPV structure. The overarching aim of the ongoing study is to establish
+Content from this work may be used under the terms of the Creative Commons Attribution 3.0 license. Any further distribution of
+this work must maintain attribution to the author(s) and the title of the work, journal citation and DOI. Published under license by Materials
+Research Forum LLC.
+
+1
+
+a parametrized FE model that can be used to generate data for the training of an artificial neural
+network (ANN) that will be applied in the optimization process to develop the structural design
+for the FVP system. While the investigation presented in this paper is limited, its findings will be
+used as a basis to develop the methodology for the further research.
+In the realm of machine learning classification, decision boundaries are used to distinguish
+classes. In order to efficiently train the ANN to classify whether a sheet metal forming process will
+be successful or not for a given set of process parameters, it is crucial to assure the quality of the
+training data. Ideally, the database should be balanced, with roughly the same number of instances
+in the different classes, i.e. successful and unsuccessful forming operations [2]. Consequently, it
+is advantageous to get a sense of the mutual dependencies between important process parameters
+when generating the training data. Moreover, the predictive capability of the trained model relies
+on the accuracy of the training data, which calls for precise numerical models equipped with
+capable phenomenological models that accurately capture the material behavior.
+As sheet metals are plastically deformed into complex shapes, a series of plastic instabilities
+may occur, as the material is subjected to large strains. The sequence of instability phenomena is
+normally initiated by diffuse necking, followed by localized necking and/or shear instability, until
+the coalescence of voids concludes in ductile failure [3]. While diffuse necking is often regarded
+as acceptable in industrial practices, the onset of a localized neck, or a shear localization, is
+commonly referred to as the material’s forming limit.
+Over the years, considerable research has been dedicated to the development of
+phenomenological models aiming to describe the occurrence of the various plastic instabilities that
+govern formability. Marciniak and Kuczynski (MK) [4] described how the presence of an
+imperfection, such as a small reduction in thickness, or an inhomogeneity in the material
+characteristics, causes the plastic strains to localize for sheet metals in biaxial tension. Since then,
+the concept has been further developed [5], and employed in conjunction with advanced
+anisotropic plasticity models, demonstrating the significance of the yield function and the plastic
+strain hardening law on the predicted forming limits. The MK approach has also been implemented
+in non-linear FE codes, where a non-local instability criterion (NLIC) is used to detect strain
+localization that are triggered by imperfections in the form of randomly distributed thickness
+variations [6-8]. A through-thickness shear instability criterion (TTSIC) was proposed by Bressan
+and Williams [9] for applications in isotropic sheet metals, a formulation that was later generalized
+by Hopperstad et al. [10] to comply with materials with orthotropic anisotropy. Reyes et al. [11]
+proved the robustness of NLIC and TTSIC when used in an FE model with random shell thickness
+variations, by demonstrating that the models could predict the decreased formability observed for
+certain aluminum alloy sheet metals subjected to biaxial pre-strain.
+In this work, the deep-drawing of the indented cups in Sunlit Sea’s FPV structure is simulated
+using a non-linear finite element model in LS-DYNA. A non-quadratic anisotropic yield criterion
+[12] with the associated flow rule, and a two-term Voce hardening law [13] are used to describe
+the plastic behavior of the sheet metal. Microscopic sheet thickness variations are implemented to
+trigger localized necking, and a simple fracture criterion based on a critical thickness strain is
+employed [14]. To establish a methodology that can be expanded upon in further studies, the model
+is used to explore the relationship between two geometric parameters: cup depth and drawbead
+distance. A simple algorithm is proposed to determine the curve that separates successful and
+unsuccessful sheet metal forming operations in the two-dimensional parameter space.
+Material models
+The anisotropic Yld2003 [12], referred to in the LS-DYNA keyword as the strong texture model
+(STM), was employed as yield criterion, and as plastic potential by adopting the associated flow
+
+2
+
+rule. The function is a generalization of the isotropic Hershey-Hosford yield function, which, for
+plane stress, can be written as
+|𝜎1 |𝑚 + |𝜎2 |𝑚 + |𝜎1 − 𝜎2 |𝑚 = 2𝜎𝑌 𝑚
+
+(1)
+
+where 𝜎𝑌 is the flow stress. 𝜎1 and 𝜎2 are the non-zero principal stress tensor components:
+𝜎𝑥 + 𝜎𝑦
+𝜎 − 𝜎𝑦 2
+𝜎1
+√( 𝑥
+}
+=
+±
+) + 𝜏𝑥𝑦 2
+𝜎2
+2
+2
+
+(2)
+
+The Yld2003 yield function introduces anisotropy by dividing the function in Eq. (1) into two
+separate parts:
+𝜙 = 𝜙 ′ + 𝜙 ′′ = 2𝜎𝑌 𝑚
+
+(3)
+
+where
+𝜙 ′ = |𝜎′1 |𝑚 + |𝜎′2 |𝑚
+
+(4)
+
+𝜙 ′′ = |𝜎′′1 − 𝜎′′2 |𝑚
+
+(5)
+
+The generalized principal stress terms 𝜎′1, 𝜎′2, 𝜎′′1, and 𝜎′′2, are constructed analogous to the
+principal stress formulae in Eq. (2) as
+𝑎8 ∙ 𝜎𝑥 + 𝑎1 ∙ 𝜎𝑦
+𝑎2 ∙ 𝜎𝑥 − 𝑎3 ∙ 𝜎𝑦 2
+𝜎′1
+√
+}=
+± (
+) + 𝑎4 2 ∙ 𝜏𝑥𝑦 2
+𝜎′2
+2
+2
+𝜎𝑥 + 𝜎𝑦
+𝑎5 ∙ 𝜎𝑥 − 𝑎6 ∙ 𝜎𝑦 2
+𝜎′′1
+}=
+± √(
+) + 𝑎7 2 ∙ 𝜏𝑥𝑦 2
+𝜎′′2
+2
+2
+
+(6)
+
+(7)
+
+Here, 𝑎1 to 𝑎8 are the eight anisotropy coefficients that can be calibrated to experimental flow
+stress ratios and strain ratios obtained in different directions of uniaxial tensile stress, as well as in
+equibiaxial tensile stress, or a stress state that is equivalent with respect to the deviatoric stress.
+For uniaxial tension at an angle 𝜃 to the sheet’s rolling direction (RD), the strain ratio is defined
+as
+𝑅𝜃 =
+
+𝑑𝜀𝑤
+𝑑𝜀𝑡
+
+(8)
+
+where 𝑑𝜀𝑤 and 𝑑𝜀𝑡 are respectively the incremental strains in the width and thickness direction of
+the specimen. Moreover, the uniaxial flow stress ratio is defined as
+𝑟𝜃 =
+
+𝜎𝜃
+|
+𝜎𝜃=0 𝑊
+
+(9)
+
+𝑝
+
+3
+
+where 𝜎𝜃 is the directional flow stress at a certain level of plastic work 𝑊𝑝 .
+The disc compression test generates a deviatoric stress state that is equivalent to that of
+equibiaxial tensile stress (𝜎𝑏 = 𝜎1 = 𝜎2 ). As the plastic process is independent of the hydrostatic
+pressure, this simple test is used to experimentally measure the in-plane plastic strains of the
+equibiaxial stress state [15]. By measuring the in-plane strains at different levels of compression,
+the incremental strains in TD and RD are obtained. The strain ratio in equibiaxial tensile stress is
+then taken as
+𝑅𝑏 =
+
+𝑑𝜀𝑇𝐷
+𝑑𝜀𝑅𝐷
+
+(10)
+
+where 𝑑𝜀𝑇𝐷 and 𝑑𝜀𝑅𝐷 are the incremental strains in the transverse and the rolling directions,
+respectively. Moreover, the equibiaxial stress ratio is typically obtained by comparing the yield
+stress measured in bulge tests, to that measured in a uniaxial tensile test in RD (𝜃 = 0):
+𝑟𝑏 =
+
+𝜎𝑏
+𝜎0
+
+(11)
+
+Plastic strain hardening is modeled using the two-term Voce hardening rule [13], which reads
+2
+
+𝜎𝑌 (𝜀𝑝𝑙 ) = 𝜎0 + ∑ 𝑄𝑅𝑖 [1 − 𝑒𝑥𝑝⁡(−𝐶𝑅𝑖 𝜀𝑝𝑙 )]
+
+(12)
+
+𝑖=1
+
+Here, 𝜀𝑝𝑙 is the effective plastic strain, 𝜎0 is the stress at the onset of yielding, and 𝑄𝑅𝑖 and 𝐶𝑅𝑖 are
+the Voce coefficients.
+To trigger necking instability, which is quickly followed by failure, the material
+inhomogeneities were modeled as a field of random thickness variation, generated by spectral
+decomposition using Karhunen-Loève expansions [1, 16]. For this purpose, an isotropic Gaussian
+correlation function 𝐵 was adopted:
+𝐵(𝑡) = 𝑒 −(𝑎𝑡)
+
+2
+
+(13)
+
+where 𝑎 is the correlation parameter. In LS-DYNA, the user has the option to use a random seed,
+which generates a new Gaussian random thickness field for every run, or to provide a fixed seed
+number, to facilitate a deterministic analysis. A scale factor 𝑓𝑆𝐶𝐿 is employed to control the
+magnitude of the thickness perturbations.
+A fracture criterion based on the local critical thickness strain was adopted [14]:
+𝜀𝑡 ≤ 𝜀𝑡,𝑐𝑟
+
+(14)
+
+where 𝜀𝑡,𝑐𝑟 is the critical thickness strain as fracture.
+Numerical model
+Sunlit Sea’s current design features 34 cups with center-to-center distance of 260 mm (see Fig. 1
+(a)). The cups have a radius 𝑟𝑐𝑢𝑝 = 80 mm, and a depth 𝑑𝑐𝑢𝑝 = 38.5 mm. To avoid wrinkling in
+the drawing process, a circular drawbead is located at a distance 𝑑𝑑𝑏 = 5 mm from the edge of the
+cup. A schematic diagram of the drawing operation of the cup is provided in Fig. 1 (b).
+
+4
+
+An FE model was established to simulate the sheet metal forming of the float component’s cups
+in LS-DYNA R12.0. For simplicity, it was conservatively assumed that the drawbead, which
+circumferences the cup geometry, completely restricts any material flow. This assumption, which
+is conservative from a formability perspective, allows the sheet metal inside the drawbead to be
+modeled as a circular plate with a fixed constraint along its rim.
+To allow the investigation of failure modes without restricting possible non-symmetric
+outcomes, the full circular symmetric cup system was modelled. The die and punch were modeled
+with rigid shell elements, based on the CAD geometry of the original forming press tool. The
+motion of the punch was prescribed according to a quadratic polynomial function, and the contact
+between the forming tools and the blank was modeled using a one-way surface-to surface rule,
+with a constant friction coefficient 𝜇. Selective mass scaling was employed to reduce
+computational costs by accelerating the explicit time-integration scheme without introducing
+significant dynamic effects upon impact between the forming tools and the blank.
+The deformable blank was modeled using reduced integration Belytschko-Tsay elements with
+five through-thickness integration points, and approximate lengths of 1.2 mm. The part was
+equipped with the material models described in the previous section, through the keyword
+*MAT_WTM_STM. The material parameters used in the input are reported in Table 1.
+The parameters of the two-term Voce plastic strain hardening law were calibrated to stressstrain data from five parallel uniaxial tensile tests in RD [17], by minimizing an error function
+based on the sum of squared residuals.
+The anisotropy coefficients of Yld2003 were calibrated in LS-DYNA to experimental data from
+[17]. Data from uniaxial tensile tests at 𝜃 = 0⁰, 45⁰, and 90⁰ to RD provided the stress ratios 𝑟𝜃 ,
+and the strain ratios 𝑅𝜃 . Moreover, the equibiaxial strain ratio 𝑅𝑏 was obtained from the disc
+compression test data. Due to lack of experimental bulge test data, the equibiaxial stress ratio was
+assumed to be isotropic, 𝑟𝜃 = 1. As is common practice for face-centered cubic (FCC) materials,
+the yield function exponent was taken as 𝑚 = 8. In Fig. 2, the yield function’s consistency with
+measurements from uniaxial tensile tests at seven different angles 𝜃 is demonstrated.
+Through the *PERTURBATION keyword, the random distribution was modelled, creating
+microscopic deviations in the shell thickness among the elements in the blank. Due to the absence
+of specific data on the surface topology of the sheet metal used in the current study, the correlation
+parameter 𝑎 was taken was unity, based on a qualitative assessment of the resulting thickness
+fields, while the perturbation scale factor was taken as 𝑓𝑆𝐶𝐿 = 0.005 mm.
+rcup
+ddb
+Punch
+
+Drawbead
+
+dcup
+
+Sheet metal
+Die
+
+(a)
+
+(b)
+
+Fig. 1 (a) FPV structural component with repeated cup geometry, approximately 2 by 2 m in
+size; (b) sheet metal forming scheme of the indented cups of the FPV structure.
+
+5
+
+Experimental tests performed by Sunlit Sea’s collaborative partners in the development of the
+design reportedly revealed that a cup depth of 40 mm resulted in failure, while a cup depth of 38.5
+mm remained intact during forming, without showing any signs of neck formation. These reported
+results were used to estimate the constant friction coefficient 𝜇, and the critical thickness strain at
+fracture 𝜀𝑡,𝑐𝑟 , in the absence of detailed experimental evidence. To do this, the forming of the
+original geometry (𝑑𝑐𝑢𝑝 = 38.5 mm), and a model with 𝑑𝑐𝑢𝑝 = 40 mm, were simulated using
+different friction coefficients, and the original drawbead distance 𝑑𝑑𝑏 = 5 mm. To alter the cup
+depth while keeping the initial tool distances of the native model, the vertical nodal coordinates of
+the drawing tools were scaled and shifted. Distributions of strains in the space of 𝜀1 and 𝜀2 were
+manually evaluated in order to determine a friction coefficient that did not predict necking at 𝑑𝑐𝑢𝑝
+= 38.5 mm, while predicting significant necking at 𝑑𝑐𝑢𝑝 = 40 mm. Fig. 3 (a) and (b) respectively
+display the element strains in the entire cup for 𝑑𝑐𝑢𝑝 = 38.5 and 40.0 mm, with 𝜇 = 0.085. It is
+apparent from the plot for 𝑑𝑐𝑢𝑝 = 38.5 mm that the strains in different elements are densely grouped
+in the strain space, while the plot for 𝑑𝑐𝑢𝑝 = 40 mm shows derivative strain levels in selected
+elements, indicating local neck formation. To comply with the reported observations, a critical
+thickness strain 𝜀𝑡,𝑐𝑟 = − 0.45 was adopted as a fracture limit. The sensitivity of 𝜀𝑡,𝑐𝑟 was analyzed,
+and it was concluded that the magnitude of 𝜀𝑡,𝑐𝑟 has insignificant impact on the predicted forming
+limits as long as plastic instability occurs before the thickness strain exceeds 𝜀𝑡,𝑐𝑟 .
+Detection of parametric failure limits
+To establish a methodology that can later be expanded to a multidimensional parameter space, an
+algorithmic approach was developed to locate the curve that separates safe from unsafe
+configurations of process parameters. In the current study, the relationship between the drawbead
+distance 𝑑𝑑𝑏 , and the cup depth 𝑑𝑐𝑢𝑝 , was investigated (cf. Fig. 1 (b)). MATLAB scripts were
+developed to parametrize the model, by manipulating the LS-DYNA input files. As described in
+the previous section, the cup depth was controlled by scaling and shifting the nodal coordinates of
+the forming tool parts. To vary the drawbead distance, the radius of the circular blank was scaled,
+while the element size (approximately 1.2 mm) was kept as consistent as possible.
+
+(a)
+
+(b)
+
+Fig. 2 (a) Stress- and (b) strain ratios vs. load angle for the fitted Yld2003 yield criterion and
+uniaxial test data from [17]. The solid markers represent the input for the calibration in LSDYNA.
+
+6
+
+(a)
+
+(b)
+
+Fig. 3 Major and minor true strains from LS-DYNA used to estimate the friction parameter 𝜇,
+and the critical thickness strain 𝜀𝑡,𝑐𝑟 : (a) Original design (𝑑𝑐𝑢𝑝 = 38.5 mm), and (b) with
+increased cup depth (𝑑𝑐𝑢𝑝 = 40 mm).
+Table 1 Model parameters
+Elastic/mechanical properties
+Density, 𝜌 [g/cm3]
+Young’s modulus, 𝐸 [N/mm2]
+2.650
+72000
+
+Poisson ratio, 𝜐 [−]
+0.33
+
+Yld2003 input [17]
+𝑟0 [-]
+𝑟45 [-]
+1.000
+0.9752
+
+𝑅90 [-]
+0.6410
+
+𝑟90 [-]
+0.9908
+
+Voce parameters
+𝜎0 [MPa]
+𝑄𝑅1 [MPa]
+153.7
+94.33
+Perturbation parameters
+𝑎 [-]
+𝑓𝑆𝐶𝐿 [mm]
+1.0
+0.005
+
+𝑟𝑏 [-]
+1.000
+
+𝑅0 [-]
+0.7142
+
+𝐶𝑅1 [-]
+2.352
+
+𝑅45 [-]
+0.8357
+
+𝑄𝑅2 [MPa]
+187.1
+
+Friction
+𝜇 [-]
+0.085
+
+𝑅𝑏 [-]
+1.1263
+
+𝑚 [-]
+8
+
+𝐶𝑅2 [-]
+15.35
+
+Fracture
+𝜀𝑡,𝑐𝑟 [-]
+-0.45
+
+To search for the failure front in the two-dimensional parameter space, the following algorithm
+was developed. The drawbead distance 𝑑𝑑𝑏 was taken as an independent variable, and a step size
+∆𝑑𝑑𝑏 = 5 mm was used to cover the parameter interval from 𝑑𝑑𝑏,𝑚𝑖𝑛 = 5 mm, the original
+geometry, to 𝑑𝑑𝑏,𝑚𝑎𝑥 = 45 mm, the maximum drawbead distance that can fit between the cups in
+the original constellation.
+Since the model was calibrated to experience failure at a cup depth of 40 mm for a drawbead
+distance of 5 mm, the initial value 𝑑𝑐𝑢𝑝,0 was taken as 39.5 mm at this drawbead distance, which
+predicts a successful forming operation, where the fracture criterion in Eq. (14) is not satisfied.
+With a step size of ∆𝑑𝑐𝑢𝑝 = 0.5 mm, the cup size was increased, and a new simulation was run
+
+7
+
+with the updated variables. Upon the occurrence of a failed forming operation, 𝑑𝑐𝑢𝑝 was decreased
+by half a step size in the next run, refining the prediction of the failure limit to a precision of
+0.5·∆𝑑𝑐𝑢𝑝 . The algorithm then proceeded by increasing the drawbead distance by ∆𝑑𝑑𝑏 , adopting
+the largest 𝑑𝑐𝑢𝑝 value that resulted in a successful forming operation, repeating the procedure, until
+𝑑𝑑𝑏 exceeds 𝑑𝑑𝑏,𝑚𝑎𝑥 . A flowchart of the search algorithm is provided in Fig. 4.
+The results from the sensitivity analysis are displayed in Fig. 5. In Fig. 5 (a), the path taken by
+the algorithm is indicated with the dotted line connecting the datapoints, which represent the 32
+different simulations that were run to complete the algorithmic search. The squares and crosses,
+respectively indicating the successful and unsuccessful forming processes, are separated by a solid
+line indicating the predicted parametric failure limit. It is evident from the plot that the FE model
+predicts a proportional relationship between the two parameters on the interval from 𝑑𝑑𝑏 = 5 mm
+to 25 mm, after which a plateau is reached. When reviewing the presented results, it should be
+noted that the solid line in Fig. 5 (a) represents the predicted fracture, using the simple critical
+thickness strain criterion in Eq. (14), while the forming limit of sheet metals is typically taken as
+the onset of a localized neck, or a shear localization.
+The predicted fracture patterns are presented in Fig. 5 (b). All instances display fracture
+perpendicular to the transverse direction, approximately 50 mm away from the cup center. This is
+according to expectations, as the minimum strain ratio 𝑅𝜃 = 𝑑𝜀𝑤 ⁄𝑑𝜀𝑡 was observed at 𝜃 = 90⁰
+(cf. Fig 2 (b)), indicating that the material is mostly prone to thinning when subjected to strains in
+this direction.
+
+Fig. 4 Flowchart of algorithm for detection of the relationship between dreawbead distance, and
+fracture cup depth.
+
+8
+
+ddb = 5 mm
+
+ddb = 10 mm ddb = 15 mm
+
+ddb = 20 mm ddb = 25 mm
+
+ddb = 30 mm
+
+ddb = 35 mm
+
+ddb = 45 mm
+
+ddb = 40 mm
+RD
+
+(a)
+
+(b)
+
+Fig. 5 (a) Fracture cup depth vs. drawbead distance. The error bars indicate the cup depth interval
+between the simulation that predicted failure, and the simulation that predicted an intact sheet.
+(b) Fracture patterns of the failed simulations.
+Concluding remarks
+In this preliminary study, the sheet metal forming process of a floating photovoltaic structure with
+a repeated cup feature was investigated through non-linear finite element analysis in LS-DYNA.
+The anisotropic Yld2003 yield criterion, and the isotropic two-term Voce hardening rule was
+calibrated to plasticity data from previous experimental tests of the 1.51 mm thick AA5083-H111
+aluminum alloy sheets [17]. First, the cup geometry of the original design was assessed by varying
+the constant friction parameter, which proved to have a significant effect on the principal strain
+distribution and the critical cup depth. The results from these simulations were used along with the
+reported observations from preliminary experimental tests to estimate a constant friction
+parameter, and a critical thickness strain at fracture. Finally, the calibrated model was used in a
+parametric study, where a simple search algorithm was developed for the purpose of locating the
+failure limit in a two-dimensional parameter space.
+The authors will continue with the work of developing a high-quality dataset for the training of
+a prediction model based on an artificial neural network. To this aim, the authors will focus on
+further developing the numerical simulation model, e.g. by implementing state-of-the-art criteria
+for the prediction of local necking, shear fracture, and ductile fracture, which governs the
+parametric forming limit. Since the case investigated in this study displayed a significant
+dependency on the constant friction parameter, a refined formulation that accounts for the static
+and dynamic contact friction would also be beneficial to ensure applicability to other geometric
+configurations. This calls for additional experimental tests to calibrate new model parameters, and
+to validate the FE model for various constellations of process parameters. Moreover, efforts will
+be dedicated to generalizing the simple search algorithm for extending its application to parameter
+spaces of higher dimensionality, starting with a review of existing approaches from the literature.
+
+9
+
+References
+[1] LIVERMORE SOFTWARE TECHNOLOGY (LSTC), LS-DYNA® Theory Manual 2019.
+[2] A. Dal Pozzolo, O. Caelen, R.A. Johnson, G. Bontempi, Calibrating probability with
+undersampling for unbalanced classification, in: 2015 IEEE symposium series on computational
+intelligence, IEEE, 2015, pp. 159-166. https://doi.org/10.1109/SSCI.2015.33.
+[3] D. Banabic, D.-S. Comsa, P. Eyckens, A. Kami, M. Gologanu, Advanced models for the
+prediction of forming limit curves, in: Multiscale Modelling in Sheet Metal Forming, 2016, pp.
+205-300. https://doi.org/10.1007/978-3-319-44070-5_5.
+[4] Z. Marciniak, K. Kuczyński, Limit strains in the processes of stretch-forming sheet metal, Int.
+J. Mech. Sci., 9 (1967) 609-620. https://doi.org/10.1016/0020-7403(67)90066-5.
+[5] D. Banabic, A review on recent developments of Marciniak-Kuczynski model, Comput.
+Methods in Mater. Sci., 10 (2010) 225-237.
+[6] O. Lademo, T. Berstad, O. Hopperstad, K. Pedersen, A numerical tool for formability analysis
+of aluminium alloys. Part I: Theory, Steel Grips, 2 (2004) 427-431.
+[7] O. Lademo, T. Berstad, O. Hopperstad, K. Pedersen, A numerical tool for formability analysis
+of aluminium alloys. Part II: Experimental validation, Steel Grips, 2 (2004) 433-437.
+[8] Ø. Fyllingen, O. Hopperstad, O.-G. Lademo, M. Langseth, Estimation of forming limit
+diagrams by the use of the finite element method and Monte Carlo simulation, Comput. Struct., 87
+(2009) 128-139. https://doi.org/10.1016/j.compstruc.2008.07.002.
+[9] J.D. Bressan, J.A. Williams, The use of a shear instability criterion to predict local necking in
+sheet metal deformation, Int. J. Mech. Sci., 25 (1983) 155-168. https://doi.org/10.1016/00207403(83)90089-9.
+[10] O. Hopperstad, T. Berstad, O. Lademo, M. Langseth, Shear instability criterion for plastic
+anisotropy, SINTEF, Trondheim, 2006.
+[11] A. Reyes, O.S. Hopperstad, T. Berstad, O.-G. Lademo, Prediction of necking for two
+aluminum alloys under non-proportional loading by using an FE-based approach, Int. J. Mater.
+Form., 1 (2008) 211-232. https://doi.org/10.1007/s12289-008-0384-6.
+[12] H. Aretz, A non-quadratic plane stress yield function for orthotropic sheet metals, J. Mater.
+Process. Technol., 168 (2005) 1-9. https://doi.org/10.1016/j.jmatprotec.2004.10.008.
+[13] E. Voce, The relationship between stress and strain for homogeneous deformation, J. Inst.
+Met., 74 (1948) 537-562.
+[14] Z. Marciniak, K. Kuczyński, T. Pokora, Influence of the plastic properties of a material on
+the forming limit diagram for sheet metal in tension, Int. J. Mech. Sci., 15 (1973) 789-800.
+https://doi.org/10.1016/0020-7403(73)90068-4.
+[15] F. Barlat, J.C. Brem, J.W. Yoon, K. Chung, R.E. Dick, D.J. Lege, F. Pourgoghrat, S.H. Choi,
+E. Chu, Plane stress yield function for aluminum alloy sheets - part 1: theory, Int. J. Plast., 19
+(2003) 1297-1319. https://doi.org/10.1016/S0749-6419(02)00019-0.
+[16] K.K. Phoon, S.P. Huang, S.T. Quek, Implementation of Karhunen–Loeve expansion for
+simulation using a wavelet-Galerkin scheme, Probabilistic Eng. Mech., 17 (2002) 293-303.
+https://doi.org/10.1016/S0266-8920(02)00013-9.
+[17] S. Tveit, A. Reyes, A submodeling technique for incorporating sheet metal forming effects in
+an AA5083 FPV structure, submitted for publication, (2024).
+
+10
+
+

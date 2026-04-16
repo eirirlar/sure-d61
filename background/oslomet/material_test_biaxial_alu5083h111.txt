@@ -1,0 +1,265 @@
+################################################################################
+# HAFTUNGSAUSSCHLUSS
+# Die in diesem Datenblatt angegebenen Werte sind Durchschnittswerte. Sie 
+# resultieren aus Laboruntersuchungen an typischen Materialien. Die Werte dienen
+# ausschließlich der Information über typische Eigenschaften des Produkts. Wir
+# behalten uns Änderungen des Produkts vor. Alle Angaben erfolgen ohne Gewähr.
+# Die Eigenschaften der von Speira GmbH zu liefernden Produkte richten sich
+# ausschließlich nach den mit dem Kunden getroffenen Vereinbarungen im
+# jeweiligen Liefervertrag.
+################################################################################
+# DISCLAIMER
+# All values contained in this data sheet are to be considered as average values
+# as shown in laboratory analysis performed on typical material. The values are
+# only meant as information on typical properties of the product. We reserve
+# the right to change the product's properties. No responsibility nor warranty
+# is taken for the correctness of the data and information contained in this
+# data sheet. The particular properties of any product to be delivered by
+# Speira GmbH are to be agreed upon with the customer individually in the
+# respective supply agreement.
+################################################################################
+# Legierung und Zustand (Alloy and temper): Speira 5083-R-O/H111
+# Datenquelle (Source of data): Speira GmbH
+# FEM-Karte Version 0 vom 14.12.2021
+# FEM material card version 0 from Dec. 14, 2021
+################################################################################
+#
+LengthUnit Millimeter
+ForceUnit Newton
+#
+#-------------------------------------------------------------------------------
+#
+# 1) ELASTIZITAET / ELASTICITY
+#
+Youngs 72100
+Poisson 0.33
+#
+#-------------------------------------------------------------------------------
+#
+# 2) PHYSIKALISCHE EIGENSCHAFTEN / PHYSICAL PROPERTIES
+#
+# Die Werte wurden aus der Literatur übernommen und nicht gemessen.
+# Values were taken from literature and not measured.
+# 
+SpecificWeight 2.7e-05
+#
+#-------------------------------------------------------------------------------
+#
+# 3) ISOTROPE VERFESTIGUNG / ISOTROPIC HARDENING
+#
+# a) Messung der Fliesskurve / Measurement of flow curve:
+#
+#    Fliesskurve aus einachsigen Zugversuchen in Walzrichtung, durchgefuehrt gemaess EN ISO 10113:2020.
+#    Die uniaxiale Fliesskurve wurde anschließend mit skalierten Daten aus biaxialen Bulge-Test-Versuchen erweitert,
+#    die nach DIN EN ISO 16808:2014 durchgeführt wurden.
+#    Flow-curve from uniaxial tensile tests in rolling direction, carried out according to EN ISO 10113:2020.
+#    Thereafter, the flow-curve was extended by means of scaled data obtained from biaxial bulge-tests, carried out according
+#    to DIN EN ISO 16808:2014.
+#
+# b) Blechdicke fuer Fliesskurven-Ermittlung / Sheet thickness for flow-curve determination:
+#
+#    1.5 mm
+#
+# c) Regression der Fliesskurven-Daten / Regression of flow-curve data:
+#
+#    Die Regression und Extrapolation der Fliesskurve erfolgte mit der folgenden Ansatz-Funktion.
+#    The flow-curve regression and extrapolation was carried out by means of the following ansatz function.
+#
+#      Erweiterter Voce-Ansatz / Extended Voce ansatz function:
+#
+#        kf(phi) = A + (B + C * phi) * (1 - exp(-D/B * phi))
+#
+#      mit den Koeffizienten / with the coefficients:
+#
+#       A = 168
+#       B = 183.1791
+#       C = 164.2333
+#       D = 2651.1218
+#
+#
+Hardening
+DeltaYieldStress 0
+DeltaTensileStrength 0
+# [no.  |  phi  |  kf]
+0	0.000	168.000
+1	0.005	180.845
+2	0.010	192.903
+3	0.015	204.227
+4	0.020	214.864
+5	0.025	224.858
+6	0.030	234.252
+7	0.035	243.085
+8	0.040	251.393
+9	0.045	259.211
+10	0.050	266.570
+11	0.070	291.990
+12	0.090	312.147
+13	0.110	328.288
+14	0.130	341.366
+15	0.150	352.108
+16	0.170	361.070
+17	0.190	368.676
+18	0.210	375.249
+19	0.230	381.034
+20	0.250	386.221
+21	0.270	390.952
+22	0.290	395.336
+23	0.310	399.456
+24	0.330	403.375
+25	0.350	407.142
+26	0.370	410.793
+27	0.390	414.356
+28	0.410	417.851
+29	0.430	421.296
+30	0.450	424.702
+31	0.470	428.079
+32	0.490	431.434
+33	0.510	434.772
+34	0.530	438.097
+35	0.550	441.412
+36	0.570	444.720
+37	0.590	448.022
+38	0.610	451.320
+39	0.630	454.615
+40	0.650	457.907
+41	0.670	461.197
+42	0.690	464.486
+43	0.710	467.774
+44	0.730	471.062
+45	0.750	474.348
+46	0.770	477.634
+47	0.790	480.920
+48	0.810	484.206
+49	0.830	487.491
+#
+#-------------------------------------------------------------------------------
+#
+# 4) FLIESSORT / YIELD LOCUS
+#
+# Anisotropy  [Sigma45, Sigma90] : Bei 0.2% plastischer Dehnung ermittelte Fliessspannungen aus
+#                                  einachsigen Zugversuchen, durchgefuehrt gemaess EN ISO 10113:2020.
+# Anisotropy  [Sigma45, Sigma90] : At 0.2% plastic strain determined yield stresses from uniaxial tensile tests,
+#                                  carried out according to EN ISO 10113:2020.
+#
+# Anisotropie [r0, r45, r90]: r-Werte aus einachsigen Zugversuchen nach EN ISO 10113:2014.
+# Anisotropy  [r0, r45, r90]: r-values from uniaxial tensile tests according to EN ISO 10113:2014.
+#
+# Anisotropie [SigmaBiaxial]: Auf Basis von Messdaten abgeschätzter Wert (Speira-interne Methode).
+# Anisotropy  [SigmaBiaxial]: Estimated value based on measured data (Speira-internal method).
+#
+# Anisotropie [R-ValueBiaxial]: Gemessen mittels Speira-internem Stauchversuch.
+# Anisotropy  [R-ValueBiaxial]: Measured by means of Speira-internal compression test.
+#
+R-Values  0.657  0.843  0.705
+#
+M-Value 6
+#
+Sigma45  161
+#
+Sigma90  165
+#
+SigmaBiaxial  171
+#
+R-ValueBiaxial  1.086
+#
+#-------------------------------------------------------------------------------
+#
+# 5) GRENZFORMAENDERUNGSKURVE (FLC) / FORMING LIMIT CURVE (FLC)
+#
+# a) FLC-Messung / FLC measurement:
+#
+#    FLC gemessen nach ISO 12004-2:2009 in 0° zur Walzrichtung.
+#    FLC measured according to ISO 12004-2:2009 at 0° to rolling direction.
+#
+# b) Blechdicke fuer FLC-Ermittlung / Sheet thickness used for FLC determination:
+#
+#    1.5 mm
+#
+# c) Gemessene FLC-Daten / Measured FLC data:
+#
+#	no.	phi2	phi1
+#       1	-0.047	0.220
+#       2	-0.007	0.198
+#       3	0.019	0.163
+#       4	0.026	0.153
+#       5	0.033	0.151
+#       6	0.041	0.154
+#       7	0.061	0.144
+#       8	0.078	0.143
+#       9	0.104	0.178
+#       10	0.123	0.194
+#       11	0.303	0.338
+#
+# d) Regression der FLC-Daten / Regression of FLC data:
+#
+#    Regression der FLC-Daten mit der folgenden Ansatz-Funktion.
+#    Regression of measured FLC data with the following ansatz function.
+#
+#      Ansatzfunktion nach Hotz & Timm (2008) / Ansatz function of Hotz & Timm (2008):
+#
+#        phi1(phi2) = A - (B/exp(C*(phi2-D))+1) - E/(F*(phi2-D)^2 + 1) - G*(exp(H*(phi2-D)))
+#
+#      mit den Koeffizienten / with the coefficients:
+#
+#       A = -8.81626929
+#       B = -11.5888233
+#       C = 0.24479785
+#       D = 0.078088889
+#       E = 0.357547476
+#       F = 61.08843086
+#       G = 1.27189651
+#       H = -2.503300361
+#
+#
+# [no.  |  phi2  |  phi1]
+Failure
+0	-0.047	0.211
+1	-0.040	0.210
+2	-0.033	0.208
+3	-0.025	0.206
+4	-0.018	0.202
+5	-0.011	0.198
+6	-0.004	0.192
+7	0.003	0.187
+8	0.010	0.180
+9	0.017	0.174
+10	0.025	0.167
+11	0.032	0.160
+12	0.039	0.154
+13	0.046	0.149
+14	0.053	0.145
+15	0.060	0.143
+16	0.067	0.141
+17	0.075	0.142
+18	0.082	0.145
+19	0.089	0.149
+20	0.096	0.155
+21	0.103	0.163
+22	0.110	0.172
+23	0.118	0.182
+24	0.125	0.194
+25	0.132	0.205
+26	0.139	0.217
+27	0.146	0.230
+28	0.153	0.242
+29	0.160	0.253
+30	0.168	0.265
+31	0.175	0.275
+32	0.182	0.285
+33	0.189	0.294
+34	0.196	0.303
+35	0.203	0.310
+36	0.210	0.317
+37	0.218	0.323
+38	0.225	0.328
+39	0.232	0.333
+40	0.239	0.336
+41	0.246	0.339
+42	0.253	0.341
+43	0.260	0.343
+44	0.268	0.344
+45	0.275	0.344
+46	0.282	0.344
+47	0.289	0.343
+48	0.296	0.342
+49	0.303	0.340

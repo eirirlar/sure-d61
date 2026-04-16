@@ -1,0 +1,681 @@
+The 8th European Congress on Computational Methods in Applied Sciences and Engineering
+ECCOMAS Congress 2022
+5 – 9 June 2022, Oslo, Norway
+
+FORMING EFFECTS ON HIGH-CYCLE FATIGUE IN AN ALUMINUM
+SHEET STRUCTURE USING THE OTTOSEN-STENSTRÖMRISTINMAA MODEL
+SIGBJØRN TVEIT, AASE REYES AND EMRAH ERDURAN
+Department of Built Environment
+Oslo Metropolitan University
+Post box 4, St. Olavs plass, NO-0130 Oslo, Norway
+e-mail: sigbjorn.tveit@oslomet.no, aase.reyes@oslomet.no, emrah.erduran@oslomet.no
+www.oslomet.no
+
+Key words: Metal Sheet Forming, High-Cycle Fatigue, Aluminum, Finite Element Analysis.
+Abstract. In this paper a multi-stage numerical analysis is presented with the aim to
+investigate effects of forming on the high-cycle fatigue performance of a deep-drawn aluminum
+sheet structure for use in a floating photovoltaic system. Forming simulations of a subsection
+of the full geometry are performed in a realistic two-step drawing-springback cycle. A
+simplified global analysis of service load response is performed to obtain displacements at the
+submodel boundary, that are used to generate boundary conditions for a local service load
+analysis. The local analysis is then performed on three different models of the subsection: (I)
+excluding forming effects, (II) including effects of thinning, and (III) including effects of
+thinning and residual stresses. The critical location with respect to the fatigue limit criterion in
+the Ottosen-Stenström-Ristinmaa high-cycle fatigue model was identified for case (I), and this
+location was used to compare the different models to assess effects of forming on high-cycle
+fatigue performance. Furthermore, the dynamic friction coefficient 𝑓 , and the isotropickinematic mixing coefficient Β were varied in order to investigate their respective effects.
+1 INTRODUCTION
+For solar power to significantly contribute to covering the global energy demand, vast areas
+dedicated to production are required. Furthermore, to reduce stress on existing power grids and
+infrastructure, production locations should be placed as close as possible to the areas of
+consumption. However, in densely populated districts where energy consumption is large, such
+zones are often prioritized for agricultural purposes, etc. With the rapidly increasing global
+demand for non-fossil and sustainable energy, technological, innovative and scalable solutions
+to utilize renewable resources such as solar energy, are currently subject to extensive research.
+Utilizing previously unused area for power production, the global potential of floating
+photovoltaic (FPV) power has with conservative assumptions been estimated to 400 GW, which
+equals the capacity of the 2017 cumulated installed solar energy plants [1]. While FPV has been
+mostly restricted to the tranquil environments of freshwater reservoirs such as lakes and dams,
+near-shore ocean territories are now gaining attention as potential sites for marine floating solar
+power generation. With 70% of the world's major cities situated in the immediate vicinity to
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+the sea or other large bodies of water, technology that enables solar power production in such
+locations allows the possibility of drastically scaling up production capacity.
+A challenge with expanding the attention to also include in-shore marine environments is
+the increased service loads associated with the wave loads. As floating structures are typically
+subject to a high number of stress cycles from wave loads, the repeated loads might cause highcycle fatigue (HCF) failure at stress ranges far below the material’s static capacity.
+Furthermore, high-cycle fatigue in metals is known to depend on certain superimposed mean
+stress configurations.
+During forming, the ductile aluminum undergoes large plastic and small elastic
+deformations. While the plastic strains are permanent, the elastic strains are reversed upon
+release of the drawing tools. This yields a configuration at equilibrium where some elastic
+strains are internally constrained from returning to the stress-free state [2], producing a state of
+residual stress.
+The importance of incorporating effects from manufacturing in such analysis was
+emphasized by Hariharan and Prakash [3], in their review article on challenges integrating
+effects of forming in fatigue life predictions.
+Facchinetti et al. [4] investigated the effects of forming on the HCF performance of a pseudo
+Mac-Pherson front axle. In the study, HCF computations by the Dang-Van approach [5] were
+carried out considering different forming effects, including those from thinning, plastic strains
+and residual stresses. By including all forming effects in the fatigue assessment, safety factors
+were reduced by more than 15% compared to the idealized case. The plastic behavior of the
+steel sheet was modelled using linear isotropic hardening, and so the Bauschinger effect [6],
+and its influences on the residual stress levels, were not considered.
+In this paper, a multi-stage numerical analysis is presented with the aim of investigating the
+effects of forming on HCF in a formed aluminum sheet float component designed by the FPV
+technology provider Sunlit Sea AS. Using a non-quadratic isotropic yield surface and an
+associated isotropic-kinematic exponential hardening law, metal sheet forming analyses in LSDYNA are conducted to obtain predictions of thinning and residual stress fields in the
+manufactured components. A simplified global analysis of the full structure’s service load
+response is conducted to obtain boundary conditions for a local service load response analysis
+of the formed sheet. From this, a constant amplitude load case that serves as a simplified
+representation of service wave loads is assessed in the HCF framework proposed by Ottosen et
+al. [7] in a MATLAB implemented forward Euler scheme for time integration of the model’s
+history variables.
+In addition to the effects of thinning and residual stresses from forming on HCF, the
+influence of two forming parameters, namely the dynamic friction coefficient 𝑓 , and the
+isotropic-kinematic mixing coefficient Β is further investigated.
+2 FPV STRUCTURE
+In the FPV plant, several floating units are connected in a large matrix that is held in position
+by a mooring system. Each FPV unit is mounted directly on to a float, which consists of two
+identical aluminum sheet components (cf. Fig. 1) that are welded together, back-to-back, with
+sealed off edges to generate a buoyant pontoon. The components are produced in a two-stage
+forming operation, where 1.5 mm thick rolled AA5083-H111 sheets are deep-drawn into
+
+2
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+Figure 1: The red, green and blue coordinate axes respectively correspond to the 𝑥-, 𝑦- and 𝑧-axes of the global
+coordinate system. The dashed rectangles indicate locations of connectors, and the darkened area displays the
+submodel assessed in Section 6.2 and 6.3. The geometry was provided by Sunlit Sea AS.
+
+a cupcake tray-like shape. Aside from providing a stable support in rough weather conditions,
+the aluminum structure acts as a thermal bridge between the panels and the cool sea water,
+increasing the efficiency of the PV cells.
+In the multi-stage analyses presented in this paper, the global model (1880 x 1880 mm full
+structure) and the local model (130 x 130 mm submodel) refer to the same global Cartesian
+coordinate system displayed in Fig. 1.
+3 PLASTICITY MODEL
+In the current work, a mixed isotropic-kinematic hardening model that follows a power law
+dependency on plastic strain is assumed:
+(1)
+
+𝜎 = 𝑘 𝜀̅ + 𝜀̅
+
+Here, 𝜎 is the flow stress, 𝑘 is the strength coefficient, 𝜀̅ is the effective strain at the onset of
+yield, 𝜀̅ is the effective plastic strain, and 𝑛 is the hardening exponent.
+The plastic strain increment follows the associate flow rule, and the mixing coefficient 0 ≤
+Β ≤ 1 defines the respective contributions to isotropic (Β = 0) and kinematic (Β = 1)
+hardening. The kinematic backstress tensor 𝜶 describes the deviatoric center of the of the yield
+locus. For the complete mathematical description of the mixed hardening model, cf. [8].
+The yield criterion is defined according to the non-quadratic Hershey-Hosford formulation
+[9,10], which may be written as function of the deviatoric stress tensor 𝒔 = 𝝈 − 𝐈 𝑡𝑟(𝝈)⁄3,
+where 𝐈 is the identity tensor. Introducing a plastic backstress-modified deviatoric stress tensor,
+𝒔 = 𝒔 − 𝜶, the Hershey-Hosford equation is written in principle components as
+|𝑠̂ − 𝑠̂ | + |𝑠̂ − 𝑠̂ | + |𝑠̂ − 𝑠̂ |
+
+= 2𝜎ℎℎ
+
+(2)
+
+where 𝑚 is the flow potential exponent, and 𝜎 is the Hershey-Hosford effective stress. For
+𝑚 = 2 and 𝑚 = 4, the formulation reduces to the von Mises criterion, while for 𝑚 = 1 and
+𝑚 = ∞ it reduces to the Tresca criterion. The appropriate value of this floating parameter may
+be fitted to agree with experimental observations or crystal-plasticity based simulations,
+although the conformity of 𝑚 = 8 for face-centered cubic (FCC) materials, such as aluminum,
+is well established.
+
+3
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+4 HIGH-CYCLE FATIGUE MODEL
+The Ottosen-Stenström-Ristinmaa HCF model [7] introduces a continuous accumulative
+damage function, whose evolution is dictated by the elastic stress history. Inspired by plasticity
+theory, the model proposes an endurance surface in stress space that separates a safe domain,
+where fatigue damage cannot evolve, from an unsafe domain where fatigue damage may
+accumulate if the stress state is moving away from the endurance surface in the stress space.
+The locus moves in the deviatoric stress space according to an endurance backstress tensor 𝛍,
+which should not be confused with the plastic backstress tensor 𝜶 that dictates yield surface
+translation due to kinematic plastic strain hardening. The endurance function 𝛽 defines the
+endurance limit when 𝛽 = 0, and is expressed as
+𝛽=
+
+1
+𝑆𝑜
+
+(𝜎
+
+(3)
+
++ 𝐴𝐼1 − 𝑆𝑜 )
+
+where 𝐴 is a positive dimensionless parameter which describes hydrostatical dependency, 𝐼 =
+𝑡𝑟(𝝈) is the first stress tensor invariant, and 𝑆 is the endurance limit for completely reversed
+stress cycles (𝑅 = 𝜎 ⁄𝜎
+= −1). Furthermore, 𝜎 is the endurance backstress-modified
+von Mises effective stress, which may be expressed as
+𝜎
+
+=
+
+3
+(𝒔 − 𝛍): (𝒔 − 𝛍)
+2
+
+⁄
+
+=
+
+3
+‖𝒔 − 𝛍‖
+2
+
+(4)
+
+Here, 𝒔 is the deviatoric stress tensor, and the colon operator denotes the double dot product
+𝑨: 𝑩 = 𝑡𝑟(𝑨𝑩 ). It follows from Eq. (3) and (4) that 𝛽 < 0 corresponds to stress states inside
+the endurance locus, while 𝛽 = 0 represents stress states on its surface. Opposed to plasticity
+theory, where the implicit function is restricted to values ≤ 0, the endurance function 𝛽 may
+also take on values > 0, corresponding to stress states located outside the endurance locus in
+stress space. It is worth noting that for cyclic proportional stress paths, the endurance backstress
+eventually reaches a stable configuration that reduces Eq. (3) to the well-known fatigue limit
+criterion of Sines [11].
+In the OSR HCF model, both the endurance backstress μ, and the fatigue damage is assumed
+to accumulate whenever the stress state is located outside the endurance locus (𝛽 > 0) and
+moving away from it (𝑑𝛽 > 0). The backstress evolution equation is written on incremental
+form as
+𝑑𝛍 = 𝑑𝛽𝐶(𝒔 − 𝛍)
+
+(5)
+
+where 𝐶 is a positive and dimensionless material parameter. Furthermore, the damage scalar 𝐷
+that exists in the continuous domain from 0 (virgin state) to 1 (fatigue failure), if assumed
+independent of the current amount of damage, may be expressed on incremental form as
+𝑑𝐷 = 𝑑𝛽𝐾𝑒𝑥𝑝(𝐿𝛽)
+
+(6)
+
+with the positive dimensionless material parameters 𝐾 and 𝐿, and with the restriction 𝑑𝐷 ≥ 0.
+With this, the continuous-time model presented provides a unified formulation of fatigue
+limits and damage accumulation for arbitrary stress histories, where the cycle-counting methods
+used in conventional models are replaced by the integration of Eq. (5) and (6) though time.
+
+4
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+5 MATERIAL
+In this paper we have considered sheets of AA5083-H111 rolled to 1.5 mm thickness. The
+alloy is commonly used for marine structures due to its high strength and good resistance to the
+chemical environment of seawater. For rolled aluminum alloy sheets of a specific alloy and
+temper, properties of the as-delivered products may vary depending on several factors in the
+production process, including exact chemical composition and amount of work hardening.
+When performing simulations with the aim to make accurate predictions, it is preferable to use
+experimental data from tests on the specific supplied product when calibrating model
+parameters. However, in this preliminary study, model parameters were fitted to data reported
+in the literature for equivalent or similar materials, and summarized in Table 1.
+The hardening coefficients for AA5083-H111 were obtained from the uniaxial tensile test
+results by Janbakhsh et al. [12], cf. Fig. 2(a). In the experimental study, data presented for 1
+mm thick dog-bone specimens oriented parallel to the sheet’s rolling direction was used to fit
+the exponential hardening law presented in Eq. (1).
+For parameter calibration of the OSR model, HCF data of AA5083-H11 presented by
+Sidhom et al. [13] was used. In the study, a four-point bending test was performed on 10 mm
+thick rectangular plates (60 x 300 mm) at two different stress ratios, 𝑅 = 0.1 and 𝑅 = 0.5. The
+graphical S-N data (stress amplitude 𝜎 vs. number of cycles at failure 𝑁 ) was digitized and
+used along with the 50% probable nominal fatigue limits taken at 2×106 cycles, as presented in
+the article. Parameter 𝐴 was calculated directly from the nominal fatigue limits of 142 MPa
+(𝑅 = 0.1) and 112 MPa (𝑅 = 0.5) and was further used to obtain 𝑆 by extrapolation to the
+zero mean stress state. S-N data for 𝑅 = 0.1 at equal stress levels was averaged to create three
+distinct datapoints for calibration of the remaining parameters 𝐶, 𝐾 and 𝐿, where the error
+function proposed by Ottosen et al. [7] was minimized using a genetic algorithm optimization
+method in MATLAB. Fig. 2(b) displays the experimental S-N data as presented by Sidhom et
+al. [13], along with the averaged quantities used for calibration, and the predicted S-N curves
+for 𝑅 = 0.1 and 0.5. Note that the predicted curve for 𝑅 = 0.5 displays fair agreement with the
+corresponding datapoints, although they were not used in the parameter fitting.
+
+(b)
+
+(a)
+
+Figure 2: (a) The fitted power law hardening curve and stress-strain data from UT test specimens oriented
+longitudinal to the sheet’s rolling direction, reproduced from [12]. (b) S-N diagram displaying the parameter fit
+for AA5083-H11. The data presented in [13] includes the scattered datapoints (stars and crosses), and the 50%
+probable nominal fatigue limits at 𝑅 = 0.1 (upper) and 𝑅 = 0.5 (lower) represented by arrowed squares. The
+squares represent the averaged 𝑅 = 0.1 datapoints used in the numerical calibration of 𝐶, 𝐾 and 𝐿.
+
+5
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+Table 1: Model parameters for AA5083
+
+𝐸 [MPa]
+72000
+𝑘 [MPa]
+517.3
+𝐴
+0.185
+
+Elastic/mechanical
+properties [14]
+Plasticity parameters
+(based on [12])
+OSR parameters
+(based on [13])
+
+𝜈
+0.33
+𝜀̅ [%]
+0.258
+𝑆 [MPa]
+174
+
+𝜌 [kg/m3]
+2650
+𝑛
+0.221
+𝐶
+2.72×105
+
+𝑚
+8
+𝐾
+0.726
+
+𝐿
+3.55×10–2
+
+6 NUMERICAL ANALYSIS
+6.1 Forming simulation
+An attempt was made to realistically simulate the evolution of deformations, stresses, and
+strains during the forming in manufacturing, by use of the commercial finite element (FE)
+analysis software LS-DYNA. The process was simulated in four consecutive steps: 1a) drawing
+of small cups, 1b) first springback, 2a) drawing of large cups, and 2b) second springback (cf.
+Table 2). We took advantage of the repeated geometry by modeling a 130 x 130 mm submodel
+of the full structure. The top and bottom surface of the 3D design geometry was used to generate
+tool parts for the two drawing steps (cf. Fig. 3(a). for assembly of FE parts).
+Global symmetry constraints were applied to the four planes enclosing the submodel domain,
+and a one-way surface-to-surface contact rule was defined to dictate interaction between the
+tools and the blank. To provide satisfactory spatial discretization, an initially uniform mesh of
+20 by 20 shell elements (thickness 1.5 mm) was equipped with a five-level h-refinement
+criterion considering the total rotation relative to surrounding shells, with a threshold of five
+degrees per level.
+Table 2: Model specs of the forming simulation model
+
+a) Drawing
+Time integration
+Punch travel [mm]
+Duration [s]
+Element type
+Num. of elements (start)
+Num. of elements (end)
+b) Springback
+Time integration
+Element type
+Num. of elements
+*For Β = 0.25 and 𝑓 = 0.1
+
+Stage 1 (small cup)
+
+Stage 2 (large cup)
+
+Explicit
+5.0
+1.0
+Belytschko-Tsay shell, NIP = 7
+Blank
+Punch
+Die
+400
+842
+926
+3496*
+
+Explicit
+38.5
+2.0
+Belytschko-Tsay shell, NIP = 7
+Blank
+Punch
+Die
+3496*
+4918
+4993
+5728*
+
+Implicit (static)
+Full integration shell, NIP = 7
+Blank
+3496*
+
+Implicit (static)
+Full integration shell, NIP = 7
+Blank
+5728*
+
+6
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+(a)
+
+(b)
+
+Figure 3: (a) Assembly of FE parts for the first (upper) and second (lower) drawing of the formability simulation.
+The tools (grey) are modelled as rigid parts, while the blank (red) obeys the constitutive laws presented in 2.1. (b)
+Effective stress histories throughout the different stages of the forming simulations in a critical location for fatigue
+failure, cf. Section 6.3 and Fig. 4: 1a) Drawing of small cups (A-B), 1b) first springback (B-C), 2a) drawing of
+large cups (C-D), and 2b) second springback (D-E). Curves representing Β = 0.25, 𝑓 = 0.1 and 0.2 coincide and
+are indistinguishable.
+
+An explicit central difference time-integration scheme was used to ensure robustness for the
+highly non-linear drawing analyses, while springback was simulated in a static implicit
+analysis. The explicit drawing steps employed reduced integration Belytschko-Tsay shell
+elements, while the implicit steps were conducted with full integration shells (respectively
+ELFORM 2 and 16 in LS-DYNA [15]), with seven through-thickness integration points (NIP).
+With the aim to study their influence on HCF, forming simulations were carried out while
+varying two presumably independent parameters: the dynamic coefficient of friction (𝑓 = 0.0,
+0.1 and 0.2), and the isotropic-kinematic mixing coefficient (𝐵 = 0.00, 0.25 and 0.50). Fig.
+3(b) displays von Mises effective stress histories for the five different parameter couples in a
+critical location for fatigue failure (cf. Section 6.3).
+6.2 Analysis of service load response
+Based on the idealized design geometry, an FE model of the full structure was established
+with 1.5 mm thick fully integrated shell elements. To limit computational time, the structure
+was spatially discretized with a mesh that is coarse compared to the h-refinement adapted mesh
+from the forming simulation. See Table 3 for further details.
+In this preliminary study, the deformation mode of unconstrained tension in the global 𝑥direction was simulated. The load was applied as a prescribed displacement at the connector
+locations on the sides parallel to the global 𝑦-direction, while the connectors on the sides
+parallel to the 𝑥-direction were left unconstrained, cf. Fig. 4. The magnitude of the prescribed
+displacement (2.5 mm) was chosen by limiting the maximum effective stress level below the
+material’s initial yield stress limit 𝜎 , anywhere in the full structure.
+From the global analysis model, in-plane displacements at the location of the submodel
+boundary were stored and simplified, and later applied as boundary conditions in the local
+analysis. The simplification involved calculating the length change of the submodel domain in
+the 𝑥- and 𝑦-directions, as well as their respective average values, cf. Fig. 5(a) and (b).
+
+7
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+Table 3: Model specs of global and local service load analysis models
+
+a) Global service load model
+Time integration
+Element type
+Num. of elements
+Element size at critical radii
+b) Local service load model
+Time integration
+Element type
+Num. of elements
+Element size at critical radii
+*For 𝛽 = 0.25 and 𝑓 = 0.1
+
+Implicit (static)
+Full integration shell, NIP = 7
+45 393 (221 in submodel region)
+~ 5.0 mm
+Implicit (static)
+Full integration shell, NIP = 7
+5728*
+~ 0.4 mm
+
+Global model
+Local model
+
+𝛥𝐿(𝑥, 𝑦)
+
+𝛥𝐿(𝑥, 𝑦)
+
+Figure 4: Boundary conditions of global and local analysis models. The orange arrow indicates the critical location
+for analysis case (I) (cf. Section 6.3), and the coordinate system refers to the global origin, with the red, green and
+blue axes respectively referring to the 𝑥-, 𝑦- and 𝑧-direction.
+
+(a)
+
+(b)
+
+Figure 5: (a) Change of length of submodel in 𝑥 direction, and (b) change of length of submodel in 𝑦-direction,
+during global tensile deformation in 𝑥-direction. The silhouettes indicate projections of the structure geometry to
+abscissa entities.
+
+The final configuration of the forming analysis described in Section 6.1 was used to generate
+two versions of the submodel for the local service load response analysis: one that included
+thinning due to forming, and one that did not – both disregarding residual stresses. The local
+analyses were then conducted by applying the averaged elongation in 𝑥- direction and average
+contraction in 𝑦- direction, while keeping the remaining symmetric boundary conditions from
+the forming analysis.
+
+8
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+6.3 Fatigue analysis
+A forward Euler scheme for the explicit integration of history variables in the OSR model
+was implemented in MATLAB. The program takes the stress tensor history in one material
+point as input, and by expressing the variation of stress tensor components as harmonic
+functions, storage of entire stress history data is avoided.
+𝑅 = −1 harmonic fatigue loading stress histories were generated from the local analysis,
+assuming tension-compression symmetry of the service loads response. To evaluate how
+forming influences the fatigue resistance, three categories of harmonic stress histories were
+generated: (I) excluding forming effects, (II) including effects of thinning, and (III) including
+effects of thinning and residual stresses. While (I) and (II) were taken directly from the local
+service load analysis results, (III) was obtained by superimposition of results from (II) and the
+final stress configurations of the forming simulations.
+The critical location in case (I) with respect to fatigue failure in the OSR/Sines framework
+was located. For proportional stress histories without superimposed mean stress, the critical
+location is identified by simple evaluation of the spatial extremal of the endurance function
+value in the tensile and compressive states. It was in the present case identified on the top
+surface of the structure, near the edge of the small cup, where the maximums of the effective
+stress 𝜎 and the first stress tensor invariant 𝐼 coincided in the tensile state. The location was
+used to make comparisons between the three cases, to evaluate the effects of forming on HCF
+resistance. As the fatigue limit was not exceeded in any of the three cases, safety factors with
+respect to the Sines fatigue limit criterion were found by determining the stress tensor amplitude
+scale factors 𝑠 that caused fatigue damage accumulation until failure in each case.
+To extend the comparison beyond cases that reduce to the Sines fatigue limit criterion, a
+scale factor 𝑠 = 25 (larger than the highest critical scale factor in all cases, but still within the
+regime of material linearity and high-cycle fatigue in the submodel domain), was applied to
+calculate the number of cycles at failure under these conditions. In Table 4, critical scale factors,
+and the number of cycles at failure for 𝑠 = 25 are displayed along with the mean values of the
+first stress tensor invariant 𝐼 and shell thickness after forming, in the same location. Fig. 6(a)
+and (b) displays the effective stress histories, and the accumulation of the fatigue damage 𝐷 at
+the location used for comparison.
+
+(a)
+
+(b)
+
+Figure 6: Results from critical location of case (I) (cf. Fig. 4). (a) Effective stress histories of fatigue analysis. (b)
+Fatigue damage accumulation histories for stress tensor amplitude scale factors 𝑠 = 25. In both (a) and (b), curves
+representing (III) Β = 0.25, 𝑓 = 0.1 and 0.2 coincide and are indistinguishable.
+
+9
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+Table 4: Fatigue analysis results in reference point obtained from critical location (cf. Fig. 4.a) of case (I)
+
+Cycles at
+failure
+𝑁,
+
+Critical scale
+factor
+𝑠 ,
+(I) No forming
+(Β = 0.25, 𝑓 = 0.1)
+(II) Thinning
+(Β = 0.25, 𝑓 = 0.1)
+(III) Thin. & residual stress
+Β = 0.00, 𝑓 = 0.1
+Β = 0.25, 𝑓 = 0.0
+Β = 0.25, 𝑓 = 0.1
+Β = 0.25, 𝑓 = 0.2
+Β = 0.50, 𝑓 = 0.1
+
+Mean first
+invariant of 𝝈
+𝐼 , [MPa]
+
+Shell
+thickness
+𝑡 [mm]
+
+17.699
+
+199 475
+
+0.00
+
+1.500
+
+17.461
+
+189 592
+
+0.00
+
+1.378
+
+13.832
+15.359
+15.241
+15.241
+17.345
+
+94 271
+124 847
+122 723
+122 723
+183 236
+
+200.5
+112.9
+119.8
+119.8
+-2.070
+
+1.375
+1.378
+1.378
+1.378
+1.381
+
+7 DISCUSSION AND CONCLUDING REMARKS
+In this paper, a multi-stage numerical analysis was performed with the aim to investigate
+effects of forming on HCF performance of a deep-drawn aluminum sheet structure for use in a
+FPV plant.
+The current study focuses on the assessment of a symmetric submodel in the periodic
+geometry, located near the center of the float component. A simulation of the forming process
+was performed in a realistic two-step drawing springback cycle. A simplified global analysis of
+the full structure’s service load response was carried out, and the displacements at the submodel
+boundary were used to generate boundary conditions for a local service load response analysis.
+By superposition of results from the forming simulation and the local service load analysis,
+three different stress histories were obtained for analysis of HCF: (I) Excluding forming effects,
+(II) Including effects of thinning, and (III) Including effects of thinning and residual stress. The
+critical location with respect to the fatigue limit criterion used in the OSR/Sines model was
+identified for case (I), and this location was used to compare the different models in order to
+assess the effects of forming on HCF performance. Furthermore, two parameters, namely the
+dynamic friction coefficient 𝑓 , and the isotropic-kinematic mixing coefficient Β were varied
+in order to further investigate their respective effects.
+The HCF capacity in the assessed location was distinctly influenced by the forming effects,
+although the fatigue limit criterion was not exceeded in any of the assessed cases. Relative to
+the model that excluded forming effects, the critical amplitude scale factor 𝑠 , for the
+OSR/Sines fatigue limit criterion was reduced with 22% in the most severe case. When
+employing a constant amplitude scale factor 𝑠 = 25 that exceeded the fatigue limit in all cases,
+the number of cycles at failure 𝑁 , in the most severe case was reduced to less than half of the
+reference model that excluded forming effects.
+Although the thickness reduction in the assessed location was never less than 8% for any of
+the parameter couples, 𝑠 , and 𝑁 , were only reduced respectively by 1% and 5%, when the
+thinning effect alone was included.
+The dynamic friction coefficient 𝑓 had negligible influence on the results in both forming
+
+10
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+and fatigue in this study. The residual stress and thinning after forming for 𝑓 = 0.1 and 𝑓 =
+0.2 (at Β = 0.25) were indistinguishable in the location where the fatigue analysis was
+conducted, and thus the presented results are identical for the two cases.
+From a qualitative evaluation of the forming simulation results, the magnitude of predicted
+residual hydrostatic pressure at the surfaces of the formed component was generally dependent
+on the isotropic-kinematic mixing coefficient Β. In the location subject to fatigue analysis, the
+residual component of 𝐼 was reduced from 200.5 MPa at Β = 0.0 (fully isotropic) to -2.070
+MPa at Β = 0.5. With the OSR fatigue model employing an endurance function with linear
+dependency on 𝐼 , the present model predicts that this dependency also applies to HCF.
+The results presented in this paper further emphasize the importance of considering effects
+of residual stresses when assessing HCF performance of formed structures. Further research on
+this topic could include validation of sophisticated models to predict distributions and
+magnitudes of residual stresses in formed components, with emphasis on the isotropickinematic hardening formulation.
+Several simplifications were made in this preliminary study, and the presented work has
+several limitations, including but not limited to the following:
+-
+
+Only one region of the structural component was assessed.
+The load history was significantly simplified.
+A simplified method to transfer loads from the global to local model was used.
+Effects of stress gradients, surface roughness, welding and plastic anisotropy were
+neglected.
+Data reported in the literature for similar but not equivalent materials to the one used in
+the real structure was used to calibrate material models.
+
+REFERENCES
+[1] World Bank Group Where sun meets water : Floating solar market report - executive
+
+summary (english), (2018).
+[2] Marciniak, Z., Duncan, J.L., and Hu, S.J. Mechanics of sheet metal forming. Butterworth-
+
+Heinemann, (2002).
+[3] Hariharan, K. and Prakash, R.V. Integrating effect of forming in fatigue life prediction:
+
+[4]
+
+[5]
+[6]
+[7]
+[8]
+[9]
+
+Review of present scenario and challenges. Pros. Inst. Mech. Eng. B: J. Eng. Manfc (2012)
+226: 967-979.
+Facchinetti, M.L., Weber, B., Doudard, C., and Calloch, S. Taking into account the forming
+process in fatigue design computations. Fatigue Design 2007: Recueil des Conferences
+Proceedings (2008).
+Dang-Van, K. Macro-micro approach in high-cycle multiaxial fatigue. ASTM
+International, (1993).
+Vormwald, M. Fatigue of constructional steel s460 under complex cyclic stress and strain
+sequences. Proc. Engng (2011) 10: 270-275.
+Ottosen, N.S., Stenstrom, R., and Ristinmaa, M. Continuum approach to high-cycle fatigue
+modeling. Int. J. Fatg (2008) 30: 996-1006.
+Livermore Software Technology Ls-dyna® theory manual. (2019).
+Hershey, A.V. The elasticity of an isotropic aggregate of anisotropic cubic crystals. J. App.
+Mec. (1954) 21: 236-240.
+
+11
+
+Sigbjørn Tveit, Aase Reyes and Emrah Erduran.
+
+[10] Hosford, W.F. A generalized isotropic yield criterion. J. App. Mec. (1972) 39: 607-609.
+[11] Sines, G. Failure of materials under combined repeated stresses with superimposed static
+
+stresses. University of California at Los Angeles (1955).
+[12] Janbakhsh, M., Djavanroodi, F., and Riahi, M. Utilization of bulge and uniaxial tensile
+
+tests for determination of flow stress curves of selected anisotropic alloys. Proc. Inst. Mec.
+Eng. L: J Mat.: Desg. Applictn (2013) 227: 38-51.
+[13] Sidhom, N., Laamouri, A., Fathallah, R., Braham, C., and Lieurade, H.P. Fatigue strength
+improvement of 5083 H11 Al-alloy I-welded joints by shot peening: Experimental
+characterization and predictive approach. Int. J. Fat. (2005) 27: 729-745.
+[14] AZoNetwork Aluminium alloys - aluminium 5083 properties, fabrication and applications.
+(2005) www.azom.com/article.aspx?ArticleID=2804 (Accessed July 8th, 2022).
+[15] Livermore Software Technology Ls-dyna® keyword user's manual. Vol. I, (2020).
+[16] Lee, J., Park, S.-Y., and Choi, B.-H. Evaluation of fatigue characteristics of aluminum
+alloys and mechanical components using extreme value statistics and C-specimens. Metals
+(2021) 11: 1915-1926.
+
+12
+
+

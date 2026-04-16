@@ -1,0 +1,1652 @@
+OsloMet – Oslo Metropolitan University
+Department of Built Environment
+
+Experimental characterization of
+anisotropic plasticity in rolled
+AA5083-H111 sheets
+
+Sigbjørn Tveit
+PhD candidate
+
+Aase Reyes
+Professor
+
+Rev. 00
+25.08.2023
+
+Preface
+The reported experiments were conducted at test facilities at Oslo Metropolitan University by the
+author, with invaluable assistance by Senior Lab Engineer Mr. Rune Orderløkken, and master
+student Mr. Paban Acharya.
+The data and analysis provided in this report are subject to inherent limitations and uncertainties
+that are associated with experimental testing. Factors such as variations in sample preparation,
+testing conditions, measurement techniques, and other unforeseen factors may impact the results.
+The author and the associated institution assume no responsibility for any errors, omissions, or
+inaccuracies that may be present in the report. Furthermore, we disclaim any liability for any direct,
+indirect, incidental, consequential, or other damages or losses that may result from the use or
+reliance upon the information and findings presented in this report.
+
+Contents
+Summary ......................................................................................................................................... 1
+Nomenclature .................................................................................................................................. 2
+1.
+
+Introduction ............................................................................................................................. 3
+
+2.
+
+Material ................................................................................................................................... 3
+
+3.
+
+Experimental methodology ..................................................................................................... 3
+
+4.
+
+3.1
+
+Uniaxial tensile tests ........................................................................................................ 4
+
+3.2
+
+Disc compression tests .................................................................................................... 7
+
+Results ..................................................................................................................................... 9
+4.1
+4.1.1
+
+Engineering stress-strain ......................................................................................... 9
+
+4.1.2
+
+True stress-strain ................................................................................................... 11
+
+4.1.3
+
+Transverse strains .................................................................................................. 13
+
+4.1.4
+
+Anisotropy ............................................................................................................. 15
+
+4.1.5
+
+Remarks ................................................................................................................. 16
+
+4.2
+5.
+
+Uniaxial tensile tests ........................................................................................................ 9
+
+Disc compression tests .................................................................................................. 17
+
+Conclusion ............................................................................................................................. 18
+
+Appendix A: Specimen geometry data .......................................................................................... 19
+Appendix B: Uniaxial tensile test data .......................................................................................... 20
+Appendix C: Disc compression test data ....................................................................................... 21
+
+Summary
+This report presents the findings and analysis from an in-house study conducted to characterize the
+anisotropic plasticity characteristics of a rolled AA5083-H111 sheet. The objective of this study
+was to understand the material's mechanical behavior in different loading directions, and to provide
+insights for its application in the specific context of the floating photovoltaic (FPV) solution
+provided by Sunlit Sea AS.
+The experimental tests included uniaxial tensile tests and disc compression tests performed on 1.5
+mm thickness rolled AA5083-H111 sheet specimens. The results revealed moderate anisotropic
+behavior and variations in plasticity characteristics across different loading directions. The
+experimental results facilitate the calibration of advanced anisotropic plasticity models that are used
+in non-linear finite element simulations of the sheet metal forming manufacturing process. Such
+simulations allow analyzing the formability of the sheet meal, predicting occurrence of thinning,
+plastic hardening, and residual stresses that can be accounted for in the design of the FPV product.
+This report provides a comprehensive overview of the experimental methodology, and the results.
+It is intended to serve as a reference for engineers, designers, and decision-makers involved in the
+product development process.
+Please refer to the following sections for a detailed analysis of the experimental results, discussion,
+and conclusions.
+
+1
+
+Nomenclature
+𝑈𝑇
+𝑇𝑇𝐷𝐶
+𝑅𝐷
+𝑇𝐷
+𝜃
+𝑖
+
+𝑅𝜃
+
+Uniaxial tension
+Through-thickness disc compression
+Rolling direction
+Transverse direction
+Angle to rolling direction
+Number of parallel
+Average initial area of UT specimen
+Force
+Initial gauge length
+Current gauge length
+Engineering strain, (𝐿 − 𝐿0 )⁄𝐿0
+Engineering stress, 𝐹 ⁄A̅ 0
+Ultimate engineering tensile stress
+True strain, ln(1 + 𝑒) for 𝑠 ≤ 𝑠𝑈𝑇𝑆
+True stress, 𝑠(1 + 𝑒) for 𝑠 ≤ 𝑠𝑈𝑇𝑆
+Initial gauge width
+Current gauge width
+True width strain, ln(𝑊 ⁄𝑊0 )
+True thickness strain, −(𝜀𝑙 + 𝜀𝑤 )
+Angle to rolling direction
+0.2% strain proof stress
+Plastic work, ∫ 𝜎 𝑑𝜀𝑝𝑙
+Normalized flow stress, (𝜎𝜃 ⁄𝜎0 )|𝑊𝑝𝑙
+
+𝑟𝜃
+𝑟𝑏
+
+Transverse strain ratio, (𝑑𝜀𝑤 ⁄𝑑𝜀𝑡 )|𝜃
+Strain ratio in equiaxial tension, 𝑑𝜀𝑇𝐷 ⁄𝑑𝜀𝑅𝐷
+
+̅0
+A
+
+𝐹
+𝐿0
+𝐿
+𝑒
+𝑠
+𝑠𝑈𝑇𝑆
+
+𝜀
+𝜎
+𝑊0
+𝑊
+𝜀𝑤
+𝜀𝑡
+𝜃
+𝜎0.2
+
+𝑊𝑝𝑙
+
+2
+
+1.
+
+Introduction
+
+With good formability, weldability, and resistance to corrosion, Aluminum alloy 5083 is a popular
+choice for application in marine structures. In the H111-temper, the material is annealed by
+successive heating and cooling to increase the ductility, and slightly strain-hardened by cold
+working to increase the strength, in subsequent operations, and to obtain the thickness of 1.5 mm.
+The primary objective of this in-house study was to characterize the anisotropic plasticity properties
+of the material. The rolling of the aluminum alloy sheets typically introduces an anisotropic plastic
+behavior which is crucial to understand in order to optimize both the sheet metal forming
+manufacturing process, and the structure’s operational performance. By conducting uniaxial tensile
+tests and disc compression tests, state-of-the-art plasticity models – inducing yield criteria and
+hardening laws – can be calibrated and used to provide valuable insights for Sunlit Sea AS’s
+engineering and manufacturing processes, to reduce costs, and to assess the performance,
+reliability, and safety of the FPV products.
+In this report, we provide a comprehensive description of the experimental methodology employed,
+and a presentation of the results obtained from the tests. The subsequent sections of this report
+present the experimental methodology, results, and discussion, followed by a conclusion
+summarizing the key findings and their significance in relation to the manufacturing and
+performance of the FPV structure.
+
+2.
+
+Material
+
+The studied sheet material AA5083-H111 is used in Sunlit Sea AS’s float components, and the
+sheets were supplied by Speira GmbH. The chemical composition reported by the supplier is given
+in Table 1.
+Table 1
+Chemical composition of AA5083-H111 sheets, as reported by the supplier Speira GmbH.
+Al [%]
+
+Si [%]
+
+Fe [%]
+
+Cu [%]
+
+Mn [%]
+
+Mg [%]
+
+Cr [%]
+
+Ni [%]
+
+Base
+
+0.174
+
+0.34
+
+0.058
+
+0.59
+
+4.52
+
+0.069
+
+0.0052
+
+Zn [%]
+
+Ti [%]
+
+B [%]
+
+Be [%]
+
+Ca [%]
+
+Cd [%]
+
+Co [%]
+
+Ga [%]
+
+0.0137
+
+0.0172
+
+0.0002
+
+< 0.0001
+
+< 0.0002
+
+< 0.0003
+
+< 0.0003
+
+0.0121
+
+Hg [%]
+
+Li [%]
+
+Na [%]
+
+Pb [%]
+
+Sn [%]
+
+Sr [%]
+
+V [%]
+
+Zr [%]
+
+< 0.0005
+
+< 0.0001
+
+< 0.0002
+
+< 0.0010
+
+0.0013
+
+< 0.0001
+
+0.0109
+
+0.0011
+
+3.
+
+Experimental methodology
+
+For the current test program, sheet metal samples were provided by Sunlit Sea AS as 250 mm x
+250 mm plates, which sides were aligned with the sheet’s rolling and transverse direction (RD and
+TD).
+
+3
+
+Two types of experimental test were conducted in this study: uniaxial tensile (UT) test, and
+through-thickness disc compression (TTDC) tests. The test specimens were sampled by waterjet
+cutting performed by Norsk Vannskjæring AS, a technique which has a tolerance of ±0.1 mm.
+
+3.1
+
+Uniaxial tensile tests
+
+The specimens were cut from the sample plates at seven different angles 𝜃 to the sheet’s rolling
+direction: θ = 0°, 15°, 30°, 45°, 60°, 75°, 90° to the reference rolling direction (RD) (θ = 0°). One
+plate was dedicated to each specimen orientation, where three to five parallel specimens could be
+obtained from each plate, depending on the direction (see example in Fig 1 (a)). Based on CAD
+drawing of the specimen geometry (see Fig. 1), the total of 27 specimens were cut from the plates
+by waterjet cutting performed by Norsk Vannskjæring AS.
+Upon receiving the finished test specimens, a systematic inspection of the samples was conducted
+before performing the experiments. Visual examination of the specimens revealed some degree of
+taper along the thickness direction of the specimen, which introduces uncertainty related to the
+representativeness of the measured width, and further the calculated the cross-section area.
+Additional flaws in the form of areas of increased surface roughness were observed on several
+
+(a)
+
+(b)
+
+(c)
+Fig. 1. (a) Example of the test specimens’ placement on the plates, in this case for θ = 30°. The six circles
+indicate the through-thickness compression test discs. (b) Geometry and the three measurement locations;
+(c) Example of a specimen with surface damage from the water jet cutting process.
+
+4
+
+specimens (see Fig. 1(b). These marks only appeared on one side of the plates and are suspected to
+arise from unintended low-pressure water jet strikes.
+The specimens were marked with individual ID labels indicating orientation to rolling direction
+and parallel number. Referring to the specimen displayed on Fig. 1 (b), the label ID label 15°-3
+indicates angle to rolling direction θ = 15°, and parallel number 3. Every specimen was
+photographed, and any surface flaws and their approximate locations were registered for future
+reference.
+To reduce uncertainties related to geometric precision of the rolling and waterjet cutting,
+measurements of thickness and width were performed prior to testing. The measurements were
+performed at three different locations over the length of the shaft: in the middle, and approximately
+30 mm away from the middle in each direction, see Fig. 1 (a). The thickness measurements were
+performed using a Mahr Micromar 40 A micrometer screw gauge that measures the thickness over
+a 6.4 mm diameter circular area, with 10 μm precision. The width was measured using a Mahr
+̅ 0 was taken as the arithmetic
+MarCal 16 EWR caliper, also with 10 μm precision. The initial area A
+mean of the measured areas in the in the three locations.
+The measured thickness displayed little variation within the accuracy of the measurement
+equipment that was used. Out of the 81 measurements that were performed, a thickness of 1.51 mm
+was reported 65 times, while 1.50 and 1.52 mm was reported 8 times each, corresponding to a
+standard error of 5.0·10-4 mm.
+As expected, the measured widths displayed a relatively larger scatter in comparison. An average
+width of 12.33 mm was calculated from all 81 measurements, which ranged from 12.20 to 12.45
+mm, with a standard error of 5.9·10-3 mm. Even the scatter between width measurements performed
+the same specimen (in the different locations) was considerable. Disregarding an extreme instance
+that was discarded, the largest internal variation was 0.08 mm. The measurements and the
+arithmetic means used in the calculation of the initial cross section areas are reported in
+completeness in Appendix A.
+The tests were performed with a Galdabini Quasar 250 machine. In its original configuration, the
+machine does now allow performing test with flat side of specimens facing towards the machine’s
+two opposite windows. To facilitate the use of the DIC cameras, a 90° rotation of the upper and
+lower grip fixture was performed. For the lower grip fixture, this was done by unscrewing the
+twelve fastening bolts that attached the grip fixture to the fixed base plate, performing the rotation,
+again fastening the bolts, in a straight-forward manner. The upper grip fixture, which is attached to
+the load cell, called for an operation beyond the machine’s regular intended use. In the connection
+between the grip fixture and the load cell is a guiding pin (of length ~ 6 mm) and a guiding hole
+which by default only allows the original orientation of the grip fixture. To overcome this, four
+washers were used on each of the 12 fastening bolts to create a spacing of approximately 11 mm,
+creating a clearance for the guiding pin. The upper and lower grip fixtures hold the specimen by
+clamping (see Fig. 2).
+To prepare the specimens, they were first given a thorough wipe with an alcohol-based solution,
+before a base coat of white aerosol spray paint. Then, an airbrush was used to apply a finely grained
+pattern of black speckles.
+A LaVision digital image correlation (DIC) system was used to measure the in-plane strain fields,
+by tracing the displacements of speckles on the specimen’s flat surface. A synchronized setup
+5
+
+Fig. 2. Galdabini Quasar 250 test machine, and the rotated upper grip fixture configuration.
+
+(a)
+
+(b)
+
+Fig. 3. (a) Digital image correlation (DIC) setup. (b) Speckle pattern on uniaxial tensile test specimen.
+
+of two high-resolution digital cameras and two flashes (see Fig. 3) were directed at the speckled
+test specimens from a distance of approximately 0.8 m. The stereo angle between the two cameras
+enables the DIC system to trace displacements of the speckled surface within a three-dimensional
+calibrated volume, and to set up a virtual strain gauge [1] to measure longitudinal (longitudinal
+length) and transverse strains (transverse length).
+The Galdabini Quasar 250 test machine reports load cell forces at a sampling rate of 100 s -1 to
+properly capture any physical variation of the yield stress, while the LaVision DIC system were set
+up with a sampling rate of 1.63 s-1. The machines were synchronized, and a cubic spline was applied
+to the DIC measurements to allow compliance with the high-frequency load cell data.
+Several parallels tests were performed in the experimental program: five in the rolling direction
+(RD, θ = 0°), and three in other directions. The spare specimens were used in preliminary test
+rounds to verify the experimental setup.
+
+6
+
+Fig. 4. Specimen with speckle pattern paint adhesion failure.
+
+Four out of the five first specimens experienced paint adhesion failure at large plastic strains (see
+Fig. 4), due to the brittleness of paint that was applied two days prior to testing. After the five first
+tests, the paint on the remaining specimens was wiped off, and a fresh speckle pattern was applied,
+before continuing the experimental program. With the less cured paint, the adhesion failure problem
+disappeared, and the speckle pattern remained intact until and beyond the occurrence of local
+necking.
+
+3.2
+
+Disc compression tests
+
+The through-thickness disc compression (TTDC) tests were conducted using 12.7 mm diameter
+circular specimens, as used in the pioneer study by Barlat et al. [2].
+12 specimens were produced by waterjet cutting, and six parallel tests were conducted. Upon
+receiving the plates/specimens from Norsk Vannskjæring AS, a small part of the specimen was left
+attached to the rest of the sample plate. A diagonal plier was used to detach disc specimens from
+the sample plate, before the excessive material was carefully removed from the discs using a fine
+grade hand file.
+As with the uniaxial tensile test specimens, a systematic inspection of the samples was conducted
+before performing the experiments. To reduce uncertainties related to geometric precision of the
+waterjet cutting and hand filing, measurements were performed in the rolling and transverse
+direction using a Mahr Micromar 40 A micrometer screw gauge with 10 μm precision. Because the
+high-precision measurements are sensitive to the exact angle at which the measurements are
+performed, the specimens were measured three times in each direction, reporting the arithmetic
+mean value.
+The tests were performed on the same Galdabini Quasar 250 machine as used for the tensile tests,
+now equipped with self-aligning hardened steel plates. The test specimens were carefully placed at
+the center of the circular plates, as displayed in Fig. 5 (a).
+Prior to each compressive cycle PTFE-based dry film aerosol lubricant was applied to all faces of
+contact between the disc and the hardened steel plates to minimize the effect of friction.
+
+7
+
+(a)
+
+(b)
+Fig. 5. (a) Through-thickness disc compression test setup. (b) Disc compression test specimen subject to
+successive compressions. From left to right: undeformed state, and after the first (0.3 mm), second (0.5
+mm), and third (0.5 mm) compression.
+
+Six parallels were conducted to rule out inconsistencies, and each of the discs (labeled with roman
+numbers from I to V) were subjected to three different levels of compression by the following
+procedure:
+1)
+2)
+3)
+
+0.3 mm (followed by elastic release),
+0.5 mm (followed by elastic release), and
+0.5 mm (followed by elastic release).
+
+Measurements in the TD and RD were performed after each compression cycle. Fig. 5 (b) displays
+one disc (specimen V) in the undeformed state, and after the first, second, and third compression.
+All measurements and results are reported in completeness in the Section 3.2, and the associated
+Appendix C.
+
+8
+
+4.
+
+Results
+
+4.1
+
+Uniaxial tensile tests
+
+4.1.1 Engineering stress-strain
+In the uniaxial tensile tests, the nominal stress-strain curve is obtained by coupling readings of the
+applied force 𝐹, to readings of the instantaneous digital strain gauge length 𝐿. The engineering
+strain 𝑒, and the engineering stress 𝑠, is expressed as
+𝑒=
+
+𝐿 − 𝐿0
+𝐿0
+
+Eq. 1
+
+𝑠=
+
+𝐹
+̅0
+A
+
+Eq. 2
+
+where 𝐿0 is the initial length of the digital strain gauge, and the average initial cross section area
+̅ 0 is the arithmetic mean of the areas measured in the three location along the specimen’s shaft (cf.
+A
+Fig. 1 (c), and Appendix A). The engineering stress-strain curves in the different directions are
+displayed in Fig. 6 (a)-(g).
+
+9
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+(e)
+
+(f)
+
+(g)
+Fig. 6. Engineering stress-strain curves.
+
+10
+
+4.1.2 True stress-strain
+True stress and true strain are described in terms of the engineering stress-strain data that is captured
+before the ultimate engineering tensile stress 𝑠𝑈𝑇𝑆 = 𝑠𝑚𝑎𝑥 is reached.
+𝜀 = ln(1 + 𝑒) = 𝑙𝑛 (
+
+𝐿
+)
+𝐿0
+
+𝜎 = 𝑠(1 + 𝑒)
+
+Eq. 3
+for 𝑒 ≤ 𝑒𝑈𝑇𝑆
+
+Eq. 4
+
+where 𝑒𝑈𝑇𝑆 is defined as the strain level that corresponds to the ultimate engineering tensile stress 𝑠𝑈𝑇𝑆 .
+The true stress stress-strain curves in the different directions are displayed in Fig. 8 (a)-(g) on the
+next page.
+As evident from the serrated stress-strain curves, the material displays a pronounced Portevin LeChatelier (PLC) effect. The phenomenon is associated with propagating bands of localized plastic
+strains that can cause geometric perturbations on the specimen surface, leading to early necking
+and adverse formability [3]. A close-up of the jerky flow stress is presented below in Fig. 7 for a
+representative specimen among the 𝜃 = 0° specimens. (a) showcases the curve over a larger strain
+interval, displaying the nature of the PLC serrations. (b) displays the data point density over a few
+particularly uniform cycles, affirming that the sampling rate is sufficient to capture the physical
+flow stress fluctuations.
+
+(a)
+
+(b)
+
+Fig. 7. Portevin Le-Chatelier serrations: (a) Limited interval; (b) Data point density.
+
+11
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+(e)
+
+(f)
+
+(g)
+Fig. 8. True stress-strain curves.
+
+12
+
+4.1.3 Transverse strains
+While the longitudinal true strain is simply denoted as 𝜀, the strains in the width direction, and the
+through-thickness direction, are labeled with subscripts as 𝜀𝑤 , and 𝜀𝑡 , respectively. Like the
+longitudinal strain, the width strain is measured using the digital strain gauge as
+𝑊
+𝜀𝑤 = 𝑙𝑛 ( )
+𝑊0
+
+for 𝑒 ≤ 𝑒𝑈𝑇𝑆
+
+Eq. 5
+
+where 𝑊, and 𝑊0 are the current and initial widths of the digital strain gauge. Because the DIC
+setup only measures the in-plane strains of the specimen, the thickness strains are obtained from
+the relationship 𝜀𝑉 = 𝜀 + 𝜀𝑤 + 𝜀𝑡 = 0, which gives
+𝜀𝑡 = − [𝑙𝑛 (
+
+𝐿
+𝑊
+) + 𝑙𝑛 ( )]
+𝐿0
+𝑊0
+
+for 𝑒 ≤ 𝑒𝑈𝑇𝑆
+
+Eq. 6
+
+This holds true for an incompressible plastic process, where the elastic effects are neglectable. Fig.
+9 (a)-(g) displays the relationship between the two transverse strain components 𝜀𝑤 , and 𝜀𝑡 , of the
+uniaxial tensile tests.
+
+13
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+(e)
+
+(f)
+
+(g)
+Fig. 9. Width-thickness strain curves.
+
+14
+
+4.1.4 Anisotropy
+During a plastic process, the total strain in a body is the sum of elastic and plastic strains. Expressing
+the linear elastic strain in terms of the stress 𝜎, and the Young’s modulus 𝐸, the plastic strain 𝜀𝑝𝑙
+can be written as
+𝜀𝑝𝑙 = 𝜀 −
+
+𝜎
+𝐸
+
+Eq. 7
+
+The 0.2 % proof stress, namely the stress level at which 𝜀𝑝𝑙 = 0.002, is commonly used to define
+the initiation of plastic processes for materials that do not display a distinct drop in stiffness at the
+onset of yielding. Fig. 10 (a) displays the directional variation of the measured proof stress for the
+tested material, while (b) displays the variation of the ultimate engineering tensile stress 𝑠𝑈𝑇𝑆 . As
+apparent from the figure, the tests capture a mild but consistent directional variation. The rolling
+direction (𝜃 = 0°) displays the largest limits, with another peak at the transverse direction (𝜃 =
+90°). The lowest stress levels are seen at 𝜃 = 60°.
+Normalized plasticity parameters are commonly used as calibration input for state-of-the-art
+anisotropic yield criteria. The first parameter is the normalized flow stress, which compares the
+stress level measured in a specimen with angle 𝜃, to the stress level measured in the reference
+direction 𝜃 = 0, at the same level of plastic work
+𝑅𝜃 =
+
+𝜎𝜃
+|
+𝜎0 𝑊
+
+Eq. 8
+
+𝑝𝑙
+
+where the plastic work is defined as
+𝜀𝑝𝑙
+
+𝑊𝑝𝑙 = ∫
+
+𝜎 𝑑𝜀𝑝𝑙
+
+Eq. 9
+
+0
+
+The variation of the normalized flow stress, compared at specific plastic work 𝑊𝑝𝑙 = 25 MPa, are
+demonstrated in Fig. 10 (c), where the stress levels were averaged over a couple of serration cycles
+(300 data points) to avoid that the results were randomly influenced by the Portevin Le-Chatelier
+serrations. The diagram reflects the same findings illustrated in (a) and (b).
+The second normalized parameter is the transverse strain ratio 𝑟𝜃 – often called the Lankford
+coefficient, or the simply 𝑟-value –, which is the ratio of width to thickness strain of a specimen.
+𝑟𝜃 =
+
+𝑑𝜀𝑤
+|
+𝑑𝜀𝑡 𝜃
+
+Eq. 10
+
+The ratio was calculated in a minimum sum of squared error (MSSE) procedure, where a linear
+function was fitted to the measured transvers strains presented in Fig. 9 (a)-(g), including the data
+from all parallels. 𝑟𝜃 was then taken as the slope of the fitted linear function. Fig. 11 (b) displays the
+variation of the transverse strain ratio 𝑟𝜃 . Evidently, the material exhibits a clear reduction from the
+isotropic value of 1, which is disadvantageous with respect to formability. The material is more
+prone to thinning parallel to TD (𝑟90 = 0.6410) and RD (𝑟0 = 0.7142), with more favorable
+properties approaching the diagonal direction (𝑟45 = 0.8357).
+
+15
+
+(a)
+
+(b)
+
+(c)
+
+(d)
+
+Fig. 10. Directional variation of plasticity parameters. (a) 0.2% proof stress, 𝜎0.2, (b) Ultimate
+stress, 𝑠𝑈𝑇𝑆 , (c) Flow stress ratios, 𝑅𝜃 , at specific plastic work 𝑊𝑝 = 25 MPa, (d) Plastic strain
+ratios, 𝑟𝜃 .
+
+4.1.5 Remarks
+The four specimens experienced paint adhesion failure at strain level below those corresponding to
+the ultimate engineering tensile stress level. The specimens identified in the Remarks column in
+Appendix B, and only the data captured prior to the paint adhesion failure was regarded.
+A total of eight specimens (cf. Remarks in Appendix B) experienced local necking near the upper
+end of the shaft, which at the time of rupture was located near the boundary of the calibrated
+volume. In these tests, the virtual extensometers could not be placed such that it covered the location
+of necking. Thus, these stress-strain curves do not exhibit the characteristic drop towards the end
+of the true stress-strain curve. Since the post necking stress-strain behavior is not regarded the
+calibration of plasticity models, this is not an issue.
+One test (cf. Remarks in Appendix B) experienced partial loss of strain field data due to overexposed images caused by unintended alterations to the light settings. The strain fields were
+complete enough to successfully establish virtual extensometers, and the results governed by this
+report was not influenced by the inconvenience.
+
+16
+
+No correlation was observed between the strains on the specimen surfaces caused by waterjets (cf.
+Fig. 1 (b)), and the locations of necking. The damage appears to be purely cosmetic, with no
+influence on the results.
+
+4.2
+
+Disc compression tests
+
+The equibiaxial strain ratio 𝑟𝑏 is another normalized plasticity quantity that is commonly used as
+experimental input for the calibration of anisotropic yield criteria. The ratio quantifies the relationship
+between strains in the rolling and transverse direction, when the sheet metal is subjected to equal stress in the
+two directions, a stress state that is challenging to obtain experimentally.
+The though-thickness disc compression test utilizes the fact that plastic processes in metals act independently
+of the hydrostatic pressure. When disregarding the hydrostatic components, the through-thickness
+compression and the equibiaxial tensile stress states are equivalent. We can then express the equibiaxial strain
+ratio as
+𝑟𝑏 =
+
+𝑑𝜀𝑇𝐷
+|
+𝑑𝜀𝑅𝐷 𝒔
+
+Eq. 11
+𝑏
+
+where 𝑑𝜀𝑇𝐷 and 𝑑𝜀𝑅𝐷 are the incremental strains in the transverse and rolling directions, and 𝒔𝑏 is
+the deviatoric (hydrostatically independent) stress state that corresponds to equibiaxial tension.
+The in-plane plastic strains are calculated analogous to that in Eq. 3, as
+𝜀𝑖 = 𝑙𝑛 (
+
+𝐷𝑖
+)
+𝐷𝑖,0
+
+for 𝑖 = 𝑅𝐷, 𝑇𝐷
+
+Eq. 12
+
+where 𝐷𝑖 is the directional diameter measured after the plastic compression, and 𝐷𝑖,0 is the initial
+directional diameter.
+The in-plane plastic strains of the through-thickness disc compression tests (𝜀𝑇𝐷 and 𝜀𝑅𝐷 ) are
+displayed in Fig. 11, where squares, diamonds, and triangles respectively represent measurements
+performed after the first, second and third compressive cycle. The dispersion between parallel tests
+is particularly narrow for measurements performed after the first and second compressive cycle,
+while the scatter becomes larger as the strains increase. Yet, the overall scatter is moderate, and the
+average behavior is linear with respect to strain magnitude.
+The ratio of incremental strains in Eq. 11 calculated as 𝑟𝑏 =1.1263, by taking the slope of a linear
+function fitted to the entire measurement data set in a minimum sum of squared errors procedure.
+The fitted curve is displayed along with the scatter data in Fig. 11.
+The complete dataset for the through-thickness disc compression tests is reported in Appendix C.
+
+17
+
+Fig. 11. Disc compression test results: Plastic strain in TD vs. plastic strain RD.
+
+5.
+
+Conclusion
+
+This report summarized the methodology, results and insights garnered from a study aimed at
+experimentally characterizing the anisotropic plasticity properties introduced in the cold rolling
+process of the 1.51 mm thick AA5083-H111 sheets provided by Speira GmhB that are used in the
+floating photovoltaic structure of Sunlit Sea AS.
+The study involved uniaxial tensile tests at seven different directions to the sheet’s rolling direction,
+as well as disc compression tests. The results revealed that the material exhibits moderate
+anisotropy in flow stress, and a somewhat increased directional dependency in the plastic strain
+ratio. The 0.2% proof stress is largest in the rolling direction at approximately 156 MPa, and lowest
+at 60 degrees to the rolling direction. A corresponding behavior was observed for the ultimate
+tensile stress, and the normalized flow stresses. As reflected by variation in the plastic strain ratio,
+the material is more prone to thinning parallel to RD (𝑟0 = 0.7142) and TD (𝑟90 = 0.6410), with
+more favorable properties approaching the diagonal direction (𝑟45 = 0.8357).
+The knowledge obtained in this study facilitates the calibration of state-of-the-art anisotropic
+plasticity models that can be used in non-linear finite element analysis of the metal sheet forming
+manufacturing process. This enables further investigation and optimization of current and future
+manufacturing processes, and how they influence the FPV’s structural performance when in
+operation.
+
+References
+[1]
+
+[2]
+[3]
+
+Strainmaster - advanced digital image correlation systems for optical full field
+measurements of material strain, displacement and shape, LaVision GmbH. Available:
+https://pdf.aeroexpo.online/pdf/lavision-gmbh/strainmaster-advanced-digital-imagecorrelation-systems/184541-8285.html. Accessed: 23.08.2023.
+Barlat, F. et al. Plane stress yield function for aluminum alloy sheets - part 1: Theory. Int
+J Plasticity (2003) 19: 1297-1319.
+Hopperstad, O., Børvik, T., Berstad, T., and Benallal, A. Finite element simulations of the
+portevin–le chatelier effect in aluminium alloy, 8th International Conference on
+Mechanical and Physical Behaviour of Materials under Dynamic Loading, Dijon (2006).
+
+18
+
+Appendix A: Specimen geometry data
+
+Measured thickness [mm]
+
+𝜽
+
+𝒊
+
+𝒕𝟏
+
+𝒕𝟐
+
+𝒕𝟑
+
+𝒕̅
+
+0°
+
+1
+2
+3
+4
+5
+1
+2
+3
+1
+2
+3
+1
+2
+3
+1
+2
+3
+1
+2
+3
+1
+2
+3
+
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.52
+1.51
+1.52
+1.51
+1.51
+1.52
+1.51
+1.51
+1.50
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.52
+1.51
+1.51
+1.51
+1.51
+1.50
+1.51
+1.50
+1.51
+1.51
+1.51
+1.52
+1.51
+1.51
+1.51
+1.51
+
+1.51
+1.51
+1.51
+1.51
+1.51
+1.52
+1.51
+1.51
+1.51
+1.51
+1.52
+1.51
+1.50
+1.51
+1.51
+1.51
+1.51
+1.52
+1.51
+1.51
+1.51
+1.51
+1.51
+
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.50
+1.51
+1.50
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+1.51
+
+15°
+
+30°
+
+45°
+
+60°
+
+75°
+
+90°
+
+Area [mm2]
+
+Measured width [mm]
+
+Remarks
+
+𝒘𝟏
+
+𝒘𝟐
+
+𝒘𝟑
+
+𝒘
+̅
+
+𝑨𝟏
+
+𝑨𝟐
+
+𝑨𝟑
+
+̅
+𝑨
+
+12.38
+12.35
+12.31
+12.25
+12.38
+12.23
+12.26
+12.25
+12.28
+12.35
+12.33
+12.34
+12.20
+12.39
+12.27
+12.37
+12.30
+12.35
+12.42
+12.28
+12.41
+12.40
+12.42
+
+12.35
+12.34
+12.33
+12.22
+12.36
+12.25
+12.23
+12.25
+12.32
+12.35
+12.32
+12.33
+12.25
+12.37
+12.32
+12.33
+12.30
+12.36
+12.36
+12.29
+12.39
+12.37
+12.42
+
+12.36
+12.35
+12.34
+12.32
+12.33
+12.27
+12.24
+12.27
+12.28
+12.34
+12.32
+12.32
+12.28
+12.33
+12.34
+12.38
+12.35
+12.35
+12.36
+12.31
+12.38
+12.35
+12.41
+
+12.36
+12.35
+12.33
+12.26
+12.36
+12.25
+12.24
+12.26
+12.29
+12.35
+12.32
+12.33
+12.24
+12.36
+12.31
+12.36
+12.32
+12.35
+12.38
+12.29
+12.39
+12.37
+12.42
+
+18.69
+18.65
+18.59
+18.50
+18.69
+18.47
+18.64
+18.50
+18.67
+18.65
+18.62
+18.76
+18.42
+18.71
+18.41
+18.68
+18.57
+18.65
+18.75
+18.54
+18.74
+18.72
+18.75
+
+18.65
+18.63
+18.62
+18.45
+18.66
+18.50
+18.47
+18.62
+18.60
+18.65
+18.60
+18.62
+18.38
+18.68
+18.48
+18.62
+18.57
+18.66
+18.79
+18.56
+18.71
+18.68
+18.75
+
+18.66
+18.65
+18.63
+18.60
+18.62
+18.65
+18.48
+18.53
+18.54
+18.63
+18.73
+18.60
+18.42
+18.62
+18.63
+18.69
+18.65
+18.77
+18.66
+18.59
+18.69
+18.65
+18.74
+
+18.67
+18.64
+18.61
+18.52
+18.66
+18.54
+18.53
+18.55
+18.60
+18.64
+18.65
+18.66
+18.41
+18.67
+18.51
+18.66
+18.60
+18.69
+18.74
+18.56
+18.71
+18.68
+18.75
+
+19
+
+𝐒𝐮𝐫𝐟𝐚𝐜𝐞 𝐟𝐥𝐚𝐰𝐬
+
+Location 3
+Location 2
+Location 1
+Location 3
+Location 1
+Location 1, 3
+Location 3
+Location 2
+Location 1, 2, 3
+Location 2, 3
+Location 1
+Location 2
+
+Appendix B: Uniaxial tensile test data
+̅𝟎
+𝒔𝑼𝑻𝑺,𝒊
+𝒔𝑼𝑻𝑺
+𝝈𝟎.𝟐,𝒊
+𝝈𝟎.𝟐
+𝐀
+2
+[MPa]
+[MPa]
+[mm ]
+[MPa]
+[MPa]
+0°
+1
+18.67
+156.2
+299.4
+2
+18.64
+156.3
+299.6
+3
+18.61
+156.2
+300.2
+157.7
+300.7
+4
+18.52
+155.4
+300.1
+5
+18.66
+155.4
+301.4
+15° 1
+18.54
+154.3
+296.9
+2
+18.53
+155.1
+297.3
+155.7
+298.0
+3
+18.55
+155.4
+297.1
+30° 1
+18.64
+152.8
+295.1
+2
+18.65
+152.1
+293.0
+152.2
+293.5
+3
+18.66
+151.4
+290.4
+45° 1
+18.41
+151.1
+293.2
+2
+18.67
+150.5
+292.4
+150.2
+291.8
+3
+18.51
+150.3
+292.3
+60° 1
+18.66
+150.4
+291.5
+2
+18.60
+150.0
+291.5
+149.9
+292.1
+3
+18.69
+149.8
+290.9
+75° 1
+18.74
+152.4
+293.2
+2
+18.56
+152.5
+293.7
+153.1
+294.1
+3
+18.71
+151.9
+293.9
+90° 1
+18.75
+155.1
+297.5
+2
+18.69
+154.0
+295.9
+153.1
+295.8
+3
+18.63
+153.8
+294.4
+(1)
+Results at large strains discarded due to paint adhesion failure
+(2)
+Failure outside calibrated volume: final rupture outside virtual strain gauge
+(3)
+Loss of local strain field data due to over exposed images
+
+𝜽
+
+𝒊
+
+20
+
+𝑹𝜽,𝒊
+[-]
+0.9989
+1.0016
+1.0015
+1.0035
+0.9946
+0.9910
+0.9969
+0.9879
+0.9787
+0.9879
+0.9790
+0.9764
+0.9721
+0.9772
+0.9760
+0.9734
+0.9718
+0.9800
+0.9798
+0.9836
+0.9938
+0.9891
+0.9894
+
+𝑹𝜽
+[-]
+
+1.0000
+
+0.9919
+
+0.9819
+
+0.9752
+
+0.9737
+
+0.9811
+
+0.9908
+
+𝒓𝜽,𝒊
+[-]
+0.7091
+0.7051
+0.7106
+0.7225
+0.7235
+0.7390
+0.7108
+0.7352
+0.8214
+0.8066
+0.7795
+0.8393
+0.8351
+0.8328
+0.7924
+0.8068
+0.8003
+0.7059
+0.7036
+0.6878
+0.6509
+0.6352
+0.6368
+
+𝒓𝜽
+[-]
+
+𝐑𝐞𝐦𝐚𝐫𝐤𝐬
+(1)
+(1)
+
+0.7142
+
+(2)
+
+0.7284
+
+(1)(2)
+
+(1)
+
+0.8025
+(2)
+
+0.8357
+
+(2)
+
+0.7998
+
+(2)
+
+(3)
+
+0.6991
+
+(2)
+(2)
+(2)
+
+0.6410
+
+Appendix C: Disc compression test data
+𝒊
+
+𝑫𝑹𝑫,𝟎
+
+𝑫𝑻𝑫,𝟎
+
+𝒖
+
+[mm]
+
+[mm]
+
+I
+
+12.51
+
+12.48
+
+II
+
+12.48
+
+12.52
+
+III
+
+12.51
+
+12.47
+
+IV
+
+12.49
+
+12.52
+
+V
+
+12.56
+
+12.47
+
+VI
+
+12.56
+
+12.49
+
+𝐂𝐲𝐜𝐥𝐞
+
+[mm]
+
+𝑷
+[kN]
+
+𝑫𝑹𝑫
+[mm]
+
+𝑫𝑻𝑫
+[mm]
+
+𝜺𝑹𝑫
+[-]
+
+𝜺𝑻𝑫
+[-]
+
+0.3
+0.5
+0.5
+0.3
+0.5
+0.5
+0.3
+0.5
+0.5
+0.3
+0.5
+0.5
+0.3
+0.5
+0.5
+0.3
+0.5
+0.5
+
+41.7
+64.8
+75.0
+38.3
+60.6
+76.8
+38.7
+63.9
+76.2
+39.1
+64.1
+70.8
+41.0
+65.1
+75.4
+36.7
+63.2
+75.9
+
+1
+2
+3
+1
+2
+3
+1
+2
+3
+1
+2
+3
+1
+2
+3
+1
+2
+3
+
+12.77
+13.55
+14.33
+12.75
+13.59
+14.31
+12.75
+13.53
+14.11
+12.75
+13.54
+13.75
+12.78
+13.58
+14.08
+12.73
+13.51
+14.18
+
+12.77
+13.64
+14.41
+12.81
+13.76
+14.52
+12.72
+13.64
+14.33
+12.77
+13.66
+14.22
+12.75
+13.67
+14.24
+12.69
+13.60
+14.33
+
+0.021
+0.080
+0.136
+0.021
+0.085
+0.137
+0.019
+0.079
+0.121
+0.021
+0.080
+0.095
+0.017
+0.078
+0.114
+0.013
+0.073
+0.121
+
+0.023
+0.089
+0.144
+0.023
+0.094
+0.148
+0.020
+0.090
+0.139
+0.020
+0.087
+0.127
+0.022
+0.091
+0.132
+0.016
+0.085
+0.137
+
+𝑢: Cross-head displacement
+𝑃: Compressive force
+
+Calibrated equibiaxial strain ratio, 𝑟𝑏 =
+
+𝑑𝜀𝑇𝐷
+|
+𝑑𝜀𝑅𝐷 𝒔
+
+= 1.1263
+
+𝑏
+
+21
+
+

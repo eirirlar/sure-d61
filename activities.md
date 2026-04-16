@@ -342,3 +342,119 @@ IFE has developed a 3D FEM model of the Sunlit Sea prototype floater using their
 - Buoyancy and stress results feed into the system-level trade-offs described in Chapter 7 (screening)
 - The finding that aluminium stresses approach yield under 10mm elongation is relevant to FC7 (wave resistance) in the FDS
 - Glass attachment sensitivity analysis is relevant to interface I4 (Glass↔Infill), I14 (Frame↔FloatStructure), and I17 (FloatStructure↔Glass) in the interface catalogue
+
+
+# Metal forming — material characterization and FEM modelling of AA5083-H111 deep-drawing
+
+Source: Collaboration with OsloMet (Sigbjørn Tveit, Prof. Aase Reyes, Ass. Prof. Emrah Erduran) and Speira GmbH R&D Bonn (Holger Aretz). Sunlit Sea ordered the Speira characterization, provided material samples to OsloMet, and is free to use this work in D6.1 scope. Documented across several sources in background/oslomet/.
+
+## Collaboration context
+- Sigbjørn Tveit's PhD thesis "Forming and fatigue in floating photovoltaic structures — approaches based on continuum mechanics" (OsloMet, 2025, Avhandling nr. 35, ISBN 978-82-8364-680-1) conducted in direct collaboration with Sunlit Sea AS
+- Eirik Larsen, Guillaume Kegelart and Bjørn Hervold Riise from Sunlit Sea acknowledged as "instrumental to the collaboration with the company"
+- Per Lindberg (CEO, Sunlit Sea) co-supervisor on the PhD project
+- Sunlit Sea provided material samples, CAD models and design basis
+- Work spans three peer-reviewed publications: Tveit et al. 2022 (ECCOMAS, HCF + OSR model), ESAFORM 2024 abstract, ESAFORM 2024 full paper (Tveit, Reyes, Erduran)
+- For scope of D6.1, this work can be treated as Sunlit Sea's own and cited accordingly
+
+## Material: AA5083-H111, 1.5 mm sheet
+- Marine-grade aluminium alloy (Mg 4.52%, Mn 0.59%, Si 0.174%, Fe 0.34%, Cu 0.058%)
+- Full chemical composition recorded in chemical_composition_alu5083h111.csv
+- Supplied to Sunlit Sea by Speira GmbH
+- H111 temper: annealed then slightly strain-hardened by cold working
+- Chosen for formability, weldability, corrosion resistance, and (critically for Sunlit) high thermal conductivity — the aluminium body acts as a thermal bridge between the PV panel and cool water
+
+## Speira characterization (ordered by Sunlit Sea, Dec 2021)
+Source: AR_2021-12-14_Rev0_Charakterisierung_5083-R-H111_1.5mm.txt and material_test_biaxial_alu5083h111.txt
+
+- Author: Holger Aretz, Speira R&D Bonn (the same Aretz whose Yld2003 yield function is used as the constitutive model)
+- Standards followed:
+  - Uniaxial tensile at 0°, 45°, 90° to rolling direction per EN ISO 10113:2020 / ISO 6892-1 (3 repetitions each, average values)
+  - Biaxial bulge test per DIN EN ISO 16808:2014 (reaches significantly larger strains than uniaxial — beyond uniform elongation limit)
+  - Forming Limit Curve (FLC) via Nakajima test per ISO 12004-2:2009 at 0° to rolling direction (3 repetitions per point)
+- **Elastic properties:** E = 72,100 MPa, ν = 0.33
+- **Flow curve:** Extended Voce fit: kf(φ) = A + (B + C·φ)·(1 − exp(−D/B·φ)) with A = 168, B = 183.1791, C = 164.2333, D = 2651.1218 MPa
+- **Anisotropy (Lankford r-values):** r0 = 0.657, r45 = 0.843, r90 = 0.705
+- **Directional yield stresses (0.2% plastic strain):** σ0 ≈ 168, σ45 = 161, σ90 = 165, σbiaxial = 171 MPa
+- **Biaxial r-value:** r_biaxial = 1.086
+- **Yield function exponent:** M = 6 (Aretz Yld2003)
+- **FLC data:** 11 measured Nakajima points fitted with Hotz & Timm (2008) ansatz function, producing a continuous FLC curve across negative to positive minor strain range
+- **Output:** full FEM material card (LS-DYNA format), version 0 from 14.12.2021 — this is the card Sunlit Sea incorporated into the .k files for its own pressing simulations
+
+## OsloMet in-house characterization (Aug 2023)
+Source: Full_Experimental characterization of anisotropic plasticity in rolled AA5083-H111 sheets_rev00.txt
+
+- Authors: Sigbjørn Tveit (PhD candidate), Aase Reyes (Prof), assisted by Rune Orderløkken (senior lab engineer) and Paban Acharya (MSc student)
+- Sheet material supplied by Sunlit Sea as 250 × 250 mm plates aligned with rolling/transverse direction
+- Specimens cut by Norsk Vannskjæring AS using waterjet (tolerance ±0.1 mm)
+- **Uniaxial tensile tests** at 7 angles to rolling direction: 0°, 15°, 30°, 45°, 60°, 75°, 90° — 27 specimens total
+  - Machine: Galdabini Quasar 250, modified with 90° grip rotation for DIC access
+  - Strain measurement: LaVision stereo DIC system, virtual strain gauge on speckle-pattern
+  - Load cell sampling 100 s⁻¹; DIC sampling 1.63 s⁻¹; cubic spline synchronization
+  - 5 parallels in RD, 3 parallels in other directions
+- **Through-thickness disc compression (TTDC) tests** — Barlat-type 12.7 mm circular discs, 6 parallels, 3 successive compression cycles (0.3, 0.5, 0.5 mm), PTFE dry-film lubrication, measurements of diameter in RD and TD after each cycle
+- **Key measured values:**
+  - 0.2% proof stress ≈ 156 MPa at 0° (rolling direction), lowest at 60°
+  - r-values: r0 = 0.7142, r45 = 0.8357, r90 = 0.6410
+  - Equibiaxial strain ratio rb = 1.1263
+- **Observed phenomena:**
+  - Pronounced Portevin Le-Chatelier (PLC) serrations in flow stress — propagating bands of localized plastic strain, associated with early necking risk
+  - Moderate anisotropy in flow stress, stronger directional dependence in plastic strain ratio
+  - Material more prone to thinning parallel to TD (lowest r90) — predicts fracture orientation in cup deep-drawing
+- Discrepancy with Speira r-values: OsloMet measured r0 = 0.7142 vs Speira 0.657, r45 = 0.8357 vs 0.843, r90 = 0.6410 vs 0.705. Similar magnitudes, same qualitative trend, but calibrated from different test campaigns. Both are usable calibration inputs depending on the study.
+
+## FEM constitutive modelling
+Sources: ESAFORM_2024_TveitReyesErduran.txt and Abstract_Sunlit Sea_ESAFORM_2024.txt
+
+- **Tool:** LS-DYNA R12.0
+- **Yield criterion:** Aretz Yld2003 non-quadratic anisotropic yield function [Aretz 2005, J. Mater. Process. Tech 168, 1–9], implemented in LS-DYNA as *MAT_WTM_STM (Strong Texture Model)
+- Yld2003 is a generalisation of the Hershey-Hosford isotropic function with 8 anisotropy coefficients a1..a8 calibrated against the measured directional yield stresses and r-values
+- Yield function exponent m = 8 (standard for FCC materials, used in Tveit's ESAFORM paper) — note Speira card uses M = 6
+- **Hardening law:** Two-term Voce in ESAFORM paper: σY(εpl) = σ0 + Σ QRi·[1 − exp(−CRi·εpl)] with σ0 = 153.7, QR1 = 94.33, CR1 = 2.352, QR2 = 187.1, CR2 = 15.35 (calibrated against 5 parallel RD tensile tests). Speira card uses Extended Voce (see above).
+- **Plastic instability trigger:** random shell thickness variation field generated via Karhunen-Loève spectral decomposition using *PERTURBATION keyword, with isotropic Gaussian correlation B(t) = exp(−(a·t)²), a = 1.0, scale factor fSCL = 0.005 mm
+- **Fracture criterion:** simple critical thickness strain εt,cr = −0.45 (calibrated against reported physical failure at cup depth 40 mm vs success at 38.5 mm in Gen 1 design)
+- **Friction model:** constant coefficient μ = 0.085, calibrated in same way; one-way surface-to-surface contact between rigid tools and deformable blank
+- **Element formulation:** reduced-integration Belytschko-Tsay shell elements, 5 through-thickness integration points, element edge ~1.2 mm
+- **Mass scaling:** selective mass scaling to reduce computational cost in explicit time integration without introducing significant dynamic effects
+
+## Gen 1 forming simulation — ESAFORM 2024 parametric study
+Source: ESAFORM_2024_TveitReyesErduran.txt
+
+- **Reference geometry:** 34 cups per panel, 260 mm center-to-center, cup radius 80 mm, cup depth 38.5 mm, drawbead 5 mm from cup edge; panel ~2 × 2 m
+- Full circular symmetric cup model to allow non-symmetric failure modes
+- Die and punch modelled as rigid shells based on CAD of the actual Gen 1 forming press tool
+- Drawbead assumed to completely restrict material flow → sheet inside drawbead modelled as circular plate with fixed-rim constraint (conservative from a formability perspective)
+- Punch motion prescribed via quadratic polynomial
+- Calibration against physical reference: μ and εt,cr tuned so simulation predicts success at cup depth 38.5 mm and failure at 40 mm (matching physical observation from Sunlit's manufacturing partners)
+- **Parametric study:** cup depth vs drawbead distance, 32 simulations via an iterative boundary-search algorithm
+- **Findings:**
+  - Proportional relationship between ddb and dcup up to ddb = 25 mm, then plateau
+  - All fracture instances perpendicular to transverse direction, ~50 mm from cup center — consistent with r90 being the lowest Lankford coefficient (material most prone to thinning when strained perpendicular to rolling direction)
+- **Algorithmic approach:** the iterative binary-search-like algorithm for locating the feasibility boundary in a 2-D parameter space is the same methodology that Sunlit Sea later scaled up into its 9-parameter iterative boundary search in the Pareto optimiser (paretooptimizer.py)
+- **Validation context:** Sunlit Sea's manufacturing partners had reported that cup depth 38.5 mm formed intact while 40 mm failed. The FE model was calibrated against this physical evidence rather than independent experimental validation of the calibrated model — a limitation explicitly noted in the paper
+
+## Follow-up work: ESAFORM 2024 abstract (Tveit, Reyes, Erduran — Sunlit Sea)
+Source: Abstract_Sunlit Sea_ESAFORM_2024.txt
+
+- Title: "Forming limit parameter space of a deep-drawn photovoltaic aluminum structure"
+- Extends the ESAFORM paper from 2 parameters to multi-dimensional parameter space
+- Adds principal elliptic axis direction relative to anisotropy principal direction as a design parameter (which connects directly to Sunlit Sea's cup_y_to_x ellipse eccentricity parameter)
+- Uses non-local plastic instability criterion (NLIC) from Berstad, Lademo, Pedersen, Hopperstad (2004) for more rigorous necking prediction
+- Goals: (1) obtain forming limit parameter space as a constraint for optimisation, (2) determine optimal angle between elliptic axis and anisotropic material
+- This is the direct precursor to the 3,900-simulation campaign Sunlit Sea executed in its own pipeline (thepressing)
+
+## Related fatigue work (Tveit thesis, Ch 4–5 / 2022 ECCOMAS paper)
+Source: A-25-35-Tveit-TKD-Publisert.txt and Tveitetal._2022_FormingeffectsonHCFinanaluminumsheetstructureusingtheOSRmodeldownload.txt
+
+- Multi-stage analysis: forming simulation → local service-load submodel → high-cycle fatigue check with Ottosen-Stenström-Ristinmaa (OSR) continuum mechanics HCF model
+- Submodelling technique: forming analysis on a critical component subsection, then map boundary conditions from a global service-load model into the local submodel
+- Residual stresses and thinning from forming shown to reduce predicted HCF safety factors
+- Friction coefficient and isotropic-kinematic mixing coefficient have significant influence on residual stress prediction
+- Modifications to OSR endurance surface proposed: Hershey-Hosford generalisation for isotropic ductile metals; conditionally convex endurance surface for brittle (e.g. additively manufactured) materials — relevant if Sunlit Sea explores AM float concepts in future
+
+## Relevance to D6.1
+- **T1 (REQ-2.3 — anisotropic yield stress model):** The DoW explicitly required an anisotropic yield stress model in T6.1. This work documents exactly that: Sunlit Sea's LS-DYNA pipeline uses the Aretz Yld2003 non-quadratic anisotropic yield function with material constants calibrated against the Speira material card and, where relevant, the OsloMet experimental campaign. Cup eccentricity (cup_y_to_x in the Sunlit parameter list) is motivated physically by the measured r-value anisotropy. The report currently says only "elasto-plastic constitutive models for aluminium" — this needs to be upgraded to cite Yld2003, the Voce hardening law, the r-values, and the relationship to cup eccentricity.
+- **Validation (REQ-6.1, REQ-6.2):** The report currently only mentions physical validation against Sunlit's in-house pressing tests. The OsloMet/Speira work is a much stronger validation basis — calibrated material models, documented test standards (ISO 10113, ISO 16808, ISO 12004-2), and parametric comparison against known Gen 1 failure boundary (38.5 mm works, 40 mm fails).
+- **Methodological lineage:** the iterative boundary-search approach in the Sunlit Sea pipeline (paretooptimizer.py) traces directly to the ESAFORM 2024 paper's algorithm for locating the feasibility boundary between cup depth and drawbead distance. The Sunlit approach extends this from 2 to 9 parameters.
+- **Cup ellipse eccentricity (cup_y_to_x parameter):** the ESAFORM 2024 abstract treats this (angle between elliptic axis and anisotropy principal direction) as a first-class design variable — provides external academic justification for including it in the 9-parameter design space.
+- **Fatigue extension:** the Tveit thesis work on submodelling and HCF provides a path for future (D6.2+) coupling between forming outputs and structural analysis with fatigue, supporting interface I-3 (as-formed thickness and residual stress field → structural FEM).
+- **References section (T6):** this body of work gives us at least three citable publications: Aretz 2005 (Yld2003), Tveit/Reyes/Erduran ESAFORM 2024, Tveit et al. 2022 ECCOMAS, plus the Tveit 2025 thesis.

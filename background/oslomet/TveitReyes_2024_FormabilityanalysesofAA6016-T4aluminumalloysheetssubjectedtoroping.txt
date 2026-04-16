@@ -1,0 +1,601 @@
+Material Forming - ESAFORM 2024
+Materials Research Proceedings 41 (2024) 989-998
+
+Materials Research Forum LLC
+https://doi.org/10.21741/9781644903131-109
+
+Formability analyses of AA6016-T4 aluminum alloy sheets
+subjected to roping
+TVEIT Sigbjørn1,a and REYES Aase1,b *
+Department of Built Environment, Oslo Metropolitan University, Postboks 4, St. Olavs plass,
+NO-0130 Oslo, Norway
+
+1
+
+sigbjorn.tveit@oslomet.no, baase.reyes@oslomet.no
+
+a
+
+Keywords: Aluminum Alloys, FEA Based FLD, Roping
+Abstract. Due to its good formability characteristics, AA6xxx aluminum alloys have become
+popular as a light-weight alternative to steel for car bodywork components produced by stamping.
+In the design of forming operations, numerical simulations are often used, and accurate material
+models to describe plasticity and forming limits are important to successfully design optimized
+products and production processes to avoid the reliance on trial and error. For aluminum alloys
+used in sheet metal forming, the anisotropic plasticity characteristics caused by the directional
+rolling process has therefore been subject to extensive research over the last decades. A previous
+experimental program on AA6016-T4 sheets showed that the formability of the material is strongly
+affected by roping caused by rolling. In this paper, models of anisotropic plasticity, isotropic
+hardening, instability, and fracture, along with an approach to describe the effects of roping for
+proportional strain paths are used to predict forming and fracture limits in LS-DYNA.
+Introduction
+The forming limit diagram (FLD) displays which strain combinations lead to strain localizations
+and which do not. Similarly, it is possible to construct fracture limit curves, which shows the strain
+combinations at fracture. In the traditional FLD, proportional straining is assumed through the full
+deformation process, but the influence of non-proportional straining can be studied for two-stage
+strain paths where formability tests are preceded by pre-strain. Graf and Hosford [1, 2] found that
+a biaxial pre-strain generally lowers the forming limits, while pre-straining by uniaxial tension can
+increase the forming limits. However, after pre-straining, the amount of possible additional planestrain deformation depends on the effective strain during the pre-straining regardless of strainpath. In a previous study [3, 4], formability experiments were carried out for as-received and prestrained sheets to investigate the effects of pre-strain by rolling on the formability of AA6016
+sheets in the biaxial stretching region. In these tests, a significant anisotropy in forming limit
+strains were uncovered, and attributed to the roping phenomenon.
+Roping (also called ridging) manifests itself as a directional surface defect that can appear in
+many aluminum alloys, copper alloys, and stainless steels at small strains [5-10]. It can be
+characterized by visible lines of up to hundreds of millimeters long along the rolling direction
+(RD), and a few millimeters apart in the transverse direction (TD) with a height difference between
+ridges and valleys of about 10-30 µm when the sheet is tensioned in TD [6, 8]. It impedes the use
+of these alloys in visible parts of e.g. vehicles due to aesthetics, but can also affect the formability
+[8] (as it can serve as a stress concentration) and bending properties of the materials [5]. Early
+studies analyzed the development of surface roughness and found that the amount of surface
+roughness is proportional to the through-thickness strain, and it has a linear dependence on the
+grain size [5].
+The origin of roping in the aluminum alloy has been believed to intimately connect to texture
+distribution [6], and therefore, several studies are concentrated on the effect of the microstructure
+on roping [8, 9]. Jin studied how to reduce roping with the break-up of texture alignment [11].
+Content from this work may be used under the terms of the Creative Commons Attribution 3.0 license. Any further distribution of
+this work must maintain attribution to the author(s) and the title of the work, journal citation and DOI. Published under license by Materials
+Research Forum LLC.
+
+989
+
+Material Forming - ESAFORM 2024
+Materials Research Proceedings 41 (2024) 989-998
+
+Materials Research Forum LLC
+https://doi.org/10.21741/9781644903131-109
+
+More recently, some authors have studied the effects further. Muhammad et al. [5] studied the
+effects of roping (among others) on the bendability of aluminum alloys. They used crystal
+plasticity finite element model (CPFEM) and synthetic crystallographic textures to further
+investigate the relationship between through thickness clustering of similarly oriented grains,
+microstructure, and the observed surface topographic behavior. Hu et al. [6] introduced a roping
+index in the evaluation of the surface morphology and textures of four AA6XXX aluminum alloy
+sheets subjected to uniaxial tension. The same authors continued their investigation and applied
+CPFEM and developed an artificial neural network-based (ANN) model to predict thickness strain
+and corresponding surface roping under tensile deformation [7].
+While several attempts to understand and describe the occurrence of the roping phenomenon in
+aluminum sheets based on crystal plasticity, less attention has been directed towards modelling the
+phenomenological effects of roping on forming limits and crack orientations. In this paper, based
+on the work of a master thesis [12], as a simple engineering approach, numerical forming and
+fracture limit diagrams are generated. Here, the roping is modeled by introducing perturbations to
+the sheet thickness based on the spatial distribution of effective plastic strains observed from
+experiments, and anisotropic plasticity, isotropic hardening, instability, and fracture are included
+in the finite element simulations in LS-DYNA.
+Material and experimental details
+The material assessed in this paper is AA6016 aluminum alloy, from virgin sheets of 1.5 mm
+thickness. Due to its good forming properties the rolled alloy is suited for use in the bodywork of
+cars. The metal sheets, produced by Hydro Aluminum Rolled Products GmbH, were rolled to their
+nominal thickness and solution heat treated before they were stored for six months natural aging
+process, giving them the temper designation T4. After heat treatment and natural ageing, the prestrain was applied by cold rolling. All information regarding the characteristics of the sheets can
+be found in [4]. To characterize the material’s anisotropic behavior, uniaxial tensile tests were
+carried out in seven different directions, and disc compression and plane strain tests were also
+performed. In the same study [4], the formability of the material was investigated by means of
+Marciniak tests [13], that were performed in a BUP600 forming machine using a flat punch with
+a diameter of 100 mm. The width of the samples was varied between 155 and 205 mm to attain
+different strain paths. Because of the material’s anticipated anisotropic behavior, both samples
+oriented parallel and normal to the rolling direction were employed. In total, seven different strain
+paths were tested. After the experiments, one could clearly see some sort of irregularities on the
+surface of the specimens. This rough surface appeared like small ridges, all oriented in the same
+direction (Fig. 1) and could be identified as the roping phenomenon. The forming limit strains
+experienced a greater anisotropy than expected, an effect attributed to the severe roping [3].
+Material models and determination of material parameters
+In the present work, the numerical forming and fracture limit diagrams were generated by means
+of LS-DYNA [14], where *MAT_135 , also known as *MAT_WTM_STM [15] was employed.
+This is an elasto-viscoplastic constitutive model with an anisotropic yield criterion YLD2003 [16],
+the associated flow rule, non-linear isotropic work hardening rule (Voce), as well as a throughthickness instability criterion (TTSIC), and the Original Cockroft Latham Fracture Criterion
+(OCLFC). A Non-Local Extremal Thickness Strain Deviation Criterion (NLETSDC) was
+established to detect the onset of local necking from the available history variables.
+Yield criterion: The Yld2003 yield criterion was proposed by Aretz [16] and contains eight
+anisotropy parameters that can be fitted to experimental data. The mathematical form can be found
+in the original work. There, the eight parameters are found from flow-stress ratios, 𝑟𝑟𝜃𝜃, and
+transverse strain ratios, 𝑅𝑅𝜃𝜃 , from uniaxial tensile tests with longitudinal direction inclined at 𝜃𝜃 =
+990
+
+Material Forming - ESAFORM 2024
+Materials Research Proceedings 41 (2024) 989-998
+
+Materials Research Forum LLC
+https://doi.org/10.21741/9781644903131-109
+
+0°, 45° and 90° to the sheet’s rolling direction and the corresponding quantities taken from the
+equibiaxial flow stress and transverse strain ratios, 𝑟𝑟𝑏𝑏 and 𝑅𝑅𝑏𝑏 , respectively. LS-DYNA offers a
+direct calibration from these experimental data points, and these were found from the tensile and
+compression tests in [4], except for 𝑟𝑟𝑏𝑏 which was taken as unity due to lack of experimental data.
+The eight data points used in the numerical analyses are given in Table 1, in addition to 𝑚𝑚, which
+is the non-quadratic yield function exponent.
+Strain hardening: The strength of the material is defined by the flow stress, where the isotropic
+strain hardening is expressed by the extended Voce rule.
+𝜎𝜎𝑒𝑒 = 𝜎𝜎0 + 𝑄𝑄𝑅𝑅1 �1 − 𝑒𝑒𝑒𝑒𝑒𝑒�−C𝑅𝑅1 𝜀𝜀𝑒𝑒𝑝𝑝 �� + 𝑄𝑄𝑅𝑅2 �1 − 𝑒𝑒𝑒𝑒𝑒𝑒�−C𝑅𝑅2 𝜀𝜀𝑒𝑒𝑝𝑝 ��
+
+(1)
+
+Here, 𝜀𝜀𝑒𝑒𝑝𝑝 is the effective plastic strain, and 𝑄𝑄𝑅𝑅𝑅𝑅 and C𝑅𝑅𝑅𝑅 are material constants. The equation was
+fitted to the experimental data from [4], and are given in Table 1.
+
+The Non-Local Extremal Thickness Strains Deviation Criterion (NLETSDC): A simple nonlocal method was established to detect the onset of local necking from the available history
+variables in LS-DYNA. Initial geometric imperfections in terms of thickness variations are
+spatially distributed in the model, resulting in variable shell thicknesses among the different
+elements 𝑖𝑖. Within an area Ω𝑖𝑖 around each element, the minimum and the maximum values of
+through-thickness plastic strains 𝜀𝜀𝑧𝑧𝑝𝑝 were monitored. From the relationship of the two quantities, a
+history variable was established as
+𝜉𝜉𝑖𝑖 =
+
+𝑝𝑝,Ω
+𝜀𝜀𝑧𝑧 𝑚𝑚𝑚𝑚𝑚𝑚
+
+(2)
+
+𝑝𝑝,Ω
+𝜀𝜀𝑧𝑧 𝑚𝑚𝑚𝑚𝑚𝑚
+
+The onset of local necking was assumed to occur when the history variable 𝜉𝜉𝑖𝑖 reaches a critical
+value, 𝜉𝜉𝑐𝑐𝑐𝑐 . Different critical values were tested and are shown in Table 1.
+
+The Through-Thickness Shear Instability Criterion (TTSIC): This criterion was first
+introduced by Bressan and Williams [17]. The following equation to calculate the inclination, 𝜑𝜑,
+from the critical plane based on plastic strain increments is used. Here, the established coordinate
+system of x, y, and z is respectively aligned with the rolling, transverse, and through-thickness
+directions:
+𝑝𝑝
+
+𝑑𝑑𝜀𝜀𝑦𝑦
+
+(3)
+
+cos 2𝜑𝜑 = − 𝑑𝑑𝜀𝜀𝑝𝑝 +2𝑑𝑑𝜀𝜀𝑝𝑝
+𝑦𝑦
+
+𝑥𝑥
+
+TTSIC is satisfied when the shear stress on the critical plane,𝜏𝜏𝜑𝜑 , reaches a critical value, 𝜏𝜏𝑐𝑐𝑐𝑐 .
+𝜏𝜏𝜑𝜑 =
+
+sin (2𝜑𝜑)
+2
+
+(4)
+
+𝜎𝜎1 ≥ 𝜏𝜏𝑐𝑐𝑐𝑐
+
+The through-thickness shear instability criterion was calibrated in a one-step inverse modelling
+procedure in an LS-DYNA analysis of a single element with dimensions 1.2 mm by 1.2 mm, and
+the data from the plane strain tests (PST) from [4]. Note that it was not possible to achieve perfect
+
+991
+
+Material Forming - ESAFORM 2024
+Materials Research Proceedings 41 (2024) 989-998
+
+Materials Research Forum LLC
+https://doi.org/10.21741/9781644903131-109
+
+Fig. 1 Roping and multiple local necks observed at the bottom side of a Marciniak sample.
+Figure rendered from [4] with permission from the author.
+Table 1
+
+Input to *MAT_135, taken or identified from the experimental data in [4].
+
+Strain hardening
+
+Two-term Voce
+
+Yield criterion
+
+Yld2003
+
+Instability criteria
+
+NLETSDC
+TTSIC
+OCLFC
+
+Fracture criteria
+
+𝜎𝜎0
+𝑄𝑄𝑅𝑅1
+𝑄𝑄𝑅𝑅2
+C𝑅𝑅1
+C𝑅𝑅2
+𝑟𝑟0
+𝑟𝑟45
+𝑟𝑟90
+𝑟𝑟𝑏𝑏
+𝑅𝑅0
+𝑅𝑅45
+𝑅𝑅90
+𝑅𝑅𝑏𝑏
+𝑚𝑚
+𝜉𝜉𝑐𝑐𝑐𝑐
+𝜏𝜏𝑐𝑐𝑐𝑐
+𝑊𝑊𝑐𝑐𝑐𝑐
+
+[MPa]
+[MPa]
+[MPa]
+[-]
+[-]
+[-]
+[-]
+[-]
+[-]
+[-]
+[-]
+[-]
+[-]
+[-]
+[-]
+[MPa]
+[MPa]
+
+139.0
+44.26
+171.9
+24.20
+7.324
+1.000
+0.9986
+0.9910
+1.000
+0.6880
+0.4250
+1.030
+0.7850
+8
+1.5, 2.0, 3.0
+179.8
+211.5
+
+plane strain in the tests [4], however, the strains in the x- and y- direction were measured by Digital
+Image Correlation (DIC) and the data can therefore be used for calibration. As the major strain
+direction in the plane strain tests (PST) is in the sheet’s rolling direction, the principal axis of stress
+coincides with the principal axis of anisotropy. Thus, the angle of the inclination of the maximum
+shear plane, 𝜑𝜑, can be calculated for an isotropic material. With fracture strains for the tests at
+∗
+∗
+𝜀𝜀̅𝑥𝑥,𝑃𝑃𝑃𝑃𝑃𝑃
+= 0.6237 and 𝜀𝜀̅𝑦𝑦,𝑃𝑃𝑃𝑃𝑃𝑃
+= −0.1323, the inclination of the maximum shear plane, 𝜑𝜑 = 48.41°.
+A non-local proportional strain corresponding to the average strain path of the six PST tests from
+[4] was applied to the element, and when the FE analysis reached the average fracture strains from
+the experimental PST tests, the value of the major stress component 𝜎𝜎1∗ = 𝜎𝜎𝑥𝑥∗ was recorded. From
+this, the critical shear stress, 𝜏𝜏𝑐𝑐𝑐𝑐 , was found as 179.8 MPa, and is given in Table 1.
+
+The Original Cockcroft-Latham fracture criterion (OCLFC): This ductile fracture criterion is
+assumed to be satisfied when the accumulation of principal tensile stresses over the plastic
+deformation reaches a critical value, and is formulated as [18]
+
+992
+
+Material Forming - ESAFORM 2024
+Materials Research Proceedings 41 (2024) 989-998
+
+Materials Research Forum LLC
+https://doi.org/10.21741/9781644903131-109
+
+𝑝𝑝
+��
+𝜀𝜀��
+
+𝑊𝑊1 = ∫0 max (𝜎𝜎1 , 0)𝑑𝑑𝜀𝜀���𝑝𝑝 ≥ 𝑊𝑊𝑐𝑐𝑐𝑐
+
+(5)
+
+where ���
+𝜀𝜀 𝑝𝑝 is the accumulated plastic strain, and 𝑊𝑊𝑐𝑐𝑐𝑐 is a material constant which can be adjusted to
+observations from experiments where strain localization is controlled. In [4], two different plane
+strain tension tests specimen geometries with three parallels each were used to calculate the
+OCLFC. Averaging over the path, the critical plastic work was found as 211.5 MPa [4], and is also
+given in Table 1.
+Modeling of roping
+Aiming to model the effects of roping as scaled harmonic perturbations to the sheet thickness, a
+sum of four sine waves can be fitted to a sheet’s thickness profile obtained from measurements.
+As the real thickness profile was not available from [4], a fictive thickness profile based on the
+mean thickness and standard deviations of the sheets sampled in the experimental program was
+used.
+In LS-DYNA, a pre-programmed module to model perturbations to the thickness of shells as
+one or more harmonic waves exists in the keyword *PERTURBATION. The keyword allows the
+user to specify the amplitude, wavelength, and periodic offset of waves though the variables
+AMPL, WL, and OFF, respectively. Thickness perturbations due to roping can be modelled to
+satisfying accuracy by adding multiple harmonic perturbations to approximate a measured
+thickness distribution with the formulation [15]:
+𝑝𝑝(𝑥𝑥, 𝑦𝑦) = ∑𝑛𝑛𝑖𝑖=1 �𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝑖𝑖 �𝑠𝑠𝑠𝑠𝑠𝑠 �2𝜋𝜋
+
+𝑥𝑥+𝑋𝑋𝑋𝑋𝑋𝑋𝑋𝑋𝑖𝑖
+𝑋𝑋𝑋𝑋𝑋𝑋𝑖𝑖
+
+� + 𝑠𝑠𝑠𝑠𝑠𝑠 �2𝜋𝜋
+
+𝑦𝑦+𝑌𝑌𝑌𝑌𝑌𝑌𝑌𝑌𝑖𝑖
+𝑌𝑌𝑌𝑌𝑌𝑌𝑖𝑖
+
+���
+
+(6)
+
+As roping is reported to be the manifestation of the orientation of grain’s spatial distribution in
+the sheets’ through-thickness direction [19], the observed effects in terms of thickness
+perturbations are accompanied with variation in material characteristics. Thus, naive of
+information about this variation, the modelled thickness perturbation could be scaled to obtain
+good correlation between the anisotropy predicted by the FE-models and the experimental results.
+In the MK model [13], the fundamental assumption is that a band of the sheet is somehow weaker
+than the rest. This weakness could be material variations or thickness variations. Aretz [20]
+compared the use of thickness and material imperfections to trigger localized necking in the MK
+model, and concluded that the two approaches are equivalent for proportional strain paths. Due to
+simplicity, imperfections are often thought of and modelled as a reduction in the thickness of the
+material. The magnitude of the imperfection is typically calibrated to match experimental
+observations. In the same way, a larger thickness variation than what is physically observed can
+be justified to account for reduced stiffness from spatial variations in material characteristics for
+proportional strain paths.
+Limited information was available from the experimental tests about the nature of the roping
+phenomenon of the aluminum sheets. Thus, the distance between valleys formed by roping was
+approximated by visual inspections on the effective strain map from DIC for the last image prior
+to fracture [4]. Using the sample which most clearly showed the localizations of strains, namely
+the sample labelled as MK160-90-2, (see Fig. 2 (a)), the approximated distance between roping
+valleys was roughly measured to be 12.5 mm. With the reported non-local logarithmic fracture
+strain at 0.2870 for the sample, the initial distance was calculated to be approximately 8.9 mm.
+
+993
+
+Material Forming - ESAFORM 2024
+Materials Research Proceedings 41 (2024) 989-998
+
+Materials Research Forum LLC
+https://doi.org/10.21741/9781644903131-109
+
+(a)
+
+(b)
+
+Fig. 2 (a) Effective strain map at the last frame prior to fracture of the sample labelled as
+MK160-90-2 of virgin AA6016-T4 (ID=6), rendered from [4] with permission from the author.
+(b) Thickness perturbation along the length in the transverse direction.
+Table 2
+i=1
+i=2
+i=3
+i=4
+
+Fitted parameters of the four-term sine wave roping perturbation.
+𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝑖𝑖 [𝑚𝑚𝑚𝑚]
+0.00168
+0.00130
+0.00436
+-5.2E-6
+
+𝑌𝑌𝑌𝑌𝑌𝑌𝑖𝑖 [𝑚𝑚𝑚𝑚]
+4.462
+2.976
+8.907
+8.825
+
+𝑌𝑌𝑌𝑌𝑌𝑌𝑌𝑌𝑖𝑖 [𝑚𝑚𝑚𝑚]
+3.382
+-0.692
+-2.267
+-5.549
+
+From this estimated distance between grooves, along with the mean measured thickness of 1.496
+mm and standard deviation of 0.004 mm from thickness measurements performed in the
+experimental study, a fictive thickness profile was established- The parameters of a four-term sine
+wave roping perturbation model was fitted to it, using the Sum of Sines Models-tool in MATLAB
+R2020a [20]. Fig. 2 (b) shows the fictive perturbation measurements along with the fitted fourterm sine wave model, while Table 2 displays the amplitude, 𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝑖𝑖 , wavelength, 𝑌𝑌𝑌𝑌𝑌𝑌𝑖𝑖 , and offset, 𝑌𝑌𝑌𝑌𝑌𝑌𝑌𝑌𝑖𝑖 , for each of the four harmonic functions, 𝑖𝑖.
+With roping modelled as a four-term harmonic function in the transverse direction, no thickness
+variations are introduced in the sheet’s rolling direction. In a perturbation plot generated from
+white-light interferometry images by Engler et al. [8], the valleys and ridges were accompanied by
+unstructured thickness deviations in the rolling directions. Attempting to simulate this, a
+FORTRAN-program which generated random unstructured thicknesses perturbations based on a
+mean thickness and a standard deviation, was used. As the random perturbation is added to the
+existing four-term sine wave perturbation, a rather moderate standard deviation of 0.002 mm was
+used along with the mean thickness of 1.496 mm. A scaling factor of six was used for the fourterm sine wave perturbation. Fig. 3 (a) shows the thickness perturbation of the undeformed patch.
+Formability and Fracture Diagrams with roping model
+To construct the FEA-generated forming and fracture limit diagrams in LS-DYNA, a 60 mm by
+60 mm squared patch of 50 by 50 Belytschko-Tsay shell elements was subjected to 15 different
+proportional biaxial deformations. The four individual edges were continuously constrained
+according to the illustration in Fig. 3 (b). A controlled displacement was then assigned to the right
+and the top edge in their normal directions to create the non-local, proportional, biaxial strain paths.
+
+994
+
+Material Forming - ESAFORM 2024
+Materials Research Proceedings 41 (2024) 989-998
+
+Materials Research Forum LLC
+https://doi.org/10.21741/9781644903131-109
+
+Along with the Yld2003 yield function, the NLETSDC, TTSIC, and OCLFC were used to
+predict local necking and/or fracture. Through the material keyword *MAT_135, TTSIC and
+OCLFC was employed as uncoupled criteria where satisfaction of either criterion in three out of
+the five through-thickness integration points in an element caused element erosion. As the
+
+𝑡𝑡 [mm]
+
+1.522
+1.515
+1.508
+1.500
+1.493
+1.486
+1.479
+1.471
+1.464
+1.457
+1.450
+
+(a)
+
+(b)
+
+Fig. 3 (a) Thickness variation of the FEA-model with four-term sine wave perturbation (Sc. = 6)
+and random perturbation with SD = 0.002 mm. (b) Boundary conditions of patch model
+subjected to biaxial strains paths for the construction of FEA-generated forming and fracture
+limit diagrams. The rolling supports should be considered continuous along the edges.
+
+(a)
+
+(b)
+
+Fig. 4 FLDs from NLETSDC for (a) different critical extremal thickness strain ratio and (b)
+with roping model scaled by a factor of six, with and without additional random thickness
+perturbation. The points are the experimental necking (crosses) and fracture (stars) strains from
+[4].
+NLETSDC was not implemented in the material model, fulfillment of the criterion was manually
+monitored. When either criterion was satisfied, the displacements in the two directions were
+recorded, and the non-local strain values were calculated as the necking or fracture strains.
+
+995
+
+Material Forming - ESAFORM 2024
+Materials Research Proceedings 41 (2024) 989-998
+
+Materials Research Forum LLC
+https://doi.org/10.21741/9781644903131-109
+
+To test NLETSDC, a sensitivity analysis of the critical extremal thickness strain ratio, 𝜉𝜉𝑐𝑐𝑐𝑐 was
+carried out. On the model with unscaled roping perturbations and no random perturbation in the
+rolling direction , forming limit curves were plotted with the critical values set to 1.5, 2.0 and 3.0.
+The different curves, displayed in Fig. 4 (a), shows that variations in the critical value yields small
+differences in forming limits. For the further analyses, 𝜉𝜉𝑐𝑐𝑐𝑐 = 2.0 was used as the critical value.With
+the four-term sine wave perturbation model unscaled (Sc. = 1.0), the forming limit diagram
+exhibited moderate anisotropy. The two plane strain configurations exhibited forming limits close
+to the measured values but were clearly overestimated as the strains approached biaxial symmetry.
+Because roping is the manifestation of band clusters of grains with the same orientation, the
+material itself could be assumed to have varying material characteristics that are spatially
+distributed according to the sheet thickness. Thus, lacking information about this distribution of
+plasticity characteristics, a scaling of the four-wave sine perturbation was performed to simulate
+further reduced stiffness, to meet the strong anisotropy of forming limits observed in experiments
+for portional strain paths. The scaling was performed by multiplying the amplitude of each curve
+in the four-term sine wave model with a scalar (𝑆𝑆𝑆𝑆. = 2.0 and 6.0) to amplify the effect of roping.
+From Fig. 5 (a), which displays the FLDs predicted by NLETSDC, it is evident that the effect of
+amplifying the roping perturbation model yielded significant reduction in forming limit strains in
+the sheet’s transverse direction. With a scaling factor 𝑆𝑆𝑆𝑆. = 6, the predicted and measured results
+coincided very well for configurations where 𝜀𝜀𝑇𝑇𝑇𝑇 > 𝜀𝜀𝑅𝑅𝑅𝑅 . Nevertheless, the forming limit strains
+were still exaggerated by the FEA-model for its symmetric counterpart.
+The FLDs with the roping model, with and without the random perturbation with standard
+deviation of 0.002 mm, are compared in Fig. 4 (b). When the harmonic perturbation was
+accompanied with the random perturbation, the forming limits for strain paths when 𝜀𝜀𝑇𝑇𝑇𝑇 > 𝜀𝜀𝑅𝑅𝑅𝑅
+
+(a)
+
+(b)
+
+(c)
+
+Fig. 5 Forming and fracture limit curves with and without the roping model, for different scales
+of the four-term sine wave perturbation for the (a) NLETSDC, (b) TTSIC, and (c) OCLFC. The
+points represent the experimental necking (crosses) and fracture (stars) strains from [4].
+remained nearly unchanged, while its symmetric counterpart predicted drastically reduced necking
+strains, just on the conservative side of the experimentally detected forming limit strains.
+Fig. 5 (b) and (c) displays the forming and fracture limit diagram generated for TTSIC and
+OCLFC, respectively, with different scaling factors to the harmonic perturbations. Evidently, the
+model with perfectly uniform thickness was not able to produce the shape nor the magnitude of
+
+996
+
+Material Forming - ESAFORM 2024
+Materials Research Proceedings 41 (2024) 989-998
+
+Materials Research Forum LLC
+https://doi.org/10.21741/9781644903131-109
+
+forming and fracture limits from experiments for neither criteria. However, with 𝑆𝑆𝑆𝑆. = 6, the
+TTSIC criterion can be said to predict conservative results compared to the experimental fracture
+strains, and the shape of the predicted fracture curveseems reasonable. For the OCLFC, 𝑆𝑆𝑆𝑆. = 2
+was sufficient to obtain a reasonable shape for the fracture limit diagram and predict conservative
+results. Larger scale factors were therefore not tested for OCLFC The magnitudes of the predicted
+fracture strains were clearly underestimated for strain paths in vicinity to the two plane-strain
+axes,while strain paths near the equibiaxial axis displayed better agreement with the experimental
+data. Although the introduction of thickness perturbations helped, the OCLFC was not able to
+recreate the shape of the fracture strain curves in a satisfying way.
+Conclusions
+With the introduction of the harmonic thickness perturbations, together with the anisotropic yield
+criterion Yld2003, and the isotropic two-term Voce hardening law, experimental forming limits
+were recreated with good accuracy for proportional strain paths using one local necking instability
+criterion and two different fracture criteria. Without the introduction of the harmonic thickness
+petrurbations, all three criteria produced forming and fracture limits very different to what was
+observed in experiments. The best fit to experiments was achieved when the four-term sine wave
+perturbation, which was initially fitted to the amplitudes of measured thickness deviations, was
+scaled with a factor of six.
+References
+[1] A. Graf, W. Hosford, Effect of Changing Strain Paths on Forming Limit Diagrams of Al 2008T4, Metall. Trans. A. 24 (1993) 2503-2512.
+[2] A. Graf, W. Hosford, Influence of strain-path changes on forming limit diagrams of Al 6111
+T4, Int. J. Mech. Sci. 36(10) (1994) 897-8910.
+[3] D. Vysochinskiy, T. Coudert, O.S. Hopperstad, O.-G. Lademo, A. Reyes, Experimental study
+on the formability of AA6016 sheets pre-strained by rolling, Int. J. Mater. Forming. 11(4) (2018).
+541-557. https://10.1007/s12289-017-1363-6
+[4] D. Vysochinskiy, Formability of aluminium alloy subjected to prestrain by rolling, PhD
+Thesis, Department of Structural Engineering, Trondheim, Norwegian University of Science and
+Technology, 2014.
+[5] W. Muhammad, U. Ali, A. P. Brahme, J. Kang, R. K. Mishra, K. Inal, Experimental analyses
+and numerical modeling of texture evolution and the development of surface roughness during
+bending of an extruded aluminum alloy using a multiscale modeling framework, Int. J. Plast. 117
+(2019) 93-121. https://doi.org/10.1016/j.ijplas.2017.09.013
+[6] Y. Hu, G. Zhou, R. Liu, X. Yuan, L. Cao, B. Yang, D. Li, P. Wu, On the correlation between
+roping, texture, and morphology of aluminium alloy sheets, J. Mater. Res. Technol. 26 (2023) 571586. https://doi.org/10.1016/j.jmrt.2023.07.209
+[7] Y. Hu, G. Zhou, X. Yuan, D. Li, L. Cao, W. Zhang, P. Wu, An artificial neural network-based
+model for roping prediction in aluminum alloy sheet, Acta Mater. 245 (2023) 118605.
+https://doi.org/10.1016/j.actamat.2022.118605
+[8] O. Engler, C. Schäfer, H. J. Brinkman, Crystal-plasticity simulation of the correlation of
+microtexture and roping in AA 6xxx Al–Mg–Si sheet alloys for automotive applications, Acta
+Mater. 60(13–14) (2012) 5217-5232. http://dx.doi.org/10.1016/j.actamat.2012.06.039
+
+997
+
+Material Forming - ESAFORM 2024
+Materials Research Proceedings 41 (2024) 989-998
+
+Materials Research Forum LLC
+https://doi.org/10.21741/9781644903131-109
+
+[9] O. Engler, H. Moo-Young, C. N. Tome, Crystal-plasticity analysis of ridging in ferritic
+stainless steel sheets, Metall. Mater. Trans. A (Physical Metallurgy and Materials Science).
+36A(11) (2005) 3127-3139.
+[10] L. Qin, M. Seefeldt, P. Van Houtte, Analysis of roping of aluminum sheet materials based on
+the meso-scale moving window approach, Acta Mater. 84 (2015) 215-228.
+https://doi.org/10.1016/j.actamat.2014.10.054
+[11] H. Jin, Breakup of texture alignment and reduction of roping in AA6111 aluminium alloy,
+Mater. Sci. Technol. 33(11) (2017) 1388-1396. https://doi.org/10.1080/02670836.2017.1295518
+[12] S. Tveit, Formability analysis of AA6016-T4 aluminium alloy sheets subjected to roping, MSc
+Thesis, Department of Civil Engineering and Energy Technology, Oslo, Oslo Metropolitan
+University, 2020.
+[13] Z. Marciniak, K. Kuczynski, Limit strains in the process of stretch-forming sheet metal, Int.
+J. Mech. Sci. 9 (1967) 600-620.
+[14] J. O. Hallquist, Theoretical Manual, Livermore Software Technology Corporation,
+Livermore, California, 1998.
+[15] LS-DYNA Keyword User’s Manual. Volume II Material Models, Version 971 R6.1.0,
+Livermore Software Technology Corporation, Livermore, California, 2012.
+[16] H. Aretz, Applications of a new plane stress yield function to orthotropic steel and aluminium
+sheet metals, Modelling Simul. Mater. Sci. Eng. 12 (2004) 491-509.
+[17] J. D. Bressan, J. A. Williams, The use of a shear instability criterion to predict local necking
+in sheet metal deformation, Int. J. Mech. Sci. 25(3) (1983) 155-168.
+[18] M. G. Cockcroft, D. J. Latham, Ductility and the Workability of Metals, Journal of the institute
+of metals. 96 (1968) 33-39.
+[19] P. D. Wu, D. J. Lloyd, Analysis of surface roughening in AA6111 automotive sheet, Acta
+Mater. 52(7) (2004) 1785-1798. https://doi.org/10.1016/j.actamat.2003.12.039
+[20] H. Aretz, A comparison between geometrical and material imperfections in localized necking
+prediction, in: E. Cueto, F. Chinesta (Ed.), Proc. 10th ESAFORM Conference on Material
+Forming, AIP Conference Proceedings, 2007, pp. 287-292.
+[21] MATLAB & Simulink, Sum of Sine Models - R2020a, MathWorks Nordic, [Online]. Read
+on https://se.mathworks.com/help/curvefit/sum-of-sine.html the 7th April 2020
+
+998
+
+

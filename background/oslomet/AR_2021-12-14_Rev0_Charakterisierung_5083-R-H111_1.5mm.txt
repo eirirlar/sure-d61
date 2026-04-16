@@ -1,0 +1,91 @@
+Charakterisierung von
+HA5083-R-H111 (1.5 mm)
+
+Holger Aretz, Speira R&D Bonn
+2021-12-14 | Revision 0
+
+INTERNAL
+
+Haftungsausschluss / Disclaimer
+HAFTUNGSAUSSCHLUSS
+
+DISCLAIMER
+
+Die in diesem Datenblatt angegebenen Werte sind
+Durchschnittswerte. Sie resultieren aus
+Laboruntersuchungen an typischen Materialien. Die Werte
+dienen ausschließlich der Information über typische
+Eigenschaften des Produkts. Wir behalten uns
+Änderungen des Produkts vor. Alle Angaben erfolgen
+ohne Gewähr. Die Eigenschaften der von Speira GmbH zu
+liefernden Produkte richten sich ausschließlich nach den
+mit dem Kunden getroffenen Vereinbarungen im
+jeweiligen Liefervertrag.
+
+All values contained in this data sheet are to be
+considered as average values as shown in laboratory
+analysis performed on typical material. The values are
+only meant as information on typical properties of the
+product. We reserve the right to change the product's
+properties. No responsibility nor warranty is taken for the
+correctness of the data and information contained in this
+data sheet. The particular properties of any product to be
+delivered by Speira GmbH are to be agreed upon with the
+customer individually in the respective supply agreement.
+
+2
+
+1-achsige Zugversuche
+Gemessen nach DIN EN ISO 6892-1 / ISO 10113 / ISO 10275
+• Zugversuch in 0°, 45° und 90° zur Walzrichtung (Mittelwerte aus jeweils 3 Wiederholungen):
+
+• L/D/Q bedeuten Längs/Diagonal/Quer zur Walzrichtung.
+• Fließkurve kann nur bis zur Gleichmaßdehnung bestimmt werden.
+
+2021-1333
+
+3
+
+Messdaten Bulgetest-Fließkurve
+3 Wiederholungen / Gemessen nach DIN EN ISO 16808:2014
+
+Deutlich größere
+Dehnungen erreichbar
+als im Zugversuch
+
+2021-1333
+
+4
+
+Skalierte Bulgetest-Fließkurve
+Fit mit Extended Voce-Ansatz
+• Technisch bedingt ist der Fließbeginn im Bulge-Test
+nicht genau bestimmbar.
+• Deshalb wird die Bulgetest-Fließkurve auf die
+Fließkurve aus dem 0°-Zugversuch skaliert.
+• Das Ergebnis ist im Prinzip eine 0°-Zugversuchsfließkurve, welche um die Bulgetest-Daten jenseits der
+Gleichmaßdehnung erweitert wurde.
+• Der Extended Voce-Ansatz wurde verwendet, um diese
+Daten zu beschreiben:
+𝑘𝑓 𝜑 = 𝐴 + (𝐵 + 𝐶 ∙ 𝜑) ∙ (1 − exp(−𝐷/𝐵 ∙ 𝜑))
+
+• Im Bild rechts ist der Funktionsverlauf dargestellt,
+ebenso die Ansatz-Koeffizienten.
+
+5
+
+Grenzformänderungskurve (Forming Limit Curve, FLC)
+Gemessen nach ISO 12004-2:2009
+• Ermittelt mit Nakajima-Test.
+• In 0° zur Walzrichtung.
+• 3 Wiederholungen je Punkt.
+• Fit mit Ansatzfunktion nach Hotz & Timm (2008).
+
+Mittelwerte der
+Messwerte
+
+2021-1333
+
+6
+
+
