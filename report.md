@@ -18,7 +18,13 @@ Floating photovoltaic (FPV) systems enable solar electricity generation without 
 
 Sunlit Sea develops an FPV system based on an integrated floating photovoltaic unit, where the photovoltaic panel and the floating structure form a combined structural system. See Figure 1-1 This concept differs from conventional floating PV systems where panels are mounted on independent float elements. The integrated approach reduces the number of components, simplifies installation, and enables improved mechanical robustness by distributing loads through a unified structure.
 
+![Figure 1-1. First generation of Sunlit Seas aluminum float, the floatation device of the FPV.](images/fpv_gen1_float.png)
+
 At the same time, this integration introduces stronger coupling between mechanical, thermal and electrical behaviour. Design decisions in one domain (e.g. float geometry or material selection) directly influence performance in other domains (e.g. panel temperature, structural stresses, or water ingress risk). This creates a need for coordinated engineering supported by modelling and testing.
+
+![Figure 1-2. Assembly diagram of the gen1 Sunlit FPV unit showing the glass/PET solar panel, polystyrene cup infill, butyl/silicone edge sealant, 2-component silicone potting, and two pressed aluminium float halves bonded together with air inside forming the bottom plate and float system. Brackets on the float lip constitute the connect system. Note the absence of a separate solar panel frame.](images/fpv_gen1_assembly.png)
+
+![Figure 1-3. Rendered visualisation of the Sunlit Sea gen2 floating PV array deployed on still water, showing the modular matrix of integrated FPV units and mooring buoy.](images/gen2_matrix_installed_rendered_still_water.png)
 
 ## 1.2 Objectives and tasks of WP6 and Deliverable D6.1
 
@@ -29,8 +35,8 @@ Two objectives from the SuRE Description of Work are particularly relevant:
 - O6.2.1 Identify and optimise the next-generation floater prototype
 
 These objectives should be interpreted in the context of the entire integrated floating PV unit, not only the aluminium components. The floater concept includes the photovoltaic panel, float structure, interconnection elements and supporting structural components.
-Deliverable D6.1 – Sunlit model chain documents the modelling framework and workflow used to support this development process. In particular, it addresses the requirement:
-“Data format and inter-model transfer specifications for the modelling chain.”
+Deliverable D6.1 – Sunlit model chain documents the modelling framework and workflow used to support this development process. In particular, it addresses the requirement: “Data format and inter-model transfer specifications for the modelling chain.”
+
 The work described in this deliverable relates primarily to:
 
 - Task 6.1: FEM model development for pressing of aluminium
@@ -39,14 +45,23 @@ The work described in this deliverable relates primarily to:
 ## 1.3 Scope of modelling and testing covered in this report
 
 This report describes the modelling framework used in the engineering development of the Sunlit floater concept. Particular emphasis is placed on:
-Modelling of aluminium float manufacturing
+
+**Modelling of aluminium float manufacturing**
+
 This includes simulation of forming processes used to produce the float structure, evaluation of manufacturability limits, and analysis of how geometric parameters influence material usage, structural behaviour and production feasibility.
-Integration of simulation and testing activities
+
+**Integration of simulation and testing activities**
+
 Numerical models are used to explore design variations and identify promising concepts, while physical testing is used to validate model predictions and characterise real-world behaviour. The interaction between these two activities forms the basis of the development cycle.
-Definition of modelling parameters and outputs
+
+**Definition of modelling parameters and outputs**
+
 The modelling work relies on a structured definition of input parameters (e.g. geometry, material properties, environmental conditions) and output metrics (e.g. stress, temperature, deformation, cost indicators). This enables consistent comparison between different design variants.
-Data structures connecting different modelling domains
+
+**Data structures connecting different modelling domains**
+
 Different models (e.g. manufacturing, mechanical, thermal) operate on shared or linked parameters. The report therefore describes how data is structured and transferred between models to ensure consistency and traceability across the development process.
+
 The report does not attempt to optimise the full system simultaneously. Instead, it describes the engineering workflow used to investigate specific design domains and progressively improve the system through iterative development.
 
 # 2 Sunlit Floating PV System Architecture
@@ -54,35 +69,65 @@ The report does not attempt to optimise the full system simultaneously. Instead,
 ## 2.1 Overview of the Sunlit integrated FPV unit
 
 The Sunlit floating photovoltaic (FPV) system consists of modular floating units, where an off-the-shelf photovoltaic panel is integrated with surrounding and supporting structural components to form a floating solar unit. Multiple such units are mechanically interconnected to form a floating PV array.
+
 Each unit acts both as an energy-generating component and as part of the structural system. Mechanical loads from waves, wind, handling and array interaction are therefore transferred through a set of coupled interfaces between PV components, structural components, and interconnection elements.
 The system architecture is illustrated in Figure 2-1. The diagram should be interpreted as an interface diagram, not a simple component hierarchy. The double arrows indicate interfaces between components. These interfaces are critical because they govern:
+
 - mechanical load transfer
 - electrical functionality
 - thermal coupling
 - sealing and water ingress behaviour
 - manufacturability and assembly
 - long-term durability
+- 
 The architecture therefore defines both the components and the interaction mechanisms that must be addressed in modelling and design.
 
 ![Figure 2-1. Conceptual representation of the Sunlit integrated FPV unit and its main component relationships.](figures/fig_2-1_system_architecture.png)
 
+![Figure 2-2. Layout of gen1 Sunlit FPV units in a 25 kWp matrix configuration with mooring system, illustrating how the unit form factor determines array layout and mooring arrangement.](images/fpv_matrix_and_mooring_system_for_25kwp.png)
+
 ## 2.2 Main system components
 
-The floating PV unit is described through the following main component groups: PV panel, FloatStructure, Infill, Bottom, Grounding, Hinges and Connectors. These are functional elements of an integrated system. Depending on design choices, some components may be physically merged or realised differently, but the functional distinction remains important for structuring the modelling and development work.
+The floating PV unit is described through the following main component groups:
+
+- PV panel, 
+- FloatStructure, 
+- Infill, 
+- Bottom, 
+- Grounding, 
+- Hinges and 
+- Connectors. 
+
+These are functional elements of an integrated system. Depending on design choices, some components may be physically merged or realised differently, but the functional distinction remains important for structuring the modelling and development work.
 
 ### 2.2.1 PV panel
 
-The PV panel is based on commercially available, off-the-shelf solar modules. Rather than being fixed, the PV panel is treated as a design parameter within a defined market space. Several candidate modules with similar external dimensions are currently being evaluated. A commonly available format is approximately 2384 mm × 1303 mm, used by multiple manufacturers including Risen Energy (RSM132 series), Canadian Solar (TOPBiHiKu7), Haitai Solar (HTM series), Yingli Solar (YLM 3.0PLUS) and Trina Solar (TSM-DEG21 series). In addition, alternative formats are considered, including square modules of approximately 1770 mm × 1770 mm.
+The PV panel is based on commercially available, off-the-shelf solar modules. Rather than being fixed, the PV panel is treated as a design parameter within a defined market space. Several candidate modules with similar external dimensions are currently being evaluated. A commonly available format is approximately 2384 mm × 1303 mm, used by multiple manufacturers including 
+
+- Risen Energy (RSM132 series), 
+- Canadian Solar (TOPBiHiKu7), 
+- Haitai Solar (HTM series), 
+- Yingli Solar (YLM 3.0PLUS) and 
+- Trina Solar (TSM-DEG21 series). 
+
+In addition, the alternative format established in gen 1 are considered, 1770 mm × 1770 mm.
+
 The PV panel consists of the frame, glass, junction box(es), cables and MC4 connectors. The choice of PV module geometry has system-level implications including buoyancy and required float volume, total system weight and centre of gravity, manufacturability (tool sizes, forming limits), logistics and handling, and array layout and packing density.
+
 In addition to geometry, module construction is evaluated. Glass–glass modules typically offer better durability and moisture resistance but higher weight, while glass–polymer backsheet modules are lighter and cheaper but may require additional protection measures. In the Sunlit concept, the PV panel is structurally integrated into the floating unit, creating strong coupling between module choice and structural behaviour, thermal performance, sealing and ingress risk, and interaction with infill, bottom and FloatStructure. The PV panel must therefore be treated as a configurable system component rather than a fixed input.
 
 ### 2.2.2 FloatStructure
 
 The FloatStructure is the structural component that wraps around and holds together the PV panel, bottom plate and hinge system. In current design concepts it is made of polyurethane (PU), but the definition is functional rather than material-specific. The FloatStructure holds the system together, protects against water ingress, and enables operation in a marine environment. It is not the infill, not the bottom plate, and not necessarily the main buoyant volume. It does not provide standalone functionality and must be considered together with the rest of the system.
+
 The FloatStructure has several critical interfaces that drive much of the engineering complexity of the integrated design.
+
 The FloatStructure interfaces with the hinges, and one of its main functions is to ensure that forces acting on the system are absorbed primarily in the hinge section, so that the FloatStructure itself — and especially the interface between the FloatStructure and the solar panel frame — takes as little load as possible. In the current design this implies that the hinges are integrated with the FloatStructure into a single cast unit, although other options are being evaluated.
+
 The FloatStructure interfaces with the glass surface of the solar panel. This is a section with very limited contact area, and it is a part of the float where saline and dirty water will regularly collect after waves and rain before drying. Minimising water ingress at this interface is therefore critical for long-term reliability.
+
 The FloatStructure interfaces with the bottom plate. This is a part of the float that will frequently be submerged and is susceptible to marine growth, placing demands on material durability and surface properties.
+
 A further key requirement is that the FloatStructure must handle routing of cables emerging from the PV panel, either from beneath or through the frame, while maintaining sealing and structural integrity.
 
 ### 2.2.3 Infill
@@ -95,18 +140,29 @@ The bottom is the bottom plate of the floating unit, connected to the frame and 
 
 ### 2.2.5 Grounding
 
+Grounding is traditionally handled through the PV frame using dedicated holes. In the Sunlit concept, these may be covered by the FloatStructure. Alternative grounding solutions are therefore required, such as conductive pins extending through the FloatStructure or grounding connected to the bottom plate. Grounding must be treated as a dedicated subsystem, as it affects electrical safety, corrosion behaviour, and integration and accessibility.
+
 ### 2.2.6 Hinges
 
+Hinges connect two floating units and are one of the most critical components in the system due to their role in load transfer and durability. They may be implemented as polyurethane hinges, ropes with springs, or rope-based systems. In the current design concept, the hinges are integrated with the FloatStructure as a single cast PU unit. Key aspects include the connection to the FloatStructure and the behaviour under load, including fatigue, extreme loads and cyclic motion from waves. Findings from wave tank testing in the EU project Surewave showed that snapping loads occur at certain wave lengths and that maximum loads exceed what earlier bracket and hinge designs could withstand. These findings led to a reprioritisation of engineering effort from aluminium pressing optimisation to hinge and interconnection system redesign.
+
 ### 2.2.7 Connectors
+
+Connectors are part of the hinge system and define how hinges attach and lock between neighbouring units. Examples include bolts and brackets, PU rods, rope-through-hole systems, and carabiner-like mechanisms. In some concepts, connectors are integrated into the hinge; in others, they are separate. They strongly influence assembly, replaceability, load transfer and manufacturability.
+
+![Figure 2-3. FreeCAD parametric model of the gen2 P4 connector component, showing the carabiner-like locking mechanism with circular bore, snap-fit hooks and adjustment screw.](images/gen2_prototyp4_freecad_mold.png)
 
 ## 2.3 Critical interfaces in the integrated unit
 
 The system is defined not only by components, but by the interfaces between them.
 Each interface governs behaviour across multiple domains:
+
 - mechanical
 - electrical
 - thermal
+
 The following interface structure can be used for reference:
+
 - I1: Frame ↔ Glass
 - I2: Glass ↔ JBox
 - I3: JBox ↔ Infill
@@ -126,7 +182,9 @@ The following interface structure can be used for reference:
 - I17: FloatStructure ↔ Glass
 - I18: FloatStructure ↔ Grounding
 - I19: Hinges ↔ Connectors
+
 These interfaces will be referenced in later chapters when discussing:
+
 - modelling assumptions
 - failure modes
 - testing
@@ -141,6 +199,8 @@ The integrated architecture introduces several key engineering challenges. These
 ### 2.4.1 Float manufacturing feasibility
 
 Balancing manufacturability with structural performance, buoyancy, and geometric integration is a central challenge. This applies both to the Bottom and to any press-formed or otherwise shaped structural elements used as part of the Infill or supporting structure. Design choices such as panel dimensions, bottom geometry, and infill concept directly affect forming feasibility, tooling requirements, tolerances, and production scalability.
+
+![Figure 2-4. Gen1 Sunlit FPV units installed in a flowing water channel during real-conditions evaluation, illustrating the engineering challenge of structural loading and submergence under current exposure.](images/gen1_eval_flow_submerge_effect_in_real_conditions.png)
 
 ### 2.4.2 Structural load transfer between units
 
@@ -165,6 +225,7 @@ The system must be designed for efficient installation, inspection, grounding, c
 ### 2.4.7 Manufacturability and cost efficiency
 
 The design must enable scalable production with controlled cost. This includes not only material consumption, but also process complexity, number of parts, assembly effort, tooling, logistics, and compatibility with commercially available PV modules. Since the PV panel is selected from available market options rather than fixed from the outset, manufacturability and cost efficiency must be evaluated at the system level.
+
 These engineering challenges form the main background for the modelling and development activities described in the following chapters. The purpose of the modelling framework is not only to analyse individual components, but to support design choices across the coupled mechanical, thermal, electrical, and manufacturing domains that define the integrated floating PV unit.
 
 # 3 Product Development Framework and Design Domains
@@ -181,11 +242,28 @@ The chapter is structured as follows. Section 3.2 describes the Functional Desig
 
 The engineering development of the Sunlit floating PV system is guided by a Functional Design Specification (FDS). The FDS defines the requirements that the system must satisfy, organised into three tiers.
 
-Principal functions define the core purpose of the system. The system must produce electrical power (FP1) and be certified for deployment (FP2).
+Principal functions define the core purpose of the system. The system must 
 
-Constraint functions define hard requirements that the design must satisfy. These include flotation (FC1), watertightness (FC2), mechanical attachment between units (FC3), resistance to submergence under current exposure up to 3 m/s (FC4), feasibility of changing panel supplier (FC5), resistance to high wind (FC6), resistance to waves up to 1.5 Hs (FC7), cost competitiveness (FC8), and electrical grounding (FC9).
+- produce electrical power (FP1) and 
+- be certified for deployment (FP2).
 
-Secondary functions define desirable but not absolute requirements. These include walkability (FS1), fast production (FS2), and fast installation (FS3).
+Constraint functions define hard requirements that the design must satisfy. These include 
+
+- flotation (FC1), 
+- watertightness (FC2), 
+- mechanical attachment between units (FC3), 
+- resistance to submergence under current exposure up to 3 m/s (FC4), 
+- feasibility of changing panel supplier (FC5), 
+- resistance to high wind (FC6), 
+- resistance to waves up to 1.5 Hs (FC7), 
+- cost competitiveness (FC8), and 
+- electrical grounding (FC9).
+
+Secondary functions define desirable but not absolute requirements. These include 
+
+- walkability (FS1), 
+- fast production (FS2), and 
+- fast installation (FS3).
 
 The FDS ensures that all development activities remain aligned with system-level requirements. From these functions, a set of design domains is identified, as described in the following section.
 
@@ -253,6 +331,14 @@ Promising designs are selected for prototype manufacturing, which serves to veri
 
 In the Sunlit development process, prototype manufacturing is closely integrated with the parametric design system. Moulds for casting polyurethane components are designed within the same FreeCAD parametric model used for the structural design, ensuring that mould geometry remains consistent with the current design state. Moulds are initially 3D-printed to allow rapid iteration: a design change can be reflected in a new printed mould and tested within a short cycle. Casting is performed onto mock solar panels consisting of glass, a bottom plate and a frame, producing prototypes that are representative of the integrated unit. After inspection and functional testing, mould designs that prove viable are promoted to metal moulds suitable for production-representative casting. This progression from parametric model to 3D-printed mould to cast prototype to metal mould defines the prototyping track of the development cycle. Multiple prototype generations (P1–P4 and beyond) have been produced in this way, each incorporating lessons from the previous round of testing. As part of production scale-up investigations, a casting vendor was engaged and visited, providing input to mould design requirements for larger-scale manufacture.
 
+![Figure 3-2. FreeCAD parametric model of the gen2 Prototype 3 full integrated unit, showing the solar panel area, FloatStructure and cylindrical hinge connectors at the sides and corners.](images/gen2_prototype3_freecad_model.png)
+
+![Figure 3-3. FreeCAD parametric model of the gen2 Prototype 4 full integrated unit, showing the evolved FloatStructure design with updated hinge geometry relative to Prototype 3.](images/gen2_prototyp4_freecad_model.png)
+
+![Figure 3-4. Metal casting mould for the gen2 Prototype 3 FloatStructure before polyurethane casting, showing the multi-part aluminium mould assembly with hinge and connector features.](images/gen2_prototyp3_casting1.png)
+
+![Figure 3-5. Gen2 Prototype 3 FloatStructure components after polyurethane casting, showing the white PU parts assembled in the metal mould.](images/gen2_prototyp3_casting2.png)
+
 Experimental testing provides data on real-world behaviour. Testing activities include mechanical testing (tensile, fatigue, load transfer), environmental testing (UV exposure, moisture ingress), and thermal testing (temperature response under irradiation). These tests are essential for validating simulation models, identifying failure modes, and quantifying performance under realistic conditions.
 
 Simulation results are then compared with experimental results to assess model accuracy. Where discrepancies are identified, model assumptions are updated, input parameters are refined, and modelling approaches are improved. This validation process enables iterative improvement of both the design, through better-informed decisions, and the modelling framework, through increased predictive capability.
@@ -275,33 +361,62 @@ The resulting parameter and data structure forms the basis of the model chain de
 
 The float structure is a central component of the Sunlit system, providing buoyancy, contributing to structural stiffness, and representing a significant share of material cost. The manufacturing concept is therefore a key driver for technical performance and economic viability.
 The primary manufacturing objectives are:
-Maximise buoyancy per unit material
+
+**Maximise buoyancy per unit material**
+
 Increasing enclosed volume improves flotation performance while reducing material usage lowers cost.
-Ensure manufacturability using scalable forming processes
+
+**Ensure manufacturability using scalable forming processes**
+
 The design must be compatible with industrial aluminium forming techniques, particularly press-based forming.
-Maintain structural integrity
+
+**Maintain structural integrity**
+
 The resulting geometry must provide sufficient stiffness and avoid failure modes such as local buckling or fatigue-critical features.
+
 To address these objectives, the float concept investigated in this work is based on formed aluminium sheets with cup-like geometries. These geometries increase structural depth and enclosed volume while maintaining low material thickness.
+
+![Figure 4-1. Raw aluminium sheet (left) and the pressed cup-shaped product (right), illustrating the forming transformation.](images/alu_sheet_vs_pressed.jpg)
+
+![Figure 4-2. Sample cup shape showing the target geometry produced by the aluminium pressing process.](images/cup_shape.png)
 
 The geometry of the float is defined through a set of design parameters, which are varied systematically in the modelling process. The following parameters and their explored ranges are used:
 
-Cup radius (10–40 mm): the radius of a circle bounding one cup. The cup itself may be elliptical within this circle. Controls the contact area with the photovoltaic panel and influences material flow during forming.
+**Cup radius (10–40 mm):**
 
-Cup depth (5–40 mm): the vertical displacement of material during forming. Directly influences buoyancy and stiffness. Increasing depth improves enclosed volume but increases forming difficulty.
+the radius of a circle bounding one cup. The cup itself may be elliptical within this circle. Controls the contact area with the photovoltaic panel and influences material flow during forming.
 
-Cup eccentricity (0.7–1.0, ratio of ellipse y/x): allows elliptical rather than circular cup shapes as a design response to the orthotropic plastic behaviour of rolled aluminium sheet, which is described in more detail in Section 4.2. Because the sheet is most prone to thinning when strained parallel to the transverse direction and most formable along the diagonal, a circular cup loads the material asymmetrically with respect to the material's own directional preferences. By orienting the major axis of an elliptical cup in the more formable direction of the sheet, the forming process can exploit the most favourable strain-ratio directions and reduce the risk of tearing, which in turn allows deeper cups to be formed within the same sheet thickness budget and translates directly into greater buoyancy per unit material.
+**Cup depth (5–40 mm):**
 
-Cup angle (10–85°): controls the steepness of the internal cup surface. High angles produce flatter cup bottoms; low angles produce steeper walls.
+the vertical displacement of material during forming. Directly influences buoyancy and stiffness. Increasing depth improves enclosed volume but increases forming difficulty.
 
-Cup tip radius (2–32 mm, constrained to 20–80% of cup radius): the flat area at the bottom of each cup, which serves as the bonding surface between top and bottom float halves.
+**Cup eccentricity (0.7–1.0, ratio of ellipse y/x):**
 
-Cup lip radius (1 mm): the fillet radius at the transition from the flat region into the cup. Sharp transitions increase risk of tearing or thinning.
+allows elliptical rather than circular cup shapes as a design response to the orthotropic plastic behaviour of rolled aluminium sheet, which is described in more detail in Section 4.2. Because the sheet is most prone to thinning when strained parallel to the transverse direction and most formable along the diagonal, a circular cup loads the material asymmetrically with respect to the material's own directional preferences. By orienting the major axis of an elliptical cup in the more formable direction of the sheet, the forming process can exploit the most favourable strain-ratio directions and reduce the risk of tearing, which in turn allows deeper cups to be formed within the same sheet thickness budget and translates directly into greater buoyancy per unit material.
 
-Cup spacing (0–40 mm): the distance between cups, determining how much flat material remains between formed features. This is the area from which the cups draw aluminium during forming, and also where the solar panel rests.
+**Cup angle (10–85°):**
 
-Sheet thickness (0.8 mm): a key parameter affecting both structural performance and cost. Reducing thickness is desirable but increases sensitivity to forming defects and structural instability.
+controls the steepness of the internal cup surface. High angles produce flatter cup bottoms; low angles produce steeper walls.
 
-Forming pressure (4–12 MPa): the fluid pressure applied during hydroforming.
+**Cup tip radius (2–32 mm, constrained to 20–80% of cup radius):**
+
+the flat area at the bottom of each cup, which serves as the bonding surface between top and bottom float halves.
+
+**Cup lip radius (1 mm):**
+
+the fillet radius at the transition from the flat region into the cup. Sharp transitions increase risk of tearing or thinning.
+
+**Cup spacing (0–40 mm):**
+
+the distance between cups, determining how much flat material remains between formed features. This is the area from which the cups draw aluminium during forming, and also where the solar panel rests.
+
+**Sheet thickness (0.8 mm):**
+
+a key parameter affecting both structural performance and cost. Reducing thickness is desirable but increases sensitivity to forming defects and structural instability.
+
+**Forming pressure (4–12 MPa):**
+
+the fluid pressure applied during hydroforming.
 
 These nine parameters define a multi-dimensional design space that must be explored to identify feasible configurations. The parameter ranges are bounded by physical constraints, manufacturing limits and prior design experience from the first-generation product.
 
@@ -315,7 +430,17 @@ To evaluate manufacturability and guide design decisions, a finite element model
 
 The forming process is modelled as a nonlinear deformation problem using LS-DYNA, where the aluminium sheet undergoes large plastic deformation and contact interactions between tool and sheet are explicitly represented. The first-generation Sunlit product was manufactured using a conventional punch/die press, in which a rigid punch forces the sheet into a matching die cavity. For the current generation, hydroforming has been adopted as the target manufacturing route: an incompressible fluid applies pressure to one side of the sheet, pressing it into a cup-shaped mould without a matching rigid punch. This change was driven by tooling flexibility and cost considerations — a hydroforming mould is considerably simpler and cheaper to produce than a matched punch/die set, which is important for the iterative design process described in Chapter 3. The simulation models the hydroforming process accordingly.
 
+![Figure 4-3. Step file representation of the punch and die tooling setup used in the first-generation conventional press forming approach; an early iteration of the pressing FEM simulation setup illustrating the iterative development toward the final hydroforming simulation.](images/punch_and_die.png)
+
+During the development of the forming simulation, a gripper ring was evaluated as a means of controlling material flow and reducing thinning at the cup walls. Figures 4-4 and 4-5 show the meshed punch and die assembly with and without the gripper ring. The gripper approach was subsequently abandoned in favour of fluid hydroforming, which provides more uniform pressure distribution without requiring a matched gripper geometry.
+
+![Figure 4-4. Meshed punch and die assembly with gripper ring, tested as a means of controlling metal flow and reducing thinning during forming.](images/punch_die_mesh_with_gripper.png)
+
+![Figure 4-5. Meshed punch and die assembly without gripper ring. This configuration was adopted as the basis for the hydroforming simulation framework.](images/punch_die_mesh_without_gripper.png)
+
 The aluminium alloy used in the float design is marine-grade AA5083-H111, supplied as cold-rolled sheet. AA5083 combines good formability, weldability and corrosion resistance with a high thermal conductivity that is directly exploited by the floater architecture, where the metal body acts as a thermal bridge between the photovoltaic panel and the surrounding water. In the H111 temper the alloy is annealed and then slightly strain-hardened by cold working. Sheet thicknesses of 1.5 mm have been used in earlier product generations and 0.8 mm is the current design target, the latter chosen to reduce material consumption at the cost of a tighter manufacturing window. The cold rolling process introduces a pronounced orthotropic anisotropy in the plastic behaviour of the sheet, expressed as direction-dependent yield stresses and plastic strain ratios relative to the rolling axis. The constitutive model used in the forming simulations must explicitly capture this anisotropy if forming predictions are to be meaningful at the accuracy level required for iterative boundary search in a multi-parameter design space.
+
+![Figure 4-6. Chemical composition of AA5083-H111 aluminium alloy used as the float sheet material.](images/chemical_composition_alu5083h111.png)
 
 The constitutive model adopted in the framework is the non-quadratic anisotropic Yld2003 yield function, implemented in LS-DYNA through the *MAT_WTM_STM (Strong Texture Model) material keyword. Yld2003 generalises the isotropic Hershey–Hosford yield function by splitting it into two additive terms, each applied to a linearly transformed stress tensor, producing a total of eight anisotropy coefficients that are calibrated against experimentally measured directional plasticity data. The yield function is paired with a Voce-type strain hardening law, in which the flow stress increases with accumulated plastic strain towards a saturation level through an exponential functional form. Together, these two components constitute a physically rigorous and widely used model for the plastic behaviour of rolled aluminium sheet.
 
@@ -327,9 +452,11 @@ The simulations provide quantitative outputs including strain and stress distrib
 
 The FEM framework enables rapid evaluation of many design variants, identification of infeasible regions of the design space, and informed selection of candidate geometries for further investigation.
 
+![Figure 4-7. Finite element mesh of the punch and die assembly used in the forming simulations.](images/meshed_punchdie.png)
+
 ## 4.3 Aluminium pressing simulation pipeline
 
-To efficiently explore the design space, the FEM modelling is embedded within an automated simulation pipeline that connects geometry generation, simulation execution and result evaluation. The pipeline is implemented in Python and consists of the following steps, illustrated in Figure 4-1:
+To efficiently explore the design space, the FEM modelling is embedded within an automated simulation pipeline that connects geometry generation, simulation execution and result evaluation. The pipeline is implemented in Python and consists of the following steps, illustrated in Figure 4-8:
 
 Parametric geometry generation: a CAD model is generated programmatically using the FreeCAD Python API. The geometry is defined in terms of normalised parameter values (0 to 1), which are mapped to the physical parameter ranges described in Section 4.1. This enables automated generation of arbitrary design variants from a single parametric definition.
 
@@ -345,7 +472,7 @@ Storage and traceability: input parameters and outputs are stored in a structure
 
 The CSV dataset stores one row per simulation, keyed by input_hash — a hash of the concatenated input parameter values that serves as a unique identifier. The nine input fields are cup_rad, cup_lip, cup_depth, cup_angle, cup_y_to_x, cup_tip, space, alu_thick and pressure, corresponding one-to-one with the design parameters defined in Section 4.1. The three output fields are time_to_crack (the key manufacturability metric, capturing how far through the forming process the simulation progresses before material failure), lip_mean (a quality metric averaged over the cup lip region) and edge_mean (a quality metric averaged over the cup edge region). Two versions of the dataset are maintained: collect_full.csv contains all executed simulations (approximately 3,900 rows at the time of writing), while collect.csv contains the curated subset along the Pareto front (approximately 1,300 rows) retained after data culling. Both files share the same schema, so the machine-learning workflows and other downstream consumers can operate on either without modification.
 
-![Figure 4-1. Aluminium pressing simulation pipeline showing the automated flow from parametric geometry generation through FEM simulation, evaluation and data storage.](figures/fig_4-1_pressing_pipeline.png)
+![Figure 4-8. Aluminium pressing simulation pipeline showing the automated flow from parametric geometry generation through FEM simulation, evaluation and data storage.](figures/fig_4-1_pressing_pipeline.png)
 
 The pipeline is fully automated, allowing batch simulation of design variants and systematic exploration of the parameter space. Over the course of the project, approximately 3,900 forming simulations have been executed using this pipeline.
 
@@ -377,6 +504,10 @@ It should be noted that these process-dependent parameters were calibrated again
 
 An early application of the calibrated model was a two-parameter study of cup depth against drawbead distance, in which a simple iterative boundary-search algorithm was used to locate the curve separating successful from unsuccessful forming operations in a two-dimensional parameter space. Approximately thirty simulations were sufficient to trace the feasibility boundary across a practical range of drawbead distances, and all fracture instances occurred in the same characteristic orientation — perpendicular to the transverse direction, approximately 50 mm from the cup centre — consistent with r90 being the lowest Lankford coefficient of the material. This two-parameter study served as both a validation exercise and a methodological precursor: it established the viability of the boundary-search algorithm later extended to the nine-parameter design space of Section 4.4, and it demonstrated that the calibrated model reproduces the directional bias in fracture location expected from the measured material anisotropy.
 
+![Figure 4-9. Simulated forming failure example 1, showing material ripping/tearing during the pressing simulation.](images/punchdie_rip1.png)
+
+![Figure 4-10. Simulated forming failure example 2, showing a second characteristic tearing mode during the pressing simulation.](images/punchdie_rip2.png)
+
 In addition to simulation validation, a physical proof-of-concept for the hydroforming process was conducted. A pressing tool was prototyped by 3D-printing a mould form and casting it in epoxy. A 0.8 mm aluminium sheet was secured to the mould with sealed edges, and a water injection system was used to apply forming pressure. This demonstrated that the hydroforming approach is practically feasible and provided the basis for a specification issued to external manufacturing vendors.
 
 ## 4.6 Integration with the broader modelling framework
@@ -398,6 +529,10 @@ Beyond manufacturing feasibility, the development of the Sunlit floating PV syst
 ### 5.2.1 Objective and relevance
 
 The thermal behaviour of the integrated floating PV system has a direct impact on energy yield (PV efficiency decreases with increasing temperature), material durability (particularly for polymers and sealants), and reliability (elevated temperatures accelerate degradation mechanisms). In the Sunlit concept, thermal behaviour is influenced by the close coupling between the photovoltaic module, float structure and surrounding environment (water, air, solar radiation). Heat transfer modelling is therefore required to understand and control temperature behaviour under realistic operating conditions.
+
+In the gen1 product, heat from the photovoltaic panel dissipates passively downward through the polystyrene infill and the pressed aluminium bottom plate into the surrounding water, as illustrated in Figure 5-1. This thermal path — exploiting the high thermal conductivity of aluminium as a bridge between the panel and the water — is a key design feature of the integrated float concept and motivates the choice of AA5083-H111 as the float material.
+
+![Figure 5-1. Passive heat dissipation paths in the gen1 Sunlit FPV unit, showing how heat flows from the photovoltaic panel through the infill and the pressed aluminium sandwich bottom into the surrounding water.](images/gen1_cooling_of_pv_from_heat_transfer_to_water.png)
 
 ### 5.2.2 Modelling approach
 
@@ -521,6 +656,16 @@ On the Sunlit side, the export procedure is straightforward: FreeCAD's STEP expo
 [TODO for IFE: specify the STEP version (AP214 or AP242) that SiSim/PATRAN requires; confirm which geometric features are removed or simplified before meshing (known: screw holes removed; confirm whether fillets, cable routing features or other details are also suppressed); confirm how material properties (elastic modulus, Poisson ratio, density) are communicated — currently understood to be assigned manually by IFE from agreed values, but the handover mechanism is not formally defined.]
 
 The current data transfer is manual: Sunlit exports a STEP file and sends it to IFE. No automated link between the FreeCAD model and the IFE workflow exists at this stage. Automating this exchange — so that a design change in FreeCAD triggers a new structural simulation — is targeted for D6.2.
+
+Figures 6-2 through 6-5 illustrate the FreeCAD-to-STEP workflow: the parametric model with its design-controlling properties, and the resulting STEP geometry viewed from three angles.
+
+![Figure 6-2. FreeCAD parametric model showing the design properties and parameters that control the float geometry.](images/freecad_to_step_1.png)
+
+![Figure 6-3. STEP file exported from FreeCAD — view 1.](images/freecad_to_step_2.png)
+
+![Figure 6-4. STEP file exported from FreeCAD — view 2.](images/freecad_to_step_3.png)
+
+![Figure 6-5. STEP file exported from FreeCAD — view 3.](images/freecad_to_step_4.png)
 
 Interface I-3: Pressing FEM thickness distribution to structural FEM
 
