@@ -8,7 +8,9 @@
       "Read(//tmp/**)",
       "Bash(mkdir -p /tmp/doc_work2)",
       "Bash(unzip -q \"/c/Users/eirirlar/Documents/sunlitsea/sure/WP6/background/surewave/lca/SUREWAVE_D8.2_Report on societal needs and engagement_V2.docx\")",
-      "Bash(pandoc:*)"
+      "Bash(pandoc:*)",
+      "Bash(mkdir -p images)",
+      "Bash(find background/oslomet -type f \\\\\\( -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.jpeg\" \\\\\\) -exec mv {} images/ \\\\;)"
     ]
   }
 }
