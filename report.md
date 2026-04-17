@@ -138,13 +138,17 @@ The infill is located underneath the glass and inside the PV frame. It occupies 
 
 ![Figure 2-3. FreeCAD model of the gen2 Prototype 1 unit with glass removed, showing the exposed pressed aluminium bottom plate functioning as the infill through air pockets formed between the pressed cups.](images/gen2_prototype1_freecad_fpv_without_glass.png)
 
+An alternative infill concept uses multiple interlocking PU foam pieces designed to puzzle-fit around the junction boxes and cables beneath the glass, eliminating air cavities that would otherwise remain around these components. Because the pieces meet each other and the surrounding surfaces at irregular interfaces, this concept requires potting compound or adhesive along the joints and at the glass and bottom interfaces to ensure proper bonding (Figure 2-4).
+
+![Figure 2-4. FreeCAD model of the gen2 puzzle-fit PU foam infill concept, showing multiple interlocking foam pieces designed to fit around the junction boxes and cables beneath the glass without leaving air cavities.](images/gen2_freecad_infill_split_PUfoam.png)
+
 ### 2.2.4 Bottom
 
 The bottom is the bottom plate of the floating unit, connected to the frame and the infill. It can take several forms: a flat plate, a press-formed aluminium sheet with cup structures, or a shaped volume extending downward for buoyancy (the gen1 design uses press-formed aluminium sheets for the bottom; see Figure 1-2). In some designs, the bottom and infill may be the same physical object. The bottom plays a key role in structural stiffness, buoyancy and volume distribution, manufacturability, and cable routing (it must allow cable passage if needed). Buoyancy simulations (Section 5.3.3) have indicated that the prototype floater sits deep in the water, with approximately half the bottom plate submerged under self-weight, which has implications for the design of the bottom geometry and overall system buoyancy. Figures 2-4 and 2-5 illustrate the two principal bottom plate variants: a flat unpressed sheet and a press-formed sheet with cup structures.
 
-![Figure 2-4. FreeCAD model of the gen2 flat bottom plate design, showing the unpressed sheet variant.](images/gen2_freecad_bottom_flat.png)
+![Figure 2-5. FreeCAD model of the gen2 flat bottom plate design, showing the unpressed sheet variant.](images/gen2_freecad_bottom_flat.png)
 
-![Figure 2-5. FreeCAD model of the gen2 pressed bottom plate design, showing the cup-structured hydroformed aluminium sheet variant.](images/gen2_freecad_bottom_pressed.png)
+![Figure 2-6. FreeCAD model of the gen2 pressed bottom plate design, showing the cup-structured hydroformed aluminium sheet variant.](images/gen2_freecad_bottom_pressed.png)
 
 ### 2.2.5 Grounding
 
@@ -160,13 +164,13 @@ Findings from wave tank testing in the EU project Surewave showed that snapping 
 
 Connectors are part of the hinge system and define how hinges attach and lock between neighbouring units. Examples include bolts and brackets, PU rods, rope-through-hole systems, and carabiner-like mechanisms. In some concepts, connectors are integrated into the hinge; in others, they are separate. They strongly influence assembly, replaceability, load transfer and manufacturability. Figures 2-3 and 2-4 show FreeCAD side-views of the gen2 Prototype 4 left and right hinges, illustrating how the two opposing hinge halves are designed to be joined by a connecting rod acting as the connector component.
 
-![Figure 2-6. FreeCAD side-view of the gen2 Prototype 4 left hinge, showing the hinge geometry and the interface for the connecting rod that joins it to the right-hand counterpart.](images/gen2_prototyp4_freecad_hinge_left.png)
+![Figure 2-7. FreeCAD side-view of the gen2 Prototype 4 left hinge, showing the hinge geometry and the interface for the connecting rod that joins it to the right-hand counterpart.](images/gen2_prototyp4_freecad_hinge_left.png)
 
-![Figure 2-7. FreeCAD side-view of the gen2 Prototype 4 right hinge, showing the mirror-image geometry and the interface for the connecting rod connector.](images/gen2_prototyp4_freecad_hinge_right.png)
+![Figure 2-8. FreeCAD side-view of the gen2 Prototype 4 right hinge, showing the mirror-image geometry and the interface for the connecting rod connector.](images/gen2_prototyp4_freecad_hinge_right.png)
 
-A connector concept under investigation uses buoyant polyurethane foam rods designed to run along all four sides of the unit. In this concept the connector elements serve a dual function: structural interconnection between neighbouring units and a contribution to overall system buoyancy. Figure 2-8 shows the FreeCAD model of this concept for the gen2 Prototype 4.
+A connector concept under investigation uses buoyant polyurethane foam rods designed to run along all four sides of the unit. In this concept the connector elements serve a dual function: structural interconnection between neighbouring units and a contribution to overall system buoyancy. Figure 2-9 shows the FreeCAD model of this concept for the gen2 Prototype 4.
 
-![Figure 2-8. FreeCAD model of the gen2 Prototype 4 buoyant connector concept, showing polyurethane foam rods running along all four sides of the unit and serving as both structural connectors and buoyancy elements.](images/gen2_prototyp4_freecad_connector_buoyant_PUfoam_rods_4sides.png)
+![Figure 2-9. FreeCAD model of the gen2 Prototype 4 buoyant connector concept, showing polyurethane foam rods running along all four sides of the unit and serving as both structural connectors and buoyancy elements.](images/gen2_prototyp4_freecad_connector_buoyant_PUfoam_rods_4sides.png)
 
 ## 2.3 Critical interfaces in the integrated unit
 
@@ -218,9 +222,9 @@ Balancing manufacturability with structural performance, buoyancy, and geometric
 
 ### 2.4.2 Structural load transfer between units
 
-Loads from waves, handling, and array interaction must be transferred through interconnected units without overstressing components or introducing fatigue-critical regions (Figure 2-9 shows gen1 FPV units during real-conditions evaluation in a flowing water channel, illustrating the challenge of load transfer and resistance to submergence under current exposure — FDS constraint FC4). This is particularly important for the Hinges, Connectors, float-structure, and their interfaces to the PV panel and Bottom. Since the system is modular, local connection design has major influence on global structural reliability.
+Loads from waves, handling, and array interaction must be transferred through interconnected units without overstressing components or introducing fatigue-critical regions (Figure 2-10 shows gen1 FPV units during real-conditions evaluation in a flowing water channel, illustrating the challenge of load transfer and resistance to submergence under current exposure — FDS constraint FC4). This is particularly important for the Hinges, Connectors, float-structure, and their interfaces to the PV panel and Bottom. Since the system is modular, local connection design has major influence on global structural reliability.
 
-![Figure 2-9. Gen1 Sunlit FPV units installed in a flowing water channel during real-conditions evaluation, illustrating the engineering challenge of structural loading and submergence under current exposure.](images/gen1_eval_flow_submerge_effect_in_real_conditions.png)
+![Figure 2-10. Gen1 Sunlit FPV units installed in a flowing water channel during real-conditions evaluation, illustrating the engineering challenge of structural loading and submergence under current exposure.](images/gen1_eval_flow_submerge_effect_in_real_conditions.png)
 
 ### 2.4.3 Environmental exposure of materials
 
