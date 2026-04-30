@@ -24,7 +24,7 @@ At the same time, this integration introduces stronger coupling between mechanic
 
 The first-generation Sunlit product realised this integration with a glass/PET panel bonded to two pressed aluminium float halves enclosing polystyrene infill, with brackets on the float lip providing interconnection (Figure 1-2).
 
-![Figure 1-2. Assembly diagram of the gen1 Sunlit FPV unit showing the glass/PET solar panel, polystyrene cup infill, butyl/silicone edge sealant, 2-component silicone potting, and two pressed aluminium float halves bonded together with air inside forming the bottom plate and float system. Brackets on the float lip constitute the connect system. Note the absence of a separate solar panel frame.](images/fpv_gen1_assembly.png)
+![Figure 1-2. Assembly diagram of the Gen 1 Sunlit FPV unit showing the glass/PET solar panel, polystyrene cup infill, butyl/silicone edge sealant, 2-component silicone potting, and two pressed aluminium float halves bonded together with air inside forming the bottom plate and float system. Brackets on the float lip constitute the connect system. Note the absence of a separate solar panel frame.](images/fpv_gen1_assembly.png)
 
 The SuRE project targets a transition from this first-generation design to a next-generation product with improved performance, manufacturability, and structural integration. This report documents the modelling framework and development process that supports this progression — from manufacturing simulation and material characterisation to structural, thermal, and economic modelling — as Sunlit works toward the gen2 design. The target gen2 deployment — a modular array of interconnected integrated units on still water — is illustrated in Figure 1-3.
 

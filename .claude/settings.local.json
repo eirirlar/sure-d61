@@ -10,7 +10,9 @@
       "Bash(unzip -q \"/c/Users/eirirlar/Documents/sunlitsea/sure/WP6/background/surewave/lca/SUREWAVE_D8.2_Report on societal needs and engagement_V2.docx\")",
       "Bash(pandoc:*)",
       "Bash(mkdir -p images)",
-      "Bash(find background/oslomet -type f \\\\\\( -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.jpeg\" \\\\\\) -exec mv {} images/ \\\\;)"
+      "Bash(find background/oslomet -type f \\\\\\( -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.jpeg\" \\\\\\) -exec mv {} images/ \\\\;)",
+      "Bash(unzip -p \"D6.1 Sunlit model chain_v6_comments.docx\" word/comments.xml)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }
