@@ -1,12 +1,12 @@
 ﻿# Executive Summary
 
-This deliverable (D6.1) documents the modelling framework and simulation workflow developed in Work Package 6 (WP6) of the SuRE project to support the engineering development of the Sunlit Sea floating photovoltaic system. The work addresses the requirement for data-format and inter-model data-transfer specifications for the modelling chain as defined in the Description of Work.
+This deliverable (D6.1) documents the modelling framework and simulation workflow developed in Work Package 6 (WP6) of the SuRE project to support the engineering development of the Sunlit Sea floating photovoltaic (FPV) system. The work addresses the requirements for data-format and inter-model data-transfer specifications for the modelling chain as defined in the Description of Work.
 
-Sunlit Sea is developing an integrated floating PV unit in which the photovoltaic panel and float structure form a combined mechanical system. This integration creates strong coupling between manufacturing, structural, thermal and electrical domains, and drives the need for coordinated, model-supported engineering. WP6 provides the modelling infrastructure for this development.
+Sunlit Sea is developing an integrated FPV unit in which the PV panel and float-structure form a combined mechanical system. This integration creates strong coupling between manufacturing, structural, thermal and electrical domains, and drives the need for coordinated, model-supported engineering. WP6 provides the modelling infrastructure for this development.
 
 The core of the work is an automated simulation pipeline for aluminium float pressing, implemented in Python using FreeCAD for parametric geometry generation, LS-DYNA for finite element forming simulations, and machine learning (TensorFlow/Keras) for guided design space exploration. Approximately 3,900 forming simulations have been executed, curated into approximately 1,300 high-quality data points characterising the feasibility boundary of the design space.
 
-Beyond manufacturing, the deliverable covers thermal modelling using CFD, which identified a thermal over-temperature risk in the polyurethane hinge material under high-irradiance conditions and directly led to a material colour change from dark blue to off-white. Structural finite element modelling of the prototype floater, performed by IFE using a STEP file exported from Sunlit Sea’s parametric FreeCAD model, demonstrated the CAD-to-FEM data flow and revealed that aluminium stresses approach yield under moderate loading and that prototype buoyancy is insufficient for adequate freeboard. Experimental activities include tensile testing of PU grades, accelerated UV exposure testing, and ongoing adhesion testing of PU-glass and PU-aluminium interfaces on prototype samples.
+Beyond manufacturing, the deliverable covers thermal modelling using computational fluid dynamics (CFD), which identified a thermal over-temperature risk in the polyurethane (PU) hinge material under high-irradiance conditions and directly led to a material colour change from dark blue to off-white. Structural finite element modelling of the prototype floater, performed by IFE using a STEP file exported from Sunlit Sea’s parametric FreeCAD model, demonstrated the CAD-to-FEM data flow and revealed that aluminium stresses approach yield under moderate loading and that prototype buoyancy is insufficient for adequate freeboard. Experimental activities include tensile testing of PU grades, accelerated UV exposure testing, and ongoing adhesion testing of PU-glass and PU-aluminium interfaces on prototype samples.
 
 The deliverable defines a conceptual model chain linking design parameters through domain-specific models to performance metrics, with shared parameter definitions and simulation traceability across domains. Full automation of data transfer between models remains a target for D6.2. The deviation from the originally envisioned integrated model chain is documented and justified in Chapter 9.
 
@@ -16,40 +16,39 @@ The deliverable defines a conceptual model chain linking design parameters throu
 
 Floating photovoltaic (FPV) systems enable solar electricity generation without occupying land area and are therefore an important technology for expanding renewable energy production. Within the SuRE project, several European FPV technologies are being further developed to improve sustainability, reliability and cost efficiency.
 
-Sunlit Sea develops an FPV system based on an integrated floating photovoltaic unit, where the photovoltaic panel and the floating structure form a combined structural system. See Figure 1-1 This concept differs from conventional floating PV systems where panels are mounted on independent float elements. The integrated approach reduces the number of components, simplifies installation, and enables improved mechanical robustness by distributing loads through a unified structure.
+Sunlit Sea develops an FPV system based on an integrated FPV unit, where the PV panel and the floating structure form a combined structural system (Figure 1-1). This concept differs from conventional FPV systems where panels are mounted on independent float elements. The integrated approach reduces the number of components, simplifies installation, and enables improved mechanical robustness by distributing loads through a unified structure.
 
-![Figure 1-1. First generation of Sunlit Seas aluminum float, the floatation device of the FPV.](images/fpv_gen1_float.png)
+![Figure 1-1. First generation of Sunlit Seas aluminum float, the floatation device of the FPV unit.](images/fpv_gen1_float.png)
 
 At the same time, this integration introduces stronger coupling between mechanical, thermal and electrical behaviour. Design decisions in one domain (e.g. float geometry or material selection) directly influence performance in other domains (e.g. panel temperature, structural stresses, or water ingress risk). This creates a need for coordinated engineering supported by modelling and testing.
 
-The first-generation Sunlit product realised this integration with a glass/PET panel bonded to two pressed aluminium float halves enclosing polystyrene infill, with brackets on the float lip providing interconnection (Figure 1-2).
+The first-generation (Gen 1) Sunlit product (Figure 1-2) realised this integration with a glass/PET PV module bonded to two pressed aluminium float halves using a butyl/silicone edge sealant. The space between the module and floating unit is filled with two-component silicone potting for minimised water ingress. The polystyrene cup infill provides additional structural support and contributes to the buoyancy of the system. Brackets on the float lip provide interconnection with neighbouring units.
 
-![Figure 1-2. Assembly diagram of the Gen 1 Sunlit FPV unit showing the glass/PET solar panel, polystyrene cup infill, butyl/silicone edge sealant, 2-component silicone potting, and two pressed aluminium float halves bonded together with air inside forming the bottom plate and float system. Brackets on the float lip constitute the connect system. Note the absence of a separate solar panel frame.](images/fpv_gen1_assembly.png)
+![Figure 1-2. Assembly diagram of the Gen 1 Sunlit FPV unit showing the glass/PET solar panel, polystyrene cup infill, butyl/silicone edge sealant, two-component silicone potting, and two pressed aluminium float halves bonded together with air inside forming the bottom plate and float system. Brackets on the float lip constitute the connect system. Note the absence of a separate solar panel frame.](images/fpv_gen1_assembly.png)
 
-The SuRE project targets a transition from this first-generation design to a next-generation product with improved performance, manufacturability, and structural integration. This report documents the modelling framework and development process that supports this progression — from manufacturing simulation and material characterisation to structural, thermal, and economic modelling — as Sunlit works toward the gen2 design. The target gen2 deployment — a modular array of interconnected integrated units on still water — is illustrated in Figure 1-3.
+The SuRE project targets a transition from this first-generation design to a next-generation product (Gen 2) with improved performance, manufacturability, and structural integration. This report documents the modelling framework and development process that support this progression — from manufacturing simulation and material characterisation to structural, thermal, and economic modelling — as Sunlit works toward the Gen 2 design. The target Gen 2 deployment — a modular array of interconnected integrated units on still water — is illustrated in Figure 1-3.
 
-![Figure 1-3. Rendered visualisation of the Sunlit Sea gen2 floating PV array deployed on still water, showing the modular matrix of integrated FPV units and mooring buoy.](images/gen2_matrix_installed_rendered_still_water.png)
+![Figure 1-3. Rendered visualisation of the Sunlit Sea Gen 2 FPV array deployed on still water, showing the modular matrix of integrated FPV units and mooring buoy.](images/gen2_matrix_installed_rendered_still_water.png)
 
 ## 1.2 Objectives and tasks of WP6 and Deliverable D6.1
 
-Work Package 6 (WP6) addresses modelling and simulation activities supporting the engineering development of the Sunlit floating photovoltaic system.
-Two objectives from the SuRE Description of Work are particularly relevant:
+Work Package 6 (WP6) addresses modelling and simulation activities supporting the engineering development of the Sunlit floating photovoltaic system. Within Deliverable D6.1, two objectives from the SuRE Description of Work are particularly relevant:
 
 - O6.1.1 Develop a digital product development cycle for Sunlit’s aluminium floater
 - O6.2.1 Identify and optimise the next-generation floater prototype
 
-These objectives should be interpreted in the context of the entire integrated floating PV unit, not only the aluminium components. The floater concept includes the photovoltaic panel, float structure, interconnection elements and supporting structural components.
+These objectives should be interpreted in the context of the entire integrated FPV unit, not only the aluminium components. The floater concept includes the PV panel, float-structure, interconnection elements and supporting structural components.
 
-Deliverable D6.1 – Sunlit model chain documents the modelling framework and workflow used to support this development process. In particular, it addresses the requirement: “Data format and inter-model transfer specifications for the modelling chain.”
+Deliverable D6.1 documents the modelling framework and workflow used to support this development process. In particular, it addresses the requirement: "Data format and inter-model transfer specifications for the modelling chain."
 
-The work described in this deliverable relates primarily to:
+The work described in this deliverable therefore relates primarily to:
 
 - Task 6.1: FEM model development for pressing of aluminium
 - Task 6.2: Model harmonisation and interfacing for digital product development
 
 ## 1.3 Scope of modelling and testing covered in this report
 
-This report describes the modelling framework used in the engineering development of the Sunlit floater concept. Particular emphasis is placed on:
+This D6.1 Deliverable report describes the modelling framework used in the engineering development of the Sunlit floater concept. Particular emphasis is placed on:
 
 **Modelling of aluminium float manufacturing**
 
@@ -69,11 +68,11 @@ The manufacturing model (Chapter 4), and the mechanical, thermal and economic mo
 
 The report does not attempt to optimise the full system simultaneously. Instead, it describes the engineering workflow used to investigate specific design domains and progressively improve the system through iterative development.
 
-# 2 Sunlit Floating PV System Architecture
+# 2 Sunlit FPV System Architecture
 
 ## 2.1 Overview of the Sunlit integrated FPV unit
 
-The Sunlit floating photovoltaic (FPV) system consists of modular floating units, where an off-the-shelf photovoltaic panel is integrated with surrounding and supporting structural components to form a floating solar unit. Each unit acts both as an energy-generating component and as part of the structural system. Mechanical loads from waves, wind, handling and array interaction are therefore transferred through a set of coupled interfaces between PV components, structural components, and interconnection elements. The system architecture is illustrated in Figure 2-1. The diagram should be interpreted as an interface diagram, not a simple component hierarchy. The double arrows indicate interfaces between components. These interfaces are critical because they govern:
+The Sunlit floating photovoltaic (FPV) system consists of modular floating units, where an off-the-shelf PV panel is integrated with surrounding and supporting structural components to form a floating solar unit. Each unit acts both as an energy-generating component and as part of the structural system. Mechanical loads from waves, wind, handling and array interaction are therefore transferred through a set of coupled interfaces between PV components, structural components, and interconnection elements. The system architecture is illustrated in Figure 2-1. The diagram should be interpreted as an interface diagram, not a simple component hierarchy. The double arrows indicate interfaces between components. These interfaces are critical because they govern:
 
 - mechanical load transfer
 - electrical functionality
@@ -82,73 +81,69 @@ The Sunlit floating photovoltaic (FPV) system consists of modular floating units
 - manufacturability and assembly
 - long-term durability
 
-The architecture therefore defines both the components and the interaction mechanisms that must be addressed in modelling and design. Multiple such units are mechanically interconnected to form a floating PV array; Figure 2-2 shows an example layout for a 25 kWp installation using the gen1 form factor, illustrating how the unit geometry propagates into array and mooring arrangement.
+The architecture therefore defines both the components and the interaction mechanisms that must be addressed in modelling and design. Multiple such units are mechanically interconnected to form an FPV array; Figure 2-2 shows an example layout for a 25 kWp installation using the Gen 1 form factor, illustrating how the unit geometry propagates into array and mooring arrangement.
 
 ![Figure 2-1. Conceptual representation of the Sunlit integrated FPV unit and its main component relationships.](figures/fig_2-1_system_architecture.png)
 
-![Figure 2-2. Layout of gen1 Sunlit FPV units in a 25 kWp matrix configuration with mooring system, illustrating how the unit form factor determines array layout and mooring arrangement.](images/fpv_matrix_and_mooring_system_for_25kwp.png)
+![Figure 2-2. Layout of Gen 1 Sunlit FPV units in a 25 kWp matrix configuration with mooring system, illustrating how the unit form factor determines array layout and mooring arrangement.](images/fpv_matrix_and_mooring_system_for_25kwp.png)
 
 ## 2.2 Main system components
 
-The floating PV unit is described through the following main component groups:
+The FPV unit is described through the following main component groups:
 
-- PV panel, 
-- Float-structure, 
-- Infill, 
-- Bottom, 
-- Grounding, 
-- Hinges and 
-- Connectors. 
+- PV panel
+- Float-structure
+- Infill
+- Bottom
+- Grounding
+- Hinges and
+- connectors
 
-These are functional elements of an integrated system. Depending on design choices, some components may be physically merged or realised differently, but the functional distinction remains important for structuring the modelling and development work.
+These are functional elements of the integrated system. The mooring and anchoring are not considered in this Deliverable. Depending on design choices, some components may be physically merged or realised differently, but the functional distinction remains important for structuring the modelling and development work.
 
 ### 2.2.1 PV panel
 
-The PV panel is based on commercially available, off-the-shelf solar modules. Rather than being fixed, the PV panel is treated as a design parameter within a defined market space. Several candidate modules with similar external dimensions are currently being evaluated. A commonly available format is approximately 2384 mm × 1303 mm, used by multiple manufacturers including 
+The PV panel is based on commercially available, off-the-shelf solar modules. Rather than being fixed, the PV panel is treated as a design parameter within a defined market space. Several candidate modules with similar external dimensions are currently being evaluated. A commonly available format is approximately 2384 mm × 1303 mm, used by multiple manufacturers including
 
-- Risen Energy (RSM132 series), 
-- Canadian Solar (TOPBiHiKu7), 
-- Haitai Solar (HTM series), 
-- Yingli Solar (YLM 3.0PLUS) and 
-- Trina Solar (TSM-DEG21 series). 
+- Risen Energy (RSM132 series)
+- Canadian Solar (TOPBiHiKu7)
+- Haitai Solar (HTM series)
+- Yingli Solar (YLM 3.0PLUS)
+- Trina Solar (TSM-DEG21 series)
 
-In addition, the alternative format established in gen 1 are considered, 1770 mm × 1770 mm.
+In addition, the alternative format established in Gen 1 (1770 mm × 1770 mm) is considered.
 
-The PV panel consists of the frame, glass, junction box(es), cables and MC4 connectors. The choice of PV module geometry has system-level implications including buoyancy and required float volume, total system weight and centre of gravity, manufacturability (tool sizes, forming limits), logistics and handling, and array layout and packing density.
+The outer components of the PV panel, which are relevant for integration with the rest of the unit, consist of the frame, glass and potentially polymer (front and backside), junction box(es), cables and MC4 connectors. The choice of PV module geometry has system-level implications including buoyancy and required float volume, total system weight and centre of gravity, manufacturability (tool sizes, forming limits), logistics and handling, and array layout and packing density.
 
-In addition to geometry, module construction is evaluated. Glass–glass modules typically offer better durability and moisture resistance but higher weight, while glass–polymer backsheet modules are lighter and cheaper but may require additional protection measures. In the Sunlit concept, the PV panel is structurally integrated into the floating unit, creating strong coupling between module choice and structural behaviour, thermal performance, sealing and ingress risk, and interaction with infill, bottom and float-structure. The PV panel must therefore be treated as a configurable system component rather than a fixed input.
+In addition to geometry, module construction is evaluated. Glass–glass modules typically offer better durability and moisture resistance but higher weight, while glass–polymer backsheet modules are lighter but may require additional protection measures. In the Sunlit concept, the PV panel is structurally integrated into the floating unit, creating strong coupling between module choice and structural behaviour, thermal performance, sealing and ingress risk, and interaction with infill, bottom and float-structure. The PV panel must therefore be treated as a configurable system component rather than a fixed input.
 
 ### 2.2.2 Float-structure
 
-The float-structure is the structural component that wraps around and holds together the PV panel, bottom plate and hinge system. In current design concepts it is made of polyurethane (PU), but the definition is functional rather than material-specific. The float-structure holds the system together, protects against water ingress, and enables operation in a marine environment. It is not the infill, not the bottom plate, and not necessarily the main buoyant volume. It does not provide standalone functionality and must be considered together with the rest of the system.
+The float-structure is the structural component that wraps around and holds together the PV panel, bottom plate and hinge system. In current design concepts, it is made of PU, but the definition is functional rather than material-specific. The float-structure holds the system together, protects against water ingress, and enables operation in a marine environment. It is not the infill, not the bottom plate, and not necessarily the main buoyant volume. It does not provide standalone functionality and must be considered together with the rest of the system.
 
-The float-structure has several critical interfaces that drive much of the engineering complexity of the integrated design.
+The float-structure has several critical interfaces that drive much of the engineering complexity of the integrated design. By directly casting the float-structure onto the PV panel, the two are connected at three interfaces: at the top glass, the panel frame and the bottom plate placed underneath the panel. The top glass interface has very limited contact area, and is a part of the float where saline and dirty water will regularly collect after waves and rain before drying. Minimising water ingress at this interface is therefore critical for long-term reliability. A critical challenge at the float-structure interface with the bottom plate includes marine growth due to submersion, placing further demands on material durability and surface properties.
 
-The float-structure interfaces with the hinges, and one of its main functions is to ensure that forces acting on the system are absorbed primarily in the hinge section, so that the float-structure itself — and especially the interface between the float-structure and the solar panel frame — takes as little load as possible. In the current design this implies that the hinges are integrated with the float-structure into a single cast unit, although other options are being evaluated.
+Besides adhesion to the PV panel, the float-structure interfaces with the hinges that connect the units. As such, the structure must ensure that forces acting on the system are absorbed primarily in the hinge section, so that the float-structure itself — and especially the interface between the float-structure and the solar panel frame — takes as little load as possible. In the current design this implies that the hinges are integrated with the float-structure into a single cast unit, although other options are being evaluated.
 
-The float-structure interfaces with the glass surface of the solar panel. This is a section with very limited contact area, and it is a part of the float where saline and dirty water will regularly collect after waves and rain before drying. Minimising water ingress at this interface is therefore critical for long-term reliability.
-
-The float-structure interfaces with the bottom plate. This is a part of the float that will frequently be submerged and is susceptible to marine growth, placing demands on material durability and surface properties.
-
-A further key requirement is that the float-structure must handle routing of cables emerging from the PV panel, either from beneath or through the frame, while maintaining sealing and structural integrity.
+Lastly, a key requirement is that the float-structure must handle routing of cables emerging from the PV panel, either from beneath or through the frame, while maintaining sealing and structural integrity.
 
 ### 2.2.3 Infill
 
-The infill is located underneath the glass and inside the PV frame. It occupies the internal volume and surrounds the junction box and cables. Possible implementations include polyurethane foam, aluminium press-formed structures (cups), polystyrene blocks and aluminium honeycomb (polystyrene blocks were used in the gen1 design; see Figure 1-2). In the gen2 Prototype 1 concept, the pressed aluminium bottom plate itself serves as the infill: the cup geometry creates enclosed air pockets between the cups, providing both structural support and buoyancy without a separate infill component (Figure 2-3). Depending on the concept, the infill may be separate or integrated with the bottom, and may require adhesion to glass, frame and/or bottom. The infill contributes to structural support of the glass, internal load distribution, sealing and water protection, and accommodation of the junction box and cables. Structural simulations performed without the infill (Section 5.3.3) have shown that its absence leads to stresses approaching or exceeding yield in both aluminium and polyurethane components, confirming its structural importance.
+The infill is located underneath the PV module and inside the PV frame, surrounding the junction box and cables. Possible implementations for the infill include PU foam, aluminium press-formed structures (cups), polystyrene blocks and aluminium honeycomb (polystyrene blocks were used in the Gen 1 design; see Figure 1-2). In the Gen 2 Prototype 1 concept, the pressed aluminium bottom plate itself serves as the infill: the cup geometry creates enclosed air pockets between the cups, providing both structural support and buoyancy without a separate infill component (Figure 2-3). Depending on the concept, the infill may be separate or integrated with the bottom, and may require adhesion to glass, frame and/or bottom. The infill contributes to structural support of the glass, internal load distribution, sealing and water protection, and accommodation of the junction box and cables. Structural simulations performed without the infill (Section 5.3.2) have shown that its absence leads to stresses approaching or exceeding yield in both aluminium and PU components, confirming its structural importance.
 
-![Figure 2-3. FreeCAD model of the gen2 Prototype 1 unit with glass removed, showing the exposed pressed aluminium bottom plate functioning as the infill through air pockets formed between the pressed cups.](images/gen2_prototype1_freecad_fpv_without_glass.png)
+![Figure 2-3. FreeCAD model of the Gen 2 Prototype 1 unit with PV module removed, showing the exposed pressed aluminium bottom plate functioning as the infill through air pockets formed between the pressed cups. The float-structure is shown around the edges of the system.](images/gen2_prototype1_freecad_fpv_without_glass.png)
 
-An alternative infill concept uses multiple interlocking PU foam pieces designed to puzzle-fit around the junction boxes and cables beneath the glass, eliminating air cavities that would otherwise remain around these components. Because the pieces meet each other and the surrounding surfaces at irregular interfaces, this concept requires potting compound or adhesive along the joints and at the glass and bottom interfaces to ensure proper bonding (Figure 2-4).
+An alternative infill concept (Figure 2-4) uses multiple interlocking PU foam pieces designed to puzzle-fit around the junction boxes and cables beneath the glass, eliminating air cavities that would otherwise remain around these components. Because the pieces meet each other and the surrounding surfaces at irregular interfaces, this concept requires potting compound or adhesive along the joints and at the glass and bottom interfaces to ensure proper bonding.
 
-![Figure 2-4. FreeCAD model of the gen2 puzzle-fit PU foam infill concept, showing multiple interlocking foam pieces designed to fit around the junction boxes and cables beneath the glass without leaving air cavities.](images/gen2_freecad_infill_split_PUfoam.png)
+![Figure 2-4. FreeCAD model of the Gen 2 puzzle-fit PU foam infill concept, showing multiple interlocking foam pieces designed to fit around the junction boxes and cables beneath the glass without leaving air cavities.](images/gen2_freecad_infill_split_PUfoam.png)
 
 ### 2.2.4 Bottom
 
-The bottom is the bottom plate of the floating unit, connected to the frame and the infill. It can take several forms: a flat plate, a press-formed aluminium sheet with cup structures, or a shaped volume extending downward for buoyancy (the gen1 design uses press-formed aluminium sheets for the bottom; see Figure 1-2). In some designs, the bottom and infill may be the same physical object. The bottom plays a key role in structural stiffness, buoyancy and volume distribution, manufacturability, and cable routing (it must allow cable passage if needed). Buoyancy simulations (Section 5.3.3) have indicated that the prototype floater sits deep in the water, with approximately half the bottom plate submerged under self-weight, which has implications for the design of the bottom geometry and overall system buoyancy. Figures 2-4 and 2-5 illustrate the two principal bottom plate variants: a flat unpressed sheet and a press-formed sheet with cup structures.
+The bottom is the bottom plate of the floating unit, connected to the frame and the infill. It can take several forms: a flat plate, a press-formed aluminium sheet with cup structures, or a shaped volume extending downward for buoyancy (the Gen 1 design uses press-formed aluminium sheets for the bottom; see Figure 1-2). In some designs, the bottom and infill may be the same physical object. The bottom plays a key role in structural stiffness, buoyancy and volume distribution, manufacturability, and cable routing (it must allow cable passage if needed). Buoyancy simulations (Section 5.3.2) have indicated that the prototype floater sits deep in the water, with approximately half the bottom plate submerged under self-weight, which has implications for the design of the bottom geometry and overall system buoyancy. Figures 2-4 and 2-5 illustrate the two principal bottom plate variants: a flat unpressed sheet and a press-formed sheet with cup structures.
 
-![Figure 2-5. FreeCAD model of the gen2 flat bottom plate design, showing the unpressed sheet variant.](images/gen2_freecad_bottom_flat.png)
+![Figure 2-5. FreeCAD model of the Gen 2 flat bottom plate design, showing the unpressed sheet variant.](images/gen2_freecad_bottom_flat.png)
 
-![Figure 2-6. FreeCAD model of the gen2 pressed bottom plate design, showing the cup-structured hydroformed aluminium sheet variant.](images/gen2_freecad_bottom_pressed.png)
+![Figure 2-6. FreeCAD model of the Gen 2 pressed bottom plate design, showing the cup-structured hydroformed aluminium sheet variant.](images/gen2_freecad_bottom_pressed.png)
 
 ### 2.2.5 Grounding
 
@@ -156,26 +151,25 @@ Grounding is traditionally handled through the PV frame using dedicated holes. I
 
 ### 2.2.6 Hinges
 
-Hinges connect two floating units and are one of the most critical components in the system due to their role in load transfer and durability. They may be implemented as polyurethane hinges, ropes with springs, or rope-based systems. In the current design concept, the hinges are integrated with the float-structure as a single cast PU unit, with the locking element provided by a separate connector component (see Figures 2-3 and 2-4 for the gen2 P4 hinge geometry). Key aspects include the connection to the float-structure and the behaviour under load, including fatigue, extreme loads and cyclic motion from waves.
+Hinges connect multiple floating units and are one of the most critical components in the system due to their role in load transfer and durability. They may be implemented as PU hinges, ropes with springs, or rope-based systems. In the current design concept, the hinges are integrated with the float-structure as a single cast PU unit, with the locking element provided by a separate connector component (see Figures 2-7 and 2-8 for the Gen 2 P4 hinge geometry). Key aspects include the connection to the float-structure and the behaviour under load, including fatigue, extreme loads and cyclic motion from waves.
 
 Findings from wave tank testing in the EU project Surewave showed that snapping loads occur at certain wave lengths and that maximum loads exceed what earlier bracket and hinge designs could withstand. These findings led to a reprioritisation of engineering effort from aluminium pressing optimisation to hinge and interconnection system redesign.
 
 ### 2.2.7 Connectors
 
-Connectors are part of the hinge system and define how hinges attach and lock between neighbouring units. Examples include bolts and brackets, PU rods, rope-through-hole systems, and carabiner-like mechanisms. In some concepts, connectors are integrated into the hinge; in others, they are separate. They strongly influence assembly, replaceability, load transfer and manufacturability. Figures 2-3 and 2-4 show FreeCAD side-views of the gen2 Prototype 4 left and right hinges, illustrating how the two opposing hinge halves are designed to be joined by a connecting rod acting as the connector component.
+As part of the hinge system, the connectors define how hinges attach and lock between neighbouring units. Examples include bolts and brackets, PU rods, rope-through-hole systems, and carabiner-like mechanisms. In some concepts, connectors are integrated into the hinge; in others, they are separate. They strongly influence assembly, replaceability, load transfer and manufacturability. Figures 2-7 and 2-8 show FreeCAD side-views of the Gen 2 Prototype 4 left and right hinges, illustrating how the two opposing hinge halves are designed to be joined by a connecting rod acting as the connector component.
 
-![Figure 2-7. FreeCAD side-view of the gen2 Prototype 4 left hinge, showing the hinge geometry and the interface for the connecting rod that joins it to the right-hand counterpart.](images/gen2_prototyp4_freecad_hinge_left.png)
+![Figure 2-7. FreeCAD side-view of the Gen 2 Prototype 4 left hinge, showing the hinge geometry and the interface for the connecting rod that joins it to the right-hand counterpart.](images/gen2_prototyp4_freecad_hinge_left.png)
 
-![Figure 2-8. FreeCAD side-view of the gen2 Prototype 4 right hinge, showing the mirror-image geometry and the interface for the connecting rod connector.](images/gen2_prototyp4_freecad_hinge_right.png)
+![Figure 2-8. FreeCAD side-view of the Gen 2 Prototype 4 right hinge, showing the mirror-image geometry and the interface for the connecting rod connector.](images/gen2_prototyp4_freecad_hinge_right.png)
 
-A connector concept under investigation uses buoyant polyurethane foam rods designed to run along all four sides of the unit. In this concept the connector elements serve a dual function: structural interconnection between neighbouring units and a contribution to overall system buoyancy. Figure 2-9 shows the FreeCAD model of this concept for the gen2 Prototype 4.
+A connector concept under investigation uses buoyant PU foam rods designed to run along all four sides of the unit. In this concept, the connector elements serve a dual function: structural interconnection between neighbouring units and a contribution to overall system buoyancy. Figure 2-9 shows the FreeCAD model of this concept for the Gen 2 Prototype 4.
 
-![Figure 2-9. FreeCAD model of the gen2 Prototype 4 buoyant connector concept, showing polyurethane foam rods running along all four sides of the unit and serving as both structural connectors and buoyancy elements.](images/gen2_prototyp4_freecad_connector_buoyant_PUfoam_rods_4sides.png)
+![Figure 2-9. FreeCAD model of the Gen 2 Prototype 4 buoyant connector concept, showing PU foam rods running along all four sides of the unit and serving as both structural connectors and buoyancy elements.](images/gen2_prototyp4_freecad_connector_buoyant_PUfoam_rods_4sides.png)
 
 ## 2.3 Critical interfaces in the integrated unit
 
-The system is defined not only by components, but by the interfaces between them.
-Each interface governs behaviour across multiple domains:
+The integrated system is defined not only by its individual components, but by the interfaces between them. Each interface governs behaviour across multiple domains:
 
 - mechanical
 - electrical
@@ -210,6 +204,8 @@ These interfaces will be referenced in later chapters when discussing:
 - testing
 - optimisation
 
+The list is retained at this level of granularity primarily for forward use in D6.2. Each I-entry corresponds to a physical location in the integrated unit at which stress, displacement, temperature, water-ingress or sealing performance is to be probed, and the same interface labels will be used as measurement points in the FEM and CFD simulations underpinning the multi-domain screening of D6.2. In the present deliverable the list is therefore an inventory of the interface phenomena that the model chain must be able to address, rather than a set of locations already instrumented in simulation.
+
 The system architecture is illustrated in Figure 2-1, which shows the integrated panel–float unit and its connections to neighbouring units within an array.
 
 ## 2.4 Key engineering challenges in the integrated floater concept
@@ -222,9 +218,9 @@ Balancing manufacturability with structural performance, buoyancy, and geometric
 
 ### 2.4.2 Structural load transfer between units
 
-Loads from waves, handling, and array interaction must be transferred through interconnected units without overstressing components or introducing fatigue-critical regions (Figure 2-10 shows gen1 FPV units during real-conditions evaluation in a flowing water channel, illustrating the challenge of load transfer and resistance to submergence under current exposure — FDS constraint FC4). This is particularly important for the Hinges, Connectors, float-structure, and their interfaces to the PV panel and Bottom. Since the system is modular, local connection design has major influence on global structural reliability.
+Loads from waves, handling, and array interaction must be transferred through interconnected units without overstressing components or introducing fatigue-critical regions (Figure 2-10 shows Gen 1 FPV units during real-conditions evaluation in a flowing water channel, illustrating the challenge of load transfer and resistance to submergence under current exposure — FDS constraint FC1, current-loading scenario). This is particularly important for the Hinges, Connectors, float-structure, and their interfaces to the PV panel and Bottom. Since the system is modular, local connection design has major influence on global structural reliability.
 
-![Figure 2-10. Gen1 Sunlit FPV units installed in a flowing water channel during real-conditions evaluation, illustrating the engineering challenge of structural loading and submergence under current exposure.](images/gen1_eval_flow_submerge_effect_in_real_conditions.png)
+![Figure 2-10. Gen 1 Sunlit FPV units installed in a flowing water channel during real-conditions evaluation, illustrating the engineering challenge of structural loading and submergence under current exposure.](images/gen1_eval_flow_submerge_effect_in_real_conditions.png)
 
 ### 2.4.3 Environmental exposure of materials
 
@@ -240,7 +236,7 @@ The interaction between PV panel, surrounding structural components, and environ
 
 ### 2.4.6 Installation and maintenance considerations
 
-The system must be designed for efficient installation, inspection, grounding, connection, and replacement of components under field conditions. This includes practical access to connectors, hinges, grounding solutions, and electrical interfaces. Design choices that improve integration or sealing may also make maintenance more difficult, so these aspects must be balanced carefully.
+The system must be designed for efficient installation, inspection, grounding, connection, replacement or repair of components under field conditions, as well as recycling after end of life. This includes practical access to connectors, hinges, grounding solutions, and electrical interfaces. Design choices that improve integration or sealing may also make maintenance more difficult, so these aspects must be balanced carefully.
 
 ### 2.4.7 Manufacturability and cost efficiency
 
@@ -248,41 +244,57 @@ The design must enable scalable production with controlled cost. This includes n
 
 These engineering challenges form the main background for the modelling and development activities described in the following chapters. The purpose of the modelling framework is not only to analyse individual components, but to support design choices across the coupled mechanical, thermal, electrical, and manufacturing domains that define the integrated floating PV unit.
 
+## 2.5 Summary
+
+The Sunlit FPV unit is an integrated structure built around a market-available PV panel: a float-structure that wraps panel, bottom plate and hinges into a single cast assembly; an infill that supports the glass and contributes to buoyancy; a pressed aluminium bottom plate; grounding, hinges and connectors that interconnect units into an array. The system is best understood through its interfaces (I1–I19) rather than its components in isolation: load transfer, sealing, electrical safety and thermal coupling all emerge at component boundaries. The chapter has identified seven recurring engineering challenges — manufacturing feasibility, structural load transfer, environmental exposure, water ingress, thermal behaviour, installation/maintenance, and cost — that motivate the modelling and testing activities of Ch 4–5.
+
 # 3 Product Development Framework and Design Domains
 
 ## 3.1 Introduction
 
-This chapter describes the engineering methodology used to develop the Sunlit floating photovoltaic system. The framework combines modelling, simulation and experimental testing in a structured process that supports iterative improvement of the design. It is applied across multiple engineering domains, including manufacturing, structural behaviour and thermal performance.
+The Product Development Framework documented in this chapter — covering the Functional Design Specification (§3.2), the functional and engineering domains used to organise the work (§3.3), the prioritisation approach for engineering investigations (§3.4), the model-supported development cycle (§3.5), and the parameter and data structures (§3.6) — has been developed in WP6 of the SuRE project. It is the structured methodology Sunlit Sea now uses to develop the next-generation FPV product, and it is one of the contributions of WP6 in addition to the domain-specific models reported in Chapters 4 and 5.
+
+This chapter describes the engineering methodology used to develop the Sunlit FPV system. The framework combines modelling, simulation and experimental testing in a structured process that supports iterative improvement of the design. It is applied across multiple engineering domains, including manufacturing, structural behaviour and thermal performance.
 
 The purpose of the framework is to enable systematic exploration of design alternatives, reduce reliance on time-consuming physical prototyping, and ensure traceability between design decisions, simulations and test results.
 
-The chapter is structured as follows. Section 3.2 describes the Functional Design Specification that defines what the system must achieve. Section 3.3 introduces the functional and engineering domains through which these requirements are addressed. Section 3.4 describes the risk-based approach used to prioritise engineering investigations. Section 3.5 presents the model-supported development cycle, and Section 3.6 defines the parameter framework and data structures that support consistency and traceability across the modelling work.
+The chapter is structured as follows. Section 3.2 describes the Functional Design Specification (FDS) that defines what the system must achieve. Section 3.3 introduces the functional and engineering domains through which these requirements are addressed. Section 3.4 describes the risk-based approach used to prioritise engineering investigations. Section 3.5 presents the model-supported development cycle, and Section 3.6 defines the parameter framework and data structures that support consistency and traceability across the modelling work.
 
 ## 3.2 Functional Design Specification
 
-The engineering development of the Sunlit floating PV system is guided by a Functional Design Specification (FDS). The FDS defines the requirements that the system must satisfy, organised into three tiers.
+The engineering development of the Sunlit floating PV system is guided by an FDS. The FDS defines the requirements that the system must satisfy, organised into three tiers.
 
-Principal functions define the core purpose of the system. The system must 
+Principal functions (FP) define the core purpose of the system. The system must
 
-- produce electrical power (FP1) and 
+- produce electrical power (FP1) and
 - be certified for deployment (FP2).
 
-Constraint functions define hard requirements that the design must satisfy. These include 
+Sunlit's design has received preliminary DNV verification, and certification under DNV is the working baseline assumption for FP2.
 
-- flotation (FC1), 
-- watertightness (FC2), 
-- mechanical attachment between units (FC3), 
-- resistance to submergence under current exposure up to 3 m/s (FC4), 
-- feasibility of changing panel supplier (FC5), 
-- resistance to high wind (FC6), 
-- resistance to waves up to 1.5 Hs (FC7), 
-- cost competitiveness (FC8), and 
-- electrical grounding (FC9).
+<!-- IFE: please specify the targeted certification standard / scheme for FP2 (e.g. specific DNV-ST-XXXX, IEC 63214 or other), based on what you have seen in the FPV market and in your collaborations. The DoW states only that "Sunlit's design has received preliminary DNV verification" — we need to firm this up. -->
 
-Secondary functions define desirable but not absolute requirements. These include 
+Constraint functions (FC) define requirements that the design must satisfy. These include
 
-- walkability (FS1), 
-- fast production (FS2), and 
+- flotation under static and operational loading (FC1) — the system must remain afloat at rest and under representative live loads (people walking on the array, accumulated snow or ice) without becoming submerged, and must continue to do so under current exposure up to 3 m/s,
+- watertightness (FC2),
+- mechanical attachment between units (FC3),
+- feasibility of changing panel supplier (FC5),
+- resistance to high wind (FC6),
+- resistance to waves up to 1.5 Hs (FC7),
+- cost competitiveness (FC8),
+- electrical grounding (FC9), and
+- resistance to environmental ageing — the system must retain its functional performance throughout the design lifetime under combined exposure to UV, moisture (liquid and vapour), saltwater, soiling, and temperature cycling, with degradation rates of materials and interfaces low enough that none of FC1–FC9 are violated by end of life (FC10).
+
+The FC4 entry of the previous FDS revision (resistance to submergence under current exposure up to 3 m/s) has been merged into FC1, since the engineering distinction is between unloaded and loaded buoyancy, not between absence and presence of currents. The 3 m/s current limit is retained as the relevant loading scenario under FC1.
+
+The 3 m/s current and 1.5 Hs wave limits in FC1 and FC7 correspond to the deployment envelope for the targeted ~100 kW pilot at Singløya Nord (DoW T6.4) and align with Sea State Code (SSC) 4 (Moderate, wave height 1.25–2.5 m) using the WMO classification cited in the SuRE Description of Work. The broader project ambition is to validate the Sunlit design up to SSC 5 (Rough, Hs 2.5–4 m) as required for the SO4 KPI; that ambition is addressed primarily through D6.2 / D6.4. The FDS does not currently set a specific wind-speed limit for FC6 — wind-induced loading on the integrated unit is treated qualitatively at present, and refinement is expected through coupling with the IFE 3DFloat hydrodynamic model in WP2 / WP6.
+
+<!-- IFE: do you have a recommended numerical wind-speed bound for FC6 (e.g. mean or gust speed used in your structural assumptions for SiSim)? If so we will fold it in. -->
+
+Secondary functions (FS) define desirable but not absolute requirements. These include
+
+- walkability (FS1),
+- fast production (FS2), and
 - fast installation (FS3).
 
 The FDS ensures that all development activities remain aligned with system-level requirements. From these functions, a set of design domains is identified, as described in the following section.
@@ -297,17 +309,17 @@ The requirements defined in the FDS are translated into two complementary sets o
 
 The main functional domains derived from the FDS are described below.
 
-Energy production is the primary function of the system. It requires maintaining adequate solar exposure, limiting thermal losses that reduce module efficiency, and ensuring electrical integrity under environmental exposure. While energy production is not directly optimised in WP6, it is indirectly influenced by thermal and structural design choices.
+Energy production is the primary function of the system. It requires maintaining adequate incoming solar irradiance, limiting thermal losses that reduce module efficiency, and ensuring electrical integrity under environmental exposure. While energy production is not directly optimised in WP6, it is indirectly influenced by thermal and structural design choices.
 
 Flotation performance requires that the system provides sufficient buoyancy and stability under all expected operating conditions, including uneven loading and wave action. Flotation performance is strongly influenced by float geometry, material distribution and system mass.
 
-Mechanical interconnection governs how loads are transferred between the modular floating units. The interconnection system must transfer loads without overstressing components, allow relative motion to accommodate waves and thermal expansion, and prevent excessive load transfer into sensitive components such as PV modules. This domain is critical for system-level structural integrity and is strongly influenced by fatigue behaviour, material selection and connection design.
+Mechanical interconnection governs how loads are transferred between the modular floating units. The interconnection system must transfer loads without overstressing sensitive components such as PV modules and allow relative motion to accommodate waves and thermal expansion. This domain is critical for system-level structural integrity and is strongly influenced by fatigue behaviour, material selection and connection design.
 
-Resistance to environmental loads reflects the combination of stressors the system is exposed to over its lifetime, including wave-induced mechanical loads, wind, UV radiation, moisture and saltwater. Components must withstand these conditions without significant degradation.
+Resistance to environmental loads reflects the combination of stressors the system is exposed to over its lifetime. Besides the aforementioned wave-induced mechanical loads, this includes wind, UV radiation, moisture in liquid and vapour form, soiling and salt. Components must withstand these conditions without significant degradation.
 
 Manufacturability requires that the system can be produced at scale using feasible and cost-effective processes. This includes compatibility with aluminium forming processes, minimisation of material usage, and repeatability of manufacturing steps. Manufacturability directly constrains the feasible design space and must be considered alongside performance requirements.
 
-Operational usability requires that the system supports efficient installation, inspection and maintenance. This includes accessibility of electrical connections, ability to replace modules in the field, and robustness during handling. Design choices that improve manufacturability or structural performance must not compromise operational usability.
+Operational usability requires that the system supports efficient installation, inspection and maintenance. This includes accessibility of electrical connections, ability to repair (where possible) or replace modules in the field, and robustness during handling. Design choices that improve manufacturability or structural performance must not compromise operational usability.
 
 Together, these functional domains define the multi-dimensional design space within which the system must be developed.
 
@@ -321,7 +333,7 @@ Structural load transfer addresses how mechanical loads are distributed within a
 
 Thermal behaviour focuses on the temperature response of the integrated system. Key aspects include heat transfer between PV modules, float structure and environment, the influence of material surface properties such as absorptivity and emissivity, and identification of conditions leading to elevated temperatures. Thermal modelling is used to evaluate worst-case conditions and guide design choices such as material selection or colour.
 
-Component integration addresses the interfaces between system components, which are critical in the integrated design. Key aspects include mechanical interfaces between panel frame, float structure and interconnections, sealing strategies to prevent water ingress, and interaction between structural and electrical components.
+Component integration addresses the interfaces between system components, which are critical in the integrated design. Key aspects include mechanical interfaces between panel frame, float-structure and interconnections (see also Section 2.3), sealing strategies to prevent water ingress, and interaction between structural and electrical components.
 
 Manufacturing economics evaluates the cost implications of design and manufacturing choices, including material consumption, process complexity and production scalability. While detailed cost modelling is outside the scope of this deliverable, design decisions are assessed with respect to their impact on cost efficiency.
 
@@ -331,13 +343,26 @@ The combination of multiple functional and engineering domains creates a high-di
 
 Rather than attempting global optimisation at this stage, the approach taken in WP6 is to investigate key domains individually, reduce uncertainty in critical areas, and progressively converge towards improved design configurations. The modelling framework enables systematic exploration of this design space and identification of feasible regions satisfying multiple constraints simultaneously.
 
-## 3.4 Risk-based prioritisation
+## 3.4 Prioritisation of engineering investigations
 
-Engineering investigations are prioritised using a risk-based approach, where risk is defined as a combination of uncertainty (lack of knowledge about system behaviour), impact (consequences for performance, cost or reliability), and effort required (time and resources needed to investigate the issue).
+Engineering investigations within WP6 are prioritised by qualitative engineering judgement against a fixed set of factors rather than by formal risk scoring. The factors used are listed below, grouped into resource cost on one side and expected benefit on the other.
 
-In practice, this means that development focuses first on areas where uncertainty is high and potential impact on system performance or cost is significant. Examples of high-priority areas include aluminium forming limits affecting manufacturability, durability of interconnection systems under cyclic loading, and thermal behaviour of materials under extreme environmental conditions.
+**Resource factors** considered for each candidate investigation:
 
-This prioritisation ensures that critical design constraints are identified early. The development process can be understood as navigating a partially known design space, where each investigation provides information that influences subsequent steps.
+- **Estimated effort** — engineering manhours required to plan, execute and analyse the investigation;
+- **Material cost** — feedstock, prototype hardware and consumables (e.g. aluminium sheet, PU resin, sample preparation);
+- **Calendar time** — wall-clock duration, including external dependencies such as casting vendor lead times, lab availability or supplier responses;
+- **Probability of a usable result** — qualitative confidence that the investigation will produce information that survives validation and can be acted on, as opposed to data that is too noisy, too narrow or too costly to interpret.
+
+**Benefit factors** considered for each candidate investigation:
+
+- **Influence on subsequent design choices** — how strongly the result is expected to discriminate between competing design directions, fix open architectural questions (e.g. cast-on-frame vs. separate-and-mount), or close out major uncertainties in the model chain;
+- **Time-to-market impact** — whether the result accelerates the path to a deployable Gen 2 product, e.g. by closing a manufacturability question that blocks tooling investment;
+- **Improvement against the FDS** — the magnitude by which the result is expected to improve performance against the constraint or secondary functions in §3.2 (FC1–FC10, FS1–FS3) or against the SuRE WP6 KPIs (50 % aluminium reduction, ~3 % thermal-loss reduction, validation up to SSC 5).
+
+In practice, the prioritisation is exercised informally during planning discussions and reflected in the choice of which investigations are scheduled, deferred, or dropped. Examples of investigations selected on this basis include the early focus on aluminium forming limits (high impact on manufacturability and cost; medium effort once the LS-DYNA pipeline was established), the redirection of effort from punch/die optimisation to hydroforming once it became clear that fluid-forming offered a substantially larger upside than continued refinement of the punch/die approach (a deliberate risk-based choice rather than an incremental optimisation), and the prioritisation of PU thermal and UV characterisation following the discovery of the over-temperature risk in dark-blue PU under high-irradiance conditions. Investigations that scored low on benefit relative to effort, or where the probability of a usable result was judged too low, were either descoped or referred to later phases of the project.
+
+This is not a formal risk-scoring exercise — no numerical risk register is maintained, and no uncertainty × impact × effort calculation is carried out per investigation — but the same factors are applied consistently across decisions, and the resulting allocation of effort is recorded in the engineering activity log that supports this report.
 
 ## 3.5 Model-supported development cycle
 
@@ -349,21 +374,21 @@ Numerical simulations are then used to evaluate candidate designs under relevant
 
 Promising designs are selected for prototype manufacturing, which serves to verify that designs are manufacturable in practice, identify practical challenges not captured in simulations, and provide physical samples for testing. The level of fidelity ranges from simplified test samples to fully integrated system components, depending on the investigation.
 
-In the Sunlit development process, prototype manufacturing is closely integrated with the parametric design system. Moulds for casting polyurethane components are designed within the same FreeCAD parametric model used for the structural design, ensuring that mould geometry remains consistent with the current design state. Moulds are initially 3D-printed to allow rapid iteration: a design change can be reflected in a new printed mould and tested within a short cycle. Casting is performed onto mock solar panels consisting of glass, a bottom plate and a frame, producing prototypes that are representative of the integrated unit. After inspection and functional testing, mould designs that prove viable are promoted to metal moulds suitable for production-representative casting. Figures 3-4 and 3-5 show an example of this progression: the metal mould of Prototype 3 before and after polyurethane casting. This progression from parametric model to 3D-printed mould to cast prototype to metal mould defines the prototyping track of the development cycle. Multiple prototype generations (P1–P4 and beyond) have been produced in this way, each incorporating lessons from the previous round of testing. Figures 3-2 and 3-3 show the FreeCAD parametric models of Prototypes 3 and 4, illustrating the evolution of the float-structure and hinge geometry between iterations. As part of production scale-up investigations, a casting vendor was engaged and visited, providing input to mould design requirements for larger-scale manufacture.
+In the Sunlit development process, prototype manufacturing is closely integrated with the parametric design system. Moulds for casting PU components are designed within the same FreeCAD parametric model used for the structural design, ensuring that mould geometry remains consistent with the current design state. Moulds are initially 3D-printed to allow rapid iteration: a design change can be reflected in a new printed mould and tested within a short cycle. Casting is performed onto mock solar panels consisting of glass, a bottom plate and a frame, producing prototypes that are representative of the integrated unit. After inspection and functional testing, mould designs that prove viable are promoted to metal moulds suitable for production-representative casting. Figures 3-4 and 3-5 show an example of this progression: the metal mould of Prototype 3 before and after PU casting. This progression from parametric model to 3D-printed mould to cast prototype to metal mould defines the prototyping track of the development cycle. Multiple prototype generations (P1–P4 and beyond) have been produced in this way, each incorporating lessons from the previous round of testing. Figures 3-2 and 3-3 show the FreeCAD parametric models of Prototypes 3 and 4, illustrating the evolution of the float-structure and hinge geometry between iterations. As part of production scale-up investigations, a casting vendor was engaged and visited, providing input to mould design requirements for larger-scale manufacture.
 
-![Figure 3-2. FreeCAD parametric model of the gen2 Prototype 3 full integrated unit, showing the solar panel area, float-structure and cylindrical hinge connectors at the sides and corners.](images/gen2_prototype3_freecad_model.png)
+![Figure 3-2. FreeCAD parametric model of the Gen 2 Prototype 3 full integrated unit, showing the solar panel area, float-structure and cylindrical hinge connectors at the sides and corners.](images/gen2_prototype3_freecad_model.png)
 
-![Figure 3-3. FreeCAD parametric model of the gen2 Prototype 4 full integrated unit, showing the evolved float-structure design with updated hinge geometry relative to Prototype 3.](images/gen2_prototyp4_freecad_model.png)
+![Figure 3-3. FreeCAD parametric model of the Gen 2 Prototype 4 full integrated unit, showing the evolved float-structure design with updated hinge geometry relative to Prototype 3.](images/gen2_prototyp4_freecad_model.png)
 
-![Figure 3-4. Metal casting mould for the gen2 Prototype 3 float-structure before polyurethane casting, showing the multi-part aluminium mould assembly with hinge and connector features.](images/gen2_prototyp3_casting1.png)
+![Figure 3-4. Metal casting mould for the Gen 2 Prototype 3 float-structure before PU casting, showing the multi-part aluminium mould assembly with hinge and connector features.](images/gen2_prototyp3_casting1.png)
 
-![Figure 3-5. Gen2 Prototype 3 float-structure components after polyurethane casting, showing the white PU parts assembled in the metal mould.](images/gen2_prototyp3_casting2.png)
+![Figure 3-5. Gen 2 Prototype 3 float-structure components after PU casting, showing the white PU parts assembled in the metal mould.](images/gen2_prototyp3_casting2.png)
 
-The mould design process is not limited to the float-structure: Figure 3-6 shows the FreeCAD parametric mould design for the gen2 Prototype 4 connector component, illustrating how the same parametric approach is applied to smaller functional components with more complex geometry.
+The mould design process is not limited to the float-structure: Figure 3-6 shows the FreeCAD parametric mould design for the Gen 2 Prototype 4 connector component, illustrating how the same parametric approach is applied to smaller functional components with more complex geometry.
 
-![Figure 3-6. FreeCAD parametric mould design for the gen2 Prototype 4 connector component, showing the carabiner-like locking mechanism with circular bore, snap-fit hooks and adjustment screw.](images/gen2_prototyp4_freecad_mold.png)
+![Figure 3-6. FreeCAD parametric mould design for the Gen 2 Prototype 4 connector component, showing the carabiner-like locking mechanism with circular bore, snap-fit hooks and adjustment screw.](images/gen2_prototyp4_freecad_mold.png)
 
-Experimental testing provides data on real-world behaviour. Testing activities include mechanical testing (tensile, fatigue, load transfer), environmental testing (UV exposure, moisture ingress), and thermal testing (temperature response under irradiation). These tests are essential for validating simulation models, identifying failure modes, and quantifying performance under realistic conditions.
+Experimental testing provides data on real-world behaviour. Testing activities include mechanical testing (tensile, fatigue, load transfer) and environmental testing (UV exposure including temperature response, moisture ingress). These tests are essential for validating simulation models, identifying failure modes, and quantifying performance under realistic conditions.
 
 Simulation results are then compared with experimental results to assess model accuracy. Where discrepancies are identified, model assumptions are updated, input parameters are refined, and modelling approaches are improved. This validation process enables iterative improvement of both the design, through better-informed decisions, and the modelling framework, through increased predictive capability.
 
@@ -378,6 +403,10 @@ Design parameters serve as inputs to the parametric CAD models that initiate the
 This categorisation enables structured parameter management, consistent data exchange between models, and comparison of results across design iterations. Simulation inputs, outputs and experimental data are organised within a structured data framework based on three principles: traceability, so that each design iteration can be linked to its corresponding simulation and test results; consistency, so that shared parameters are defined identically across different models; and interoperability, so that data can be transferred between modelling domains without loss of meaning.
 
 The resulting parameter and data structure forms the basis of the model chain described in Chapter 6.
+
+## 3.7 Summary
+
+The product development framework developed in WP6 anchors the engineering work in an FDS that defines what the system must do (FP, FC, FS), maps those requirements onto functional and engineering domains that delimit how the work is organised, prioritises investigations by qualitative judgement of effort against expected benefit, and exercises an iterative model-and-test cycle in which parametric CAD, numerical simulation and physical prototyping feed each other. Parameters are managed in three categories — design, process and performance — with consistent definitions across domains so that data can flow through the chain and design iterations remain traceable.
 
 # 4 FEM Model Development for Aluminium Float Pressing
 
@@ -404,71 +433,43 @@ To address these objectives, the float concept investigated in this work is base
 
 ![Figure 4-2. Sample cup shape showing the target geometry produced by the aluminium pressing process.](images/cup_shape.png)
 
-The geometry of the float is defined through a set of design parameters, which are varied systematically in the modelling process. The following parameters and their explored ranges are used:
+The geometry of the float is defined through a set of design parameters varied systematically in the modelling process. The nine parameters and their explored ranges are:
 
-**Cup radius (10–40 mm):**
+- **Cup radius (10–40 mm):** radius of the circle bounding one cup; controls contact area with the PV panel and material flow during forming.
+- **Cup depth (5–40 mm):** vertical displacement of material; directly drives buoyancy and stiffness.
+- **Cup eccentricity (0.7–1.0, ratio of ellipse y/x):** allows elliptical cups to exploit the orthotropic plastic behaviour of rolled aluminium sheet — the major axis is oriented along the more formable direction so that deeper cups can be formed within the same thickness budget. The underlying anisotropy is detailed in §4.2.
+- **Cup angle (10–85°):** steepness of the internal cup surface; high angles give flatter cup bottoms, low angles give steeper walls.
+- **Cup tip radius (2–32 mm, constrained to 20–80 % of cup radius):** flat area at the bottom of the cup, used as the bonding surface between the two pressed float halves.
+- **Cup lip radius (1 mm):** fillet at the transition from the flat region into the cup; sharp transitions raise the risk of tearing or thinning.
+- **Cup spacing (0–40 mm):** flat material between cups; supplies the aluminium drawn into the cups and supports the solar panel.
+- **Sheet thickness (0.8 mm, fixed):** key cost and structural-performance driver. Treated as a free parameter early on, but the resulting parameter space was too large for tractable Pareto search; 0.8 mm was selected based on supplier recommendations and the cup-depth budget under glass-glass modules and is a standard market thickness, so it was frozen for systematic exploration.
+- **Forming pressure (4–12 MPa):** fluid pressure applied during hydroforming.
 
-the radius of a circle bounding one cup. The cup itself may be elliptical within this circle. Controls the contact area with the photovoltaic panel and influences material flow during forming.
+Together these nine parameters define a multi-dimensional design space; their ranges are bounded by physical constraints, manufacturing limits and prior design experience from the first-generation product.
 
-**Cup depth (5–40 mm):**
-
-the vertical displacement of material during forming. Directly influences buoyancy and stiffness. Increasing depth improves enclosed volume but increases forming difficulty.
-
-**Cup eccentricity (0.7–1.0, ratio of ellipse y/x):**
-
-allows elliptical rather than circular cup shapes as a design response to the orthotropic plastic behaviour of rolled aluminium sheet, which is described in more detail in Section 4.2. Because the sheet is most prone to thinning when strained parallel to the transverse direction and most formable along the diagonal, a circular cup loads the material asymmetrically with respect to the material's own directional preferences. By orienting the major axis of an elliptical cup in the more formable direction of the sheet, the forming process can exploit the most favourable strain-ratio directions and reduce the risk of tearing, which in turn allows deeper cups to be formed within the same sheet thickness budget and translates directly into greater buoyancy per unit material.
-
-**Cup angle (10–85°):**
-
-controls the steepness of the internal cup surface. High angles produce flatter cup bottoms; low angles produce steeper walls.
-
-**Cup tip radius (2–32 mm, constrained to 20–80% of cup radius):**
-
-the flat area at the bottom of each cup, which serves as the bonding surface between top and bottom float halves.
-
-**Cup lip radius (1 mm):**
-
-the fillet radius at the transition from the flat region into the cup. Sharp transitions increase risk of tearing or thinning.
-
-**Cup spacing (0–40 mm):**
-
-the distance between cups, determining how much flat material remains between formed features. This is the area from which the cups draw aluminium during forming, and also where the solar panel rests.
-
-**Sheet thickness (0.8 mm):**
-
-a key parameter affecting both structural performance and cost. Reducing thickness is desirable but increases sensitivity to forming defects and structural instability. Thickness was initially varied as a free parameter, but this expanded the parameter space significantly and made systematic Pareto front search very time-consuming. After consulting industry expert recommendations and estimating the required cup depth relative to the free space beneath a typical glass-glass solar panel, 0.8 mm was identified as both sufficient for the target cup geometry and a market-available standard thickness. It was therefore fixed, reducing the active parameter space and making the search tractable.
-
-**Forming pressure (4–12 MPa):**
-
-the fluid pressure applied during hydroforming.
-
-These nine parameters define a multi-dimensional design space that must be explored to identify feasible configurations. The parameter ranges are bounded by physical constraints, manufacturing limits and prior design experience from the first-generation product.
-
-Floater overall size is not included in this set of parameters, and is in fact architecturally out of scope for the pressing simulation. Each FEM run represents the forming of a single cup, so simulation outputs depend only on local cup geometry and material parameters, not on how many cups are tiled across a floater or on the overall floater dimensions. Changing floater size does not change what the pressing simulation computes at the cup level. Floater size is nevertheless a key system-level design variable, recognised in Section 2.2.1, where the overall dimensions are essentially determined by the choice of PV panel around which the float is built: the 2384 × 1303 mm module class used as the current reference, the approximately 1770 × 1770 mm square alternative, and any other panel format under consideration each imply a different outer envelope and a corresponding floater size (cf. Figure 2-2 for how a given unit form factor propagates into array and mooring layout at the 25 kWp scale).
-
-The natural place for systematic evaluation of floater size is therefore the life-cycle assessment work (Section 5.4.2 and interface I-5 in Section 6.3), where changes in overall dimensions directly drive material totals per unit, per-unit production effort, and plant-level layout and component counts. The cup-level pressing simulations described in this chapter feed into that analysis by providing manufacturability constraints and per-cup material usage estimates, which can be scaled to any floater size once the cup count is determined by the chosen outer envelope.
+Floater overall size is not included in this set and is architecturally out of scope for the pressing simulation: each FEM run represents a single cup, so its outputs depend only on local cup geometry and material parameters and are independent of how many cups are tiled across a floater. Floater size is nevertheless a system-level design variable that affects container packing density, walkability, buoyancy distribution and stress paths through the array, and is recognised in §2.2.1. We have judged it solvable for any of the candidate panel formats and have therefore selected the largest economic panel class (2384 × 1303 mm) as the current reference, with the 1770 × 1770 mm Gen 1-class square panel kept as an alternative. The natural place for systematic evaluation of floater size is the life-cycle assessment work (§5.4.2 and interface I-5 in §6.3), where overall dimensions directly drive per-unit material totals, production effort and plant-level layout. The cup-level pressing simulations feed into that analysis by providing manufacturability constraints and per-cup material usage that scale to any floater size once the cup count is set by the chosen outer envelope.
 
 ## 4.2 Modelling framework and tool development
 
-To evaluate manufacturability and guide design decisions, a finite element modelling (FEM) framework has been developed by Sunlit Sea.
+To evaluate manufacturability and guide design decisions, an FEM modelling framework has been developed by Sunlit Sea.
 
-The forming process is modelled as a nonlinear deformation problem using LS-DYNA, where the aluminium sheet undergoes large plastic deformation and contact interactions between tool and sheet are explicitly represented. The first-generation Sunlit product was manufactured using a conventional punch/die press, in which a rigid punch forces the sheet into a matching die cavity; Figure 4-3 shows the punch/die tooling geometry as used in an early iteration of the pressing FEM simulation setup. For the current generation, hydroforming has been adopted as the target manufacturing route: an incompressible fluid applies pressure to one side of the sheet, pressing it into a cup-shaped mould without a matching rigid punch. This change was driven by tooling flexibility and cost considerations — a hydroforming mould is considerably simpler and cheaper to produce than a matched punch/die set, which is important for the iterative design process described in Chapter 3. The simulation models the hydroforming process accordingly.
+The forming process is modelled as a nonlinear deformation problem using the FEM software LS-DYNA, where the aluminium sheet undergoes large plastic deformation and contact interactions between forming tool and sheet are explicitly represented. The first-generation Sunlit product was manufactured using a conventional punch/die press, in which a rigid punch forces the sheet into a matching die cavity. The simulation framework was therefore initially built around the punch/die geometry, in line with the inherited Gen 1 manufacturing route: this had high upside if successful, since it would have allowed direct reuse of Gen 1 tooling experience and infrastructure. Figure 4-3 shows the punch/die tooling geometry as used in an early iteration of the pressing FEM simulation setup, and Figures 4-4 and 4-5 show the same setup as a finite element mesh, with and without a gripper ring evaluated to control material flow and reduce thinning at the cup walls.
 
-![Figure 4-3. Step file representation of the punch and die tooling setup used in the first-generation conventional press forming approach; an early iteration of the pressing FEM simulation setup illustrating the iterative development toward the final hydroforming simulation.](images/punch_and_die.png)
-
-During the development of the forming simulation, a gripper ring was evaluated as a means of controlling material flow and reducing thinning at the cup walls. Figures 4-4 and 4-5 show the meshed punch and die assembly with and without the gripper ring. The gripper approach was subsequently abandoned in favour of fluid hydroforming, which provides more uniform pressure distribution without requiring a matched gripper geometry.
+![Figure 4-3. Step file representation of an early iteration of the punch and die tooling setup used in the Gen 1 conventional press forming approach.](images/punch_and_die.png)
 
 ![Figure 4-4. Meshed punch and die assembly with gripper ring, tested as a means of controlling metal flow and reducing thinning during forming.](images/punch_die_mesh_with_gripper.png)
 
-![Figure 4-5. Meshed punch and die assembly without gripper ring. This configuration was adopted as the basis for the hydroforming simulation framework.](images/punch_die_mesh_without_gripper.png)
+![Figure 4-5. Meshed punch and die assembly without gripper ring. This configuration was the basis for evaluating the punch/die route before the switch to hydroforming.](images/punch_die_mesh_without_gripper.png)
 
-The aluminium alloy used in the float design is marine-grade AA5083-H111, supplied as cold-rolled sheet, whose chemical composition is given in Figure 4-6. AA5083 combines good formability, weldability and corrosion resistance with a high thermal conductivity that is directly exploited by the floater architecture, where the metal body acts as a thermal bridge between the photovoltaic panel and the surrounding water. In the H111 temper the alloy is annealed and then slightly strain-hardened by cold working. Sheet thicknesses of 1.5 mm have been used in earlier product generations and 0.8 mm is the current design target, the latter chosen to reduce material consumption at the cost of a tighter manufacturing window. The cold rolling process introduces a pronounced orthotropic anisotropy in the plastic behaviour of the sheet, expressed as direction-dependent yield stresses and plastic strain ratios relative to the rolling axis. The constitutive model used in the forming simulations must explicitly capture this anisotropy if forming predictions are to be meaningful at the accuracy level required for iterative boundary search in a multi-parameter design space.
+Within WP6, closer simulation evaluation of the punch/die route alongside an alternative hydroforming concept showed that the upside of the hydroforming route was substantially greater than what continued refinement of the punch/die approach could deliver — both in terms of tooling cost and lead time (a hydroforming mould is considerably simpler and cheaper to produce than a matched punch/die set, which matters for the iterative development cycle of Ch 3) and in terms of forming uniformity (fluid pressure acts uniformly on one face of the sheet, removing the need for a matched gripper geometry). On this basis, the gripper-ring punch/die concept was abandoned and hydroforming was adopted as the target manufacturing route for Gen 2. This redirection — illustrative of the prioritisation approach in §3.4, where a high-upside alternative was pursued in preference to incremental optimisation of an existing route — is a WP6 outcome rather than a pre-SuRE Sunlit decision. The simulation models the hydroforming process accordingly.
+
+The aluminium alloy used in the float design is marine-grade AA5083-H111, supplied as cold-rolled sheet, whose chemical composition is given in Figure 4-6. AA5083 combines good formability, weldability and corrosion resistance with a high thermal conductivity that is directly exploited by the floater architecture, where the metal body acts as a thermal bridge between the PV panel and the surrounding water. In the H111 temper, the alloy is annealed and then slightly strain-hardened by cold working. Sheet thicknesses of 1.5 mm have been used in earlier product generations and 0.8 mm is the current design target, the latter chosen to reduce material consumption at the cost of a tighter manufacturing window. The cold rolling process introduces a pronounced orthotropic anisotropy in the plastic behaviour of the sheet, expressed as direction-dependent yield stresses and plastic strain ratios relative to the rolling axis. The constitutive model used in the forming simulations must explicitly capture this anisotropy if forming predictions are to be meaningful at the accuracy level required for iterative boundary search in a multi-parameter design space.
 
 ![Figure 4-6. Chemical composition of AA5083-H111 aluminium alloy used as the float sheet material.](images/chemical_composition_alu5083h111.png)
 
-The constitutive model adopted in the framework is the non-quadratic anisotropic Yld2003 yield function, implemented in LS-DYNA through the *MAT_WTM_STM (Strong Texture Model) material keyword. Yld2003 generalises the isotropic Hershey–Hosford yield function by splitting it into two additive terms, each applied to a linearly transformed stress tensor, producing a total of eight anisotropy coefficients that are calibrated against experimentally measured directional plasticity data. The yield function is paired with a Voce-type strain hardening law, in which the flow stress increases with accumulated plastic strain towards a saturation level through an exponential functional form. Together, these two components constitute a physically rigorous and widely used model for the plastic behaviour of rolled aluminium sheet.
+This is done through adoption of the non-quadratic anisotropic Yld2003 yield function, implemented in LS-DYNA through the *MAT_WTM_STM (Strong Texture Model) material keyword. Yld2003 generalises the isotropic Hershey–Hosford yield function by splitting it into two additive terms, each applied to a linearly transformed stress tensor, producing a total of eight anisotropy coefficients that are calibrated against experimentally measured directional plasticity data. The yield function is paired with a Voce-type strain hardening law, in which the flow stress increases with accumulated plastic strain towards a saturation level through an exponential functional form. Together, these two components constitute a physically rigorous and widely used model for the plastic behaviour of rolled aluminium sheet.
 
-The calibration of the anisotropy coefficients and of the hardening parameters draws on three types of mechanical tests carried out on AA5083-H111 sheet of the relevant thickness. Uniaxial tensile tests performed at 0°, 45° and 90° to the rolling direction following ISO 10113:2020 provide directional yield stresses and plastic strain ratios. Biaxial bulge tests following ISO 16808:2014 extend the measured flow curve into the large-strain regime, well beyond the uniform elongation limit accessible from uniaxial tests. A forming limit curve (FLC) measured by the Nakajima test following ISO 12004-2:2009 characterises the onset of necking across the range of strain states relevant to deep drawing. The resulting Lankford plastic strain ratios are approximately r0 ≈ 0.66, r45 ≈ 0.84, r90 ≈ 0.71, with an equibiaxial value of approximately 1.09. These values show that the sheet is most prone to through-thickness thinning when strained parallel to the transverse direction (r90 is the lowest), least prone along the diagonal (r45 is the highest), and that the equibiaxial response is favourable for deep drawing. This directional pattern is the physical motivation for treating cup ellipse eccentricity as a design parameter in Section 4.1: by orienting the major elliptic axis of each cup relative to the rolling direction of the sheet, the forming process can exploit the most favourable strain-ratio directions and accommodate deeper cups within the same sheet thickness budget.
+The calibration of the anisotropy coefficients and of the hardening parameters draws on three types of mechanical tests carried out on AA5083-H111 sheet of the relevant thickness. Uniaxial tensile tests performed at 0°, 45° and 90° to the rolling direction following ISO 10113:2020 provide directional yield stresses and plastic strain ratios. Biaxial bulge tests following ISO 16808:2014 extend the measured flow curve into the large-strain regime, well beyond the uniform elongation limit accessible from uniaxial tests. A forming limit curve (FLC) measured by the Nakajima test following ISO 12004-2:2009 characterises the onset of necking across the range of strain states relevant to deep drawing. The Lankford plastic strain ratios used in the calibrated material card are r0 ≈ 0.71, r45 ≈ 0.84, r90 ≈ 0.64, with an equibiaxial value rbb ≈ 1.13 (taken from the `*MAT_WTM_STM` block of the LS-DYNA keyword file used for the production runs). These values show that the sheet is most prone to through-thickness thinning when strained parallel to the transverse direction (r90 is the lowest), least prone along the diagonal (r45 is the highest), and that the equibiaxial response is favourable for deep drawing. This directional pattern is the physical motivation for treating cup ellipse eccentricity as a design parameter in Section 4.1: by orienting the major elliptic axis of each cup relative to the rolling direction of the sheet, the forming process can exploit the most favourable strain-ratio directions and accommodate deeper cups within the same sheet thickness budget.
 
 To capture the transition from stable plastic deformation to localised necking, the model introduces a small-amplitude random field of shell element thickness variations across the blank via the LS-DYNA *PERTURBATION keyword. The perturbation field is generated as an isotropic Gaussian random field using Karhunen–Loève spectral decomposition, producing microscopic thickness variations of the order of a few micrometres on a characteristic length scale of order one millimetre. These variations act as imperfections in the Marciniak–Kuczyński sense, triggering localised necking under increasing strain and allowing the onset of plastic instability to emerge from the simulation rather than being imposed externally. Fracture is then flagged when the local through-thickness strain exceeds a critical value — the fracture criterion — which is treated as a calibrated model parameter rather than derived from first principles. Sensitivity checks have shown that the exact value of the fracture threshold has limited influence on the predicted forming limits, provided that the instability is triggered by the thickness-perturbation field before the threshold is reached; the calibration therefore captures the onset of localisation rather than the final stage of ductile failure.
 
@@ -482,7 +483,7 @@ The FEM framework enables rapid evaluation of many design variants, identificati
 
 To efficiently explore the design space, the FEM modelling is embedded within an automated simulation pipeline that connects geometry generation, simulation execution and result evaluation. The pipeline is implemented in Python and consists of the following steps, illustrated in Figure 4-8:
 
-Parametric geometry generation: a CAD model is generated programmatically using the FreeCAD Python API. The geometry is defined in terms of normalised parameter values (0 to 1), which are mapped to the physical parameter ranges described in Section 4.1. This enables automated generation of arbitrary design variants from a single parametric definition.
+Parametric geometry generation: a CAD model is generated programmatically using the FreeCAD Python API. Each of the nine design parameters described in Section 4.1 is represented internally as a normalised value in the range 0 to 1, which is mapped linearly to its physical range. A specific design point is therefore a vector of nine independent normalised values (one per parameter), not a single combined value. This enables automated generation of arbitrary design variants from a single parametric definition.
 
 Mesh generation and model setup: the CAD geometry is exported as a STEP file, and Python scripts generate LS-DYNA keyword files (.k files) using template-based generation. These files define the mesh, material properties, boundary conditions, contact definitions and forming pressure.
 
@@ -492,7 +493,7 @@ Post-processing: key metrics (time-to-crack, lip-mean, edge-mean) are extracted 
 
 Evaluation against criteria: results are compared against manufacturability criteria. A design is considered feasible if the forming process completes without material failure.
 
-Storage and traceability: input parameters and outputs are stored in a structured CSV dataset. Each simulation is identified by a unique hash of its input parameters, enabling traceability and comparison across the full simulation campaign.
+Storage and traceability: input parameters and outputs are stored in a structured CSV dataset. Each simulation is identified by an input_hash — a SHA-256 hash computed over the concatenated string representation of all nine input parameter values, used purely as a stable unique identifier for the row. The hash is not itself a normalised parameter value; the original parameter values are stored alongside it in the same row, and the hash only serves to deduplicate and index simulations across the full campaign.
 
 The CSV dataset stores one row per simulation, keyed by input_hash — a hash of the concatenated input parameter values that serves as a unique identifier. The nine input fields are cup_rad, cup_lip, cup_depth, cup_angle, cup_y_to_x, cup_tip, space, alu_thick and pressure, corresponding one-to-one with the design parameters defined in Section 4.1. The three output fields are time_to_crack (the key manufacturability metric, capturing how far through the forming process the simulation progresses before material failure), lip_mean (a quality metric averaged over the cup lip region) and edge_mean (a quality metric averaged over the cup edge region). Two versions of the dataset are maintained: collect_full.csv contains all executed simulations (approximately 3,900 rows at the time of writing), while collect.csv contains the curated subset along the Pareto front (approximately 1,300 rows) retained after data culling. Both files share the same schema, so the machine-learning workflows and other downstream consumers can operate on either without modification.
 
@@ -502,7 +503,7 @@ The pipeline is fully automated, allowing batch simulation of design variants an
 
 ## 4.4 Parameter space exploration and optimisation
 
-The design of the float structure involves navigating a parameter space with competing objectives. Increasing cup depth improves buoyancy but increases risk of failure during forming. Reducing sheet thickness lowers cost but increases susceptibility to thinning and tearing. Cup eccentricity can improve formability by aligning with the anisotropic grain structure of rolled aluminium, but deviates from the structurally preferred circular geometry.
+The design of the float structure involves navigating a parameter space with competing objectives.
 
 Three complementary approaches are used to select which parameter combinations to simulate:
 
@@ -514,7 +515,9 @@ Machine-learning-guided sampling, where a neural network trained on the accumula
 
 As the dataset grows, periodic data culling is performed to maintain a high-quality dataset along the Pareto front. For each parameter, redundant interior points are removed, retaining only the boundary value, the point immediately above, and the point immediately below the feasibility threshold. This process has reduced the full dataset of approximately 3,900 simulations to a curated dataset of approximately 1,300 high-quality data points characterising the feasibility boundaries of the design space.
 
-The genetic algorithm library DEAP is used as a fallback generator when neither the iterative search nor the ML model produces valid candidates.
+The combination of iterative boundary search, ML-guided sampling and periodic culling is itself the result of several iterations within WP6. Earlier rounds relied on random sampling to populate the dataset, but the resulting points were spread thinly across the feasible interior and gave the neural network too little information at the feasibility boundary to make accurate predictions, slowing convergence rather than accelerating it. Replacing the unstructured random pool with a smaller dataset concentrated along the boundary, refreshed by culling, was what made the ML-guided exploration effective. The hydroforming feasibility boundary is now considered well-characterised at the level of detail required to feed the multi-domain screening of D6.2; no additional pressing simulations are planned for that purpose, and the curated dataset of approximately 1,300 points is in fact larger than strictly necessary, retained at this size to support sensitivity studies and re-screening as downstream constraints (structural, thermal, LCA) are refined.
+
+The genetic algorithm library DEAP is used as a fallback candidate generator when neither the iterative boundary search nor the ML model produces a valid next design point — for example, after an exhausted local search or when ML predictions cluster outside the feasible region. DEAP runs a small genetic-algorithm loop over the nine normalised design parameters, treating each parameter vector as an individual, applying mutation and crossover, and selecting candidates that pass the geometric and parameter-validation pre-screen of Stage 1 (Section 7.3). The first valid offspring is returned as the next design point to simulate. This guarantees that the pipeline can always propose a fresh, geometrically admissible candidate and prevents the exploration loop from stalling.
 
 ## 4.5 Experimental validation of pressing models
 
@@ -522,11 +525,11 @@ While FEM simulations provide valuable insight, they rely on assumptions regardi
 
 The material constitutive model itself (Yld2003 yield function and Voce hardening law, Section 4.2) is calibrated against standardised uniaxial, biaxial and forming-limit tests of the AA5083-H111 sheet and does not depend on any specific cup geometry or forming process — these are intrinsic material properties that apply equally to punch/die and hydroforming. In contrast, the friction coefficient and the critical thickness strain used as fracture criterion are process-dependent and must be calibrated against forming outcomes from real parts.
 
-For this purpose, the simulation framework has been calibrated against the known forming envelope of the first-generation Sunlit product, which was manufactured using a conventional punch/die press. Physical forming experience from that earlier product established that a cup depth of 38.5 mm forms without failure, while a cup depth of 40 mm fails during the drawing process. The friction coefficient and fracture threshold in the simulation were tuned so that the model reproduces both outcomes: successful forming at 38.5 mm with no sign of localised necking, and clear fracture at 40 mm. The two resulting parameter values (a friction coefficient of approximately 0.085 and a critical through-thickness strain of approximately −0.45) have subsequently been held fixed across the parametric exploration described in Section 4.4.
+For this purpose, the simulation framework has been calibrated against the known forming envelope of the Gen 1 Sunlit product, which was manufactured using a conventional punch/die press. The physical forming reference was obtained partly through Sunlit Sea's earlier collaboration in the MariSol project with the UK partner Accura, where the punch/die runs that establish the Gen 1 forming envelope were carried out: a cup depth of 38.5 mm forms without failure, while a cup depth of 40 mm fails during the drawing process. The friction coefficient and fracture threshold in the simulation were tuned so that the model reproduces both outcomes: successful forming at 38.5 mm with no sign of localised necking, and clear fracture at 40 mm. The two resulting parameter values (a friction coefficient of approximately 0.085 and a critical through-thickness strain of approximately −0.45) have subsequently been held fixed across the parametric exploration described in Section 4.4.
 
 It should be noted that these process-dependent parameters were calibrated against punch/die forming data and are applied here to hydroforming simulations. The contact mechanics differ between the two processes: in punch/die forming the friction acts at the punch–sheet and die–sheet interfaces under controlled contact pressure, whereas in hydroforming the fluid pressure acts uniformly on one face of the sheet while friction acts only at the mould–sheet interface on the opposite face. The material model predictions are therefore on firm ground, but the friction and fracture calibration carries a process-transfer uncertainty that should be addressed by recalibrating against hydroforming-specific forming trials as production tooling becomes available. The proof-of-concept described below represents the first step in building that hydroforming-specific validation basis.
 
-An early application of the calibrated model was a two-parameter study of cup depth against drawbead distance, in which a simple iterative boundary-search algorithm was used to locate the curve separating successful from unsuccessful forming operations in a two-dimensional parameter space. Approximately thirty simulations were sufficient to trace the feasibility boundary across a practical range of drawbead distances, and all fracture instances occurred in the same characteristic orientation — perpendicular to the transverse direction, approximately 50 mm from the cup centre — consistent with r90 being the lowest Lankford coefficient of the material (Figures 4-9 and 4-10 show two examples of simulated forming failure exhibiting this characteristic tearing pattern). This two-parameter study served as both a validation exercise and a methodological precursor: it established the viability of the boundary-search algorithm later extended to the nine-parameter design space of Section 4.4, and it demonstrated that the calibrated model reproduces the directional bias in fracture location expected from the measured material anisotropy.
+An early application of the calibrated model was a two-parameter study of cup depth against drawbead distance using a simple iterative boundary-search algorithm. About thirty simulations were enough to trace the feasibility boundary, and all fracture instances occurred in the same orientation — perpendicular to the transverse direction, approximately 50 mm from the cup centre — consistent with r90 being the lowest Lankford coefficient (Figures 4-9 and 4-10). The study served both as a validation (the model reproduces the directional fracture bias expected from the material anisotropy) and as the methodological precursor to the full nine-parameter boundary search of §4.4.
 
 ![Figure 4-9. Simulated forming failure example 1, showing material ripping/tearing during the pressing simulation.](images/punchdie_rip1.png)
 
@@ -546,33 +549,35 @@ The FEM modelling of aluminium float pressing establishes a simulation-driven ap
 
 ## 5.1 Overview
 
-Beyond manufacturing feasibility, the development of the Sunlit floating PV system requires modelling and testing across several additional engineering domains. This chapter describes the thermal, mechanical and economic modelling activities performed in WP6. These domains are closely interconnected: thermal behaviour influences material durability, structural design influences thermal coupling, and cost considerations constrain all design choices.
+Beyond manufacturing feasibility, the development of the Sunlit FPV system requires modelling and testing across the other closely connected engineering domains outlined in Section 3.3.2. This chapter describes the thermal, mechanical and economic modelling activities performed in WP6.
 
 ## 5.2 Heat transfer modelling
 
 ### 5.2.1 Objective and relevance
 
-The thermal behaviour of the integrated floating PV system has a direct impact on energy yield (PV efficiency decreases with increasing temperature), material durability (particularly for polymers and sealants), and reliability (elevated temperatures accelerate degradation mechanisms). In the Sunlit concept, thermal behaviour is influenced by the close coupling between the photovoltaic module, float structure and surrounding environment (water, air, solar radiation). Heat transfer modelling is therefore required to understand and control temperature behaviour under realistic operating conditions.
+The thermal behaviour of the integrated FPV system has a direct impact on energy yield (PV efficiency decreases with increasing temperature), material durability (particularly for polymers and sealants that can e.g. soften and/or expand under increasing temperatures), and reliability (elevated temperatures accelerate degradation mechanisms). In the Sunlit concept, thermal behaviour is influenced by the close coupling between the PV module, float-structure and surrounding environment (water, air, solar radiation). Heat transfer modelling is therefore required to understand and control temperature behaviour under realistic operating conditions.
 
-In the gen1 product, heat from the photovoltaic panel dissipates passively downward through the polystyrene infill and the pressed aluminium bottom plate into the surrounding water, as illustrated in Figure 5-1. This thermal path — exploiting the high thermal conductivity of aluminium as a bridge between the panel and the water — is a key design feature of the integrated float concept and motivates the choice of AA5083-H111 as the float material.
+In the Gen 1 product, heat from the PV panel dissipates passively downward through the polystyrene infill and the pressed aluminium bottom plate into the surrounding water, as illustrated in Figure 5-1. This thermal path — exploiting the high thermal conductivity of aluminium as a bridge between the panel and the water — is a key design feature of the integrated Gen 1 float concept and motivates the choice of AA5083-H111 as the float material.
 
-![Figure 5-1. Passive heat dissipation paths in the gen1 Sunlit FPV unit, showing how heat flows from the photovoltaic panel through the infill and the pressed aluminium sandwich bottom into the surrounding water.](images/gen1_cooling_of_pv_from_heat_transfer_to_water.png)
+![Figure 5-1. Passive heat dissipation paths in the Gen 1 Sunlit FPV unit, showing how heat flows from the PV panel through the infill and the pressed aluminium sandwich bottom into the surrounding water.](images/gen1_cooling_of_pv_from_heat_transfer_to_water.png)
 
 ### 5.2.2 Modelling approach
 
-Thermal behaviour is analysed using computational fluid dynamics (CFD) and heat transfer modelling. The model includes solar irradiance input (absorbed energy), convective heat transfer with air and water, radiative heat exchange with the environment, and conductive heat transfer within system components. Material surface properties are included explicitly, as they strongly influence temperature behaviour.
+Thermal behaviour is analysed using CFD. The model includes solar irradiance input (absorbed energy), convective heat transfer with air and water, radiative heat exchange with the environment, and conductive heat transfer within system components. Material surface properties are included explicitly, as they strongly influence temperature behaviour.
 
-To support the thermal modelling, the optical properties of the polyurethane (PU) hinge material were measured experimentally. Absorptivity was determined by measuring spectral reflectance over the range 300–1650 nm using a laboratory spectrometer, weighting against the AM1.5G solar spectrum, and assuming negligible transmission through the hinge thickness. Four measurements on two samples (front and back) yielded an average reflectivity of 10.0% over 300–1650 nm, corresponding to an absorptivity of A = 0.88–0.91 depending on assumptions about reflectance in the 1650–2500 nm range. Emissivity was measured outdoors using a handheld IR camera calibrated against a reference surface (black electrical tape, known emissivity ~0.95). Two measurements yielded PU emissivity values of 0.80 and 0.90, giving an average of ε = 0.85. During the emissivity measurement, it was noted that after approximately two hours of sun exposure at around 45°C, the dark blue PU already showed signs of softening and emitted a noticeable odour.
+To support the thermal modelling, the optical properties of the PU hinge material, which initially had a dark blue colour, were measured experimentally. Absorptivity was determined by measuring spectral reflectance over the range 300–1650 nm using a laboratory spectrometer, weighting against the AM1.5G solar spectrum, and assuming negligible transmission through the hinge thickness. Four measurements on two samples (front and back) yielded an average reflectivity of 10.0% over 300–1650 nm, corresponding to an absorptivity of A = 0.88–0.91 depending on assumptions about reflectance in the 1650–2500 nm range. Emissivity was measured outdoors using a handheld IR camera calibrated against a reference surface (black electrical tape, known emissivity ~0.95). Two measurements yielded PU emissivity values of 0.80 and 0.90, giving an average of ε = 0.85. During the emissivity measurement, it was noted that after approximately two hours of sun exposure at around 45°C, the dark blue PU already showed signs of softening and emitted a noticeable odour.
 
 ### 5.2.3 Boundary conditions and scenarios
 
-To evaluate worst-case conditions, environmental inputs are derived from ERA5 reanalysis climate data covering a representative period of five years. The selected worst-case location is Singapore (latitude 1.25° N, longitude 104° E), which combines high solar irradiance with typically low wind speeds and high ambient temperatures, and therefore represents a thermally demanding site for the system. From the ERA5 record, the worst-case instance used in the simulations has a global horizontal irradiance of 943 W/m², an air temperature of 28.1°C, a water temperature of 21.5°C and a wind speed of 0.5 m/s. Under these conditions, module temperatures predicted by the Faiman model reach 60.2–61.3°C, establishing the thermal loading for the CFD simulations described in the following section.
+To evaluate worst-case conditions, environmental inputs are derived from ERA5 reanalysis climate data covering a period of five years. The selected worst-case location is off the coast of Singapore (latitude 1.25° N, longitude 104° E), which combines high solar irradiance with typically low wind speeds and high ambient temperatures, and therefore represents a thermally demanding site for the system. From the ERA5 record, the worst-case instance used in the simulations has a global horizontal irradiance of 943 W/m², an air temperature of 28.1°C, a water temperature of 21.5°C and a wind speed of 0.5 m/s. Under these conditions, module temperatures predicted by the Faiman model reach 60.2–61.3°C, establishing the thermal loading for the CFD simulations described in the following section.
 
 ### 5.2.4 Key findings and design implications
 
-The thermal modelling, combined with the measured surface properties, showed that the dark blue PU (absorptivity 0.88–0.91) reaches temperatures that can exceed acceptable limits for the material under high-irradiance conditions. This finding was independently confirmed by accelerated UV exposure testing (Section 5.3.2), where PU samples exhibited severe darkening, burn marks and softening after only 209 hours of a planned 1,000-hour test — partly attributed to elevated sample temperatures approaching 95°C.
+The thermal modelling, combined with the measured surface properties, showed that the dark blue PU (absorptivity 0.88–0.91) reaches temperatures that can exceed acceptable limits for the material under high-irradiance conditions. This finding was independently confirmed by accelerated UV exposure testing (Section 5.3.3), where PU samples exhibited severe darkening, burn marks and softening after only 209 hours of a planned 1,000-hour test — partly attributed to elevated sample temperatures approaching 95°C.
 
 As a direct consequence of these findings, the PU colour was changed from dark blue to off-white in subsequent prototype iterations to reduce solar absorptivity and peak operating temperatures. This design change demonstrates the practical value of the thermal modelling in informing material selection decisions.
+
+Within the model chain, the thermal CFD acts as a downstream consumer of the parametric CAD geometry and of the experimentally measured surface properties, and as a producer of peak component temperatures used as a screening metric. The corresponding data interface — including the STEP geometry transfer from FreeCAD, the absorptivity and emissivity values communicated as scalars per material domain, and the environmental boundary conditions derived from ERA5 — is documented as interface I-4 in Section 6.3. The peak PU temperature output feeds into the multi-stage screening described in Section 7.3 (Stage 3: structural and thermal performance screening), where it is evaluated against material stability limits and used alongside manufacturability and structural metrics to filter the design space.
 
 ## 5.3 Mechanical testing and structural modelling
 
@@ -580,35 +585,35 @@ As a direct consequence of these findings, the PU colour was changed from dark b
 
 Mechanical modelling and testing address the structural behaviour and durability of the system under operational loads. This includes load transfer between interconnected units, behaviour of flexible components (hinges and connectors), and response to cyclic loading and fatigue. Given the marine environment, components are subjected to repeated loading over long lifetimes, making fatigue behaviour and environmental degradation critical considerations.
 
-### 5.3.2 Experimental investigations
-
-Experimental testing focuses on key components and materials. The following investigations have been performed or are in progress.
-
-Tensile testing of PU hinge materials: the tensile strength of three PU types with different Shore hardness (70A, 80A, 90A) was evaluated using coupon samples consisting of thin strips. For the lowest-quality material (C+ 85A), maximum tensile strength of approximately 6 MPa was found at a strain of approximately 400%. The two higher-quality materials showed tensile strengths exceeding 10 MPa with strains above 750%. For these materials, testing to failure was not achieved because the samples slipped out of the tester grips before breaking, even when mitigation approaches such as surface roughening were applied. Ultimate stress and strain therefore exceed the measured values.
-
-UV exposure testing: PU samples (both minipatches representing the hinge-to-panel interface and tensile strips) were subjected to accelerated UV exposure following IEC TS 62788-7-2. The initial test used condition A3 (chamber temperature 65°C, black panel temperature 90°C, irradiance 0.8 W/m² at 340 nm, relative humidity 80%). The test was stopped after 209 hours of a planned 1,000-hour exposure due to severe degradation observed in the samples. All samples were severely darkened and several minipatches displayed burn marks. Clear differences between PU hardnesses were observed: the 90A samples showed surface blackening but no burn marks and remained hard; the 80A samples showed burn marks and surface softening; the 70A samples showed the most severe burn marks and the greatest softening. The elevated temperatures (estimated at approximately 95°C for the minipatches, which were closer to the light source) likely exceeded the thermal stability of the darker PU grades. The tensile strips, positioned at the correct irradiance level, showed darkening and cracking but no burn marks. Following these results, a revised test programme was defined using condition A1 (chamber temperature 45°C, black panel temperature 70°C) to avoid thermal damage while still providing meaningful UV acceleration. Gravimetric measurements on the minipatches showed mass increases of 2–8 g in UV-exposed samples compared to zero in reference samples, indicating possible moisture ingress, although the exposure duration was too short for conclusive results.
-
-Adhesion and interface testing: testing of adhesion between PU and glass/aluminium interfaces is in progress on prototype 3 (P3) samples. An initial attempt to cut P3 samples into individual pieces for testing was unsuccessful because the tempered glass shattered immediately upon cutting. A revised approach was adopted: hinges are removed from one sample (chemical bonding only), and the remaining box plus loose hinges are placed in the UV chamber. After exposure, the long sides will be available for shear testing of the PU-glass interface, and the loose hinges for tensile testing. This methodology builds on earlier work at IFE on edge sealant durability for the first-generation Sunlit product (Roosloot, Selj and Otnes, IEEE Journal of Photovoltaics, 2024), which established lap shear testing and failure mode classification as tools for evaluating adhesion degradation under environmental stress.
-
-### 5.3.3 Structural modelling
+### 5.3.2 Structural modelling
 
 Structural behaviour is analysed using numerical models that evaluate stress and strain distributions, deformation under load, and load transfer paths between components. A mechanical design principle has been established for the hinge system: loads between neighbouring floats should be absorbed as close to the centre of the connection point as possible, and as far as possible from the PU-glass and PU-aluminium interfaces, which are critical areas for water ingress. A test matrix of six load cases (XY bending, XZ bending, XY compression, XY stretch, YZ bending, XZ shear) and six measurement points at key interfaces has been defined as a reusable framework for comparing successive prototype revisions.
 
-In parallel, IFE has developed a 3D FEM model of the Sunlit prototype floater using their SiSim tool, with MSC PATRAN for pre-processing. The model takes a STEP file exported from Sunlit Sea's parametric FreeCAD model as input, demonstrating the CAD-to-structural-FEM data flow in practice. The solution domain comprises two connected floating modules with approximately 310,000 elements and 2,000,000 degrees of freedom; one linear analysis step takes approximately 2.5 minutes. Different material domains (polyurethane, glass, aluminium) are assigned separate material properties, and mechanical interactions between parts are defined by interface boundary conditions.
+In parallel, IFE has developed a 3D FEM model of the Sunlit prototype floater using their SiSim tool, with MSC PATRAN for pre-processing. The model takes a STEP file exported from Sunlit Sea's parametric FreeCAD model as input, demonstrating the CAD-to-structural-FEM data flow in practice. The solution domain comprises two connected floating modules with approximately 310,000 elements and 2,000,000 degrees of freedom; one linear analysis step takes approximately 2.5 minutes. Different material domains (PU, glass, aluminium) are assigned separate material properties, and mechanical interactions between parts are defined by interface boundary conditions.
 
-A buoyancy boundary condition has been implemented that computes vertical position from the balance of gravity and buoyancy forces. This revealed that the prototype floater sits rather deep in the water, with approximately half of the bottom plate submerged under self-weight alone. This finding has implications for the design, suggesting that increased buoyancy volume or reduced system weight may be needed to achieve adequate freeboard.
+A buoyancy boundary condition has been implemented that computes vertical position from the balance of gravity and buoyancy forces. This revealed that the Prototype 4 floater sits rather deep in the water, with approximately half of the bottom plate submerged under self-weight alone. This finding has implications for the design, suggesting that increased buoyancy volume or reduced system weight may be needed to achieve adequate freeboard.
 
-Stress analysis under 10 mm imposed horizontal elongation (representing wave or current loading) showed that the largest stresses occur in the thin aluminium bottom plate and frame, with aluminium stresses approaching yield level. The polyurethane stresses exceeded yield in localised regions. In the glass, the largest stresses were found at the upper surface near the PU ring attachment, and were sensitive to how the glass is attached to the aluminium frame. The simulations used an interface stiffness of 100 MPa per mm displacement, considered a relatively stiff connection.
+Stress analysis under 10 mm imposed horizontal elongation (representing wave or current loading) showed that the largest stresses in Prototype 4 occur in the thin aluminium bottom plate and frame, with aluminium stresses approaching yield level. The PU stresses exceeded yield in localised regions. In the glass, the largest stresses were found at the upper surface near the PU ring attachment, and were sensitive to how the glass is attached to the aluminium frame. The simulations used an interface stiffness of 100 MPa per mm displacement, considered a relatively stiff connection.
 
-It should be noted that the IFE simulation was performed without the infill between the bottom plate and glass. This is a significant simplification relative to the current design, where the infill provides structural support to the glass, internal load distribution, and sealing. The absence of infill means that the stress results likely overestimate stresses in the glass and underestimate overall system stiffness. However, the results build a strong case for why the infill is structurally necessary: without it, both aluminium and polyurethane stresses approach or exceed yield under moderate loading conditions.
+It should be noted that the IFE simulation was performed without the infill between the bottom plate and glass. This is a significant simplification relative to the current design, where the infill provides structural support to the glass, internal load distribution, and sealing. The absence of infill means that the stress results likely overestimate stresses in the glass and underestimate overall system stiffness. However, the results build a strong case for why the infill is structurally necessary: without it, both aluminium and PU stresses approach or exceed yield under moderate loading conditions.
 
-### 5.3.4 Coupling with environmental effects
+### 5.3.3 Coupling with environmental effects
 
-Mechanical performance is influenced by environmental factors including temperature (affecting material stiffness and strength), UV exposure (affecting long-term degradation) and moisture ingress (affecting interfaces and materials). The UV testing results described above demonstrate that these effects can be severe and interact with each other: the combination of UV radiation and elevated temperature produced degradation far more rapid than anticipated from either stressor alone.
+Mechanical performance of the integrated unit is strongly coupled to environmental stressors — temperature affects material stiffness and strength, UV exposure drives long-term polymer degradation, and moisture ingress alters interface and material properties — and these stressors interact rather than acting independently. Because such effects are difficult to capture from first principles in the structural model alone, dedicated experimental investigations have been carried out to characterise them and to feed quantitative inputs back into the model chain. The principal findings to date are summarised below.
 
-### 5.3.5 Role in design development
+**Tensile properties of PU hinge materials.** Three PU grades with different Shore hardness (70A, 80A, 90A) were tested in coupon form (thin strip samples). The lowest-quality material (C+ 85A) reached approximately 6 MPa tensile strength at about 400 % strain. The two higher-quality grades exceeded 10 MPa at strains above 750 % without breaking — testing to failure was not possible because the samples slipped from the tester grips even after surface roughening, so the reported values are lower bounds.
+
+**UV exposure of PU and minipatches.** PU samples (both minipatches representing the hinge-to-panel interface and tensile strips) were subjected to accelerated UV exposure following IEC TS 62788-7-2 condition A3 (chamber 65 °C, black-panel 90 °C, irradiance 0.8 W/m² at 340 nm, RH 80 %). The test was stopped after 209 h of a planned 1,000 h exposure due to severe degradation: all samples darkened and several minipatches showed burn marks. The 70A and 80A grades showed the most softening and burn damage; the 90A samples blackened but stayed hard. The elevated minipatch temperature (estimated ≈ 95 °C, due to proximity to the light source rather than to the design absorptivity) likely exceeded the thermal stability of the darker PU grades. A revised programme was defined using condition A1 (chamber 45 °C, black-panel 70 °C) to avoid thermal damage while preserving meaningful UV acceleration. Gravimetric measurements on the minipatches showed 2–8 g mass increase in exposed samples versus zero in references, suggestive of moisture ingress but inconclusive at this exposure duration.
+
+**Adhesion and interface testing on Prototype 3.** Adhesion testing of the PU-glass and PU-aluminium interfaces is in progress on Prototype 3 (P3) samples. An initial attempt to cut P3 samples into individual test pieces failed because the tempered glass shattered on cutting. The revised approach removes the hinges from one sample (chemical bonding only) and exposes the remaining box plus loose hinges in the UV chamber; after exposure, shear testing of the PU-glass interface (long sides) and tensile testing of the loose hinges become accessible. The methodology builds on prior work at IFE on edge-sealant durability for the Gen 1 Sunlit product (Roosloot, Selj and Otnes, IEEE Journal of Photovoltaics, 2024), which established lap shear testing and failure-mode classification as tools for evaluating adhesion under environmental stress.
+
+Together, these results illustrate why experimental coupling is essential to the model chain: the combined UV-plus-temperature degradation observed in the early test was substantially more severe than either stressor would have predicted alone, and the resulting design decisions (PU colour change, hardness selection, revised UV protocol) feed back into the parametric and material inputs of the manufacturing, structural and thermal models. Full experimental characterisation of the white PU on Prototype 3, including post-UV mechanical and adhesion data, is targeted for D6.2.
+
+### 5.3.4 Role in design development
 
 Mechanical modelling and testing validate that the system can withstand expected loads, identify weak points in design or materials, and guide improvements in component design and material selection. The results have directly informed the transition from dark to light-coloured PU, the redesign of hinge geometry between prototype iterations, and the prioritisation of adhesion testing as a critical investigation.
+
+The structural modelling sits within the model chain as the consumer of two upstream data flows and a producer of stress and deformation metrics that feed downstream decisions. From the parametric CAD it receives the system geometry as a STEP file (interface I-2 in Section 6.3); from the pressing FEM it can additionally receive the as-formed thickness distribution across the aluminium sheet (interface I-3), so that local thinning is reflected in the structural response rather than assumed uniform. The outputs — peak von Mises stresses in the aluminium, PU and glass domains, deformation under prescribed load cases, and the buoyancy/freeboard balance — are used as inputs to the structural and thermal performance screening stage of Section 7.3 and to identify design variants where stresses approach yield or freeboard is inadequate. Integration of these flows into an automated pipeline, together with the addition of the infill domain to the SiSim model, is targeted for D6.2.
 
 ## 5.4 Economic and life-cycle considerations
 
@@ -622,13 +627,13 @@ Life-cycle considerations include embodied energy and carbon footprint of materi
 
 The LCA work builds on methodology developed in the earlier Surewave project, where the Sunlit technology was one of the systems assessed (under IFEU's lead for that project) using a cradle-to-grave system boundary and a functional unit of 1 MWh of produced electricity. The component-level data flow established there — with structured tables of masses, energy requirements and production locations, refined iteratively as designs matured — provides the reference pattern for the equivalent data exchange with TNO in SuRE.
 
-A baseline inventory for the Sunlit Gen 2 product has already been transferred to TNO. This baseline corresponds to Prototype 3 of the Gen 2 design and comprises a per-unit bill of materials (aluminium bottom plate, polyurethane, polyurethane foam, silicone, cabling and a reference solar panel) together with project-level components required for deployment (mooring and anchoring, cabling, inverters, transformers and ground works). The full description of these inputs and of how they are exchanged with TNO is given in Section 6.3 under interface I-5 of the model chain. As the design parameters explored in this report (cup geometry, sheet thickness, polyurethane quantities, material selection) are updated through successive iterations, revised values are communicated to TNO so that the life-cycle inventory continues to track the current design rather than a fixed baseline.
+A baseline inventory for the Sunlit Gen 2 product has already been transferred to TNO. This baseline corresponds to Prototype 3 of the Gen 2 design and comprises a per-unit bill of materials (aluminium bottom plate, PU, PU foam, silicone, cabling and a reference solar panel) together with project-level components required for deployment (mooring and anchoring, cabling, inverters, transformers and ground works). The full description of these inputs and of how they are exchanged with TNO is given in Section 6.3 under interface I-5 of the model chain. As the design parameters explored in this report (cup geometry, sheet thickness, PU quantities, material selection) are updated through successive iterations, revised values are communicated to TNO so that the life-cycle inventory continues to track the current design rather than a fixed baseline.
 
 The coupling between the WP6 modelling framework and the LCA work is therefore bidirectional in intent. The modelling provides concrete inputs for the inventory, while LCA outputs — relative contributions of different materials and processes to the overall environmental impact — provide a further performance dimension alongside manufacturability, structural performance and cost, to be used in the screening and selection of design variants. Full integration of LCA metrics into the parameter-screening workflow described in Chapter 7 is targeted for D6.2.
 
 ## 5.5 Summary
 
-The thermal, mechanical and economic modelling activities extend the WP6 work beyond manufacturing feasibility. Concrete outcomes include measured PU surface properties (absorptivity 0.88–0.91, emissivity 0.85) feeding the thermal model, the identification and mitigation of a thermal over-temperature risk through a material colour change, characterisation of PU tensile properties across three hardness grades, preliminary UV degradation results informing revised testing protocols, and an ongoing adhesion testing programme on prototype 3 samples. These activities provide a basis for evaluating and improving the Sunlit floating PV system across coupled engineering domains.
+Beyond manufacturing feasibility, WP6 has produced measured PU optical properties (A 0.88–0.91, ε 0.85) that fed an over-temperature finding and the dark-blue → off-white colour change, PU tensile data across three hardness grades, accelerated-UV results that triggered a revised test protocol on Prototype 3, and a structural FEM model in SiSim that flagged buoyancy and stress hot-spots in the prototype.
 
 # 6 Model Harmonisation and Digital Product Development
 
@@ -650,7 +655,7 @@ A key aspect of the model chain is the flow of data between domains. Even where 
 
 The manufacturing model (Chapter 4) takes geometric parameters (cup depth, spacing, curvature) and material properties (aluminium grade, thickness) as input. It produces the feasible geometry after forming, the thickness distribution across the formed sheet, and manufacturability indicators including time-to-crack. These outputs constrain the design space for downstream models. As a concrete example, a cup configuration with depth 20 mm, radius 25 mm and 0.8 mm sheet thickness produces a thickness distribution after forming that varies across the cup geometry, with thinning concentrated at the cup walls. This as-formed geometry and thickness map — rather than the idealised CAD geometry — is what the structural model should use as input, since local thinning affects structural strength and fatigue behaviour.
 
-The structural model receives the system geometry as a STEP file from Sunlit Sea's parametric FreeCAD model. IFE's FEM tool (SiSim, with MSC PATRAN for pre-processing) imports this geometry, assigns material properties to each domain (aluminium, glass, polyurethane), defines interface boundary conditions, and computes stress distributions under applied loads. This data flow has been demonstrated in practice: the structural simulation of two connected prototype modules (310,000 elements, 2,000,000 degrees of freedom) used a STEP file exported directly from the parametric design, and the results — including the finding that aluminium stresses approach yield under horizontal loading and that buoyancy is insufficient for adequate freeboard — fed back into the design process.
+The structural model receives the system geometry as a STEP file from Sunlit Sea's parametric FreeCAD model. IFE's FEM tool (SiSim, with MSC PATRAN for pre-processing) imports this geometry, assigns material properties to each domain (aluminium, glass, PU), defines interface boundary conditions, and computes stress distributions under applied loads. This data flow has been demonstrated in practice: the structural simulation of two connected prototype modules (310,000 elements, 2,000,000 degrees of freedom) used a STEP file exported directly from the parametric design, and the results — including the finding that aluminium stresses approach yield under horizontal loading and that buoyancy is insufficient for adequate freeboard — fed back into the design process.
 
 Thermal modelling uses the system geometry and measured material surface properties (absorptivity A = 0.88–0.91 and emissivity ε = 0.85 for dark PU, significantly lower values expected for off-white PU). The thermal model outputs peak component temperatures under worst-case environmental conditions, which are compared against material stability limits to assess design feasibility.
 
@@ -663,7 +668,7 @@ Table 6-1. Summary of inter-model data interfaces in the WP6 modelling chain.
 | ID | From | To | Data transferred | Format | Status |
 |----|------|----|-----------------|--------|--------|
 | I-1 | Parametric CAD (FreeCAD) | Pressing FEM (LS-DYNA) | Cup geometry (9 parameters: radius, depth, eccentricity, angle, tip radius, lip radius, spacing, sheet thickness, pressure) | STEP + LS-DYNA keyword files (.k) generated from Handlebars templates | Implemented and automated |
-| I-2 | Parametric CAD (FreeCAD) | Structural FEM (SiSim / IFE) | Full 3D assembly geometry of two connected floating modules; material domain assignments (aluminium, glass, polyurethane) communicated separately | STEP (ISO 10303); minor geometric simplifications applied by IFE before import (e.g. screw holes removed) | Implemented; data transfer manual |
+| I-2 | Parametric CAD (FreeCAD) | Structural FEM (SiSim / IFE) | Full 3D assembly geometry of two connected floating modules; material domain assignments (aluminium, glass, PU) communicated separately | STEP (ISO 10303); minor geometric simplifications applied by IFE before import (e.g. screw holes removed) | Implemented; data transfer manual |
 | I-3 | Pressing FEM (LS-DYNA) | Structural FEM (SiSim / IFE) | As-formed thickness distribution field across the pressed sheet; used to identify thinning and tearing locations in the metal | LS-DYNA element output; extractable per simulation on demand | Available on demand; not yet passed to structural FEM; full integration targeted for D6.2 |
 | I-4 | Parametric CAD + material measurements | Thermal CFD (IFE) | System geometry; surface optical properties (absorptivity A, emissivity ε) per material domain; environmental boundary conditions (GHI, T_air, T_water, wind speed) | STEP for geometry; scalar property values communicated manually; boundary conditions from ERA5 climate dataset | Implemented; data transfer manual |
 | I-5 | WP6 models (pressing FEM + CAD) + prototype data | LCA model (TNO, WP1 T1.3) | Per-unit bill of materials (aluminium mass, PU mass, PU foam mass, silicone, cabling, solar panel spec); project-level components (mooring, anchoring, inverters, transformers, cabling); production locations; site conditions | STEP file for geometry; parameter tables and component lists exchanged by email; iterative updates as design evolves | Active — Prototype 3 baseline delivered to TNO; updates provided as design and modelling progress |
@@ -673,9 +678,9 @@ The three interfaces involving external models (I-2, I-3, I-4) are described in 
 
 Interface I-2: Parametric CAD to structural FEM
 
-The geometry of the Sunlit floating unit is maintained as a fully parametric FreeCAD model (Section 3.5). For structural analysis, this model is exported as a STEP file and transferred to IFE, who import it into MSC PATRAN for pre-processing before running the structural simulation in SiSim. The exchange has been demonstrated in practice for a two-module assembly (Section 5.3.3).
+The geometry of the Sunlit floating unit is maintained as a fully parametric FreeCAD model (Section 3.5). For structural analysis, this model is exported as a STEP file and transferred to IFE, who import it into MSC PATRAN for pre-processing before running the structural simulation in SiSim. The exchange has been demonstrated in practice for a two-module assembly (Section 5.3.2).
 
-On the Sunlit side, the export procedure is straightforward: FreeCAD's STEP export produces an ISO 10303 file representing the complete 3D assembly. The STEP file contains the geometry of all structural domains — aluminium frame and bottom plate, glass, and polyurethane components — as separate solids. No material or load information is embedded in the STEP file; these are assigned by IFE within their pre-processing environment.
+On the Sunlit side, the export procedure is straightforward: FreeCAD's STEP export produces an ISO 10303 file representing the complete 3D assembly. The STEP file contains the geometry of all structural domains — aluminium frame and bottom plate, glass, and PU components — as separate solids. No material or load information is embedded in the STEP file; these are assigned by IFE within their pre-processing environment.
 
 [TODO for IFE: specify the STEP version (AP214 or AP242) that SiSim/PATRAN requires; confirm which geometric features are removed or simplified before meshing (known: screw holes removed; confirm whether fillets, cable routing features or other details are also suppressed); confirm how material properties (elastic modulus, Poisson ratio, density) are communicated — currently understood to be assigned manually by IFE from agreed values, but the handover mechanism is not formally defined.]
 
@@ -721,11 +726,11 @@ Life-cycle assessment for the Sunlit floating PV system is conducted by TNO as p
 
 The methodological pattern follows the approach used in the earlier Surewave project, where the Sunlit product was one of several technologies assessed. In Surewave, engineering partners provided the LCA team with component-level and material-level inputs — masses, dimensions, energy requirements for production, country of origin for materials and sub-assemblies, and installation and operation parameters — structured as tables keyed by plant location and design variant. A cradle-to-grave system boundary was used, covering production, transport, assembly, operation and decommissioning, while excluding production equipment and detailed recycling pathways. The functional unit was 1 MWh of produced electricity. This pattern provides a reference for how the SuRE data exchange is being structured.
 
-In SuRE, the LCA interface has been active from an early stage of the project. Sunlit Sea has transferred the current STEP file of the Gen 2 product to TNO as the geometric reference for material volumes and mass estimates, and has provided an initial bill of materials corresponding to Prototype 3 of the Gen 2 product. This baseline is used by TNO to build the first life-cycle inventory for the new Sunlit design within SuRE. As the design evolves through the modelling and prototyping cycle described in this report — with updates to the aluminium thickness, cup geometry, polyurethane quantities, and material selection — revised values are communicated to TNO so that the LCA tracks the design state rather than remaining fixed to an outdated snapshot.
+In SuRE, the LCA interface has been active from an early stage of the project. Sunlit Sea has transferred the current STEP file of the Gen 2 product to TNO as the geometric reference for material volumes and mass estimates, and has provided an initial bill of materials corresponding to Prototype 3 of the Gen 2 product. This baseline is used by TNO to build the first life-cycle inventory for the new Sunlit design within SuRE. As the design evolves through the modelling and prototyping cycle described in this report — with updates to the aluminium thickness, cup geometry, PU quantities, and material selection — revised values are communicated to TNO so that the LCA tracks the design state rather than remaining fixed to an outdated snapshot.
 
 The baseline data provided to TNO is structured at two levels.
 
-At the level of the individual floating unit, the main inputs are: a solar panel with junction box, short cables and MC4 connectors; an aluminium bottom plate, currently sheet alloy 5083H111 at approximately 2382 × 1301 × 0.8 mm; polyurethane (approximately 12 kg per unit in the current design); polyurethane foam (approximately 2 kg per unit); silicone sealant (approximately 0.2 kg per unit, as tubed material); a return cable of approximately 1.4 m; and a grounding cable of approximately 1.4 m. These quantities are directly linked to the design parameters covered by the WP6 modelling framework, and the simulation pipeline described in Chapters 4 and 5 provides the path by which updated values are obtained as the design changes.
+At the level of the individual floating unit, the main inputs are: a solar panel with junction box, short cables and MC4 connectors; an aluminium bottom plate, currently sheet alloy 5083H111 at approximately 2382 × 1301 × 0.8 mm; PU (approximately 12 kg per unit in the current design); PU foam (approximately 2 kg per unit); silicone sealant (approximately 0.2 kg per unit, as tubed material); a return cable of approximately 1.4 m; and a grounding cable of approximately 1.4 m. These quantities are directly linked to the design parameters covered by the WP6 modelling framework, and the simulation pipeline described in Chapters 4 and 5 provides the path by which updated values are obtained as the design changes.
 
 At the project level, the main inputs are the components required to deploy and operate a plant of given size. These include anchoring and mooring hardware (in the current working assumption, four buoys, approximately 160 m of mooring rope, four anchoring chains and four anchors per 30 × 30 m² block of array, noting that anchoring and mooring lie outside Sunlit's own technology scope), cabling between the installation and the inverter (typically 50–100 m, heavily project-dependent), inverters (one per approximately 330 kWp, currently assumed to be Huawei units), transformers and associated power conversion equipment, and ground works. The specific site under evaluation in SuRE is an inland Norwegian lake, which differs from the offshore sites assessed in Surewave in the hazards it presents: wave loads are lower, but the system is exposed to ice, snow loading, flora and fauna considerations, and in some locations ice cast from nearby wind turbines. These site-specific considerations influence the LCA through the structural and protective components required and through operation and maintenance assumptions.
 
@@ -741,7 +746,7 @@ At present, the model chain consists of loosely coupled models where data transf
 
 ## 6.6 Summary
 
-The model harmonisation work in WP6 establishes the foundation for a digital product development framework. Key outcomes include the definition of a conceptual model chain linking design parameters to performance metrics, development of domain-specific models, establishment of parameter structures enabling data consistency and traceability, and initial workflows for data exchange between models. The current integration level is sufficient to support the iterative design development practised in WP6, with full automation targeted for subsequent phases.
+A conceptual model chain has been defined and the six interfaces between its tools (I-1 to I-6) have been catalogued in Table 6-1, with three (I-1, I-6, and partially I-5) fully implemented and the rest to be brought from manual to automated transfer in D6.2.
 
 # 7 Screening of the Design Parameter Space
 
@@ -779,7 +784,7 @@ The screening approach is subject to computational limitations (FEM simulations 
 
 ## 7.7 Summary
 
-The screening of the design parameter space provides a structured method for navigating a multi-dimensional design problem. Through the multi-stage process, approximately 3,900 design variants have been evaluated, with approximately 1,300 satisfying manufacturability constraints. The process has identified the feasibility boundaries of the design space, key parameter sensitivities, and promising regions for further development. Screening is integrated into the iterative development cycle, with results used to refine parameter ranges, focus modelling and testing effort, and select designs for experimental validation.
+The four-stage screening reduced ≈ 3,900 design variants to ≈ 1,300 manufacturability-feasible candidates and identified cup depth as the most constrained parameter; structural and thermal screening, applied to this curated set, is the headline activity of D6.2.
 
 # 8 Conclusions
 

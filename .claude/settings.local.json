@@ -12,7 +12,10 @@
       "Bash(mkdir -p images)",
       "Bash(find background/oslomet -type f \\\\\\( -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.jpeg\" \\\\\\) -exec mv {} images/ \\\\;)",
       "Bash(unzip -p \"D6.1 Sunlit model chain_v6_comments.docx\" word/comments.xml)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(command -v pdftotext pdftoppm pdfinfo)",
+      "Bash(pdftotext -layout \"background/sure_technical_description.pdf\" /tmp/sure_dow.txt)",
+      "Bash(pdftotext -layout \"background/sure_technical_description.pdf\" sure_dow_extract.txt)"
     ]
   }
 }
