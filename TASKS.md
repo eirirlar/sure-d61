@@ -62,11 +62,13 @@ See `ife_feedback_v6.md` for full comment text and tracked changes.
 - [ ] **A2.2: Colour-code Figure 3-1 sections** — Comment 408: "Suggest to colour the different sections differently."
   - **[BLOCKED — needs input from EIRIK]**: Same dependency as A2.1; once .mmd source is confirmed, Claude can add Mermaid `classDef` colouring per functional/engineering/risk/cycle section. Confirm preferred colour scheme or "use your judgement".
 
-- [ ] **A2.3: Add CAD drawing to Float-structure section (§2.2.2)** — Comment 152: "Could you add a CAD drawing in this section highlighting this structure?"
-  - **[BLOCKED — needs input from EIRIK]**: Export from FreeCAD a still highlighting only the float-structure component (e.g. with the rest dimmed) and drop the file under `images/` so Claude can wire it into §2.2.2.
+- [x] **A2.3: Add CAD drawing to Float-structure section (§2.2.2)** — Comment 152.
+  - Eirik: provided exploded-view image set (May 2026, dropped in `new_images/`).
+  - **[CLAUDE: DONE]** New images moved to `images/`. §2.2.2 now ends with Figure 2-5 (a/b) showing the cast PU float-structure of Gen 2 Prototype 4 in isolation — long-side and end-side profiles with the integrated hinge halves visible. Six other float_system_*.png images (top/bottom × side/top combinations) are also in `images/` and available for D6.2 if more angles are needed.
 
-- [ ] **A2.4: Merge Hinges and Connectors, show connected system** — Comment 306. Nathan already merged in tracked changes. But still wants a connected-system figure.
-  - **[BLOCKED — needs input from EIRIK]**: Export a FreeCAD image of two units joined at the hinge (P4 geometry, both halves engaged) and place under `images/`.
+- [x] **A2.4: Merge Hinges and Connectors, show connected system** — Comment 306.
+  - Eirik: provided `float_p3_matrix.png` — a 3 × 3 matrix of Prototype 3 units interconnected with rods (May 2026).
+  - **[CLAUDE: DONE]** The image more than answers Nathan's request — it shows nine units interconnected rather than two, which makes the array-level reading of the hinge-and-connector concept much clearer than a two-unit pairing would. Inserted at the end of §2.2.7 as Figure 2-14, with explanatory text linking back to the isolated hinge halves in Figs 2-11/2-12 and forward to the load-transfer modelling in Ch 5. Old Figure 2-14 (gen1 in flowing water in §2.4.2) renumbered to Figure 2-15 with cross-references updated. §2.5 summary updated to mention the array-level figure.
 
 - [ ] **A2.5: Consider removing Fig 2-2 (gen1 25kWp layout)** — Comment 106: "rest of the document does not really talk about the mooring, and as this design is for Gen 1 anyways."
   - **[BLOCKED — needs input from EIRIK]**: Decide remove vs keep+justify. If remove, Claude will also drop the surrounding sentence in §2.1 that references it.
@@ -80,8 +82,9 @@ See `ife_feedback_v6.md` for full comment text and tracked changes.
 - [ ] **A2.8: Move P3/P4 CAD figures to D6.2** — Comments 451, 452, 457: design evolution belongs in D6.2.
   - **[BLOCKED — needs input from EIRIK]**: Decide whether to move Figs 3-2, 3-3 to D6.2 (with a replacement illustration of the parametric approach in §3.5) or keep in D6.1.
 
-- [ ] **A2.9: Show full Gen 2 concept figure under §2** — Comment 102 + 451: component descriptions need an overview figure.
-  - **[BLOCKED — needs input from EIRIK]**: Export an annotated full Gen 2 CAD figure (P4 unit, labelled component groups) and place under `images/`.
+- [x] **A2.9: Show full Gen 2 concept figure under §2** — Comment 102 + 451.
+  - Eirik: provided exploded-view image set (May 2026).
+  - **[CLAUDE: DONE]** A new Figure 2-3 has been inserted at the end of §2.1, before §2.2 starts, showing the assembled Gen 2 Prototype 4 unit from three angles (a) top, (b) side, (c) underside. The introductory sentence framing §2.2 has been reworded to describe the Gen 2 unit as taken apart in the following subsections — i.e. §2.2 now reads as an exploded view, with each component group described separately and shown in its own figure. The component-level figures inserted (PV panel close-ups Figure 2-4, float-structure isolation Figure 2-5, groundings Figure 2-10) reinforce this structure.
 
 ### A3. Terminology and editorial (from tracked changes)
 
