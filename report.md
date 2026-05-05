@@ -81,19 +81,17 @@ The Sunlit floating photovoltaic (FPV) system consists of modular floating units
 - manufacturability and assembly
 - long-term durability
 
-The architecture therefore defines both the components and the interaction mechanisms that must be addressed in modelling and design. Multiple such units are mechanically interconnected to form an FPV array; Figure 2-2 shows an example layout for a 25 kWp installation using the Gen 1 form factor, illustrating how the unit geometry propagates into array and mooring arrangement.
+The architecture therefore defines both the components and the interaction mechanisms that must be addressed in modelling and design.
 
 ![Figure 2-1. Conceptual representation of the Sunlit integrated FPV unit and its main component relationships.](figures/fig_2-1_system_architecture.png)
 
-![Figure 2-2. Layout of Gen 1 Sunlit FPV units in a 25 kWp matrix configuration with mooring system, illustrating how the unit form factor determines array layout and mooring arrangement.](images/fpv_matrix_and_mooring_system_for_25kwp.png)
+A reference Gen 2 unit (Prototype 4) is shown assembled in Figure 2-2 from three viewing angles. The same unit is then taken apart in the following subsections, with each component group described separately and shown in its own figure to give an exploded view of how the integrated unit is composed.
 
-A reference Gen 2 unit (Prototype 4) is shown assembled in Figure 2-3 from three viewing angles. The same unit is then taken apart in the following subsections, with each component group described separately and shown in its own figure to give an exploded view of how the integrated unit is composed.
+![Figure 2-2 (a). Top view of the Gen 2 Prototype 4 assembled FPV unit, showing the PV panel surface bordered on all four sides by the cast PU float-structure with integrated hinge halves.](images/fpv_top.png)
 
-![Figure 2-3 (a). Top view of the Gen 2 Prototype 4 assembled FPV unit, showing the PV panel surface bordered on all four sides by the cast PU float-structure with integrated hinge halves.](images/fpv_top.png)
+![Figure 2-2 (b). Side view of the Gen 2 Prototype 4 assembled FPV unit, showing the cast PU float-structure wrapping around the PV panel and the buoyant PU foam connector rod running along the side.](images/fpv_side.png)
 
-![Figure 2-3 (b). Side view of the Gen 2 Prototype 4 assembled FPV unit, showing the cast PU float-structure wrapping around the PV panel and the buoyant PU foam connector rod running along the side.](images/fpv_side.png)
-
-![Figure 2-3 (c). Underside view of the Gen 2 Prototype 4 assembled FPV unit, showing the bottom plate enclosed by the float-structure on all four sides.](images/fpv_bottom.png)
+![Figure 2-2 (c). Underside view of the Gen 2 Prototype 4 assembled FPV unit, showing the bottom plate enclosed by the float-structure on all four sides.](images/fpv_bottom.png)
 
 ## 2.2 Main system components
 
@@ -123,11 +121,11 @@ In addition, the alternative format established in Gen 1 (1770 mm × 1770 mm) is
 
 The outer components of the PV panel, which are relevant for integration with the rest of the unit, consist of the frame, glass and potentially polymer (front and backside), junction box(es), cables and MC4 connectors. The choice of PV module geometry has system-level implications including buoyancy and required float volume, total system weight and centre of gravity, manufacturability (tool sizes, forming limits), logistics and handling, and array layout and packing density.
 
-In addition to geometry, module construction is evaluated. Glass–glass modules typically offer better durability and moisture resistance but higher weight, while glass–polymer backsheet modules are lighter but may require additional protection measures. In the Sunlit concept, the PV panel is structurally integrated into the floating unit, creating strong coupling between module choice and structural behaviour, thermal performance, sealing and ingress risk, and interaction with infill, bottom and float-structure. The PV panel must therefore be treated as a configurable system component rather than a fixed input. Figure 2-4 shows the reference PV panel used for the Gen 2 Prototype 4 unit, viewed from the top (glass surface, frame and cable exit) and from the underside (frame, junction-box footprints and cable routing).
+In addition to geometry, module construction is evaluated. Glass–glass modules typically offer better durability and moisture resistance but higher weight, while glass–polymer backsheet modules are lighter but may require additional protection measures. In the Sunlit concept, the PV panel is structurally integrated into the floating unit, creating strong coupling between module choice and structural behaviour, thermal performance, sealing and ingress risk, and interaction with infill, bottom and float-structure. The PV panel must therefore be treated as a configurable system component rather than a fixed input. Figure 2-3 shows the reference PV panel used for the Gen 2 Prototype 4 unit, viewed from the top (glass surface, frame and cable exit) and from the underside (frame, junction-box footprints and cable routing).
 
-![Figure 2-4 (a). Top view of the PV panel used in Gen 2 Prototype 4, showing the glass surface, the surrounding frame and the cable exit on the long edge.](images/solar_panel_top.png)
+![Figure 2-3 (a). Top view of the PV panel used in Gen 2 Prototype 4, showing the glass surface, the surrounding frame and the cable exit on the long edge.](images/solar_panel_top.png)
 
-![Figure 2-4 (b). Underside view of the PV panel used in Gen 2 Prototype 4, showing the frame, junction-box mounting footprints and the cable routing on the back of the module.](images/solar_panel_bottom.png)
+![Figure 2-3 (b). Underside view of the PV panel used in Gen 2 Prototype 4, showing the frame, junction-box mounting footprints and the cable routing on the back of the module.](images/solar_panel_bottom.png)
 
 ### 2.2.2 Float-structure
 
@@ -139,57 +137,57 @@ Besides adhesion to the PV panel, the float-structure interfaces with the hinges
 
 Lastly, a key requirement is that the float-structure must handle routing of cables emerging from the PV panel, either from beneath or through the frame, while maintaining sealing and structural integrity.
 
-The cast PU float-structure of Gen 2 Prototype 4 is shown in isolation in Figure 2-5 from a representative set of viewing angles. The hinge halves are integrated with the float-structure as a single cast unit on each of the four sides; the two views together show the long-side profile and an end-side profile, illustrating how the same casting concept applies on every edge of the unit.
+The cast PU float-structure of Gen 2 Prototype 4 is shown in isolation in Figure 2-4 from a representative set of viewing angles. The hinge halves are integrated with the float-structure as a single cast unit on each of the four sides; the two views together show the long-side profile and an end-side profile, illustrating how the same casting concept applies on every edge of the unit.
 
-![Figure 2-5 (a). Long-side view of the cast PU float-structure of Gen 2 Prototype 4 (top-side viewing angle), showing the integrated hinge halves running along one of the long edges.](images/float_system_left_top.png)
+![Figure 2-4 (a). Long-side view of the cast PU float-structure of Gen 2 Prototype 4 (top-side viewing angle), showing the integrated hinge halves running along one of the long edges.](images/float_system_left_top.png)
 
-![Figure 2-5 (b). End-side view of the cast PU float-structure of Gen 2 Prototype 4 (top-side viewing angle), showing the integrated hinge halves running along one of the short edges.](images/float_system_top_top.png)
+![Figure 2-4 (b). End-side view of the cast PU float-structure of Gen 2 Prototype 4 (top-side viewing angle), showing the integrated hinge halves running along one of the short edges.](images/float_system_top_top.png)
 
 ### 2.2.3 Infill
 
-The infill is located underneath the PV module and inside the PV frame, surrounding the junction box and cables. Possible implementations for the infill include PU foam, aluminium press-formed structures (cups), polystyrene blocks and aluminium honeycomb (polystyrene blocks were used in the Gen 1 design; see Figure 1-2). In the Gen 2 Prototype 1 concept, the pressed aluminium bottom plate itself serves as the infill: the cup geometry creates enclosed air pockets between the cups, providing both structural support and buoyancy without a separate infill component (Figure 2-6). Depending on the concept, the infill may be separate or integrated with the bottom, and may require adhesion to glass, frame and/or bottom. The infill contributes to structural support of the glass, internal load distribution, sealing and water protection, and accommodation of the junction box and cables. Structural simulations performed without the infill (Section 5.3.2) have shown that its absence leads to stresses approaching or exceeding yield in both aluminium and PU components, confirming its structural importance.
+The infill is located underneath the PV module and inside the PV frame, surrounding the junction box and cables. Possible implementations for the infill include PU foam, aluminium press-formed structures (cups), polystyrene blocks and aluminium honeycomb (polystyrene blocks were used in the Gen 1 design; see Figure 1-2). In the Gen 2 Prototype 1 concept, the pressed aluminium bottom plate itself serves as the infill: the cup geometry creates enclosed air pockets between the cups, providing both structural support and buoyancy without a separate infill component (Figure 2-5). Depending on the concept, the infill may be separate or integrated with the bottom, and may require adhesion to glass, frame and/or bottom. The infill contributes to structural support of the glass, internal load distribution, sealing and water protection, and accommodation of the junction box and cables. Structural simulations performed without the infill (Section 5.3.2) have shown that its absence leads to stresses approaching or exceeding yield in both aluminium and PU components, confirming its structural importance.
 
-![Figure 2-6. FreeCAD model of the Gen 2 Prototype 1 unit with PV module removed, showing the exposed pressed aluminium bottom plate functioning as the infill through air pockets formed between the pressed cups. The float-structure is shown around the edges of the system.](images/gen2_prototype1_freecad_fpv_without_glass.png)
+![Figure 2-5. FreeCAD model of the Gen 2 Prototype 1 unit with PV module removed, showing the exposed pressed aluminium bottom plate functioning as the infill through air pockets formed between the pressed cups. The float-structure is shown around the edges of the system.](images/gen2_prototype1_freecad_fpv_without_glass.png)
 
-An alternative infill concept (Figure 2-7) uses multiple interlocking PU foam pieces designed to puzzle-fit around the junction boxes and cables beneath the glass, eliminating air cavities that would otherwise remain around these components. Because the pieces meet each other and the surrounding surfaces at irregular interfaces, this concept requires potting compound or adhesive along the joints and at the glass and bottom interfaces to ensure proper bonding.
+An alternative infill concept (Figure 2-6) uses multiple interlocking PU foam pieces designed to puzzle-fit around the junction boxes and cables beneath the glass, eliminating air cavities that would otherwise remain around these components. Because the pieces meet each other and the surrounding surfaces at irregular interfaces, this concept requires potting compound or adhesive along the joints and at the glass and bottom interfaces to ensure proper bonding.
 
-![Figure 2-7. FreeCAD model of the Gen 2 puzzle-fit PU foam infill concept, showing multiple interlocking foam pieces designed to fit around the junction boxes and cables beneath the glass without leaving air cavities.](images/gen2_freecad_infill_split_PUfoam.png)
+![Figure 2-6. FreeCAD model of the Gen 2 puzzle-fit PU foam infill concept, showing multiple interlocking foam pieces designed to fit around the junction boxes and cables beneath the glass without leaving air cavities.](images/gen2_freecad_infill_split_PUfoam.png)
 
 ### 2.2.4 Bottom
 
-The bottom is the bottom plate of the floating unit, connected to the frame and the infill. It can take several forms: a flat plate, a press-formed aluminium sheet with cup structures, or a shaped volume extending downward for buoyancy (the Gen 1 design uses press-formed aluminium sheets for the bottom; see Figure 1-2). In some designs, the bottom and infill may be the same physical object. The bottom plays a key role in structural stiffness, buoyancy and volume distribution, manufacturability, and cable routing (it must allow cable passage if needed). Buoyancy simulations (Section 5.3.2) have indicated that the prototype floater sits deep in the water, with approximately half the bottom plate submerged under self-weight, which has implications for the design of the bottom geometry and overall system buoyancy. Figures 2-8 and 2-9 illustrate the two principal bottom plate variants: a flat unpressed sheet and a press-formed sheet with cup structures.
+The bottom is the bottom plate of the floating unit, connected to the frame and the infill. It can take several forms: a flat plate, a press-formed aluminium sheet with cup structures, or a shaped volume extending downward for buoyancy (the Gen 1 design uses press-formed aluminium sheets for the bottom; see Figure 1-2). In some designs, the bottom and infill may be the same physical object. The bottom plays a key role in structural stiffness, buoyancy and volume distribution, manufacturability, and cable routing (it must allow cable passage if needed). Buoyancy simulations (Section 5.3.2) have indicated that the prototype floater sits deep in the water, with approximately half the bottom plate submerged under self-weight, which has implications for the design of the bottom geometry and overall system buoyancy. Figures 2-7 and 2-8 illustrate the two principal bottom plate variants: a flat unpressed sheet and a press-formed sheet with cup structures.
 
-![Figure 2-8. FreeCAD model of the Gen 2 flat bottom plate design, showing the unpressed sheet variant.](images/gen2_freecad_bottom_flat.png)
+![Figure 2-7. FreeCAD model of the Gen 2 flat bottom plate design, showing the unpressed sheet variant.](images/gen2_freecad_bottom_flat.png)
 
-![Figure 2-9. FreeCAD model of the Gen 2 pressed bottom plate design, showing the cup-structured hydroformed aluminium sheet variant.](images/gen2_freecad_bottom_pressed.png)
+![Figure 2-8. FreeCAD model of the Gen 2 pressed bottom plate design, showing the cup-structured hydroformed aluminium sheet variant.](images/gen2_freecad_bottom_pressed.png)
 
 ### 2.2.5 Grounding
 
-Grounding is traditionally handled through the PV frame using dedicated holes. In the Sunlit concept, these may be covered by the float-structure. Alternative grounding solutions are therefore required, such as conductive pins extending through the float-structure or grounding connected to the bottom plate. Grounding must be treated as a dedicated subsystem, as it affects electrical safety, corrosion behaviour, and integration and accessibility. Figure 2-10 shows one of the grounding-pin concepts considered for the Gen 2 design, with conductive pins (highlighted in green) extending upward through the float-structure at the four corners of the panel frame.
+Grounding is traditionally handled through the PV frame using dedicated holes. In the Sunlit concept, these may be covered by the float-structure. Alternative grounding solutions are therefore required, such as conductive pins extending through the float-structure or grounding connected to the bottom plate. Grounding must be treated as a dedicated subsystem, as it affects electrical safety, corrosion behaviour, and integration and accessibility. Figure 2-9 shows one of the grounding-pin concepts considered for the Gen 2 design, with conductive pins (highlighted in green) extending upward through the float-structure at the four corners of the panel frame.
 
-![Figure 2-10. Grounding-pin concept for the Gen 2 Sunlit FPV unit, showing four conductive pins (green) extending upward through the float-structure at the corners of the PV panel frame to maintain electrical bonding to the frame where the cast PU otherwise covers the conventional grounding holes.](images/groundings.png)
+![Figure 2-9. Grounding-pin concept for the Gen 2 Sunlit FPV unit, showing four conductive pins (green) extending upward through the float-structure at the corners of the PV panel frame to maintain electrical bonding to the frame where the cast PU otherwise covers the conventional grounding holes.](images/groundings.png)
 
 ### 2.2.6 Hinges
 
-Hinges connect multiple floating units and are one of the most critical components in the system due to their role in load transfer and durability. They may be implemented as PU hinges, ropes with springs, or rope-based systems. In the current design concept, the hinges are integrated with the float-structure as a single cast PU unit, with the locking element provided by a separate connector component (see Figures 2-11 and 2-12 for the Gen 2 P4 hinge geometry). Key aspects include the connection to the float-structure and the behaviour under load, including fatigue, extreme loads and cyclic motion from waves.
+Hinges connect multiple floating units and are one of the most critical components in the system due to their role in load transfer and durability. They may be implemented as PU hinges, ropes with springs, or rope-based systems. In the current design concept, the hinges are integrated with the float-structure as a single cast PU unit, with the locking element provided by a separate connector component (see Figures 2-10 and 2-11 for the Gen 2 P4 hinge geometry). Key aspects include the connection to the float-structure and the behaviour under load, including fatigue, extreme loads and cyclic motion from waves.
 
 Findings from wave tank testing in the EU project Surewave showed that snapping loads occur at certain wave lengths and that maximum loads exceed what earlier bracket and hinge designs could withstand. These findings led to a reprioritisation of engineering effort from aluminium pressing optimisation to hinge and interconnection system redesign.
 
 ### 2.2.7 Connectors
 
-As part of the hinge system, the connectors define how hinges attach and lock between neighbouring units. Examples include bolts and brackets, PU rods, rope-through-hole systems, and carabiner-like mechanisms. In some concepts, connectors are integrated into the hinge; in others, they are separate. They strongly influence assembly, replaceability, load transfer and manufacturability. Figures 2-11 and 2-12 show FreeCAD side-views of the Gen 2 Prototype 4 left and right hinges, illustrating how the two opposing hinge halves are designed to be joined by a connecting rod acting as the connector component.
+As part of the hinge system, the connectors define how hinges attach and lock between neighbouring units. Examples include bolts and brackets, PU rods, rope-through-hole systems, and carabiner-like mechanisms. In some concepts, connectors are integrated into the hinge; in others, they are separate. They strongly influence assembly, replaceability, load transfer and manufacturability. Figures 2-10 and 2-11 show FreeCAD side-views of the Gen 2 Prototype 4 left and right hinges, illustrating how the two opposing hinge halves are designed to be joined by a connecting rod acting as the connector component.
 
-![Figure 2-11. FreeCAD side-view of the Gen 2 Prototype 4 left hinge, showing the hinge geometry and the interface for the connecting rod that joins it to the right-hand counterpart.](images/gen2_prototyp4_freecad_hinge_left.png)
+![Figure 2-10. FreeCAD side-view of the Gen 2 Prototype 4 left hinge, showing the hinge geometry and the interface for the connecting rod that joins it to the right-hand counterpart.](images/gen2_prototyp4_freecad_hinge_left.png)
 
-![Figure 2-12. FreeCAD side-view of the Gen 2 Prototype 4 right hinge, showing the mirror-image geometry and the interface for the connecting rod connector.](images/gen2_prototyp4_freecad_hinge_right.png)
+![Figure 2-11. FreeCAD side-view of the Gen 2 Prototype 4 right hinge, showing the mirror-image geometry and the interface for the connecting rod connector.](images/gen2_prototyp4_freecad_hinge_right.png)
 
-A connector concept under investigation uses buoyant PU foam rods designed to run along all four sides of the unit. In this concept, the connector elements serve a dual function: structural interconnection between neighbouring units and a contribution to overall system buoyancy. Figure 2-13 shows the FreeCAD model of this concept for the Gen 2 Prototype 4.
+A connector concept under investigation uses buoyant PU foam rods designed to run along all four sides of the unit. In this concept, the connector elements serve a dual function: structural interconnection between neighbouring units and a contribution to overall system buoyancy. Figure 2-12 shows the FreeCAD model of this concept for the Gen 2 Prototype 4.
 
-![Figure 2-13. FreeCAD model of the Gen 2 Prototype 4 buoyant connector concept, showing PU foam rods running along all four sides of the unit and serving as both structural connectors and buoyancy elements.](images/gen2_prototyp4_freecad_connector_buoyant_PUfoam_rods_4sides.png)
+![Figure 2-12. FreeCAD model of the Gen 2 Prototype 4 buoyant connector concept, showing PU foam rods running along all four sides of the unit and serving as both structural connectors and buoyancy elements.](images/gen2_prototyp4_freecad_connector_buoyant_PUfoam_rods_4sides.png)
 
-How the hinge and connector concepts compose into a full array is shown in Figure 2-14, which renders a 3 × 3 matrix of Gen 2 Prototype 3 units interconnected through the connector rods. The rod-and-hinge interface between every pair of neighbouring units is the same as that described in §2.2.6 and shown in isolation in Figures 2-11 and 2-12; tiling that interface in two directions produces the array geometry that the modelling and load-transfer work in Ch 5 and the prototype testing in §5.3 ultimately have to validate.
+How the hinge and connector concepts compose into a full array is shown in Figure 2-13, which renders a 3 × 3 matrix of Gen 2 Prototype 3 units interconnected through the connector rods. The rod-and-hinge interface between every pair of neighbouring units is the same as that described in §2.2.6 and shown in isolation in Figures 2-10 and 2-11; tiling that interface in two directions produces the array geometry that the modelling and load-transfer work in Ch 5 and the prototype testing in §5.3 ultimately have to validate.
 
-![Figure 2-14. FreeCAD render of a 3 × 3 matrix of Gen 2 Prototype 3 Sunlit floating units interconnected through the connector rods, illustrating the hinge-and-connector concept assembled at array level.](images/float_p3_matrix.png)
+![Figure 2-13. FreeCAD render of a 3 × 3 matrix of Gen 2 Prototype 3 Sunlit floating units interconnected through the connector rods, illustrating the hinge-and-connector concept assembled at array level.](images/float_p3_matrix.png)
 
 ## 2.3 Critical interfaces in the integrated unit
 
@@ -242,9 +240,9 @@ Balancing manufacturability with structural performance, buoyancy, and geometric
 
 ### 2.4.2 Structural load transfer between units
 
-Loads from waves, handling, and array interaction must be transferred through interconnected units without overstressing components or introducing fatigue-critical regions (Figure 2-15 shows Gen 1 FPV units during real-conditions evaluation in a flowing water channel, illustrating the challenge of load transfer and resistance to submergence under current exposure — FDS constraint FC1, current-loading scenario). This is particularly important for the Hinges, Connectors, float-structure, and their interfaces to the PV panel and Bottom. Since the system is modular, local connection design has major influence on global structural reliability.
+Loads from waves, handling, and array interaction must be transferred through interconnected units without overstressing components or introducing fatigue-critical regions (Figure 2-14 shows Gen 1 FPV units during real-conditions evaluation in a flowing water channel, illustrating the challenge of load transfer and resistance to submergence under current exposure — FDS constraint FC1, current-loading scenario). This is particularly important for the Hinges, Connectors, float-structure, and their interfaces to the PV panel and Bottom. Since the system is modular, local connection design has major influence on global structural reliability.
 
-![Figure 2-15. Gen 1 Sunlit FPV units installed in a flowing water channel during real-conditions evaluation, illustrating the engineering challenge of structural loading and submergence under current exposure.](images/gen1_eval_flow_submerge_effect_in_real_conditions.png)
+![Figure 2-14. Gen 1 Sunlit FPV units installed in a flowing water channel during real-conditions evaluation, illustrating the engineering challenge of structural loading and submergence under current exposure.](images/gen1_eval_flow_submerge_effect_in_real_conditions.png)
 
 ### 2.4.3 Environmental exposure of materials
 
@@ -270,7 +268,7 @@ These engineering challenges form the main background for the modelling and deve
 
 ## 2.5 Summary
 
-The Sunlit FPV unit is an integrated structure built around a market-available PV panel: a float-structure that wraps panel, bottom plate and hinges into a single cast assembly; an infill that supports the glass and contributes to buoyancy; a pressed aluminium bottom plate; grounding, hinges and connectors that interconnect units into an array. The Gen 2 Prototype 4 reference unit is presented assembled in Figure 2-3 and as an exploded set of component-group figures (Figures 2-4 to 2-13) through §2.2; Figure 2-14 then shows how multiple units compose into a 3 × 3 array. The system is best understood through its interfaces (I1–I19) rather than its components in isolation: load transfer, sealing, electrical safety and thermal coupling all emerge at component boundaries. The chapter has identified seven recurring engineering challenges — manufacturing feasibility, structural load transfer, environmental exposure, water ingress, thermal behaviour, installation/maintenance, and cost — that motivate the modelling and testing activities of Ch 4–5.
+The Sunlit FPV unit is an integrated structure built around a market-available PV panel: a float-structure that wraps panel, bottom plate and hinges into a single cast assembly; an infill that supports the glass and contributes to buoyancy; a pressed aluminium bottom plate; grounding, hinges and connectors that interconnect units into an array. The Gen 2 Prototype 4 reference unit is presented assembled in Figure 2-2 and as an exploded set of component-group figures (Figures 2-3 to 2-12) through §2.2; Figure 2-13 then shows how multiple units compose into a 3 × 3 array. The system is best understood through its interfaces (I1–I19) rather than its components in isolation: load transfer, sealing, electrical safety and thermal coupling all emerge at component boundaries. The chapter has identified seven recurring engineering challenges — manufacturing feasibility, structural load transfer, environmental exposure, water ingress, thermal behaviour, installation/maintenance, and cost — that motivate the modelling and testing activities of Ch 4–5.
 
 # 3 Product Development Framework and Design Domains
 
@@ -451,9 +449,11 @@ The design must be compatible with industrial aluminium forming techniques, part
 
 The resulting geometry must provide sufficient stiffness and avoid failure modes such as local buckling or fatigue-critical features.
 
-To address these objectives, the float concept investigated in this work is based on formed aluminium sheets with cup-like geometries. These geometries increase structural depth and enclosed volume while maintaining low material thickness. The forming transformation is illustrated in Figure 4-1, which compares a raw aluminium sheet with a pressed part, while Figure 4-2 shows a representative cup shape targeted by the forming process.
+To address these objectives, the float concept investigated in this work is based on formed aluminium sheets with cup-like geometries. These geometries increase structural depth and enclosed volume while maintaining low material thickness. The forming transformation is illustrated in Figures 4-1a and 4-1b, showing the raw aluminium sheet and the pressed part separately, while Figure 4-2 shows a representative cup shape targeted by the forming process.
 
-![Figure 4-1. Raw aluminium sheet (left) and the pressed cup-shaped product (right), illustrating the forming transformation.](images/alu_sheet_vs_pressed.jpg)
+![Figure 4-1a. Raw aluminium sheet before forming.](images/alu_sheet.jpg)
+
+![Figure 4-1b. Pressed cup-shaped aluminium product after forming.](images/alu_pressed.jpg)
 
 ![Figure 4-2. Sample cup shape showing the target geometry produced by the aluminium pressing process.](images/cup_shape.png)
 
@@ -487,7 +487,7 @@ The forming process is modelled as a nonlinear deformation problem using the FEM
 
 Within WP6, closer simulation evaluation of the punch/die route alongside an alternative hydroforming concept showed that the upside of the hydroforming route was substantially greater than what continued refinement of the punch/die approach could deliver — both in terms of tooling cost and lead time (a hydroforming mould is considerably simpler and cheaper to produce than a matched punch/die set, which matters for the iterative development cycle of Ch 3) and in terms of forming uniformity (fluid pressure acts uniformly on one face of the sheet, removing the need for a matched gripper geometry). On this basis, the gripper-ring punch/die concept was abandoned and hydroforming was adopted as the target manufacturing route for Gen 2. This redirection — illustrative of the prioritisation approach in §3.4, where a high-upside alternative was pursued in preference to incremental optimisation of an existing route — is a WP6 outcome rather than a pre-SuRE Sunlit decision. The simulation models the hydroforming process accordingly.
 
-The aluminium alloy used in the float design is marine-grade AA5083-H111, supplied as cold-rolled sheet, whose chemical composition is given in Figure 4-6. AA5083 combines good formability, weldability and corrosion resistance with a high thermal conductivity that is directly exploited by the floater architecture, where the metal body acts as a thermal bridge between the PV panel and the surrounding water. In the H111 temper, the alloy is annealed and then slightly strain-hardened by cold working. Sheet thicknesses of 1.5 mm have been used in earlier product generations and 0.8 mm is the current design target, the latter chosen to reduce material consumption at the cost of a tighter manufacturing window. The cold rolling process introduces a pronounced orthotropic anisotropy in the plastic behaviour of the sheet, expressed as direction-dependent yield stresses and plastic strain ratios relative to the rolling axis. The constitutive model used in the forming simulations must explicitly capture this anisotropy if forming predictions are to be meaningful at the accuracy level required for iterative boundary search in a multi-parameter design space.
+The aluminium alloy used in the float design is marine-grade AA5083-H111, supplied as cold-rolled sheet, whose chemical composition is given in Figure 4-6. AA5083 combines good formability, weldability and corrosion resistance with a high thermal conductivity. In the Gen 1 float concept this conductivity was directly exploited as a thermal bridge between the PV panel and the surrounding water. In the Gen 2 concept the likely infill is PU foam, which is thermally resistive and substantially blocks this path; the dominant heat-dissipation route to water is instead through the aluminium panel frame and the aluminium bottom plate. Whether the thermal bridge should be reintroduced — through pressed-cup aluminium infill as studied in this report, or through an alternative such as aluminium honeycomb — remains an open design question to be informed by D6.2 thermal CFD modelling. In the H111 temper, the alloy is annealed and then slightly strain-hardened by cold working. Sheet thicknesses of 1.5 mm have been used in earlier product generations and 0.8 mm is the current design target, the latter chosen to reduce material consumption at the cost of a tighter manufacturing window. The cold rolling process introduces a pronounced orthotropic anisotropy in the plastic behaviour of the sheet, expressed as direction-dependent yield stresses and plastic strain ratios relative to the rolling axis. The constitutive model used in the forming simulations must explicitly capture this anisotropy if forming predictions are to be meaningful at the accuracy level required for iterative boundary search in a multi-parameter design space.
 
 ![Figure 4-6. Chemical composition of AA5083-H111 aluminium alloy used as the float sheet material.](images/chemical_composition_alu5083h111.png)
 
@@ -499,9 +499,9 @@ To capture the transition from stable plastic deformation to localised necking, 
 
 The simulations provide quantitative outputs including strain and stress distributions, thickness reduction (thinning), regions of potential failure (tearing, necking), and the final geometry after forming. Each simulation takes between 1 and 50 minutes depending on geometry complexity. The primary output metric is time-to-crack, which indicates how far through the forming process the simulation progresses before material failure occurs. Simulations where no crack occurs represent feasible designs. Two additional metrics, lip-mean and edge-mean, characterise the quality of the formed geometry at critical regions.
 
-The FEM framework enables rapid evaluation of many design variants, identification of infeasible regions of the design space, and informed selection of candidate geometries for further investigation. The resulting FEM discretisation is shown in Figure 4-7.
+The FEM framework enables rapid evaluation of many design variants, identification of infeasible regions of the design space, and informed selection of candidate geometries for further investigation. The resulting FEM discretisation for the hydroforming die is shown in Figure 4-7.
 
-![Figure 4-7. Finite element mesh of the punch and die assembly used in the forming simulations.](images/meshed_punchdie.png)
+![Figure 4-7. Finite element mesh of the hydroforming fluid die used in the Gen 2 forming simulations.](images/meshed_fluid_die.png)
 
 ## 4.3 Aluminium pressing simulation pipeline
 
@@ -523,7 +523,7 @@ The CSV dataset stores one row per simulation, keyed by input_hash — a hash of
 
 ![Figure 4-8. Aluminium pressing simulation pipeline showing the automated flow from parametric geometry generation through FEM simulation, evaluation and data storage.](figures/fig_4-1_pressing_pipeline.png)
 
-The pipeline is fully automated, allowing batch simulation of design variants and systematic exploration of the parameter space. Over the course of the project, approximately 3,900 forming simulations have been executed using this pipeline.
+The pipeline is fully automated, allowing batch simulation of design variants and systematic exploration of the parameter space.
 
 ## 4.4 Parameter space exploration and optimisation
 
@@ -581,7 +581,7 @@ Beyond manufacturing feasibility, the development of the Sunlit FPV system requi
 
 The thermal behaviour of the integrated FPV system has a direct impact on energy yield (PV efficiency decreases with increasing temperature), material durability (particularly for polymers and sealants that can e.g. soften and/or expand under increasing temperatures), and reliability (elevated temperatures accelerate degradation mechanisms). In the Sunlit concept, thermal behaviour is influenced by the close coupling between the PV module, float-structure and surrounding environment (water, air, solar radiation). Heat transfer modelling is therefore required to understand and control temperature behaviour under realistic operating conditions.
 
-In the Gen 1 product, heat from the PV panel dissipates passively downward through the polystyrene infill and the pressed aluminium bottom plate into the surrounding water, as illustrated in Figure 5-1. This thermal path — exploiting the high thermal conductivity of aluminium as a bridge between the panel and the water — is a key design feature of the integrated Gen 1 float concept and motivates the choice of AA5083-H111 as the float material.
+In the Gen 1 product, heat from the PV panel dissipates passively downward through the polystyrene infill and the pressed aluminium bottom plate into the surrounding water, as illustrated in Figure 5-1. This thermal path — exploiting the high thermal conductivity of aluminium as a bridge between the panel and the water — is a key design feature of the integrated Gen 1 float concept and motivates the choice of AA5083-H111 as the float material. In the Gen 2 concept the infill is likely to be PU foam, which is thermally resistive; heat dissipation to water occurs instead primarily through the aluminium panel frame and the aluminium bottom plate, without a low-resistance path through the infill body. Whether this thermal bridge should be reintroduced in Gen 2 — for example through pressed-cup aluminium infill or aluminium honeycomb — is an open design question to be addressed through the D6.2 thermal CFD runs.
 
 ![Figure 5-1. Passive heat dissipation paths in the Gen 1 Sunlit FPV unit, showing how heat flows from the PV panel through the infill and the pressed aluminium sandwich bottom into the surrounding water.](images/gen1_cooling_of_pv_from_heat_transfer_to_water.png)
 
@@ -633,6 +633,10 @@ Mechanical performance of the integrated unit is strongly coupled to environment
 
 Together, these results illustrate why experimental coupling is essential to the model chain: the combined UV-plus-temperature degradation observed in the early test was substantially more severe than either stressor would have predicted alone, and the resulting design decisions (PU colour change, hardness selection, revised UV protocol) feed back into the parametric and material inputs of the manufacturing, structural and thermal models. Full experimental characterisation of the white PU on Prototype 3, including post-UV mechanical and adhesion data, is targeted for D6.2.
 
+<!-- TODO for IFE (Nathan): Please update the status of the accelerated UV testing on white PU (condition A1 protocol). Provide accumulated chamber hours to date and the expected completion date so D6.2 can plan around the results. -->
+
+<!-- TODO for IFE (Nathan): Please update the status of the P3 adhesion testing — shear testing of the PU-glass interface (long sides) and tensile testing of the loose hinges after UV exposure. Provide current status and expected completion date. -->
+
 ### 5.3.4 Role in design development
 
 Mechanical modelling and testing validate that the system can withstand expected loads, identify weak points in design or materials, and guide improvements in component design and material selection. The results have directly informed the transition from dark to light-coloured PU, the redesign of hinge geometry between prototype iterations, and the prioritisation of adhesion testing as a critical investigation.
@@ -654,6 +658,8 @@ The LCA work builds on methodology developed in the earlier Surewave project, wh
 A baseline inventory for the Sunlit Gen 2 product has already been transferred to TNO. This baseline corresponds to Prototype 3 of the Gen 2 design and comprises a per-unit bill of materials (aluminium bottom plate, PU, PU foam, silicone, cabling and a reference solar panel) together with project-level components required for deployment (mooring and anchoring, cabling, inverters, transformers and ground works). The full description of these inputs and of how they are exchanged with TNO is given in Section 6.3 under interface I-5 of the model chain. As the design parameters explored in this report (cup geometry, sheet thickness, PU quantities, material selection) are updated through successive iterations, revised values are communicated to TNO so that the life-cycle inventory continues to track the current design rather than a fixed baseline.
 
 The coupling between the WP6 modelling framework and the LCA work is therefore bidirectional in intent. The modelling provides concrete inputs for the inventory, while LCA outputs — relative contributions of different materials and processes to the overall environmental impact — provide a further performance dimension alongside manufacturability, structural performance and cost, to be used in the screening and selection of design variants. Full integration of LCA metrics into the parameter-screening workflow described in Chapter 7 is targeted for D6.2.
+
+<!-- TODO for TNO: Please confirm whether the Q2 2026 LCA results timeline is still on track, and whether preliminary results can be shared into the D6.2 draft ahead of the final deliverable. -->
 
 ## 5.5 Summary
 

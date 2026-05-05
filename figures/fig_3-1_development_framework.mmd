@@ -50,3 +50,17 @@ flowchart TB
     SIM -->|output| PO["Performance outputs<br/>stress, thinning, temperature, cost"]
     TEST -->|output| PO
     PO -->|evaluate| VAL
+
+    classDef fds fill:#dae8fc,stroke:#6c8ebf,color:#000
+    classDef risk fill:#fff2cc,stroke:#d6b656,color:#000
+    classDef functional fill:#d5e8d4,stroke:#82b366,color:#000
+    classDef engineering fill:#e1d5e7,stroke:#9673a6,color:#000
+    classDef cycle fill:#ffe6cc,stroke:#d79b00,color:#000
+    classDef params fill:#f5f5f5,stroke:#666666,color:#000
+
+    class FDS fds
+    class RISK risk
+    class F1,F2,F3,F4,F5,F6 functional
+    class E1,E2,E3,E4,E5 engineering
+    class CAD,SIM,PROTO,TEST,VAL,ITER cycle
+    class DP,PP,PO params
