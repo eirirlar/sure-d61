@@ -20,23 +20,23 @@
 
 - [ ] **A2.1: Reduce repetition of 3,900/1,300 numbers** — These appear 8+ times (Exec, §4.3, §4.4, §4.7, §6.4, §7.3, §7.7, §8.2). Recommend keeping 3 occurrences: first introduction in §4.3, one reminder in §7.3, and one in the Executive Summary. Remove or soften the rest to generic phrasing like "the curated dataset" or "the simulation campaign."
 
-- [ ] **A2.2: Reduce repetition of thermal colour-change story** — The dark-blue → off-white finding and its cause appear 6 times (Exec, §3.4, §5.2.4, §5.3.3, §5.5, §8.2). Primary telling should be §5.2.4; others should be shortened to one-sentence cross-references.
+- [x] **A2.2: Reduce repetition of thermal colour-change story** — The dark-blue → off-white finding and its cause appear 6 times (Exec, §3.4, §5.2.4, §5.3.3, §5.5, §8.2). Primary telling should be §5.2.4; others should be shortened to one-sentence cross-references.
 
-- [ ] **A2.3: Reduce repetition of "model chain partially implemented"** — Said 5 times (Exec, §6.1, §6.5, §8.4, §9.1). Keep in Exec and §9.1 (the key places a reviewer reads); trim from §6.1 and §6.5 to just describe the current state without the hedging disclaimer.
+- [x] **A2.3: Reduce repetition of "model chain partially implemented"** — Said 5 times (Exec, §6.1, §6.5, §8.4, §9.1). Keep in Exec and §9.1 (the key places a reviewer reads); trim from §6.1 and §6.5 to just describe the current state without the hedging disclaimer.
 
-- [ ] **A2.4: Reduce repetition of hydroforming switch narrative** — Appears 4 times (Exec, §3.4, §4.2, §4.7). Primary telling is §4.2; others should be one-line references.
+- [x] **A2.4: Reduce repetition of hydroforming switch narrative** — Appears 4 times (Exec, §3.4, §4.2, §4.7). Primary telling is §4.2; others should be one-line references.
 
-- [ ] **A2.5: Reduce repetition of PU absorptivity/emissivity values** — Cited with full numbers 5 times (§5.2.2, §5.2.4, §5.5, §6.3, §8.2). Keep in §5.2.2 (measurement) and §6.3 (interface spec); others should say "the measured values (§5.2.2)" or similar.
+- [x] **A2.5: Reduce repetition of PU absorptivity/emissivity values** — Cited with full numbers 5 times (§5.2.2, §5.2.4, §5.5, §6.3, §8.2). Keep in §5.2.2 (measurement) and §6.3 (interface spec); others should say "the measured values (§5.2.2)" or similar.
 
-- [ ] **A2.6: Reduce repetition of buoyancy/stress findings** — Stated 4 times (Exec, §5.3.2, §6.3, §8.2). Primary telling is §5.3.2; Exec and §8.2 can keep one-sentence versions; §6.3 should cross-reference.
+- [x] **A2.6: Reduce repetition of buoyancy/stress findings** — Stated 4 times (Exec, §5.3.2, §6.3, §8.2). Primary telling is §5.3.2; Exec and §8.2 can keep one-sentence versions; §6.3 should cross-reference.
 
 ### Coherence
 
-- [ ] **A2.7: Disambiguate interface numbering** — Ch 2 defines 19 physical interfaces (I1–I19: component-to-component) while Ch 6 defines 6 data interfaces (I-1 to I-6: model-to-model). Both use "I-" notation. A reader jumping between chapters could confuse them. Options: rename physical set to "PI-1..PI-19", rename data set to "DI-1..DI-6", or add a clarifying note where Ch 6 numbering begins.
+- [x] **A2.7: Disambiguate interface numbering** — Ch 2 defines 19 physical interfaces (I1–I19: component-to-component) while Ch 6 defines 6 data interfaces (I-1 to I-6: model-to-model). Both use "I-" notation. A reader jumping between chapters could confuse them. Options: rename physical set to "PI-1..PI-19", rename data set to "DI-1..DI-6", or add a clarifying note where Ch 6 numbering begins.
 
-- [ ] **A2.8: Shorten thermal-bridge duplication between §4.2 and §5.2.1** — Both passages explain the Gen 1 thermal bridge, the Gen 2 PU-foam blocking it, and the open question about reintroduction. Suggest keeping the full narrative in §5.2.1 (its natural home) and reducing §4.2 to a one-sentence cross-reference.
+- [x] **A2.8: Shorten thermal-bridge duplication between §4.2 and §5.2.1** — Both passages explain the Gen 1 thermal bridge, the Gen 2 PU-foam blocking it, and the open question about reintroduction. Suggest keeping the full narrative in §5.2.1 (its natural home) and reducing §4.2 to a one-sentence cross-reference.
 
-- [ ] **A2.9: Reduce Executive Summary / Conclusions overlap** — §8.1–8.2 substantially restate the Executive Summary. Consider making Conclusions more evaluative (what worked, what didn't, what surprised) rather than re-summarising what was done.
+- [x] **A2.9: Reduce Executive Summary / Conclusions overlap** — §8.1–8.2 substantially restate the Executive Summary. Consider making Conclusions more evaluative (what worked, what didn't, what surprised) rather than re-summarising what was done.
 
 ### Structure
 
