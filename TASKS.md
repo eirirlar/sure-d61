@@ -40,9 +40,9 @@
 
 ### Structure
 
-- [ ] **A2.10: Consider trimming Ch 2 length** — At ~200 lines (~23% of the report), Ch 2 is disproportionately long for a modelling deliverable. Much component-level description (PV panel options, grounding concepts, connector variants) provides context but is only loosely connected to the modelling work. Possible actions: shorten subsections that don't directly feed Ch 4–7, or add a sentence justifying why system architecture detail is needed for the model chain.
+- [x] **A2.10: Consider trimming Ch 2 length** — At ~200 lines (~23% of the report), Ch 2 is disproportionately long for a modelling deliverable. Much component-level description (PV panel options, grounding concepts, connector variants) provides context but is only loosely connected to the modelling work. Possible actions: shorten subsections that don't directly feed Ch 4–7, or add a sentence justifying why system architecture detail is needed for the model chain.
 
-- [ ] **A2.11: Acknowledge thin Ch 7** — The Screening chapter (~50 lines) is thin relative to its conceptual importance as the culmination of the framework. This is appropriate for D6.1 (methodology described, execution deferred to D6.2) but the chapter could benefit from a short paragraph setting expectations — e.g. "This chapter documents the screening methodology; its full execution across all four domains is the headline contribution of D6.2."
+- [x] **A2.11: Acknowledge thin Ch 7** — The Screening chapter (~50 lines) is thin relative to its conceptual importance as the culmination of the framework. This is appropriate for D6.1 (methodology described, execution deferred to D6.2) but the chapter could benefit from a short paragraph setting expectations — e.g. "This chapter documents the screening methodology; its full execution across all four domains is the headline contribution of D6.2."
 
 ### Missing elements
 
@@ -54,9 +54,10 @@
 
 ### KPIs and quantification
 
-- [ ] **A2.15: Add preliminary KPI estimate for aluminium reduction** — The 50% aluminium reduction KPI is mentioned in §3.4 as a target but never evaluated numerically. Even a rough estimate (e.g. "0.8 mm vs 1.5 mm sheet thickness represents a 47% mass reduction per unit area before accounting for cup geometry differences") would give CINEA reviewers something concrete to assess.
+- [x] **A2.15: Add preliminary KPI estimate for aluminium reduction** — The 50% aluminium reduction KPI is mentioned in §3.4 as a target but never evaluated numerically. Even a rough estimate (e.g. "0.8 mm vs 1.5 mm sheet thickness represents a 47% mass reduction per unit area before accounting for cup geometry differences") would give CINEA reviewers something concrete to assess.
 
-- [ ] **A2.16: Add preliminary KPI estimate for thermal improvement** — The ~3% thermal-loss reduction KPI is mentioned but the thermal work focuses on material safety (over-temperature) rather than efficiency gain. A sentence acknowledging this gap or providing an estimate of efficiency improvement from the colour change would help.
+- [x] **A2.16: Add preliminary KPI estimate for thermal improvement** — The ~3% thermal-loss reduction KPI is mentioned but the thermal work focuses on material safety (over-temperature) rather than efficiency gain. A sentence acknowledging this gap or providing an estimate of efficiency improvement from the colour change would help.
+- We don't have anything concrete here, but we do have: we are closer to the water now with gen 2 than with gen 1 (6 cm vs 8.5 cm). However, the panel is tilted with the rightmost part of the solar panel almost dipping into the water (2 degree angle), which gives a different thermal evacuation than gen 1. Proving the actual loss percentage is infeasible at this stage of development, but we will keep simulating and estimating in gen 2. Note that "3% thermal loss, although stated in the technical sure project description, is not a goal in itself. It is one of many of the system requirements that were developed in SuRE, and will be considered within the scope of our risk based development model.
 
 ### Cleanup
 

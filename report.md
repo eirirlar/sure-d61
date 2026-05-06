@@ -109,19 +109,7 @@ These are functional elements of the integrated system. The mooring and anchorin
 
 ### 2.2.1 PV panel
 
-The PV panel is based on commercially available, off-the-shelf solar modules. Rather than being fixed, the PV panel is treated as a design parameter within a defined market space. Several candidate modules with similar external dimensions are currently being evaluated. A commonly available format is approximately 2384 mm × 1303 mm, used by multiple manufacturers including
-
-- Risen Energy (RSM132 series)
-- Canadian Solar (TOPBiHiKu7)
-- Haitai Solar (HTM series)
-- Yingli Solar (YLM 3.0PLUS)
-- Trina Solar (TSM-DEG21 series)
-
-In addition, the alternative format established in Gen 1 (1770 mm × 1770 mm) is considered.
-
-The outer components of the PV panel, which are relevant for integration with the rest of the unit, consist of the frame, glass and potentially polymer (front and backside), junction box(es), cables and MC4 connectors. The choice of PV module geometry has system-level implications including buoyancy and required float volume, total system weight and centre of gravity, manufacturability (tool sizes, forming limits), logistics and handling, and array layout and packing density.
-
-In addition to geometry, module construction is evaluated. Glass–glass modules typically offer better durability and moisture resistance but higher weight, while glass–polymer backsheet modules are lighter but may require additional protection measures. In the Sunlit concept, the PV panel is structurally integrated into the floating unit, creating strong coupling between module choice and structural behaviour, thermal performance, sealing and ingress risk, and interaction with infill, bottom and float-structure. The PV panel must therefore be treated as a configurable system component rather than a fixed input. Figure 2-3 shows the reference PV panel used for the Gen 2 Prototype 4 unit, viewed from the top (glass surface, frame and cable exit) and from the underside (frame, junction-box footprints and cable routing).
+The PV panel is based on commercially available, off-the-shelf solar modules, treated as a design parameter within a defined market space. The current reference format is approximately 2384 mm × 1303 mm; the Gen 1 square format (1770 mm × 1770 mm) is retained as an alternative. The choice of module geometry has system-level implications for buoyancy, weight, manufacturability and array layout. In the Sunlit concept, the PV panel is structurally integrated into the floating unit, creating strong coupling between module choice and structural behaviour, thermal performance, sealing and ingress risk, and interaction with infill, bottom and float-structure; it must therefore be treated as a configurable system component rather than a fixed input. Figure 2-3 shows the reference PV panel used for the Gen 2 Prototype 4 unit, viewed from the top (glass surface, frame and cable exit) and from the underside (frame, junction-box footprints and cable routing).
 
 ![Figure 2-3 (a). Top view of the PV panel used in Gen 2 Prototype 4, showing the glass surface, the surrounding frame and the cable exit on the long edge.](images/solar_panel_top.png)
 
@@ -175,7 +163,7 @@ Findings from wave tank testing in the EU project Surewave showed that snapping 
 
 ### 2.2.7 Connectors
 
-As part of the hinge system, the connectors define how hinges attach and lock between neighbouring units. Examples include bolts and brackets, PU rods, rope-through-hole systems, and carabiner-like mechanisms. In some concepts, connectors are integrated into the hinge; in others, they are separate. They strongly influence assembly, replaceability, load transfer and manufacturability. Figures 2-10 and 2-11 show FreeCAD side-views of the Gen 2 Prototype 4 left and right hinges, illustrating how the two opposing hinge halves are designed to be joined by a connecting rod acting as the connector component.
+As part of the hinge system, the connectors define how hinges attach and lock between neighbouring units; they strongly influence assembly, replaceability, load transfer and manufacturability. Figures 2-10 and 2-11 show FreeCAD side-views of the Gen 2 Prototype 4 left and right hinges, illustrating how the two opposing hinge halves are designed to be joined by a connecting rod acting as the connector component.
 
 ![Figure 2-10. FreeCAD side-view of the Gen 2 Prototype 4 left hinge, showing the hinge geometry and the interface for the connecting rod that joins it to the right-hand counterpart.](images/gen2_prototyp4_freecad_hinge_left.png)
 
@@ -258,11 +246,11 @@ The interaction between PV panel, surrounding structural components, and environ
 
 ### 2.4.6 Installation and maintenance considerations
 
-The system must be designed for efficient installation, inspection, grounding, connection, replacement or repair of components under field conditions, as well as recycling after end of life. This includes practical access to connectors, hinges, grounding solutions, and electrical interfaces. Design choices that improve integration or sealing may also make maintenance more difficult, so these aspects must be balanced carefully.
+The system must be designed for efficient installation, inspection and component replacement under field conditions; design choices that improve integration or sealing often make maintenance more difficult, and this trade-off must be managed explicitly.
 
 ### 2.4.7 Manufacturability and cost efficiency
 
-The design must enable scalable production with controlled cost. This includes not only material consumption, but also process complexity, number of parts, assembly effort, tooling, logistics, and compatibility with commercially available PV modules. Since the PV panel is selected from available market options rather than fixed from the outset, manufacturability and cost efficiency must be evaluated at the system level.
+The design must enable scalable production at controlled cost, spanning material consumption, process complexity, tooling and compatibility with the selected PV module format.
 
 These engineering challenges form the main background for the modelling and development activities described in the following chapters. The purpose of the modelling framework is not only to analyse individual components, but to support design choices across the coupled mechanical, thermal, electrical, and manufacturing domains that define the integrated floating PV unit.
 
@@ -603,6 +591,8 @@ As a direct consequence of these findings, the PU colour was changed from dark b
 
 Within the model chain, the thermal CFD acts as a downstream consumer of the parametric CAD geometry and of the experimentally measured surface properties, and as a producer of peak component temperatures used as a screening metric. The corresponding data interface — including the STEP geometry transfer from FreeCAD, the absorptivity and emissivity values communicated as scalars per material domain, and the environmental boundary conditions derived from ERA5 — is documented as interface DI-4 in Section 6.3. The peak PU temperature output feeds into the multi-stage screening described in Section 7.3 (Stage 3: structural and thermal performance screening), where it is evaluated against material stability limits and used alongside manufacturability and structural metrics to filter the design space.
 
+Regarding the SuRE WP6 KPI of ~3 % thermal-loss reduction: the thermal work in D6.1 has focused on material safety — identifying the over-temperature risk and driving the colour change — rather than directly quantifying module efficiency gains. The Gen 2 geometry places the bottom plate approximately 6 cm from the water surface, compared with approximately 8.5 cm in Gen 1, improving thermal coupling to the water. However, the Gen 2 panel sits at a slight tilt (approximately 2°), so the rightmost edge approaches the water surface while the leftmost rises above it, creating asymmetric thermal conditions that differ from the Gen 1 geometry and make a direct efficiency comparison non-trivial. Quantifying the actual thermal-loss improvement requires CFD runs on the final Gen 2 geometry with off-white PU properties, which are targeted for D6.2. The 3 % KPI is furthermore a system-level requirement within the risk-based development framework — one of several performance dimensions to be evaluated in the multi-domain screening — rather than a standalone optimisation target, and will be assessed within that context once D6.2 results are available.
+
 ## 5.3 Mechanical testing and structural modelling
 
 ### 5.3.1 Objective and scope
@@ -648,6 +638,8 @@ The structural modelling sits within the model chain as the consumer of two upst
 ### 5.4.1 Objective and relevance
 
 In addition to technical performance, the Sunlit system must achieve cost competitiveness and sustainability. Design choices in WP6 directly influence cost drivers such as aluminium consumption (governed by sheet thickness and cup geometry), complexity of forming processes, number of components and assembly steps, and compatibility with commercially available PV modules. For example, reducing sheet thickness from 1.0 mm to 0.8 mm lowers material cost but increases manufacturing difficulty and may reduce structural robustness — a trade-off that the forming simulation framework is designed to evaluate.
+
+Against the SuRE WP6 KPI of 50 % aluminium reduction, the transition from the Gen 1 sheet thickness of 1.5 mm to the Gen 2 target of 0.8 mm represents a 47 % reduction in sheet mass per unit area before accounting for cup geometry. The cup-forming process encloses additional volume — and therefore buoyancy — without adding flat sheet area, so the effective aluminium mass per unit of enclosed buoyancy volume improves further. A full quantitative comparison against the Gen 1 baseline awaits the D6.2 multi-domain screening, which will evaluate total aluminium mass per unit against structural and buoyancy performance targets across the curated design space.
 
 ### 5.4.2 Life-cycle assessment (LCA)
 
@@ -779,6 +771,8 @@ At present, the model chain consists of loosely coupled models where data transf
 A conceptual model chain has been defined and the six interfaces between its tools (DI-1 to DI-6) have been catalogued in Table 6-1, with three (DI-1, DI-6, and partially DI-5) fully implemented and the rest to be brought from manual to automated transfer in D6.2.
 
 # 7 Screening of the Design Parameter Space
+
+This chapter documents the multi-domain screening methodology established in WP6. In D6.1, manufacturing screening (Stages 1 and 2) has been executed in full — producing the ~1,300-point curated dataset — while structural, thermal and LCA screening (Stages 3 and 4) are defined methodologically but have not yet been run across the full candidate set. Applying all four screening stages to the curated dataset is the headline contribution of D6.2.
 
 ## 7.1 Role of parameter screening in the development process
 
