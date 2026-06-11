@@ -18,7 +18,7 @@
 
 ### Repetition
 
-- [ ] **A2.1: Reduce repetition of 3,900/1,300 numbers** — These appear 8+ times (Exec, §4.3, §4.4, §4.7, §6.4, §7.3, §7.7, §8.2). Recommend keeping 3 occurrences: first introduction in §4.3, one reminder in §7.3, and one in the Executive Summary. Remove or soften the rest to generic phrasing like "the curated dataset" or "the simulation campaign."
+- [x] **A2.1: Reduce repetition of 3,900/1,300 numbers** — These appear 8+ times (Exec, §4.3, §4.4, §4.7, §6.4, §7.3, §7.7, §8.2). Recommend keeping 3 occurrences: first introduction in §4.3, one reminder in §7.3, and one in the Executive Summary. Remove or soften the rest to generic phrasing like "the curated dataset" or "the simulation campaign."
 
 - [x] **A2.2: Reduce repetition of thermal colour-change story** — The dark-blue → off-white finding and its cause appear 6 times (Exec, §3.4, §5.2.4, §5.3.3, §5.5, §8.2). Primary telling should be §5.2.4; others should be shortened to one-sentence cross-references.
 
@@ -63,7 +63,7 @@
 
 - [ ] **A2.17: Resolve or flag TODO comments before submission** — Six HTML comments remain in the report addressed to IFE and TNO. These are appropriate for the working draft but must be either resolved (with partner input) or removed/softened for the submitted version.
 
-- [ ] **A2.18: Clean up unreferenced image files** — Several images in `images/` are no longer referenced: `fpv_matrix_and_mooring_system_for_25kwp.png` (removed Fig 2-2), four `*_bak.png` backups, and unused views (`bottom.png`, `infill.png`, `rods.png`, several `float_system_*_side.png` variants). Not urgent but reduces clutter.
+- [x] **A2.18: Clean up unreferenced image files** — Several images in `images/` are no longer referenced: `fpv_matrix_and_mooring_system_for_25kwp.png` (removed Fig 2-2), four `*_bak.png` backups, and unused views (`bottom.png`, `infill.png`, `rods.png`, several `float_system_*_side.png` variants). Not urgent but reduces clutter.
 
 ---
 
