@@ -1,43 +1,130 @@
-# D6.1 Report — Working Tracker
+# Sunlit Sea – working repo (project context)
 
-## Files in /home/claude/
-- `report.txt` — current working version with all edits applied
-- `activities.md` — collected evidence and testing activities
-- `code/` — code repository for aluminium pressing simulation pipeline
-- `TASKS.md` — tasks we are working on. Shall be kept updated.
+## What this is
 
-## Notes
-- User wants Mermaid scripts inline (not rendered), will create figures later
-- Figures appear near first reference, numbered relative to chapter
-- **ALWAYS when delivering docx:** ensure mermaid diagrams are in fenced code blocks with proper line breaks, AND export each diagram as a standalone .mmd file to outputs
+Working repository for Sunlit Sea's ongoing activities. Content is organised by **activity**, not by artefact type. Each activity has its own top-level folder with its own README describing scope and contents. Tasks across all activities share a single `T`-numbered sequence in the top-level `TASKS.md`.
 
-## Background Images (`images/` folder)
+Repo owner: Eirik Larsen (Sunlit Sea).
+
+The four activity streams currently tracked:
+
+| Folder | Activity | Notes |
+|---|---|---|
+| `sure/` | SuRE WP6 – FPV model chain | Anchor activity. D6.1 delivered; D6.2 in preparation. Partners: IFE (FEM/CFD), TNO (LCA), MariSol/Accura (forming trials). |
+| `gen2/` | Gen 2 product development | P3 → P4 → P5 prototype evolution, mould/cast decisions, materials testing, supplier work. Overlaps with SuRE but has its own product lifecycle. |
+| `commercial/` | Market, customers, sales | Sales pipeline, pilot deployments, customer specs, pricing, competitor intel. |
+| `funding/` | Grants, EU reporting, financial | Horizon Europe periodic reporting, CINEA reviews, grant applications, financial reporting. |
+
+See `TASKS.md` for the open task list, `ARCHIVE.md` for closed tasks, `README.md` for conversion tooling (Pandoc, mermaid-filter, pdftotext).
+
+---
+
+## Files and folders (top level)
+
+```
+sure-d61/
+├── CLAUDE.md                  – this document (project context for AI)
+├── TASKS.md                   – open task list (single T-sequence across all activities)
+├── ARCHIVE.md                 – closed tasks
+├── README.md                  – tools, workflows, conventions (repo-wide)
+├── sure/                      – SuRE WP6 activity (see sure/README.md)
+├── gen2/                      – Gen 2 product development (see gen2/README.md)
+├── commercial/                – Market/customer/sales (see commercial/README.md)
+└── funding/                   – Grants, EU reporting, financial (see funding/README.md)
+```
+
+Repo name (`sure-d61`) is historical and predates the multi-activity restructure.
+
+---
+
+## Activity tagging on tasks
+
+Tasks in `TASKS.md` and `ARCHIVE.md` carry an activity tag as a bracketed prefix in the title:
+
+```
+### T25 `[ ]` [SURE] Do the thing
+### T88 `[ ]` [GEN2] Order P4 mould from subcontractor
+### T92 `[ ]` [COM] Draft pilot-deployment MoU with customer X
+### T95 `[ ]` [FUND] Q3 periodic report to CINEA
+```
+
+Tag vocabulary (extend when a new stream is added):
+
+| Tag | Activity |
+|---|---|
+| `[SURE]` | SuRE WP6 |
+| `[GEN2]` | Gen 2 product development |
+| `[COM]` | Commercial |
+| `[FUND]` | Funding / EU reporting |
+
+The `T`-number sequence is authoritative and continuous across activities. Tags are for scanning; they do not affect sorting.
+
+---
+
+## Working rules
+
+- **Read these first:** At the start of a task, or whenever context is missing, read `README.md`, `TASKS.md`, `ARCHIVE.md`, and the relevant activity folder's own README (`sure/README.md` etc.). Search ARCHIVE before starting a new task to avoid duplicated work.
+- **Permissions:** Always ask before running code or touching files outside the project folder (`sure-d61/`), even when running with `--dangerously-skip-permissions`. This includes reading from `../` neighbour projects — read there if useful, but never write without explicit approval.
+- **File changes require confirmation:** Do not edit files or create new ones without an explicit request. If the user is discussing, asking or requesting a plan/description, respond with text — not with edits. Wait for a clear "do it" or equivalent before touching files.
+- **Estimate effort before starting:** Before starting a task, judge complexity and give a rough time estimate ("this takes ~30 seconds" or "this is a large operation that could take 5–10 minutes"). If the estimate is above ~2 minutes, require explicit confirmation before starting — even if you already have a general "do it".
+- **Task documentation:** When a task is done, document the solution under the task's context section in `TASKS.md` and mark the status `[x]`. Do not just flip status without noting what was done and which files were created/changed.
+- **Task numbering:** Before creating a new task, find the highest existing T-number across **both** `TASKS.md` and `ARCHIVE.md`: `grep -h "^### T" TASKS.md ARCHIVE.md | grep -oP 'T\d+' | sort -t T -k2 -n | tail -1`. Use the next free number. The T-sequence is continuous across all activities; a `[SURE]` task and a `[GEN2]` task share the same counter.
+- **Activity tag:** Every new task title must start with an activity tag (`[SURE]`, `[GEN2]`, `[COM]`, `[FUND]`). If a task spans two activities, pick the primary one. If a new stream is needed, propose an addition to the tag vocabulary and update this document.
+- **Task sorting:** Tasks in `TASKS.md` and `ARCHIVE.md` are always sorted ascending on T-number. When creating a new task, insert it at the right position — do not append to the end without checking the number. Subtasks (T01.02 etc.) are sorted under their parent.
+- **Archiving tasks:** Closed tasks are moved from `TASKS.md` to `ARCHIVE.md` only when the user explicitly asks. Never archive on your own initiative. Always search `ARCHIVE.md` before starting a task to avoid duplicated work.
+- **Do not start tasks automatically:** Never begin a task without an explicit instruction from the user in the current conversation. When a task is finished, wait for the next instruction — do not pick and start the next task on your own.
+- **README maintenance:** Always consider whether the top-level `README.md` and/or the relevant activity `README.md` needs updating as part of solving a task. New files, changed file names, changed folder structure or new dependencies must be reflected in the appropriate README.
+- **PDF conversion:** Always use `pdftotext` (or an equivalent CLI tool) via Bash to convert PDF to text. Never use the Read tool page-by-page on PDF files — it is very expensive and loses structured text. Example: `pdftotext -layout "filename.pdf" - > filename.txt`
+- **"New items" section in TASKS.md:** When reading `TASKS.md`, always check whether `## New items (unprocessed)` contains unprocessed bullet points. If so: ask the user whether they should be processed. Processing means converting each bullet into a numbered T-task with description (including the activity tag), and deleting the bullet.
+- **Ask before suboptimal approach:** If you see you are about to do something inefficiently (many steps, large token cost, detours), stop and ask the user whether they are sure they want you to continue — even when running with `--dangerously-skip-permissions`.
+- **Git and gh are NEVER allowed without explicit permission in the current conversation:** Never run `git`, `gh` or other commands that invoke git (including scripts that call git internally and compound Bash commands where git appears anywhere — `pwd && git ...` is just as forbidden as plain `git ...`). This applies to **all** operations, including "harmless" read-only commands: `git status`, `git diff`, `git log`, `git branch`, `git show`, `git ls-files`, `git rev-parse`, `git worktree list`, `gh pr list`, `gh issue view` etc. Before every Bash command, explicitly check whether `git` or `gh` appears anywhere — if yes, stop and ask, even when you need info quickly. If you need info that could have come from git: use Read/Glob/Grep, or ask the user to paste the output.
+- **Do not convert to docx automatically:** Never generate `.docx` of a deliverable (via Pandoc, a helper script or anything else) as part of a task — not even when an existing docx attachment has changed and "should be regenerated for consistency". The Markdown source is the deliverable; conversion to docx happens **only when the user explicitly orders it**. When in doubt: mention in the wrap-up that docx has not been regenerated, so the user can order it themselves.
+- **Pandoc is the chosen conversion tool** for `.docx`, `.pptx` and `.pdf`. Use pandoc commands directly (`pandoc input.md -o output.docx` etc.) when the user orders conversion. Do not suggest alternative pipelines (LibreOffice, Word COM, weasyprint, etc.) without pandoc being tried and rejected first. PDF conversion requires a separate engine (pdflatex/xelatex/wkhtmltopdf) — if none is available, deliver docx and leave PDF conversion to the user in Word/Office.
+- **Mermaid deliverables:** When delivering a docx, ensure mermaid diagrams are in fenced code blocks with proper line breaks, AND export each diagram as a standalone `.mmd` file to the activity's `figures/` folder (e.g. `sure/figures/`). Figures appear near the first reference and are numbered relative to their chapter.
+- **Installing system packages or tools requires explicit permission:** Commands that install or modify system level (`tlmgr install`, `apt install`, `pip install --system`, `pip install --user`, `npm install -g`, `choco install`, `winget install`, `uv tool install`, `cargo install`, `gem install` etc.) always require explicit approval in the current conversation — including when a tool is missing to finish the requested task. Stop and ask.
+- **`rm` and other destructive operations require explicit permission for files I did not create myself in the current conversation.** Before every `rm`, `mv --force`, `> file` (overwrite) or equivalent: check whether the file is something I generated in this session. If not — stop and ask. Signals that the file belongs to the user (and must not be touched): file size or mtime that differs from my own output, filename that does not match my pipeline, files that "seem odd to have" in the folder. Deleting is worse than letting it be — ask instead.
+- **Clean up after Agent invocations:** For tasks that invoke the `Agent` tool (particularly with `isolation: "worktree"`), always check at the end that `.claude/worktrees/agent-*` folders have been cleaned up. Document in the task solution note that cleanup was done.
+- **Agent tool always creates worktrees – plan for cleanup:** The `Agent` tool in Claude Code (this harness version) creates a worktree per spawn regardless, even without `isolation: "worktree"` set explicitly. This also applies to agents that only read files. After the session ends and the pid is dead, worktrees can be cleaned with: `git worktree repair` → `git worktree unlock` → `git worktree remove --force` → `git branch -D` (and finally `git worktree prune`). For Cygwin/Windows mismatch: run cleanup in Git Bash, not Cygwin.
+
+---
+
+## Language and tone
+
+- All SuRE / D6.1 / D6.2 documents are in **English** (EU deliverable language). Other activities default to English too unless the audience is explicitly Norwegian.
+- Be concrete and factual — do not "sell" the work, let documented facts speak.
+- Reports must address the reader's concerns directly (CINEA reviewers: interface data-transfer status, KPI evidence, model-chain coverage; commercial: pricing basis, delivery, risk).
+
+---
+
+## SuRE background images (`sure/images/`)
+
+These are the images used in the D6.1 / D6.2 reports.
 
 ### Material & Product
 - `cup_shape.png` — Sample cup shape showing the target geometry produced by the pressing process
 - `alu_sheet_vs_pressed.jpg` — Before/after comparison of raw aluminium sheet vs. the pressed final product
 - `chemical_composition_alu5083h111.png` — Composition breakdown of 5083-H111 aluminium alloy (the material used)
 
-### Gen1 FPV System
-- `fpv_gen1_assembly.png` — Assembly diagram showing all gen1 components: glass/PET solar panels, polystyrene cup infill, butyl/silicone edge sealant, 2-component silicone potting, two pressed aluminium parts bonded together as a float with air inside (forming the bottom plate, part of infill, and floatsystem), and brackets on the float lip for the connect system
-- `fpv_gen1_float.png` — The actual gen1 product as built
-- `fpv_matrix_and_mooring_system_for_25kwp.png` — Layout showing how different form factors affect the matrix arrangement and mooring system for a 25kW peak capacity installation
+### Gen 1 FPV system
+- `fpv_gen1_assembly.png` — Assembly diagram showing all Gen 1 components: glass/PET solar panels, polystyrene cup infill, butyl/silicone edge sealant, 2-component silicone potting, two pressed aluminium parts bonded together as a float with air inside (forming the bottom plate, part of infill, and float system), and brackets on the float lip for the connect system
+- `fpv_gen1_float.png` — The actual Gen 1 product as built
+- `fpv_matrix_and_mooring_system_for_25kwp.png` — Layout showing how different form factors affect the matrix arrangement and mooring system for a 25 kWp installation *(removed from report; kept in folder as reference)*
 
-### Heat Transfer
-- `gen1_cooling_of_pv_from_heat_transfer_to_water.png` — Shows the natural heat dissipation paths through the infill and the pressed aluminium bottom plate in gen1; not an active cooling system but passive heat flow visualization
+### Heat transfer
+- `gen1_cooling_of_pv_from_heat_transfer_to_water.png` — Natural heat-dissipation paths through infill and pressed aluminium bottom plate in Gen 1; passive heat flow visualisation
 
-### Pressing Equipment & Simulation
-- `punch_and_die.png` — Step file image showing the punch and die setup; represents an early iteration of the pressing FEM simulation setup showing iterative development toward the final simulation
-- `meshed_punchdie.png` — Finite element mesh visualization of the punch and die components for FEM analysis
-- `punch_die_mesh_with_gripper.png` — Meshed punch/die setup with gripper ring; tests flow control and metal thinning reduction
-- `punch_die_mesh_without_gripper.png` — Meshed punch/die setup without gripper; baseline for comparison; gripper approach was later abandoned in favor of fluid forming
+### Pressing equipment & simulation
+- `punch_and_die.png` — STEP file image of the punch and die setup; early iteration of the pressing FEM simulation
+- `meshed_punchdie.png` — Finite-element mesh of the punch and die components for FEM analysis
+- `punch_die_mesh_with_gripper.png` — Meshed punch/die setup with gripper ring; tests flow control and metal-thinning reduction
+- `punch_die_mesh_without_gripper.png` — Baseline for comparison; the gripper approach was later abandoned in favour of fluid forming
 
-### CAD Export Process
+### CAD export process
 - `freecad_to_step_1.png` — FreeCAD interface showing design properties and parameters that control the geometry
-- `freecad_to_step_2.png` — Step file rendered from one angle
-- `freecad_to_step_3.png` — Step file rendered from a second angle
-- `freecad_to_step_4.png` — Step file rendered from a third angle
+- `freecad_to_step_2.png` — STEP file rendered from one angle
+- `freecad_to_step_3.png` — STEP file rendered from a second angle
+- `freecad_to_step_4.png` — STEP file rendered from a third angle
 
-### Tool Failure Analysis
-- `punchdie_rip1.png` — Tool damage/failure scenario 1 showing tearing or ripping under pressing loads
-- `punchdie_rip2.png` — Tool damage/failure scenario 2 showing tearing or ripping under pressing loads
+### Tool failure analysis
+- `punchdie_rip1.png` — Tool damage/failure scenario 1 showing tearing/ripping under pressing loads
+- `punchdie_rip2.png` — Tool damage/failure scenario 2 showing tearing/ripping under pressing loads
