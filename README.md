@@ -9,13 +9,15 @@ Activities:
 - `commercial/` – Market, customers, sales
 - `funding/` – Grants, EU reporting, financial
 
-Repo-level context and working rules are in `CLAUDE.md`. Task list is in `TASKS.md`; closed tasks in `ARCHIVE.md`. Each activity folder has its own README with contents and scope.
+Repo-level context and working rules are in `CLAUDE.md`. Task list is in `TASKS.md`; closed tasks in `ARCHIVE.md`.
+
+**Single README:** this file is the only README in the repo. Do not create per-folder README files — describe folder contents here, in the *Activity contents* section below.
 
 ---
 
 ## PDF text extraction
 
-Sources in `sure/background/` (and any future `*/background/`) are mostly PDF. Always convert to text with `pdftotext` before reading — do **not** open PDFs page-by-page with the Read tool, it is expensive and loses structure.
+Sources under `background/` and `sure/background/` are mostly PDF. Always convert to text with `pdftotext` before reading — do **not** open PDFs page-by-page with the Read tool, it is expensive and loses structure.
 
 ```bash
 pdftotext -layout "sure/background/somefile.pdf" - > sure/background/somefile.txt
@@ -155,6 +157,157 @@ The `.mmd` files are the canonical source (edit these). The `.png` files are wha
 
 ---
 
+## Background convention
+
+`background/` at the repo root holds **cross-cutting** background material — the material that spans activities (SuRE, Gen 2, Commercial, Funding) or predates the activity split. Company-level investor updates, legal documents, funding history, board correspondence, general Sunlit Sea history all belong here. Activity-specific background stays under `sure/background/`, `gen2/background/` etc.
+
+### File-naming convention
+
+Every file in any `background/` folder (root or activity-level) carries a date prefix:
+
+```
+YYYY-MM-DD_short_description.ext
+```
+
+Examples:
+
+- `2025-11-14_investor_update_q3.md`
+- `2024-02-01_shareholder_agreement.pdf`
+- `2023-06-08_board_meeting_minutes.md`
+
+The date is the date of the document (when it was written / issued / sent), not the day it was filed. When the exact date is unknown, use the best approximation and note the uncertainty in the file body.
+
+### Inbox: `background/new/`
+
+Files that have not been processed yet land in `background/new/`. Typical sources: PDFs (scanned or exported), Word documents, PowerPoint decks, photos and screenshots, plain-text notes.
+
+At the start of every working session, check `background/new/` (and any `*/background/new/`) for unprocessed files. The `CLAUDE.md` working rules document this.
+
+### Conversion pipeline
+
+| Source format | Tool | Command shape |
+|---|---|---|
+| `.pdf` | `pdftotext` | `pdftotext -layout "background/new/foo.pdf" background/new/foo.txt` then hand-tidy into `.md` |
+| `.docx`, `.pptx`, `.odt`, `.rtf`, `.html` | `pandoc` | `pandoc "background/new/foo.docx" -o background/new/foo.md --wrap=none` |
+| `.md`, `.txt` | (already text) | tidy, then timestamp-prefix and move |
+| `.png`, `.jpg`, `.jpeg` and other true binary evidence | keep as-is | timestamp-prefix and move; do not convert |
+
+After conversion:
+
+1. Review the `.md` and add a short preamble at the top noting the source file name and the document's original date (if known).
+2. Rename to `YYYY-MM-DD_description.md`.
+3. Move to `background/`.
+4. Remove the intermediate `.txt` from `pdftotext` — only the `.md` needs to stick around.
+5. Keep the original binary in `background/` **only** if it is the authoritative source (signed PDFs, signed contracts, presentations we might redistribute). Otherwise the `.md` supersedes it and the original can be dropped.
+
+---
+
+## Scripts
+
+Persistent helper scripts live in `scripts/` at the repo root — never scattered inside data folders like `background/`, `sure/`, etc. Follows the same pattern as the neighbouring `../fjordgata30` project.
+
+### `scripts/md_image_to_html.py`
+
+Rewrites Markdown image references `![caption](path){width=Npx}` into HTML `<figure>` / `<img>` / `<figcaption>` blocks. Reason: Pandoc's `{width=Npx}` image-attribute syntax is Pandoc-only — VS Code preview, GitHub Flavored Markdown and most other renderers show it as literal text after the image. HTML `<img>` width attributes work in every renderer that supports raw HTML in Markdown (essentially all of them), and Pandoc passes them through to its docx/pdf output. Wrapping in `<figure>` + `<figcaption>` also makes the caption visible in every renderer, whereas plain `![alt](path)` shows the alt text only when the image fails to load.
+
+Safe default writes a `<name>.htmlimg.md` sibling; use `--in-place` to overwrite once the sibling looks right. `--dry-run` reports how many image references would be rewritten without touching anything.
+
+```bash
+# Safe default — writes gen2/norsmaterials_brief.htmlimg.md
+python scripts/md_image_to_html.py gen2/norsmaterials_brief.md
+
+# Overwrite in place (only after dry-run looks safe)
+python scripts/md_image_to_html.py --in-place gen2/norsmaterials_brief.md
+
+# Different default width (used when the input has no explicit width)
+python scripts/md_image_to_html.py --width 600 gen2/norsmaterials_brief.md
+```
+
+Preserves indentation, so images that live under bullet points stay under those bullet points in the output.
+
+### `scripts/clean_investor_updates.py`
+
+Strips mail-header noise, mid-body Gmail page-print repeats, and trailing signature blocks (`Mvh`, contact-info lines, Google Groups unsubscribe boilerplate) from the investor-update `.md` files under `background/`. Preserves the YAML frontmatter; leaves body content between top and bottom noise untouched.
+
+**Safe default (no in-place edits).** Writes a sibling `<name>.cleaned.md` for each input. Compare, then either rename manually or re-run with `--in-place`.
+
+```bash
+# Safe default — writes background/*.cleaned.md
+python scripts/clean_investor_updates.py background/*.md
+
+# Dry-run — per-file word-count before/after, no writes
+python scripts/clean_investor_updates.py --dry-run background/*.md
+
+# In-place — overwrites originals; only use after --dry-run looks safe
+python scripts/clean_investor_updates.py --in-place background/*.md
+```
+
+The dry-run output flags any file that shrinks to below 70% of its original word count with a `!` marker — that is the pattern that would have caught the earlier truncation incident where two files silently lost ~90% of their content to an over-broad signature-start regex. Always dry-run before batch use.
+
+---
+
+## Activity contents
+
+### `sure/` — SuRE WP6 (Sunlit Sea contribution)
+
+Sunlit Sea's contribution to the Horizon Europe project **SuRE**, Work Package 6.
+
+- **D6.1 Model chain description** – delivered as `D6.1 Sunlit model chain_v7.docx` (regenerated from `report.md` on request).
+- **D6.2 Multi-domain design screening** – in preparation (`report_d6.2.md`, `D6.2.md`).
+
+Contents:
+
+- `report.md` – D6.1 report source (canonical Markdown).
+- `report_d6.2.md` – D6.2 report source (work in progress).
+- `D6.2.md` – working notes for D6.2 scoping / interface status.
+- `D6.1 Sunlit model chain_v7.docx` – latest delivered docx.
+- `analysis.md` – quality/consistency analysis of the D6.1 report.
+- `ife_feedback_v6.md` – Nathan's tracked-change comments (v6).
+- `activities.md` – collected evidence and testing activities.
+- `requirements.md` – functional requirements / FDS.
+- `gap.csv` – gap analysis.
+- `notes.txt` – loose working notes.
+- `sure_cinea_review_wp6_sunlitsea_presentation.md/.pptx` – CINEA review deck.
+- `sure_ga6_wp6_sunlitsea_presentation.md` – GA6 deck.
+- `sure_dow_extract.txt` – DoW extract.
+- `README_MARKDOWN.md` – legacy status doc from the report.txt → report.md conversion. Kept as history.
+- `figures/` – Mermaid sources (`.mmd`) + rendered PNGs used inline in the reports.
+- `images/` – photos, CAD/mesh screenshots, empirical figures used in the reports. See `CLAUDE.md` for per-image descriptions.
+- `background/` – DoW extract, external reports, source PDFs and their text extractions. Some files here (e.g. `Prod v2 roadmap`, `FDS -2024-Nextgen product`) may move to `gen2/background/` when Gen 2 material is separated.
+- `thepressing/` – code repository for the aluminium pressing simulation pipeline. Not modified in this project yet.
+
+Partners: **IFE** (Nathan Roosloot – FEM/CFD), **TNO** (LCA), **MariSol/Accura** (physical forming trials). Open SuRE tasks carry the `[SURE]` tag in `TASKS.md`.
+
+### `gen2/` — Gen 2 product development
+
+Sunlit Sea Gen 2 FPV product development: prototype evolution (P3 → P4 → P5), mould / cast decisions, materials testing, supplier work. Overlaps with SuRE WP6 (the D6.1/D6.2 model chain evaluates Gen 2 geometries) but has its own product-development lifecycle beyond the EU deliverable.
+
+Current contents:
+
+- `norsmaterials_brief.md` – partner brief for Norsmaterials PU-casting collaboration (T72).
+- `notes_norsmaterials.md` – research notes on Norsmaterials for the brief.
+
+Content to migrate here when the split makes sense:
+
+- `sure/background/Prod v2 roadmap (1).xlsx`
+- `sure/background/FDS -2024-Nextgen product.docx (1).txt`
+
+Open Gen 2 tasks carry the `[GEN2]` tag in `TASKS.md`.
+
+### `commercial/` — Market, customers, sales
+
+Sunlit Sea commercial activities: sales pipeline, pilot deployments, customer specifications, pricing, competitor intel, market data. Empty for now. Open commercial tasks carry the `[COM]` tag in `TASKS.md`.
+
+### `funding/` — Grants, EU reporting, financial
+
+Grant applications, Horizon Europe periodic reporting, CINEA reviews, financial reporting.
+
+Note: SuRE deliverables (D6.1, D6.2) live under `sure/` because they are the technical work products, not the funding-and-reporting side. Track funding-side artefacts here (periodic reports, financial statements, grant application drafts, CINEA correspondence, investor recaps).
+
+Currently empty. Open funding tasks carry the `[FUND]` tag in `TASKS.md`.
+
+---
+
 ## Folder layout (top level)
 
 ```
@@ -162,11 +315,14 @@ sure-d61/
 ├── CLAUDE.md                  – AI project context and working rules
 ├── TASKS.md                   – open task list (T-numbered, single sequence across activities)
 ├── ARCHIVE.md                 – closed tasks
-├── README.md                  – this document
-├── sure/                      – SuRE WP6 activity (see sure/README.md for contents)
-├── gen2/                      – Gen 2 product development (see gen2/README.md)
-├── commercial/                – Market/customer/sales (see commercial/README.md)
-└── funding/                   – Grants, EU reporting, financial (see funding/README.md)
+├── README.md                  – this document (only README in the repo)
+├── background/                – cross-cutting background material (date-prefixed files)
+│   └── new/                   – inbox for unprocessed files (PDFs, DOCX, images → converted to .md)
+├── scripts/                   – persistent helper scripts (see the *Scripts* section above)
+├── sure/                      – SuRE WP6 activity
+├── gen2/                      – Gen 2 product development
+├── commercial/                – Market/customer/sales
+└── funding/                   – Grants, EU reporting, financial
 ```
 
 Repo name `sure-d61` predates the multi-activity restructure and has been retained.
