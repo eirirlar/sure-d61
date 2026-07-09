@@ -6,7 +6,6 @@ Activities:
 
 - `sure/` – SuRE WP6 (Horizon Europe FPV model chain, D6.1 delivered, D6.2 in preparation)
 - `gen2/` – Gen 2 product development (P3 → P4 → P5)
-- `commercial/` – Market, customers, sales
 - `funding/` – Grants, EU reporting, financial
 
 Repo-level context and working rules are in `CLAUDE.md`. Task list is in `TASKS.md`; closed tasks in `ARCHIVE.md`.
@@ -225,6 +224,26 @@ python scripts/md_image_to_html.py --width 600 gen2/norsmaterials_brief.md
 
 Preserves indentation, so images that live under bullet points stay under those bullet points in the output.
 
+### `scripts/format_docx.py`
+
+Post-processes a Pandoc-generated `.docx` file to fix two things Pandoc handles poorly by default: (1) tables have no visible borders, and (2) all table columns are given equal width regardless of content. The script uses `python-docx` to add thin grey borders (0.5 pt, `#BFBFBF`) to every cell in every table, and sets column widths per table from a `TABLE_WIDTHS_BY_STEM` dict keyed on the input filename stem (basename without `.docx`).
+
+Dependencies are declared inline via PEP 723 script metadata (`python-docx`), so `uv run` installs them on the fly into a user-local ephemeral env — no system install required.
+
+```bash
+# In-place: pandoc first, then format the resulting docx
+pandoc background/2026-07-08_loeypemelding.md -o background/2026-07-08_loeypemelding.docx
+uv run scripts/format_docx.py background/2026-07-08_loeypemelding.docx
+
+# Or output to a different path
+uv run scripts/format_docx.py input.docx output.docx
+
+# Borders only, skip column widths (for docs not in TABLE_WIDTHS_BY_STEM)
+uv run scripts/format_docx.py input.docx --borders-only
+```
+
+Adapted from the same-named script in `../fjordgata30/scripts/` — mechanics are identical, only `TABLE_WIDTHS_BY_STEM` is Sunlit-Sea-tailored. When a new deliverable with tables is generated, add a new dict entry keyed on the input filename stem, with one width row per table in the order they appear in the document.
+
 ### `scripts/clean_investor_updates.py`
 
 Strips mail-header noise, mid-body Gmail page-print repeats, and trailing signature blocks (`Mvh`, contact-info lines, Google Groups unsubscribe boilerplate) from the investor-update `.md` files under `background/`. Preserves the YAML frontmatter; leaves body content between top and bottom noise untouched.
@@ -294,17 +313,20 @@ Content to migrate here when the split makes sense:
 
 Open Gen 2 tasks carry the `[GEN2]` tag in `TASKS.md`.
 
-### `commercial/` — Market, customers, sales
-
-Sunlit Sea commercial activities: sales pipeline, pilot deployments, customer specifications, pricing, competitor intel, market data. Empty for now. Open commercial tasks carry the `[COM]` tag in `TASKS.md`.
-
 ### `funding/` — Grants, EU reporting, financial
 
 Grant applications, Horizon Europe periodic reporting, CINEA reviews, financial reporting.
 
 Note: SuRE deliverables (D6.1, D6.2) live under `sure/` because they are the technical work products, not the funding-and-reporting side. Track funding-side artefacts here (periodic reports, financial statements, grant application drafts, CINEA correspondence, investor recaps).
 
-Currently empty. Open funding tasks carry the `[FUND]` tag in `TASKS.md`.
+Current contents:
+
+- `nedskriving_2025.md` — the substantive impairment test for the 2025 annual accounts (T79). All 7 indicators explicitly assessed with concrete reasoning drawn from the løypemelding narrative; conclusion is that no impairment is required. Only NOK amounts remain as placeholders, filled from the general ledger.
+- `nedskriving_mal.md` — company-independent template for impairment tests under Norwegian accounting rules (rskl § 5-3, NRS 8, NRS(F) Nedskrivning, NRS 4). 12 sections + checklist, applicable to micro/small/medium/large foretak. Reference for future testing years or other companies (T78).
+- `nedskriving_draft.md` — Eirik's short note framing the 2025 argument (external validation from Sintef/IFE, gen 1 → gen 2 transferability). Basis for T79.
+- `nedskriving.md` — original T75 draft. Placeholder-heavy; superseded by `nedskriving_2025.md` for the 2025 test but retained per instruction.
+
+Open funding tasks carry the `[FUND]` tag in `TASKS.md`.
 
 ---
 
@@ -317,11 +339,12 @@ sure-d61/
 ├── ARCHIVE.md                 – closed tasks
 ├── README.md                  – this document (only README in the repo)
 ├── background/                – cross-cutting background material (date-prefixed files)
-│   └── new/                   – inbox for unprocessed files (PDFs, DOCX, images → converted to .md)
+│   ├── new/                   – inbox for unprocessed files (PDFs, DOCX, images → converted to .md)
+│   └── lover/                 – excerpts of Norwegian statutes and accounting standards (regnskapsloven, NRS, skfvl)
+├── leveranser/                – external deliverables (formal outbound letters, anmodninger, klager, requests)
 ├── scripts/                   – persistent helper scripts (see the *Scripts* section above)
 ├── sure/                      – SuRE WP6 activity
 ├── gen2/                      – Gen 2 product development
-├── commercial/                – Market/customer/sales
 └── funding/                   – Grants, EU reporting, financial
 ```
 

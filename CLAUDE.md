@@ -6,14 +6,15 @@ Working repository for Sunlit Sea's ongoing activities. Content is organised by 
 
 Repo owner: Eirik Larsen (Sunlit Sea).
 
-The four activity streams currently tracked:
+The activity streams currently tracked:
 
 | Folder | Activity | Notes |
 |---|---|---|
 | `sure/` | SuRE WP6 – FPV model chain | Anchor activity. D6.1 delivered; D6.2 in preparation. Partners: IFE (FEM/CFD), TNO (LCA), MariSol/Accura (forming trials). |
 | `gen2/` | Gen 2 product development | P3 → P4 → P5 prototype evolution, mould/cast decisions, materials testing, supplier work. Overlaps with SuRE but has its own product lifecycle. |
-| `commercial/` | Market, customers, sales | Sales pipeline, pilot deployments, customer specs, pricing, competitor intel. |
 | `funding/` | Grants, EU reporting, financial | Horizon Europe periodic reporting, CINEA reviews, grant applications, financial reporting. |
+
+Commercial/market intel (previously under `commercial/`) is folded into `background/` alongside other cross-cutting material — one-off market snapshots and competitor scans are date-prefixed like other `background/` files. Commercial tasks may still carry the `[COM]` tag.
 
 See `TASKS.md` for the open task list, `ARCHIVE.md` for closed tasks, `README.md` for conversion tooling (Pandoc, mermaid-filter, pdftotext).
 
@@ -30,7 +31,6 @@ sure-d61/
 ├── background/                – cross-cutting background material (date-prefixed files) + new/ inbox
 ├── sure/                      – SuRE WP6 activity
 ├── gen2/                      – Gen 2 product development
-├── commercial/                – Market/customer/sales
 └── funding/                   – Grants, EU reporting, financial
 ```
 

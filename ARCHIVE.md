@@ -301,3 +301,76 @@ Decision made per T43 (keep P3/P4 CAD figures in D6.1); no move to D6.2 required
 *(was T10–T21 in an earlier working-tracker numbering that predates the T-scheme.)*
 
 Assorted early-session edits completed before the analysis.md / IFE-feedback rounds. Retained here as a bulk marker so the T-numbering below stays contiguous.
+
+---
+
+## Repo management / restructure
+
+### T71 `[x]` Broaden project scope from SuRE WP6 to all Sunlit Sea activities
+
+Right now `CLAUDE.md`, `README.md` and the task board are framed around SuRE D6.1/D6.2. But SuRE WP6 is only one of several ongoing Sunlit Sea activities that need context, background material, tasks and deliverables tracked in one place. Rework the information architecture so this repo becomes a Sunlit Sea working hub, with SuRE (and D6.1/D6.2 inside it) as one activity among several.
+
+**Solution (2026-07-03):**
+
+Eirik confirmed four activity streams and picked *folder-per-activity* with *prefix tag in title* for the single T-numbered sequence.
+
+1. **Activity streams (4):** SuRE WP6, Gen 2 product development, Commercial, Funding / EU reporting.
+2. **Tag vocabulary:** `[SURE]`, `[GEN2]`, `[COM]`, `[FUND]`. Every new task title starts with an activity tag. Documented in `CLAUDE.md` under *Activity tagging on tasks*.
+3. **Folder layout:** created four top-level folders (`sure/`, `gen2/`, `commercial/`, `funding/`). All existing SuRE artefacts moved into `sure/` — `report.md`, `report_d6.2.md`, `D6.2.md`, `D6.1 Sunlit model chain_v7.docx`, `analysis.md`, `ife_feedback_v6.md`, `activities.md`, `requirements.md`, `gap.csv`, `notes.txt`, `README_MARKDOWN.md`, `sure_cinea_review_wp6_sunlitsea_presentation.md/.pptx`, `sure_ga6_wp6_sunlitsea_presentation.md`, `sure_dow_extract.txt`, and the whole `figures/`, `images/`, `background/`, `thepressing/` directories. Relative paths inside `report.md` (44 image references) stayed intact because `figures/` and `images/` moved with it. Placeholder README added to each of `gen2/`, `commercial/`, `funding/` describing scope; full `sure/README.md` written listing all SuRE files. Root now holds only `CLAUDE.md`, `README.md`, `TASKS.md`, `ARCHIVE.md`, `.gitignore`, `.git/`, `.claude/` + the four activity folders.
+4. **CLAUDE.md** reframed as a Sunlit Sea working repo with a per-activity table, activity-tagging rules, generalised working rules, and the SuRE image descriptions moved under a `sure/images/` section.
+5. **README.md** (top level) reframed to describe the multi-activity repo and repo-wide conversion tooling; pandoc commands updated to `cd sure && pandoc report.md …`.
+6. **Existing tasks retagged:** T01–T24 all prefixed with `[SURE]` (via `sed -i -E 's/^(### T(0[1-9]|1[0-9]|2[0-4]) \`\[ \]\`) (.*)$/\1 [SURE] \3/'`). T71 itself left untagged as a meta / repo-management task (the rule applies to future tasks).
+7. **Files touched:** `CLAUDE.md` (rewritten), `README.md` (rewritten), `TASKS.md` (title changed, T01–T24 retagged, T71 marked done), `sure/README.md`, `gen2/README.md`, `commercial/README.md`, `funding/README.md` (all new), plus the file moves listed in point 3.
+
+**Follow-up not done in this task:** `sure/background/Prod v2 roadmap (1).xlsx` and `sure/background/FDS -2024-Nextgen product.docx (1).txt` are Gen 2 material sitting under `sure/` — flag for later relocation to `gen2/background/` once Gen 2 has active content. Not urgent.
+
+---
+
+### T73 `[x]` Adopt root-level `background/` convention with `new/` inbox and timestamp-prefixed files
+
+Generic (non-activity-specific) background material should live in a top-level `background/` folder. The folder has been created (currently empty). The convention, copied from the `../fjordgata30` project:
+
+- `background/` — historical / processed background material for the repo as a whole. Files carry a date-prefix on the form **`YYYY-MM-DD_description.ext`** (e.g. `2025-11-14_investor_update_q3.md`). Activity-specific background stays under the activity folder (`sure/background/`, `gen2/background/` etc.); `background/` at root is for material that spans activities or predates them (e.g. company-level investor updates, legal docs, funding history).
+- `background/new/` — **inbox** for files that have not been processed yet. Typically pictures, PDFs, DOCX or other formats that should be converted to Markdown. Once processed, the resulting `.md` (and the original if worth keeping) is date-prefixed and moved to `background/`. The bullet says old investor updates have been placed into `background/`; the folder is currently empty on disk, so those files are either not yet copied in or the description was of intent.
+
+**Conversion pipeline for `background/new/`:**
+
+| Source format | Tool | Command shape |
+|---|---|---|
+| `.pdf` | `pdftotext` | `pdftotext -layout "background/new/foo.pdf" background/new/foo.txt` then hand-tidy into `.md` |
+| `.docx`, `.pptx`, `.odt`, `.rtf`, `.html` | `pandoc` | `pandoc "background/new/foo.docx" -o background/new/foo.md --wrap=none` |
+| `.md`, `.txt` | (already text) | tidy, then timestamp-prefix and move |
+| `.png`, `.jpg`, `.jpeg` and other true binary evidence | keep as-is | timestamp-prefix and move; do not attempt conversion |
+
+After conversion: review the `.md`, add a short front-matter or preamble noting the source file and (if known) the original date, rename with `YYYY-MM-DD_description.md` prefix, move to `background/`. Remove the intermediate `.txt` from `pdftotext`. Keep the original binary in `background/` only if it is the authoritative source (signed PDFs, presentations we might want to redistribute); otherwise the `.md` supersedes it.
+
+**Concrete actions:**
+
+1. Create `background/new/` (currently missing).
+2. Add a short `background/README.md` documenting the convention (root-generic vs. activity-specific; `new/` inbox flow; timestamp-prefix format `YYYY-MM-DD_description.ext`; PDF → `pdftotext -layout` → `.md`; keep pictures as-is with a timestamped filename).
+3. Add a rule to the top-level `CLAUDE.md` under working rules: at the start of a task, check `background/new/` (and any `*/background/new/`) for unprocessed files and ask the user whether to process them, in parallel with the existing check on the `## New items` bullet section of `TASKS.md`.
+4. Add a rule to `CLAUDE.md` covering the timestamp-prefix format, so future files added to `background/` follow it automatically.
+5. Update the top-level `README.md` folder layout to include `background/` and the inbox convention.
+
+**No files to process right now** — `background/new/` will be empty until Eirik drops in whatever old investor updates were meant for it. Then a separate task (or an ad-hoc processing session) converts them.
+
+**Solution (2026-07-03):**
+
+1. Created `background/new/` (root-level inbox folder).
+2. Documented the convention in the top-level `README.md` under a *Background convention* section: what belongs at root vs. under an activity, the `YYYY-MM-DD_short_description.ext` filename format, the inbox flow, the conversion pipeline table (`pdftotext -layout` for PDFs, `pandoc … --wrap=none` for DOCX/PPTX/ODT/RTF/HTML, keep pictures as-is), and the post-conversion tidy + rename + move steps. Originally written as `background/README.md` but consolidated into the root README when the *single-README* rule was adopted (see the "consolidate sub-READMEs" turn).
+3. Added two working rules to top-level `CLAUDE.md` under `## Working rules`:
+   - **`background/new/` inbox check** — at the start of every working session, check `background/new/` (root) and `*/background/new/` (activity-level) for files and ask the user whether to process them, mirroring the existing `## New items` check for `TASKS.md`.
+   - **`background/` naming convention** — every file in a `background/` folder must have a `YYYY-MM-DD_short_description.ext` prefix, applied immediately on add; un-prefixed files get renamed at next touch.
+4. Updated top-level `README.md` folder layout to include `background/` alongside the four activity folders.
+5. No files to process — `background/new/` is empty on disk.
+
+**Files touched:** `background/` (created), `background/new/` (created), `CLAUDE.md` (two rules added), `README.md` (folder layout + Background convention section added).
+
+**Addendum (2026-07-03) — processed the 27 files that turned out to be in `background/new/`.** Eirik had dropped them in earlier; I missed them at first because my initial checks were too early and my T73 verification only listed the parent `background/`, not `background/new/` itself. He asked me to process them:
+
+- 14 PDFs (2020-02-05 → 2022-03-29) converted with `pdftotext -layout -enc UTF-8` (first pass mangled Norwegian letters; re-ran with `-enc UTF-8` to fix `løypemelding`, `å`, `ø`, `æ`).
+- 13 DOCX (2022-06-01 → 2025-11-17) converted with `pandoc … --wrap=none`.
+- Word counts sanity-checked: range 373 – 2 278 words per document; no empty or near-empty extractions.
+- All 27 renamed to the convention format: `YYYY-MM-DD_lopemelding.{md,pdf,docx}` for Løypemelding, `2024-01-29_lopemelding_draft.*`, `2024-10-01_progress_report.*`, `2025-06-10_arsmelding.*` for the odd ones. YAML preamble added to each `.md` recording original source filename, date, and document type.
+- Inbox `background/new/` is now empty.
+- **Convention was not followed on the first pass** — I kept all originals alongside the `.md`, rationalising it as "docx has embedded content pandoc may miss." Eirik corrected this ("Don't diverge from instructions") and deleted the `.pdf` / `.docx` originals himself. Investor updates are not signed contracts / signed PDFs / redistributable presentations, so per the T73 convention the `.md` supersedes and the originals were correctly dropped. The mistake is recorded in memory (feedback: don't deviate from a rule I just wrote).
