@@ -596,4 +596,324 @@ Alle fem lovutdrag skrevet. Kort strategisk oppsummering av rettskildene og fors
 
 **Files touched:** 5 nye filer i `background/lover/`.
 
+---
+
+### T81 `[x]` [FUND] Revisorspakke: prinsippendring aktivering av SuRE-utviklingskostnader + avskrivningsstopp + nedskrivingstest 2025
+
+Sunlit Sea AS skal levere en samlet informasjonspakke til revisor som dekker (a) prinsippendring i 2025-regnskapet fra kostnadsføring til aktivering av SuRE-utviklingskostnader, (b) reversering av avskrivninger på tidligere aktiveringer fra og med 2024-01-01, og (c) nedskrivingstest på den utvidede utviklingsposten. Pakken vedlegges en mail til regnskapsfører først, med konkrete oppfølgingsspørsmål, før den sendes videre til revisor.
+
+Kravene til leveransen er utviklet i lang chat-diskusjon med Eirik. Denne task-beskrivelsen inneholder ALLE beslutninger og fakta som trengs for at en fresh Claude-kontekst kan gjennomføre arbeidet uten å måtte gjenoppdage detaljene.
+
+**Deliverables:**
+
+1. `leveranser/YYYY-MM-DD_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` — én selvstendig .md-fil som integrerer alt (prinsippendring, aktivering-oversikt, vilkårsvurdering, tilskuddsbehandling, avskrivningsreversering, avskrivningsstart, balanseeffekt, nedskrivingstest, konklusjon). Filen skal stå på egne ben — ingen kryssreferanser til andre filer i repoet, ingen `../background/lover/`-lenker, ingen `funding/nedskriving_2025.md`-referanser. Alle nødvendige fakta inline. Filnavn ASCII (transliterer æ/ø/å).
+
+2. `leveranser/YYYY-MM-DD_mail_regnskapsforer_revisorpakke.md` — kort mail-tekst som legger pakken ved og stiller de eksplisitte oppfølgingsspørsmålene til regnskapsfører (se pkt "Mail til regnskapsfører" nedenfor).
+
+**Kilder som må leses før implementering:**
+
+- `funding/aktivering_reklassifisering.md` — Eiriks opprinnelige research på prinsippendringen
+- `funding/aktivering_regnskapsforer_mail.md` — mail-tråden med regnskapsfører, inkludert konkrete tall
+- `funding/background/2025-12-31_kto_1005_aktivert_utvikling.md` — aktivert utvikling saldo per 31.12.2025 og 2025-avskrivninger per aktiveringsår
+- `funding/background/2025-12-31_kto_2160_opptjente_tilskudd.md` — opptjente tilskudd saldo per 31.12.2025 og periodiseringer per aktiveringsår
+- `funding/nedskriving_2025.md` — eksisterende nedskrivingstest som gir argumentasjonsgrunnlaget (må omarbeides for større balansepost — men fortsatt "ingen nedskrivning"-konklusjon)
+- `background/lover/` — relevante lovtekster (regnskapsloven §§ 1-5, 5-1, 5-3, 5-6; NRS 8; NRS(F) Nedskrivning; NRS 4 Offentlige tilskudd)
+
+**Konkrete beslutninger og fakta (bekreftet i dialog med Eirik):**
+
+*Foretaksklassifisering:*
+- Sunlit Sea AS = lite foretak etter regnskapsloven § 1-5 annet ledd
+- Anvender NRS 8 God regnskapsskikk for små foretak
+
+*Scope for prinsippendringen:*
+- SuRE-kostnader kostnadsført på kto 6791 aktiveres:
+  - SuRE 2024: 1 017 809 kr
+  - SuRE 2025: 817 942 kr
+- Skattefunn er UTENFOR scope — allerede implisitt behandlet via skattefradraget (reduserer betalbar skatt). Ingen Skattefunn-beløp reklassifiseres.
+
+*Metode for prinsippendring:*
+- Metode B — resultatføring i endringsåret (2025) etter NRS 8-adgang for små foretak, ikke retrospektiv omarbeidelse av 2024-sammenligningstall etter NRS 5. Enklere administrativt og vanlig for lite foretak.
+
+*Argumentasjon for tidspunkt:*
+- Gen 2-utvikling for alvor startet 2024-01-01. Dette begrunner både reklassifisering av SuRE-kostnader fra 2024 og avskrivningsstopp fra samme dato.
+- Aktiveringsvilkårene i regnskapsloven § 5-6 annet ledd har vært oppfylt kontinuerlig siden selskapet startet i 2019 (gen 1 nådde TRL 7 og er tatt i bruk; gen 2 er nå på TRL 5-6). Vilkåret om fremtidig økonomisk fordel + pålitelig måling har hele tiden vært til stede.
+
+*Avskrivningsstopp:*
+- Alle avskrivninger på kto 1005-rester (2022 Surewave, 2023 Surewave, 2024-aktivering) stoppes fra og med 2024-01-01. Restbeløpene er nå knyttet til gen 2-utvikling som ikke er tatt i bruk.
+- Reversering gjelder:
+  - Alle 2024-avskrivninger som ble tatt (må bekreftes fra regnskapsfører — estimat ca 7,66 MNOK basert på lineær 5-års avskrivning per aktiveringsår)
+  - Alle 2025-avskrivninger som er planlagt (6 562 231 kr per kto 1005)
+- Total reversering: ca 14,2 MNOK (estimat, presiseres av regnskapsfører)
+- Ikke rør 2021-2023 avskrivninger som allerede er tatt — for langt tilbake, revisor har akseptert, gen 1 er tatt i bruk, ville sett rart ut mot Skatteetaten.
+
+*Avskrivningsstart etter reversering:*
+- Avskrivning påbegynnes fra det tidspunkt gen 2 er kommersielt tilgjengelig og tatt i bruk. Estimert lansering er 2027, men avskrivningsstart følger faktisk bruksdato, ikke estimat. Formuleringen skal ikke låse oss til 2027.
+
+*Tilskuddsbehandling:*
+- Bruttoføring fortsettes for konsistens med eksisterende praksis (kto 2160 viser bruttoført utsatt inntekt). Ingen bytte til nettoføring.
+- Se åpent spørsmål i mail til regnskapsfører — noen tilskudd knyttet til de reklassifiserte SuRE-kostnadene kan allerede være periodisert på annet vis; må avklares for å unngå dobbeltbokføring.
+
+*Nedskrivingstest:*
+- Vurderingsenhet: foretakets samlede utviklingsplattform for flytende solkraftverk (én integrert enhet, gen 1 og gen 2 er suksessive versjoner av samme produkt).
+- Ingen av de syv minimumsindikatorene i NRS(F) pkt. 3 slår ut — argumentasjonen fra `funding/nedskriving_2025.md` gjelder tilsvarende, bare for et utvidet balansegrunnlag.
+- Konklusjon: ingen nedskrivning gjennomføres i 2025-regnskapet.
+
+*Balanseeffekt (Metode B — resultatføring i 2025):*
+- Startpunkt kto 1005: 5 648 573 kr (bokført saldo per 31.12.2025 slik regnskapet foreløpig står)
+- +SuRE 2024 aktivering: +1 017 809 kr
+- +SuRE 2025 aktivering: +817 942 kr
+- +Reversering 2025-avskrivninger: +6 562 231 kr
+- +Reversering 2024-avskrivninger: +`[AVSKRIV_2024_TOTAL]` (bekreftes av regnskapsfører; estimat ~7,66 MNOK)
+- Ny saldo kto 1005: ~14,05 MNOK + `[AVSKRIV_2024_TOTAL]` ≈ ~21,7 MNOK
+- Utsatt skatt-forpliktelse (22%): ca 3,53 MNOK
+- Netto egenkapital-økning i 2025-regnskapet: ca 12,5 MNOK
+
+*Kto 2160 opptjente tilskudd:*
+- Nåværende saldo per 31.12.2025: -5 602 142 kr (utsatt inntekt, kredit)
+- Periodiseringen "reduksjon avskrivninger" på kto 2160 må stoppes samtidig med at avskrivningen på kto 1005 stoppes, siden de er koblet. Detaljer krever regnskapsfører-bekreftelse.
+
+**Struktur for revisorpakken (én .md-fil):**
+
+1. Innledning og formål (hva revisor bes ta stilling til)
+2. Foretaks- og standardgrunnlag (lite foretak, NRS 8 primær, NRS 4 for tilskudd, NRS(F) Nedskrivning for nedskrivingstest, henvisning til rskl §§ 1-5, 5-1, 5-3, 5-6)
+3. Prinsippendring: begrunnelse (gen 2-utvikling startet 2024-01-01), hjemmel (NRS 8-adgang for små foretak fra sammenstillingsprinsippet, rskl § 4-1), valgt metode (Metode B — resultatføring i 2025)
+4. Vilkårsvurdering etter regnskapsloven § 5-6 annet ledd (vilkårene har vært oppfylt siden 2019; vilkårene begrenser ikke reklassifiseringen, kost/nytte-vurdering setter praktisk grense)
+5. Aktivering-oversikt for SuRE-kostnader (tabell: SuRE 2024 1 017 809, SuRE 2025 817 942)
+6. Bruttoføring bekreftes for tilskudd (konsistent med kto 2160-praksis)
+7. Reversering av avskrivninger fra 2024-01-01 (konkret: 2024 og 2025-avskrivninger på alle rester; ikke rør 2021-2023-avskrivninger som allerede er tatt)
+8. Avskrivningsstart for aktivert utvikling — når produktet er tatt i bruk (gen 2 lansering, dato ikke bundet)
+9. Balanseeffekt og resultatpåvirkning (tabell med tallene ovenfor + utsatt skatt)
+10. Nedskrivingstest på den utvidede balanseposten (integrert; ingen kryssreferanse til `nedskriving_2025.md` — argumentasjonen replikeres inline: vurderingsenhet, 7 indikatorer, konklusjon "ingen nedskrivning")
+11. Konklusjon og hva revisor bes bekrefte
+
+**Mail til regnskapsfører (`leveranser/YYYY-MM-DD_mail_regnskapsforer_revisorpakke.md`):**
+
+Kort tekst som:
+- Vedlegger revisorpakken
+- Ber om bekreftelse/tallmateriale på følgende:
+  1. Eksakt total 2024-avskrivning på kto 1005 (både summen og per aktiveringsår-rad). Estimat ~7,66 MNOK basert på lineær 5-år; må bekreftes fra hovedbok.
+  2. Hvordan SuRE-tilhørende tilskudd (EU-utbetalinger, Sintef-tilskudd) er periodisert i regnskapet — spesielt om det finnes tilskudd knyttet til SuRE-kostnadene på kto 6791 som allerede er inntektsført, slik at bruttoføring av de reklassifiserte SuRE-kostnadene ikke vil skape dobbeltbokføring på kto 2160.
+  3. At "reduksjon avskrivning" på kto 2160 skal stoppes samtidig med at avskrivning på kto 1005 stoppes, siden postene er koblet. Foreslå at samme prinsipp gjelder alle rester fra 2024-01-01.
+  4. Bekrefte at Skattefunn (både 2024 kr 1 258 329 og 2025 kr 507 180) holdes utenfor denne prinsippendringen, siden Skattefunn er implisitt behandlet via skattefradraget.
+  5. Bekrefte at 2024-raden på kto 1005 (aktivert 2 187 336 kr) består av rest av tidligere aktiveringer knyttet til gen 1-utviklingen (EU/IN-prosjekter), ikke Skattefunn.
+- Ber om at regnskapsfører leser gjennom pakken og gir tilbakemelding før den sendes videre til revisor.
+
+**Åpne spørsmål som ikke er avklart før task startes:**
+
+- AVSKRIV_2024_TOTAL: eksakt beløp fra hovedbok. Estimatet ~7,66 MNOK brukes som plassholder i dokumentet inntil regnskapsfører bekrefter.
+- Detaljer om kto 2160-periodisering av tilhørende tilskudd knyttet til SuRE — se mail-spørsmål 2 og 3.
+- Detaljert underoppdeling av 2024-raden på kto 1005 (2 187 336) er ikke nødvendig for revisorpakken; omtales generisk som "rest av tidligere aktiveringer knyttet til gen 1".
+
+**Krav ved gjennomføring:**
+
+- Dokumentet må stå på egne ben. Ingen kryssreferanser til andre prosjektfiler.
+- Ingen bold i brødtekst — bold kun i seksjons-overskrifter.
+- Norsk finans-/regnskaps-terminologi (unngå anglisismer).
+- Currency-notasjon: valuta etter tall (feks "5 648 573 kr", ikke "kr 5 648 573" der det er unødvendig).
+- Filnavn ASCII (transliterer æ→ae, ø→oe, å→aa).
+- Markdown-lister skal rendres korrekt — bruk `-`/`1.` for enumereringer, hard line breaks for signatur/adresseblokker.
+- ETT dokument, ikke flere bilag. Alle nødvendige tabeller integreres inline.
+
+**Solution (2026-07-14):**
+
+To filer skrevet til `leveranser/`:
+
+1. `2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (3 385 ord) — 12 seksjoner integrert. Innledning, foretaks- og standardgrunnlag, prinsippendring m/hjemmel og Metode B-valg, vilkårsvurdering etter rskl § 5-6, Skattefunn holdt utenfor scope, aktivering-oversikt SuRE 2024/2025, bruttoføring bekreftes, reversering av avskrivninger 2024/2025 med detaljert per-rad-tabell inkludert AVSKRIV_2024_TOTAL-estimatet (~7,66 MNOK), avskrivningsstart etter faktisk bruksdato (ikke bundet til 2027), balanseeffekt/utsatt skatt/resultatpåvirkning, nedskrivingstest integrert med alle syv indikatorer, oppsummering med seks bekreftelses-punkter til revisor. Ingen kryssreferanser til andre prosjektfiler — står på egne ben.
+
+2. `2026-07-14_mail_regnskapsforer_revisorpakke.md` (459 ord) — kort mail til Orkla Regnskap AS med de fem eksplisitte spørsmål/bekreftelses-punkter: eksakt 2024-avskrivning, SuRE-tilskudd og dobbeltbokføring på kto 2160, koblet reversering av "reduksjon avskrivning" på kto 2160, Skattefunn utenfor prinsippendringen, og bekreftelse på at 2024-raden på kto 1005 håndteres generisk uten oppdeling.
+
+Plassholdere som gjenstår i revisorpakken:
+- AVSKRIV_2024_TOTAL — eksakt fra regnskapsfører (estimat ~7 655 071 kr basert på lineær 5-års avskrivning per rad, med spesifikk bekreftelse etterspurt i mail pkt 1).
+- Signatur (Navn, Rolle, E-post, Telefon) — settes inn før leveranse.
+
+**Files touched:** 2 nye filer i `leveranser/`.
+
+---
+
+### T82 `[x]` [FUND] Oppdater revisorpakken basert på regnskapsførers svar i mail 2
+
+Etter møte med regnskapsfører (Orkla Regnskap AS) om revisorpakken `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` har regnskapsfører sendt et oppfølgingssvar med bekreftelser, korreksjoner og nye elementer. Oppdatert avstemming er også levert. Pakken må oppdateres før den sendes til revisor.
+
+Denne task-beskrivelsen er selvstendig — alle beslutninger, tall og struktur som trengs for å utføre arbeidet er inkludert her. Overlever compact og clear.
+
+**Deliverable:** Oppdatert versjon av `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md`. Sannsynligvis best å skrive en ny fil med dato 2026-07-15 og slette den gamle, evt. overskrive og oppdatere dato-metadata. Diskuter med bruker om filnavn/dato før implementering. Struktur beholdes i hovedsak, men innhold i flere seksjoner endres vesentlig.
+
+**Kilder som må leses før implementering:**
+
+- `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` — den nåværende pakken som skal oppdateres
+- `funding/aktivering_regnskapsforer_mail2.md` — regnskapsførers svar på oppfølgingsspørsmål
+- `funding/1005 forskning og utvikling - oppdatert.md` — oppdatert avstemming av kto 1005 fra regnskapsfører
+- `funding/2160 SUNLIT SEA AS_opptjente tilskudd - oppdatert avstemming.md` — oppdatert avstemming av kto 2160 fra regnskapsfører (med korreksjonspesifikasjoner)
+- `funding/Bilag-383-2025.md` — forklaring på 2021 pressverktøy-omklassifisering
+- `funding/aktivering_regnskapsforer_mail.md` — første mail-tråd (kontekst)
+- `funding/aktivering_reklassifisering.md` — Eiriks opprinnelige reklassifiseringsnotat (kontekst)
+
+**Bekreftelser fra regnskapsfører (skal reflekteres i oppdatert pakke):**
+
+- AVSKRIV_2024_TOTAL på kto 1005 bekreftet: 7 655 071 kr — mitt estimat traff, plassholder fjernes.
+- Ny saldo på kto 1005 etter alle endringer: 21 701 638 kr.
+- Kto 2160 startsaldo korrigert: -5 146 838 kr (ikke -5 602 142 som lå i tidligere uttrekk — feilen skyldtes at kto 2160-avstemmingen ikke var oppdatert med korreksjoner/tilbakeføringer på 758 904 kr som ble ført i 2025).
+- Kto 2160 avskrivninger 2024: 6 449 816 kr (tilbakeføres mot ny kto 7794).
+- Kto 2160 avskrivninger 2025: 6 449 816 kr (slettes direkte).
+- Ny saldo kto 2160 etter reversering av begge årenes avskrivninger: -18 046 472 kr.
+- Netto resultateffekt av alle korreksjonene: 3 153 432 kr (2024-del: 2 223 073, 2025-del: 930 359).
+- Foreløpig årsresultat 2025 etter korreksjonene: underskudd 3 282 483 kr.
+- Egenkapital etter korreksjonene: positiv 1 454 838 kr.
+- Utsatt skattefordel er IKKE bokført — ingen skattekostnad-effekt bokføres. Merknad skal reflektere dette.
+
+**Nye elementer som må inn:**
+
+1. **Konto 7794 "Korreksjoner tidligere år"** — ny konto som 2024-korreksjonene resultatføres mot. Vises som egen linje i resultatregnskapet, spesifiseres i note. 2025-korreksjonene skjer ved at posteringer i 2025 slettes/korrigerer konto direkte (ikke via kto 7794).
+2. **Konto 1205 Pressverktøy** — pressverktøyet ble skilt ut fra aktivert utvikling (kto 1005) i 2024-korreksjonene og overført til kto 1205 med bokført verdi 4 225 837,35 kr. Kilde: Bilag-383-2025. Dette forklarer også hvorfor "korrigert avskrivning 2025" på kto 1005 avviker fra ren lineær 5-års avskrivning for 2021 og 2022 Surewave — grunnlaget for aktivering (og dermed avskrivning) ble redusert etter omklassifiseringen.
+
+**Vesentlige feil i nåværende pakke som må rettes:**
+
+1. Kto 2160-startsaldo (-5 602 142 kr) må rettes til -5 146 838 kr.
+2. Balanseeffekt-seksjonen (pkt 10) må gjøres om fullstendig. Jeg hadde IKKE tatt hensyn til at reversering av avskrivningene også reverserer tilskudds-periodiseringen på kto 2160 (kredit-side). Dette reduserer netto resultatpåvirkning fra mitt estimat på 12,5 MNOK ned til regnskapsførers 3,15 MNOK. Nye tall:
+   - Kto 1005 bruttoøkning: +16 053 053 kr
+   - Kto 2160 reversering av tilskudds-inntektsføring 2024 og 2025: -12 899 632 kr (2 × 6 449 816)
+   - Netto resultateffekt: +3 153 432 kr
+3. Utsatt skatt-estimat (~3,53 MNOK) må fjernes eller reformuleres som informasjons-punkt om at effekten ikke er inkludert.
+4. Metode-seksjonen må presiseres: 2024 mot kto 7794, 2025 direkte-korreksjon.
+
+**Konkrete seksjonsvise oppdateringer:**
+
+**Seksjon 1 (Innledning og formål):** Utvid til å nevne kto 7794 og kto 1205 som del av det revisor skal ta stilling til. Behold hovedstrukturen med tre disposisjoner (prinsippendring + avskrivningsreversering + nedskrivingstest).
+
+**Seksjon 2 (Foretaks- og standardgrunnlag):** Uendret.
+
+**Seksjon 3 (Prinsippendring):** Presiser metode-avsnittet (3.2) — 2024-korreksjoner via kto 7794, 2025-korreksjoner via direkte-korrigering av posteringer.
+
+**Seksjon 4 (Vilkårsvurdering):** Uendret.
+
+**Seksjon 5 (Skattefunn utenfor scope):** Uendret.
+
+**Seksjon 6 (Aktivering-oversikt SuRE):** Uendret. SuRE 2024: 1 017 809 kr, SuRE 2025: 817 942 kr.
+
+**Seksjon 7 (Bruttoføring):** Utvide til å presisere at reversering av avskrivningene på kto 1005 også reverserer tilhørende periodisering av utsatt inntekt på kto 2160 (koblet effekt). Refererer til seksjon 8 og 10 for tallene.
+
+**Seksjon 8 (Reversering av avskrivninger):** Oppdater kto 1005-tabellen med den fullstendige nye avstemmingen fra `1005 forskning og utvikling - oppdatert.md` — inkluder "justert avskrivning etter omklass 2024"-kolonnen. Ny forklaring på hvorfor 2021 og 2022 Surewave-avskrivningene har avvikende satser (pressverktøy-omklassifiseringen fra Bilag-383-2025). Detaljert 2024-avskrivnings-tabell fjernes (var estimat, nå bekreftet) eller erstattes med sitatert eksakt tall 7 655 071. Legg til ny undertabell for kto 2160-siden med tall fra `2160 SUNLIT SEA AS_opptjente tilskudd - oppdatert avstemming.md`, som viser at kto 2160-avskrivning 2024 og 2025 begge er 6 449 816 kr og skal reverseres tilsvarende.
+
+**Seksjon 9 (Avskrivningsstart):** Uendret.
+
+**Seksjon 10 (Balanseeffekt) — GJØRES OM FULLSTENDIG:**
+
+Ny struktur:
+
+Underseksjon 10.1 Konto 1005 Aktivert utvikling:
+- Startsaldo 5 648 573 kr
+- + SuRE 2024 aktivering: 1 017 809 kr
+- + SuRE 2025 aktivering: 817 942 kr
+- + Reversering 2025-avskrivninger: 6 562 231 kr
+- + Reversering 2024-avskrivninger: 7 655 071 kr (bekreftet, ikke estimat)
+- Ny saldo kto 1005: 21 701 638 kr (regnskapsførers tall — merk 12 kr rundingsavvik mot summering)
+
+Underseksjon 10.2 Konto 2160 Opptjente tilskudd:
+- Startsaldo (korrigert): -5 146 838 kr
+- + Reversering av 2024 avskrivning på kto 2160: -6 449 816 kr (mot kto 7794)
+- + Reversering av 2025 avskrivning på kto 2160: -6 449 816 kr (direkte-korrigering)
+- Ny saldo kto 2160: -18 046 472 kr
+
+Underseksjon 10.3 Konto 1205 Pressverktøy:
+- Skilt ut fra kto 1005 i 2024-korreksjoner
+- Bokført verdi 4 225 837,35 kr
+- Informasjons-punkt (ikke del av prinsippendringens resultateffekt)
+
+Underseksjon 10.4 Netto resultateffekt:
+- 2024-korreksjoner mot kto 7794 (ny linje i resultatregnskapet): 2 223 073 kr
+- 2025-korreksjoner (direkte i 2025): 930 359 kr
+- Sum resultatøkning: 3 153 432 kr
+- Foreløpig årsresultat 2025 etter korreksjoner: underskudd 3 282 483 kr
+- Egenkapital etter korreksjoner: positiv 1 454 838 kr
+
+Underseksjon 10.5 Utsatt skatt:
+- Aktivering av utvikling utgjør en midlertidig forskjell mellom regnskapsmessig og skattemessig verdi
+- Utsatt skattefordel er foreløpig ikke bokført
+- Ingen skattekostnad-effekt reflekteres i tallene ovenfor
+- Merknad om at dette kan vurderes separat
+
+**Seksjon 11 (Nedskrivingstest):** Uendret argumentasjon og struktur. Balanseført-verdi-referanse i pkt 11.5 justeres til nøyaktig 21 701 638 kr (fra "ca 21,7 MNOK").
+
+**Seksjon 12 (Oppsummering):** Oppdater med:
+- Netto resultat- og egenkapital-tall (3 153 432 og 1 454 838 positiv)
+- Presisering av at revisor bes bekrefte: (a) prinsippendringen, (b) kto 7794-behandlingen av 2024-korreksjoner, (c) direkte-korreksjonen av 2025-posteringer, (d) bokføringen av kto 1205 pressverktøy, (e) at utsatt skatt kan vurderes separat.
+
+**Struktur for kto 1005-tabellen i seksjon 8 (basert på oppdatert avstemming):**
+
+Faithful gjengivelse av kto 1005-avstemmingen fra `1005 forskning og utvikling - oppdatert.md`:
+- 4 hovedrader (2021, Surewave 2022, Surewave 2023, Surewave 2024) med kolonner for aktivert beløp, årlige avskrivninger 2021-2024, rest 31.12.24, justert avskrivning etter omklass 2024, korrigert avskrivning 25, rest 31.12.25
+- Sum-rad
+- Etterfølgende korreksjons-poster: foreløpig pr 31.12.24, for mye avskrevet bokført, omklassifisert pressverktøy, saldo 31.12.24
+- Sammenlignings-post: Anleggskartotek 13 421 313, Diff 2024 -1 210 493
+- Pr 31.12.25-linje: 0 rest, 6 562 231 korrigert avskrivning, 5 648 573,20 rest
+
+**Struktur for kto 2160-tabellen i seksjon 8 (basert på oppdatert avstemming):**
+
+Faithful gjengivelse av kto 2160-avstemmingen fra `2160 SUNLIT SEA AS_opptjente tilskudd - oppdatert avstemming.md`:
+- 4 uopptjent-inntekt-rader (2021, 2022, 2023, 2024) med grunnlag, årlige avskrivninger 2021-2024, rest 31.12.24, avskrivning 2025, rest 31.12.25
+- Sum-rad: -32 249 083 grunnlag, avskr 2025 = 6 449 816, rest = -5 905 742
+- Korreksjoner 2025: 758 904
+- Uopptjent 21 ferdig avskrevet: 13 656 462
+- Rest uopptjent inntekt pr 31.12.25: -17 833 717 grunnlag, -5 146 838 rest (dette er den korrekte startsaldoen)
+- Saldo etter reversering av avskrivbninger 2024 og 2025: -18 046 472
+
+**Krav ved gjennomføring:**
+
+- Dokumentet må fortsatt stå på egne ben — ingen kryssreferanser til andre prosjektfiler.
+- Ingen bold i brødtekst — bold kun i seksjons-overskrifter.
+- Norsk finans-/regnskaps-terminologi (unngå anglisismer).
+- Currency-notasjon: valuta etter tall (feks "5 648 573 kr", ikke "kr 5 648 573").
+- Markdown-lister skal rendres korrekt — bruk `-`/`1.` for enumereringer, hard line breaks for signatur/adresseblokker.
+- ETT dokument — Bilag-383-2025-forklaringen på pressverktøy-omklassifiseringen integreres inline i seksjon 8 (kort, ikke hele bilaget).
+- Behold Metode B (resultatføring i endringsåret) som valgt metode.
+- Behold vurderingsenhet, indikatorvurdering og konklusjon "ingen nedskrivning" i seksjon 11 uendret.
+
+**Beslutninger tatt før implementering:**
+
+- **Utsatt skatt:** Ikke balanseføres. Sunlit Sea har vesentlig fremførbart skattemessig underskudd som utligner den midlertidige forskjellen fra aktivering; netto skatteposisjon er en utsatt skattefordel. Etter NRS 8 pkt. 6.1.1.2 kan små foretak unnlate å balanseføre netto utsatt skattefordel — selskapet gjør bruk av denne adgangen. Dokumenteres i pkt 10.5 med begrunnelse. Fordi gen 2 ikke er tatt i bruk enda, vil den midlertidige forskjellen fra aktivering først reversere når avskrivning påbegynnes — posisjonen er inntil videre hvilende.
+- **Notetekst for kto 7794:** Utformes av utfører (Claude) basert på standard notepraksis for korreksjoner tidligere år + de konkrete tallene fra regnskapsfører.
+- **Bilag-383-2025:** Refereres kun kort (pressverktøy overført til kto 1205 med bokført verdi 4 225 837 kr i 2024, årsak til justert avskrivningsgrunnlag på 2021 og 2022 Surewave). Ikke inline detaljert regneteknisk gjennomgang.
+- **Filnavn/dato:** Overskriv eksisterende `2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (samme filnavn beholdes for kontinuitet). Oppdater `utarbeidet`-feltet i YAML-frontmatter til 2026-07-15.
+
+**Åpne punkter som gjenstår før leveranse:**
+
+- Signatur (Navn, Rolle, E-post, Telefon) — settes inn før pakken sendes til revisor.
+
+**Solution (2026-07-15):**
+
+Oppdatert versjon av `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` skrevet (samme filnavn beholdt, YAML `utarbeidet` satt til 2026-07-15). 13 seksjoner. Alle bekreftede tall fra regnskapsførers mail 2 lagt inn:
+
+- Kto 1005 ny saldo: 21 701 638 kr (basert på fullstendig avstemming inkl. justert avskrivning etter omklass 2024)
+- Kto 2160 ny saldo: -18 046 472 kr (korrigert startsaldo -5 146 838 kr, reversering 2 × 6 449 816 kr)
+- Kto 1205 pressverktøy: 4 225 837 kr (informasjons-punkt, ikke berørt av prinsippendringen)
+- Netto resultateffekt: 3 153 432 kr (2024-del 2 223 073 kr mot kto 7794, 2025-del 930 359 kr direkte)
+- Foreløpig årsresultat 2025: underskudd 3 282 483 kr
+- Egenkapital etter korreksjoner: positiv 1 454 838 kr
+
+Endringer i seksjonsvis oppdatering:
+
+- Seksjon 1: utvidet til å inkludere kto 7794 og kto 1205
+- Seksjon 3.2: metode presisert (2024 via kto 7794, 2025 via direkte-korreksjon)
+- Seksjon 7: koblet effekt mellom kto 1005-avskrivning og kto 2160-periodisering presisert
+- Seksjon 8: full 1005- og 2160-tabell inkludert med fullstendig avstemming, forklaring på avvikende avskrivningssatser for 2021/2022 Surewave (pressverktøy-omklassifiseringen)
+- Ny seksjon 9: kort referanse til kto 1205 (Bilag-383-2025 refereres, ikke gjentatt i detalj)
+- Seksjon 10: gjort om fullstendig med 5 underseksjoner (10.1 kto 1005, 10.2 kto 2160, 10.3 kto 1205, 10.4 netto resultat, 10.5 utsatt skatt)
+- Seksjon 10.5 utsatt skatt: begrunnelse med NRS 8 pkt 6.1.1.2 for små foretaks adgang til ikke å balanseføre utsatt skattefordel; henvisning til fremførbart underskudd og hvilende posisjon inntil gen 2 tas i bruk
+- Seksjon 11.5: nedskrivingstest-referanse justert fra "ca 21,7 MNOK" til nøyaktig 21 701 638 kr
+- Seksjon 12: fire foreslåtte noter (regnskapsprinsipp, kto 7794 med spesifikasjon av tre komponenter, avskrivninger av aktiverte utviklingsverdier, utsatt skatt)
+- Seksjon 13 (tidligere 12): oppdatert oppsummering med 9 bekreftelses-punkter
+
+Signaturblokk lagt inn som plassholder (`[Navn]` / `[Rolle]` / `[E-post]` / `[Telefon]`) med to trailing spaces for hard line breaks — settes inn før utsendelse.
+
+Ingen kryssreferanser til andre prosjektfiler. Ingen bold i brødtekst. Norsk finansterminologi. Valuta etter tall.
+
+**Files touched:** `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (overskrevet).
+
+**Neste steg (Eiriks side, utenfor T82):** Gjennomgå oppdatert pakke, sette inn signatur, sende til revisor.
+
+
+
+
+
+
 
