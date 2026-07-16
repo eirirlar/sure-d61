@@ -66,10 +66,10 @@
         fill="none" stroke="#1f77b4" stroke-width="3"/>
   <text x="200" y="140" fill="#1f77b4" font-weight="bold">gen 1</text>
 
-  <!-- Gen 2 curve: start 2024 at TRL 2, S-curve rising to TRL 9 by end 2027 -->
-  <path d="M 410 375 C 470 370, 500 260, 570 220 C 640 190, 700 90, 740 60"
+  <!-- Gen 2 curve: start 2024 at TRL 2, slow rise to TRL 4 by 2026, steep rise to TRL 9 by end 2027 -->
+  <path d="M 410 375 C 490 380, 560 320, 630 285 C 670 275, 700 100, 740 60"
         fill="none" stroke="#ff7f0e" stroke-width="3"/>
-  <text x="600" y="215" fill="#ff7f0e" font-weight="bold">gen 2</text>
+  <text x="555" y="305" fill="#ff7f0e" font-weight="bold">gen 2</text>
 
   <!-- Annotation: gen 1 tatt i bruk ca 2023 -->
   <g font-size="11" fill="#666">
@@ -87,6 +87,6 @@
     <text x="114" y="470" alignment-baseline="middle">gen 1 (i drift, TRL 7)</text>
 
     <rect x="290" y="465" width="18" height="3" fill="#ff7f0e"/>
-    <text x="314" y="470" alignment-baseline="middle">gen 2 (under utvikling, TRL 5-6, lansering estimert 2027)</text>
+    <text x="314" y="470" alignment-baseline="middle">gen 2 (under utvikling, TRL 4, lansering estimert 2027)</text>
   </g>
 </svg>

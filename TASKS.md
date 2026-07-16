@@ -1015,7 +1015,7 @@ Ingen faktapunkter i seksjon 3 uten kildegrunnlag. Alle konkrete beløp fra regn
 
 ---
 
-### T84 `[ ]` [FUND] PDF-layoutfiks i revisorpakken — NBSP i tall og mindre tabellfont
+### T84 `[x]` [FUND] PDF-layoutfiks i revisorpakken — NBSP i tall og mindre tabellfont
 
 Ved konvertering av `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` til PDF via pandoc + xelatex brytes lange tall som `18 570 858` på tvers av linjer i trange tabellkolonner, fordi vanlig mellomrom (U+0020) er et gyldig brytepunkt for LaTeX. I tillegg er de brede tabellene (særlig kto 1005-avstemmingen i seksjon 9.2 med 12 kolonner) trange på A4-portrett.
 
@@ -1051,5 +1051,139 @@ Bare aktivt ved LaTeX-basert PDF-produksjon; ingen effekt på DOCX. `etoolbox`s 
 - Variable kolonnebredder for de brede tabellene (trinn 3 fra betraktningen — avvent til vi ser om trinn 1+2 er nok).
 - Landskap-orientering på seksjon 9-tabellene.
 - Konvertering av selve dokumentet til PDF/DOCX (brukeren håndterer det).
+
+**Solution (2026-07-16):**
+
+Trinn 1 (NBSP i tall) og trinn 2 (mindre tabellfont) gjennomført.
+
+Nytt skript: `scripts/nbsp_numbers.py`. Regex `(\d) (\d{3})(?=\D|$)` (multiline) med idempotent loop. Dry-run som standard skriver `<file>.cleaned.md`-sibling og printer stats. `--promote` for overskriving.
+
+Dry-run-resultat mot revisorpakken:
+- Ord: 5822 → 5822 (delta 0)
+- Linjer: 429 → 429 (delta 0)
+- Tegn: 42639 → 42639 (delta 0)
+- NBSP-substitusjoner: 272
+
+Etter Eiriks bekreftelse ble skriptet kjørt med `--promote` og sibling-fila slettet.
+
+Trinn 2 lagt inn i YAML-frontmatter:
+
+```yaml
+header-includes:
+  - \usepackage{etoolbox}
+  - \AtBeginEnvironment{longtable}{\small}
+  - \AtBeginEnvironment{tabular}{\small}
+```
+
+Kun aktivt ved LaTeX-basert PDF-produksjon. Ingen effekt på DOCX.
+
+`README.md` `## Scripts`-seksjonen oppdatert med `nbsp_numbers.py`-beskrivelse (plassert før `clean_investor_updates.py`).
+
+**Files touched:**
+- `scripts/nbsp_numbers.py` (ny)
+- `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (NBSP-substitusjon + YAML header-includes)
+- `README.md` (Scripts-seksjonen)
+
+**Neste steg (Eiriks side, utenfor T84):** Kjør pandoc PDF-konvertering på nytt og verifiser at (a) tallene ikke lenger brytes over linjer, og (b) tabellfonten er merkbart mindre. Hvis brede tabeller fortsatt er trange, vurder trinn 3 (variable kolonnebredder eller landskap-orientering) i egen task.
+
+---
+
+### T85 `[x]` [FUND] Avrunding av alle beløp i revisorpakken til hele tusen kroner
+
+Etter T84 var tabellene fortsatt for brede — kolonnene skrev over hverandre i PDF selv med `\tiny`-font. Iterativ font-skalering ble prøvd (`\small` → `\tiny`) uten å løse breddeutfordringen. Rot-årsaken er at tallene inneholder mange sifre og 2 desimaler (f.eks. `3 714 171,60`). Løsning: avrund alle beløp til nærmeste tusen kroner. Fjerner desimalene og krymper hvert tall med 3-4 tegn.
+
+**Deliverable:**
+
+1. Backup-fil `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest_eksakte_belop.md` — eksakt kopi av revisorpakken før avrunding, som referanse hvis nøyaktige tall trengs senere.
+2. Oppdatert `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md`:
+   - Alle beløp avrundet til nærmeste tusen kroner
+   - Global unit-note under H1-tittelen som forklarer avrundingen og at eksakte tall er tilgjengelige på forespørsel
+   - Tabellhoder endret fra `Beløp (kr)` til `Beløp (tusen kr)`
+   - I løpende tekst er alle beløp-mentions endret fra `X kr` til `X tusen kr`
+   - Tabellene i pkt. 9.2 og 9.3 fikk merknad «Alle tall i tusen kroner» under overskriften siden headerne ikke har enhetsangivelse
+   - «Alle beløp uttrykkes i norske kroner» i pkt. 11 fjernet (dekket av global note)
+   - «Rundingsavvik på 9 kr» og «avvik 9 kr...» notiser fjernet (obsolete på tusen-nivå — begge 2 223 064 og 2 223 073 runder til 2 223)
+
+**Krav ved gjennomføring:**
+
+- Alle sum-rader verifisert: hvor mulig, sum av avrundede komponenter = avrundet totalsum. Der uavhengig avrunding gir ±1 avvik dekker unit-noten opp for det.
+- NBSP fortsatt aktiv på alle multi-sifret tall (kjørt `scripts/nbsp_numbers.py --promote` etter avrundingen).
+- Ingen andre endringer i strukturen eller argumentasjonen.
+- Backup-filen står som read-only referanse — endres ikke selv om arbeidsversjonen itereres videre.
+
+**Solution (2026-07-16):**
+
+Gjennomført. Backup opprettet via `cp`. Arbeidsversjonen skrevet på nytt med Write-verktøyet og alle beløp avrundet manuelt. NBSP bundet igjen med `nbsp_numbers.py --promote` (128 substitusjoner denne gangen — færre enn før pga færre siffergrupper). Character/word/line-antall identisk gjennom NBSP-binding.
+
+Verifiserte sumrader:
+- Pkt. 7: 1 018 + 818 = 1 836 ✓
+- Pkt. 9.4 kto 2160 total: -5 147 + -6 450 + -6 450 = -18 047 vs justert saldo -18 046 (avvik 1 dekket av unit-note)
+- Pkt. 11.1: 5 649 + 1 018 + 818 + 6 562 + 7 655 = 21 702 ✓
+- Pkt. 11.4: 2 223 + 930 = 3 153 ✓
+- Pkt. 11.4 2024-del: 1 018 + 7 655 - 6 450 = 2 223 ✓ (obsolete 9-kr-note fjernet)
+- Pkt. 13.2 samme som 11.4: sum stemmer ✓
+
+**Files touched:**
+- `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest_eksakte_belop.md` (ny, backup med eksakte tall)
+- `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (avrundet + unit-note + tabellhoder oppdatert + obsolete rundingsavvik-notiser fjernet)
+
+**Neste steg (Eiriks side, utenfor T85):** Kjør pandoc PDF-konvertering på nytt. Med kortere tall i tabellene skal kolonnene passe innenfor A4-portrett-bredden. Hvis fonten nå kan økes tilbake til `\small` eller `\footnotesize` uten at kolonnene sprekker igjen, gjør det for bedre lesbarhet — bytt `\tiny` i `header-includes`.
+
+---
+
+### T86 `[x]` [FUND] Rett TRL-nivå for gen 2 fra TRL 5-6 til TRL 4 i revisorpakken og TRL-figuren
+
+Under gjennomgang av revisorpakken oppdaget Eirik at TRL-nivået for gen 2 er feil angitt. Faktisk vurdering: TRL 4. Nåværende dokumentasjon sier TRL 5-6. Må rettes i revisorpakken og i TRL-figuren.
+
+**Konsekvens for argumentasjonen:** Ingen tall, konklusjoner eller strukturelle grep påvirkes. TRL 4 styrker faktisk argumentet for at gen 2 ikke er «tatt i bruk» i regnskapsmessig forstand — og dermed også begrunnelsen for både aktiveringen og avskrivningsreverseringen. Prototypeserien P1→P5 er konsistent med TRL 4 (fortsatt prototypefase, ikke pilotering).
+
+**Deliverable — i scope for T86:**
+
+1. `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md`:
+   - Seksjon 3.1: «Foretaket vurderer nåværende tilstand til å være TRL 5-6» → «TRL 4»
+   - Figur-bildeteksten (rett under seksjon 3.1): «er på TRL 5-6 per 2025» → «er på TRL 4 per 2025»
+   - Seksjon 5 (vilkårsvurdering): «Gen 2 er nå på TRL 5-6» → «Gen 2 er nå på TRL 4»
+2. `figures/2026-07-15_trl_utvikling_gen1_gen2.svg`:
+   - Justere gen 2-kurven slik at den treffer TRL 4 ved 2026 (nåværende kurve passerer TRL 6 rundt 2026). Kurven fortsetter opp mot TRL 9 ved 2027 — det gir en brattere sluttfase, som er en tolkningssak (kan diskuteres om lansering fortsatt er realistisk 2027; per foreløpig plan holdes 2027).
+   - Legend-teksten: «gen 2 (under utvikling, TRL 5-6, lansering estimert 2027)» → «gen 2 (under utvikling, TRL 4, lansering estimert 2027)»
+3. Regenerere PNG-versjonen av figuren med ImageMagick (samme kommando som ved forrige oppdatering): `magick -density 200 /cygdrive/c/dev/src/sure-d61/figures/2026-07-15_trl_utvikling_gen1_gen2.svg /cygdrive/c/dev/src/sure-d61/figures/2026-07-15_trl_utvikling_gen1_gen2.png` — Eirik kjører selv i cygwin.
+
+**Ikke i scope for T86 (andre steder som nevner TRL 5-6):**
+
+- `funding/...revisorpakke..._eksakte_belop.md` — backup fra T85, skal per konvensjon stå urørt (dokumenterer tallsituasjonen på et gitt tidspunkt, ikke sannheten). TRL-feilen i backupen noteres kun her.
+- `background/2025-11-17_loeypemelding.md` — historisk løypemelding, ikke ment for endring i etterkant.
+- `gen2/norsmaterials_brief.md` — ekstern-vendt samarbeidsdokument til Norsmaterials. Kan oppdateres separat om Eirik ønsker.
+- `sure/sure_cinea_review_wp6_sunlitsea_presentation.md` og `sure/sure_dow_extract.txt` — historiske dokumenter knyttet til SuRE-rapportering.
+
+Om Eirik vil oppdatere noen av disse fires kilder, opprett egne tasks.
+
+**Krav ved gjennomføring:**
+
+- Alle tre tekstforekomster i revisorpakken oppdateres.
+- SVG-figuren redigeres i tekst (er en enkel håndskrevet SVG med path-koordinater — bezier-kurven må justeres nedover).
+- PNG regenereres etter SVG-endring — men kjøres av Eirik selv i cygwin (jeg har ikke tilgang til å kjøre ImageMagick der).
+- Ingen andre endringer i revisorpakken.
+
+**Solution (2026-07-16):**
+
+Revisorpakken oppdatert — TRL 5-6 → TRL 4 tre steder:
+
+- Seksjon 3.1: «Foretaket vurderer nåværende tilstand til å være TRL 4»
+- Figur-bildeteksten: «er på TRL 4 per 2025»
+- Seksjon 5 (vilkårsvurdering): «Gen 2 er nå på TRL 4»
+
+SVG-figuren oppdatert:
+
+- Gen 2-kurven redesignet med to bezier-segmenter: TRL 2 (2024) → langsomt opp til TRL 4 (2026) → bratt opp til TRL 9 (2027). Ny path: `M 410 375 C 490 380, 560 320, 630 285 C 670 275, 700 100, 740 60`. Y-koordinat 285 tilsvarer TRL 4 (60 + 5×45 = 285 med 45 units per TRL-nivå).
+- Gen 2-tekst-labelen flyttet fra (600, 215) til (555, 305) for å ligge nær den nye kurven ved TRL 4-nivået.
+- Legend-tekst: «gen 2 (under utvikling, TRL 4, lansering estimert 2027)».
+- SVG-kommentar oppdatert: «Gen 2 curve: start 2024 at TRL 2, slow rise to TRL 4 by 2026, steep rise to TRL 9 by end 2027».
+
+**Files touched:**
+
+- `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (3 tekstforekomster)
+- `figures/2026-07-15_trl_utvikling_gen1_gen2.svg` (path, label-posisjon, legend, kommentar)
+
+**Neste steg (Eiriks side, utenfor T86):** Regenerere PNG med ImageMagick i cygwin: `magick -density 200 /cygdrive/c/dev/src/sure-d61/figures/2026-07-15_trl_utvikling_gen1_gen2.svg /cygdrive/c/dev/src/sure-d61/figures/2026-07-15_trl_utvikling_gen1_gen2.png`. Deretter pandoc PDF-konvertering av revisorpakken.
 
 

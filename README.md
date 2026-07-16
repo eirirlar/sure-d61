@@ -244,6 +244,24 @@ uv run scripts/format_docx.py input.docx --borders-only
 
 Adapted from the same-named script in `../fjordgata30/scripts/` — mechanics are identical, only `TABLE_WIDTHS_BY_STEM` is Sunlit-Sea-tailored. When a new deliverable with tables is generated, add a new dict entry keyed on the input filename stem, with one width row per table in the order they appear in the document.
 
+### `scripts/nbsp_numbers.py`
+
+Binds thousands-separated number groups in Markdown with non-breaking space (NBSP, U+00A0) so that pandoc + xelatex does not break numbers like `18 570 858` across line boundaries in narrow PDF table columns. Regex-based, idempotent, character-count-neutral (only swaps space for NBSP inside `\d \d{3}` boundaries).
+
+Safe by default — writes to `<name>.cleaned.md` sibling and prints word/line/char counts (should be identical before and after) plus NBSP substitution count plus sample changed lines. Use `--promote` to overwrite in place after inspecting dry-run output.
+
+```bash
+# Dry-run — writes funding/*.cleaned.md sibling
+python scripts/nbsp_numbers.py funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md
+
+# Overwrite in place after dry-run looks safe
+python scripts/nbsp_numbers.py --promote funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md
+```
+
+Character/word/line counts must be identical before and after — a delta of anything other than zero means the regex hit something it should not have. The NBSP substitution count should match the number of thousand-separator boundaries actually in the document. Both are visible in the dry-run output.
+
+Renders as ordinary space in every renderer (PDF, DOCX, VS Code preview, GitHub) — only the line-break behaviour changes.
+
 ### `scripts/clean_investor_updates.py`
 
 Strips mail-header noise, mid-body Gmail page-print repeats, and trailing signature blocks (`Mvh`, contact-info lines, Google Groups unsubscribe boilerplate) from the investor-update `.md` files under `background/`. Preserves the YAML frontmatter; leaves body content between top and bottom noise untouched.

@@ -7,6 +7,10 @@ foretakskategori: Lite foretak (jf. regnskapsloven § 1-5 annet ledd)
 regnskapsstandard: NRS 8 God regnskapsskikk for små foretak, utfyllende NRS(F) Nedskrivning av anleggsmidler og NRS 4 Offentlige tilskudd
 utarbeidet: 2026-07-16
 mottaker: Revisor
+header-includes:
+  - \usepackage{etoolbox}
+  - \AtBeginEnvironment{longtable}{\tiny}
+  - \AtBeginEnvironment{tabular}{\tiny}
 ---
 
 # Revisorpakke — prinsippendring for aktivering av utviklingskostnader, avskrivningsreversering og nedskrivingstest 2025
