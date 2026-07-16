@@ -911,9 +911,145 @@ Ingen kryssreferanser til andre prosjektfiler. Ingen bold i brødtekst. Norsk fi
 
 **Neste steg (Eiriks side, utenfor T82):** Gjennomgå oppdatert pakke, sette inn signatur, sende til revisor.
 
+---
 
+### T83 `[x]` [FUND] Bygg inn teknologiplattform-narrativ (gen 1 / gen 2 / SuRE / Surewave) i revisorpakken
 
+Nåværende revisorpakke `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` rammer prinsippendringen som et SuRE-fenomen i innledningen, mens de faktiske balanseeffektene rammer også Surewave-aktiveringene (2022, 2023, 2024) og 2021-basisen. Leseren forstår først i seksjon 8 at reversering av avskrivninger skal gjøres for hele restbeholdningen på kto 1005 — ikke bare SuRE-relatert. Rekkefølgen gjør at Surewave dukker opp som en bisetning i seksjon 4 og deretter som overraskelse i seksjon 8 uten forutgående forklaring. Sammenhengen mellom gen 1, gen 2, og de to Horizon-prosjektene er heller ikke etablert.
 
+**Deliverable:** Ny versjon av `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` med teknologiplattform-narrativet integrert. Struktur beholdes i hovedsak; ny seksjon 3 legges inn og relevante seksjoner justeres. TRL-figuren `figures/2026-07-15_trl_utvikling_gen1_gen2.svg` bygges inn.
 
+**Konkrete endringer:**
+
+1. **Ny seksjon 3 «Foretakets teknologiplattform og EU-prosjekter»** (nåværende seksjon 3-13 skyves til 4-14):
+   - 3.1 Gen 1 (i drift, TRL 7, Skiftestjørna-anlegget som referanse) og gen 2 (under utvikling, TRL 5-6, planlagt lansering 2027, prototypeserie P3 → P4 → P5)
+   - 3.2 Horizon Europe-prosjektene SuRE og Surewave — kort om hva de er, tidsrom, konsortium-partnere (IFE for SuRE, SINTEF for Surewave), leveranser inn til gen 2-plattformen
+   - 3.3 Sammenhengen mellom balanseførte utviklingsverdier på kto 1005 (2021-basis, Surewave-aktiveringer for 2022, 2023 og 2024, SuRE-aktiveringer for 2024 og 2025) og gen 2-utviklingsplattformen — etablerer at hele restbeholdningen tilhører samme utvikling og at ingen av den er tatt i bruk
+   - TRL-figuren `figures/2026-07-15_trl_utvikling_gen1_gen2.svg` plasseres her med caption
+
+2. **Seksjon 1 (Innledning og formål) omformuleres:**
+   - Punkt 1 favner utviklingskostnader for foretakets samlede teknologiplattform (både SuRE og Surewave), ikke bare SuRE
+   - Punkt 2 forankres i at hele plattformen er under utvikling og ikke tatt i bruk — dermed avskrivningsstopp for all restbeholdning på kto 1005
+
+3. **Seksjon 4.1 (nå 3.1 om bakgrunn):** SuRE brukes som konkret eksempel, resonnementet gjelder plattformen samlet — inkludert Surewave-restbeholdningen.
+
+4. **Seksjon 8 (reversering av avskrivninger):** Innledende avsnitt refererer tilbake til teknologiplattformen etablert i seksjon 3.3 — ikke ny introduksjon av Surewave.
+
+5. **Seksjon 11.5 (bruksverdi-vurdering):** Kan dra nytte av teknologiplattform-seksjonen for å styrke argumentet for at balanseført verdi er dekket av fremtidig bruksverdi.
+
+**Krav ved gjennomføring:**
+
+- Alle tall og konklusjoner fra nåværende pakke beholdes uendret (kto 1005 ny saldo 21 701 638 kr, kto 2160 ny saldo -18 046 472 kr, netto resultatøkning 3 153 432 kr, etc.).
+- Dokumentet må fortsatt stå på egne ben — ingen kryssreferanser til andre prosjektfiler.
+- Ingen bold i brødtekst — bold kun i seksjons-overskrifter.
+- Norsk finans-/regnskaps-terminologi (unngå anglisismer).
+- Valuta etter tall (`21 701 638 kr`, ikke `kr 21 701 638`).
+- Markdown-lister rendres korrekt — bruk `-`/`1.` for enumereringer.
+- TRL-figuren refereres med relativ Markdown-syntaks `![caption](../figures/2026-07-15_trl_utvikling_gen1_gen2.svg)` — men merk at Pandoc ikke embedder SVG i docx direkte. Hvis docx-produksjon senere blir bestilt, må figuren konverteres til PNG først (utenfor scope for denne task).
+- YAML `utarbeidet`-feltet oppdateres til dato for gjennomføring.
+
+**Kildekrav — skjerpet:**
+
+Innholdet i den nye seksjon 3 (og alle justeringer som følger av den) må baseres på primærkilder, ikke andrehåndskunnskap eller conversation-sammendrag. Utfører må lese kildene faktisk før skriving — ikke gjenbruke tidligere formuleringer uten verifisering. Regel jf. memory `feedback_recheck_background_before_writing`.
+
+For hvert konkret faktum som havner i seksjon 3 må utfører kunne peke på hvilken kilde det kom fra. Faktapåstander uten kildegrunnlag markeres eksplisitt for Eirik («ikke bekreftet i kilde X — verifiser»), i stedet for å gjettes eller utelates.
+
+**Kilder som må leses før implementering:**
+
+Repo-interne:
+
+- `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` — nåværende pakke som skal oppdateres
+- `figures/2026-07-15_trl_utvikling_gen1_gen2.svg` — TRL-figur som skal integreres
+- `sure/report.md` — særlig kap. 1 (introduksjon + gen 1 → gen 2), kap. 2 (gen 2-arkitektur), kap. 3 (prototyping / mould-workflow), kap. 5 (materialer / miljøeksponering). Rapporten er hovedkilden for teknisk beskrivelse av både gen 1 og gen 2.
+- `gen2/norsmaterials_brief.md` — kompakt gen 1 vs gen 2-sammenligning, prototypeserie P3 → P4 → P5, PU-rolle, målestatus
+- `background/*loeypemelding*.md` — grep for «Surewave», «SuRE», «gen 1», «Skiftestjørna», «Enova», «Skattefunn», «Innovasjon Norge». Historiske investoroppdateringer inneholder tidsrom, milepæler, partnerkonstellasjoner og motivasjonen bak hvert utviklingssteg.
+- `funding/`-filer (aktivering-notater, regnskapsuttrekk) — for å finne hvilke støtteprosjekter 2021-basisen på kto 1005 (18 570 858 kr) faktisk stammer fra
+
+Ekstern (nabo-prosjekt, eksplisitt lest med Eiriks tillatelse):
+
+- `../stotte/data/sunlit_sea/project_cards.json` — presise tidsrom, konsortium-strukturer og arbeidspakke-oppdeling for fire støtteprosjekter (SUREWAVE, SURE, Enova 1, SkatteFUNN). Bruk prosjektnavn, `DurationFrom`/`DurationTo`, `ConsortiumPartners` og `workpackages`-oversikten for å gi et rikere bilde av utviklingsløpet. **Ikke bruk budsjett-tall** derfra — alle regnskapstall skal komme fra denne øktas datagrunnlag (regnskapsførers avstemminger). Stotte-JSON er kun for kontekst-berikelse av selve prosjekt-beskrivelsene.
+
+**Presiseringer basert på stotte-data (som utfører kan bruke direkte):**
+
+- Surewave (SUREWAVE i stotte): Horizon Europe grant 101083342 (HORIZON-CL5-2021-D3-03), varighet 2022-09-01 til 2026-12-31, Sunlit Sea er partner 2 av 7 i konsortium ledet av SINTEF. Sunlit Sea leder WP2 «Global framework & specifications» og WP8 «Dissemination, communication & exploitation». Sunlit Sea bidrar i WP1 (SINTEF), WP6 «Technical validation» (SINTEF) og WP7 «Integrated sustainability assessment» (IFEU). Øvrige konsortium-partnere: Ceit, MARIN, ACCIONA, Clement Germany, IFEU.
+- SuRE: Horizon Europe, varighet 2024-10-01 til 2027-08-31, Sunlit Sea er partner i konsortium ledet av IFE (WP3 og WP8). Sunlit Sea leder WP6 «Sunlit's integrated FPV technology» (hoved-arbeidspakken for Sunlit Sea, 27 PM). Øvrige partnere: Fraunhofer, TNO, CT1, ZIM, Compaz.
+- Enova 1 «Flytende Solkraft for Norske Forhold»: varighet 2023-07-01 til 2025-07-01, Sunlit Sea som lead recipient i konsortium med EV PowerCharge AS og Endra AS. Grant reference 23/12577.
+- SkatteFUNN «Robusthet i flytende solkraft»: varighet 2023-01-01 til 2026-12-31, prosjektnummer 350626.
+
+**Åpne kildespørsmål før seksjon 3 kan skrives ferdig:**
+
+- 2021-basisen på kto 1005 (18 570 858 kr): hvilket eller hvilke støtteprosjekter denne aktiveringen stammer fra er ikke tydelig fra stotte-data (som starter 2022). Må sjekkes mot `background/`-materialet, regnskapsførers avstemmingsnotater og eventuelt eldre løypemeldinger. Kandidater å undersøke: eldre Enova-tilskudd, IN-tilskudd, Skattefunn-perioder før 2023, EU EIT-tilskudd. Uten kildegrunnlag skal seksjon 3.3 ikke gjette — bruk formuleringen «2021-basis knyttet til foretakets tidligere utviklingsarbeid; sammensetning per støtteprosjekt er dokumentert i regnskapsførers avstemminger» eller lignende inntil kilde foreligger.
+- Skiftestjørna-anlegget (105 kWp, PPA med EV PowerCharge, «produksjon over forventning»): faktapunkter må verifiseres mot løypemeldingene 2024-10-01 og 2025-10-07, ikke fra sammendraget.
+- TRL-nivåer for gen 1 og gen 2: må verifiseres mot D6.1 eller løypemelding, ikke bare fra figuren.
+
+**Solution (2026-07-16):**
+
+Oppdatert `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` med ny teknologiplattform-narrativ. YAML `utarbeidet` oppdatert til 2026-07-16. Alle tall og konklusjoner beholdt uendret.
+
+Endringer i seksjonsstruktur:
+
+- Seksjon 1 (Innledning) omformulert: punktene favner nå hele utviklingsplattformen (SuRE og Surewave) og gjør eksplisitt at reverseringen av avskrivninger gjelder samtlige aktiveringer, herunder 2021-basisen og Surewave-aktiveringene
+- Ny seksjon 3 «Foretakets teknologiplattform og EU-prosjekter» lagt inn med tre underseksjoner: 3.1 gen 1 og gen 2 (inkludert Skiftestjørna og TRL-figuren), 3.2 Horizon Europe-prosjektene SuRE og Surewave (varigheter, konsortium-partnere, arbeidspakker, hva som mater inn i gen 2), 3.3 sammenhengen mellom balanseførte utviklingsverdier på kto 1005 og gen 2-plattformen
+- TRL-figuren integrert som Figur 1 i seksjon 3.1: `![Figur 1. ...](../figures/2026-07-15_trl_utvikling_gen1_gen2.svg)`
+- Alle etterfølgende seksjoner (3-13) skyvet én posisjon opp til 4-14
+- Alle interne kryssreferanser oppdatert til nye seksjonsnumre (verifisert med grep)
+- Seksjon 9 (Reversering av avskrivninger) refererer nå til seksjon 3.3 istedenfor å introdusere Surewave som ny informasjon
+- Seksjon 12.5 (bruksverdi-vurdering) uendret innhold — henvisning til seksjon 3.1 for Skiftestjørna-driftsdokumentasjon
+- Seksjon 14 (oppsummering) presiserer at reverseringen av avskrivninger gjelder samtlige aktiveringer
+
+Kildebruk (per skjerpet kildekrav):
+
+- Gen 1 teknisk beskrivelse: `sure/report.md` kap 1 (Fig 1-1 og 1-2), `gen2/norsmaterials_brief.md` gen 1 vs gen 2-tabell
+- Gen 2 arkitektur og prototypeserie: `sure/report.md` kap 2, `gen2/norsmaterials_brief.md`, `background/2025-11-17_loeypemelding.md` (TRL 5-6)
+- Skiftestjørna-anlegget: `background/2024-10-01_loeypemelding.md` (105 kWp, install 10. oktober, first develop-operate-sell, PPA med EV PowerCharge) og `background/2025-10-07_loeypemelding.md` («produksjon over forventning»)
+- Gen 1-avvikling: `background/2025-10-07_loeypemelding.md` (styret besluttet avvikling)
+- Surewave: `../stotte/data/sunlit_sea/project_cards.json` (grant, varighet, konsortium, WPer), `background/2026-07-08_loeypemelding.md` (12-måneders forlengelse pga ACCIONA), `background/2024-04-28_loeypemelding.md` (Clement Systems breakwater-samarbeid)
+- SuRE: `../stotte/data/sunlit_sea/project_cards.json` (varighet, konsortium, WPer), `sure/report.md` kap 1 (WP6-objektiver O6.1.1 og O6.2.1, D6.1 vs D6.2)
+- 2021-basis komposisjon: `background/2021-06-23_loeypemelding.md` (IN miljøteknologistøtte 8.4 MNOK juni 2021, matching investors Holta Invest AS); detaljert sammensetning per støtteprogram henvist til regnskapsførers avstemminger og bilagsdokumentasjon (ikke gjettet)
+
+Ingen faktapunkter i seksjon 3 uten kildegrunnlag. Alle konkrete beløp fra regnskapsførers avstemminger. Ingen bold i brødtekst. Norsk finansterminologi. Valuta etter tall. Ingen kryssreferanser til andre prosjektfiler.
+
+**Files touched:** `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (oppdatert).
+
+**Neste steg (Eiriks side, utenfor T83):** Gjennomgå oppdatert pakke, verifisere at 2021-basis-omtalen (18 570 858 kr fra tidligere IN miljøteknologistøtte og øvrige tidligere støtteprogrammer) er tilstrekkelig for revisor eller om Eirik ønsker mer detaljert støtteprogram-oppdeling — kilde ligger i regnskapsførers avstemmingsnotater. TRL-figuren refereres som `.svg`; hvis docx-produksjon bestilles må figuren konverteres til PNG først (Pandoc embedder ikke SVG i docx direkte).
+
+---
+
+### T84 `[ ]` [FUND] PDF-layoutfiks i revisorpakken — NBSP i tall og mindre tabellfont
+
+Ved konvertering av `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` til PDF via pandoc + xelatex brytes lange tall som `18 570 858` på tvers av linjer i trange tabellkolonner, fordi vanlig mellomrom (U+0020) er et gyldig brytepunkt for LaTeX. I tillegg er de brede tabellene (særlig kto 1005-avstemmingen i seksjon 9.2 med 12 kolonner) trange på A4-portrett.
+
+**Deliverable:** To endringer i revisorpakken:
+
+1. Alle tallgrupper med tusen-skille-mellomrom bindes med NBSP (U+00A0). Fikser rot-årsaken til `18\n570 858`-brudd. Gir samme visuelle mellomrom i PDF, DOCX og alle Markdown-previews — bare uten linjebrytings-mulighet.
+2. YAML `header-includes` utvidet med LaTeX-preamble som setter `\small` for alle tabeller globalt. Krymper tabellfonten fra 10pt til ~9pt for bedre plass i brede tabeller.
+
+**Nytt persistent skript i `scripts/`:**
+
+- `scripts/nbsp_numbers.py` — regex-basert NBSP-substitusjon. Regex `(\d) (\d{3})(?=\D|$)` binder alle 3-sifrede grupper med et sifret prefix. Idempotent (kan kjøres flere ganger uten endring). Dry-run som standardmodus (per `feedback_no_inplace_batch_without_backup` og T73-hendelsen): skriver til `<file>.cleaned.md`-sibling og printer word/line/char delta + antall NBSP-substitusjoner + eksempler på endrede linjer. `--promote` flag for overskriving etter menneskelig godkjenning. Dokumenteres i `README.md` seksjon `## Scripts`.
+
+**YAML header-includes-endring (rett i revisorpakken):**
+
+```yaml
+header-includes:
+  - \usepackage{etoolbox}
+  - \AtBeginEnvironment{longtable}{\small}
+  - \AtBeginEnvironment{tabular}{\small}
+```
+
+Bare aktivt ved LaTeX-basert PDF-produksjon; ingen effekt på DOCX. `etoolbox`s `\AtBeginEnvironment` er ren og gjenbrukbar for framtidige tabellstørrelsesendringer.
+
+**Krav ved gjennomføring:**
+
+- Skript-konvensjonen: dry-run standardmodus, `--promote` for overskriving. Ordtelling identisk før og etter (siden vi kun bytter tegn, ikke fjerner eller legger til). Karaktertelling identisk. Linjetelling identisk. NBSP-antall vises som separat metrikk.
+- Ikke omgå dry-run selv om brukeren har sagt «gjør trinn 1 og 2» — pattern eksisterer for å unngå silent regex-katastrofer (jf. T73).
+- Ingen andre endringer i revisorpakken.
+- `README.md` scripts-seksjon oppdatert med `nbsp_numbers.py`-beskrivelse.
+
+**Ikke i scope for T84:**
+
+- Variable kolonnebredder for de brede tabellene (trinn 3 fra betraktningen — avvent til vi ser om trinn 1+2 er nok).
+- Landskap-orientering på seksjon 9-tabellene.
+- Konvertering av selve dokumentet til PDF/DOCX (brukeren håndterer det).
 
 

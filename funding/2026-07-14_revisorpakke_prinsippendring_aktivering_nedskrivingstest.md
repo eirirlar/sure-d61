@@ -5,7 +5,7 @@ foretak_orgnr: 922 633 924
 regnskapsår: 2025 (balansedag 31.12.2025)
 foretakskategori: Lite foretak (jf. regnskapsloven § 1-5 annet ledd)
 regnskapsstandard: NRS 8 God regnskapsskikk for små foretak, utfyllende NRS(F) Nedskrivning av anleggsmidler og NRS 4 Offentlige tilskudd
-utarbeidet: 2026-07-15
+utarbeidet: 2026-07-16
 mottaker: Revisor
 ---
 
@@ -13,10 +13,10 @@ mottaker: Revisor
 
 ## 1. Innledning og formål
 
-Sunlit Sea AS legger med dette frem en samlet informasjonspakke som dekker de regnskapsmessige forholdene ved avleggelsen av 2025-regnskapet:
+Sunlit Sea AS legger med dette frem en samlet informasjonspakke som dekker de regnskapsmessige forholdene ved avleggelsen av 2025-regnskapet. Disposisjonene henger sammen og springer alle ut av en samlet vurdering av foretakets utviklingsplattform for flytende solkraftverk (gen 1 og gen 2, jf. seksjon 3):
 
-1. Endring av regnskapsprinsipp fra kostnadsføring til aktivering av utviklingskostnader knyttet til EU Horizon-prosjektet SuRE, med virkning for 2024 og 2025.
-2. Reversering av avskrivninger på utviklingsaktiveringer på konto 1005 og tilhørende periodisering av utsatt inntekt på konto 2160, fra og med 1. januar 2024.
+1. Endring av regnskapsprinsipp fra kostnadsføring til aktivering av utviklingskostnader for utviklingsplattformen, med virkning for 2024 og 2025. Konkret gjelder dette utgifter påløpt i foretakets deltakelse i EU Horizon-prosjektene SuRE og Surewave — begge er innsatsfaktorer i gen 2-utviklingen.
+2. Reversering av avskrivninger på utviklingsaktiveringer på konto 1005 og tilhørende periodisering av utsatt inntekt på konto 2160, fra og med 1. januar 2024. Reverseringen omfatter samtlige aktiveringer på konto 1005 — både 2021-basisen og Surewave-aktiveringene for 2022, 2023 og 2024 — fordi hele restbeholdningen støtter gen 2-utviklingen som ennå ikke er tatt i bruk.
 3. Etablering og bruk av ny konto 7794 «Korreksjoner tidligere år» for resultatvirkningen av korreksjonene som tilhører 2024.
 4. Referanse til tidligere gjennomført omklassifisering av pressverktøy til konto 1205 i 2024.
 5. Nedskrivingstest av foretakets samlede balanseførte utviklingsverdier per 31.12.2025.
@@ -47,17 +47,59 @@ Sentrale lovhjemler:
 - Regnskapsloven § 4-1 annet ledd — små foretaks adgang til unntak fra sammenstillingsprinsippet
 - Regnskapsloven § 7-39 — noteopplysningskrav for anleggsmidler
 
-## 3. Prinsippendring — fra kostnadsføring til aktivering av SuRE-utviklingskostnader
+## 3. Foretakets teknologiplattform og EU-prosjekter
 
-### 3.1 Bakgrunn
+Denne seksjonen etablerer teknologibakgrunnen som resten av pakken bygger på. Formålet er at revisor skal kunne følge sammenhengen mellom (a) den samlede utviklingsplattformen foretaket har bygget opp siden oppstart, (b) de balanseførte utviklingsverdiene på konto 1005, og (c) begrunnelsen for både prinsippendringen og reverseringen av avskrivninger.
+
+### 3.1 Gen 1 og gen 2 — to påfølgende versjoner av samme produkt
+
+Sunlit Sea har utviklet det samme produktet — et integrert flytende solkraftverk — i to påfølgende generasjoner:
+
+- Gen 1 (i drift). Første generasjons enhet består av et glass/PET solpanel limt sammen med to pressede aluminiumsdeler (5083-H111, 1,5 mm) som danner en flottør med luft inne. Polystyren-cup fyller rommet under panelet, butyl/silikon fungerer som kantforsegling, og to-komponent silikon-potting er brukt for å minimere vanninntrengning. Brakets på flottørkanten kobler enheter sammen. PU-topplaget er mørkeblått med målt absorptivitet 0,88-0,91. Enheten er panel-integrert og produktet er produsert i lavt volum i egen produksjon (Askim). Den mest sentrale gen 1-driftsreferansen er Skiftestjørna-anlegget i Haugaland Næringspark: 105 kWp installert 10. oktober 2024, drevet av Sunlit Sea under en «develop-operate-sell»-modell med kraftkjøpsavtale med EV PowerCharge AS. Anlegget har levert produksjon over forventning gjennom første fulle driftsperiode.
+- Gen 2 (under utvikling, produktnavn Sunlit Sea CONNECT gen. 2). Full redesign hvor det integrerte konseptet beholdes, men arkitekturen endres for kostnads- og skalerbarhetshensyn: standard kommersielle solpaneler i utility-skala (2384 × 1303 mm, 710-740 Wp) settes inn i en støpt PU-ramme som er bundet til en aluminiumsbunn (5083-H111, 0,8 mm). PU har tre distinkte roller — støpt strukturramme, indre infill og oppdriftskopplinger — mot gen 1s enkle underliggende PU-lag. Hengselgeometrien er redesignet basert på funn fra Surewaves bølgetank-testing. Prototypeserien går fra P1 → P2 → P3 (bygd og testet) → P4 (støping av form startet) → P5 (designbeslutning under vurdering). Foretaket vurderer nåværende tilstand til å være TRL 5-6.
+
+Utviklingsplattformen som ligger til grunn for begge generasjoner — aluminiumforming, PU-formulering, DNV-verifisert designmetodikk, hengsel- og koblingssystem, marine driftsforhold, salgs- og prosjektutviklingsmodell — er kumulativ. Gen 2 viderefører gen 1s tekniske grunnlag uten brudd, og læring fra ett års utviklingsarbeid går direkte inn i påfølgende års arbeid.
+
+Styret besluttet høsten 2025 å avvikle videre produksjon av gen 1 og konsentrere ressursene om gen 2-utviklingen fram mot planlagt kommersiell lansering i 2027.
+
+TRL-utviklingen for de to generasjonene er illustrert i figuren under.
+
+![Figur 1. TRL-utvikling for gen 1 og gen 2. Gen 1 nådde TRL 7 ved kommersielt bruk fra 2023 og har ligget på et platå der siden. Gen 2-utviklingen startet for alvor 1. januar 2024 og er på TRL 5-6 per 2025, med planlagt lansering i 2027.](../figures/2026-07-15_trl_utvikling_gen1_gen2.png)
+
+### 3.2 EU Horizon-prosjektene SuRE og Surewave
+
+Sunlit Sea deltar i to Horizon Europe-prosjekter. Begge leverer teknisk arbeid som mater direkte inn i gen 2-utviklingsplattformen.
+
+Surewave (grant 101083342, HORIZON-CL5-2021-D3-03). Varighet 1. september 2022 til 31. desember 2026 (opprinnelig ferdig 2025, forlenget 12 måneder av hensyn til partneren ACCIONAs demonstrator av flytende bølgebrytere i Spania). Sunlit Sea er partner 2 av 7 i et konsortium ledet av SINTEF. Øvrige partnere: Ceit, MARIN, ACCIONA, Clement Germany og IFEU. Sunlit Sea leder WP2 «Global framework & specifications» og WP8 «Dissemination, communication & exploitation», og bidrar i WP1 (SINTEF), WP6 «Technical validation» (SINTEF) og WP7 «Integrated sustainability assessment» (IFEU). Sentrale bidrag inn i gen 2: bølgetank-testing (gjennomført sammen med SINTEF og MARIN) som eksponerte svakheter i gen 1s hengselgeometri og har vært utløser for hengselredesignet i gen 2 P4, samt utvikling av breakwater-konsept sammen med Clement Systems.
+
+SuRE. Varighet 1. oktober 2024 til 31. august 2027. Sunlit Sea er partner i et konsortium ledet av Institutt for Energiteknikk (IFE), som leder WP3 og WP8. Øvrige partnere: Fraunhofer (WP1-leder), TNO (WP2-leder), CT1 (WP4-leder), Zimmermann PV Steel Group (WP5-leder) og Compaz (WP7-leder). Sunlit Sea leder WP6 «Sunlit's integrated FPV technology» — hoved-arbeidspakken for foretaket. Sentrale bidrag inn i gen 2: en formell modellkjede som kobler manufacturing-simulering (aluminiumspressing i LS-DYNA med maskinlæring-styrt geometri-generering fra FreeCAD), strukturell FEM (SiSim ved IFE), termisk CFD, og livssyklus-analyse (TNO) — brukt til å screene og velge geometrier og materialer for gen 2-prototypene. D6.1 (Model chain description) er levert; D6.2 (Multi-domain design screening) er under forberedelse.
+
+I tillegg til Horizon-prosjektene støttes gen 2-utviklingen av norske ordninger som Enova, Innovasjon Norge og Skattefunn. Disse behandles etter foretakets etablerte praksis (jf. seksjon 5 om Skattefunn og seksjon 7 om øvrige tilskudd).
+
+### 3.3 Balanseførte utviklingsverdier på konto 1005 og gen 2-plattformen
+
+Restbeholdningen på konto 1005 per 31.12.2025 består av følgende komponenter (grunnlag før korrigert avskrivning 2025):
+
+- 2021-basis: opprinnelig aktivert beløp 18 570 858 kr. Består av utviklingsutgifter aktivert i 2021 med grunnlag i tidligere støtteordninger — sentralt her er Innovasjon Norges miljøteknologistøtte tilsagn juni 2021 på 8,4 MNOK (med matchende egenkapital fra Holta Invest AS og annen investor), samt tidligere Innovasjon Norge- og Skattefunn-perioder. Detaljert sammensetning per støtteprogram er dokumentert i regnskapsførers avstemminger og i foretakets bilagsdokumentasjon.
+- Surewave 2022: opprinnelig aktivert beløp 12 765 193 kr. Utviklingsarbeid i Surewave-prosjektets første fase.
+- Surewave 2023: opprinnelig aktivert beløp 4 751 967 kr. Utviklingsarbeid i Surewave-prosjektets midtfase.
+- Surewave 2024: opprinnelig aktivert beløp 2 187 336 kr. Utviklingsarbeid i Surewave, siste år før prosjektet ble forlenget.
+
+Samlet opprinnelig aktivert beløp: 38 275 354 kr. Etter 2024s omklassifisering av pressverktøy (jf. seksjon 10) og de årlige avskrivningene som er tatt frem til nå, sto konto 1005 med foreløpig saldo 5 648 573 kr per det tidspunktet regnskapet foreløpig ble ført ut.
+
+Vurderingen som gjelder alle disse komponentene, gjelder samlet: samtlige aktiveringer støtter foretakets integrerte FPV-teknologi og har i sin helhet gått inn i den tekniske plattformen som gen 2-produktet bygger på. Ingen komponent kan skilles ut som «tatt i bruk» i regnskapsmessig forstand så lenge gen 2-produktet er under utvikling. Dette er grunnlaget for at reverseringen av avskrivningene i seksjon 9 gjelder hele restbeholdningen — ikke bare de nye SuRE-aktiveringene.
+
+## 4. Prinsippendring — fra kostnadsføring til aktivering av utviklingskostnader
+
+### 4.1 Bakgrunn
 
 I 2024-regnskapet ble utgifter knyttet til foretakets deltakelse i EU Horizon-prosjektet SuRE kostnadsført løpende på konto 6791. Dette var et lovlig regnskapsprinsipp i henhold til regnskapsloven § 5-6 fjerde ledd, som gir små foretak valgrett mellom aktivering og kostnadsføring av utviklingsutgifter.
 
-Ved forberedelse av 2025-regnskapet har foretaket revurdert dette prinsippvalget. Sunlit Sea har over flere år bygget opp en teknologiplattform for flytende solkraft. Gen 1 er tatt i bruk (installasjoner ved Skiftestjørna i Haugaland Næringspark og på andre lokasjoner), og gen 2-utviklingen — som SuRE-arbeidet er direkte input til — startet for alvor 1. januar 2024. Fra dette tidspunktet har det vært klart at SuRE-utgiftene ikke er ordinære driftskostnader men investeringer i en identifiserbar utviklingseiendel som forventes å generere fremtidige økonomiske fordeler.
+Ved forberedelse av 2025-regnskapet har foretaket revurdert dette prinsippvalget. Med bakgrunn i teknologiplattformen som er beskrevet i seksjon 3 — hvor gen 2-utviklingen for alvor startet 1. januar 2024 og hvor både SuRE og Surewave er innsatsfaktorer i den samme utviklingsplattformen — er det klart at SuRE-utgiftene fra 2024 og fremover ikke er ordinære driftskostnader, men investeringer i en identifiserbar utviklingseiendel som forventes å generere fremtidige økonomiske fordeler. Samme vurdering gjelder for Surewave-utgiftene, men disse har foretaket allerede aktivert løpende i sin regnskapsføring (Surewave-aktiveringene på konto 1005 for 2022, 2023 og 2024).
 
-Kostnadsføring gir dermed ikke lenger et dekkende bilde av foretakets eiendeler og resultat. Balanseføring gir mer relevant og pålitelig informasjon.
+Kostnadsføring av SuRE-utgiftene gir dermed ikke lenger et dekkende bilde av foretakets eiendeler og resultat. Balanseføring gir mer relevant og pålitelig informasjon, og bringer også regnskapsbehandlingen av de to Horizon-prosjektene i sammenheng.
 
-### 3.2 Hjemmel og metode for gjennomføring
+### 4.2 Hjemmel og metode for gjennomføring
 
 Prinsippendringen har hjemmel i regnskapslovens generelle adgang til å endre regnskapsprinsipp når det gir mer relevant informasjon (jf. regnskapsloven § 4-3), samt NRS 8 sin adgang for små foretak til å benytte unntaket fra sammenstillingsprinsippet i regnskapsloven § 4-1 annet ledd.
 
@@ -65,18 +107,18 @@ Metode: resultatføring i endringsåret (NRS 8-adgang for små foretak), ikke re
 
 Rent teknisk gjennomføres korreksjonen på to måter avhengig av hvilket år korreksjonen tilhører:
 
-- Korreksjoner som tilhører 2024 (aktivering av SuRE 2024, reversering av 2024-avskrivninger på kto 1005, reversering av 2024-periodisering av utsatt inntekt på kto 2160) resultatføres i 2025 mot ny konto 7794 «Korreksjoner tidligere år». Kontoen vises som egen linje i resultatregnskapet og spesifiseres i note (jf. pkt. 10.4 og notetekst i pkt. 12).
+- Korreksjoner som tilhører 2024 (aktivering av SuRE 2024, reversering av 2024-avskrivninger på kto 1005, reversering av 2024-periodisering av utsatt inntekt på kto 2160) resultatføres i 2025 mot ny konto 7794 «Korreksjoner tidligere år». Kontoen vises som egen linje i resultatregnskapet og spesifiseres i note (jf. pkt. 11.4 og notetekst i pkt. 13).
 - Korreksjoner som tilhører 2025 (aktivering av SuRE 2025, sletting/omkorrigering av 2025-avskrivninger på kto 1005 og 2025-periodisering på kto 2160) gjennomføres ved at posteringer i 2025 slettes/korrigerer aktuelle konti direkte.
 
 2024-tallene i sammenligningskolonnen i 2025-regnskapet endres ikke; de står som avlagt. Effekten av endringen kommer utelukkende inn i 2025-regnskapet.
 
 Begrunnelse for metodevalg: enklere administrativt, unngår omarbeidelse av 2024-tall som er avlagt og bekreftet av revisor, og passer et lite foretak med begrenset regnskapskapasitet.
 
-### 3.3 Konsistent anvendelse fremover
+### 4.3 Konsistent anvendelse fremover
 
-Aktivering av utviklingskostnader knyttet til gen 2-utviklingsplattformen blir foretakets valgte prinsipp fremover. Alle kvalifiserende utviklingsutgifter fra og med 1. januar 2024 aktiveres, uavhengig av finansieringskilde. Skattefunn behandles utenfor denne prinsippendringen (jf. pkt. 5).
+Aktivering av utviklingskostnader knyttet til gen 2-utviklingsplattformen blir foretakets valgte prinsipp fremover. Alle kvalifiserende utviklingsutgifter fra og med 1. januar 2024 aktiveres, uavhengig av finansieringskilde. Skattefunn behandles utenfor denne prinsippendringen (jf. pkt. 6).
 
-## 4. Vilkårsvurdering etter regnskapsloven § 5-6 annet ledd
+## 5. Vilkårsvurdering etter regnskapsloven § 5-6 annet ledd
 
 Regnskapsloven § 5-6 annet ledd oppstiller fire vilkår for at utviklingsutgifter kan aktiveres:
 
@@ -94,7 +136,7 @@ For Sunlit Seas SuRE-arbeid vurderes samtlige vilkår som oppfylt kontinuerlig g
 
 Vilkårene begrenser dermed ikke reklassifiseringen. Den praktiske grensen settes av kost-nytte-vurdering av tilbakevirkende endringer og av hva som er identifiserbart i regnskapet — foretaket går ikke lenger tilbake enn 1. januar 2024, som er tidspunktet gen 2-utviklingen for alvor startet.
 
-## 5. Skattefunn holdes utenfor prinsippendringen
+## 6. Skattefunn holdes utenfor prinsippendringen
 
 Skattefunn er en skattefradragsordning administrert av Norges Forskningsråd og Skatteetaten. Skattefunn-refusjonen kommer til foretaket gjennom skatteseddelen som reduksjon av betalbar skatt, og fungerer i praksis som en implisitt aktivering på skatte-siden.
 
@@ -105,7 +147,7 @@ Skattefunn holdes derfor utenfor denne prinsippendringen. Konkret gjelder dette:
 | 2024 | 1 258 329 | Allerede aktivert i 2024-regnskapet — ingen endring |
 | 2025 | 507 180 | Behandles etter etablert praksis — ikke omfattet av prinsippendringen |
 
-## 6. Aktivering-oversikt for SuRE-kostnader
+## 7. Aktivering-oversikt for SuRE-kostnader
 
 Følgende SuRE-kostnader, som var kostnadsført på konto 6791 i 2024 og 2025, reklassifiseres til aktivering på konto 1005 gjennom prinsippendringen:
 
@@ -115,25 +157,25 @@ Følgende SuRE-kostnader, som var kostnadsført på konto 6791 i 2024 og 2025, r
 | 2025 | 817 942 | — |
 | **Sum ny aktivering** | **1 835 751** | |
 
-## 7. Behandling av tilhørende offentlige tilskudd
+## 8. Behandling av tilhørende offentlige tilskudd
 
 Foretakets etablerte praksis for tilskudd knyttet til aktiverte utviklingsverdier er bruttoføring: aktivering til brutto verdi på konto 1005, med tilhørende utsatt inntekt på konto 2160 «Opptjente tilskudd» som periodiseres i takt med avskrivningene. Praksis er i tråd med NRS 4 Offentlige tilskudd pkt. 3.4 og NRS 8 pkt. 7.1.1.3.2.
 
-Denne bruttoføringen har en direkte konsekvens for reverseringen av avskrivningene (jf. pkt. 8): når avskrivning på konto 1005 stoppes eller reverseres, må også periodiseringen «reduksjon avskrivning» på konto 2160 stoppes/reverseres for samme perioder. De to postene er koblet.
+Denne bruttoføringen har en direkte konsekvens for reverseringen av avskrivningene (jf. pkt. 9): når avskrivning på konto 1005 stoppes eller reverseres, må også periodiseringen «reduksjon avskrivning» på konto 2160 stoppes/reverseres for samme perioder. De to postene er koblet.
 
-## 8. Reversering av avskrivninger på tidligere aktiveringer
+## 9. Reversering av avskrivninger på tidligere aktiveringer
 
-### 8.1 Bakgrunn og prinsipp
+### 9.1 Bakgrunn og prinsipp
 
 Etter NRS 8 pkt. 4.3.1.1.2 skal avskrivning av aktiverte utviklingsutgifter starte fra det tidspunkt eiendelen er ferdigstilt og tatt i bruk. Så lenge eiendelen er under utvikling, avskrives den ikke — den er i stedet underlagt årlig nedskrivningsvurdering.
 
-Sunlit Seas balanseførte utviklingsverdier på konto 1005 består av aktiveringer fra 2021, 2022 (Surewave), 2023 (Surewave) og 2024. Restbeløpene per 31.12.2025 er i sin helhet relevant for foretakets gen 2-utvikling, som ikke er tatt i bruk.
+Restbeholdningen på konto 1005 per 31.12.2025 tilhører foretakets samlede utviklingsplattform (jf. seksjon 3.3), som gen 2-produktet bygger på. Verken 2021-basisen eller Surewave-aktiveringene for 2022, 2023 og 2024 er tatt i bruk i regnskapsmessig forstand — de er alle deler av teknologigrunnlaget for det gen 2-produktet som er under utvikling og planlegges lansert i 2027.
 
-Avskrivning på disse restbeløpene skulle derfor ikke ha fortsatt etter at gen 2-utviklingen for alvor startet 1. januar 2024. Avskrivningene som er tatt i 2024 og 2025 reverseres.
+Avskrivning på disse restbeløpene skulle derfor ikke ha fortsatt etter at gen 2-utviklingen for alvor startet 1. januar 2024. Avskrivningene som er tatt i 2024 og 2025 reverseres — for samtlige aktiveringer på konto 1005, ikke bare de nye SuRE-aktiveringene.
 
-Avskrivninger tatt før 2024 (2021, 2022 og 2023) reverseres ikke. Disse er allerede godkjent av revisor i tidligere år, gen 1 er tatt i bruk fra og med 2023, og en så vidt omfattende retrospektiv omregning ville skape unødvendige spørsmål fra Skatteetaten uten proporsjonal nytte.
+Avskrivninger tatt før 2024 (2021, 2022 og 2023) reverseres ikke. Disse er allerede godkjent av revisor i tidligere år, gen 1 var tatt i bruk fra og med 2023, og en så vidt omfattende retrospektiv omregning ville skape unødvendige spørsmål fra Skatteetaten uten proporsjonal nytte.
 
-### 8.2 Konto 1005 — avstemming per 31.12.2025
+### 9.2 Konto 1005 — avstemming per 31.12.2025
 
 Under vises konto 1005 slik den fremkommer per 31.12.2025 basert på regnskapsførers oppdaterte avstemming:
 
@@ -154,7 +196,7 @@ Under vises konto 1005 slik den fremkommer per 31.12.2025 basert på regnskapsf�
 
 Merknad om «Justert avskrivning etter omklass 2024» og avvikende avskrivningssatser for 2021 og 2022 Surewave: I 2024 ble pressverktøy skilt ut som eget driftsmiddel fra aktivert utvikling og omklassifisert til konto 1205 med bokført verdi 4 225 837 kr (dokumentert i eget bilag om omklassifiseringen). Grunnlaget for aktiveringene i 2021 og 2022 — og dermed også de årlige avskrivningssatsene — ble redusert. Dette forklarer at «Korrigert avskrivning 2025» for 2021 (2 738 979 kr) er lavere enn opprinnelig 5-års lineær sats (3 714 172 kr), og at avskrivningssatsen for 2022 Surewave i 2025 (2 435 388 kr) er lavere enn opprinnelig sats (2 553 039 kr).
 
-### 8.3 Konto 2160 — avstemming per 31.12.2025
+### 9.3 Konto 2160 — avstemming per 31.12.2025
 
 Konto 2160 «Opptjente tilskudd» inneholder utsatt inntekt fra offentlige tilskudd knyttet til aktiveringene på konto 1005. Under vises den oppdaterte avstemmingen fra regnskapsfører:
 
@@ -170,7 +212,7 @@ Konto 2160 «Opptjente tilskudd» inneholder utsatt inntekt fra offentlige tilsk
 | **Rest uopptjent inntekt pr 31.12.25**                 | **-17 833 717**      |              |              |              |              |                  |                  | **-5 146 838,29**|
 | Saldo etter reversering av avskrivbninger 2024 og 2025 |                      |              |              |              |              |                  |                  | -18 046 471,20   |
 
-### 8.4 Konkret reversering
+### 9.4 Konkret reversering
 
 Reverseringen omfatter både konto 1005 (utviklingsverdi-siden) og konto 2160 (tilskudds-siden), for samme perioder:
 
@@ -186,19 +228,19 @@ Reverseringen omfatter både konto 1005 (utviklingsverdi-siden) og konto 2160 (t
 
 Etter reverseringene beveger konto 2160 seg fra -5 146 838 kr til -18 046 472 kr (mer utsatt inntekt beholdes, siden den ikke lenger periodiseres mot avskrivning).
 
-## 9. Konto 1205 Pressverktøy (referanse)
+## 10. Konto 1205 Pressverktøy (referanse)
 
 I 2024 ble pressverktøy skilt ut som eget driftsmiddel fra aktivert utvikling (konto 1005) og omklassifisert til konto 1205 med bokført verdi 4 225 837,35 kr. Denne omklassifiseringen ble gjennomgått og bekreftet i forbindelse med revisjonen i fjor og gjentas ikke i sin helhet her.
 
-Konsekvensen for foreliggende revisorpakke er begrenset til at avskrivningsgrunnlaget på 2021- og 2022 Surewave-aktiveringene på konto 1005 ble redusert fra opprinnelige nivåer, hvilket reflekteres i «Korrigert avskrivning 2025»-kolonnen i tabellen i pkt. 8.2.
+Konsekvensen for foreliggende revisorpakke er begrenset til at avskrivningsgrunnlaget på 2021- og 2022 Surewave-aktiveringene på konto 1005 ble redusert fra opprinnelige nivåer, hvilket reflekteres i «Korrigert avskrivning 2025»-kolonnen i tabellen i pkt. 9.2.
 
 Kontoen for pressverktøy (kto 1205, bokført 4 225 837 kr) berøres ikke av prinsippendringen som beskrives i denne pakken, og skal ikke reverseres eller endres. Den nevnes her utelukkende for kontekst.
 
-## 10. Balanseeffekt og resultatpåvirkning
+## 11. Balanseeffekt og resultatpåvirkning
 
-Alle beløp uttrykkes i norske kroner. Endringen tas i sin helhet som resultatpost i 2025-regnskapet (Metode B, jf. pkt. 3.2).
+Alle beløp uttrykkes i norske kroner. Endringen tas i sin helhet som resultatpost i 2025-regnskapet (Metode B, jf. pkt. 4.2).
 
-### 10.1 Konto 1005 Aktivert utvikling
+### 11.1 Konto 1005 Aktivert utvikling
 
 | Post | Beløp (kr) |
 |---|---|
@@ -209,7 +251,7 @@ Alle beløp uttrykkes i norske kroner. Endringen tas i sin helhet som resultatpo
 | + Reversering av 2024-avskrivninger (alle rader på kto 1005) | +7 655 071 |
 | **Justert saldo konto 1005 per 31.12.2025** | **21 701 638** |
 
-### 10.2 Konto 2160 Opptjente tilskudd
+### 11.2 Konto 2160 Opptjente tilskudd
 
 | Post | Beløp (kr) |
 |---|---|
@@ -220,11 +262,11 @@ Alle beløp uttrykkes i norske kroner. Endringen tas i sin helhet som resultatpo
 
 Netto endring i utsatt inntekt (mer negativ = mer utsatt inntekt beholdes på balansen): -12 899 632 kr.
 
-### 10.3 Konto 1205 Pressverktøy
+### 11.3 Konto 1205 Pressverktøy
 
-Informasjons-punkt. Bokført verdi 4 225 837 kr. Berøres ikke av prinsippendringen (jf. pkt. 9).
+Informasjons-punkt. Bokført verdi 4 225 837 kr. Berøres ikke av prinsippendringen (jf. pkt. 10).
 
-### 10.4 Netto resultateffekt
+### 11.4 Netto resultateffekt
 
 | Post | Beløp (kr) |
 |---|---|
@@ -243,7 +285,7 @@ Foreløpig årsresultat 2025 etter korreksjonene: underskudd 3 282 483 kr.
 
 Egenkapital etter korreksjonene: positiv 1 454 838 kr.
 
-### 10.5 Utsatt skatt
+### 11.5 Utsatt skatt
 
 Aktivering av utviklingskostnader utgjør en skatteøkende midlertidig forskjell mellom regnskapsmessig verdi (på balansen) og skattemessig verdi (som er null — kostnadene er fradragsberettiget skattemessig som løpende drift). Prinsipielt utløser dette en utsatt skatt-forpliktelse på 22% av forskjellen.
 
@@ -253,23 +295,23 @@ Etter NRS 8 pkt. 6.1.1.2 kan små foretak unnlate å balanseføre utsatt skattef
 
 Fordi gen 2-utviklingen ikke er tatt i bruk enda, vil den midlertidige forskjellen fra aktiveringen først begynne å reversere når avskrivning påbegynnes. Posisjonen er inntil videre hvilende.
 
-## 11. Nedskrivingstest per 31.12.2025
+## 12. Nedskrivingstest per 31.12.2025
 
-### 11.1 Formål og hjemmel
+### 12.1 Formål og hjemmel
 
 Balanseførte utviklingsverdier skal årlig vurderes for nedskrivning etter regnskapsloven § 5-3 tredje ledd: «Anleggsmidler skal nedskrives til virkelig verdi ved verdifall som forventes ikke å være forbigående.» Vurderingsmetodikken følger NRS 8 pkt. 4.3.1.1.2 og NRS(F) Nedskrivning av anleggsmidler.
 
 Etter NRS(F) pkt. 3 skal foretaket ved regnskapsavleggelsen vurdere om det finnes indikatorer på verdifall på grunnlag av syv minimumsindikatorer. Hvis ingen indikatorer slår ut, og eiendelen ikke inngår i en vurderingsenhet der andre eiendeler har indikatorutslag, er det forsvarlig å unnlate videre undersøkelser (NRS(F) pkt. 3 siste avsnitt).
 
-### 11.2 Vurderingsenhet
+### 12.2 Vurderingsenhet
 
 Etter NRS(F) pkt. 4.1 bestemmes vurderingsenheten av det laveste nivået hvor det er mulig å identifisere inngående kontantstrømmer som er uavhengige av kontantstrømmer fra andre grupperinger. For mindre foretak med ett enkelt forretningsområde vil foretaket som helhet ofte være den naturlige vurderingsenheten.
 
-Sunlit Sea AS har ett forretningsområde: utvikling, produksjon og kommersialisering av flytende solkraftverk. All FoU-aktivitet i foretakets historie har vært rettet mot samme produktfamilie. Læring og tekniske løsninger fra ett års utviklingsarbeid videreføres direkte inn i påfølgende års arbeid og påfølgende produktversjoner. Gen 1 og gen 2 er suksessive versjoner av det samme produktet, og de balanseførte utviklingsverdiene er delelementer i den samlede tekniske plattformen foretaket bygger sitt produkt på.
+Sunlit Sea AS har ett forretningsområde: utvikling, produksjon og kommersialisering av flytende solkraftverk. Som beskrevet i seksjon 3 er all FoU-aktivitet i foretakets historie rettet mot samme produktfamilie, og gen 1 og gen 2 er suksessive versjoner av det samme produktet.
 
-Vurderingsenhet: foretakets samlede utviklingsplattform for flytende solkraftverk. Omfatter både historiske aktiveringer og de nye SuRE 2024/2025-aktiveringene. Nedskrivningsplikten vurderes for hele enheten under ett.
+Vurderingsenhet: foretakets samlede utviklingsplattform for flytende solkraftverk (jf. seksjon 3.3). Omfatter både 2021-basisen, Surewave-aktiveringene og de nye SuRE 2024/2025-aktiveringene. Nedskrivningsplikten vurderes for hele enheten under ett.
 
-### 11.3 Indikatorvurdering — de syv minimumsindikatorene
+### 12.3 Indikatorvurdering — de syv minimumsindikatorene
 
 **Indikator 1 — Vesentlig markedsverdifall på anleggsmidlet ut over normalt slit/elde.**
 
@@ -303,7 +345,7 @@ Foretaket har den motsatte observasjonen. Prosjektpipelinen består av tre bekre
 - Gunneklevfjorden ved Hærøya Industripark i Porsgrunn kommune — 3,2 MWp installasjon. Reguleringen er på plass, Hærøya Nett har bekreftet nettkapasitet, og Miljødirektoratet har bekreftet forankring i undervanns-voll som akseptabel. Lokal solkraftentreprenør Prosolar AS bistår med prosjektering.
 - Skien Havn — 350 kWp installasjon med eksisterende kommunal dispensasjon. Aaltvedt Betong AS har uttrykt interesse for en kraftkjøpsavtale, og prosjektet kvalifiserer for tilskudd fra Enova og Telemark Utviklingsfond.
 
-Driftsdokumentasjon: Skiftestjørna-anlegget — et 105 kWp gen 1-anlegg som Sunlit Sea eier og driver, installert høsten 2024 i Haugaland Næringspark med kraftkjøpsavtale til EV PowerCharge AS — har levert produksjon over forventning gjennom sin første fulle driftsperiode.
+Driftsdokumentasjon: Skiftestjørna-anlegget (jf. seksjon 3.1) har levert produksjon over forventning gjennom sin første fulle driftsperiode.
 
 Ekstern validering av teknologiplattformen i 2025-2026:
 
@@ -312,13 +354,13 @@ Ekstern validering av teknologiplattformen i 2025-2026:
 
 Ingen av disse invitasjonene eller innstillingene ville vært mulig uten at foretakets teknologi er kommet så langt i utviklingen at fagkyndige prosjektpartnere har konkret tillit til leveringsevnen. Ingen vesentlig overskridelse mot budsjett foreligger. Ingen utslag.
 
-### 11.4 Sammendrag av indikatorvurderingen
+### 12.4 Sammendrag av indikatorvurderingen
 
 Ingen av de syv minimumsindikatorene i NRS(F) pkt. 3 og NRS 8 pkt. 4.3.2.2 slår ut for vurderingsenheten per 31.12.2025. Det er heller ingen andre eiendeler i foretaket som har indikatorutslag som kunne trukket vurderingsenheten inn i en utvidet vurdering.
 
 Etter NRS(F) pkt. 3 siste avsnitt er det derfor forsvarlig å unnlate videre undersøkelse av verdifall. Beregning av gjenvinnbart beløp er ikke påkrevd.
 
-### 11.5 Kvalitativ bruksverdi-vurdering
+### 12.5 Kvalitativ bruksverdi-vurdering
 
 Selv om formell bruksverdi-beregning ikke er påkrevd, gis kort kvalitativ vurdering av at balanseført verdi er dekket av forventet fremtidig bruksverdi.
 
@@ -326,17 +368,17 @@ Etter prinsippendringen består vurderingsenheten av 21 701 638 kr balanseført 
 
 Markedets verdivurdering av foretaket (jf. indikator 4) og de pågående EU-prosjekt-utvidelsene (jf. indikator 7) er samtidig eksterne verdi-signaler på selve teknologiplattformen. Bruksverdi vurderes klart å overstige balanseført verdi.
 
-### 11.6 Konklusjon nedskrivingstest
+### 12.6 Konklusjon nedskrivingstest
 
 Ingen nedskrivning gjennomføres i 2025-regnskapet. Balanseført verdi på vurderingsenheten videreføres uendret etter prinsippendringen og reverserte avskrivninger.
 
-## 12. Foreslått notetekst
+## 13. Foreslått notetekst
 
-### 12.1 Note om regnskapsprinsipp — endring for aktivering av utviklingsutgifter
+### 13.1 Note om regnskapsprinsipp — endring for aktivering av utviklingsutgifter
 
 Selskapet har fra og med regnskapsåret 2025 endret regnskapsprinsipp for utviklingsutgifter knyttet til Horizon Europe-prosjektet SuRE. Kostnader som tidligere ble kostnadsført løpende aktiveres nå på konto 1005 «Aktivert utvikling» når vilkårene i regnskapsloven § 5-6 annet ledd er oppfylt. Endringen omfatter kostnader påløpt fra og med 1. januar 2024. Prinsippendringen resultatføres i endringsåret etter NRS 8-adgangen for små foretak (jf. regnskapsloven § 4-1 annet ledd), og sammenligningstallene for 2024 er ikke omarbeidet. Effekten av prinsippendringen for 2024 er ført mot konto 7794 «Korreksjoner tidligere år» (se egen note). Aktivering bruttoføres med tilhørende utsatt inntekt på konto 2160 «Opptjente tilskudd».
 
-### 12.2 Note om konto 7794 — Korreksjoner tidligere år
+### 13.2 Note om konto 7794 — Korreksjoner tidligere år
 
 Linjen «Korreksjoner tidligere år» (konto 7794) i resultatregnskapet utgjør 2 223 073 kr og reflekterer resultatvirkningen for 2024 av endringen i regnskapsprinsipp for aktivering av utviklingskostnader. Beløpet består av:
 
@@ -349,27 +391,27 @@ Linjen «Korreksjoner tidligere år» (konto 7794) i resultatregnskapet utgjør 
 
 Rundingsavvik på 9 kr mot totalen i resultatregnskapet skyldes underliggende posteringer.
 
-### 12.3 Note om avskrivninger av aktiverte utviklingsverdier
+### 13.3 Note om avskrivninger av aktiverte utviklingsverdier
 
 Balanseførte utviklingsverdier på konto 1005 avskrives ikke før eiendelen er tatt i bruk. Gen 2-produktet som utviklingsplattformen er rettet mot, er under aktiv utvikling med planlagt lansering i 2027. Avskrivning påbegynnes fra faktisk bruksdato, ikke fra estimert lansering. Inntil eiendelen er tatt i bruk gjennomføres årlig nedskrivningsvurdering.
 
-### 12.4 Note om utsatt skatt
+### 13.4 Note om utsatt skatt
 
 Selskapet har vesentlig fremførbart skattemessig underskudd fra tidligere år som utligner den skatteøkende midlertidige forskjellen som følger av aktivering av utviklingskostnader. Netto skatteposisjon vurderes å være en utsatt skattefordel. Etter NRS 8 pkt. 6.1.1.2 er utsatt skattefordel ikke balanseført.
 
-## 13. Oppsummering og hva revisor bes bekrefte
+## 14. Oppsummering og hva revisor bes bekrefte
 
 Sunlit Sea AS ber revisor bekrefte følgende disposisjoner i forbindelse med avleggelsen av 2025-regnskapet:
 
-1. Endring av regnskapsprinsipp for SuRE-utviklingskostnader fra kostnadsføring til aktivering, med resultatføring i 2025 etter NRS 8-adgangen for små foretak (jf. pkt. 3).
-2. Aktivering av SuRE 2024 (1 017 809 kr) og SuRE 2025 (817 942 kr) på konto 1005 (jf. pkt. 6).
-3. Bruttoføring av tilhørende tilskudd på konto 2160, konsistent med etablert praksis (jf. pkt. 7).
-4. Reversering av avskrivninger på konto 1005 for 2024 og 2025, med tilsvarende reversering av utsatt inntekt-periodisering på konto 2160 for samme perioder (jf. pkt. 8).
-5. Etablering og bruk av ny konto 7794 «Korreksjoner tidligere år» for 2024-korreksjonene som egen linje i resultatregnskapet (jf. pkt. 3.2 og notetekst i pkt. 12.2).
+1. Endring av regnskapsprinsipp for SuRE-utviklingskostnader fra kostnadsføring til aktivering, med resultatføring i 2025 etter NRS 8-adgangen for små foretak (jf. pkt. 4).
+2. Aktivering av SuRE 2024 (1 017 809 kr) og SuRE 2025 (817 942 kr) på konto 1005 (jf. pkt. 7).
+3. Bruttoføring av tilhørende tilskudd på konto 2160, konsistent med etablert praksis (jf. pkt. 8).
+4. Reversering av avskrivninger på konto 1005 for 2024 og 2025 — for samtlige aktiveringer, herunder 2021-basisen og Surewave-aktiveringene — med tilsvarende reversering av utsatt inntekt-periodisering på konto 2160 for samme perioder (jf. pkt. 9).
+5. Etablering og bruk av ny konto 7794 «Korreksjoner tidligere år» for 2024-korreksjonene som egen linje i resultatregnskapet (jf. pkt. 4.2 og notetekst i pkt. 13.2).
 6. Direkte-korreksjon av 2025-posteringer på konto 1005 og konto 2160 for 2025-korreksjonene.
-7. At konto 1205 «Pressverktøy» (bokført 4 225 837 kr, omklassifisert fra konto 1005 i 2024) ikke berøres av prinsippendringen (jf. pkt. 9).
-8. At utsatt skatt ikke balanseføres, etter NRS 8 pkt. 6.1.1.2-adgangen for små foretak (jf. pkt. 10.5 og notetekst i pkt. 12.4).
-9. Nedskrivingstest gjennomført med konklusjon: ingen nedskrivning (jf. pkt. 11).
+7. At konto 1205 «Pressverktøy» (bokført 4 225 837 kr, omklassifisert fra konto 1005 i 2024) ikke berøres av prinsippendringen (jf. pkt. 10).
+8. At utsatt skatt ikke balanseføres, etter NRS 8 pkt. 6.1.1.2-adgangen for små foretak (jf. pkt. 11.5 og notetekst i pkt. 13.4).
+9. Nedskrivingstest gjennomført med konklusjon: ingen nedskrivning (jf. pkt. 12).
 
 Netto resultateffekt av alle disposisjonene: resultatøkning 3 153 432 kr i 2025 (fordelt 2 223 073 kr mot konto 7794 for 2024-del, og 930 359 kr direkte i 2025). Foreløpig årsresultat 2025 etter korreksjonene: underskudd 3 282 483 kr. Egenkapital etter korreksjonene: positiv 1 454 838 kr.
 
