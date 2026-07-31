@@ -1186,4 +1186,93 @@ SVG-figuren oppdatert:
 
 **Neste steg (Eiriks side, utenfor T86):** Regenerere PNG med ImageMagick i cygwin: `magick -density 200 /cygdrive/c/dev/src/sure-d61/figures/2026-07-15_trl_utvikling_gen1_gen2.svg /cygdrive/c/dev/src/sure-d61/figures/2026-07-15_trl_utvikling_gen1_gen2.png`. Deretter pandoc PDF-konvertering av revisorpakken.
 
+---
+
+### T87 `[x]` [FUND] Oppdater løypemeldingen 2026-07-08 med prinsippendring-narrativ
+
+Etter T82-T86: prinsippendringen for aktivering av utviklingskostnader er levert til revisor. Hvis den godkjennes, gir den positiv egenkapital ved årsslutt 2025 (~1,5 MNOK) og fjerner det tidligere skisserte umiddelbare behovet for å hente 2 MNOK i frisk kapital fra investorer.
+
+Løypemeldingen `background/2026-07-08_loeypemelding.md` reflekterer situasjonen før prinsippendringen. Må oppdateres.
+
+**Deliverable — endringer i `background/2026-07-08_loeypemelding.md`:**
+
+1. **Intro (avsnitt 1):** Reformulere så det ikke lenger står at vi «trenger 2 MNOK i frisk kapital». Erstatt med kort omtale av at prinsippendringen — hvis revisor godkjenner — sikrer positiv egenkapital og fjerner det umiddelbare kapitalbehovet.
+2. **Seksjon 2 (Gen 2), TRL-referanse:** «TRL-nivået vurderes til 5-6» → «TRL-nivået vurderes til 4» (konsistent med T86-beslutningen).
+3. **Seksjon 2 (Gen 2), video-referanse:** Fjern setningen «Se vedlagt video fra P3-besøket i Kina høsten 2025.» — ingen vedlegg til denne løypemeldingen.
+4. **Seksjon 2 (Gen 2), TRL-figur:** Embed TRL-figuren fra revisorpakken (`figures/2026-07-15_trl_utvikling_gen1_gen2.png`) etter TRL-omtalen som visuelt anker. Relativ path fra `background/` er `../figures/...png`.
+5. **Seksjon 6 (Regnskap og kapital):** Erstatt paragrafene om kapitalbehov + emisjonsmekanikk med en beskrivelse av prinsippendring-prosessen:
+   - Hva endringen består i (aktivering av SuRE-utgifter, reversering av 2024/2025-avskrivninger på hele restbeholdningen)
+   - Hvorfor (gen 2 ikke tatt i bruk, kostnader er investeringer, ikke drift)
+   - Netto resultateffekt ~3,15 MNOK i 2025
+   - Konsekvens: positiv egenkapital ~1,5 MNOK ved årsslutt 2025, ikke behov for 2 MNOK-emisjonen
+   - Forutsetning: revisor godkjenner (pakke levert, regnskapsfører står bak)
+   - Contingency: emisjonsplanen står ved hvis revisor ikke godkjenner
+   - Signal til investorer: dialog med langsiktige investorer er fortsatt verdifull
+   - Nedskrivingstest-omtalen beholdes (kort)
+6. **Seksjon 7 milepælstabell:** Fjern raden «Rettet emisjon (2 MNOK)».
+7. **Avsluttende avsnitt:** Erstatt «Det kortsiktige kapitalbehovet er begrenset og løses gjennom en rettet emisjon» med noe som reflekterer prinsippendrings-løsningen.
+
+**Ikke i scope for T87:**
+
+- Andre løypemeldinger (ingen tilbakevirkende endringer på historiske investoroppdateringer).
+- Endring av dato eller filnavn på løypemeldingen (den er datert 2026-07-08 og det står — vi bare oppdaterer innholdet).
+
+**Krav ved gjennomføring:**
+
+- Behold tonen og stilen fra draften (uformelt norsk, spesifikke tall, direkte).
+- Ingen bold i brødtekst (jf. memory feedback_no_bold_in_body_text).
+- Ingen kryssreferanser til andre prosjektfiler i selve løypemeldingen (jf. feedback_deliverable_standalone). TRL-figuren embeddes som bilde, ikke som fil-referanse i tekst.
+- Løypemeldingen skal stå på egne ben — investor skal ikke trenge å slå opp i revisorpakken for å forstå prinsippendringen.
+
+**Solution (2026-07-16):**
+
+Alle punktene gjennomført:
+
+1. Intro (avsnitt 1): reformulert. «trenger 2 MNOK i frisk kapital» erstattet med kort omtale av at prinsippendringen forventes å sikre positiv egenkapital og fjerne det umiddelbare kapitalbehovet (forutsatt revisors godkjenning).
+2. Seksjon 2, TRL: «TRL-nivået vurderes til 5-6» → «TRL-nivået vurderes til 4».
+3. Seksjon 2, video-ref: fjernet.
+4. Seksjon 2, TRL-figur: embeddet som `![...](../figures/2026-07-15_trl_utvikling_gen1_gen2.png)` rett etter TRL-omtalen. Caption inneholder samme narrativ som i revisorpakken.
+5. Seksjon 6 fullstendig omskrevet: tre gamle paragrafer (aktiveringer + kapitalbehov + emisjonsmekanikk) erstattet med fire nye paragrafer:
+   - Faktagrunnlag: hva som var balanseført vs kostnadsført (rettet feil i draften — SuRE-utgifter var IKKE balanseført, som draften hevdet, det er hele poenget med prinsippendringen)
+   - Hva prinsippendringen består i: aktivering av SuRE fra 1.1.2024 + reversering av 2024/2025-avskrivninger på hele restbeholdningen, med begrunnelse
+   - Konsekvens: +3,15 MNOK resultat i 2025, positiv egenkapital ~1,5 MNOK, dekker støttekvalifisering, ingen 2 MNOK-emisjon nødvendig. Nedskrivingstest kort omtalt her.
+   - Forbehold + contingency: forutsetter revisor-godkjenning, ellers faller vi tilbake på emisjonen. Investor-dialog fortsatt verdifull.
+6. Milepælstabellen: «Rettet emisjon (2 MNOK)» erstattet med «Revisor-godkjenning av prinsippendring» (samme tidsrom Q3-Q4 2026, contingency-note).
+7. Avsluttende avsnitt: «Det kortsiktige kapitalbehovet er begrenset og løses gjennom en rettet emisjon» erstattet med prinsippendrings-formulering.
+
+**Files touched:** `background/2026-07-08_loeypemelding.md` (7 endringer, samme fil).
+
+**Neste steg (Eiriks side, utenfor T87):** Gjennomlese, korrigere detaljer om nødvendig. Hvis prinsippendringen godkjennes, oppdater denne løypemeldingen igjen med bekreftet status. Hvis revisor krever endringer, oppdater både løypemelding og revisorpakke.
+
+---
+
+### T88 `[x]` [FUND] Klage over tvangsmulkt til Skatteetaten
+
+Skatteetaten svarte 22.07.2026 (referanse 2026/5191796) på selskapets anmodning av 09.07.2026 (T80, ref SKFIN/2026/64323417). Innholdet i svaret:
+
+- Innleveringsfrist for skattemelding 2025 var 30.06.2026 og utsettelse registreres ikke.
+- Tvangsmulkten begynte å løpe 13.07.2026 og fortsetter til skattemelding er innsendt.
+- Sunlit Seas tidligere tilsvar er ikke registrert som klage.
+- Frafallelse av tvangsmulkt er avhengig av begrunnet klage, som må sendes på klageskjema RF-1521.
+- Klagefristen er 14.08.2026.
+
+**Deliverable:** Klagebrev til Skatteetaten som begrunnelse for klagen — beregnet for å følge med / suppleres inn i det formelle RF-1521-skjemaet. Hjemmel: skatteforvaltningsloven § 14-1 tredje ledd (frafallelse ved særlige grunner).
+
+**Solution (2026-07-22):**
+
+`leveranser/2026-07-22_klage_skatteetaten_tvangsmulkt.md` skrevet. Struktur i syv seksjoner:
+
+1. Innledning — referanser til Skatteetatens brev og selskapets tidligere tilsvar
+2. Hva klagen gjelder — tvangsmulkten fra 13.07.2026, anmodning om full frafallelse
+3. Hjemmelsgrunnlag — sktfvl § 14-1 tredje ledd
+4. Begrunnelse — samme fire sammenfallende forhold som i den tidligere anmodningen (redusert stillingsprosent hos daglig leder og styreleder, delvis sykmelding hos tidligere regnskapsfører, bytte av regnskapsfører til Orkla Regnskap AS, ekstern revisjon av Surewave-prosjektet i tre måneder), med kort argumentasjon om at samvirkningen mellom forholdene utgjør særlige grunner
+5. Status og planlagt levering — skattemelding forventes levert innen 19.08.2026, altså før klagefristen 14.08.2026
+6. Anmodning — full frafallelse etter § 14-1 tredje ledd
+7. Kontaktopplysninger + signatur
+
+Header med Sunlit Sea AS-adresse, orgnr, mottaker-adresse, dato og referanser (både ny 2026/5191796 og tidligere SKFIN/2026/64323417).
+
+**Files touched:** `leveranser/2026-07-22_klage_skatteetaten_tvangsmulkt.md` (ny).
+
+**Neste steg (Eiriks side, utenfor T88):** Overføre begrunnelsen til RF-1521-skjemaet (elektronisk på skatteetaten.no) eller sende inn som vedlegg. Klagen må være mottatt senest 14.08.2026. Vurdere om skattemeldingen kan leveres før klagen sendes, siden Skatteetaten ber om at klagen sendes «så snart skattemelding er innsendt». Hvis skattemelding leveres 19.08, må klagen uansett sendes innen 14.08 for å overholde klagefristen — klagen står da uavhengig av leveringstidspunkt for skattemeldingen.
 
