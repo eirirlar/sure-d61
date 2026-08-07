@@ -28,7 +28,7 @@ pdftotext -layout "sure/background/somefile.pdf" - > sure/background/somefile.tx
 
 ## Document conversion (Pandoc)
 
-Pandoc is the chosen conversion tool for `.docx`, `.pptx` and `.pdf`. All conversions in this project must support Mermaid diagrams inline in the Markdown source (e.g. `sure/report.md` embeds Mermaid in fenced code blocks). This is handled by **`mermaid-filter`** — a Pandoc filter that intercepts ```` ```mermaid ```` blocks, renders them to PNG at conversion time and embeds the images in the output. The filter must be system-installed (not `node_modules/` per project).
+Pandoc is the chosen conversion tool for `.docx`, `.pptx` and `.pdf`. All conversions in this project must support Mermaid diagrams inline in the Markdown source (e.g. `sure/deliverables/report_d6.1.md` embeds Mermaid in fenced code blocks). This is handled by **`mermaid-filter`** — a Pandoc filter that intercepts ```` ```mermaid ```` blocks, renders them to PNG at conversion time and embeds the images in the output. The filter must be system-installed (not `node_modules/` per project).
 
 ### Prerequisites – installation
 
@@ -100,15 +100,15 @@ Runtime environment: **Git Bash on Windows** (MINGW64) is standard in this proje
 **DOCX (the D6.1 / D6.2 delivery format):**
 
 ```bash
-cd sure
-pandoc report.md -o "D6.1 Sunlit model chain_v8.docx" -F mermaid-filter.cmd --toc --toc-depth=2
+cd sure/deliverables
+pandoc report_d6.1.md -o "D6.1 Sunlit model chain_v8.docx" -F mermaid-filter.cmd --toc --toc-depth=2
 ```
 
 **PDF:**
 
 ```bash
-cd sure
-pandoc report.md -o report.pdf \
+cd sure/deliverables
+pandoc report_d6.1.md -o report_d6.1.pdf \
   -F mermaid-filter.cmd \
   --pdf-engine=xelatex \
   -V documentclass=scrartcl \
@@ -152,7 +152,7 @@ sure/figures/
 └── fig_6-1_model_chain.png
 ```
 
-The `.mmd` files are the canonical source (edit these). The `.png` files are what the report embeds when read outside a Mermaid-aware renderer; `mermaid-filter` regenerates them at Pandoc time from the inline fenced blocks in `report.md`.
+The `.mmd` files are the canonical source (edit these). The `.png` files are what the report embeds when read outside a Mermaid-aware renderer; `mermaid-filter` regenerates them at Pandoc time from the inline fenced blocks in `deliverables/report_d6.1.md`.
 
 ---
 
@@ -244,6 +244,45 @@ uv run scripts/format_docx.py input.docx --borders-only
 
 Adapted from the same-named script in `../fjordgata30/scripts/` — mechanics are identical, only `TABLE_WIDTHS_BY_STEM` is Sunlit-Sea-tailored. When a new deliverable with tables is generated, add a new dict entry keyed on the input filename stem, with one width row per table in the order they appear in the document.
 
+### `scripts/extract_pdf_images.py`
+
+Extracts embedded images from PDF files into per-document folders. Uses `pypdf` + `Pillow` via `uv run` PEP 723 script metadata — no permanent Python install needed. Preserves original image format (PNG/JPEG/JP2) via each embedded image's own bytes.
+
+Output layout: `<output-dir>/<pdf-stem>/img-<page>-<idx>.<ext>`. Skips existing files without `--force`. Prints per-file summary with images-per-page distribution.
+
+```bash
+# Extract from four background PDFs into sure/background/images/<stem>/
+uv run scripts/extract_pdf_images.py \
+  "sure/background/foo.pdf" "sure/background/bar.pdf" \
+  --output-dir sure/background/images/
+
+# Overwrite existing extracted images
+uv run scripts/extract_pdf_images.py "sure/background/foo.pdf" --output-dir sure/background/images/ --force
+```
+
+Use this when a PDF's text extraction (via `pdftotext`) loses embedded figures, photos or diagrams that the .md conversion still needs to reference. Extracted images can then be linked into the .md file as `![](images/<pdf-stem>/img-XXX-YY.png)`.
+
+Alternative for slide-decks where "the image is the whole slide" (vector graphics + text): use `pdftoppm -png -r 150 file.pdf out_prefix` to render each page as an image. This script targets only embedded raster images.
+
+### `scripts/insert_pdf_page_images.py`
+
+Inserts inline markdown image references into a pdftotext-derived `.md` file, one image group per PDF page. Companion to `extract_pdf_images.py`: extraction gives you the image files organised by page; this script hooks them back into the text at the appropriate page boundaries so the images render inline in Markdown viewers and downstream Pandoc conversions.
+
+Expects the `.md` file to contain form-feed (`\f`) page separators as pdftotext outputs them, and expects images at `<images-dir>/<md-stem>/img-<page:03d>-<idx>.*` (the layout that `extract_pdf_images.py` produces).
+
+Images are appended at the *end* of each page's text (readers see the source text first, then the visuals). Safe by default — writes to `<name>.imgref.md` sibling; `--promote` overwrites in place.
+
+```bash
+# Dry-run
+uv run scripts/insert_pdf_page_images.py \
+  sure/background/2025-03-12_uv_minipatch_preliminary_results.md \
+  --images-dir sure/background/images/
+
+# Promote after verifying
+uv run scripts/insert_pdf_page_images.py \
+  sure/background/*.md --images-dir sure/background/images/ --promote
+```
+
 ### `scripts/nbsp_numbers.py`
 
 Binds thousands-separated number groups in Markdown with non-breaking space (NBSP, U+00A0) so that pandoc + xelatex does not break numbers like `18 570 858` across line boundaries in narrow PDF table columns. Regex-based, idempotent, character-count-neutral (only swaps space for NBSP inside `\d \d{3}` boundaries).
@@ -289,29 +328,28 @@ The dry-run output flags any file that shrinks to below 70% of its original word
 
 Sunlit Sea's contribution to the Horizon Europe project **SuRE**, Work Package 6.
 
-- **D6.1 Model chain description** – delivered as `D6.1 Sunlit model chain_v7.docx` (regenerated from `report.md` on request).
-- **D6.2 Multi-domain design screening** – in preparation (`report_d6.2.md`, `D6.2.md`).
+- **D6.1 Model chain description** – delivered as `D6.1 Sunlit model chain_v7.docx` (regenerated from `deliverables/report_d6.1.md` on request).
+- **D6.2 Multi-domain design screening** – in preparation (`deliverables/report_d6.2.md`, `D6.2.md`).
 
 Contents:
 
-- `report.md` – D6.1 report source (canonical Markdown).
-- `report_d6.2.md` – D6.2 report source (work in progress).
+- `deliverables/` – finished and in-progress deliverables (reports, presentations to CINEA / GA).
+  - `report_d6.1.md` – D6.1 report source (canonical Markdown).
+  - `report_d6.2.md` – D6.2 report source (work in progress).
+  - `sure_cinea_review_wp6_sunlitsea_presentation.md` – CINEA review deck.
+  - `sure_ga6_wp6_sunlitsea_presentation.md` – GA6 deck.
 - `D6.2.md` – working notes for D6.2 scoping / interface status.
 - `D6.1 Sunlit model chain_v7.docx` – latest delivered docx.
 - `analysis.md` – quality/consistency analysis of the D6.1 report.
 - `ife_feedback_v6.md` – Nathan's tracked-change comments (v6).
 - `activities.md` – collected evidence and testing activities.
-- `requirements.md` – functional requirements / FDS.
-- `gap.csv` – gap analysis.
 - `notes.txt` – loose working notes.
-- `sure_cinea_review_wp6_sunlitsea_presentation.md/.pptx` – CINEA review deck.
-- `sure_ga6_wp6_sunlitsea_presentation.md` – GA6 deck.
 - `sure_dow_extract.txt` – DoW extract.
-- `README_MARKDOWN.md` – legacy status doc from the report.txt → report.md conversion. Kept as history.
 - `figures/` – Mermaid sources (`.mmd`) + rendered PNGs used inline in the reports.
 - `images/` – photos, CAD/mesh screenshots, empirical figures used in the reports. See `CLAUDE.md` for per-image descriptions.
-- `background/` – DoW extract, external reports, source PDFs and their text extractions. Some files here (e.g. `Prod v2 roadmap`, `FDS -2024-Nextgen product`) may move to `gen2/background/` when Gen 2 material is separated.
-- `thepressing/` – code repository for the aluminium pressing simulation pipeline. Not modified in this project yet.
+- `background/` – DoW extract, external reports, source PDFs (and Markdown conversions of them) and other date-prefixed background material. Some files here (e.g. `Prod v2 roadmap`) may move to `gen2/background/` when Gen 2 material is separated.
+
+The aluminium pressing simulation pipeline lives as a neighbouring project at `../thepressing/` — not part of this repo.
 
 Partners: **IFE** (Nathan Roosloot – FEM/CFD), **TNO** (LCA), **MariSol/Accura** (physical forming trials). Open SuRE tasks carry the `[SURE]` tag in `TASKS.md`.
 

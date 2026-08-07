@@ -102,6 +102,14 @@ The `T`-number sequence is authoritative and continuous across activities. Tags 
 
 ---
 
+## Neighbour projects
+
+The aluminium pressing simulation pipeline lives at `../thepressing/` (own git repo). It is the authoritative source for the pressing pipeline that D6.1 and D6.2 reference; when SuRE tasks need to look at pressing code (e.g. cup geometry generation in `freecadcupcalc.py`, the LS-DYNA `.k.hbs` templates, the `paretooptimizer.py` screening), read from `../thepressing/`, not from any copy inside this repo. Never write to `../thepressing/` without explicit approval (per the top-level *Permissions* rule).
+
+Also read-only from this repo when useful for cross-project context: `../stotte/data/sunlit_sea/project_cards.json` (project card metadata for SuRE, Surewave, Enova, Skattefunn — grant references, durations, consortium partners, workpackages; use for prosjekt-navn and tidsrom, but *not* for budget-tall — accounting numbers come from regnskapsførers avstemminger).
+
+---
+
 ## SuRE background images (`sure/images/`)
 
 These are the images used in the D6.1 / D6.2 reports.

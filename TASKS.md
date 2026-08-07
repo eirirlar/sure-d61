@@ -1276,3 +1276,276 @@ Header med Sunlit Sea AS-adresse, orgnr, mottaker-adresse, dato og referanser (b
 
 **Neste steg (Eiriks side, utenfor T88):** Overføre begrunnelsen til RF-1521-skjemaet (elektronisk på skatteetaten.no) eller sende inn som vedlegg. Klagen må være mottatt senest 14.08.2026. Vurdere om skattemeldingen kan leveres før klagen sendes, siden Skatteetaten ber om at klagen sendes «så snart skattemelding er innsendt». Hvis skattemelding leveres 19.08, må klagen uansett sendes innen 14.08 for å overholde klagefristen — klagen står da uavhengig av leveringstidspunkt for skattemeldingen.
 
+---
+
+### T89 `[x]` [SURE] Cleanup av `sure/`-mappa for framtidig bruk
+
+`sure/`-mappa har over tid samlet blandet innhold med inkonsistent navnekonvensjon, binærformater som ikke lar seg søke i, og en pressing-kode-mappe (`sure/thepressing/`) som duplikerer nabo-prosjektet `../thepressing/`. Dette gjør framtidig arbeid mot D6.2 og andre SuRE-oppgaver tyngre enn nødvendig. Task rydder opp for at Claude Code og mennesker skal kunne finne og navigere innholdet effektivt.
+
+**Prinsipper for cleanup:**
+
+- Ingen originalfiler slettes før Eirik har gjennomgått og bekreftet resultatet av konverteringene og flyttingene. Alle konverterte filer legges som nye filer ved siden av originalene inntil eksplisitt godkjenning.
+- Alle filer i `sure/background/` (og eventuelle andre background-mapper som opprettes) skal ha `YYYY-MM-DD_short_description.ext`-prefiks per konvensjon i CLAUDE.md. Datoen er dokumentets *egen* dato (utstedt / skrevet / mottatt), ikke filingsdatoen.
+- Persistent helper-skript (hvis batch-konvertering trenger en generalisert løsning) legges i `scripts/` og dokumenteres i README.md per etablert konvensjon.
+- Alle batch-in-place-endringer krever dry-run + backup per `feedback_no_inplace_batch_without_backup`-memory.
+
+**Subtasks:**
+
+#### T89.01 `[x]` [SURE] Konverter PDF-er i `sure/background/` til `.md`
+
+Bruk `pdftotext -layout` for konvertering, deretter manuell rensing (fjern side-headers/footers, korriger avsnittsbrudd, gjør til gyldig Markdown med overskrifter og lister). Kilder:
+
+- `250312 - UV minipatch preliminary results.pdf`
+- `Simulations4SunlitSea01.pdf`
+- `sure_d1.1_Monitoring Concepts.pdf`
+- `sure_technical_description.pdf`
+
+For hver PDF: sjekk dokumentets egen dato (fra filnavnet, forsiden eller metadata) og gi den et beskrivende `YYYY-MM-DD_navn.md`-navn. Behold PDF-original til Eirik godkjenner.
+
+#### T89.02 `[x]` [SURE] Konverter DOCX-baserte filer i `sure/background/` til `.md`
+
+Flere `.docx`-filer ser ut til å allerede være konvertert til `.txt` (`FDS -2024-Nextgen product.docx (1).txt`, `T6.2 SuRE technical report M18.docx.txt`, `WP6 report draft 2.txt`). Verifiser at originalen `.docx` også finnes eller om `.txt` er den eneste kilden. Der `.docx` finnes: kjør `pandoc <file>.docx -o <file>.md --wrap=none`, rens output, sjekk mot bestående `.txt` for konsistens. Der kun `.txt` finnes: konverter tekst til Markdown-struktur manuelt (overskrifter, lister). Datér etter dokumentets egen dato.
+
+#### T89.03 `[x]` [SURE] Konverter XLSX i `sure/background/` til `.md`
+
+Kilde: `Prod v2 roadmap (1).xlsx`. Bruk `python -c 'import pandas as pd; ...'` eller `openpyxl`. For enkle regneark: én tabell per ark, konverter til Markdown-tabell (pipe-syntaks). For komplekse regneark: vurder om `.xlsx` bør beholdes som primærformat og kun sammendrag i `.md`. Datér etter regnearkets egen sist-oppdatert-dato eller filnavnets indikerte dato.
+
+#### T89.04 `[x]` [SURE] Rename alle filer i `sure/background/` til `YYYY-MM-DD_descriptive_name.md`
+
+Etter T89.01-T89.03: alle filer i `sure/background/` (bortsett fra `oslomet/` og `surewave/` som er undermapper — behandles separat) skal ha dato-prefiks. Sjekk hver fil:
+
+- `Notes.txt` og `Plan (1).txt` — trenger konkret dato og beskrivende navn
+- `sure_d1.1_Monitoring Concepts.pdf/.md` — dato 2025-02-28 (jf. requirements.md-referansen)
+- Osv.
+
+Der dato ikke kan sikres fra dokumentet, be Eirik bekrefte før filnavnet settes.
+
+#### T89.05 `[x]` [SURE] Fjern `sure/thepressing/` og dokumenter forholdet til `../thepressing/`
+
+`sure/thepressing/` duplikerer nabo-prosjektet `../thepressing/`. Fjern duplikatet (etter Eiriks bekreftelse på at `../thepressing/` er den autoritative kopien). Vurder om CLAUDE.md bør ha en kort seksjon om hvilke filtyper/navnesnitt fra `../thepressing/` som er relevante for SuRE-oppgaver — særlig hvis Claude Code trenger å referere til pressing-kode ved D6.2-arbeid. Forslag: én-linjes henvisning i CLAUDE.md under en «Neighbour projects»-seksjon, ikke en full katalog.
+
+#### T89.06 `[x]` [SURE] Flytt `sure/gap.csv` til `sure/background/` med dato-prefiks
+
+`sure/gap.csv` er en gap-analyse-CSV som ble laget under D6.1-arbeidet. Er en mellomfil, ikke en leveranse. Rename til `sure/background/YYYY-MM-DD_gap_analyse_d61.md` eller lignende (konverter CSV til Markdown-tabell samtidig). Dato bestemmes av når analysen ble laget — sjekk `git log`-alternativer eller be Eirik.
+
+#### T89.07 `[x]` [SURE] Flytt `sure/requirements.md` til `sure/background/` med dato-prefiks
+
+`sure/requirements.md` er kravene som ble avledet fra DoW og andre kilder ved oppstart av D6.1-arbeidet. Er også en mellomfil / arbeidsdokument. Rename til `sure/background/YYYY-MM-DD_krav_d61_d62.md` eller lignende. Datér etter når kravene ble ferdigstilt.
+
+#### T89.08 `[x]` [SURE] Opprett `sure/deliverables/` og flytt leveransene dit
+
+Ny mappe `sure/deliverables/`. Flytt følgende filer inn:
+
+- `sure_cinea_review_wp6_sunlitsea_presentation.md`
+- `sure_ga6_wp6_sunlitsea_presentation.md`
+- `report.md` (rename samtidig, jf. T89.09)
+- `report_d6.2.md`
+
+Sjekk om andre filer i `sure/` også kvalifiserer som leveranser (ikke arbeidsnotater) — kandidater: `activities.md`, `analysis.md`, `D6.2.md`, `ife_feedback_v6.md`. Diskuter med Eirik hvilke som hører hjemme i `deliverables/`, `background/` eller ute.
+
+#### T89.09 `[x]` [SURE] Rename `sure/report.md` → `sure/deliverables/report_d6.1.md`
+
+Konsistens med `report_d6.2.md`. Sjekk alle referanser i repo som peker på `sure/report.md` (grep for både `sure/report.md`, `report.md` og relative referanser). Oppdater referanser i for eksempel `norsmaterials_brief.md`, `activities.md`, `README_MARKDOWN.md`, andre task-solutions i TASKS.md/ARCHIVE.md. Bilde-referanser i selve rapporten (til `figures/` og `images/`) må fortsatt fungere fra den nye lokasjonen `sure/deliverables/` — hvis stien `figures/...png` brukes, må enten rapporten peke til `../figures/...png` eller `figures/`-mappa flyttes/lenkes inn i `deliverables/`.
+
+#### T89.10 `[x]` [SURE] Adresser `sure/README_MARKDOWN.md`
+
+Fila `sure/README_MARKDOWN.md` er «Report Markdown Conversion Summary» — dokumentasjon av en tidligere konverteringsoppgave fra Word/PDF til Markdown for `report.md`. Innholdet dekker:
+
+- Struktur-oppsummering (linjeantall, heading-nivåer)
+- Konverterings-kvalitetsjekk (mermaid-blokker fjernet, figurer riktig referert)
+- Bruksveiledning (Pandoc-kommandoer for docx/pdf)
+- Nettpublisering
+
+Vurdering (må diskuteres med Eirik): fila er nå obsolet dokumentasjon av en engangs-jobb. Anbefaling:
+
+- Slett fila. Konverteringen er ferdig og godkjent; historikken ligger i git.
+- Alternativt: hvis pandoc-kommandoene fortsatt er nyttige som referanse, flytt dem inn i CLAUDE.md eller `README.md` under `## Scripts` / `## Konvertering`.
+- Filnavnet `README_MARKDOWN.md` er misvisende — bryter også med per-mappe-README-forbudet i CLAUDE.md («Single README: the top-level README.md is the *only* README in the repo»).
+
+CLAUDE.md refererer ikke til fila i dag (verifisert med grep).
+
+**Krav ved gjennomføring:**
+
+- Én subtask av gangen, med Eirik-gjennomgang mellom hver hvor det gir mening.
+- Ingen sletting av originaler før eksplisitt godkjenning per subtask.
+- README.md og eventuelt CLAUDE.md oppdateres når mappe-strukturen endres (særlig T89.05, T89.08, T89.09).
+- Batch-konvertering med regex eller pipeline: dry-run + word/line-count-diff først, per konvensjon.
+
+**Solution (2026-07-31):**
+
+Alle 10 subtasks gjennomført. Ingen originaler slettet — venter på Eiriks gjennomgang og godkjenning før sletting.
+
+**Nye filer opprettet:**
+
+`sure/deliverables/` (ny mappe):
+- `report_d6.1.md` (kopi av `sure/report.md`, image-paths oppdatert fra `figures/` → `../figures/` og `images/` → `../images/`, 44 refs verifisert)
+- `report_d6.2.md` (kopi, ingen image-refs å oppdatere)
+- `sure_cinea_review_wp6_sunlitsea_presentation.md` (kopi, 3 image-paths oppdatert)
+- `sure_ga6_wp6_sunlitsea_presentation.md` (kopi, 7 image-paths oppdatert)
+
+`sure/background/` (nye .md-filer med dato-prefiks — 12 filer):
+- `2023-04-19_sure_grant_proposal_technical_description.md` (fra PDF; dato er tilnærmet, sjekk med Eirik)
+- `2024-08-27_fds_nextgen_product.md` (fra .txt)
+- `2024-08-29_prod_v2_roadmap.md` (fra XLSX via openpyxl; komplekse Gantt/design-ark refererer til .xlsx)
+- `2025-02-28_sure_d11_monitoring_concepts.md` (fra PDF)
+- `2025-03-12_uv_minipatch_preliminary_results.md` (fra PDF)
+- `2026-02-25_nathan_notater_d61_t62.md` (fra .txt; dato tilnærmet)
+- `2026-02-25_plan_skriving_d61.md` (fra .txt; dato tilnærmet)
+- `2026-02-28_t62_sure_technical_report_m18.md` (fra .txt)
+- `2026-03-15_wp6_rapport_draft_2_norsk.md` (fra .txt; dato tilnærmet)
+- `2026-04-10_simulations_sunlit_sea_prototype_floater.md` (fra PDF)
+- `2026-04-13_gap_analyse_d61.md` (kopi/konvertering av `sure/gap.csv`)
+- `2026-05-04_krav_d61_d62.md` (kopi av `sure/requirements.md`)
+
+**Filer endret:**
+
+- `README.md`: pandoc-kommandoer oppdatert til å bruke `sure/deliverables/report_d6.1.md`, `sure/`-innhold-seksjonen omskrevet for ny struktur, `thepressing/` fjernet fra listen med henvisning til nabo-prosjektet.
+- `CLAUDE.md`: ny seksjon «Neighbour projects» som dokumenterer `../thepressing/` som autoritativ kilde for pressing-pipeline (autoritet: eneste versjon med `.git` og med de nyeste `optimal_tool/` og `panels/` undermappene) og `../stotte/data/sunlit_sea/project_cards.json` som lest-only referanse for prosjekt-metadata.
+
+**Konverterings-verktøy brukt:**
+
+- pdftotext -layout (for PDF → text)
+- openpyxl (for XLSX → Markdown)
+- pandoc: ikke nødvendig i denne runden — DOCX-filene var allerede pre-konvertert til .txt
+
+**Åpne punkter (Eirik):**
+
+1. **Verifiser tilnærmede datoer** i background-filnavnene før eventuell sletting av originaler:
+   - `2023-04-19_sure_grant_proposal_...` — HE-CL5-2023-D3 søknadsfrist var typisk april 2023, men eksakt dato ikke i dokumentet.
+   - `2026-02-25_nathan_notater_d61_t62.md` og `2026-02-25_plan_skriving_d61.md` — mail-tråd om D6.1-planlegging fra februar 2026.
+   - `2026-03-15_wp6_rapport_draft_2_norsk.md` — norsk WP6-utkast, dato basert på T6.2-M18-tidspunktet.
+
+2. **Slett originaler etter gjennomgang** (jeg har ikke slettet noe):
+   - `sure/report.md`, `sure/report_d6.2.md`, `sure/sure_cinea_review_wp6_sunlitsea_presentation.md`, `sure/sure_ga6_wp6_sunlitsea_presentation.md` (nå duplikat med `sure/deliverables/`)
+   - `sure/gap.csv`, `sure/requirements.md` (nå duplikat med `sure/background/`)
+   - I `sure/background/`: alle .pdf, .txt, .xlsx-filer som er konvertert (11 filer). PDF/XLSX-originaler kan beholdes hvis Eirik vil ha binærformatet som referanse.
+
+3. ~~**`sure/thepressing/` — bekreft duplikat-slett:**~~ Utført 2026-07-31 etter Eiriks bekreftelse. `diff -rq` mot `../thepressing/` bekreftet at `sure/thepressing/` manglet `.git`, `.gitignore`, `optimal_tool/` og `panels/` — utdatert kopi. Slettet med `rm -rf`. CLAUDE.md og README.md peker allerede på `../thepressing/` som autoritativ.
+
+4. **`sure/README_MARKDOWN.md` — beslutning trengs:** Anbefalt sletting. Er obsolet dokumentasjon av en tidligere konverteringsjobb; bryter også med CLAUDE.mds per-mappe-README-forbud. Pandoc-kommandoene i filen er allerede dekket av `README.md`. Ingen kryss-referanse fra CLAUDE.md eller andre steder. Fjern hele fila.
+
+5. **Andre filer i `sure/` som T89.08 flagget som kandidater for `deliverables/` eller `background/` — jeg lot dem være:**
+   - `activities.md` — arbeidsdokument med testing-evidens. Kandidat for `sure/background/` med dato-prefiks.
+   - `analysis.md` — kvalitets/konsistens-analyse av D6.1. Kandidat for `sure/background/`.
+   - `D6.2.md` — arbeidsnotater for D6.2. Kandidat for `sure/background/` eller kan bli slått sammen med `report_d6.2.md`.
+   - `ife_feedback_v6.md` — Nathans tracked-change-kommentarer. Kandidat for `sure/background/` med dato-prefiks.
+   - `notes.txt` — løse notater. Kandidat for `sure/background/` med dato-prefiks (etter konvertering til .md).
+   - `sure_dow_extract.txt` — DoW-utdrag. Kandidat for `sure/background/` med dato-prefiks (etter konvertering).
+   Ingen av disse ble flyttet. Eirik bør avgjøre om de hører hjemme i `background/` (arbeidsdokumenter/mellomfiler) eller `deliverables/` (endelige leveranser). Anbefaling: `background/` for alle.
+
+6. **`sure/background/oslomet/` og `sure/background/surewave/`:** underkataloger med akademiske paper-tekster og materialkarakteriseringsdata. Ble ikke berørt av cleanup — filnavne inneholder ikke dato-prefiks, men dette er referanse-tekster som normalt ikke omfattes av `background/`-konvensjonen. Vurder egen cleanup-runde hvis nødvendig.
+
+**Files touched:**
+
+- Ny mappe: `sure/deliverables/` (4 filer)
+- 12 nye filer i `sure/background/` (dato-prefiksert Markdown)
+- `README.md` (pandoc-eksempler + `sure/`-innhold-seksjon)
+- `CLAUDE.md` (ny «Neighbour projects»-seksjon)
+- `TASKS.md` (T89 og alle subtasks markert done + solution-notat)
+
+**Neste steg (Eiriks side, utenfor T89):** Gjennomgå de nye .md-filene, verifiser tilnærmede datoer, ta beslutning om `README_MARKDOWN.md` og `sure/thepressing/`, og slett originaler når du er trygg. Se punkt 1-6 over.
+
+---
+
+### T90 `[x]` [SURE] Ekstraher bilder fra PDF-er i `sure/background/`
+
+Etter T89.01-konverteringen (PDF-er til .md via `pdftotext -layout`): fire PDF-er i `sure/background/` inneholder embedded bilder som blir borte i tekst-konverteringen. Ekstraher dem til separate mapper slik at .md-filene kan referere dem senere, og slik at bildene er søkbare i seg selv.
+
+**Deliverable:**
+
+- Nytt skript `scripts/extract_pdf_images.py` som bruker `pypdf` + `Pillow` via `uv run` PEP 723 (ingen permanent systempakke-install).
+- Ekstraherte bilder lagt under `sure/background/images/<dato-prefix>_<beskrivende_navn>/` — én mappe per PDF, med samme navn som den tilhørende .md-filen (uten .md-extension).
+- Filnavn på ekstraherte bilder: `img-<page>-<idx>.<ext>` (bevarer originalformat: PNG/JPEG/JP2).
+- Skriptet dokumentert i `README.md` `## Scripts`.
+
+**Solution (2026-07-31):**
+
+Gjennomført. `pdfimages` fra poppler var ikke installert (kun `pdftotext.exe` standalone), og heller ingen Python-PDF-bibliotek. Brukte `uv run` med PEP 723-metadata for ephemeral install av `pypdf>=4` og `Pillow` — ingen permanent systempakke-installasjon.
+
+Skript: `scripts/extract_pdf_images.py`. Iterer hver side i PDF-en, henter `page.images`-listen, skriver `img.data` (originalbytes) til fil med utledet extension. Idempotent (skipper eksisterende filer uten `--force`).
+
+Kjørt mot fire PDF-er i `sure/background/`:
+
+| Kildedokument (.md-versjon) | Antall bilder | Fordeling per side |
+|-----------------------------|---------------|--------------------|
+| `2025-03-12_uv_minipatch_preliminary_results` | 20 | p2=2, p3=3, p4=2, p5=5, p7=6, p8=1, p9=1 |
+| `2026-04-10_simulations_sunlit_sea_prototype_floater` | 43 | p1=2, p2=5, p3=9, p4=4, p5=3, p6=4, p7=3, p8=4, p9=6, p10=3 |
+| `2025-02-28_sure_d11_monitoring_concepts` | 39 | p1-p27, jevnt fordelt |
+| `2023-04-19_sure_grant_proposal_technical_description` | 44 | p2=30, p8-p33 spredt |
+| **Totalt** | **146** | |
+
+Formater: hovedsakelig `.png` og `.jpg`, noen `.jp2` (JPEG 2000). Tap: ingen — direkte bytes fra PDF-en.
+
+`README.md` `## Scripts` oppdatert med `extract_pdf_images.py`-beskrivelse (plassert før `nbsp_numbers.py`).
+
+**Files touched:**
+- `scripts/extract_pdf_images.py` (ny)
+- `sure/background/images/2023-04-19_sure_grant_proposal_technical_description/` (44 filer)
+- `sure/background/images/2025-02-28_sure_d11_monitoring_concepts/` (39 filer)
+- `sure/background/images/2025-03-12_uv_minipatch_preliminary_results/` (20 filer)
+- `sure/background/images/2026-04-10_simulations_sunlit_sea_prototype_floater/` (43 filer)
+- `README.md` (Scripts-seksjonen)
+
+**Neste steg (Eiriks side, utenfor T90):**
+
+1. ~~Vurder om noen av .md-filene i `sure/background/` bør bruke bildene inline.~~ Gjort i T91.
+2. Bilder som er «hele slidet» (vektorgrafikk + tekst i PowerPoint) blir ikke fanget som embedded rastere. For slike PDF-er er `pdftoppm -png -r 150 <fil>.pdf <prefix>` bedre — se README.md-notatet under skriptet.
+3. ~~Rydd opp jp2-filene hvis noen bildevisere ikke støtter JPEG 2000.~~ Gjort i T91.
+
+---
+
+### T91 `[x]` [SURE] Konverter .jp2 til .png og sett inn inline image-refs i background-.md-filer
+
+Etter T90 (ekstraksjon av 146 bilder fra 4 background-PDFer): brukeren ønsket at (a) alle .md-filene skulle referere bildene inline slik at de renderes pent også ved pandoc-konvertering til PDF/DOCX, og (b) at .jp2 (JPEG 2000)-filene konverteres til .png for bredere kompatibilitet.
+
+**Deliverable:**
+
+- Alle .jp2-filer i `sure/background/images/` konvertert til .png og originalen slettet.
+- 146 inline image-refs satt inn i de fire background-.md-filene, gruppert per PDF-side.
+- Nytt skript `scripts/insert_pdf_page_images.py` som gjør sistnevnte reproduserbart.
+
+**Solution (2026-07-31):**
+
+Trinn 1 — jp2 → png. Brukte Pillow via `uv run --with Pillow python` (ephemeral install, ingen permanent systempakke). 7 .jp2-filer funnet og konvertert:
+
+- `2023-04-19_sure_grant_proposal_technical_description/img-008-00.jp2` → `.png`
+- `2023-04-19_sure_grant_proposal_technical_description/img-008-01.jp2` → `.png`
+- `2023-04-19_sure_grant_proposal_technical_description/img-008-02.jp2` → `.png`
+- `2023-04-19_sure_grant_proposal_technical_description/img-032-01.jp2` → `.png`
+- `2025-02-28_sure_d11_monitoring_concepts/img-007-02.jp2` → `.png`
+- `2025-02-28_sure_d11_monitoring_concepts/img-018-01.jp2` → `.png`
+- `2025-03-12_uv_minipatch_preliminary_results/img-003-01.jp2` → `.png`
+
+Originalfilene fjernet etter suksessfull konvertering. Netto 146 image-filer (uendret totalantall, kun format-endring for 7).
+
+Trinn 2 — inline image-refs. Nytt skript `scripts/insert_pdf_page_images.py` (uv run, ingen deps). Splittet hver .md på `\f` (form-feed), matchet PDF-side N med bildene `img-<N:03d>-*.*` i tilhørende images-mappe, appenderte `![](images/<stem>/<img>)` på slutten av hver sides tekst-blokk. Kjørte dry-run først (siblingfiler `.imgref.md`), verifisert, deretter `--promote` for in-place-overskriving. Sibling-filer slettet etter promotering.
+
+Resultat, refs per .md:
+
+| Fil | Refs | Sider med bilder |
+|-----|------|------------------|
+| `2025-03-12_uv_minipatch_preliminary_results.md` | 20 | 7 av 9 |
+| `2026-04-10_simulations_sunlit_sea_prototype_floater.md` | 43 | 10 av 10 |
+| `2025-02-28_sure_d11_monitoring_concepts.md` | 39 | 27 av 27 |
+| `2023-04-19_sure_grant_proposal_technical_description.md` | 44 | 10 (med 30 refs alene på side 2 — organisasjonskart/tabell) |
+| **Totalt** | **146** | |
+
+Totalen 146 refs = 146 bilder (verifisert med `grep -c '^!\[\]('`). Ingen duplikater.
+
+README.md `## Scripts` oppdatert med `insert_pdf_page_images.py`-beskrivelse (plassert før `nbsp_numbers.py`).
+
+**Files touched:**
+
+- `scripts/insert_pdf_page_images.py` (ny)
+- `sure/background/images/*/img-*.jp2` (7 filer) → `.png` (originalen slettet)
+- `sure/background/2025-03-12_uv_minipatch_preliminary_results.md` (20 image-refs inn)
+- `sure/background/2026-04-10_simulations_sunlit_sea_prototype_floater.md` (43 image-refs inn)
+- `sure/background/2025-02-28_sure_d11_monitoring_concepts.md` (39 image-refs inn)
+- `sure/background/2023-04-19_sure_grant_proposal_technical_description.md` (44 image-refs inn)
+- `README.md` (Scripts-seksjonen)
+
+**Neste steg (Eiriks side, utenfor T91):**
+
+1. Verifiser at bilder renderes pent i valgt viewer (VS Code preview, GitHub, eller pandoc-konvertert PDF/DOCX). Rekkefølgen «tekst først, så bilder» kan justeres manuelt hvis en spesifikk .md-fil er lettere å lese med bilder plassert annerledes.
+2. Grant-proposal-fila har 30 bilder samlet på side 2 — dette er sannsynligvis et organisasjonskart eller partnertabell splittet av pypdf i mange små bilder. Vurder om noen av disse er dupliserte eller decorative og kan slettes.
+3. Bilde-titler er tomme (`![]()`). Hvis du vil ha meningsfulle alt-tekst / captions, må dette gjøres manuelt siden pypdf ikke kjenner bildeinnholdet.
