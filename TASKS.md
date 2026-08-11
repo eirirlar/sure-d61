@@ -1549,3 +1549,87 @@ README.md `## Scripts` oppdatert med `insert_pdf_page_images.py`-beskrivelse (pl
 1. Verifiser at bilder renderes pent i valgt viewer (VS Code preview, GitHub, eller pandoc-konvertert PDF/DOCX). Rekkefølgen «tekst først, så bilder» kan justeres manuelt hvis en spesifikk .md-fil er lettere å lese med bilder plassert annerledes.
 2. Grant-proposal-fila har 30 bilder samlet på side 2 — dette er sannsynligvis et organisasjonskart eller partnertabell splittet av pypdf i mange små bilder. Vurder om noen av disse er dupliserte eller decorative og kan slettes.
 3. Bilde-titler er tomme (`![]()`). Hvis du vil ha meningsfulle alt-tekst / captions, må dette gjøres manuelt siden pypdf ikke kjenner bildeinnholdet.
+
+---
+
+### T92 `[x]` [FUND] Foreslå optimal EIC Transition prosjektstruktur fra Sunlit Sea-perspektiv
+
+Bakgrunn: 30.07.2026 hadde konsortiet CLEMENT / Sunlit Sea / EDP / WavEC / SINTEF konsortie-møte om en EIC Transition-søknad basert på SUREWAVE-teknologien (offshore FPV bak flytende bølgebryter). Konsortiet er ferdig satt. Total ramme €2,5 mill. + €50k Booster, 100% støtte, mål TRL 6 gjennom pilot på 100-300 kWp offshore ved Aguçadoura (Portugal). SINTEF (Balram Panjwani) skal utarbeide overordnet prosjektstruktur og bidragsdokument; alle partnere skal definere WP-ansvar og oppgaver.
+
+Referanser i repo:
+
+- `background/eic/2026-07-31_MOM_EIC_SUREWAVE.txt` — MoM fra 30.07.2026-møtet
+- `background/eic/edp_interests.txt` — EDPs ønskede oppgave-lederskap (T9.1 lead, T8.2 lead, T7.3 lead, T6.1/T6.2 heavy support, T4.1 support, T3.2 support) — signal om at konsortiet allerede tenker på T-nummerert WP-struktur
+
+**Deliverable:** Bulletpoint-forslag på hvordan en optimal prosjektstruktur (WP-oppdeling, tasks, milepæler) ville sett ut fra Sunlit Sea sitt perspektiv. Fokus på (a) hvilke WP-er Sunlit Sea bør lede vs støtte vs sitte utenfor, (b) hvilke deliverables som gir mest verdi til gen 2-plattformen og til den norske kommersielle prosjektpipelinen, (c) milepæler som sikrer Sunlit Sea tilstrekkelig kontroll over FPV-designet, produksjonstakten og data-tilgang.
+
+Skrives som selvstendig .md-notat i `leveranser/` som Sunlit Sea kan dele med Balram/SINTEF når de arbeider med prosjektstruktur-dokumentet. Ikke en offisiell søknadstekst — internt strategi-notat.
+
+**Solution (2026-08-07):**
+
+`leveranser/2026-08-07_eic_transition_sunlit_sea_wp_forslag.md` skrevet på engelsk som enkel punktliste med underpunkter. Sju seksjoner:
+
+1. Sunlit Sea's strategic interests
+2. Boundary conditions — hva Sunlit Sea leverer (FPV-designet fra paneloverflate ned til aluminiumsbunn, inkludert støpte hengsel-halvdeler), og hva som er utenfor domenet (mooring, breakwater, site engineering, grid, offshore field operations — vi bidrar med kunnskap men leder ikke)
+3. Work packages (WP1-WP9), lead per WP og Sunlit Seas rolle. WP8 monitoring lagt eksplisitt til WavEC + EDP (T8.2), Sunlit Sea leverer instrumentering-spec ved oppstart og mottar data — ingen field trips.
+4. Milepæler redusert til fire (MS1 design frozen ~M12, MS2 delivered to site ~M20, MS3 commissioned ~M24, MS4 closeout ~M36) — begrunnet med at CINEA ikke gir date-changes lett etter signering.
+5. DNV alignment — sikter mot «certification-ready», IKKE full sertifisering (ville krevd DNV som partner). Referanser: DNV-RP-0584 (verifisert Sunlit Sea siden 2022), DNV-ST-C108 (FPV-strukturell design, mai 2026), DNV-ST-E309 (FPV-mooring, mai 2026). Konkret mapping per WP.
+6. Data-tilgang, IP og eksploatering — Sunlit Sea skal ha raw + processed data fra dag én, ingen embargo på kommersiell bruk.
+7. Open questions to Balram / konsortiet.
+
+**Files touched:** `leveranser/2026-08-07_eic_transition_sunlit_sea_wp_forslag.md` (ny).
+
+**Neste steg (Eiriks side, utenfor T92):** Del notatet med Balram og de andre partnerne. Bruk som utgangspunkt for Sunlit Seas bidragsavsnitt i det formelle prosjektstruktur-dokumentet. Vurder om noen av de foreslåtte WP-lederrollene bør forhandles hardere (særlig WP3 FPV-design og WP8 monitorering av FPV-ytelse).
+
+---
+
+### T93 `[x]` [FUND] Rens SINTEF EIC WP-forslag docx og skriv diff-vurdering mot Sunlit Sea-forslag
+
+Balram (SINTEF) sendte 2026-08-07 et preliminary WP/task-forslag (`background/eic/2026-08-07_sintef.docx`). Pandoc-konvertering ga rotete output (alt som topp-nivå bullets med `<!-- -->`-kommentarer). Trengte cleanup til lesbar Markdown, og en assessment av hvordan SINTEFs struktur skiller seg fra Sunlit Seas eget forslag (T92).
+
+**Solution (2026-08-07):**
+
+1. `background/eic/2026-08-07_sintef.md` skrevet — cleanup av pandoc-konverteringen til hierarkisk Markdown (WP1-WP9 som `##`, tasks som `###`, sub-bullets som `-`). Ingen innholds-endring, kun struktur.
+2. `leveranser/2026-08-07_eic_diff_sintef_vs_sunlitsea.md` skrevet — diff-assessment med fem seksjoner:
+   - Strukturell sammenligning per WP (tabell)
+   - EDP-alignment-sjekk (SINTEFs numrering matcher EDPs interesser T3.2/T4.1/T6.1/T6.2/T7.3/T8.2/T9.1; Sunlit Seas gjør ikke — SINTEFs blir arbeidsbaseline)
+   - Hva SINTEF fikk til som Sunlit Sea manglet (T1.3 innovation mgmt, T2.2 circular material, T3.3 model dev, T6.2 permit-liste, T6.3 EIA, T7.1 fatigue, T9.4 Booster som egen task)
+   - Hva Sunlit Sea har som SINTEF mangler (DNV-alignment RP-0584/ST-C108/ST-E309, milepæl-struktur, data-delivery-modell, boundary conditions, geografisk IP-split)
+   - Task-nivå lederforslag (Sunlit Sea leder T2.3 FPV Platform Design, T5.1-Floating Structures, T5.2 PV Integration, T5.3-FPV factory; heavy contribute på T3.3, T4.1, T7.4; EDP leder T3.2/T7.3/T8.2/T9.1 per uttrykt interesse)
+3. Anbefaling til Eirik: aksepter SINTEFs WP-numrering som baseline, push våre fire kjerne-input hardt før strukturen fryses (DNV, milepæler, data-terms, boundary/leads).
+
+**Files touched:**
+- `background/eic/2026-08-07_sintef.md` (ny, cleanup av docx-konvertering)
+- `leveranser/2026-08-07_eic_diff_sintef_vs_sunlitsea.md` (ny)
+
+**Neste steg (Eiriks side, utenfor T93):** Send oppdatert notat til Balram som aksepterer SINTEFs numrering + løfter våre fire kjerne-input (DNV, milepæler, data, leads). Bruk diff-fila som talepunkter i neste konsortie-diskusjon.
+
+---
+
+### T94 `[x]` [FUND] Skriv tilbakemeldingsdokument til SINTEF (Balram) på EIC-WP-forslag
+
+Bygger på T92 (Sunlit Sea forslag) og T93 (diff-vurdering). Formål: konkret, ydmyk/høflig engelsk feedback-brev fra Sunlit Sea til Balram (og resten av konsortiet) med konkrete forslag om hva som bør endres, legges til eller skrives om — kapitler, delkapitler og cross-cutting-elementer inkludert.
+
+**Solution (2026-08-07):**
+
+`leveranser/2026-08-07_eic_feedback_to_sintef.md` skrevet som et brev fra Eirik til Balram, med kopi til CLEMENT, EDP, WavEC. Ydmyk og samarbeidende tone («we suggest», «we propose», «open to discussion», «please treat this as our opening position, not a demand»).
+
+Struktur:
+
+- Åpningsavsnitt som anerkjenner SINTEFs struktur som god baseline (og at WP-numreringen matcher EDPs uttrykte interesser)
+- **Cross-cutting additions (seksjon 1):**
+  - 1.1 Milestones: forslag på 4 (MS1 M12, MS2 M20, MS3 M24, MS4 M36), med begrunnelse i CINEA-schedule-risk
+  - 1.2 DNV alignment: certification-ready mot DNV-RP-0584 / ST-C108 / ST-E309 uten DNV som partner; konkret plassering i T2.1 og T9.3
+  - 1.3 Data delivery terms: raw daglig, prosessert ukentlig, ingen embargo, uavhengig av tilstedeværelse — kritisk for Sunlit Sea siden vi ikke kan gjøre feltbesøk
+  - 1.4 Boundary conditions: hva vi leverer (FPV-unit fra paneloverflate til aluminiumsbunn) vs hva som er utenfor domenet
+- **Per-WP suggestions (seksjon 2):** konkrete additions/edits per WP. WP1 fint som er. WP2 legger til DNV-referanser i T2.1, Sunlit Sea leder T2.3. WP3 Sunlit Sea heavy contribute på T3.3. WP4 legger til FPV-instrumenteringsspec i T4.1 og data-delivery-terms i T4.3. WP5 splittet leder-struktur på T5.1, Sunlit Sea leder T5.2. WP6 anerkjent som godt, Sunlit Sea utenfor domenet. WP7 legger til DNV-ST-C108 sub-item i T7.1. WP8 LCA aligner mot SuRE-metodikk. WP9 legger til certification-readiness-deliverable i T9.3, Booster-retning for tri-lingual dissemination, geografisk IP-split.
+- **Task-lead-tabell (seksjon 3):** kompakt førsteforslag på alle task leads, alle åpne for forhandling
+- **Seksjon 4:** to reserverte diskusjonspunkter (skala 200 kWp foreslått, én commissioning-visit)
+- Avsluttes med invitasjon til diskusjon og takk
+
+Ingenting foreslås fjernet — SINTEFs struktur er stram nok at endringene er additive/klargjørende. Ydmyk tone gjennomgående.
+
+**Files touched:** `leveranser/2026-08-07_eic_feedback_to_sintef.md` (ny).
+
+**Neste steg (Eiriks side, utenfor T94):** Gjennomlese, evt. juster formulering / tone. Send til Balram og cc CLEMENT/EDP/WavEC. Vurder om noe skal tas først i one-on-one-call med Balram før det sendes til hele konsortiet.
+

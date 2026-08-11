@@ -1,0 +1,109 @@
+﻿Minutes of Meeting
+EIC Transition Proposal Preparation Meeting
+Project Concept: SUREWAVE-Based Offshore Floating Photovoltaic (FPV) Demonstration
+Date: 30/07/2026
+Participants: CLEMENT, Sunlit Sea, EDP, WavEC, SINTEF
+
+
+1. Purpose of the Meeting
+The meeting was convened to discuss the development of a joint EIC Transition proposal based on the results and technological concept developed within the SUREWAVE project.
+The SUREWAVE concept focuses on an innovative offshore FPV solution consisting of a floating photovoltaic system protected by an external floating breakwater structure, enabling operation under challenging offshore conditions while improving structural integrity, operational availability, and energy production. The concept addresses key offshore FPV challenges related to wave loading, mooring, structural performance, and long-term reliability. For more details, please visit  [surewave.eu]
+
+
+2. Consortium Status
+* The partners confirmed that the consortium has now reached its maximum desired capacity.
+* Participating organizations include: 
+   * CLEMENT, Germany
+   * Sunlit Sea, Norway
+   * EDP, Portugal
+   * WavEC, Portugal 
+   * SINTEF, Norway 
+3. Funding Framework
+* Total project budget: €2.5 million
+* Funding rate: 100% funded under the EIC Transition programme
+* Additional Booster Grant: up to €50,000 for activities supporting market uptake, networking, and commercialization.
+
+
+4. Project Vision and Objectives
+The consortium agreed that the EIC Transition project should build directly upon the technological foundations established in SUREWAVE and focus on advancing the technology towards demonstration and commercialization upto TRL 6.
+Main Objective
+Design, construct, and deploy a pilot-scale offshore FPV system in the range of approximately 100-300 kW at a nearshore demonstration site.
+Candidate Demonstration Site
+* Aguçadoura (Portugal) was identified as one of the leading candidate sites for deployment.
+* Further assessment of site suitability, permitting requirements, infrastructure availability, and operational costs is needed and it depends on the size. 
+
+
+5. Discussion on Demonstration Scale
+The consortium discussed whether deployment of a full 300 kW system is necessary to achieve the project objectives.
+Questions raised included:
+* Is a 300 kW pilot required from a technical validation perspective?
+* Can project objectives be achieved with a smaller-scale deployment?
+* What level of electrical power generation is needed to demonstrate technology readiness and performance?
+The consortium agreed that the final demonstration size should be driven by the project's technical objectives and cost effectiveness rather than by installed capacity alone.
+
+
+6. Grid Connection and Power Management
+A detailed discussion was held regarding electrical infrastructure requirements.
+Questions Considered
+* Is export of electricity to shore necessary?
+* Should subsea export cables be included within the project scope?
+* Can the validation objectives be achieved without a grid connection?
+The consortium agreed that grid export is not necessarily required for demonstrating the technology.
+Alternative options discussed included:
+* Temporary battery-based energy storage.
+* Controlled energy dissipation through dedicated load banks.
+* Other non-grid-connected operational strategies that would reduce installation complexity and cost.
+Further evaluation will be conducted during proposal preparation.
+
+
+7. FPV Configuration and Testing Strategy
+An important discussion focused on whether the demonstration platform should include operational photovoltaic modules.
+The importance of testing with actual PV modules to investigate:
+* Water ingress issues during operation.
+* Influence of wave-induced motions on energy production.
+* Salt accumulation and fouling effects.
+* Operational and maintenance challenges.
+* Overall system performance under realistic offshore conditions.
+Agreed Approach
+The consortium agreed that the pilot system should include:
+* Operational PV modules for energy-generation testing.
+* Dummy modules representing equivalent mass and aerodynamic/Hydrodynamic characteristics.
+This hybrid approach will allow:
+* Collection of realistic performance data.
+* Evaluation of structural behaviour of the complete system.
+* Improved understanding of operational and environmental loads.
+
+
+8. Instrumentation and Key Outcomes
+The consortium recognized advanced monitoring and instrumentation as a major project outcome.
+Potential instrumentation might include but were not discussed during the meeting:
+Structural Monitoring: Load sensors, Strain measurements, Mooring load monitoring
+Motion Monitoring: Accelerometers, Inertial Measurement Units (IMUs), Motion and attitude sensors
+Environmental Monitoring: Wave measurements, Wind measurements, Marine exposure monitoring
+Reliability Monitoring: Water ingress sensors, Corrosion monitoring, Structural health monitoring systems
+Energy Performance Monitoring: PV energy production, Electrical performance, Environmental impact on generation efficiency
+The resulting data will support validation of design tools, operational strategies, and future commercial deployments.
+
+
+9. Key Conclusions
+The consortium agreed on the following:
+1. Proceed with preparation of an EIC Transition proposal based on the SUREWAVE technology concept.
+2. Target deployment of a pilot-scale offshore FPV system of approximately 100-300 kW.
+3. Further assess whether a full 300 kW installation is required.
+4. Consider Aguçadoura as a leading demonstration site candidate.
+5. Avoid unnecessary grid-export infrastructure if project objectives can be achieved through alternative power management solutions.
+6. Include both operational PV modules and dummy modules in the demonstration system.
+7. Prioritize comprehensive instrumentation and data collection as a key project outcome.
+
+
+10. Action Items and Next Steps
+Action
+	Responsible
+	Prepare project structure and contribution document
+	Balram Panjwani (SINTEF)
+	Define partner responsibilities and work packages
+	All partners
+	Identify tasks required for design and deployment of the SUREWAVE demonstration system
+	All partners
+	Evaluate demonstration site options and infrastructure requirements
+	All partners
