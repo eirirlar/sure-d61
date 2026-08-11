@@ -313,239 +313,6 @@ We want to send our investors an annual recap of the past year (roughly 2025-07 
 
 ---
 
-### T75 `[x]` [FUND] Nedskrivingstest for årsregnskapet 2025
-
-I forbindelse med årsregnskapet for 2025 må Sunlit Sea AS presentere en nedskrivingstest for balanseførte immaterielle eiendeler:
-
-- **Tidligere års aktiveringer** fra FoU/utviklingsprosjekter som fikk offentlig støtte fra **Skattefunn, Enova, Innovasjon Norge (IN), SuRE (Horizon Europe) og Surewave** — allerede nedskrevet år-for-år etter vanlige planmessige regler, men det står fortsatt bokførte restverdier på balansen.
-- **Årets (2025) FoU-aktiveringer** som er lagt til balansen i inneværende regnskapsår.
-
-**Foretaksklassifisering:** Sunlit Sea AS er lite foretak (rskl §1-6) og følger **NRS 8 God regnskapsskikk for små foretak** som primær ramme. **NRS(F) Nedskrivning av anleggsmidler** brukes som utfyllende metodikk der NRS 8 er tynn.
-
-**Deliverables:**
-
-- `funding/nedskriving.md` — hoveddokument som presenterer nedskrivingstesten. Struktur: bakgrunn/formål, foretaksklassifisering, hjemmelsgrunnlag med lovreferanser, metodikk (indikatorvurdering → gjenvinnbart beløp → sammenligning med bokført verdi), per-aktivitet vurdering (Skattefunn / Enova / IN / SuRE / Surewave / 2025-FoU), konklusjon og eventuell nedskrivingsinnstilling.
-- `background/lover/` — ny mappe med utdrag av relevant regelverk som .md-filer (kun de relevante paragrafene). Filer:
-  - Regnskapsloven §1-6 (definisjon lite foretak)
-  - Regnskapsloven §5-3 (nedskrivning av anleggsmidler)
-  - Regnskapsloven §5-6 (utgifter til egen forskning og utvikling)
-  - NRS 8 relevante avsnitt (immaterielle eiendeler + nedskrivning)
-  - NRS(F) Nedskrivning av anleggsmidler (indikatorer, gjenvinnbart beløp, bruksverdi)
-  - NRS(F) Offentlige tilskudd (behandling av Skattefunn, Enova, IN, EU-tilskudd)
-
-**Datagrunnlag:** Rammeverk med plassholdere. Konkrete tall (opprinnelig aktivert verdi, akkumulert planmessig nedskriving, bokført verdi 31.12.2025 per aktivitet) fylles inn av Eirik i etterkant.
-
-**Følgeoppgave (ikke i scope for T75):** Hvis balansesummen etter 2025-aktivering nærmer seg terskelen for lite foretak (84 MNOK etter lovendringen 2024-06-21), må klassifiseringen revurderes for 2026. Nevnt kort i nedskriving.md pkt. 2 som merknad.
-
-**Solution (2026-07-08):**
-
-1. **Foretakskategori avklart med bruker:** Sunlit Sea AS er lite foretak (rskl § 1-5 annet ledd, 84 MNOK / 168 MNOK / 50 årsverk). Deltakelse i EU Horizon-prosjekter (SuRE, Surewave) påvirker ikke kategoriseringen direkte — det er størrelsestersklene som gjelder. NRS 8 valgt som primær ramme, NRS(F) Nedskrivning som utfyllende metodikk.
-
-2. **Nye lovtekst-utdrag skrevet til `background/lover/`:**
-   - `2024-11-01_regnskapsloven_1-5_kategorier_av_foretak.md` — definisjon av små foretak
-   - `2024-11-01_regnskapsloven_5-1_klassifisering_av_eiendeler.md` — anleggsmidler/omløpsmidler
-   - `2024-11-01_regnskapsloven_5-3_anleggsmidler.md` — hovedhjemmel for nedskrivningsplikten (tredje ledd)
-   - `2024-11-01_regnskapsloven_5-6_forskning_og_utvikling.md` — aktiveringsvilkår + valgrett for små foretak
-   - `2025-12-01_nrs_8_immaterielle_eiendeler_og_nedskrivning.md` — relevante utdrag: kap 4.3.1.1 (FoU), 4.3.2.2 (nedskrivningsindikatorer), 7.1.1.3 (offentlige tilskudd), 7.1.1.3.5 (Skattefunn)
-   - `2022-12-01_nrsf_nedskrivning_av_anleggsmidler.md` — utfyllende metodikk: pkt. 3 (indikatorer), 4 (vurderingsenhet), 5 (gjenvinnbart beløp / bruksverdi / diskonteringsrente), 6 (gjennomføring), 7 (reversering)
-   - `2020-02-01_nrs_4_offentlige_tilskudd.md` — hele standarden (kort, 5 sider)
-   Kilder: regnskapsloven fra Lovdata (`lovdata.no/lov/1998-07-17-56`), NRS-standarder fra Norsk RegnskapsStiftelse (regnskapsstiftelsen.no). Filnavn følger `YYYY-MM-DD_short_description.ext`-konvensjonen der YYYY-MM-DD er ikrafttredelses-/publiseringsdato for gjeldende versjon.
-
-3. **`funding/nedskriving.md` skrevet** — 12 seksjoner: formål/omfang, foretakskategori og valgt regnskapsstandard, hjemmelsgrunnlag (med lenker inn i `background/lover/`), vurderingsenhet, metodikk (3 trinn: indikator → gjenvinnbart beløp → nedskrivningsvurdering), trinn 1 indikatorvurdering (tabellert pr. 7 minimums-indikatorer), trinn 2 gjenvinnbart beløp (balanseført verdi-tabell + bruksverdiprosedyre + netto salgsverdi), trinn 3 nedskrivningsvurdering, behandling av tilhørende offentlige tilskudd, noteopplysninger, reversering, konklusjon. Rammeverk med plassholdere for tallene — struktur, metodikk og lovreferanser ferdig, Eirik fyller inn (a) opprinnelig aktivert per aktivitet, (b) akkumulert avskrivning, (c) bokført restverdi, (d) prognose og diskonteringsrente for bruksverdi. Vurderingsenhet argumentert til å være hele Gen 2 FPV-utviklingen samlet (ett forretningsområde, felles kontantstrømmer), i tråd med NRS(F) pkt. 4.1 for mindre foretak med ett forretningsområde.
-
-4. **README.md oppdatert:** (a) `background/` folder layout utvidet med `lover/`-undermappe, (b) `funding/` seksjon flippet fra "Currently empty" til å liste `nedskriving.md` og referansen til T75.
-
-5. **Etterrenslig:** Midlertidig `background/lover/_tmp/` med PDF-nedlastninger og pdftotext-uttrekk ble opprettet, brukt, og deretter slettet. Ingen gjenværende midlertidige filer. WebFetch og Agent-verktøy ble ikke brukt for denne oppgaven (kun WebFetch for HTML-siter — ingen agents spawnet, så ingen worktrees å rydde).
-
-**Files touched:** `TASKS.md` (T75 opprettet, deretter markert `[x]` med løsningsnotat), `README.md` (folder-layout + funding-seksjon), `funding/nedskriving.md` (ny), `background/lover/*.md` (7 nye lovutdrag).
-
-**Neste steg (Eiriks side, utenfor T75):** Fylle inn balansepostene i tabellen i pkt. 7.1 og prognose/diskonteringsrente i pkt. 7.2, deretter konkludere pkt. 8. Vurdere om Skattefunn-tilskudd har vært ført brutto eller netto historisk, og om NRS 4 sin bruttoføringsregel har vært fulgt konsekvent.
-
----
-
-### T76 `[x]` [FUND] Renskriv løypemeldingsdraft 2026-07-08
-
-Gjeldende draft ligger i `background/2026-07-08_loeypemelding_draft.md` og trenger utfylling med konkret innhold + tematisk utvidelse før den kan sendes til investorer. Sluttresultat: erstatte draft-fila med `background/YYYY-MM-DD_loeypemelding.md` (dato settes når teksten sendes ut).
-
-**Kilder som skal brukes:** `background/*loeypemelding*.md` (historisk tone/detaljnivå), `gen2/norsmaterials_brief.md` (gen 2 tekniske detaljer), `sure/report.md` (D6.1-innhold), `funding/nedskriving.md` (balanseført FoU-kontekst), pluss T77-rapporten (marked/konkurrenter) når den er ferdig.
-
-**Endringer i forhold til gjeldende draft:**
-
-1. **Gen 2-produktbeskrivelse — fyll inn `[...]`-plassholderen.** Draften avsluttes med "IFE har gjort UV testing og [...fyll inn fra det vi skrev til norsmaterials og i d6.1 rapporten...]". Konkretiser: standard 710-740 Wp paneler, PU-ramme rundt panelet, aluminiumsbunn, 6 cm PV-vann-avstand på laveste kant med 2° tilt, 80-90% lavere materialkost enn gen 1. UV-status på P3 (off-white PU-nedbrytning + søking etter bedre UV-resistent PU). P4-arbeidet med castings i Norge og revisjon av hengselgeometri. TRL 5-6 med utsikt til rask økning. Bruk `gen2/norsmaterials_brief.md` og `sure/report.md` som kilder.
-
-2. **Norsmaterials-samarbeidet — inkludér, dempet.** Ikke som "signert samarbeid" men som "vi vurderer strategisk samarbeid med Norsmaterials". Forklar match: norsk PU-castingspesialist på Sandane, dekker akkurat de områdene vi trenger ekstern kompetanse på (formulering, mould-design, cure-behavior), passer inn i den norske produksjonsambisjonen. Kort — ett avsnitt, ikke gjenta hele briefen.
-
-3. **Verifisering/sertifisering — droppet.** Eirik: ikke ta med.
-
-4. **Læring fra Skiftestjørna — kort callout.** Relevant materiale i bakgrunn: 105 kWp installert oktober 2024 på Haugaland Næringspark under develop-operate-sell-modellen, PPA med EV Powercharge, og bekreftet i 2025-10-07 løypemeldingen at anlegget "har levert produksjon over forventning". Dette er den ene konkrete driftserfaringen vi kan bygge tillit til gen 2-forventninger på. En eller to setninger som knytter Skiftestjørna-produksjonsdataene til at gen 2-prosjektene på samme lokalitet (Storavatnet) bygger på validert driftshistorikk. Ikke gjenta hele avviklings-narrativet fra 2025-10 løypemeldingen.
-
-5. **Prosjektportefølje som tabell.** Legg inn en kondensert tabell etter mønster fra 2024-10-01 løypemeldingen (Prosjekt, Land, Kunde, Modell, Produkt, Størrelse, Inntekt, Status, Leveringsdato). Kolonner justeres til dagens portefølje: Storavatnet (Norge, HNP-SPV, develop-operate-sell, gen 2, 3.2 MWp, ~30 MNOK, forsinket ~2 år pga HNP-omregulering), Gunneklevfjorden (Norge, HIP-SPV, develop-operate-sell, gen 2, 3.2 MWp, ~30 MNOK, ~12-15 mnd), Skien Havn (Norge, Aaltvedt-PPA, direct sales / develop-operate-sell?, gen 2, 350 kWp, forpakning, ~8 mnd), pluss internasjonale leads (Rixen Magdeburg 60 kWp, Rixen Tyrkia + Italia ~100 kWp hver, Orka Ventures Mexico 700 kWp, Peru 100 kWp). Marker de internasjonale eksplisitt som lavprioriterte men varme.
-
-6. **Balanseført FoU og verdsettelse av teknologiplattformen — utvid.** Draften nevner ikke balansen bortsett fra "2 MNOK i frisk kapital". Legg til: balanseført FoU-verdi 31.12.2025 (fylles inn av Eirik), sammensetning fra Skattefunn/Enova/IN/SuRE/Surewave, nedskrivingstest gjennomført per NRS 8 og NRS(F) Nedskrivning av anleggsmidler (`funding/nedskriving.md`), konklusjon på nedskrivingsbehov (fylles inn). Rammes som "vi forvalter tekniske aktivering-verdier ansvarlig og har evaluert dem for videre økonomisk verdi ihht regnskapsreglene". Denne seksjonen bør ikke være lang — 2-3 avsnitt.
-
-7. **IN-lån — konkrete beløp.** Erstatt "to lån fra Innovasjon Norge" med spesifikke tall: ett lån på 3 MNOK utestående + ett lån med ca 500K NOK igjen. Nevn refinansieringsdialog hvis relevant (draften antyder at IN må ha midler før dialog kan gjenopptas).
-
-8. **Konkurrent- og markedsbilde — hentes fra T77.** Vent på T77-rapporten. Ta med 3-5 hovedpoenger (marked-status, hovedkonkurrenter, hvorfor Sunlit Sea konkurrerer godt i sitt segment).
-
-9. **Emisjonsmekanikk — konkretisér.** Rettet emisjon, estimert kurs omtrent som forrige (samme aksjekurs). Selskapsverdivurdering ca 5 MEUR (~55-60 MNOK avhengig av valutakurs). Beløp som skal hentes: 2 MNOK. Utvanning: 2 MNOK / 55-60 MNOK ≈ 3.5-4% ny egenkapital. Aksjonærprioritet: eksisterende aksjonærer får tegne pro rata. Tidsvindu: så fort 2025-regnskapet er levert (må være før eller like etter).
-
-10. **12-måneders milepælsliste — enkel tabell.** Ikke graf (mermaid Gantt er overkill for et investorbrev). Enkel tabell med kolonner: kvartal (Q3 2026 / Q4 2026 / Q1 2027 / Q2 2027), milepæl, avhengighet/kommentar. Innhold: Q3 2026 svar på Surewave-utvidelse og SuRE-endring, Q3-Q4 emisjon gjennomført, Q4 2026 P4-castings ferdig i Norge, Q1 2027 Skien Havn installasjon (~8 mnd fra draft-dato), Q1-Q2 2027 gen 2 lansering, Q2 2027 Skattefunn-fornying søkt for 2027, Q2-Q3 2027 Gunneklevfjorden installasjon (12-15 mnd), Storavatnet på venteliste inntil HNP-omregulering (~2 år).
-
-11. **Aksjonæravtale/governance — droppet.** Eirik: ikke ta med.
-
-12. **Media/synlighet/konferanser — droppet.** Eirik: ikke ta med.
-
-**Struktur på ferdig løypemelding (foreslått rekkefølge):** (a) Innledning + situasjonsoppdatering (CEO, Askim, ingen ansatte, kostnadskontroll), (b) gen 2 produktbeskrivelse + status, (c) Norsmaterials-vurdering, (d) prosjektportefølje-tabell + norske prosjektdetaljer + internasjonale leads, (e) Skiftestjørna-driftserfaring kort, (f) markedsbilde (fra T77), (g) støtteordninger (Enova 1 MNOK, Surewave-utvidelse, SuRE-utvidelse, Skattefunn, statsstøtte-strategi), (h) IN-lån med konkrete tall, (i) balanseført FoU + nedskrivingstest, (j) emisjon (rettet, 5 MEUR-verdi, 2 MNOK, kurs), (k) 12-måneders milepælstabell, (l) oppsummering.
-
-**Avhengigheter:** T77 (marked/konkurrent-rapport) bør være ferdig før seksjon (f) skrives. Andre seksjoner kan skrives i parallell.
-
-**[BLOCKED — venter på T77]** for seksjon (f) markedsbilde. Alle andre seksjoner kan startes.
-
-**Solution (2026-07-08):**
-
-Ny fil skrevet som `background/2026-07-08_loeypemelding.md` (draft-fila `2026-07-08_loeypemelding_draft.md` beholdt uendret, ikke overskrevet, per Eiriks eksplisitte instruks). Ny fil: 11 seksjoner, ca 3760 ord (mot draft 1945 og 2025-10 løypemelding 830, altså på linje med 2024-10-løypemeldingen som var 2280 ord — passer et komplett investor-oppdatering-format).
-
-Innhold-mapping mot T76-punktene:
-
-1. Gen 2-produktbeskrivelse — pkt 4 med konkrete detaljer (standard 710-740 Wp glass/glass, PU-ramme rundt panelet, aluminiumsbunn 6 cm ved laveste kant, 2° tilt, TRL 5-6, tre PU-roller, UV-status på P3 med off-white ikke bekreftet, P4 castings i Norge, revidert hengselgeometri).
-2. Norsmaterials — pkt 5 tonet ned som "strategisk samarbeid under vurdering", med matchbegrunnelse (Sandane, PU-formulering, mould-design, cure-behavior) og CBAM-aluminium-koblingen som forsterker rasjonalet.
-3. Verifisering/sertifisering — droppet (men DNV-verifisering nevnes kort i pkt 6 om marked/konkurranse siden det er relevant kontekst der).
-4. Skiftestjørna-læring — pkt 3 som kort standalone-seksjon (105 kWp, PPA med EV PowerCharge, "produksjon over forventning", grunnlag for Storavatnet-tillit).
-5. Prosjektportefølje-tabell — pkt 2 med tabell (Storavatnet, Gunneklev, Skien, Rixen Magdeburg, Rixen Tyrkia+Italia, Orka Ventures Mexico, Peru) fulgt av draft-teksten for norske prosjekter og internasjonale leads.
-6. Balanseført FoU — pkt 8, referanser til rskl § 5-3, NRS 8 og NRS(F), med foreløpig vurdering om at det ikke foreligger vesentlige indikatorer på verdifall.
-7. IN-lån — pkt 1 (organisasjon-seksjon), konkrete beløp inn: ~3 MNOK utestående på ett lån, ~500K NOK igjen på det andre.
-8. Konkurrent-/markedsbilde — pkt 6, tett vevet inn fra T77-rapporten: hovedaktørene per segment, Fred. Olsen 1848 / Saipem / Ocean Sun / Ciel & Terre / SolarDuck / Oceans of Energy, kapitalmarked stramt (VC ned 22% YoY), norsk FPV som konkurransefortrinn, DNV RP-0584-oppdatering juni 2026.
-9. Emisjonsmekanikk — pkt 9, rettet emisjon, indikativ selskapsverdivurdering ~5 MEUR (~55-60 MNOK), samme aksjekurs som forrige, 2 MNOK inn, 3.5-4% utvanning, eksisterende aksjonærer pro rata.
-10. 12-måneders milepælstabell — pkt 10, tabell fra Q3 2026 til ~2028 (Storavatnet).
-11. Governance — droppet.
-12. Media — droppet.
-
-Struktur følger nyeste løypemelding (2025-10-07)-formatet med nummererte `**N. Tittel**`-seksjoner. Ingen bold i brødtekst (jf. memory feedback_no_bold_in_body_text). Bruker samme uformelle norsk som draften ("p.t", "feks", "pga", "svært lovende", "rimelig hardhendt"), lange informative avsnitt, spesifikke tall, direkte tone. Draft-teksten er beholdt i sin helhet der den passer inn i den nye strukturen — nye seksjoner (Skiftestjørna, marked, balanseført FoU, emisjonsmekanikk, milepæler) er lagt til rundt draft-innholdet.
-
-**Files touched:** `background/2026-07-08_loeypemelding.md` (ny). `background/2026-07-08_loeypemelding_draft.md` bevart uendret som referanse.
-
-**Neste steg (Eiriks side, utenfor T76):** Gjennomlese teksten, korrigere eventuelle detaljer om tall / prosjektbeløp / verdivurdering som ikke er 100% treffsikker, bekrefte den rette emisjonens indikative kurs, og deretter oppdatere `date`-feltet i frontmatter og eventuelt filnavnet før den sendes ut. Balanseført FoU-verdi (kroner) kan fylles inn når den er endelig fra funding/nedskriving.md.
-
----
-
-### T77 `[x]` [COM] Marked- og konkurrentkartlegging for FPV 2026
-
-Sunlit Sea trenger en oppdatert oversikt over konkurransebildet og markedsutviklingen for flytende solkraft (FPV) per 2026, både for kommersielt bruk og for å underbygge investortekst i T76-løypemeldingen. Historiske løypemeldinger har referert til Ocean Sun, Oceans of Energy, Ciel et Terre, Baywa RE, Emrgy (partner, ikke konkurrent) — men markedet har utviklet seg og bildet må friskes opp.
-
-**Deliverable:** `background/2026-07-08_market_intel.md` — kort rapport (2-4 sider) med:
-
-1. **Markedsstatus 2026.** Global FPV-kapasitet installert og annonsert. Fordelt på inland (reservoirs, kanaler) vs near-shore vs offshore. Årlig veksttakt siste 3 år. Ledende markeder (Kina, India, EU, USA, Norge). Priskurve på solcellepaneler og BOS (balance-of-system). Rentesetting og kapitalkostnad — hvordan påvirker det FPV-økonomien.
-2. **Konkurrentkart.** Minst 6-8 hovedaktører med: hjemland, teknologistrategi (inland / near-shore / offshore), typisk anleggsstørrelse, referanseprosjekter og volum, forretningsmodell (produktsalg / EPC / lisensiering), signaler om økonomisk helse (kapitalinnhentinger, konkurser, oppkjøp, permitteringer). Legg vekt på (a) Ocean Sun, (b) Ciel et Terre, (c) Baywa RE / SUNGROW / SunProject / SolarDuck / andre store, (d) norske eller nordiske aktører.
-3. **Sunlit Seas posisjonering.** Hvor konkurrerer Sunlit Sea godt (near-shore, kanaler, kaldt klima, aluminium-basert plattform, verifisert marin durability)? Hvor konkurrerer vi ikke (utility-scale utility-owned prosjekter i sub-tropiske land med lav BOS-kost)? Hva har endret seg siden 2024-loypemeldingen med FPV-strategien?
-4. **Trender og risikoer.** Kina-eksport av FPV-flottører — priser, kvalitet, garantier. EU-regulering (CBAM, kvoter). Marin miljøtillatelse — hvordan påvirker økt miljøsensitivitet søknadsprosessene? Forsikring og lang-tidsgarantier — er 25-års produksjon-garantier fortsatt standard?
-5. **Anbefalinger for løypemelding (3-5 hovedpoeng).** Hva bør Sunlit Sea si til investorer om marked/konkurranse? Konkret formulering-forslag som kan overføres til T76.
-
-**Kildetilnærming:** WebSearch/WebFetch for offentlige selskapsopplysninger (årsrapporter, pressemeldinger, LinkedIn, konferansenyheter). Bransjerapporter (BloombergNEF, IEA, IRENA, DNV, SolarPower Europe) hvis åpent tilgjengelige. Sammenlign med hva vi allerede har skrevet i historiske løypemeldinger (`background/*loeypemelding*.md`) og i D6.1 (`sure/report.md`).
-
-**Scope-grense:** Ikke en full markedsanalyse med Total Addressable Market-tall og modellprognoser — bare det Sunlit Sea trenger for (a) løypemeldingsinnhold og (b) intern situasjonsvurdering.
-
-**Solution (2026-07-08):**
-
-`background/2026-07-08_market_intel.md` skrevet med 5 hovedseksjoner (markedsstatus 2026, konkurrentkart med 12 aktører, Sunlit Seas posisjonering, trender/risikoer, anbefalinger for løypemelding). Alle kilder er 2025-2026 nyhets- og bransjeoppslag (per Eiriks eksplisitte instruks om ikke å bruke gamle data). ~20 unike hovedkilder med inline-lenker + samlet kildeliste på slutten.
-
-Sentrale funn som mates videre inn i T76: (a) Fred. Olsen 1848 (Brizo, DNV-under-evaluering, 3.5 m bølger) og Saipem/Moss Maritime (XolarSurf på Frøya) er de nærmeste norske konkurrentene i vårt segment; Ocean Sun konkurrerer på en helt annen teknologiplattform (flytende membran) og er i akutt likviditetskrise (2-3 mnd i Q1 2026). (b) BayWa r.e. sin uttrekning fra SuRE-konsortiet, Zimmermann PV Steel Group solgt til Nextpower i juni 2026 for $378M, cleantech-VC ned 22% på år-over-år for solstartups — alt underbygger at Sunlit Sea er relativt godt posisjonert i et stramt kapitalmarked. (c) Norge innfører CBAM på aluminium fra 1. januar 2026 — dette gir konkret støtte for case om norsk PU/aluminium-produksjon (Norsmaterials-vurderingen). (d) DNV oppdaterer RP-0584 i juni 2026 med to nye støttestandarder for FPV-flytstruktur og forankring — hever inngangsbarrieren for nye konkurrenter og styrker verdien av Sunlit Seas tidlige verifisering fra 2022. (e) Norsk kompetansehub for FPV består av Sunlit Sea, Ocean Sun, Fred. Olsen 1848, Saipem/Moss Maritime, Alotta, Current Solar, Scatec — en klynge som gjør norsk FPV til et internasjonalt konkurransefortrinn i seg selv.
-
-**Files touched:** `background/2026-07-08_market_intel.md` (ny).
-
----
-
-### T78 `[x]` [FUND] Foretaksuavhengig mal for nedskrivingstest med lovreferanser
-
-T75-leveransen `funding/nedskriving.md` ble Sunlit-Sea-spesifikk (referanser til Skattefunn/Enova/IN/SuRE/Surewave-aktiveringer, gen 2-utvikling, Storavatnet-pipeline etc.). Det er ikke ønskelig som en gjenbrukbar ressurs. Behovet er en generisk mal som andre foretak (eller Sunlit Sea for andre år) kan bruke som utgangspunkt.
-
-**Deliverable:** `funding/nedskriving_mal.md` — foretaksuavhengig template for gjennomføring av nedskrivingstest for anleggsmidler (varige driftsmidler og immaterielle eiendeler) etter norsk regnskapslovgivning. Malen skal:
-
-- Være foretaksuavhengig — ingen henvisninger til Sunlit Sea, gen 2, spesifikke prosjekter eller aktiviteter.
-- Være egnet for lite foretak som primær bruker (NRS 8), med korte notater om hvor mellomstore/store foretak avviker.
-- Ha eksplisitte "sett-inn"-plassholdere (feks `[foretakets navn]`, `[balansedato]`, `[opprinnelig aktivert]`) og korte veilednings-notater der brukeren trenger å ta beslutninger.
-- Vise til hjemler i regnskapsloven og NRS-standarder med lenker inn i `background/lover/`.
-- Beholde struktur og metodikk fra `funding/nedskriving.md` (som er solid), men strippe alt spesifikt-Sunlit-Sea-innhold og erstatte med instruksjoner + eksempeltekst.
-
-**Struktur (foreslått, kan justeres i utførelsen):**
-
-1. Formål og omfang (hva testen brukes til, når den er påkrevd)
-2. Foretakskategori og valgt regnskapsstandard (mal for hver kategori)
-3. Hjemmelsgrunnlag (lovreferanser med lenker)
-4. Vurderingsenhet (veiledning om hvordan bestemme + mal for begrunnelse)
-5. Metodikk (indikator → gjenvinnbart beløp → nedskrivningsvurdering)
-6. Trinn 1 — indikatorvurdering (mal-tabell for 7 minimums-indikatorer)
-7. Trinn 2 — gjenvinnbart beløp (mal-tabell for balanseført verdi + fremgangsmåte for bruksverdi og netto salgsverdi)
-8. Trinn 3 — nedskrivningsvurdering (mal for sammenligning og fordeling)
-9. Behandling av tilhørende offentlige tilskudd (NRS 4-krav)
-10. Noteopplysninger (mal-liste)
-11. Reversering av tidligere nedskrivning
-12. Konklusjon (mal-avsnitt)
-
-**Bruk av `funding/nedskriving.md`:** Beholdes uendret som Sunlit-Sea-spesifikk instans. Malen refererer ikke til den.
-
-**Solution (2026-07-08):**
-
-`funding/nedskriving_mal.md` opprettet — foretaksuavhengig mal med 12 nummererte hovedseksjoner + vedleggs-sjekkliste:
-
-- Pkt 0: Intro med hvordan malen brukes.
-- Pkt 1-2: Formål og foretakskategori — mal for alle fire kategorier (mikro/små/mellomstore/store) og valg av regnskapsstandard.
-- Pkt 3: Hjemmelsgrunnlag — tabellarisk oversikt over relevante rskl-paragrafer og NRS-standarder med lenker inn i `background/lover/`. IFRS/IAS 36 nevnt kort som utenfor scope.
-- Pkt 4: Vurderingsenhet — veiledning + plassholder for begrunnelse.
-- Pkt 5: Metodikk — 3-trinns fremgangsmåte identisk med `nedskriving.md` sin metodikk.
-- Pkt 6: Indikatorvurdering — 7-indikator-tabell med `Ja/Nei`-kolonne og plassholder-begrunnelser.
-- Pkt 7: Gjenvinnbart beløp — mal-tabell for balanseført verdi, prosedyre for bruksverdi (prognoseperiode, kontantstrømestimat, diskonteringsrente, nåverdi), veiledning for netto salgsverdi.
-- Pkt 8: Nedskrivningsvurdering — mal-tabell for sammenligning + Alternativ A/B ved konklusjon + fordelingstabell.
-- Pkt 9: Behandling av offentlige tilskudd — bruttoføring/nettoføring, Skattefunn, tilbakebetalingsforpliktelser.
-- Pkt 10: Noteopplysninger — differensiert for alle foretak (rskl § 7-39), mellomstore/store (NRS(F) pkt. 10) og små foretak (rskl § 7-1 annet ledd).
-- Pkt 11: Reversering — 5-indikator-vurdering + begrensninger.
-- Pkt 12: Konklusjon — mal-avsnitt.
-- Vedlegg: 12-punkts sjekkliste for kvalitetsikring av ferdig test.
-
-Alle Sunlit-Sea-spesifikke referanser fjernet (Skattefunn/Enova/IN/SuRE/Surewave nevnes kun generisk under offentlige tilskudd; ingen prosjektnavn, ingen "Gen 2", ingen "off-white PU" e.l.). Malen er delvis basert på strukturen i `nedskriving.md`, men skrevet fra bunnen for å være foretaksuavhengig. Bruker `[…]`-plassholdere og `> Veiledning:`-blokker for å skille mal-tekst fra veiledning som skal fjernes ved bruk.
-
-**Files touched:** `funding/nedskriving_mal.md` (ny).
-
----
-
-### T79 `[x]` [FUND] Revidert nedskrivingstest for 2025 med substansiell argumentasjon
-
-`funding/nedskriving.md` fra T75 er for placeholder-tung og fanger ikke opp den narrative som løypemeldingen 2026-07-08 dokumenterer: Sunlit Sea har utviklet unik FPV-teknologi over mange år, som nå bekreftes av (a) EU-programmenes vilje til å utvide vår andel av SuRE-prosjektet, (b) Sintefs invitasjon til Surewave-utvidelses-søknaden, (c) den kommersielle pipelinen (Skien Havn, Storavatnet, Gunneklev), (d) Skiftestjørna som leverer over forventning, (e) den etablerte norske FPV-klyngen der vi er en av hovedaktørene. Gen 2 er en videreutvikling av gen 1, ikke et brudd — alle læring og teknologisk arbeid som er aktivert er direkte overførbart. `funding/nedskriving_draft.md` (Eiriks kortnotat) oppsummerer denne posisjonen.
-
-**Deliverable:** `funding/nedskriving_2025.md` — en substansiell nedskrivingstest for årsregnskapet 2025 der argumentet og konklusjonen står på egne ben, med et minimum av tallplassholdere (feks `[AKT_TOTAL_ORIGINAL]`, `[AKT_TOTAL_RESTVERDI]` og eventuelt aktiveringer per år). Testen skal:
-
-- Følge malen fra `funding/nedskriving_mal.md` (12 seksjoner + sjekkliste).
-- Utnytte løypemeldingens dokumentasjon direkte i indikatorvurderingen (pkt. 6): eksterne indikatorer (marked, renter, verdivurdering) og interne indikatorer (ukurans, restrukturering, avkastningsprognose) skal ha konkrete begrunnelser, ikke plassholdere.
-- Konkludere at ingen av de 7 indikatorene slår ut, og at det derfor ikke er nødvendig å beregne gjenvinnbart beløp (jf. NRS(F) pkt. 3 siste avsnitt).
-- Likevel gi en kort kvalitativ bruksverdi-argumentasjon i pkt. 7 for å styrke dokumentasjonen.
-- Konkludere: ingen nedskrivning i 2025-regnskapet.
-
-**Bevaring av andre filer:** `funding/nedskriving.md` beholdes uendret (per Eiriks eksplisitte instruks). `funding/nedskriving_mal.md` beholdes som generisk mal. `funding/nedskriving_draft.md` beholdes som Eiriks kortnotat.
-
-**Solution (2026-07-08):**
-
-`funding/nedskriving_2025.md` skrevet. 12 seksjoner + vedleggs-sjekkliste. Argumentet står på egne ben og bygger på tre lag av dokumentasjon:
-
-1. **Regnskapsteknisk ramme** (pkt 2-5): Lite foretak, NRS 8 primær + NRS(F) utfyllende, vurderingsenhet = én samlet FPV-teknologiplattform (jf. NRS(F) pkt. 4.1 for mindre foretak med ett forretningsområde), 3-trinns metodikk.
-
-2. **Indikatorvurdering med konkret begrunnelse** (pkt 6): Alle 7 indikatorer i NRS(F) pkt. 3 og NRS 8 pkt. 4.3.2.2 vurdert eksplisitt med konkret dokumentasjon — ingen plassholdere for begrunnelser. Sentrale poenger som gjør at ingen indikatorer slår ut:
-   - Marked (indikator 2): FPV-markedet vokser 12% CAGR, DNV RP-0584 oppdateres juni 2026, norsk FPV-klynge befester posisjonen.
-   - Verdivurdering (indikator 4): Emisjonsindikativ ~5 MEUR er over balanseført egenkapital.
-   - Ukurans (indikator 5): Gen 2 er en videreutvikling av gen 1 — all aktivert læring er direkte overførbar og aktivt anvendt.
-   - Restrukturering (indikator 6): Aktiv videreutvikling mot lansering Q1-Q2 2027, ingen avvikling.
-   - Kontantstrømsprognose (indikator 7): IFE innstiller Cinea på 0.4 MEUR SuRE-utvidelse til Sunlit Sea etter BayWa r.e.-uttrekning; Sintef inviterer inn i Horizon Europe-utvidelses-søknad (0.5-1 MEUR til Sunlit Sea); Skiftestjørna leverer over forventning; prosjektpipeline (6.75 MWp norsk) intakt.
-
-3. **Kvalitativ bruksverdi-argumentasjon** (pkt 7): Selv om formell bruksverdi-beregning ikke er påkrevd (NRS(F) pkt. 3 siste avsnitt), er en kort kvalitativ vurdering inkludert for å styrke dokumentasjonen — pipeline, ekstern validering (IFE, Sintef, marked/emisjon), diskonteringsrente-metode og netto salgsverdi-vurdering.
-
-**Konklusjon:** Ingen nedskrivning i 2025-regnskapet. Balanseført verdi videreføres etter planmessige avskrivninger.
-
-**Plassholdere som gjenstår:** Bare tallverdier i notetabellen i pkt. 10 — `[AKT_SKATTEFUNN_ORIGINAL]`, `[AKT_ENOVA_ORIGINAL]`, `[AKT_IN_ORIGINAL]`, `[AKT_SURE_ORIGINAL]`, `[AKT_SUREWAVE_ORIGINAL]`, `[AKT_2025_ORIGINAL]` (+ tilsvarende for akkumulerte avskrivninger og bokført restverdi), samt `[BALANSEFØRT_TOTAL_31_12_2025]` og `[ÅR_FØRSTE_AKTIVERING]`. Fylles fra hovedbok. Argumentet og konklusjonen påvirkes ikke av tallene så lenge de er innenfor rimelighetens grenser.
-
-**Files touched:** `funding/nedskriving_2025.md` (ny). `funding/nedskriving.md`, `funding/nedskriving_mal.md`, `funding/nedskriving_draft.md` uendret.
-
-**Videre:** README.md-oppdatering for å liste `nedskriving_2025.md` og `nedskriving_draft.md` under `funding/`.
-
----
-
 ### T80 `[x]` [FUND] Anmodning til Skatteetaten om tvangsmulkt-utsettelse for skattemelding 2025
 
 Skatteetaten har varslet vedtak om tvangsmulkt for manglende innlevering av skattemelding for inntektsåret 2025 (brev datert 03.07.2026, referanse SKFIN/2026/64323417). Ordinær leveringsfrist var 30.06.2026. Ny frist for å unngå tvangsmulkt er satt til 13.07.2026. Mulkten er 672,50 kr per dag, med maksbeløp 13 450 kr (20 dager).
@@ -557,7 +324,7 @@ Kildebrev fra Skatteetaten: `background/2026-07-01_skatt_varsel_tvangsmulkt.txt`
 **Dokumentstruktur:**
 
 - `background/2026-07-09_forsinket_aarsoppgjoer.md` — bakgrunnsnotat om hvorfor årsoppgjøret er forsinket (situasjon, historikk, faktagrunnlag). Ikke skrevet enda av Eirik. Bakgrunn for anmodningen, ikke selve leveransen.
-- `leveranser/[YYYY-MM-DD]_anmodning_skatteetaten_tvangsmulkt.md` — selve anmodningsdokumentet som sendes til Skatteetaten. Ikke skrevet enda; skal etableres som ny fil under `leveranser/`-mappen (mappen finnes ikke enda i repoet, må opprettes ved første leveranse-fil).
+- `background/2026-07-09_anmodning_skatteetaten_tvangsmulkt.md` — selve anmodningsdokumentet som sendes til Skatteetaten. Ikke skrevet enda; skal etableres som ny fil under `background/`. (Opprinnelig i `leveranser/` — mappen ble innført ved T80 og senere flyttet til `background/` i T96.).
 
 **Deliverables i T80:**
 
@@ -581,7 +348,7 @@ Alle fem lovutdrag skrevet. Kort strategisk oppsummering av rettskildene og fors
 
 4. **Ikke aktuelt for oss — umulig oppfyllelse.** Skfvl § 14-1 fjerde ledd fritar bare når oppfyllelse er umulig pga forhold som ikke skyldes den ansvarlige. Regnskapsfører-bytte + administrativ kapasitet regnes ikke som slikt forhold i Skatteetatens praksis.
 
-**Forslag til struktur for anmodningsdokumentet i `leveranser/`:**
+**Forslag til struktur for anmodningsdokumentet i `background/`:**
 
 1. Referanse til Skatteetatens brev (dato + saksnummer)
 2. Kort forklaring av forsinkelsen (begrenset kapasitet i administrasjonen + bytte av regnskapsfører i perioden)
@@ -590,7 +357,7 @@ Alle fem lovutdrag skrevet. Kort strategisk oppsummering av rettskildene og fors
 5. Subsidiært: anmodning om ettergivelse av eventuell påløpt tvangsmulkt etter skfvl § 14-1 tredje ledd
 6. Signatur og kontaktopplysninger
 
-**Anmodningen skrevet:** `leveranser/2026-07-09_anmodning_skatteetaten_tvangsmulkt.md`. Følger malen ovenfor. Plassholdere for signatur (navn/rolle/e-post/telefon) fylles inn av Eirik når det er bestemt hvem som signerer — signeringen krever selskapsrettslig fullmakt (jf. skatteforvaltningsloven § 8-15 tredje ledd), dvs. Per Lindberg som CEO/styreleder eller annen med signaturfullmakt registrert hos Skatteetaten.
+**Anmodningen skrevet:** `background/2026-07-09_anmodning_skatteetaten_tvangsmulkt.md`. Følger malen ovenfor. Plassholdere for signatur (navn/rolle/e-post/telefon) fylles inn av Eirik når det er bestemt hvem som signerer — signeringen krever selskapsrettslig fullmakt (jf. skatteforvaltningsloven § 8-15 tredje ledd), dvs. Per Lindberg som CEO/styreleder eller annen med signaturfullmakt registrert hos Skatteetaten.
 
 `leveranser/`-mappen etablert som ny top-level-mappe i repoet ved denne leveransen. Speiler `../fjordgata30/leveranser/` og holder eksterne leveranse-dokumenter (anmodninger, klager, forespørsler, formelle utgående brev) samlet.
 
@@ -606,9 +373,9 @@ Kravene til leveransen er utviklet i lang chat-diskusjon med Eirik. Denne task-b
 
 **Deliverables:**
 
-1. `leveranser/YYYY-MM-DD_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` — én selvstendig .md-fil som integrerer alt (prinsippendring, aktivering-oversikt, vilkårsvurdering, tilskuddsbehandling, avskrivningsreversering, avskrivningsstart, balanseeffekt, nedskrivingstest, konklusjon). Filen skal stå på egne ben — ingen kryssreferanser til andre filer i repoet, ingen `../background/lover/`-lenker, ingen `funding/nedskriving_2025.md`-referanser. Alle nødvendige fakta inline. Filnavn ASCII (transliterer æ/ø/å).
+1. `funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` — én selvstendig .md-fil som integrerer alt (prinsippendring, aktivering-oversikt, vilkårsvurdering, tilskuddsbehandling, avskrivningsreversering, avskrivningsstart, balanseeffekt, nedskrivingstest, konklusjon). Filen skal stå på egne ben — ingen kryssreferanser til andre filer i repoet, ingen `../background/lover/`-lenker, ingen `funding/nedskriving_2025.md`-referanser. Alle nødvendige fakta inline. Filnavn ASCII (transliterer æ/ø/å).
 
-2. `leveranser/YYYY-MM-DD_mail_regnskapsforer_revisorpakke.md` — kort mail-tekst som legger pakken ved og stiller de eksplisitte oppfølgingsspørsmålene til regnskapsfører (se pkt "Mail til regnskapsfører" nedenfor).
+2. `funding/2026-07-14_mail_regnskapsforer_revisorpakke.md` — kort mail-tekst som legger pakken ved og stiller de eksplisitte oppfølgingsspørsmålene til regnskapsfører (se pkt "Mail til regnskapsfører" nedenfor).
 
 **Kilder som må leses før implementering:**
 
@@ -686,7 +453,7 @@ Kravene til leveransen er utviklet i lang chat-diskusjon med Eirik. Denne task-b
 10. Nedskrivingstest på den utvidede balanseposten (integrert; ingen kryssreferanse til `nedskriving_2025.md` — argumentasjonen replikeres inline: vurderingsenhet, 7 indikatorer, konklusjon "ingen nedskrivning")
 11. Konklusjon og hva revisor bes bekrefte
 
-**Mail til regnskapsfører (`leveranser/YYYY-MM-DD_mail_regnskapsforer_revisorpakke.md`):**
+**Mail til regnskapsfører (`funding/2026-07-14_mail_regnskapsforer_revisorpakke.md`):**
 
 Kort tekst som:
 - Vedlegger revisorpakken
@@ -716,7 +483,7 @@ Kort tekst som:
 
 **Solution (2026-07-14):**
 
-To filer skrevet til `leveranser/`:
+To filer skrevet til `funding/`:
 
 1. `2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (3 385 ord) — 12 seksjoner integrert. Innledning, foretaks- og standardgrunnlag, prinsippendring m/hjemmel og Metode B-valg, vilkårsvurdering etter rskl § 5-6, Skattefunn holdt utenfor scope, aktivering-oversikt SuRE 2024/2025, bruttoføring bekreftes, reversering av avskrivninger 2024/2025 med detaljert per-rad-tabell inkludert AVSKRIV_2024_TOTAL-estimatet (~7,66 MNOK), avskrivningsstart etter faktisk bruksdato (ikke bundet til 2027), balanseeffekt/utsatt skatt/resultatpåvirkning, nedskrivingstest integrert med alle syv indikatorer, oppsummering med seks bekreftelses-punkter til revisor. Ingen kryssreferanser til andre prosjektfiler — står på egne ben.
 
@@ -726,7 +493,7 @@ Plassholdere som gjenstår i revisorpakken:
 - AVSKRIV_2024_TOTAL — eksakt fra regnskapsfører (estimat ~7 655 071 kr basert på lineær 5-års avskrivning per rad, med spesifikk bekreftelse etterspurt i mail pkt 1).
 - Signatur (Navn, Rolle, E-post, Telefon) — settes inn før leveranse.
 
-**Files touched:** 2 nye filer i `leveranser/`.
+**Files touched:** 2 nye filer i `funding/` (opprinnelig `leveranser/`, flyttet i T96).
 
 ---
 
@@ -962,7 +729,7 @@ Repo-interne:
 - `figures/2026-07-15_trl_utvikling_gen1_gen2.svg` — TRL-figur som skal integreres
 - `sure/report.md` — særlig kap. 1 (introduksjon + gen 1 → gen 2), kap. 2 (gen 2-arkitektur), kap. 3 (prototyping / mould-workflow), kap. 5 (materialer / miljøeksponering). Rapporten er hovedkilden for teknisk beskrivelse av både gen 1 og gen 2.
 - `gen2/norsmaterials_brief.md` — kompakt gen 1 vs gen 2-sammenligning, prototypeserie P3 → P4 → P5, PU-rolle, målestatus
-- `background/*loeypemelding*.md` — grep for «Surewave», «SuRE», «gen 1», «Skiftestjørna», «Enova», «Skattefunn», «Innovasjon Norge». Historiske investoroppdateringer inneholder tidsrom, milepæler, partnerkonstellasjoner og motivasjonen bak hvert utviklingssteg.
+- `background/loeypemelding/*.md` — grep for «Surewave», «SuRE», «gen 1», «Skiftestjørna», «Enova», «Skattefunn», «Innovasjon Norge». Historiske investoroppdateringer inneholder tidsrom, milepæler, partnerkonstellasjoner og motivasjonen bak hvert utviklingssteg.
 - `funding/`-filer (aktivering-notater, regnskapsuttrekk) — for å finne hvilke støtteprosjekter 2021-basisen på kto 1005 (18 570 858 kr) faktisk stammer fra
 
 Ekstern (nabo-prosjekt, eksplisitt lest med Eiriks tillatelse):
@@ -1000,12 +767,12 @@ Endringer i seksjonsstruktur:
 Kildebruk (per skjerpet kildekrav):
 
 - Gen 1 teknisk beskrivelse: `sure/report.md` kap 1 (Fig 1-1 og 1-2), `gen2/norsmaterials_brief.md` gen 1 vs gen 2-tabell
-- Gen 2 arkitektur og prototypeserie: `sure/report.md` kap 2, `gen2/norsmaterials_brief.md`, `background/2025-11-17_loeypemelding.md` (TRL 5-6)
-- Skiftestjørna-anlegget: `background/2024-10-01_loeypemelding.md` (105 kWp, install 10. oktober, first develop-operate-sell, PPA med EV PowerCharge) og `background/2025-10-07_loeypemelding.md` («produksjon over forventning»)
-- Gen 1-avvikling: `background/2025-10-07_loeypemelding.md` (styret besluttet avvikling)
-- Surewave: `../stotte/data/sunlit_sea/project_cards.json` (grant, varighet, konsortium, WPer), `background/2026-07-08_loeypemelding.md` (12-måneders forlengelse pga ACCIONA), `background/2024-04-28_loeypemelding.md` (Clement Systems breakwater-samarbeid)
+- Gen 2 arkitektur og prototypeserie: `sure/report.md` kap 2, `gen2/norsmaterials_brief.md`, `background/loeypemelding/2025-11-17_loeypemelding.md` (TRL 5-6)
+- Skiftestjørna-anlegget: `background/loeypemelding/2024-10-01_loeypemelding.md` (105 kWp, install 10. oktober, first develop-operate-sell, PPA med EV PowerCharge) og `background/loeypemelding/2025-10-07_loeypemelding.md` («produksjon over forventning»)
+- Gen 1-avvikling: `background/loeypemelding/2025-10-07_loeypemelding.md` (styret besluttet avvikling)
+- Surewave: `../stotte/data/sunlit_sea/project_cards.json` (grant, varighet, konsortium, WPer), `background/loeypemelding/2026-07-08_loeypemelding.md` (12-måneders forlengelse pga ACCIONA), `background/loeypemelding/2024-04-28_loeypemelding.md` (Clement Systems breakwater-samarbeid)
 - SuRE: `../stotte/data/sunlit_sea/project_cards.json` (varighet, konsortium, WPer), `sure/report.md` kap 1 (WP6-objektiver O6.1.1 og O6.2.1, D6.1 vs D6.2)
-- 2021-basis komposisjon: `background/2021-06-23_loeypemelding.md` (IN miljøteknologistøtte 8.4 MNOK juni 2021, matching investors Holta Invest AS); detaljert sammensetning per støtteprogram henvist til regnskapsførers avstemminger og bilagsdokumentasjon (ikke gjettet)
+- 2021-basis komposisjon: `background/loeypemelding/2021-06-23_loeypemelding.md` (IN miljøteknologistøtte 8.4 MNOK juni 2021, matching investors Holta Invest AS); detaljert sammensetning per støtteprogram henvist til regnskapsførers avstemminger og bilagsdokumentasjon (ikke gjettet)
 
 Ingen faktapunkter i seksjon 3 uten kildegrunnlag. Alle konkrete beløp fra regnskapsførers avstemminger. Ingen bold i brødtekst. Norsk finansterminologi. Valuta etter tall. Ingen kryssreferanser til andre prosjektfiler.
 
@@ -1151,7 +918,7 @@ Under gjennomgang av revisorpakken oppdaget Eirik at TRL-nivået for gen 2 er fe
 **Ikke i scope for T86 (andre steder som nevner TRL 5-6):**
 
 - `funding/...revisorpakke..._eksakte_belop.md` — backup fra T85, skal per konvensjon stå urørt (dokumenterer tallsituasjonen på et gitt tidspunkt, ikke sannheten). TRL-feilen i backupen noteres kun her.
-- `background/2025-11-17_loeypemelding.md` — historisk løypemelding, ikke ment for endring i etterkant.
+- `background/loeypemelding/2025-11-17_loeypemelding.md` — historisk løypemelding, ikke ment for endring i etterkant.
 - `gen2/norsmaterials_brief.md` — ekstern-vendt samarbeidsdokument til Norsmaterials. Kan oppdateres separat om Eirik ønsker.
 - `sure/sure_cinea_review_wp6_sunlitsea_presentation.md` og `sure/sure_dow_extract.txt` — historiske dokumenter knyttet til SuRE-rapportering.
 
@@ -1192,9 +959,9 @@ SVG-figuren oppdatert:
 
 Etter T82-T86: prinsippendringen for aktivering av utviklingskostnader er levert til revisor. Hvis den godkjennes, gir den positiv egenkapital ved årsslutt 2025 (~1,5 MNOK) og fjerner det tidligere skisserte umiddelbare behovet for å hente 2 MNOK i frisk kapital fra investorer.
 
-Løypemeldingen `background/2026-07-08_loeypemelding.md` reflekterer situasjonen før prinsippendringen. Må oppdateres.
+Løypemeldingen `background/loeypemelding/2026-07-08_loeypemelding.md` reflekterer situasjonen før prinsippendringen. Må oppdateres.
 
-**Deliverable — endringer i `background/2026-07-08_loeypemelding.md`:**
+**Deliverable — endringer i `background/loeypemelding/2026-07-08_loeypemelding.md`:**
 
 1. **Intro (avsnitt 1):** Reformulere så det ikke lenger står at vi «trenger 2 MNOK i frisk kapital». Erstatt med kort omtale av at prinsippendringen — hvis revisor godkjenner — sikrer positiv egenkapital og fjerner det umiddelbare kapitalbehovet.
 2. **Seksjon 2 (Gen 2), TRL-referanse:** «TRL-nivået vurderes til 5-6» → «TRL-nivået vurderes til 4» (konsistent med T86-beslutningen).
@@ -1240,7 +1007,7 @@ Alle punktene gjennomført:
 6. Milepælstabellen: «Rettet emisjon (2 MNOK)» erstattet med «Revisor-godkjenning av prinsippendring» (samme tidsrom Q3-Q4 2026, contingency-note).
 7. Avsluttende avsnitt: «Det kortsiktige kapitalbehovet er begrenset og løses gjennom en rettet emisjon» erstattet med prinsippendrings-formulering.
 
-**Files touched:** `background/2026-07-08_loeypemelding.md` (7 endringer, samme fil).
+**Files touched:** `background/loeypemelding/2026-07-08_loeypemelding.md` (7 endringer, samme fil).
 
 **Neste steg (Eiriks side, utenfor T87):** Gjennomlese, korrigere detaljer om nødvendig. Hvis prinsippendringen godkjennes, oppdater denne løypemeldingen igjen med bekreftet status. Hvis revisor krever endringer, oppdater både løypemelding og revisorpakke.
 
@@ -1260,7 +1027,7 @@ Skatteetaten svarte 22.07.2026 (referanse 2026/5191796) på selskapets anmodning
 
 **Solution (2026-07-22):**
 
-`leveranser/2026-07-22_klage_skatteetaten_tvangsmulkt.md` skrevet. Struktur i syv seksjoner:
+`background/2026-07-22_klage_skatteetaten_tvangsmulkt.md` skrevet. Struktur i syv seksjoner:
 
 1. Innledning — referanser til Skatteetatens brev og selskapets tidligere tilsvar
 2. Hva klagen gjelder — tvangsmulkten fra 13.07.2026, anmodning om full frafallelse
@@ -1272,7 +1039,7 @@ Skatteetaten svarte 22.07.2026 (referanse 2026/5191796) på selskapets anmodning
 
 Header med Sunlit Sea AS-adresse, orgnr, mottaker-adresse, dato og referanser (både ny 2026/5191796 og tidligere SKFIN/2026/64323417).
 
-**Files touched:** `leveranser/2026-07-22_klage_skatteetaten_tvangsmulkt.md` (ny).
+**Files touched:** `background/2026-07-22_klage_skatteetaten_tvangsmulkt.md` (ny).
 
 **Neste steg (Eiriks side, utenfor T88):** Overføre begrunnelsen til RF-1521-skjemaet (elektronisk på skatteetaten.no) eller sende inn som vedlegg. Klagen må være mottatt senest 14.08.2026. Vurdere om skattemeldingen kan leveres før klagen sendes, siden Skatteetaten ber om at klagen sendes «så snart skattemelding er innsendt». Hvis skattemelding leveres 19.08, må klagen uansett sendes innen 14.08 for å overholde klagefristen — klagen står da uavhengig av leveringstidspunkt for skattemeldingen.
 
@@ -1563,11 +1330,11 @@ Referanser i repo:
 
 **Deliverable:** Bulletpoint-forslag på hvordan en optimal prosjektstruktur (WP-oppdeling, tasks, milepæler) ville sett ut fra Sunlit Sea sitt perspektiv. Fokus på (a) hvilke WP-er Sunlit Sea bør lede vs støtte vs sitte utenfor, (b) hvilke deliverables som gir mest verdi til gen 2-plattformen og til den norske kommersielle prosjektpipelinen, (c) milepæler som sikrer Sunlit Sea tilstrekkelig kontroll over FPV-designet, produksjonstakten og data-tilgang.
 
-Skrives som selvstendig .md-notat i `leveranser/` som Sunlit Sea kan dele med Balram/SINTEF når de arbeider med prosjektstruktur-dokumentet. Ikke en offisiell søknadstekst — internt strategi-notat.
+Skrives som selvstendig .md-notat i `background/eic/` som Sunlit Sea kan dele med Balram/SINTEF når de arbeider med prosjektstruktur-dokumentet. Ikke en offisiell søknadstekst — internt strategi-notat.
 
 **Solution (2026-08-07):**
 
-`leveranser/2026-08-07_eic_transition_sunlit_sea_wp_forslag.md` skrevet på engelsk som enkel punktliste med underpunkter. Sju seksjoner:
+`background/eic/2026-08-07_eic_transition_sunlit_sea_wp_forslag.md` skrevet på engelsk som enkel punktliste med underpunkter. Sju seksjoner:
 
 1. Sunlit Sea's strategic interests
 2. Boundary conditions — hva Sunlit Sea leverer (FPV-designet fra paneloverflate ned til aluminiumsbunn, inkludert støpte hengsel-halvdeler), og hva som er utenfor domenet (mooring, breakwater, site engineering, grid, offshore field operations — vi bidrar med kunnskap men leder ikke)
@@ -1577,7 +1344,7 @@ Skrives som selvstendig .md-notat i `leveranser/` som Sunlit Sea kan dele med Ba
 6. Data-tilgang, IP og eksploatering — Sunlit Sea skal ha raw + processed data fra dag én, ingen embargo på kommersiell bruk.
 7. Open questions to Balram / konsortiet.
 
-**Files touched:** `leveranser/2026-08-07_eic_transition_sunlit_sea_wp_forslag.md` (ny).
+**Files touched:** `background/eic/2026-08-07_eic_transition_sunlit_sea_wp_forslag.md` (ny).
 
 **Neste steg (Eiriks side, utenfor T92):** Del notatet med Balram og de andre partnerne. Bruk som utgangspunkt for Sunlit Seas bidragsavsnitt i det formelle prosjektstruktur-dokumentet. Vurder om noen av de foreslåtte WP-lederrollene bør forhandles hardere (særlig WP3 FPV-design og WP8 monitorering av FPV-ytelse).
 
@@ -1590,7 +1357,7 @@ Balram (SINTEF) sendte 2026-08-07 et preliminary WP/task-forslag (`background/ei
 **Solution (2026-08-07):**
 
 1. `background/eic/2026-08-07_sintef.md` skrevet — cleanup av pandoc-konverteringen til hierarkisk Markdown (WP1-WP9 som `##`, tasks som `###`, sub-bullets som `-`). Ingen innholds-endring, kun struktur.
-2. `leveranser/2026-08-07_eic_diff_sintef_vs_sunlitsea.md` skrevet — diff-assessment med fem seksjoner:
+2. `background/eic/2026-08-07_eic_diff_sintef_vs_sunlitsea.md` skrevet — diff-assessment med fem seksjoner:
    - Strukturell sammenligning per WP (tabell)
    - EDP-alignment-sjekk (SINTEFs numrering matcher EDPs interesser T3.2/T4.1/T6.1/T6.2/T7.3/T8.2/T9.1; Sunlit Seas gjør ikke — SINTEFs blir arbeidsbaseline)
    - Hva SINTEF fikk til som Sunlit Sea manglet (T1.3 innovation mgmt, T2.2 circular material, T3.3 model dev, T6.2 permit-liste, T6.3 EIA, T7.1 fatigue, T9.4 Booster som egen task)
@@ -1600,7 +1367,7 @@ Balram (SINTEF) sendte 2026-08-07 et preliminary WP/task-forslag (`background/ei
 
 **Files touched:**
 - `background/eic/2026-08-07_sintef.md` (ny, cleanup av docx-konvertering)
-- `leveranser/2026-08-07_eic_diff_sintef_vs_sunlitsea.md` (ny)
+- `background/eic/2026-08-07_eic_diff_sintef_vs_sunlitsea.md` (ny)
 
 **Neste steg (Eiriks side, utenfor T93):** Send oppdatert notat til Balram som aksepterer SINTEFs numrering + løfter våre fire kjerne-input (DNV, milepæler, data, leads). Bruk diff-fila som talepunkter i neste konsortie-diskusjon.
 
@@ -1612,7 +1379,7 @@ Bygger på T92 (Sunlit Sea forslag) og T93 (diff-vurdering). Formål: konkret, y
 
 **Solution (2026-08-07):**
 
-`leveranser/2026-08-07_eic_feedback_to_sintef.md` skrevet som et brev fra Eirik til Balram, med kopi til CLEMENT, EDP, WavEC. Ydmyk og samarbeidende tone («we suggest», «we propose», «open to discussion», «please treat this as our opening position, not a demand»).
+`background/eic/2026-08-07_eic_feedback_to_sintef.md` skrevet som et brev fra Eirik til Balram, med kopi til CLEMENT, EDP, WavEC. Ydmyk og samarbeidende tone («we suggest», «we propose», «open to discussion», «please treat this as our opening position, not a demand»).
 
 Struktur:
 
@@ -1629,7 +1396,197 @@ Struktur:
 
 Ingenting foreslås fjernet — SINTEFs struktur er stram nok at endringene er additive/klargjørende. Ydmyk tone gjennomgående.
 
-**Files touched:** `leveranser/2026-08-07_eic_feedback_to_sintef.md` (ny).
+**Files touched:** `background/eic/2026-08-07_eic_feedback_to_sintef.md` (ny).
 
 **Neste steg (Eiriks side, utenfor T94):** Gjennomlese, evt. juster formulering / tone. Send til Balram og cc CLEMENT/EDP/WavEC. Vurder om noe skal tas først i one-on-one-call med Balram før det sendes til hele konsortiet.
+
+---
+
+### T95 `[x]` [FUND] Konverter `background/new/` til dato-stemplede .md-filer
+
+Root-inboksen `background/new/` inneholder tre DOCX-filer per 2026-08-10 som skal konverteres til Markdown, formateres pent, dato-stemples og flyttes til `background/` per CLAUDE.md-konvensjonen (`YYYY-MM-DD_short_description.ext`, hvor dato er dokumentets *egen* dato). Filene henger sannsynligvis sammen med den pågående EIC Transition-søknaden (jf. T92-T94 og `background/eic/`).
+
+**Filer i inboksen:**
+
+- `Contributing_tasks_WP_Documents.docx` — sannsynligvis bidragsdokument for EIC-søknaden (task/WP-tabell fra Balram eller en annen partner). Sjekk innholdet for eksakt formål og forfatter før valg av destinasjonsmappe (`background/eic/` er sannsynlig kandidat).
+- `declaration-form-for-de-minimis-aid_2024.docx` — EU de-minimis-erklæring, formentlig fra EIC-søknaden. Destinasjon: `background/eic/` eller `background/` avhengig av om det er EIC-spesifikt.
+- `project-description-pes.docx` — «pes» kan være «Proposal Evaluation Support» eller lignende. Verifiser innhold.
+
+**Deliverable:**
+
+- Hver DOCX konverteres til `.md` via `pandoc <file>.docx -o <file>.md --wrap=none`, deretter lett cleanup (headings-hierarki, listetegn, tabeller reformatert til Markdown-piper hvis pandoc har rotet det til).
+- Bilder ekstraheres med `--extract-media=images/<stem>/` og legges parallelt, referert inline i .md.
+- Filnavn `YYYY-MM-DD_short_descriptive_name.md` hvor YYYY-MM-DD er dokumentets egen dato (fra forsiden, metadata, footer, eller — hvis ingen finnes — filens mtime som fallback, med note i .md-headeren).
+- Destinasjonsmappe: `background/eic/` for EIC-relaterte, `background/` ellers. Ta beslutning per fil basert på innholdet.
+- Originalfiler i `background/new/` slettes ikke automatisk — flagges for Eirik-godkjenning etter konvertering (per T89-konvensjonen om ikke å slette originaler før bekreftet).
+
+**Krav ved gjennomføring:**
+
+- Pen formatering: heading-hierarki (`#`, `##`, `###`), Markdown-lister, Markdown-tabeller (ikke pandoc-hva-som-helst-output). Sjekk mot resultatet i T93 for standard.
+- YAML-frontmatter øverst med title, source (originalt filnavn), date (dokumentets egen dato + note om kilde til datoen), type, evt. author.
+- Referer til bilder inline som `![](images/<stem>/img-XXX.png)` — samme mønster som T90/T91.
+- Ingen forsøk på å tolke innhold utover det pandoc gir — dette er en konverteringsjobb, ikke en analyse.
+
+**Ikke i scope for T95:**
+
+- Analyse eller diff-vurdering av innholdet (kan bli egen task hvis relevant, jf. T93 for SINTEF-diff).
+- Sletting av originalene i `background/new/` (flagges kun for Eirik-godkjenning).
+- Konvertering av eventuelle nye filer som havner i `background/new/` etter T95-oppstart.
+
+**Solution (2026-08-11):**
+
+Alle tre DOCX-filene konvertert via pandoc, cleanup til pen Markdown, dato-stemplet og flyttet til `background/eic/`:
+
+- `background/eic/2026-08-10_contributing_tasks_wp_documents.md` — Balrams oppdaterte WP/task-struktur med partner-lederassignments per WP og per task. Konvergerer på 8 WPs (WP8+WP9 merget siden `2026-08-07_sintef.md`). Sunlit Sea leder: T2.1 Requirement Definition, T2.3 FPV Platform Design, T4.1 Monitoring Requirements, T5.2 PV module manufacturing, T5.5 Acceptance & Factory Testing, T7.2 Reliability Assessment, T8.4 Booster Grant. Notater bevart om irregulær task-nummerering (T5.4 mangler, T6.2 duplisert, T8.1 duplisert) og om at Environmental Assessment-sub-task fra tidligere versjon ser ut til å ha blitt droppet.
+- `background/eic/2024-01-01_rcn_declaration_form_de_minimis_aid.md` — RCN de-minimis-erklæring (blank mal). Regulering: Commission Regulation (EU) 2023/2831. EMF-tabell i original DOCX kan ikke rendres i Markdown; erstattet med tekstlig kolonne-beskrivelse. Dato satt til 2024-01-01 som tilnærmet formversjonsdato per filnavn.
+- `background/eic/2026-08-10_rcn_pes_project_description_template.md` — RCN PES-mal for Horizon Europe-søknader. Guidance-tekst bevart i blockquotes; malplassholdere som fylles inn av søker preserved som overskrifter og prompt.
+
+Ingen bilder å ekstrahere (kun EMF i de-minimis-fila som ikke er renderbart).
+
+**Files touched:**
+- `background/eic/2026-08-10_contributing_tasks_wp_documents.md` (ny)
+- `background/eic/2024-01-01_rcn_declaration_form_de_minimis_aid.md` (ny)
+- `background/eic/2026-08-10_rcn_pes_project_description_template.md` (ny)
+
+**Neste steg (Eiriks side, utenfor T95):** Verifiser at datoene stemmer, sjekk om `2026-08-10_contributing_tasks_wp_documents.md` skal bytte navn hvis en offisiell dato/versjon finnes i Balrams metadata. Slett originalene i `background/new/` når du er trygg.
+
+---
+
+### T96 `[x]` [FUND] Flytt `leveranser/`-innhold til `background/` og oppdater historikk
+
+`leveranser/`-mappen ble innført ved T80 for eksterne utgående leveranser (anmodninger, klager, forespørsler). Etter ~1 måneds bruk (6 filer) ønsker vi å konsolidere med `background/`-konvensjonen (dato-prefiks, cross-cutting material). Fjerner egen top-level-mappe og flytter alt til `background/` (eller `background/eic/` der det passer emnemessig).
+
+**Solution (2026-08-11):**
+
+Filer flyttet:
+
+- `background/2026-07-09_anmodning_skatteetaten_tvangsmulkt.md` (fra leveranser/)
+- `background/2026-07-22_klage_skatteetaten_tvangsmulkt.md` (fra leveranser/)
+- `background/2026-07-09_henvendelse_trondheim_havn_surewave_demonstrator.md` (fra leveranser/)
+- `background/eic/2026-08-07_eic_transition_sunlit_sea_wp_forslag.md` (fra leveranser/)
+- `background/eic/2026-08-07_eic_diff_sintef_vs_sunlitsea.md` (fra leveranser/)
+- `background/eic/2026-08-07_eic_feedback_to_sintef.md` (fra leveranser/)
+
+`leveranser/`-mappen slettet (tom etter mv).
+
+Referanser oppdatert (via `sed` batch og enkelte manuelle Edit-oppdateringer):
+
+- **TASKS.md:** 21 leveranser-refs → 3 gjenværende (alle rene bruk av det norske ordet «leveranser» eller historiske narrativer med note om T96-flyttet).
+  - T80-refs (anmodning) → `background/`
+  - T81-refs (revisorpakke + mail til regnskapsfører) → `funding/` (der de faktisk endte opp, ikke leveranser/)
+  - T92-refs (EIC WP-forslag) → `background/eic/`
+  - T80-solution om at `leveranser/` ble opprettet: beholdt historisk narrativ med note om at mappen ble oppløst i T96
+- **README.md:** 1 ref → 0. Linjen om `leveranser/` i folder-strukturen fjernet.
+- **`background/eic/2026-08-07_eic_diff_sintef_vs_sunlitsea.md`:** YAML-header `compares:`-pointer oppdatert til ny path.
+- **`funding/aktivering_reklassifisering.md`:** inneholder «leveranser/reviews» som norsk ord (ikke path) — beholdt.
+- **Historiske løypemeldinger og notes.md:** inneholder «leveranser» kun som norsk ord — beholdt.
+
+Verifisert med `grep leveranser/` — kun 3 treff i TASKS.md igjen, alle med kontekst-note om T96-flyttet.
+
+**Files touched:**
+
+- 6 filer flyttet mellom mapper (mv)
+- `leveranser/`-mappen slettet (rmdir)
+- `TASKS.md` (21 refs oppdatert + T96 solution)
+- `README.md` (1 linje fjernet)
+- `background/eic/2026-08-07_eic_diff_sintef_vs_sunlitsea.md` (YAML pointer)
+
+**Neste steg (Eiriks side, utenfor T96):** Ingen. Struktur-endring komplett. Fremtidige eksterne leveranser går til `background/` (eller `background/eic/`, `background/skatt/` osv. hvis relevant tematisk mappe finnes) med dato-prefiks.
+
+---
+
+### T97 `[x]` [FUND] Gjennomgang av krav til PES-midler (basert på T95-filene)
+
+Sunlit Sea kan søke PES (Prosjektetableringsstøtte) fra Norges forskningsråd for å finansiere arbeidet med å skrive EIC Transition-søknaden (SUREWAVE-basert offshore FPV, jf. T92-T94 og MoM 2026-07-31). PES-malen og de-minimis-erklæringen ble konvertert i T95. T97 leser gjennom kravene og produserer en sjekkliste over hva Sunlit Sea trenger å samle/bekrefte før PES-søknad kan sendes.
+
+**Solution (2026-08-11):**
+
+`background/eic/2026-08-11_pes_requirements_review.md` skrevet — internt review-notat i syv seksjoner:
+
+1. **Hva PES er:** kort — RCN-administrert coordination-and-support-aktivitet, de-minimis-hjemlet (EUR 300 000 / 3 år), fast rate, mistes hvis EU-søknaden ikke leveres.
+2. **Eligibility-sjekk for Sunlit Sea:** norsk AS, deltar i EU-forslag, har tidligere EU-erfaring — kvalifisert.
+3. **Krav fra PES-project description-malen** (per T95 `2026-08-10_rcn_pes_project_description_template.md`):
+   - Online form fields (Project period, Budget, Objectives, Summary, Impact, Partners) — status per felt: ready / need input / need consortium
+   - Background section (NCP-kontakt, tidligere EU-erfaring)
+   - EU project proposal info (title, role, call ID, deadline, application type, budget, African/Ukraine deltakelse)
+   - PES-application-specific info (other Norwegian actors)
+   - Horizon Europe Project Outline (one-pager attachment) — provisional content utarbeidet for alle seks felter
+4. **Krav fra de-minimis-erklæringen** (per T95 `2024-01-01_rcn_declaration_form_de_minimis_aid.md`):
+   - Kompiler liste over de-minimis-støtte 2024-2026
+   - Sjekk «linked enterprises» per Art. 2(2) i Kommisjonsforordning (EU) 2023/2831
+   - Ceiling EUR 300 000
+   - Preliminær sjekk av Sunlit Seas de-minimis-eksponering (Enova, IN, Skattefunn, Horizon)
+5. **Timing:** EU-deadline september 2026 (verifiser eksakt dato), PES-søknad så tidlig som mulig etter at call er publisert, ~2-4 person-uker søknadsskriving.
+6. **Åpne punkter som krever input:** 9 items — call ID (Balram), deadline (Balram), koordinator-bekreftelse (Balram), SINTEF PES-arrangement (Balram), NCP-kontakt (Eirik), de-minimis-liste (Orkla Regnskap AS), linked enterprises-sjekk (regnskapsfører + legal), sekundær-objektiv (Eirik), PES-rates 2026 (RCN).
+7. **Anbefalte neste steg:** 5 punkter — ett email til Balram, ett email til regnskapsfører, draft one-pager, verifiser My RCN Web-tilgang, send inn 2-4 uker før proposal-writing starter.
+
+**Files touched:** `background/eic/2026-08-11_pes_requirements_review.md` (ny).
+
+**Neste steg (Eiriks side, utenfor T97):** Send de to email-forespørslene identifisert i notatets seksjon 7 (Balram + regnskapsfører). Verifiser call ID / deadline på EU Funding & Tenders portal parallelt. Fyll ut PES-søknaden i My RCN Web når fakta er bekreftet.
+
+---
+
+### T98 `[x]` [FUND] Lag søknadsmal (utkast med feltinnhold) for PES-søknad ES765081 EIC_SUREWAVE_DEMO
+
+Eirik har startet PES-søknad ES765081 med kortnavn EIC_SUREWAVE_DEMO på RCNs nettside (PESORDNING, Coordination and Support Activity), og copy-pastet websidenes innhold til `background/new/pes_web_application_copy_paste.txt`. Fila viser sidestrukturen, feltnavn, tegn-grenser, og noen felter som allerede har defaulttekst (fra en tidligere søknad; skal overskrives). Task: lage én sammenhengende søknadsmal (utkast) som strukturerer alle 6 sidene av søknaden med provisorisk innhold Sunlit Sea kan copy-paste inn i web-skjemaet.
+
+Grunnlag:
+
+- `background/new/pes_web_application_copy_paste.txt` — websidenes struktur, feltnavn, tegn-grenser, guidelines-hint
+- `background/eic/2026-08-10_rcn_pes_project_description_template.md` — RCN PES-mal (hva som skal med i attachment)
+- `background/eic/2024-01-01_rcn_declaration_form_de_minimis_aid.md` — de minimis-erklæring (N/A for oss)
+- `background/eic/2026-08-11_pes_requirements_review.md` — vår gjennomgang av kravene med provisorisk innhold
+- `background/eic/2026-07-31_MOM_EIC_SUREWAVE.txt` — konsortie-MoM
+- `background/eic/2026-08-10_contributing_tasks_wp_documents.md` — WP-struktur med partner-leads
+- `background/eic/2026-08-07_eic_transition_sunlit_sea_wp_forslag.md`, `..._eic_diff_sintef_vs_sunlitsea.md`, `..._eic_feedback_to_sintef.md` — Sunlit Seas EIC-innsats
+
+**Deliverable:** `background/eic/2026-08-11_pes_soknadsutkast_eic_surewave_demo.md` — én selvstendig fil som følger web-skjemaets 6-sidestruktur og for hvert felt gir (a) feltnavn og tegn-grense fra RCN, (b) korte RCN-guidelines-notater, (c) provisorisk Sunlit Sea-innhold som utkast, (d) merking av felter som trenger konsortie-bekreftelse (call ID, deadline osv.).
+
+**Solution (2026-08-11):**
+
+`background/eic/2026-08-11_pes_soknadsutkast_eic_surewave_demo.md` skrevet — én sammenhengende fil som følger web-skjemaets 6-sidestruktur. For hvert felt: navn + tegn-grense, RCN guidelines-hint, provisorisk utkast fra Sunlit Sea med tegn-telling under maks, `[verify]`-flagg der konsortie- eller RCN-bekreftelse trengs.
+
+Innhold per side:
+
+- **Overall setup:** application type 207, programme PESORDNING, English, kortnavn EIC_SUREWAVE_DEMO
+- **Page 1 Project partners:** Sunlit Sea som prosjektansvarlig (org.nr. 922 633 924, Eirik Larsen kontakt); SINTEF-status flagget som [verify] (framework grant vs joint PES)
+- **Page 2 Project info:** tittel (91 chars av 140), primary/secondary objectives (~750 av 1000), project summary (~1300 av 2000), outcomes/impacts (~700 av 1000)
+- **Page 3 Funding scheme:** topic flagget som [verify] fra call-tekst, discipline satt til Solar energy, other relevant programmes fylt inn (SUREWAVE grant 101083342 + SuRE); Yes til relaterte prosjekter
+- **Page 4 Progress plan:** PES-periode 2026-08-15 til 2026-10-15 (~1 mnd forbi EU-deadline for wrap-up), 6 milepæler alle i Q3 2026, dissemination-felt fylt med kort forklaring om at det ikke er aktuelt for PES
+- **Page 5 Budget:** 4 tabeller (costs per partner, cost plan, cost code, funding plan) — alle med Sunlit Sea som eneste raden og all PES-støtten på payroll-linjen; 2 Specification-felter med draft-tekst som eksplisitt overskriver defaulttekstene fra tidligere søknad (Havlabben NTNU-referansen og aksjekapital-tekstene er ikke relevante for PES); note om at PES er 100 % finansiert; de-minimis-status N/A
+- **Page 6 Attachments:** to obligatoriske (project description via RCN PES-mal + Eirik CV via RCN CV-mal), tre optional-slots ikke aktuelt
+
+Slutter med to seksjoner: (a) 7 items som må bekreftes før innsending (call ID, deadline, koordinator, SINTEF PES, PES-rate 2026, Letter of Intent, defaulttekst-overskriving), (b) 2 attachments å forberede separat (project description PDF + CV).
+
+**Files touched:** `background/eic/2026-08-11_pes_soknadsutkast_eic_surewave_demo.md` (ny).
+
+**Neste steg (Eiriks side, utenfor T98):** Bekreft de 7 [verify]-punktene (bl.a. via email til Balram). Skriv Project description PDF fra RCN PES-malen med innhold fra søknadsutkastet. Copy-paste feltinnholdet inn i My RCN Web. Husk å overskrive defaulttekstene i de to Specification-feltene (budget + funding plan) — teksten som ligger der nå er fra en tidligere annen søknad.
+
+---
+
+### T99 `[x]` [FUND] Skriv PES-vedlegg for ES765081 EIC_SUREWAVE_DEMO
+
+Fra T98s Page 6-beskrivelse: to obligatoriske vedlegg (Project description + CV Eirik) og potensielt et de-minimis-vedlegg (kun hvis RCN ber om det). Alle utkast skrives som Markdown; PDF-eksport gjøres av Eirik i Word/Google Docs når innholdet er verifisert.
+
+**Solution (2026-08-11):**
+
+Tre vedlegg-utkast skrevet:
+
+- `background/eic/2026-08-11_pes_attachment_project_description.md` — obligatorisk Project description. Følger RCN PES-mal-strukturen (Background → EU project proposal info → PES application info → one-pager Project Outline → Impact of PES). Alle bekreftede tall inn (call ID HORIZON-EIC-2026-TRANSITIONOPEN, deadline 2026-09-16, €2,5M totalbudsjett, 5-partner konsortium). Sunlit Seas leder-tasks per WP-struktur (T2.1, T2.3, T4.1, T5.2, T5.5, T7.2, T8.4) listet konkret.
+- `background/eic/2026-08-11_pes_attachment_cv_eirik_larsen.md` — obligatorisk CV. Følger typisk RCN CV-mal-struktur (personal info → current role → education → employment → research project roles → skills → publications → additional). Fylt inn med det som er kjent fra repo-konteksten (Sunlit Sea CFO fra 2026-01, seconded fra KodeWorks, rolle i SUREWAVE/SuRE/Enova/Skattefunn); `_[fill in]_`-plassholdere for personlige data (fødselsdato, adresse, utdanning, tidligere arbeidsgivere, publikasjoner).
+- `background/eic/2026-08-11_pes_attachment_declaration_de_minimis.md` — optional (kun hvis RCN ber om det). Fylt inn med N/A per Sunlit Seas de-minimis-status (0 kr mottatt siste 3 år). Andre offentlige støtteordninger (Horizon, Skattefunn, Enova, IN) klassifisert som utenfor de-minimis-regimet. Signaturplaceholder for Eirik.
+
+**Files touched:**
+- `background/eic/2026-08-11_pes_attachment_project_description.md` (ny)
+- `background/eic/2026-08-11_pes_attachment_cv_eirik_larsen.md` (ny)
+- `background/eic/2026-08-11_pes_attachment_declaration_de_minimis.md` (ny)
+
+**Neste steg (Eiriks side, utenfor T99):**
+
+1. Fyll ut CV-plassholderne (fødselsdato, adresse, utdanning, arbeidshistorikk, publikasjoner). Last ned RCNs offisielle CV-mal og overfør innholdet inn i den — RCN krever eksakt mal-format.
+2. Verifiser Project description-innholdet mot din siste dialog med Balram (koordinator-status, SINTEF PES-arrangement, at Innovation Action-klassifiseringen stemmer for EIC Transition Open 2026).
+3. Vurder om «Confirmation from partner(s)»-slot krever Letter of Intent — sjekk call-teksten på EU-portalen. Hvis ja: be Balram om LoI fra SINTEF som koordinator.
+4. Eksporter alle vedlegg til PDF via Microsoft Print to PDF (per RCN-instruks om å unngå passordbeskyttelse og elektroniske signaturer i PDF).
+5. Last opp i My RCN Web.
+6. Behold de-minimis-erklæringen klar — last kun opp hvis RCN eksplisitt ber om den (per call-tekst eller under behandling).
 

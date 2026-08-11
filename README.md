@@ -232,8 +232,8 @@ Dependencies are declared inline via PEP 723 script metadata (`python-docx`), so
 
 ```bash
 # In-place: pandoc first, then format the resulting docx
-pandoc background/2026-07-08_loeypemelding.md -o background/2026-07-08_loeypemelding.docx
-uv run scripts/format_docx.py background/2026-07-08_loeypemelding.docx
+pandoc background/loeypemelding/2026-07-16_loeypemelding.md -o background/loeypemelding/2026-07-16_loeypemelding.docx
+uv run scripts/format_docx.py background/loeypemelding/2026-07-16_loeypemelding.docx
 
 # Or output to a different path
 uv run scripts/format_docx.py input.docx output.docx
@@ -396,8 +396,9 @@ sure-d61/
 ├── README.md                  – this document (only README in the repo)
 ├── background/                – cross-cutting background material (date-prefixed files)
 │   ├── new/                   – inbox for unprocessed files (PDFs, DOCX, images → converted to .md)
-│   └── lover/                 – excerpts of Norwegian statutes and accounting standards (regnskapsloven, NRS, skfvl)
-├── leveranser/                – external deliverables (formal outbound letters, anmodninger, klager, requests)
+│   ├── lover/                 – excerpts of Norwegian statutes and accounting standards (regnskapsloven, NRS, skfvl)
+│   ├── loeypemelding/         – historical investor updates (løypemeldinger), date-prefixed
+│   └── eic/                   – EIC Transition proposal material (WP structure, MoM, feedback, PES application drafts)
 ├── scripts/                   – persistent helper scripts (see the *Scripts* section above)
 ├── sure/                      – SuRE WP6 activity
 ├── gen2/                      – Gen 2 product development

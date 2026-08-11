@@ -5,7 +5,7 @@ date: 2026-08-07
 type: internal assessment note
 compares:
   - SINTEF (Balram Panjwani): `background/eic/2026-08-07_sintef.md` (converted from `.docx`)
-  - Sunlit Sea (Eirik Larsen): `leveranser/2026-08-07_eic_transition_sunlit_sea_wp_forslag.md`
+  - Sunlit Sea (Eirik Larsen): `background/eic/2026-08-07_eic_transition_sunlit_sea_wp_forslag.md`
 ---
 
 # EIC Transition WP structure — diff assessment
