@@ -1,26 +1,39 @@
 ---
-title: "Evaluation — EU call for FPV demonstration (5 MW combined, TRL 7-8, deadline 2026-12-01)"
+title: "Evaluation — HORIZON-CL5-2026-11-D3-14 (EUPI-PV Partnership) FPV demonstration"
 from: Eirik Larsen / Sunlit Sea internal review
 date: 2026-08-11
 type: internal opportunity assessment
-source: email from Oliver Bennett (Iconiq Innovation), 2026-08-10. Iconiq is a grant-writing consultancy; this evaluation is of the underlying EU call, not of engaging Iconiq. If pursued, Sunlit Sea would assemble a consortium and apply directly.
+source: email from Oliver Bennett (Iconiq Innovation), 2026-08-10; call details confirmed via EU Funding & Tenders portal and secondary sources. Iconiq is a grant-writing consultancy — this evaluation is of the underlying EU call, not of engaging Iconiq. If pursued, Sunlit Sea would assemble a consortium and apply directly.
+call_id: HORIZON-CL5-2026-11-D3-14
+call_title: "Improved system design for innovative PV applications (EUPI-PV Partnership)"
+call_portal: https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL5-2026-11-D3-14
 call_key_facts:
-  - deadline: 2026-12-01
+  - opened: 2026-08-04
+  - deadline: 2026-12-01 (17:00 Brussels time)
   - budget_total_call_meur: 30
-  - budget_per_project_meur: 7.5
-  - projects_funded: 4 (2 floating PV, 2 Agri PV)
-  - funding_rates: 70% direct + 25% overhead, or 100% direct + 25% overhead (variant TBD from call text)
+  - budget_per_project_meur: 7.5 (lump-sum grant, not cost-reimbursement)
+  - projects_funded: 4 (2 offshore/nearshore PV + 2 agriPV)
+  - trl_start: any
   - trl_end: 7-8
-  - installed_capacity_required: 5 MW combined across two different locations
+  - installed_capacity_required: at least 5 MW across multiple EU climate or sea zones
+  - stages: single-stage
+  - partnership: European Photovoltaic Industry Partnership (EUPI-PV)
+  - consortium_size_recommended: 8-12 partners
+  - mandatory_partner_types: PV system integrator / BoS specialist; land manager (agriPV) OR marine/offshore engineer (offshore); SSH (Social Sciences & Humanities) expert; regulator / permitting expert; utility or grid operator; innovative SME in precision monitoring / smart integration
 ---
 
-# Evaluation — EU FPV demonstration call (5 MW combined, TRL 7-8, deadline 2026-12-01)
+# Evaluation — HORIZON-CL5-2026-11-D3-14 (EUPI-PV Partnership)
 
 ## Bottom line
 
-**Conditionally interesting but likely a poor fit right now.** The dominant issue is the TRL 7-8 end-of-project requirement, which sits significantly above Sunlit Sea's gen 2 status of TRL 4. The consortium fit and the 5 MW / two-locations requirement are workable in principle, but only if Storavatnet's Haugaland Næringspark reguleringsprosess is resolved by project start, and only if we can defensibly argue that gen 2 will be at TRL 5-6 by early 2027. There is also a bandwidth question against the parallel EIC Transition SUREWAVE application (deadline 2026-09-16).
+**Poor near-term fit for Sunlit Sea as a lead applicant.** Two structural issues dominate:
 
-Recommendation: **do not commit** in advance of reading the actual call document. If, after reading the call, we still want to explore, treat it as second priority behind the EIC Transition SUREWAVE proposal — that one is the higher-conviction opportunity for Sunlit Sea's current stage.
+1. **TRL 7-8 by end of project** vs Sunlit Sea gen 2 at TRL 4 today. Feasible only if EIC Transition SUREWAVE is awarded, executed on time and lifts gen 2 to TRL 6 by end 2027, then a further step to TRL 7-8 during this project (2027-2030 timeframe). That is a chain of two awards and full delivery on both, back to back.
+2. **Consortium size — 8-12 partners recommended, with mandatory SSH expert, permitting expert, utility, and precision-monitoring SME** — plus a required "5 MW across multiple EU climate or sea zones", which implies demonstrations in at least two different EU sea areas (not just two Norwegian locations). This is a much larger and more geographically distributed consortium than we currently operate in.
+
+**Realistic path** — participate as a technology-provider partner in a consortium coordinated by a bigger organisation (SINTEF, IFE, a large utility such as EDP, or a system integrator), where Sunlit Sea contributes the FPV units for one of the demonstration sites, but does not lead the consortium. This lets us benefit from the market pull of a €7.5 M utility-scale demonstration without carrying coordination burden that our current capacity cannot absorb.
+
+**Recommendation:** ask Balram (SINTEF) whether SINTEF sees this call as complementary to the EIC Transition SUREWAVE application, and whether a natural consortium is already forming around one of our existing partners. Do not commit our own coordination effort. Do not pursue via Iconiq.
 
 ## Match against Sunlit Sea's situation
 
@@ -31,70 +44,58 @@ Recommendation: **do not commit** in advance of reading the actual call document
 - This call requires TRL 7-8 by end of project. Projects typically start ~9-12 months after submission; if this project starts mid-2027, end of project is 2029-2030. To reach TRL 7-8 by then, gen 2 would need to be at TRL 5-6 at project start and complete a TRL 5-6 → 7-8 jump during the project.
 - Feasibility: the EIC Transition SUREWAVE project is designed to take gen 2 from TRL 4-5 to TRL 6 by ~end 2027. If awarded and executed well, gen 2 could be at TRL 6 by end 2027 / early 2028. That is compatible with entering this call at TRL 5-6 at project start (mid-2027) and reaching TRL 7-8 by 2029-2030. But it depends critically on EIC Transition being awarded and delivering on schedule — which is not yet certain.
 
-### 5 MW combined across two locations
+### 5 MW across multiple EU climate or sea zones
 
-Sunlit Sea's Norwegian pipeline offers three location candidates:
+The call requires operational installations totalling at least 5 MW spread across multiple EU climate or sea zones. Iconiq's email described this as "5 MW combined across two different locations" — the actual requirement is more geographic than that: multiple *EU zones*, suggesting projects that span at least two distinct EU coastal or lake environments (e.g. North Sea + Mediterranean, or Atlantic + Baltic), not two locations within one country.
 
-- Storavatnet (Haugaland Næringspark) — 3.2 MWp phase 1 (long-term 30-50 MW). Waiting on HNP-omregulering; estimated ~2 year delay from mid-2026, so realistically deployable ~2028.
-- Gunneklevfjorden (Hærøya Industripark) — 3.2 MWp. Regulering på plass, nettkapasitet bekreftet, forankring OK, Miljødirektoratet involvert. Estimated install Q2-Q3 2027.
-- Skien Havn — 350 kWp. PPA-forhandlinger med Aaltvedt Betong. Estimated install Q1 2027.
+Sunlit Sea's Norwegian pipeline (Storavatnet ~3.2 MWp, Gunneklevfjorden ~3.2 MWp, Skien Havn ~350 kWp) is a single-zone contribution. Storavatnet is blocked by HNP-omregulering until ~2028. To meet the 5 MW / multi-zone requirement, at least one demonstration site must be outside Norway — typically brought in by a partner utility or system integrator.
 
-Combining Gunneklevfjorden (3.2 MWp) + Storavatnet phase 1 (3.2 MWp) = 6.4 MWp → meets 5 MW requirement, but Storavatnet timing depends on HNP-omregulering. Combining Gunneklevfjorden (3.2 MWp) + Skien Havn (350 kWp) = 3.55 MWp → under 5 MW.
+### Consortium requirement — bigger than we currently operate in
 
-If the call permits the second location to be non-Sunlit Sea (a partner-owned FPV site elsewhere in Europe), a consortium partner could bring the second demonstration site, which reduces our exposure to the Storavatnet timing risk.
+Mandatory consortium composition per the call:
 
-### Consortium requirement
+- PV system integrator / balance-of-system specialist
+- Marine / offshore engineer (for the floating PV variant)
+- SSH (Social Sciences & Humanities) expert — described in secondary sources as "hard condition, not optional"
+- Regulator / permitting expert
+- Utility or grid operator
+- Innovative SME in precision monitoring / smart integration
 
-Almost certainly requires a multi-partner European consortium. Sunlit Sea would need to lead or be a major partner. Key roles to fill for a floating-PV utility-scale demonstration:
+Recommended total: **8-12 partners**. This is roughly double the size of our current EIC Transition consortium (5 partners) and significantly larger than SUREWAVE (7 partners). Overlap with our existing SUREWAVE / EIC Transition network is possible for a subset (SINTEF, EDP, WavEC potentially), but a call of this profile fills the mandatory roles from a wider pool — a large-utility coordinator (like EDP), an SSH partner from a European university, an established EPC or system integrator.
 
-- Norwegian FPV manufacturer (Sunlit Sea).
-- End-user / site operator for each location (Aaltvedt / HIP-SPV / HNP-SPV in Norway; a European partner elsewhere).
-- EPC / installation partner (Prosolar or equivalent).
-- Grid / utility partner (Lede in Norway; other-country equivalent).
-- Research institution for monitoring and evaluation (SINTEF or IFE).
-- Possibly a materials / component partner (Norsmaterials on PU; standard PV panel supplier).
+### Budget — €7.5M lump-sum grant per project
 
-The consortium overlap with our existing SUREWAVE and EIC Transition networks would help — SINTEF, Sunlit Sea, potentially EDP or WavEC. But the profile is different: this call is about deploying commercial-scale demonstrations, whereas EIC Transition is offshore-integrated pilot at smaller scale.
+Lump-sum grant model, not cost-reimbursement — deliverables are defined upfront and the payment is triggered by acceptance of milestones, not by invoicing costs. Simpler administratively but higher scrutiny at each milestone: under-delivery means the lump sum is not released.
 
-### Budget — €7.5M per project
-
-Considerably larger than EIC Transition SUREWAVE (€2.5M) and Surewave itself (€6M+). Sunlit Sea's share would likely be significant (1-2 MEUR range), which requires the company to have the administrative capacity to manage a share of that size while also delivering hardware. That is a stretch at current staffing but doable if the project starts after gen 2 is in commercial production.
-
-### Funding rates
-
-Two rates are mentioned: 70% direct + 25% overhead, or 100% direct + 25% overhead. Which applies to which project type is not clear from the email; the call text will specify. 100% is preferred for a company at Sunlit Sea's stage; 70% still workable if the co-financing 30% comes from tangible pilot benefits (electricity sales, offtake agreements) rather than cash outflow.
+Sunlit Sea's share of a €7.5 M lump-sum consortium would likely be in the €0.5-1.5 M range for a hardware contribution to one site's FPV units, subject to consortium negotiation.
 
 ### Bandwidth against the EIC Transition SUREWAVE application
 
-- EIC Transition SUREWAVE deadline: 2026-09-16 (submission by Sunlit Sea, contribution to consortium proposal).
-- This call deadline: 2026-12-01. Roughly 10-11 weeks after EIC Transition submission.
-- Sunlit Sea has one person (Eirik) covering proposal writing at CFO level. Writing two major EU proposals back-to-back is intensive but not impossible.
-- Bigger risk: if both are awarded, executing two overlapping EU projects (one offshore-integrated pilot, one commercial-scale onshore/nearshore demo) with a small team is a significant scale-up in operations.
-- Mitigation: consortium partners carry a large share of the execution effort in both cases. Sunlit Sea's specific role in each project is bounded.
+- EIC Transition SUREWAVE deadline: 2026-09-16.
+- HORIZON-CL5-2026-11-D3-14 deadline: 2026-12-01. Roughly 10-11 weeks after EIC Transition submission.
+- Sunlit Sea has one person (Eirik) covering proposal writing at CFO level. Writing two major EU proposals back-to-back is intensive.
+- Key mitigation for CL5: participate as a partner, not as lead — then the coordinator carries the writing effort and we contribute one or two work-package sections.
+- Execution risk if both awarded: two overlapping EU projects on floating PV would be a stretch but manageable if each project has a bounded Sunlit Sea role.
 
 ### Overlap and double-funding concerns
 
-- EU rules generally prohibit funding the same activity twice from two grants. The EIC Transition SUREWAVE project is offshore + breakwater-integrated (Aguçadoura, Portugal); this call is likely a broader utility-scale FPV demonstration at multiple sites. Substantive scope difference should allow both if awarded, but must be clearly delineated in each proposal.
-- Would need explicit scope-boundary language in the second proposal if we pursue it.
+- EU rules prohibit funding the same activity twice. EIC Transition SUREWAVE is a small-scale (100-300 kWp) integrated FPV + breakwater pilot at one site (Aguçadoura). This call is a €7.5M utility-scale (5+ MW) demonstration across multiple EU zones without the breakwater integration.
+- The scope difference is substantive and defensible if both proceed, but proposal text must explicitly delineate the boundary.
 
 ### Iconiq is out of scope
 
-The email is from Oliver Bennett at Iconiq Innovation, a grant-writing consultancy. Their engagement is not being evaluated here — the user's decision is to consider assembling a consortium directly if the call itself is attractive. Iconiq's involvement would add a percentage fee on grant received, reduce our net take, and reduce our direct visibility with the EU. If the call is attractive enough to pursue, we should pursue it via the SINTEF / IFE / consortium network we already have.
-
-## What we cannot answer without the call document
-
-- Programme name and call ID (Horizon Europe cluster? Innovation Fund? LIFE?). This determines the regulatory framework, evaluation criteria and reporting regime.
-- Whether the call is single-stage or two-stage. Two-stage would reduce writing effort at first pass.
-- Consortium composition requirements (partner count, geographic distribution, mandatory partner types).
-- Explicit definition of "two different locations" — same country, same continent, or truly cross-border?
-- Which of the two funding rates (70% or 100%) applies to floating PV projects specifically.
-- Whether an existing EIC Transition project on floating PV disqualifies or disadvantages a parallel application to this call.
-- End-of-project TRL definition — some calls accept TRL 7 as end-of-project, others require TRL 8; this changes the demonstration scope needed.
+Iconiq is a grant-writing consultancy. Engaging them would add a fee on grant received, reduce our net take, and add a layer between Sunlit Sea and the consortium partners we would work with directly. Not pursued.
 
 ## Recommended next steps
 
-1. Read the attached call document before any consortium contact. Answer the questions in the previous section from the text.
-2. Sanity-check the TRL 7-8 requirement against gen 2's realistic trajectory. If we cannot credibly reach TRL 7-8 in the project window, stop here.
-3. If TRL fit is defensible, sound out one or two natural consortium partners (SINTEF is the obvious first stop, since they are already coordinator for the EIC Transition consortium and know Sunlit Sea's technology). Ask whether they see this call as complementary or overlapping with EIC Transition.
-4. Only if steps 1-3 support pursuing, allocate proposal-writing time for October-November 2026 (after EIC Transition submission on 2026-09-16 and before this call's 2026-12-01 deadline).
-5. Decline further engagement with Iconiq unless we explicitly want a grant-writing partner — which we currently do not.
+1. Ask Balram (SINTEF) whether SINTEF sees HORIZON-CL5-2026-11-D3-14 as complementary or overlapping with EIC Transition SUREWAVE, and whether a consortium is already forming around SINTEF or another familiar coordinator for this call. If yes, express Sunlit Sea's interest in joining as an FPV-technology partner for one of the demonstration sites.
+2. Independently, check whether EDP is coordinating or joining a proposal to this call — as a Portuguese utility, EDP is a natural coordinator candidate for a Southern-European contribution, and we already have a working relationship through the EIC Transition proposal.
+3. If a suitable consortium exists and welcomes Sunlit Sea as an FPV partner, commit only a bounded contribution: our FPV units for one demonstration site (e.g. Gunneklevfjorden as a Norwegian nearshore zone contribution to a multi-zone demonstration), plus a defined role in one or two work packages relating to design and factory integration.
+4. Do not accept a coordinator role or lead-partner role in this consortium. Our current bandwidth, TRL status and administrative capacity do not support it.
+5. Decline further engagement with Iconiq.
+
+## Sources
+
+- [HORIZON-CL5-2026-11-D3-14 on the EU Funding & Tenders portal](https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/opportunities/topic-details/HORIZON-CL5-2026-11-D3-14)
+- [Microfluidics Innovation Center — tips and tricks for the proposal (structural summary of the call requirements)](https://microfluidics-innovation-center.com/horizon-europe/tips-tricks-for-horizon-cl5-2026-11-d3-14-proposal/)
+- [Subsdy grant page for HORIZON-CL5-2026-11-D3-14](https://www.subsdy.com/grants/improved-system-design-for-innovative-pv-applications-eupi-pv-partnership)
