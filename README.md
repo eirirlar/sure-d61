@@ -283,6 +283,31 @@ uv run scripts/insert_pdf_page_images.py \
   sure/background/*.md --images-dir sure/background/images/ --promote
 ```
 
+#### Combined recipe: batch PDF → Markdown with linked images
+
+The two scripts above compose into the standard inbox-processing pipeline (used for T100). Both scripts key on the file **stem**, so the `.md` stem must equal the `.pdf` stem — stage copies of the PDFs under their final slug names first, then convert.
+
+```bash
+STAGE=/tmp/stage; OUT=<activity>/background/YYYY-MM-DD_<set_name>
+mkdir -p "$STAGE" "$OUT/images"
+cp "<inbox>/Some Long Name.pdf" "$STAGE/short_slug.pdf"          # 1. stage with final names
+
+for f in "$STAGE"/*.pdf; do                                       # 2. text (\f page breaks preserved)
+  pdftotext -layout -eol unix "$f" "$OUT/$(basename "$f" .pdf).md"
+done
+
+uv run scripts/extract_pdf_images.py "$STAGE"/*.pdf --output-dir "$OUT/images/"   # 3. images
+find "$OUT/images" -name '*.jp2' -exec sh -c 'convert "$1" "${1%.jp2}.png" && rm "$1"' _ {} \;  # 4. JP2 → PNG
+
+uv run scripts/insert_pdf_page_images.py "$OUT"/*.md --images-dir "$OUT/images/" --promote  # 5. link
+```
+
+Step 4 matters: `pdfimages`/`pypdf` hand back JPEG 2000 (`.jp2`) for some scanner and CAD output, and no Markdown viewer renders it. Convert before linking.
+
+Prepend a metadata header (document date, issuer, source path, conversion method) to each `.md` after step 2 — the insert script treats a header before the first `\f` as part of page 1 and leaves it alone.
+
+Non-PDF inbox files go through pandoc in the same pass: `pandoc in.docx -t markdown --wrap=none --extract-media="$OUT/images/<stem>" -o "$OUT/<stem>.md"`. Data files (`.csv`, `.xlsx`) are copied over raw — do not convert them to Markdown.
+
 ### `scripts/nbsp_numbers.py`
 
 Binds thousands-separated number groups in Markdown with non-breaking space (NBSP, U+00A0) so that pandoc + xelatex does not break numbers like `18 570 858` across line boundaries in narrow PDF table columns. Regex-based, idempotent, character-count-neutral (only swaps space for NBSP inside `\d \d{3}` boundaries).
@@ -381,6 +406,10 @@ Current contents:
 - `nedskriving_mal.md` — company-independent template for impairment tests under Norwegian accounting rules (rskl § 5-3, NRS 8, NRS(F) Nedskrivning, NRS 4). 12 sections + checklist, applicable to micro/small/medium/large foretak. Reference for future testing years or other companies (T78).
 - `nedskriving_draft.md` — Eirik's short note framing the 2025 argument (external validation from Sintef/IFE, gen 1 → gen 2 transferability). Basis for T79.
 - `nedskriving.md` — original T75 draft. Placeholder-heavy; superseded by `nedskriving_2025.md` for the 2025 test but retained per instruction.
+
+`funding/background/` holds date-prefixed background material for the funding stream, plus the `nye/` inbox for unprocessed files.
+
+- `2026-08-21_vollsfjorden_solkraftanlegg/` — the Vollsfjorden floating-solar document set (T100), converted from the `nye/Vollsfjorden Solkraftanlegg/` inbox. 10 `.md` files + 9 extracted images in `images/<doc-stem>/` + one raw `.csv`. Two groups: `tillatelse_*` (Kystverket permit, Prosolar site plan D1, Grenland Havn referral letter, Skien kommune and Statsforvalteren consultation replies) and `ppa_*` / `enova` / `gammel_tuf_soknad_*` (PPA template + Vollsfjorden PPA draft in both PDF and DOCX form, Enova application draft, old Telemark utviklingsfond application 2025-0039). Folder date is the filing date, not a document date — the set spans 2025-02 to 2025-09.
 
 Open funding tasks carry the `[FUND]` tag in `TASKS.md`.
 

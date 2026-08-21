@@ -1590,3 +1590,49 @@ Tre vedlegg-utkast skrevet:
 5. Last opp i My RCN Web.
 6. Behold de-minimis-erklæringen klar — last kun opp hvis RCN eksplisitt ber om den (per call-tekst eller under behandling).
 
+
+---
+
+### T100 `[x]` [FUND] Convert Vollsfjorden PDFs to Markdown with extracted images
+
+Inbox `funding/background/nye/Vollsfjorden Solkraftanlegg/` held 7 PDFs in two subfolders (`Tillatelse/`, `PPA/`) plus 3 DOCX and 1 CSV. Convert to Markdown, extract embedded images to files, and link the images from the Markdown.
+
+User decisions (2026-08-21): folder date = today's filing date (the set spans 2025-02 to 2025-09, so no single document date fits); the non-PDF files converted in the same pass.
+
+**Solution (2026-08-21):**
+
+Output folder `funding/background/2026-08-21_vollsfjorden_solkraftanlegg/` — 10 `.md`, 9 images, 1 raw `.csv`, 4.8 MB total.
+
+No new script was written. The two existing scripts already covered the job, so the task reused them rather than duplicating: `scripts/extract_pdf_images.py` (pypdf + Pillow, images per page) and `scripts/insert_pdf_page_images.py` (hooks images into pdftotext `\f` page boundaries). The 5-step combined recipe is now documented in `README.md` under *Combined recipe: batch PDF → Markdown with linked images*.
+
+Pipeline: stage copies of the PDFs in the scratchpad under their final slug names (both scripts key on file stem, so `.md` stem must equal `.pdf` stem) → `pdftotext -layout -eol unix` → `extract_pdf_images.py` → JP2→PNG conversion → metadata header prepended to each file → `insert_pdf_page_images.py --promote`. DOCX via `pandoc -t markdown --wrap=none`; CSV copied raw.
+
+Converted files (`tillatelse_*` from `Tillatelse/`, `ppa_*` from `PPA/`, rest from the set root):
+
+| File | Source | Doc date | Images |
+|---|---|---|---|
+| `tillatelse_plassering_flytende_solcelleanlegg_skien_havneterminal.md` | Kystverket permit, ref. 2025/1079-19 | 2025-09-11 | 2 (scanned page, map) |
+| `tillatelse_d1_situasjonsplan.md` | Prosolar AS drawing D1, Rev1 | 2025-02-18 | 3 (site plan 3169×3972 + 2 legend blocks) |
+| `tillatelse_soknad_oversendes_kystverket_hfl_14b.md` | Grenland Havn IKS, ref. 23/59-12 | 2025-04-15 | 1 (logo) |
+| `tillatelse_uttalelse_skien_kommune.md` | Skien kommune Planenheten, ref. 25/6877-6 | 2025-05-26 | 2 (logos) |
+| `tillatelse_uttalelse_statsforvalteren.md` | Statsforvalteren, ref. 2025/3191 | 2025-06-03 | 1 (logo) |
+| `ppa_vollsfjorden_forslag.md` | PPA price proposal, Sunlit Sea internal | ukjent | 0 |
+| `ppa_template.md` | PPA template, placeholder parties | ukjent | 0 |
+| `ppa_vollsfjorden.md` | PPA draft, buyer Aaltvedt Betong AS (DOCX) | ukjent | 0 |
+| `enova.md` | Enova application draft, Prosolar AS (DOCX) | ukjent | 0 |
+| `gammel_tuf_soknad_2025_0039.md` | Telemark utviklingsfond 2025-0039 (DOCX) | søknadsår 2026 | 0 |
+
+Each `.md` opens with a metadata table: document date, issuer, source path, conversion method.
+
+**Verified:** all 9 image links resolve to existing files; zero U+FFFD replacement characters across all 10 files (no encoding damage); no file suspiciously short relative to its source.
+
+**Notes / caveats:**
+
+- 6 of the 9 images are letterhead logos and signature scans, not content. They are linked anyway rather than filtered — dropping them would silently discard source material. The 3 that carry real information are the D1 site plan and the two figures in the Kystverket permit.
+- Three JP2 (JPEG 2000) images from the D1 drawing were converted to PNG; no Markdown viewer renders `.jp2`.
+- `ppa_vollsfjorden.md` (from DOCX) and `ppa_vollsfjorden_forslag.md` (from PDF) are **different documents**, not duplicates — the DOCX is the full contract with Aaltvedt Betong named as buyer, the PDF is the price-proposal analysis. Both kept.
+- `havnevegen_kapasitetsledd_toppdager_2026.csv` copied raw (peak-day capacity-tariff data, 2026 monthly). Not converted to Markdown — it is data, not a document.
+
+**Files touched:** `funding/background/2026-08-21_vollsfjorden_solkraftanlegg/` (new folder, 20 files); `README.md` (funding *Activity contents* entry + *Combined recipe* pipeline docs).
+
+**Open — needs your decision:** the originals in `funding/background/nye/Vollsfjorden Solkraftanlegg/` are untouched. Say the word if the inbox should be emptied.
