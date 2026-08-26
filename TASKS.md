@@ -1590,7 +1590,6 @@ Tre vedlegg-utkast skrevet:
 5. Last opp i My RCN Web.
 6. Behold de-minimis-erklæringen klar — last kun opp hvis RCN eksplisitt ber om den (per call-tekst eller under behandling).
 
-
 ---
 
 ### T100 `[x]` [FUND] Convert Vollsfjorden PDFs to Markdown with extracted images
@@ -1636,3 +1635,103 @@ Each `.md` opens with a metadata table: document date, issuer, source path, conv
 **Files touched:** `funding/background/2026-08-21_vollsfjorden_solkraftanlegg/` (new folder, 20 files); `README.md` (funding *Activity contents* entry + *Combined recipe* pipeline docs).
 
 **Open — needs your decision:** the originals in `funding/background/nye/Vollsfjorden Solkraftanlegg/` are untouched. Say the word if the inbox should be emptied.
+---
+
+### T101 `[ ]` [FUND] Splitt nedskrivingstesten i revisorpakken i to separate vurderinger — per 31.12.2024 og per 31.12.2025
+
+Etter dialog med revisor (referat i `funding/2026-08-26_dialog_revisor_prinsippendring.md`, seksjon «Før opptaket startet») må nedskrivingstesten i revisorpakken bygges om fra én samlet vurdering per 31.12.2025 til to selvstendige vurderinger — én per 31.12.2024 og én per 31.12.2025. Bakgrunnen er at prinsippendringen har virkning fra 1.1.2024: SuRE 2024-kostnader reaktiveres, og avskrivninger på hele kto 1005 reverseres fra samme dato. Balansen per 31.12.2024 endres derfor materielt, og en indikatorvurdering på det tidspunktet må gjennomføres og dokumenteres selvstendig for at revisor skal kunne bekrefte at ingen nedskrivning var pålagt på balansedagen 31.12.2024.
+
+Denne task-beskrivelsen er selvstendig — alle beslutninger, metodikk-føringer og kilder er inkludert.
+
+**Deliverable:** Oppdatert versjon av `funding/2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` med to nedskrivingstester i seksjon 12 (evt. seksjon 12 for 2024 og seksjon 13 for 2025 med renummerering av påfølgende seksjoner). YAML `utarbeidet:` oppdateres til dagens dato. Filnavnet beholdes uendret for kontinuitet med tidligere referanser (T82, T83, T84).
+
+**Metodikk-føringer fra revisor (må følges):**
+
+1. **Point-in-time rolle.** For hver vurdering skal man «gå inn i rollen som seg selv på det aktuelle tidspunktet» og utføre indikatorvurderingen basert på det man visste da. Det kunnskaps-cutoffet gjelder både faktainnhold og forventninger om fremtiden.
+
+2. **Kildegrunnlag per vurdering:**
+   - **31.12.2024-vurdering:** Primærkilder er dokumenter som forelå per 31.12.2024. Konkret: `background/loeypemelding/2024-01-29_loeypemelding.md`, `2024-04-28_loeypemelding.md`, `2024-10-01_loeypemelding.md`. Senere løypemeldinger (2025-2026) kan brukes kun for å hente ut retrospektiv narrativ om hendelser som faktisk fant sted i 2024 — ikke som bevis for at 2025-2026-utviklingen støtter 2024-verdien.
+   - **31.12.2025-vurdering:** Full bruk av 2025- og 2026-informasjon frem til rapportdato, inkludert `2025-10-07_loeypemelding.md`, `2025-11-17_loeypemelding.md`, `2026-07-16_loeypemelding.md`.
+
+3. **«Kun gløtte på 2025-regnskapstall» for 2024-vurderingen.** For objektivitetens skyld skal ikke 2025-tap eller 2025-inntekt være drivende bevis i 2024-testen. 2025-tallene kan omtales som en sanity-sjekk (f.eks. at foretaket ikke gikk konkurs i 2025), men ikke som selvstendig bevismateriale for at 2024-verdien holdt.
+
+**Konkrete evidensbiter som må FJERNES fra 2024-vurderingen** (fordi de er 2025- eller 2026-hendelser og bryter med kunnskaps-cutoffet):
+
+- DNV-standardoppdatering mai 2026 (DNV-ST-C108, DNV-ST-E309, DNV-RP-0584)
+- BayWa r.e.-uttrekning fra SuRE høsten 2025 og påfølgende IFE-innstilling om utvidelse på 0,4 M€
+- SINTEF EIC Transition-invitasjon 2026 (0,5-1 M€ potensiell allokering)
+- Planlagt rettet emisjon i 2026 (bruk i stedet siste gjennomførte emisjon FØR 31.12.2024 for indikator 4)
+- Prosjektpipeline-status for Storavatnet/Gunneklevfjorden/Skien Havn per 2025-2026 (må sjekkes når hvert prosjekt kom inn i pipelinen — hvis før 31.12.2024, bruk daværende status; hvis etter, utelat fra 2024-vurderingen)
+- FPV-markedsstørrelse 7,9 mrd USD i 2026 (bruk 2024-anslag hvis tilgjengelig, ellers formuler uten årstall)
+
+**Konkrete evidensbiter som SKAL brukes i 2024-vurderingen** (hentes fra 2024-løypemeldinger — kildegjennomgang må gjøres):
+
+- Gen 2-utviklingsstatus per 2024 (P3/P4-status hvis relevant)
+- Prosjektpipeline slik den forelå per 31.12.2024
+- Verdivurderingsgrunnlag per 2024 (siste emisjon FØR 2025)
+- Skattefunn/EU-tilskudds-bekreftelser per 2024
+- Ekstern validering av teknologiplattformen som var kjent per 2024
+- Skiftestjørna-anleggets driftshistorikk så langt den forelå per 2024
+
+**Strukturforslag for oppdatert seksjon 12:**
+
+Fellesramme (én gang, øverst):
+
+- 12.1 Formål og hjemmel (uendret fra dagens § 12.1)
+- 12.2 Vurderingsenhet (uendret fra dagens § 12.2 — samme vurderingsenhet på begge tidspunkter)
+- 12.3 Metodikk for de to tidspunkt-vurderingene (nytt kort avsnitt som forklarer prinsippet om point-in-time rolle og kunnskaps-cutoff; henviser til revisorens føring i dialogen)
+
+Vurdering per 31.12.2024:
+
+- 12.4 Indikatorvurdering per 31.12.2024 — de syv indikatorene, hver med kilder fra 2024-materialet
+- 12.5 Sammendrag per 31.12.2024
+- 12.6 Kvalitativ bruksverdi-vurdering per 31.12.2024
+- 12.7 Konklusjon per 31.12.2024
+
+Vurdering per 31.12.2025:
+
+- 12.8 Indikatorvurdering per 31.12.2025 — de syv indikatorene, hver med kilder fra 2025- og 2026-materialet
+- 12.9 Sammendrag per 31.12.2025
+- 12.10 Kvalitativ bruksverdi-vurdering per 31.12.2025
+- 12.11 Konklusjon per 31.12.2025
+
+Alternativ struktur: Del i seksjon 12 (2024) og seksjon 13 (2025) med renummerering av påfølgende seksjoner (Foreslått notetekst blir 14, Oppsummering 15). Velg den strukturen som gir best lesbarhet i sammenheng med resten av pakken — avgjør ved implementering.
+
+**Balanseført utviklingsverdi som må vurderingene bygger på:**
+
+- Per 31.12.2024 etter prinsippendring: må avledes fra regnskapsførers avstemminger. Tas fra `funding/1005 forskning og utvikling - oppdatert.md` — start-saldo 2025 (etter justering) minus 2025-tilgang gir 31.12.2024-saldo etter prinsippendring. Beløpet skal oppgis eksplisitt i innledningen til 12.4 slik at vurderingsenheten er entydig.
+- Per 31.12.2025 etter prinsippendring: 21 702 tusen kr (allerede i dagens § 12.5 og 11).
+
+**Notetekst-oppdatering (§ 13 / evt. § 14 etter renummerering):**
+
+Notetekst om nedskriving må oppdateres til å nevne at nedskrivingsvurdering er utført for begge tidspunkter — 31.12.2024 (som konsekvens av prinsippendringens virkning fra 1.1.2024) og 31.12.2025 (ordinær årlig vurdering) — begge med konklusjon «ingen nedskrivning».
+
+**Oppsummeringsseksjon (siste seksjon):**
+
+Utvid punktet «hva revisor bes bekrefte» med:
+- (f) at nedskrivingstest per 31.12.2024 er tilfredsstillende dokumentert
+- (g) at nedskrivingstest per 31.12.2025 er tilfredsstillende dokumentert
+
+**Kilder som må leses før implementering:**
+
+- `funding/2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` — særlig § 11 (balanseeffekt) og § 12 (dagens nedskrivingstest)
+- `funding/2026-08-26_dialog_revisor_prinsippendring.md` — referatet «Før opptaket startet» og hovedtransskripsjonen (metodikkføringen)
+- `funding/nedskriving_2025.md` — den substantielle 2025-analysen (T79); nyttig som mal for indikatorvurdering
+- `funding/nedskriving_mal.md` — generell mal med metodikkforklaring
+- `funding/1005 forskning og utvikling - oppdatert.md` — for å avlede 31.12.2024-saldo etter prinsippendring
+- `background/loeypemelding/2024-01-29_loeypemelding.md`, `2024-04-28_loeypemelding.md`, `2024-10-01_loeypemelding.md` — kontemporære 2024-kilder
+- `background/loeypemelding/2025-10-07_loeypemelding.md`, `2025-11-17_loeypemelding.md`, `2026-07-16_loeypemelding.md` — for retrospektiv 2024-narrativ og full 2025-vurdering
+
+**Krav ved gjennomføring:**
+
+- Ingen bold i brødtekst (kun titler/undertitler).
+- Norsk finansterminologi. Valuta etter tall (f.eks. «21 702 tusen kr», ikke «kr 21 702 tusen»; «5 M€», ikke «€5M»).
+- NBSP i tallgrupper — kjør `scripts/nbsp_numbers.py` på endelig fil (dry-run først, deretter `--promote` etter kontroll).
+- Ingen kryssreferanser til andre prosjektfiler fra revisorpakken — argumentasjon skrives inline (jf. tidligere krav i T82 og T83).
+- Beløp må være konsistente med regnskapsførers avstemminger. Hvis 31.12.2024-saldoen ikke er direkte tilgjengelig, be regnskapsfører bekrefte før pakken sendes.
+- 2024-vurderingen må disiplinært utelate 2025-2026-hendelser som bevis — kontroller hver av de syv indikatorene mot lista over evidensbiter som skal fjernes.
+
+**Open loop for Eirik:**
+
+- Vurder om det er hensiktsmessig å oppdatere også innledningen (§ 1) og oppsummeringen (§ 14) til å reflektere de to tidspunkt-vurderingene, eller om det er tilstrekkelig å håndtere alt i § 12.
+- Verifiser at balanseført verdi per 31.12.2024 etter prinsippendring er entydig avledbar fra `funding/1005 forskning og utvikling - oppdatert.md` — hvis ikke, be regnskapsfører om et separat mellombalanse-utsnitt.
