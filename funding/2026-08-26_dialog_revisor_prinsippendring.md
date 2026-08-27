@@ -4,7 +4,7 @@ type: dialog med revisor
 sak: prinsippendring 2025 — presentasjon av egenkapitalnoten og sammenligningstall
 deltakere:
   - Eirik Larsen (Sunlit Sea AS)
-  - Revisor (kollega av Karolina hos revisor, som stiller inn under Karolinas ferie)
+  - Revisor (Vardar AS — kollega av Karolina, stiller inn under Karolinas ferie)
 kilde: talegjenkjenning av telefonsamtale (ref.srt); renskrevet kun for åpenbare talegjenkjenningsfeil
 relatert: 2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md
 ---

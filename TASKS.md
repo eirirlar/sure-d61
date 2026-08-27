@@ -1637,7 +1637,7 @@ Each `.md` opens with a metadata table: document date, issuer, source path, conv
 **Open — needs your decision:** the originals in `funding/background/nye/Vollsfjorden Solkraftanlegg/` are untouched. Say the word if the inbox should be emptied.
 ---
 
-### T101 `[ ]` [FUND] Splitt nedskrivingstesten i revisorpakken i to separate vurderinger — per 31.12.2024 og per 31.12.2025
+### T101 `[x]` [FUND] Splitt nedskrivingstesten i revisorpakken i to separate vurderinger — per 31.12.2024 og per 31.12.2025
 
 Etter dialog med revisor (referat i `funding/2026-08-26_dialog_revisor_prinsippendring.md`, seksjon «Før opptaket startet») må nedskrivingstesten i revisorpakken bygges om fra én samlet vurdering per 31.12.2025 til to selvstendige vurderinger — én per 31.12.2024 og én per 31.12.2025. Bakgrunnen er at prinsippendringen har virkning fra 1.1.2024: SuRE 2024-kostnader reaktiveres, og avskrivninger på hele kto 1005 reverseres fra samme dato. Balansen per 31.12.2024 endres derfor materielt, og en indikatorvurdering på det tidspunktet må gjennomføres og dokumenteres selvstendig for at revisor skal kunne bekrefte at ingen nedskrivning var pålagt på balansedagen 31.12.2024.
 
@@ -1735,3 +1735,26 @@ Utvid punktet «hva revisor bes bekrefte» med:
 
 - Vurder om det er hensiktsmessig å oppdatere også innledningen (§ 1) og oppsummeringen (§ 14) til å reflektere de to tidspunkt-vurderingene, eller om det er tilstrekkelig å håndtere alt i § 12.
 - Verifiser at balanseført verdi per 31.12.2024 etter prinsippendring er entydig avledbar fra `funding/1005 forskning og utvikling - oppdatert.md` — hvis ikke, be regnskapsfører om et separat mellombalanse-utsnitt.
+
+**Solution (2026-08-26):**
+
+Oppdatert `funding/2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md`. YAML `utarbeidet` satt til 2026-08-26. Filnavn beholdt uendret.
+
+Endringer i revisorpakken:
+
+- Seksjon 1 pkt. 5: Formuleringen om nedskrivingstest utvidet til å nevne begge tidspunkter (31.12.2024 og 31.12.2025) med begrunnelse i prinsippendringens virkning fra 1. januar 2024.
+- Seksjon 12: Fullstendig omstrukturert fra én samlet vurdering per 31.12.2025 til to selvstendige vurderinger. Ny struktur — 12.1 Formål og hjemmel, 12.2 Vurderingsenhet (uendret; samme vurderingsenhet på begge tidspunkter), 12.3 Metodikk for de to tidspunktsvurderingene (ny; forklarer point-in-time-rolle og cutoff-disiplin), 12.4 Balanseført utviklingsverdi ved de to tidspunktene (ny; tabell med 20 884 tusen kr per 31.12.2024 og 21 702 tusen kr per 31.12.2025), 12.5 Indikatorvurdering per 31.12.2024, 12.6 Sammendrag/bruksverdi/konklusjon per 31.12.2024, 12.7 Indikatorvurdering per 31.12.2025, 12.8 Sammendrag/bruksverdi/konklusjon per 31.12.2025.
+- Seksjon 13.3: Notetekst utvidet til å nevne at nedskrivingsvurdering er utført ved to tidspunkter, begge med konklusjon «ingen nedskrivning».
+- Seksjon 14 pkt. 9: Oppdatert til å eksplisitt liste begge tidspunktsvurderinger med balanseførte verdier.
+
+Cutoff-disiplin i 2024-vurderingen: alle 2025-2026-utviklinger listet i task-beskrivelsen er utelatt fra 2024-vurderingen (DNV mai 2026, BayWa uttrekning høst 2025, SINTEF EIC 2026, planlagt 2026-emisjon, FPV-markedsstørrelse 2026). 2024-vurderingen bygger på løypemeldinger fra 2024-01-29, 2024-04-28 og 2024-10-01: emisjonspris 573,67 kr per aksje med KodeWorks/Kamin Eiendom-forpliktelser oktober 2024 (indikator 4), 15-prosjekts pipeline med kontraherte leveranser og Emrgy-lisensavtale (indikator 7), SuRE €500K bekreftet 75 % utbetalt og Eurostars-kvalifisering (indikator 7). 2025-vurderingen bygger på full 2025-2026-informasjon inkludert oktober 2025-beslutningen om å avvikle gen 1-fabrikken (dekket i indikator 6 med konklusjon at det er strategi-fokusering på gen 2, ikke verdifallssignal).
+
+Balanseført verdi per 31.12.2024 etter prinsippendring (20 884 tusen kr) avledet direkte fra `funding/1005 forskning og utvikling - oppdatert.md`: bokført saldo 31.12.2024 (12 211 tusen kr) + reverserte 2024-avskrivninger (7 655 tusen kr) + SuRE 2024-aktivering (1 018 tusen kr). Beregningen sammenstemmer også baklengs mot 31.12.2025-saldoen: 21 702 - 818 (SuRE 2025-aktivering) = 20 884.
+
+NBSP i tallgrupper: kjørt `scripts/nbsp_numbers.py` dry-run (2 substitusjoner i mine nye punkt-9-tall, ellers uendret ordtelling/karaktertelling/linjetelling) og deretter `--promote`.
+
+Både 2024- og 2025-vurderingen konkluderer med at ingen nedskrivning er påkrevd. Cutoff-disiplinen sikrer at 2024-vurderingen står på egne bein uten hindsight-avhengighet.
+
+**Files touched:** `funding/2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (oppdatert).
+
+**Neste steg (Eiriks side, utenfor T101):** Gjennomgå omstrukturert seksjon 12 og vurdere om formuleringene om cutoff-disiplin (§ 12.3) og bruksverdi-vurderingene er tilfredsstillende for revisor. Signatur i § 14 må fylles inn før leveranse. Ved eventuell docx-eksport må dette bestilles eksplisitt.
