@@ -1758,3 +1758,125 @@ Både 2024- og 2025-vurderingen konkluderer med at ingen nedskrivning er påkrev
 **Files touched:** `funding/2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (oppdatert).
 
 **Neste steg (Eiriks side, utenfor T101):** Gjennomgå omstrukturert seksjon 12 og vurdere om formuleringene om cutoff-disiplin (§ 12.3) og bruksverdi-vurderingene er tilfredsstillende for revisor. Signatur i § 14 må fylles inn før leveranse. Ved eventuell docx-eksport må dette bestilles eksplisitt.
+
+---
+
+### T102 `[x]` [FUND] Gjennomgå og gi revisjonsstrategi for EIC Transition-søknaden (SUREWAVE_EIC)
+
+SINTEF (Balram) sirkulerte 2026-09-09 gjeldende utkast til EIC Transition-søknad (`background/eic/2026-09-09_sintef.md`, konvertert fra docx). Søknadsfristen er ca. 15.-17. september 2026. Konsortiet er endret siden forrige utkast: WavEC ute (4. september), EDP inne med styregodkjenning (8. september), demonstratorsted flyttet fra Portugal/nearshore til Hainer See (innlandssjø i Sachsen, Tyskland). EDPs styre har samtidig utfordret konsortiet på å vurdere et portugisisk sted.
+
+Behov: en profesjonell søknadsskriver-gjennomgang av hele utkastet — hva som må endres, hva som bør vektlegges mer eller mindre, hva som bør fjernes, hvilke underleverandører som bør inn, budsjettrealisme, og hvordan EIC faktisk evaluerer denne typen søknad.
+
+**Kilder gjennomgått:**
+
+- `background/eic/2026-09-09_sintef.md` — gjeldende søknadsutkast (990 linjer)
+- `background/eic/2026-09-09_mails.md` — korrespondanse 23.07-09.09.2026 (konsortie-endringer, stedsvalg, kostnader)
+- `background/eic/2026-08-17_eic_sunlit_sea_wp_contribution.md` — Sunlit Seas WP-bidrag, PM-anslag og kostnadsestimat (€715k + €50k Booster)
+- `background/eic/2026-07-31_MOM_EIC_SUREWAVE.md`, `2026-08-07_eic_feedback_to_sintef.md`, `2026-08-07_eic_diff_sintef_vs_sunlitsea.md`, `locations.md`
+
+**Solution (2026-09-09):**
+
+`background/eic/2026-09-09_eic_proposal_revision_strategy.md` skrevet — internt strateginotat på engelsk, 14 seksjoner, med triage-tabell mot fristen.
+
+Tre hovedfunn:
+
+1. **Sted/miljø-rammen er brutt.** Teksten plasserer fortsatt demonstratoren i «Trondheim», kaller WP6 «Demonstrator Sea Trials» og bygger hele Excellence- og Impact-argumentet på «nearshore/coastal/marine». Faktisk sted er Hainer See — ferskvann, innlands. Dette treffer TRL 6-påstanden direkte («demonstrated in a relevant environment») og er den mest sannsynlige avslagsgrunnen. Notatet gir et konkret argument: definer «relevant environment» ved *lastenvelope* (Hs, fetch, vind, UV/termisk syklus) framfor ved saltvann, navngi eksplisitt hva innsjøen *ikke* dekker (salinitet/korrosjon, begroing, tidevann, dønning), og lukk saltvanns-gapet med et parallelt akselerert saltekspoeringsprogram. Anbefaler videre å navngi Hainer See som *stedet* i søknaden og flytte det portugisiske stedet til business-WP-en som replikasjons-/andremarkedsstudie — gir EDPs styre portugisisk innhold uten å legge et hull i gjennomføringsplanen.
+2. **Impact-seksjonen er tom.** 2.1 (forretningsmodell/IP/kommersialisering), 2.2 (økonomisk/samfunnsmessig nytte) og 2.3 (investeringsmodenhet) inneholder kun malens veiledningstekst. Impact er ett av tre poenggivende kriterier. Notatet spesifiserer hva som må skrives i hver.
+3. **Dokumentet motsier seg selv.** 20 objektive feil listet i en fix-tabell (D1-D20): varighet M36 vs. M42, leveranser D8.x som peker på en WP8 som ikke finnes, D4.2 tildelt WavEC som forlot konsortiet, to tasks nummerert 2.3, «WP6.4» som egentlig er en task, døde kryssreferanser til T4.3 og T8.2, demonstratorstørrelse 200-300 kWp vs. 50-300 kWp, tomme PM-/budsjett-/underleverandørtabeller, tom patenttabell, PDF-ekstraksjonsskade i T2.3/T5.4-teksten.
+
+Øvrig innhold i notatet:
+
+- **WP-restrukturering** fra 7 til 6 WP-er, 36 måneder, med WP2 co-ledet av Sunlit Sea (FPV) og CLEMENT (bølgebryter/fortøyning) — løser det åpne punktet Eirik allerede hadde flagget.
+- **KPI-sett** (K1-K9) med målbare tall, siden de teknologiske målene i utkastet ikke har målbare targets i det hele tatt.
+- **Underleverandører** — anbefaler DNV (uavhengig samsvarsuttalelse mot DNV-RP-0584/ST-C108/ST-E309, sterkeste bankability-signal), akkreditert testlab for saltekspoering, tysk konsesjonsrådgiver, lokal elektroentreprenør, marine warranty surveyor, samt Norsmaterials/Tongge og monteringsarbeid som allerede lå i Sunlit Seas plan. Fraråder å hente inn MARIN igjen.
+- **Budsjettrealisme** — CLEMENT €680k + 25 % = €850k (ekskl. deres egne personalkostnader), Sunlit Sea €715k. Det etterlater €935k til SINTEF og EDP av en €2,5M-ramme. Budsjettet går ikke opp når CLEMENTs personalkostnader legges til. Fire spak-alternativer rangert; merk at reduksjon av kWp sparer langt mindre enn folk antar, siden ~2/3 av Sunlit Seas €310k produksjonslinje er skala-uavhengig TRL-steg-kostnad.
+- **Hva som bør fjernes** — T3.4 (maskinlæring/prediktivt vedlikehold, leses som forskningskryp i et demonstrasjonsprosjekt), sirkulær-betong som *aktivitet*, åpne designspørsmål, møtereferater som leveranser, leveransetall fra 24 ned til ~14.
+- **Flagg:** €50k Booster Grant ligger inne som T7.5 med egen leveranse. Booster søkes normalt *etter* tildeling — må verifiseres mot Work Programme; hvis riktig, skal den ut av arbeidsplanen.
+- **Arbeidsdeling** for den siste uka, delt i «Eirik skriver selv», «press Balram på» og «be EDP om».
+- **Åtte åpne spørsmål** som ikke kunne besvares fra materialet — bl.a. bølgehøyde ved Hainer See (Eirik sier ~1,5 m, Thomas sier ~1 m), faktisk demonstratorstørrelse, CLEMENTs og SINTEFs totale budsjettkrav, patentposisjon, og om EDP var SUREWAVE-partner (avgjør om IP-forpliktelseserklæring er påkrevd som vedlegg).
+
+Alle påstander om selve call-reglene (poenggrenser, varighetsgrenser, Booster-mekanikk, sidegrense, IP-vedlegg) er eksplisitt merket **[VERIFY]** i notatet, siden de må sjekkes mot 2026 EIC Work Programme før de brukes.
+
+**Files touched:** `background/eic/2026-09-09_eic_proposal_revision_strategy.md` (ny).
+
+**Neste steg (Eiriks side, utenfor T102):** Besvar de åtte åpne spørsmålene i § 14, verifiser call-reglene merket [VERIFY], og bestem om notatet skal deles med Balram som det er eller omarbeides til et konsortie-vennlig følgebrev slik T94 ble gjort.
+
+---
+
+### T103 `[x]` [FUND] Verifiser EIC-call-reglene mot Work Programme 2026 og skriv om hele søknaden
+
+Oppfølging av T102. Alle punkter i revisjonsstrategien som var merket **[VERIFY]** skulle sjekkes mot faktiske kilder, og deretter skulle hele søknaden skrives om — frikoblet fra SINTEF-utkastet, men med **identisk kapittel- og underkapittelstruktur**, siden Part B er en EU-mal. Budsjettfordeling gitt av Eirik: Sunlit Sea ≈ Clement, SINTEF ≈ 1/2 av dem, EDP ≈ 1/3 av dem. Impact-seksjonen skulle skrives *for* EDP, med research på hvorfor EDP er en sterk partner som sannsynligvis vil skalere opp læringen fra prosjektet.
+
+**Kildeverifisering (2026-09-09):**
+
+EIC Work Programme 2026 (Annex C(2026) 4080) lastet ned og konvertert med `pdftotext -layout`. Funn:
+
+- **Frist: 16. september 2026 kl. 17:00 Brussel.**
+- **Startnivå må være TRL 3 fullført og *ikke over TRL 4*.** «Proposals building on project results at other TRLs level are not eligible.» SINTEF-utkastet hevdet **TRL 5** — det ville gjort søknaden **ikke støtteberettiget**. Rettet til TRL 4 → TRL 6.
+- **Varighet 1-3 år.** Utkastets M42-tasks var utenfor rammen. Satt til 36 måneder.
+- **Beløp: mer enn €0,5M og *mindre enn* €2,5M.** Satt til €2 480 000 (ikke €2,5M, som ikke er «mindre enn»).
+- **Sidegrense: 22 A4-sider for forside + seksjon 1-3, inkludert tabell 3.3a-3.3h.** Ikke nevnt i utkastet.
+- **Terskler: Excellence 4/5, Impact 4/5, Implementation 3/5.** Minst 3 evaluatorer, deretter intervju med EIC Jury (4-6 medlemmer), maks 5 personer fra søkerne, og **kun personer navngitt i søknaden** kan møte.
+- **EPO vurderer teknologisk nyhet og IP-strategi** for søknader som går til intervju. Gjør IP-seksjonen viktigere enn antatt.
+- **Booster Grant tildeles «outside any call for proposals»** til allerede finansierte prosjekter (Annex 5). Bekrefter flagget i T102: den skal *ut* av arbeidsplanen. Utkastet hadde den som T7.5 med egen leveranse.
+- **Women-led-definisjonen:** kvinnelig koordinator *og* ≥50 % kvinnelige WP-ledere. Intervjupoolen utvides til minst 30 % av de shortlistede er women-led — en reell seleksjonsmekanisme, ikke bare en avkryssingsboks.
+- **SUREWAVE-kvalifisering avklart.** CORDIS: 101083342 er HORIZON-RIA under Horizon Europe Pillar II (HORIZON.2.5.2 Energy Supply), 01.10.2022-30.09.2026, koordinert av SINTEF. RIA under Pillar II står eksplisitt på lista over støtteberettigede prosjekter. Løpende prosjekt med startdato >18 mnd før cut-off. SINTEF, Sunlit Sea og Clement var SUREWAVE-partnere; **EDP var ikke** (partnerne var SINTEF, Sunlit Sea, CEIT, MARIN, Acciona Construcción, Clement Germany, IFEU — som også forklarer Balrams henvendelse til ACCIONA 7. september).
+
+**EDP-research (edp.com, CORDIS, bransjekilder):**
+
+EDP er en langt sterkere Impact-ressurs enn utkastet utnyttet. 32,7 GW installert, 21,2 GW vind+sol (Q1 2026), ~12 000 ansatte, mål >50 GW fornybar og 100 % fornybar produksjon innen 2030, >€12 mrd investering fram til 2028 med ~70 % på fornybar og lagring. Driver **Alqueva** — Europas største flytende solkraftverk på et demningsmagasin (5 MWp, ~7,5 GWh/år, hybridisert med vannkraft og 1 MW batteri) — og vant **70 MW-loddet i den portugisiske auksjonen for flytende sol i 2022**. Driver **Floating PV Lab** på Alto Rabagão: 220 kW, 2 500 m², *åpen tredjepartsplattform* med uttalt formål å redusere teknologirisiko og industrialisere nye flytende solløsninger, med mål om å kommersialisere **minst fem nye flytende sol-teknologier innen utgangen av 2027**. EDP beskriver selv stedet som å ha sterk vind, betydelig bølgeaktivitet og temperaturer fra under 0 °C til over 30 °C med is og snø.
+
+Dette omdefinerte hele markedsposisjoneringen: EDPs egne problemsteder er **innlandsmagasiner med bølgeproblem**, ikke offshore. Da er Hainer See ikke lenger en svakhet — det er nettopp det relevante miljøet. Markedspåstanden ble byttet fra «hundrevis av GW kystlinje» (ukildebelagt) til reservoarpotensial: **1 % dekning av verdens reservoarer ≈ 404 GW, 25 % ≈ 4 400 GW**.
+
+**Solution (2026-09-09):**
+
+`background/eic/2026-09-09_eic_surewave_proposal_rewrite.md` skrevet — komplett Part B, frikoblet fra SINTEF-teksten, men med identisk kapittelstruktur og alle `#@…@#` / `#§…§#` prosesserings-tagger reprodusert på nøyaktig samme plass som i malen. Malens veiledningstekst er fjernet, slik den er ved innsending.
+
+Struktur: Forside · 1. Excellence · 1.1 Technological breakthrough · 1.2 Objectives · 1.3 Methodology · 2. Impact · 2.1 Credibility of the impacts · 2.2 Economic and/or societal benefits · 2.3 Investment readiness · 3. Quality and efficiency of the implementation · 3.1 Quality and motivation of the team · 3.2 KPIs, milestones and risks · 3.3 Work plan and resources · Tabell 3.3a-3.3h · Annexes.
+
+Sentrale grep:
+
+- **Omposisjonering.** Målmarkedet er bølgeutsatte innlandsmagasiner og vannkraftreservoarer — EDPs eget marked — med skjermet kystvann som tilgrensende segment. «Trondheim», «nearshore», «offshore» og «Sea Trials» er ute. Hainer See er navngitt som *stedet*, ikke som ett av flere alternativer.
+- **TRL 4 → TRL 6**, med eksplisitt begrunnelse for hvorfor resultatet ikke er over TRL 4.
+- **Seks WP over 36 måneder**, WP2 co-ledet av Sunlit Sea (FPV) og Clement (bølgebryter/fortøyning). Site-*valg* er borte; site-*karakterisering* er reelt arbeid. Overvåkning foldet inn i produksjons-WP-en fordi instrumentene monteres under produksjon.
+- **Portugal som replikasjonsstudie (T6.4)** i business-WP-en, med Alto Rabagão Floating PV Lab og Alqueva som referansecase og definisjon av første kommersielle installasjon. Gir EDPs styre portugisisk innhold uten å åpne gjennomføringsplanen.
+- **Ferskvanns-gapet håndtert eksplisitt** som R2, ikke bortforklart: parallelt akkreditert saltspray-/nedsenkings-/UV-program (T4.6, KPI K9), Gen 1 saltvannserfaring, og modellkjeden kjørt over marin lastenvelope. TRL 6 hevdes for innlandsmarkedet, kyst oppgis som tilgrensende.
+- **DNV som underleverandør** (€60k) for uavhengig design-basis-gjennomgang og samsvarsuttalelse mot RP-0584 / ST-C108 / ST-E309. Underleverandører totalt €262k (10,6 %), ingen kjerneoppgaver.
+- **15 KPI-er** (K1-K9 teknologi, B1-B6 business) med tall, verifikasjonsmetode og måned. K2 (≥50 % bølgedemping) og K3 (≥50 % lastreduksjon) er prosjektets falsifiserbare kjerne, med terskel begrunnet i hvor arrayet kan bygges til stillevanns-spesifikasjon.
+- **Budsjett etter Eiriks fordeling:** Sunlit Sea €875 000 · Clement €875 000 · SINTEF €440 000 · EDP €290 000 = **€2 480 000**. 160 PM totalt. Fullt utfylte tabeller 3.3f (PM + lump sum per WP per partner), 3.3g (underleverandører med begrunnelse) og 3.3h (innkjøp for Sunlit Sea og Clement, som begge overskrider 15 %-terskelen). Alle tall summerer.
+- **Impact skrevet for EDP** med de verifiserte tallene, samt arealbesparelse, fordamping, gjenbruk av eksisterende nettilknytning, og et konkret strategisk-autonomi-argument (betong og aluminiumsflottører har for lav verditetthet til å importeres fra Asia — dette leddet av verdikjeden *kan* være strukturelt europeisk).
+- **IP i tre lag** — patent (≥2 prioritetssøknader + FTO innen M24), bevisst valgte forretningshemmeligheter (PU-formulering, støpeparametere, hengsel-toleranser), og data/know-how — skrevet for EPO-gjennomgangen.
+- **Booster Grant fjernet** fra arbeidsplanen.
+- **Appendiks** med verifikasjonstabell mot Work Programme og åtte konsortiebeslutninger som gjenstår.
+
+**Kildemateriale arkivert i repoet (for å kunne fortsette arbeidet på en annen maskin):**
+
+- `background/eic/2026-06-17_eic_work_programme_2026.md` — hele EIC Work Programme 2026 (Annex C(2026) 4080, «2nd amendment, ADOPTED»), 209 sider, konvertert med `pdftotext -layout`. Dato-prefikset etter dokumentets egen dato, hentet fra PDF-metadata (CreationDate 17.06.2026), ikke nedlastingsdato. YAML-header i fila oppgir kilde-URL, hentedato, og linjenumre til de relevante seksjonene: seksjon III «EIC Transition» ca. linje 2075, Table 4 (tildelingskriterier og terskler) ca. linje 2470, Annex 5 (Booster grants) ca. linje 9110. Headeren lister også de 13 call-reglene som faktisk ble brukt, slik at de kan sjekkes uten å lese 209 sider på nytt.
+- `background/eic/2026-09-09_eic_web_sources.md` — alle fakta hentet fra åpne nettsider, med URL og hentedato: SUREWAVE-metadata fra CORDIS (aksjonstype, pilar, datoer, full partnerliste), EDPs konsern-tall, Alqueva, Floating PV Lab på Alto Rabagão, markedstall for flytende sol og reservoarpotensial, og Sunlit Seas offentlige profil. Fila har også en «ikke kildebelagt ennå»-seksjon med de fire punktene som fortsatt mangler kilde.
+
+Kun én fil ble faktisk lastet ned (Work Programme-PDF-en). Alt annet ble lest fra nettsider. PDF-en selv er ikke lagt i repoet — tekstversjonen og kilde-URL-en er nok til å hente den på nytt.
+
+**Files touched:** `background/eic/2026-09-09_eic_surewave_proposal_rewrite.md` (ny) · `background/eic/2026-06-17_eic_work_programme_2026.md` (ny, arkivert kilde) · `background/eic/2026-09-09_eic_web_sources.md` (ny, arkiverte nettkilder) · `README.md` (oppdatert beskrivelse av `background/eic/`).
+
+---
+
+**Logg for å fortsette på en annen maskin**
+
+*Rekkefølgen arbeidet ble gjort i, og hvor alt ligger:*
+
+1. **T102 — gjennomgang.** Leste hele SINTEF-utkastet (`2026-09-09_sintef.md`), mail-tråden (`2026-09-09_mails.md`), Sunlit Seas WP-bidrag (`2026-08-17_eic_sunlit_sea_wp_contribution.md`) og MoM. Skrev `2026-09-09_eic_proposal_revision_strategy.md` — 14 seksjoner, triage-tabell, 20 objektive feil (D1-D20), WP-restrukturering, KPI-forslag, underleverandørliste, budsjettsjekk, hva som bør droppes, og hvordan EIC evaluerer. Alt som ikke kunne verifiseres ble merket `[VERIFY]`.
+2. **T103 — verifikasjon.** Lastet ned EIC Work Programme 2026 og konverterte med `pdftotext -layout`. Alle `[VERIFY]`-punkter avklart. **Det viktigste funnet: startnivået må være TRL 3 fullført og ikke over TRL 4 — utkastets TRL 5-påstand ville gjort søknaden ikke støtteberettiget.** Sjekket SUREWAVEs kvalifisering på CORDIS (HORIZON-RIA under Pillar II = støtteberettiget). Researchet EDP for Impact-seksjonen.
+3. **T103 — omskriving.** Skrev `2026-09-09_eic_surewave_proposal_rewrite.md`: komplett Part B med identisk kapittelstruktur og alle prosesserings-tagger på plass.
+
+*Der arbeidet står nå:*
+
+- Søknadsteksten er komplett i Markdown. Den er **ikke** trimmet til 22-sidersgrensen — det må gjøres ved ombrekking i Word. Trim fra § 1.1 og task-teksten i § 3.3 først, aldri fra § 2.
+- Alle tabeller (3.3a-3.3h) er utfylt og summerer. Budsjett: Sunlit Sea €875 000 · Clement €875 000 · SINTEF €440 000 · EDP €290 000 = €2 480 000, 160 PM.
+- Alle punkter som krever en konsortiebeslutning er merket `[CONFIRM]` i teksten, og samlet i appendikset nederst i søknadsfila (åtte punkter).
+- Ingen docx er generert. Konvertering må bestilles eksplisitt.
+
+*For å plukke opp tråden:*
+
+Les i denne rekkefølgen — `background/eic/2026-09-09_eic_proposal_revision_strategy.md` (hva som var galt og hvorfor), deretter appendikset nederst i `background/eic/2026-09-09_eic_surewave_proposal_rewrite.md` (verifikasjonstabell mot Work Programme + de åtte åpne beslutningene), deretter selve søknaden. `background/eic/2026-09-09_eic_web_sources.md` har alle URL-er hvis noe må sjekkes på nytt.
+
+**Neste steg (Eiriks side, utenfor T103):** Bekreft de åtte punktene i appendikset — særlig demonstratorstørrelse (250 kWp er skrevet gjennomgående), bølgehøyde ved Hainer See, patentposisjon, og de fem navnene til jury-intervjuet. Vurder også women-led-spørsmålet, som er en reell seleksjonsmekanisme og ikke bare en avkryssingsboks. Trimming til 22 sider gjøres ved ombrekking i Word.

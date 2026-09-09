@@ -2,6 +2,7 @@
   "permissions": {
     "allow": [
       "Bash(cd /tmp)",
+      "Bash(git mv *)",
       "Bash(rm -rf word customXml media rels docProps* [Content_Types].xml *.rels)",
       "Bash(unzip -q \"/c/Users/eirirlar/Documents/sunlitsea/sure/WP6/background/surewave/lca/SUREWAVE_D7.5_Social_Report_V3.docx\")",
       "Bash(mkdir -p /tmp/doc_work)",

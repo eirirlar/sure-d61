@@ -345,6 +345,41 @@ python scripts/clean_investor_updates.py --in-place background/*.md
 
 The dry-run output flags any file that shrinks to below 70% of its original word count with a `!` marker — that is the pattern that would have caught the earlier truncation incident where two files silently lost ~90% of their content to an over-broad signature-start regex. Always dry-run before batch use.
 
+### `scripts/eu_proposal_template_format.lua`
+
+Pandoc Lua filter that makes EU proposal-template documents (EIC Transition, Horizon Europe application forms) readable after a `.docx` → Markdown conversion. The Word templates wrap every guidance note, every answer field and every work-package description in a table. Plain Pandoc renders those as ASCII grid tables hundreds of characters wide (a 160 KB `.docx` produced a 499 KB `.md`), and with `-t gfm` the ones Pandoc cannot express as pipe tables come out as raw HTML.
+
+What the filter does:
+
+| Input | Output |
+|---|---|
+| 1-column table | header row → blockquote (guidance), body rows → ordinary text |
+| label/value table (work-package boxes) | `**Label:** value`, or a bold label followed by the block content |
+| simple data table | left alone — stays a real Markdown table |
+| `1. **Excellence**` list item | `## Excellence` |
+| `Task 1.1: …` paragraph | `### Task 1.1: …` |
+| bullet list that is only `{.mark}` guidance | blockquote |
+| `[text]{.mark}` | plain text |
+| `[text]{.underline}` / `Underline` | bold (italics would nest illegally inside the templates' italic guidance runs) |
+
+Nested `**bold**` inside `**bold**` is collapsed, since Markdown cannot express it.
+
+```bash
+# raw.md is the unfiltered `pandoc source.docx -t markdown --wrap=none` output
+pandoc raw.md -f markdown -t gfm --wrap=none \
+  --lua-filter=scripts/eu_proposal_template_format.lua \
+  -o background/eic/2026-09-09_sintef.md
+```
+
+Non-destructive by design: it only ever writes the `-o` target, so keep the raw Pandoc conversion next to the formatted one. Verify a run by comparing word counts of the plain-text renderings of both files:
+
+```bash
+pandoc IN.md  -t plain --wrap=none | tr -s '[:space:]' '\n' | grep -vE '^[-+|]*$' | grep -c .
+pandoc OUT.md -f gfm -t plain --wrap=none | tr -s '[:space:]' '\n' | grep -vE '^[-+|]*$' | grep -c .
+```
+
+A small drop (well under 1%) is expected: list numbers and trailing colons disappear when list items and task titles become headings.
+
 ---
 
 ## Activity contents
@@ -427,7 +462,7 @@ sure-d61/
 │   ├── new/                   – inbox for unprocessed files (PDFs, DOCX, images → converted to .md)
 │   ├── lover/                 – excerpts of Norwegian statutes and accounting standards (regnskapsloven, NRS, skfvl)
 │   ├── loeypemelding/         – historical investor updates (løypemeldinger), date-prefixed
-│   └── eic/                   – EIC Transition proposal material (WP structure, MoM, feedback, PES application drafts)
+│   └── eic/                   – EIC Transition proposal material (WP structure, MoM, partner correspondence, feedback, PES application drafts, proposal revision strategy, full Part B rewrite, archived call rules and web sources)
 ├── scripts/                   – persistent helper scripts (see the *Scripts* section above)
 ├── sure/                      – SuRE WP6 activity
 ├── gen2/                      – Gen 2 product development
