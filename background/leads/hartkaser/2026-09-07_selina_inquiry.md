@@ -1,0 +1,90 @@
+---
+title: "Technical inquiry — floating PV pilot on Hartkaser alpine reservoir (Tyrol, Austria)"
+from: Lukas Becska (Selina Photovoltaic GmbH) <l.becska@selina-pv.com>
+cc: Andreas Huber (Selina Photovoltaic GmbH) <andreas.huber@selina-pv.com>
+to: Per Lindberg (Sunlit Sea) <per@sunlitsea.no>
+date: 2026-09-07
+type: inbound commercial inquiry — potential system-supplier / development partner role
+attachment: 2026-09-07_ehora_hartkaser.md (natural-hazards atlas extract for the site)
+end_customer: Bergbahnen Wilder Kaiser GmbH (reservoir owner/operator)
+project_status: submitted under an Austrian funding programme for innovative PV systems
+---
+
+# Selina Photovoltaic — technical inquiry, Hartkaser floating PV pilot
+
+**Subject:** Technical Inquiry Sunlit Sea — Pilot Project for a Floating PV System on an Alpine Reservoir in Austria
+
+Dear Per Lindberg,
+
+We are currently developing an innovative pilot project for a floating photovoltaic system for Bergbahnen Wilder Kaiser GmbH in Tyrol, Austria. We came across your company while looking for potential project partners. The project has already been submitted under an Austrian funding programme for innovative photovoltaic systems.
+
+## Project
+
+- **Project:** Floating PV on the Hartkaser reservoir
+- **Applicant/operator:** Bergbahnen Wilder Kaiser GmbH
+- **Location:** Hartkaser, Ellmau, Tyrol, Austria
+- **Altitude:** approx. 1,470 metres above sea level
+- **Reservoir volume:** approx. 140,000 m³
+
+The reservoir is used for snowmaking and can be completely drained. Therefore, the floating PV system must be able to follow significant variations in the water level and safely rest on the bottom of the reservoir when it is fully drained. The reservoir is lined with a waterproofing membrane, which means that any damage to the liner caused by point loads, sharp edges, movement or abrasion must be reliably prevented.
+
+## Environmental conditions
+
+Due to the alpine location, the system is also exposed to demanding environmental conditions, including:
+
+- high snow loads (see attached document)
+- ice formation and freeze-thaw cycles
+- strong winds
+- low temperatures
+- repeated complete draining and refilling of the reservoir
+
+## Current concept
+
+The current concept provides for bifacial glass-glass PV modules mounted on a floating and dynamically supported structure. The system should be fully removable without leaving any permanent residues or structures behind and should have as little impact as possible on the reservoir and the surrounding environment.
+
+Initially, we are planning a pilot installation to test the technical behaviour, energy yield and suitability of the system under real alpine conditions. The size and exact design of the pilot installation have not yet been finalised.
+
+## Questions to Sunlit Sea
+
+Could you please provide us with information on the following points?
+
+1. Are your Floating Solar Panels or other Systems approved or suitable for reservoirs that are completely and regularly drained?
+2. Can the system safely rest directly on a flat reservoir bottom lined with a waterproofing membrane without damaging the liner?
+3. What maximum snow, wind and ice loads can the system withstand?
+4. Is a steeper module inclination or a reinforced version for alpine conditions available?
+5. Can bifacial glass-glass PV modules be used?
+6. How is the system anchored if underwater anchoring or penetration of the waterproofing membrane is not permitted?
+7. How does the system behave during lowering of the water level, when resting on the reservoir bottom, and during the subsequent refilling of the reservoir?
+8. Are there any reference projects in alpine regions or under comparable snow and ice conditions?
+9. What technical information do you require for a preliminary design and a budgetary quotation?
+10. Would you be interested in supporting the project as a system supplier and technical development partner?
+
+## Next steps offered by Selina
+
+In the next step, we can provide you with site plans and cross-sections of the reservoir, information on the waterproofing membrane, as well as the preliminary project description.
+
+We would be pleased to receive further information about your system. Should you have any questions, please do not hesitate to contact me.
+
+Thank you very much in advance.
+
+Kind regards,
+Mit freundlichen Grüßen
+
+**Lukas Becska**
+Projektmanager
+
+Selina Photovoltaic GmbH
+Walfischgasse 13/Top 2, 1010 Wien
+T: +43 1 89 05 670 206, M: +43 676 604 24 50
+E: l.becska@selina-pv.com
+W: selina-pv.com
+FN: 364272w, FG: Handelsgericht Wien
+
+SCC** und ISO 9001 zertifiziert
+PV-Austria-Mitglied
+
+---
+
+## Attachment
+
+- [`2026-09-07_ehora_hartkaser.md`](2026-09-07_ehora_hartkaser.md) — HORA (Natural Hazard Overview & Risk Assessment Austria) atlas extract for the Hartkaser reservoir site, covering characteristic snow load, base wind speed, effective horizontal ground acceleration (seismic), and hail hazard. Includes rasterised page images of the original PDF.

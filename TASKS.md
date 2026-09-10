@@ -1880,3 +1880,75 @@ Kun én fil ble faktisk lastet ned (Work Programme-PDF-en). Alt annet ble lest f
 Les i denne rekkefølgen — `background/eic/2026-09-09_eic_proposal_revision_strategy.md` (hva som var galt og hvorfor), deretter appendikset nederst i `background/eic/2026-09-09_eic_surewave_proposal_rewrite.md` (verifikasjonstabell mot Work Programme + de åtte åpne beslutningene), deretter selve søknaden. `background/eic/2026-09-09_eic_web_sources.md` har alle URL-er hvis noe må sjekkes på nytt.
 
 **Neste steg (Eiriks side, utenfor T103):** Bekreft de åtte punktene i appendikset — særlig demonstratorstørrelse (250 kWp er skrevet gjennomgående), bølgehøyde ved Hainer See, patentposisjon, og de fem navnene til jury-intervjuet. Vurder også women-led-spørsmålet, som er en reell seleksjonsmekanisme og ikke bare en avkryssingsboks. Trimming til 22 sider gjøres ved ombrekking i Word.
+
+---
+
+### T104 `[~]` [FUND] Iterate EIC Transition proposal on Eirik's feedback rounds
+
+Rolling revision of `background/eic/2026-09-09_eic_surewave_proposal_rewrite.md` after Eirik's read-throughs of the T103 first draft. Each round is a chat iteration; the file evolves in place (git tracks history). Session is being handed off between machines.
+
+**Files touched throughout:**
+- `background/eic/2026-09-09_eic_surewave_proposal_rewrite.md` — the deliverable, edited in place across all rounds
+- `CLAUDE.md` — three writing/collaboration rules codified during this task (see round 4)
+
+**Iterations so far (2026-09-09 → 2026-09-10):**
+
+*Round 1 — substantive rewrites (Eirik's first read-through):*
+- Cover page "Other linked projects": added SUREWAVE row per Eirik's literal request (flagged as redundant with parent-project section directly above; SuRE would be a more natural entry — open item).
+- §1.1 opening: reframed to say SUREWAVE is the project that validated the integrated concept in the lab; Sunlit Sea's FPV (sold without mooring) and CLEMENT's floating concrete breakwaters are the commercial articles; EDP is a potential adopter/commercialisation partner, contingent on demonstrator outcome.
+- §1.1 fault-modes broadened (wind uplift, storms, corrosion all real); nearby-lake destroyed-in-two-years anecdote added.
+- "We remove the wave" → "we filter it" (attenuate damaging wave frequencies).
+- Breakwater description: added real-estate second-use (inverters/transformers/charging/marina); concrete mix framed as live design decision weighed against cost, service performance, CO₂ footprint.
+- §1.1 new paragraph after 404 GW figures: directional-selectivity insight (30–90° arc vs 360°) as the biggest cost lever from SUREWAVE.
+- §1.2 opening / O1 target / K1 / WP2 / T4.2 / purchase tables / appendix: "250 kWp" replaced with "small-scale demonstrator" throughout; band 50–300 kWp; no nameplate committed in this proposal.
+- §2.2 Circularity + T4.3 breakwater manufacturing: softened "circular concrete" to concrete-formulation-to-be-selected-under-T2.4.
+- Global: 568 `**` bold markers stripped from body text via `sed 's/\*\*//g'` — word/line count unchanged, no residue.
+
+*Round 2 — body-text-heading strip (Eirik's page-real-estate point):*
+- 21 template-prompt and paragraph-lead-in headings removed across §1, §2, §3 that were duplicating the following paragraph's opener. Where "Because…", "This is where…" etc. dangled after the prompt disappeared, the opener was rewritten into a self-standing sentence.
+- Fused paragraphs where a heading was the only reason they split (SUREWAVE-elements list + TRL-4-complete sentence into one paragraph).
+- Kept as evaluator anchors: WP-level `Objectives.` / `Deliverables:` in each WP block; `Interview team`, `Women-led consortium`, `International participation` in §3.1 (map to specific EIC selection-mechanism checkboxes); italic sub-labels like `*Land, not consumed.*` etc.
+- EDP verbatim clause "either through EPC delivery or as an independent power producer" removed per Eirik's feedback ("don't parrot my words"). Later codified as CLAUDE.md rule.
+
+*Round 3 — nearshore / harbour / coastal-city market added:*
+- §1.1 addressable market reframed as two co-equal anchor segments: (a) windy reservoirs, (b) harbours and sheltered coastal water in and around coastal cities. Shoreline-expansion-near-equator framing added.
+- Port Hercule Monaco added as concrete precedent for floating-concrete-breakwater-as-urban-infrastructure (harbour parking inside the pontoon).
+- Sunlit Sea's harbour pipeline named as customer evidence: Skien Havn ~300 kWp near-term, Vollsfjorden inside Grenland port district, Gunneklevfjorden inside Hærøya Industripark (3.2 MWp), Storavatnet at Haugaland Næringspark (3.2 MWp phase 1, 30–50 MW long-term).
+- Growth data split: ~26 % CAGR overall vs ~35 % CAGR for nearshore/coastal segment specifically (Global Market Insights via `background/2026-07-08_market_intel.md`).
+- Competitors updated with nearshore-relevant players from the intel doc (Fred. Olsen 1848 Brizo, Saipem/Moss Maritime XolarSurf).
+- §2.2 opening broadened from reservoir-only to wave-limited water surface generally. New benefit item added: `*Urban waterfront, activated.*` — the shared-function cost-basis shift specific to city harbours.
+
+*Round 4 — negation-first sentences reframed (Eirik's "don't say what you don't want them to focus on" rule):*
+- "The customer requirement in these two segments is not hypothetical — it is already under contract negotiation." (Eirik: "smells of desperation") → deleted. Pipeline list stands on its own.
+- §1.1 market opener "not speculative and not fully-exposed offshore" → dropped; positive two-anchor-segments framing carries the meaning.
+- §1.1 harbour: "not only a wave-attenuator but urban infrastructure" → "doubles as urban infrastructure".
+- §1.2 objectives: "run from M1, not from M24, because…" → "run in parallel from M1, so that…".
+- §2.2 scale-up: "The scale-up is not speculative on the customer side. EDP has 32.7 GW…" → "The customer-side scale-up is anchored in EDP's own numbers: 32.7 GW…". "not a pilot customer; it is a market-making event" → "a market-making event, not a pilot" (positive first, terse negation after — the pattern the new rule allows).
+- Kept the one already-good pattern in §3.1: "this project is the commercial article, not a research exercise" — positive first, negation clarifies.
+
+**Rules codified in `CLAUDE.md` during T104:**
+- Working rules: `Process feedback, don't parrot it` — extract substance, weigh fit, argue for better formulations. Don't paste user's feedback words into deliverables.
+- Working rules: `Rules and preferences live in CLAUDE.md, not in per-machine memory` — this is a shared git repo across machines.
+- Language and tone: `Lead with the positive claim, not the negation` — don't tell the reader what to ignore; if a `not` is essential, put it after the core message.
+
+**Deleted during T104:** memory file `~/.claude/projects/C--dev-src-sure-d61/memory/feedback_process_dont_parrot.md` (created earlier in the session, moved to CLAUDE.md instead) and its entry in that project's `MEMORY.md`.
+
+**Open loops for the next round:**
+
+1. Cover page "Other linked projects" table now has SUREWAVE listed — redundant with the parent-project section above. SuRE (sister Horizon Europe project, Sunlit Sea leads WP6, IFE-coordinated) would be a more natural entry there. Ask Eirik.
+2. Four "circular concrete" mentions remain (lines describing SUREWAVE's parent-project work, not this demonstrator). Kept as factual; can be softened if Eirik prefers.
+3. Per-site negotiation status in Sunlit Sea's pipeline is not claimed in the text (the "under contract negotiation" line was cut as defensive). Eirik can add per-site status where factual.
+4. Appendix consortium decisions still open (unchanged from T103): TRL nameplate, wave height at Hainer See, budget acceptance, patent position, interview team, women-led status, IP commitment letter, Hainer See LOI.
+5. Trim to 22-page limit still due at Word layout stage. Round 2 (heading strip) recovered ~26 lines of vertical space in the source; more will come from removing the editorial-note callout and the appendix before conversion.
+
+**For pickup on another PC — start here:**
+
+1. Read `CLAUDE.md` Working rules and Language and tone sections (three new rules added in this task).
+2. Read `background/eic/2026-09-09_eic_surewave_proposal_rewrite.md` end-to-end to see current state.
+3. Read `background/2026-07-08_market_intel.md` for the market data underpinning the round 3 rewrite (competitor map, ~35 % CAGR nearshore, LCOE numbers, Sunlit Sea's Norwegian pipeline).
+4. Wait for Eirik's next round of inline feedback on the proposal.
+
+**Ikke i scope for T104:**
+- Docx-konvertering (bestilles eksplisitt av Eirik)
+- Trim til 22 sider (gjøres i Word ved ombrekking)
+- Signatur / Letter of Intent / vedlegg (Eiriks side)

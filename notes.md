@@ -1,1 +1,2 @@
-create the letter of intent
+> either through EPC delivery or as an independent power producer,
+You took this directly from my feedback. Did you evaluate if this fits here? I listed likely ways for them to adpot the technology. But you have already written "EDP is a potential adopter and integrator of the combined offering" which may be enough? More importantly - don't use my feedback verbatim! Process it, weigh it, analyze it, evalute it. We are building this report together. You are allowed to argue for better formulations (unless I tell you directly how it should be of course).

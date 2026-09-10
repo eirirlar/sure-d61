@@ -91,6 +91,8 @@ The `T`-number sequence is authoritative and continuous across activities. Tags 
 - **`rm` and other destructive operations require explicit permission for files I did not create myself in the current conversation.** Before every `rm`, `mv --force`, `> file` (overwrite) or equivalent: check whether the file is something I generated in this session. If not — stop and ask. Signals that the file belongs to the user (and must not be touched): file size or mtime that differs from my own output, filename that does not match my pipeline, files that "seem odd to have" in the folder. Deleting is worse than letting it be — ask instead.
 - **Clean up after Agent invocations:** For tasks that invoke the `Agent` tool (particularly with `isolation: "worktree"`), always check at the end that `.claude/worktrees/agent-*` folders have been cleaned up. Document in the task solution note that cleanup was done.
 - **Agent tool always creates worktrees – plan for cleanup:** The `Agent` tool in Claude Code (this harness version) creates a worktree per spawn regardless, even without `isolation: "worktree"` set explicitly. This also applies to agents that only read files. After the session ends and the pid is dead, worktrees can be cleaned with: `git worktree repair` → `git worktree unlock` → `git worktree remove --force` → `git branch -D` (and finally `git worktree prune`). For Cygwin/Windows mismatch: run cleanup in Git Bash, not Cygwin.
+- **Process feedback, don't parrot it:** When the user gives feedback on a deliverable, don't paste their words into the document. Extract the underlying claim, weigh whether it belongs and at what level of detail, and integrate the substance in the register of the surrounding prose. Argue for a better formulation when the direct version weakens the text. Their feedback is input for our collaboration; only use their exact wording when they say to.
+- **Rules and preferences live in `CLAUDE.md`, not in per-machine memory:** This is a shared git repo used across machines. Working rules, tone rules, writing preferences and any other durable guidance go into `CLAUDE.md` so they travel with the project. Do not save such rules to Claude Code's user-memory system — those files only exist on one machine and will not be seen from another.
 
 ---
 
@@ -99,6 +101,7 @@ The `T`-number sequence is authoritative and continuous across activities. Tags 
 - All SuRE / D6.1 / D6.2 documents are in **English** (EU deliverable language). Other activities default to English too unless the audience is explicitly Norwegian.
 - Be concrete and factual — do not "sell" the work, let documented facts speak.
 - Reports must address the reader's concerns directly (CINEA reviewers: interface data-transfer status, KPI evidence, model-chain coverage; commercial: pricing basis, delivery, risk).
+- **Lead with the positive claim, not the negation.** Readers remember what appears first. Don't tell the reader what to ignore — tell them what to focus on. Avoid patterns like "This is not X — it is Y"; write the Y directly, with X implied by contrast. If a "not" is essential to the meaning, put it *after* the core message so the positive statement lands first (e.g. "Y, not X"). Reserve outright negation for the rare case where the reader is likely to assume X and needs to be turned away from it — and even then, do it briefly.
 
 ---
 
