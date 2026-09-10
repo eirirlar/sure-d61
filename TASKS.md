@@ -1933,20 +1933,89 @@ Rolling revision of `background/eic/2026-09-09_eic_surewave_proposal_rewrite.md`
 
 **Deleted during T104:** memory file `~/.claude/projects/C--dev-src-sure-d61/memory/feedback_process_dont_parrot.md` (created earlier in the session, moved to CLAUDE.md instead) and its entry in that project's `MEMORY.md`.
 
+*Round 5 — scale statement moved into the proposal (2026-09-10):*
+- §1.2 `[CONFIRM scale…]` bracket replaced with two paragraphs of proposal text. The demonstrator is sized by what it has to prove rather than by nameplate; the figure inside the 50–300 kWp band follows from the WP2 site layout and freezes at M12. Second paragraph carries the lump-sum argument: cost is dominated by the step from laboratory result to manufactured article (tooling, subcontractor qualification, instrumentation, manufacturing engineering, QA), which is a one-time cost of standing up the build campaign; only modules, aluminium and PU scale with capacity, and they are a minority of the budget. Matters because under lump-sum funding an undefined nameplate reads as undefined scope.
+- "small-scale" dropped from the WP2 objective; appendix item 1 rewritten to flag only the real decision (nameplate before M12).
+
+*Round 6 — wave-generation mechanisms separated (Eirik: "It's waves that destroy FPV. Wind causes waves. But so does deep sea effects"):*
+- §1.1 "most reservoir surface and most exposed harbour water is unreachable… because both are windy" replaced. Reservoir waves are wind/fetch-driven; harbour waves add swell refracting in through the entrance from offshore. Both are directional, which is now the stated reason a partial breakwater arc replaces a full ring — ties back to the round 3 directional-selectivity argument.
+- Broad "most … unreachable" claim dropped in favour of the economic threshold already established earlier in §1.1. SUREWAVE's position is now that it moves the threshold, with no share-of-global-water claim to challenge.
+- Knock-on: risk R2 previously listed salinity, biofouling and tidal range as what Hainer See cannot reproduce. Swell added, with the answer that the demonstrator measures the harder case (short, steep, multi-directional fetch sea) while the model chain is exercised across swell periods.
+
+*Round 7 — remaining negations from rounds 5–6 (Eirik: "Those are set by the build campaign, not by its length"):*
+- "Those are set by the build campaign, not by its length" → "Each of those is a one-time cost of standing up the build campaign, paid in full whether it produces fifty kilowatts or three hundred."
+- Same paragraph, caught in the same pass: "and neither moves a work-package boundary or the amount requested" → "and both leave the work-package boundaries and the amount requested exactly where they stand."
+- Negations kept in R2 (what the site cannot reproduce) — deliberate disclosure, turning them positive would read as evasion.
+
+*Round 8 — project duration queried and sourced:*
+- Eirik asked where 36 months comes from. Answer: EIC WP 2026 line 2357 — "the EIC considers proposals with a requested EU contribution of more than EUR 0.5 million and less than EUR 2.5 million and duration between 1 and 3 years as appropriate." SINTEF's own table 3.3a already said M1–M36; their task text, deliverables, MS7 and reporting periods said M42, which is outside the stated range. Caveat recorded: the call says "considers … as appropriate", not "must be" — a strong steer rather than a stated admissibility rule. Schedule has ~2 months slack after the M34 campaign end; the pinch point is the M21–M22 installation weather window (risk R3).
+
+*Round 9 — technology objectives de-risked (Eirik: "There's a lot of 'prove'… What happens if we can't prove it?"):*
+- O2–O5 verbs changed from "Prove…" to quantify / operate / establish. The deliverable is now the measurement; the numbers moved to a "design target" framing in the target column. O1, O6, O7 were already acts and stand.
+- Milestone MS5 renamed from "Performance thesis proven" to "Performance quantified against design targets", and its means of verification changed from "K2 ≥ 50 % and K3 ≥ 50 % measured" to the measurements being made and reported against target. This was the real exposure: under lump sum a WP is declared completed or not completed, so a 42 % reading could have been argued into a non-completed work package at a payment gate.
+- §3.2 narrative rewritten so a shortfall is framed as a usable outcome (it sizes the residual load and re-prices the architecture on real data). KPI targets in table 3.3d unchanged — that is where EIC wants hard numbers.
+
+*Round 10 — customer-interview programme removed (Eirik: "We don't want to spend any time interviewing people if we can avoid it"):*
+- Origin admitted: the "30 structured interviews" was invented in the T102 draft, not drawn from the call. The template asks for "number of meetings with potential customers … or other means of interacting", so interviews are an example, not a requirement.
+- Replaced across ten places (O8, §1.3 Phase 4, §2.1 validation sequence, §2.3, §3.2, T2.1, T6.1, T6.3, MS1, KPI table). Year one draws requirements from engagements the partners already run — Sunlit Sea's harbour and sheltered-coastal pipeline, EDP's reservoir portfolio and Floating PV Lab applicant flow. From M22 the demonstrator is the validation instrument, with prospects hosted on site and each visit closing in a short logged debrief.
+- KPIs: B1 became ≥ 15 organisations hosted at the demonstrator by M34; B2 became ≥ 3 demonstration events at the site. Both numbers are the assistant's estimate and need Eirik's confirmation. B5 (≥ 3 LOIs) untouched as the real test.
+
+*Round 11 — IP strategy rewritten (Eirik: "we already know from gen 1 that we have freedom to operate… it's already checked. Not a good KPI imo"):*
+- Patent promises removed. §2.1 now opens by naming the situation: floating solar is densely patented, sheltering a marine structure behind a breakwater is long-established art, Sunlit Sea has searched the landscape for gen 1 and again for the CONNECT gen. 2 connection, freedom to operate is settled and the patentable surface is thin.
+- Defensibility restated as three assets a crowded patent landscape leaves untouched: manufacturing know-how held as trade secrets (PU formulation and UV variant, casting parameters, aluminium forming route, hinge tolerances); the validated model chain plus the operational dataset, which compounds with every later installation; and a certification lead (DNV-RP-0584 verified since 2022, carried through the May 2026 standards).
+- Patent-families table filled: no granted patents or pending applications, with the reason stated. Filings left open where the project generates something defensible, with the instrumented hinge and integrated monitoring arrangement named as candidates, reviewed at each Steering Committee.
+- O10 → "Secure the commercial defensibility of the result" (FTO confirmed, trade-secret regime and data-access rules in force, M12). B4 → "Defensibility secured", verified by D1.2 at M12. Task 1.4 and §2.3 IP readiness aligned.
+- Rationale recorded: the EPO reviews novelty and IP strategy for shortlisted proposals, and would have spotted crowded art immediately.
+- Open: whether CLEMENT holds filings. The table currently states Sunlit Sea's position only.
+
+*Round 12 — Hainer See Letter of Intent received and filed:*
+- `background/eic/2026-09-08_loi_leipzigseen_hainer_see.md` written — full transcription plus notes. The signed PDF is a scan with no text layer (pdftotext returns 2 bytes) and no OCR tool is installed; Eirik authorised reading the two rendered pages with the Read tool. PDF moved from `background/new/` to `background/eic/2026-09-08_loi_leipzigseen_hainer_see_signed.pdf`.
+- Signed 8 September 2026 by Sabine Clement-Lange (CEO, Clement Germany GmbH) and Christian Conrad (CEO, LeipzigSeen GmbH, HRB 19741). Note the company spells itself LeipzigSeen, with a final n, throughout the document.
+- Cited in §2.3 (site access secured, CEO-level signature, short permitting path), §3.1 (CLEMENT's site relationship now evidenced) and the annex list.
+- Three claims corrected because the letter does not support them. It does not say the owner keeps the pontoons; it gives two paths at project end — decommission, or formalise a commercial agreement covering price targets, bankable options, manufacture guarantees and maintenance. The proposal had used pontoon retention in four places to argue cheap campaign extension and avoided decommissioning. All four now describe what the letter actually offers, and §2.2 uses the commercial route as a named path from demonstrator to first sale.
+- Eirik confirmed the 50–300 kWp band stands; the letter's ~50 kWp is the figure the site agreement needed. Appendix item 8 updated accordingly.
+- Two live issues recorded: the letter lapses if no collaboration agreement is signed before 28 February 2027 (grant signature is indicatively ~6 months after the 16 September deadline), and it expressly excludes IP ownership and non-disclosure, so a separate NDA with the site owner is worth having before data starts flowing.
+
+*Round 13 — Booster grant regime checked and stated (Eirik: "Have you checked?"):*
+- Annex 5 read in full. Up to €50 000, fixed amount, awarded outside any call to already-selected projects. Maximum one per Transition project. Applicants must be invited, following a positive recommendation from an EIC Programme Manager, a project review, or Tech2Market BAS participation (Business Validation Programme / Venture Building Action). Assessed GO/NO GO by a Programme Manager plus one or two experts; two GOs selects.
+- The rule that matters: Booster grants do not fund research, activities already foreseen in the original project, or activities funded by other EIC instruments. Writing Booster activities into the work plan would therefore have made them ineligible. Removing T7.5 in T103 preserved eligibility rather than merely tidying the structure.
+- One clause added to §2.3 Team readiness: intent to pursue a Booster grant for portfolio activities and commercialisation work lying outside this work plan, with everything in the proposal costed and delivered inside the requested lump sum independently of it. Deliberately names no activity that also appears in WP6. Tech2Market Business Validation Programme added to the BAS sentence as one of the named routes to being invited.
+- Appendix verification row expanded with the full regime.
+
+*Round 14 — instrumentation set rebuilt to Eirik's specification:*
+- First pass: hinge load cells removed; strain gauges moved to mooring and anchoring; two moored IMU buoys added, one outside the breakwater and one inside, deployed early in T2.2 so the design basis rests on measured wave data rather than hindcast alone; pyranometer named at the array; wind data from a site sensor or nearby met station, decided in T4.1; site camera for security and dated visual condition records.
+- Second pass, after Eirik: nothing goes into the modules at all. No strain gauges or thermal sensors on the production line, no water-ingress sensors, no corrosion coupons on the array. Load cells (not strain gauges) in the mooring and anchoring; pyranometer with integrated thermal sensor; energy read at the inverter.
+- The claim "instrumentation is installed during manufacture … the reason the data from this project will be better than a typical demonstrator" had to go, since nothing is installed during manufacture. Replaced with the stronger and truer argument: the units are built sealed and unmodified, a module with a sensor cable through its seal is no longer the article a customer buys, and what comes out of the water after twelve months is the commercial unit.
+- Water ingress is measured by weighing each unit at recovery against its factory-recorded dry mass. Gives a quantity for every unit rather than presence-or-absence from a sampled few. K6 rewritten accordingly, with the acceptance threshold set at FAT.
+- T5.5 renamed "Recovery and post-campaign forensics" and expanded: growth recorded and sampled, ingress weighed, PU frames and aluminium inspected, and the hinge bond line examined. Eirik's point carried into the text — SURE testing established that hinge delamination occurs only where wave forces exceed what the absorption arrangement can take, so its presence or absence after a full seasonal cycle is a direct verdict on whether the protected-array configuration worked. Read with the mooring load record, the buoy pair, the models and the SURE laboratory characterisation, this supports the hinge assessment without instrumenting the hinge in the field.
+- Knock-ons: §1.3 Phase 2 and Phase 3, WP4 objectives, T2.3, T4.1, T4.2, T4.5, T5.4, K3, K5, K6, R6 and the purchase-costs table.
+
+*Round 15 — emphasis-by-assertion phrasing swept (Eirik: "It is very AI, it kind of dumbs down the reader"):*
+- Document scanned for the pattern family. Six instances rewritten: "which is precisely" (×2, one stacked with "no amount of X would have"), "did not merely confirm", "exists precisely because", "which is what makes", "which is the single largest reason".
+- Two survivors kept deliberately: "broke the connector, which is what a basin campaign is for" is plain English carrying a dry point, and one instance sits in the internal appendix.
+- New rule added to `CLAUDE.md` Language and tone: *Avoid emphasis-by-assertion phrasing*, naming the family (which is precisely, this is exactly, it is worth noting, crucially, importantly, the very X, not merely X but Y, no amount of X would) with the test "if a sentence needs *precisely* to land, the sentence is the problem".
+
 **Open loops for the next round:**
 
-1. Cover page "Other linked projects" table now has SUREWAVE listed — redundant with the parent-project section above. SuRE (sister Horizon Europe project, Sunlit Sea leads WP6, IFE-coordinated) would be a more natural entry there. Ask Eirik.
-2. Four "circular concrete" mentions remain (lines describing SUREWAVE's parent-project work, not this demonstrator). Kept as factual; can be softened if Eirik prefers.
-3. Per-site negotiation status in Sunlit Sea's pipeline is not claimed in the text (the "under contract negotiation" line was cut as defensive). Eirik can add per-site status where factual.
-4. Appendix consortium decisions still open (unchanged from T103): TRL nameplate, wave height at Hainer See, budget acceptance, patent position, interview team, women-led status, IP commitment letter, Hainer See LOI.
-5. Trim to 22-page limit still due at Word layout stage. Round 2 (heading strip) recovered ~26 lines of vertical space in the source; more will come from removing the editorial-note callout and the appendix before conversion.
+1. Market growth figure. §1.1 cites ~26 % CAGR overall (Global Market Insights) but `background/2026-07-08_market_intel.md` cites the same source at ~12 % overall, with 35.5 % for offshore/nearshore. The 35 % figure in the proposal is right; the 26 % is not supported by our own file and an evaluator can check it. Unresolved.
+2. Fifth partner. §3.1 says the consortium was "deliberately reduced from five to four", but `2026-09-08_intro_letter_totalenergies.md` is marked sent and the Enel letter is drafted. The call allows five. If either joins, that sentence, the budget table and §3.1 all change.
+3. Unused material in the market intel: CBAM on aluminium into Norway from 1 January 2026 (supports the strategic-autonomy argument in §2.2, which currently rests on value density alone); Sunlit Sea's ~€200/kWp system cost target; and current nearshore LCOE of 400–650 EUR/MWh, which the proposal never acknowledges as the gap the techno-economic work has to close.
+4. B1 (≥ 15 organisations hosted) and B2 (≥ 3 demonstration events) are the assistant's numbers and need Eirik's confirmation.
+5. K6 acceptance threshold points at FAT. If the Prototype 3 water-ingress protocol already carries a figure — grams per unit, or a pass criterion — it belongs there and would make K6 as hard as K2 and K5.
+6. CLEMENT's patent position. The patent-families table states Sunlit Sea's position only.
+7. LOI expiry 28 February 2027, and the absence of an NDA with the site owner.
+8. Cover page "Other linked projects" table still lists SUREWAVE, redundant with the parent-project section above it. SuRE would be the more natural entry. Carried from round 1.
+9. Appendix consortium decisions still open: wave height at Hainer See (~1.5 m in the outbound letters, ~1 m in Thomas's 1 September mail), budget acceptance, interview team names, women-led status, IP commitment letter.
+10. Trim to the 22-page limit at Word layout stage. Cut from §1.1 and §3.3 task text first, never from §2.
 
 **For pickup on another PC — start here:**
 
-1. Read `CLAUDE.md` Working rules and Language and tone sections (three new rules added in this task).
-2. Read `background/eic/2026-09-09_eic_surewave_proposal_rewrite.md` end-to-end to see current state.
-3. Read `background/2026-07-08_market_intel.md` for the market data underpinning the round 3 rewrite (competitor map, ~35 % CAGR nearshore, LCOE numbers, Sunlit Sea's Norwegian pipeline).
-4. Wait for Eirik's next round of inline feedback on the proposal.
+1. Read `CLAUDE.md` Working rules and Language and tone (four rules added across this task, most recently the emphasis-by-assertion rule).
+2. Read `background/eic/2026-09-09_eic_surewave_proposal_rewrite.md` end to end. The appendix at the bottom carries the Work Programme verification table and the open consortium decisions.
+3. Read `background/2026-07-08_market_intel.md` for the market data behind round 3, and for the three unused items in open loop 3 above.
+4. Read `background/eic/2026-09-08_loi_leipzigseen_hainer_see.md` for the site agreement and what it does and does not commit to.
+5. `background/eic/2026-06-17_eic_work_programme_2026.md` is the archived call text; its YAML header lists the thirteen rules used and the line numbers for the Transition section, the award-criteria table and Annex 5.
+6. Wait for Eirik's next round of inline feedback.
 
 **Ikke i scope for T104:**
 - Docx-konvertering (bestilles eksplisitt av Eirik)

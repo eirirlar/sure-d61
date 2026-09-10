@@ -441,6 +441,8 @@ Current contents:
 - `nedskriving_mal.md` — company-independent template for impairment tests under Norwegian accounting rules (rskl § 5-3, NRS 8, NRS(F) Nedskrivning, NRS 4). 12 sections + checklist, applicable to micro/small/medium/large foretak. Reference for future testing years or other companies (T78).
 - `nedskriving_draft.md` — Eirik's short note framing the 2025 argument (external validation from Sintef/IFE, gen 1 → gen 2 transferability). Basis for T79.
 - `nedskriving.md` — original T75 draft. Placeholder-heavy; superseded by `nedskriving_2025.md` for the 2025 test but retained per instruction.
+- `2026-09-10_vedlegg_skattemelding_2025_prinsippendring.md` — short justification of the 2025 accounting principle change, for attachment to the 2025 tax return. Follows the auditor's 2026-09-10 guidance (2024 effect directly against retained earnings; 2024 tax depreciation reversed in the 2025 return). Tax depreciation amount is a placeholder (`XXX`) for the accountant to fill in.
+- `2026-09-10_svar_regnskapsforer_prinsippendring_skattemelding.md` — cover mail to the accountant sending the justification above, asking them to fill in the amount and confirm the tax paragraph.
 
 `funding/background/` holds date-prefixed background material for the funding stream, plus the `nye/` inbox for unprocessed files.
 
