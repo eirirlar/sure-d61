@@ -2021,3 +2021,125 @@ Rolling revision of `background/eic/2026-09-09_eic_surewave_proposal_rewrite.md`
 - Docx-konvertering (bestilles eksplisitt av Eirik)
 - Trim til 22 sider (gjøres i Word ved ombrekking)
 - Signatur / Letter of Intent / vedlegg (Eiriks side)
+
+---
+
+### T105 `[x]` [FUND] Apply CINEA sell-in template to SuRE extension proposal (Gunneklevfjorden / D6.4 extended)
+
+**Trigger.** Mail from Mario Silva (IFE), 2026-09-11: IFE is preparing the change proposal to CINEA that reallocates the freed BayWa r.e. budget (and the effectively vacated Laketricity dependency) to Sunlit Sea's WP6 scope. Sunlit Sea can ask for about 470 000 EUR of additional grant (funding rate 70 %, so about 671 000 EUR of additional cost). Mario asks Sunlit to fill in `funding/background/nye/Sunlit_Additional_resources.xlsx` — a one-row Horizon-Europe budget template — and return it so he can bundle it into the change proposal. He explicitly limits input to the yellow cells and to the point where the "additional Grant" column reaches about 470 000 EUR.
+
+**Sunlit Sea's opportunity in this exercise.** CINEA has been occupied with the formalisation of BayWa r.e.'s exit and has responded slowly to IFE's change-notification since it was first raised for February 2026 (the løypemelding gave ~25 % probability of the money coming through, with CINEA processing time cited as the negative signal). Mario's ask is administrative in appearance, but this is Sunlit Sea's first substantive written input to CINEA since the BayWa pull-out. Filling the sheet without context is a missed pitch: the sheet has almost no room to sell Gunneklevfjorden. The task is therefore not "fill the sheet" but "prepare a proper sell-in document that accompanies the sheet, so Mario has something to bundle into the change proposal that gives CINEA a reason to approve".
+
+**Files created in this task-thread (2026-09-11) — inventory before the rewrite:**
+
+- `funding/background/nye/Sunlit_Additional_resources.xlsx` — the IFE-provided template. Not converted (Excel template with formulas; kept raw per README convention). Yellow input cells: G11 (PM count), G12 (PM rate, EUR/mo), H8 (subcontracting), I8 (travel), J8 (equipment), K8 (other g/w/s), H9–K9 (one-line justification texts). Green computed cells: G8 = G11×G12, L8 = 25 % × (G+I+J+K), M8 = sum of G–L, N8 = 0.7 (locked), O8 = N8×M8. Sheet layout inspected via openpyxl.
+- `funding/background/2026-09-11_sunlit_additional_resources_ife.md` — Markdown description of the xlsx layout, formulas and origin. Internal reference, not for CINEA.
+- `funding/2026-09-11_sure_extension_budget_sunlit.md` (+ `.pdf`) — internal working draft of the budget to be entered into the sheet, with per-cell reasoning and cell references. Internal only, not for CINEA.
+- `funding/2026-09-11_sure_extension_project_description.md` (+ `.pdf`) — first attempt at the outbound-facing project description. Rebuilt once during the session; still opens with administrative framing and buries Gunneklevfjorden. Discarded from this task's plan — T105 rebuilds it from scratch via the template.
+- `funding/cinea_sellin_template.md` — reusable structure and voice guide for any Sunlit Sea document going to CINEA. Written and refined during this session. This is the tool T105 applies.
+
+**Framing anchors — confirmed with Eirik 2026-09-11:**
+
+1. Gunneklevfjorden is Task 6.4 / D6.4 extended and enlarged, not a new proposition. The original DoW places the ~100 kW pilot at Singløya Nord; the extension moves the location to Gunneklevfjorden (Herøya Industripark, Porsgrunn) and grows the scope to an instrumented demonstrator integrated with the 3.2 MW commercial plant that Sunlit Sea is developing there.
+2. The pilot validates design parameters worked on in D6.1 (Sunlit model chain — mechanical load, heat transfer, float production, LCA) and D6.2 (Pareto frontier mapping and prototype candidate selection). D6.4 at Gunneklevfjorden is therefore the closing loop on the WP6 arc.
+3. Sunlit Sea's KER remains as stated in the grant proposal: *Improved integration of floater and module for FPV application*.
+4. Cross-WP contributions: WP1 (Deltares monitoring concepts, D1.1), WP2 (IFE / Fraunhofer / TNO mechanical models), WP3 (IFE performance-loss quantification).
+
+**Terminology committed to in the grant proposal — use verbatim in the sell-in:**
+
+- *aluminium-float FPV*, *floater-module integrated FPV system*
+- WP6, D6.1, D6.2, D6.4, Task 6.3, Task 6.4
+- SSC (Sea State Code), LCOE, BoS / SBoS, PLR
+- Sunlit KPI: LCOE reduction of up to 60 %
+- Sunlit committed design-validation up to SSC 5 (Rough, 2.5–4 m)
+- WP6 title: *Development of Sunlit's integrated FPV tech*
+- Task 6.4 title in the DoW: *Prototype production and field deployment*
+
+**Budget numbers locked in this session, subject only to IFE's on-file PM rate:**
+
+| Cell | Value | Note |
+|---|---:|---|
+| G11 (PM count) | 31.4 | Fractional PM is normal in Horizon budgets |
+| G12 (PM rate, EUR/mo) | 10 000 | Placeholder — adjust G11 when IFE confirms the on-file rate |
+| G8 (Personnel, computed) | 314 000 | |
+| H8 (Subcontracting) | 135 000 | Marine works 60 000 + grid tie 50 000 + monitoring supply / calibration 25 000 |
+| I8 (Travel) | 10 000 | |
+| J8 (Equipment rental) | 75 000 | 12-month rental of a research-grade monitoring package; not purchase |
+| K8 (Other g/w/s) | 30 000 | Permits, insurance, lab analyses, dissemination |
+| L8 (Indirect, auto) | 107 250 | 25 % × (G + I + J + K); H excluded per Horizon rules |
+| M8 (Total cost) | 671 250 | Sum of G–L |
+| N8 (Funding rate) | 0.7 | Locked |
+| O8 (Additional grant) | 469 875 | Mario asked for "about 470 000 EUR"; exact hit impossible with integer-euro inputs (0.7 × 1.25 arithmetic) |
+
+**Personnel role distribution (31.4 PM):** CEO / project lead 4 PM, CTO / lead engineer 12 PM, site and commissioning engineer 8 PM, monitoring and data lead 7.4 PM. The monitoring-and-data role is deliberately separated because Sunlit Sea runs the monitoring in-house (rather than subcontracting a named service provider, which would require CINEA to approve the subcontractor).
+
+**Design principles that shaped the numbers:**
+
+- Equipment is *rented*, not bought. Purchasing 4-year-life instruments to use for 12 months is a depreciation trap that leaves Sunlit Sea funding 36 months of unwanted useful life. Rental costs are 100 % eligible for the rental term under Horizon Europe rules (subject to the cap that rental price must not exceed what depreciation would have cost — standard commercial vendor rates comfortably pass this).
+- No new subcontracted service and no new consortium partner named. This keeps the change proposal to a pure budget increase. Adding a named external service provider would require CINEA to also approve the subcontractor, increasing scope and rejection risk.
+- CINEA does not fund commercial-plant hardware (PV modules, aluminium floats, mounting hardware, mooring, inverters, grid-tie switchgear). Those are financed via Enova (~35 % of CAPEX indicated), PPA revenue, and Sunlit Sea equity. The SuRE budget covers only the research layer.
+- Timeline is anchored to T0 = CINEA approval date, not to fixed calendar dates. Fixed dates drift as CINEA approval slips; T-relative dates hold. This is Eirik's explicit instruction ("anything else is the recipe for chaos").
+
+**Feasibility evidence assembled during the exercise, to be used in the sell-in:**
+
+- Site rights: Herøya Industripark project company holds site rights; Sunlit Sea contracted as FPV technology provider under develop-operate-sell arrangement.
+- Marine permit: Miljødirektoratet has confirmed jurisdiction and accepted subsurface anchoring on the capped seabed left by Hydro's prior remediation of the fjord.
+- Municipal planning: Porsgrunn kommune has confirmed willingness to process the building application.
+- Grid: Herøya Nett has confirmed grid capacity and identified connection points on the industrial-park network.
+- Off-take: multiple large industrial off-takers on the park, including a planned 55 MW data-centre development. Check with Eirik whether the 55 MW figure can be published to CINEA before including.
+- Execution: Prosolar contracted for detailed engineering, permit processing, electrical installation, and post-installation O&M.
+- Financing of the commercial plant: Enova pre-project grant of 1 MNOK disbursed; further Enova support signalled for construction phase (~35 % of CAPEX expected).
+- Track record: 105 kWp Skiftestjørna installation (Haugaland Næringspark, installed autumn 2024) as Sunlit Sea's own operational reference — production has exceeded expectations in the first full operating year. Skiftestjørna is Sunlit Sea's own asset under a commercial PPA. Do not confuse Skiftestjørna with the D6.4 pilot: Skiftestjørna is gen-1 and pre-dates Task 6.4's timeline; Gunneklevfjorden is where D6.4 (gen-2 SuRE pilot) is delivered.
+
+**Template refinements made during this task-thread, documented in `funding/cinea_sellin_template.md`:**
+
+- Section 1 (Hook) — added an "Extension-proposal pattern" note: the strongest hook frames the ask as delivery of an existing committed deliverable at scaled or adapted terms, not as a new proposition. Anchor to the deliverable ID that the proposal advances.
+- Section 5 (Value to funder) — sharpened from "use the funder's terminology" to "use the funder's ID hierarchy (HLO, SO, WP, Task, D-number, KPI, KER) and describe your proposal as extending / delivering / elaborating / validating those pre-existing items". Added a rule that multi-contribution proposals list by ID, not as narrated prose.
+- Voice — added a "cold pitch vs extension proposal" register note: match the register of the grant agreement, not of the winning proposal. Understated confidence, not first-pitch rhetoric.
+
+**Open items to resolve with IFE / Mario before submitting the package:**
+
+1. Sunlit Sea's on-file PM rate in the SuRE grant. Budget assumes 10 000 EUR/PM as placeholder. When Mario confirms the actual rate, adjust G11 (PM count) to keep O8 close to 470 000 EUR. Personnel is the flex variable; the other cost lines stay as drafted.
+2. Whether the change proposal wants any additional attachments beyond the completed sheet and the accompanying project description — e.g. updated Gantt for Sunlit Sea tasks, list of amended deliverables, updated milestones. Ask before submitting so a follow-up round is avoided.
+3. Confirm that rental of monitoring instrumentation is treated as 100 % eligible for the rental period under the SuRE grant agreement (Article 6.2.C.2 standard). Should be uncontroversial but worth a one-line confirmation.
+
+**Workflow to complete T105:**
+
+1. Read `funding/cinea_sellin_template.md` end to end. Apply it as the structural and voice guide.
+2. Read `funding/2026-09-11_sure_extension_budget_sunlit.md` for the numbers and the reasoning (internal reference — do not carry cell references into the sell-in).
+3. Read the relevant sections of `sure/background/2023-04-19_sure_grant_proposal_technical_description.md` and `sure/sure_dow_extract.txt`, especially the WP6 and Task 6.4 blocks around lines 2836–2908 and the Sunlit KER on line 1990. Use their terminology verbatim.
+4. Read the relevant section of `background/loeypemelding/2026-07-16_loeypemelding.md` (section 5, Støtteordninger og EU-prosjekter, around line 79) for the current state of the extension and the site readiness details.
+5. Rebuild `funding/2026-09-11_sure_extension_project_description.md` from scratch using the template. Hook must open with the D6.4-extended-at-Gunneklevfjorden framing, not with administrative preamble.
+6. Ensure the ten sections of the template are present at the right proportions; ensure the voice rules (no self-praise, no emphasis-by-assertion, no meta-commentary, lead with the positive claim, no bold in body) are respected throughout; ensure all cross-references use the funder's ID hierarchy.
+7. Run the template's ten-item checklist at the end before regenerating the PDF.
+8. Regenerate the PDF via `pandoc "funding/2026-09-11_sure_extension_project_description.md" -o "funding/2026-09-11_sure_extension_project_description.pdf" --pdf-engine=xelatex -V geometry:margin=2cm -V mainfont="Segoe UI"`.
+
+**Not in scope for T105:**
+
+- Filling the xlsx (transcription step, done separately after the sell-in text is approved).
+- Sending to Mario or CINEA (Eirik's step).
+- Docx conversion of the sell-in (only if Mario asks).
+- Any change to `funding/2026-09-11_sure_extension_budget_sunlit.md` (internal budget reference stays as-is).
+- Any change to `funding/cinea_sellin_template.md` unless the rewrite exposes a new template gap (in which case fix the template first, then apply).
+
+**Solution (2026-09-11):**
+
+Rebuilt `funding/2026-09-11_sure_extension_project_description.md` from scratch using `funding/cinea_sellin_template.md` and regenerated the PDF at 50 KB. All ten template sections present at the drafted proportions. The ten-item template checklist was run before regeneration (verified: concrete-image hook, section-opener test, named parties, EU-style numbers, no repo scaffolding, budget cross-references Activities A–F, T0-anchored timeline, no self-praise adjectives, standalone). Feedback-memory rules held (no bold in body text; italics used only for grant-agreement titles as quotation convention; no emphasis-by-assertion; positive-first).
+
+Structural choices worth noting for future extension proposals:
+- Hook opens on Task 6.4 explicitly (extension-proposal pattern from template §1): *"Sunlit Sea's Task 6.4 pilot in SuRE — the field deployment of the aluminium-float FPV — moves from the Singløya Nord placeholder in the grant agreement to Gunneklevfjorden…"*. Anchors the ask to an existing committed deliverable, not to a fresh proposition.
+- Contribution section (template §5) is two lists — one for the WP6 items being delivered/extended (Task 6.4, O6.2.1, Sunlit KER), one for cross-WP data flows (WP1/WP2/WP3). Uses grant-agreement ID hierarchy verbatim.
+- Register is understated-confident per the template's cold-pitch-vs-extension-proposal rule. No first-pitch rhetoric.
+- The 55 MW data-centre reference from prior drafts was dropped from the feasibility section — flagged in the task body as needing confirmation before publishing to CINEA. Replaced with the neutral *"existing industrial demand on the park provides long-term commercial security for plant operation"*.
+- Marine-installation weather margin wording softened from a specific two-week figure (which had no source) to "a weather margin appropriate to the site's seasonal sea-state".
+
+**Files touched:**
+- `funding/2026-09-11_sure_extension_project_description.md` — full rewrite from template.
+- `funding/2026-09-11_sure_extension_project_description.pdf` — regenerated via `pandoc --pdf-engine=xelatex -V geometry:margin=2cm -V mainfont="Segoe UI"`.
+
+**Follow-on work outside T105:**
+- Fill the xlsx (`funding/background/nye/Sunlit_Additional_resources.xlsx`) — separate transcription step, do only after Eirik has confirmed the project description text and after Mario has confirmed the on-file PM rate for Sunlit Sea.
+- Send package (sheet + project-description PDF) to Mario — Eirik's step.
+- Docx conversion — only if Mario asks.
+- Confirm with Mario before submitting whether CINEA wants any additional attachments (Gantt for Sunlit Sea tasks, amended deliverable list, amended milestone list).
+- Confirm with Mario that rental of monitoring instrumentation is treated as 100 % eligible for the rental period under the SuRE grant agreement (MGA Article 6.2.C.2 standard).

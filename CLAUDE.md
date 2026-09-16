@@ -92,6 +92,9 @@ The `T`-number sequence is authoritative and continuous across activities. Tags 
 - **Clean up after Agent invocations:** For tasks that invoke the `Agent` tool (particularly with `isolation: "worktree"`), always check at the end that `.claude/worktrees/agent-*` folders have been cleaned up. Document in the task solution note that cleanup was done.
 - **Agent tool always creates worktrees – plan for cleanup:** The `Agent` tool in Claude Code (this harness version) creates a worktree per spawn regardless, even without `isolation: "worktree"` set explicitly. This also applies to agents that only read files. After the session ends and the pid is dead, worktrees can be cleaned with: `git worktree repair` → `git worktree unlock` → `git worktree remove --force` → `git branch -D` (and finally `git worktree prune`). For Cygwin/Windows mismatch: run cleanup in Git Bash, not Cygwin.
 - **Process feedback, don't parrot it:** When the user gives feedback on a deliverable, don't paste their words into the document. Extract the underlying claim, weigh whether it belongs and at what level of detail, and integrate the substance in the register of the surrounding prose. Argue for a better formulation when the direct version weakens the text. Their feedback is input for our collaboration; only use their exact wording when they say to.
+- **Re-read source material immediately before drafting a deliverable:** When a deliverable draws on a background/context file (`background/*.md`, notes attached to the task), re-read that file immediately before drafting — not only at task start. Facts may have been added between task setup and drafting. If the source is still empty at drafting time, ask whether to proceed with what's in chat or wait for the background to be filled in. Precedent: T80 delivered with 2 of 4 reasons because the background had been filled after task start and I did not re-read.
+- **Converted `.md` files must be self-contained:** After converting a `.docx`, `.pdf`, `.xlsx` etc. to markdown, the resulting `.md` must stand on its own. Do not add a YAML `source:` field pointing at the original binary, and do not write body text like "converted from `foo.docx`" or "the source document contains an EMF table". The original is often deleted after conversion, so any live reference becomes a broken pointer. Describe format quirks in generic terms ("this template's original form contains an EMF table") if needed, not as a pointer to a specific file path.
+- **Follow conventions written this session:** Do not deviate from a rule or convention that has been written into `CLAUDE.md`, `README.md`, or a task solution note during the current conversation. No "one-off pragmatic" carve-outs, even when the deviation is convenient or looks safer. If the rule turns out to be wrong, surface the conflict to the user and ask before deviating — never quietly bypass and note it as a "one-off" in a solution note. Precedent: T73 investor-update cleanup where I kept every original despite a rule I had just codified saying otherwise.
 - **Rules and preferences live in `CLAUDE.md`, not in per-machine memory:** This is a shared git repo used across machines. Working rules, tone rules, writing preferences and any other durable guidance go into `CLAUDE.md` so they travel with the project. Do not save such rules to Claude Code's user-memory system — those files only exist on one machine and will not be seen from another.
 
 ---
@@ -101,9 +104,34 @@ The `T`-number sequence is authoritative and continuous across activities. Tags 
 - All SuRE / D6.1 / D6.2 documents are in **English** (EU deliverable language). Other activities default to English too unless the audience is explicitly Norwegian.
 - Be concrete and factual — do not "sell" the work, let documented facts speak.
 - Reports must address the reader's concerns directly (CINEA reviewers: interface data-transfer status, KPI evidence, model-chain coverage; commercial: pricing basis, delivery, risk).
-- **Outbound documents must not carry internal repo scaffolding.** Anything that leaves this repo — a docx or PDF sent to partners, an annex uploaded to a funder — must contain no repo file paths, no `background/…` references, no task numbers, and no internal framing such as "draft", "rewrite" or "offered to X". Cite documents by their name, date and signatories, the way the recipient would refer to them. Note that YAML `title`, `author` and `date` keys render as a visible title block in docx and PDF: rename them (`internal_title` etc.) when the source file's metadata is for us rather than for the reader. Check the converted file, not just the Markdown, before sending.
+- **External deliverables stand alone.** Anything sent to an external reader (investor, auditor, regulator, funder, partner) must stand entirely on its own — the reader does not have the rest of the repo. No repo file paths, no `background/…` references, no task numbers, no internal framing like "draft" / "rewrite" / "offered to X". Also no references to companion documents by role: "as described in the løypemelding" is a broken reference if the reader doesn't have the løypemelding. Include necessary facts inline instead. Cite laws and standards by their canonical citation (`regnskapsloven § 5-3 tredje ledd`, `NRS(F) Nedskrivning av anleggsmidler pkt. 3`) — never by internal file path. Cross-references within the same document are fine (`jf. pkt. 6.3`). YAML `title`, `author`, `date` render as a visible title block in docx/PDF: rename to `internal_title` etc. when metadata is for us rather than the reader. Check the converted file, not just the markdown, before sending.
+- **No bold in body text.** `**...**` is reserved for titles and subtitles (headings at the top of a document or section) — never inside sections. That includes paragraphs, list items, table cells, and any in-section prose. If a phrase truly needs to stand out, restructure the sentence, break it to its own line, or promote it to a subheading; do not reach for bold. Italics for defined terms are still fine; this rule is about `**` specifically.
+- **Markdown lists render correctly.** Plain newlines join lines into one paragraph in markdown. For enumerations use `-` or `1.`; for stacked signature/address blocks use two trailing spaces at the end of each line except the last; for separate paragraphs leave a blank line. Verify the rendered output before delivering docx/PDF.
 - **Avoid emphasis-by-assertion phrasing.** Do not lean on constructions that tell the reader how significant something is instead of showing it: *which is precisely*, *this is exactly*, *it is worth noting*, *crucially*, *importantly*, *the very X*, *not merely X but Y*, *no amount of X would*. They read as machine-written, they talk down to the reader, and a reviewer trips on them. State the fact and let it carry its own weight. If a sentence needs *precisely* to land, the sentence is the problem. Check for these before delivering any prose.
 - **Lead with the positive claim, not the negation.** Readers remember what appears first. Don't tell the reader what to ignore — tell them what to focus on. Avoid patterns like "This is not X — it is Y"; write the Y directly, with X implied by contrast. If a "not" is essential to the meaning, put it *after* the core message so the positive statement lands first (e.g. "Y, not X"). Reserve outright negation for the rare case where the reader is likely to assume X and needs to be turned away from it — and even then, do it briefly.
+
+### Norwegian-language deliverables
+
+Norwegian text for Sunlit Sea (løypemeldinger, market intel, financial statements, board materials, letters to authorities) translates English finance and clean-tech jargon rather than borrowing it. Common replacements:
+
+| English | Norwegian |
+|---|---|
+| cleantech | fornybar-teknologi |
+| solar (adj.) | solkraft / solceller |
+| equity | egenkapital |
+| equity raise | innhenting av egenkapital |
+| YoY / year-over-year | sammenlignet med samme periode i fjor (or `mot fjoråret`) |
+| casting / cast | støping / støpt |
+| mould design | støpeform-design |
+| cure behavior | herdeforløp |
+| R&D | FoU |
+| in-house castings | egne støpetester |
+| VC / venture capital | venturekapital |
+| deployed | utrullet / installert |
+| pre-committed (emission) | forhåndstegnet |
+| H1 2026 | første halvår 2026 |
+
+Currency and units follow the number, not precede it: `15 mrd USD` (not `$15 mrd`), `10 mill. NOK` (not `NOK 10M`), `0.060 EUR` (not `€0.060`). Note: English `billion` (10⁹) = Norwegian `milliard` (`mrd`) — do not use "billion" in Norwegian. Acronyms with no clean Norwegian equivalent (`PPA`, `LCOE`, `TRL`, `CAGR`, `Series A`, `Q1`) may stay in English; consider explaining on first use.
 
 ---
 
