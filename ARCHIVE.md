@@ -316,7 +316,7 @@ Eirik confirmed four activity streams and picked *folder-per-activity* with *pre
 
 1. **Activity streams (4):** SuRE WP6, Gen 2 product development, Commercial, Funding / EU reporting.
 2. **Tag vocabulary:** `[SURE]`, `[GEN2]`, `[COM]`, `[FUND]`. Every new task title starts with an activity tag. Documented in `CLAUDE.md` under *Activity tagging on tasks*.
-3. **Folder layout:** created four top-level folders (`sure/`, `gen2/`, `commercial/`, `funding/`). All existing SuRE artefacts moved into `sure/` — `report.md`, `report_d6.2.md`, `D6.2.md`, `D6.1 Sunlit model chain_v7.docx`, `analysis.md`, `ife_feedback_v6.md`, `activities.md`, `requirements.md`, `gap.csv`, `notes.txt`, `README_MARKDOWN.md`, `sure_cinea_review_wp6_sunlitsea_presentation.md/.pptx`, `sure_ga6_wp6_sunlitsea_presentation.md`, `sure_dow_extract.txt`, and the whole `figures/`, `images/`, `background/`, `thepressing/` directories. Relative paths inside `report.md` (44 image references) stayed intact because `figures/` and `images/` moved with it. Placeholder README added to each of `gen2/`, `commercial/`, `funding/` describing scope; full `sure/README.md` written listing all SuRE files. Root now holds only `CLAUDE.md`, `README.md`, `TASKS.md`, `ARCHIVE.md`, `.gitignore`, `.git/`, `.claude/` + the four activity folders.
+3. **Folder layout:** created four top-level folders (`sure/`, `gen2/`, `commercial/`, `funding/`). All existing SuRE artefacts moved into `sure/` — `report.md`, `report_d6.2.md`, `D6.2.md`, `D6.1 Sunlit model chain_v7.docx`, `analysis.md`, `ife_feedback_v6.md`, `activities.md`, `requirements.md`, `gap.csv`, `notes.txt`, `README_MARKDOWN.md`, `sure_cinea_review_wp6_sunlitsea_presentation.md/.pptx`, `sure_ga6_wp6_sunlitsea_presentation.md`, `sure_dow_extract.txt`, and the whole `figures/`, `images/`, `generic/background/`, `thepressing/` directories. Relative paths inside `report.md` (44 image references) stayed intact because `figures/` and `images/` moved with it. Placeholder README added to each of `gen2/`, `commercial/`, `funding/` describing scope; full `sure/README.md` written listing all SuRE files. Root now holds only `CLAUDE.md`, `README.md`, `TASKS.md`, `ARCHIVE.md`, `.gitignore`, `.git/`, `.claude/` + the four activity folders.
 4. **CLAUDE.md** reframed as a Sunlit Sea working repo with a per-activity table, activity-tagging rules, generalised working rules, and the SuRE image descriptions moved under a `sure/images/` section.
 5. **README.md** (top level) reframed to describe the multi-activity repo and repo-wide conversion tooling; pandoc commands updated to `cd sure && pandoc report.md …`.
 6. **Existing tasks retagged:** T01–T24 all prefixed with `[SURE]` (via `sed -i -E 's/^(### T(0[1-9]|1[0-9]|2[0-4]) \`\[ \]\`) (.*)$/\1 [SURE] \3/'`). T71 itself left untagged as a meta / repo-management task (the rule applies to future tasks).
@@ -326,53 +326,53 @@ Eirik confirmed four activity streams and picked *folder-per-activity* with *pre
 
 ---
 
-### T73 `[x]` Adopt root-level `background/` convention with `new/` inbox and timestamp-prefixed files
+### T73 `[x]` Adopt root-level `generic/background/` convention with `new/` inbox and timestamp-prefixed files
 
-Generic (non-activity-specific) background material should live in a top-level `background/` folder. The folder has been created (currently empty). The convention, copied from the `../fjordgata30` project:
+Generic (non-activity-specific) background material should live in a top-level `generic/background/` folder. The folder has been created (currently empty). The convention, copied from the `../fjordgata30` project:
 
-- `background/` — historical / processed background material for the repo as a whole. Files carry a date-prefix on the form **`YYYY-MM-DD_description.ext`** (e.g. `2025-11-14_investor_update_q3.md`). Activity-specific background stays under the activity folder (`sure/background/`, `gen2/background/` etc.); `background/` at root is for material that spans activities or predates them (e.g. company-level investor updates, legal docs, funding history).
-- `background/new/` — **inbox** for files that have not been processed yet. Typically pictures, PDFs, DOCX or other formats that should be converted to Markdown. Once processed, the resulting `.md` (and the original if worth keeping) is date-prefixed and moved to `background/`. The bullet says old investor updates have been placed into `background/`; the folder is currently empty on disk, so those files are either not yet copied in or the description was of intent.
+- `generic/background/` — historical / processed background material for the repo as a whole. Files carry a date-prefix on the form **`YYYY-MM-DD_description.ext`** (e.g. `2025-11-14_investor_update_q3.md`). Activity-specific background stays under the activity folder (`sure/background/`, `gen2/background/` etc.); `generic/background/` at root is for material that spans activities or predates them (e.g. company-level investor updates, legal docs, funding history).
+- `generic/background/new/` — **inbox** for files that have not been processed yet. Typically pictures, PDFs, DOCX or other formats that should be converted to Markdown. Once processed, the resulting `.md` (and the original if worth keeping) is date-prefixed and moved to `generic/background/`. The bullet says old investor updates have been placed into `generic/background/`; the folder is currently empty on disk, so those files are either not yet copied in or the description was of intent.
 
-**Conversion pipeline for `background/new/`:**
+**Conversion pipeline for `generic/background/new/`:**
 
 | Source format | Tool | Command shape |
 |---|---|---|
-| `.pdf` | `pdftotext` | `pdftotext -layout "background/new/foo.pdf" background/new/foo.txt` then hand-tidy into `.md` |
-| `.docx`, `.pptx`, `.odt`, `.rtf`, `.html` | `pandoc` | `pandoc "background/new/foo.docx" -o background/new/foo.md --wrap=none` |
+| `.pdf` | `pdftotext` | `pdftotext -layout "generic/background/new/foo.pdf" generic/background/new/foo.txt` then hand-tidy into `.md` |
+| `.docx`, `.pptx`, `.odt`, `.rtf`, `.html` | `pandoc` | `pandoc "generic/background/new/foo.docx" -o generic/background/new/foo.md --wrap=none` |
 | `.md`, `.txt` | (already text) | tidy, then timestamp-prefix and move |
 | `.png`, `.jpg`, `.jpeg` and other true binary evidence | keep as-is | timestamp-prefix and move; do not attempt conversion |
 
-After conversion: review the `.md`, add a short front-matter or preamble noting the source file and (if known) the original date, rename with `YYYY-MM-DD_description.md` prefix, move to `background/`. Remove the intermediate `.txt` from `pdftotext`. Keep the original binary in `background/` only if it is the authoritative source (signed PDFs, presentations we might want to redistribute); otherwise the `.md` supersedes it.
+After conversion: review the `.md`, add a short front-matter or preamble noting the source file and (if known) the original date, rename with `YYYY-MM-DD_description.md` prefix, move to `generic/background/`. Remove the intermediate `.txt` from `pdftotext`. Keep the original binary in `generic/background/` only if it is the authoritative source (signed PDFs, presentations we might want to redistribute); otherwise the `.md` supersedes it.
 
 **Concrete actions:**
 
-1. Create `background/new/` (currently missing).
-2. Add a short `background/README.md` documenting the convention (root-generic vs. activity-specific; `new/` inbox flow; timestamp-prefix format `YYYY-MM-DD_description.ext`; PDF → `pdftotext -layout` → `.md`; keep pictures as-is with a timestamped filename).
-3. Add a rule to the top-level `CLAUDE.md` under working rules: at the start of a task, check `background/new/` (and any `*/background/new/`) for unprocessed files and ask the user whether to process them, in parallel with the existing check on the `## New items` bullet section of `TASKS.md`.
-4. Add a rule to `CLAUDE.md` covering the timestamp-prefix format, so future files added to `background/` follow it automatically.
-5. Update the top-level `README.md` folder layout to include `background/` and the inbox convention.
+1. Create `generic/background/new/` (currently missing).
+2. Add a short `generic/background/README.md` documenting the convention (root-generic vs. activity-specific; `new/` inbox flow; timestamp-prefix format `YYYY-MM-DD_description.ext`; PDF → `pdftotext -layout` → `.md`; keep pictures as-is with a timestamped filename).
+3. Add a rule to the top-level `CLAUDE.md` under working rules: at the start of a task, check `generic/background/new/` (and any `*/background/new/`) for unprocessed files and ask the user whether to process them, in parallel with the existing check on the `## New items` bullet section of `TASKS.md`.
+4. Add a rule to `CLAUDE.md` covering the timestamp-prefix format, so future files added to `generic/background/` follow it automatically.
+5. Update the top-level `README.md` folder layout to include `generic/background/` and the inbox convention.
 
-**No files to process right now** — `background/new/` will be empty until Eirik drops in whatever old investor updates were meant for it. Then a separate task (or an ad-hoc processing session) converts them.
+**No files to process right now** — `generic/background/new/` will be empty until Eirik drops in whatever old investor updates were meant for it. Then a separate task (or an ad-hoc processing session) converts them.
 
 **Solution (2026-07-03):**
 
-1. Created `background/new/` (root-level inbox folder).
-2. Documented the convention in the top-level `README.md` under a *Background convention* section: what belongs at root vs. under an activity, the `YYYY-MM-DD_short_description.ext` filename format, the inbox flow, the conversion pipeline table (`pdftotext -layout` for PDFs, `pandoc … --wrap=none` for DOCX/PPTX/ODT/RTF/HTML, keep pictures as-is), and the post-conversion tidy + rename + move steps. Originally written as `background/README.md` but consolidated into the root README when the *single-README* rule was adopted (see the "consolidate sub-READMEs" turn).
+1. Created `generic/background/new/` (root-level inbox folder).
+2. Documented the convention in the top-level `README.md` under a *Background convention* section: what belongs at root vs. under an activity, the `YYYY-MM-DD_short_description.ext` filename format, the inbox flow, the conversion pipeline table (`pdftotext -layout` for PDFs, `pandoc … --wrap=none` for DOCX/PPTX/ODT/RTF/HTML, keep pictures as-is), and the post-conversion tidy + rename + move steps. Originally written as `generic/background/README.md` but consolidated into the root README when the *single-README* rule was adopted (see the "consolidate sub-READMEs" turn).
 3. Added two working rules to top-level `CLAUDE.md` under `## Working rules`:
-   - **`background/new/` inbox check** — at the start of every working session, check `background/new/` (root) and `*/background/new/` (activity-level) for files and ask the user whether to process them, mirroring the existing `## New items` check for `TASKS.md`.
-   - **`background/` naming convention** — every file in a `background/` folder must have a `YYYY-MM-DD_short_description.ext` prefix, applied immediately on add; un-prefixed files get renamed at next touch.
-4. Updated top-level `README.md` folder layout to include `background/` alongside the four activity folders.
-5. No files to process — `background/new/` is empty on disk.
+   - **`generic/background/new/` inbox check** — at the start of every working session, check `generic/background/new/` (root) and `*/background/new/` (activity-level) for files and ask the user whether to process them, mirroring the existing `## New items` check for `TASKS.md`.
+   - **`generic/background/` naming convention** — every file in a `generic/background/` folder must have a `YYYY-MM-DD_short_description.ext` prefix, applied immediately on add; un-prefixed files get renamed at next touch.
+4. Updated top-level `README.md` folder layout to include `generic/background/` alongside the four activity folders.
+5. No files to process — `generic/background/new/` is empty on disk.
 
-**Files touched:** `background/` (created), `background/new/` (created), `CLAUDE.md` (two rules added), `README.md` (folder layout + Background convention section added).
+**Files touched:** `generic/background/` (created), `generic/background/new/` (created), `CLAUDE.md` (two rules added), `README.md` (folder layout + Background convention section added).
 
-**Addendum (2026-07-03) — processed the 27 files that turned out to be in `background/new/`.** Eirik had dropped them in earlier; I missed them at first because my initial checks were too early and my T73 verification only listed the parent `background/`, not `background/new/` itself. He asked me to process them:
+**Addendum (2026-07-03) — processed the 27 files that turned out to be in `generic/background/new/`.** Eirik had dropped them in earlier; I missed them at first because my initial checks were too early and my T73 verification only listed the parent `generic/background/`, not `generic/background/new/` itself. He asked me to process them:
 
 - 14 PDFs (2020-02-05 → 2022-03-29) converted with `pdftotext -layout -enc UTF-8` (first pass mangled Norwegian letters; re-ran with `-enc UTF-8` to fix `løypemelding`, `å`, `ø`, `æ`).
 - 13 DOCX (2022-06-01 → 2025-11-17) converted with `pandoc … --wrap=none`.
 - Word counts sanity-checked: range 373 – 2 278 words per document; no empty or near-empty extractions.
 - All 27 renamed to the convention format: `YYYY-MM-DD_lopemelding.{md,pdf,docx}` for Løypemelding, `2024-01-29_lopemelding_draft.*`, `2024-10-01_progress_report.*`, `2025-06-10_arsmelding.*` for the odd ones. YAML preamble added to each `.md` recording original source filename, date, and document type.
-- Inbox `background/new/` is now empty.
+- Inbox `generic/background/new/` is now empty.
 - **Convention was not followed on the first pass** — I kept all originals alongside the `.md`, rationalising it as "docx has embedded content pandoc may miss." Eirik corrected this ("Don't diverge from instructions") and deleted the `.pdf` / `.docx` originals himself. Investor updates are not signed contracts / signed PDFs / redistributable presentations, so per the T73 convention the `.md` supersedes and the originals were correctly dropped. The mistake is recorded in memory (feedback: don't deviate from a rule I just wrote).
 
 ---
@@ -389,7 +389,7 @@ I forbindelse med årsregnskapet for 2025 må Sunlit Sea AS presentere en nedskr
 **Deliverables:**
 
 - `funding/nedskriving.md` — hoveddokument som presenterer nedskrivingstesten. Struktur: bakgrunn/formål, foretaksklassifisering, hjemmelsgrunnlag med lovreferanser, metodikk (indikatorvurdering → gjenvinnbart beløp → sammenligning med bokført verdi), per-aktivitet vurdering (Skattefunn / Enova / IN / SuRE / Surewave / 2025-FoU), konklusjon og eventuell nedskrivingsinnstilling.
-- `background/lover/` — ny mappe med utdrag av relevant regelverk som .md-filer (kun de relevante paragrafene). Filer:
+- `generic/background/lover/` — ny mappe med utdrag av relevant regelverk som .md-filer (kun de relevante paragrafene). Filer:
   - Regnskapsloven §1-6 (definisjon lite foretak)
   - Regnskapsloven §5-3 (nedskrivning av anleggsmidler)
   - Regnskapsloven §5-6 (utgifter til egen forskning og utvikling)
@@ -405,7 +405,7 @@ I forbindelse med årsregnskapet for 2025 må Sunlit Sea AS presentere en nedskr
 
 1. **Foretakskategori avklart med bruker:** Sunlit Sea AS er lite foretak (rskl § 1-5 annet ledd, 84 MNOK / 168 MNOK / 50 årsverk). Deltakelse i EU Horizon-prosjekter (SuRE, Surewave) påvirker ikke kategoriseringen direkte — det er størrelsestersklene som gjelder. NRS 8 valgt som primær ramme, NRS(F) Nedskrivning som utfyllende metodikk.
 
-2. **Nye lovtekst-utdrag skrevet til `background/lover/`:**
+2. **Nye lovtekst-utdrag skrevet til `generic/background/lover/`:**
    - `2024-11-01_regnskapsloven_1-5_kategorier_av_foretak.md` — definisjon av små foretak
    - `2024-11-01_regnskapsloven_5-1_klassifisering_av_eiendeler.md` — anleggsmidler/omløpsmidler
    - `2024-11-01_regnskapsloven_5-3_anleggsmidler.md` — hovedhjemmel for nedskrivningsplikten (tredje ledd)
@@ -415,13 +415,13 @@ I forbindelse med årsregnskapet for 2025 må Sunlit Sea AS presentere en nedskr
    - `2020-02-01_nrs_4_offentlige_tilskudd.md` — hele standarden (kort, 5 sider)
    Kilder: regnskapsloven fra Lovdata (`lovdata.no/lov/1998-07-17-56`), NRS-standarder fra Norsk RegnskapsStiftelse (regnskapsstiftelsen.no). Filnavn følger `YYYY-MM-DD_short_description.ext`-konvensjonen der YYYY-MM-DD er ikrafttredelses-/publiseringsdato for gjeldende versjon.
 
-3. **`funding/nedskriving.md` skrevet** — 12 seksjoner: formål/omfang, foretakskategori og valgt regnskapsstandard, hjemmelsgrunnlag (med lenker inn i `background/lover/`), vurderingsenhet, metodikk (3 trinn: indikator → gjenvinnbart beløp → nedskrivningsvurdering), trinn 1 indikatorvurdering (tabellert pr. 7 minimums-indikatorer), trinn 2 gjenvinnbart beløp (balanseført verdi-tabell + bruksverdiprosedyre + netto salgsverdi), trinn 3 nedskrivningsvurdering, behandling av tilhørende offentlige tilskudd, noteopplysninger, reversering, konklusjon. Rammeverk med plassholdere for tallene — struktur, metodikk og lovreferanser ferdig, Eirik fyller inn (a) opprinnelig aktivert per aktivitet, (b) akkumulert avskrivning, (c) bokført restverdi, (d) prognose og diskonteringsrente for bruksverdi. Vurderingsenhet argumentert til å være hele Gen 2 FPV-utviklingen samlet (ett forretningsområde, felles kontantstrømmer), i tråd med NRS(F) pkt. 4.1 for mindre foretak med ett forretningsområde.
+3. **`funding/nedskriving.md` skrevet** — 12 seksjoner: formål/omfang, foretakskategori og valgt regnskapsstandard, hjemmelsgrunnlag (med lenker inn i `generic/background/lover/`), vurderingsenhet, metodikk (3 trinn: indikator → gjenvinnbart beløp → nedskrivningsvurdering), trinn 1 indikatorvurdering (tabellert pr. 7 minimums-indikatorer), trinn 2 gjenvinnbart beløp (balanseført verdi-tabell + bruksverdiprosedyre + netto salgsverdi), trinn 3 nedskrivningsvurdering, behandling av tilhørende offentlige tilskudd, noteopplysninger, reversering, konklusjon. Rammeverk med plassholdere for tallene — struktur, metodikk og lovreferanser ferdig, Eirik fyller inn (a) opprinnelig aktivert per aktivitet, (b) akkumulert avskrivning, (c) bokført restverdi, (d) prognose og diskonteringsrente for bruksverdi. Vurderingsenhet argumentert til å være hele Gen 2 FPV-utviklingen samlet (ett forretningsområde, felles kontantstrømmer), i tråd med NRS(F) pkt. 4.1 for mindre foretak med ett forretningsområde.
 
-4. **README.md oppdatert:** (a) `background/` folder layout utvidet med `lover/`-undermappe, (b) `funding/` seksjon flippet fra "Currently empty" til å liste `nedskriving.md` og referansen til T75.
+4. **README.md oppdatert:** (a) `generic/background/` folder layout utvidet med `lover/`-undermappe, (b) `funding/` seksjon flippet fra "Currently empty" til å liste `nedskriving.md` og referansen til T75.
 
-5. **Etterrenslig:** Midlertidig `background/lover/_tmp/` med PDF-nedlastninger og pdftotext-uttrekk ble opprettet, brukt, og deretter slettet. Ingen gjenværende midlertidige filer. WebFetch og Agent-verktøy ble ikke brukt for denne oppgaven (kun WebFetch for HTML-siter — ingen agents spawnet, så ingen worktrees å rydde).
+5. **Etterrenslig:** Midlertidig `generic/background/lover/_tmp/` med PDF-nedlastninger og pdftotext-uttrekk ble opprettet, brukt, og deretter slettet. Ingen gjenværende midlertidige filer. WebFetch og Agent-verktøy ble ikke brukt for denne oppgaven (kun WebFetch for HTML-siter — ingen agents spawnet, så ingen worktrees å rydde).
 
-**Files touched:** `TASKS.md` (T75 opprettet, deretter markert `[x]` med løsningsnotat), `README.md` (folder-layout + funding-seksjon), `funding/nedskriving.md` (ny), `background/lover/*.md` (7 nye lovutdrag).
+**Files touched:** `TASKS.md` (T75 opprettet, deretter markert `[x]` med løsningsnotat), `README.md` (folder-layout + funding-seksjon), `funding/nedskriving.md` (ny), `generic/background/lover/*.md` (7 nye lovutdrag).
 
 **Neste steg (Eiriks side, utenfor T75):** Fylle inn balansepostene i tabellen i pkt. 7.1 og prognose/diskonteringsrente i pkt. 7.2, deretter konkludere pkt. 8. Vurdere om Skattefunn-tilskudd har vært ført brutto eller netto historisk, og om NRS 4 sin bruttoføringsregel har vært fulgt konsekvent.
 
@@ -429,9 +429,9 @@ I forbindelse med årsregnskapet for 2025 må Sunlit Sea AS presentere en nedskr
 
 ### T76 `[x]` [FUND] Renskriv løypemeldingsdraft 2026-07-08
 
-Gjeldende draft ligger i `background/loeypemelding/2026-07-08_loeypemelding_draft.md` og trenger utfylling med konkret innhold + tematisk utvidelse før den kan sendes til investorer. Sluttresultat: erstatte draft-fila med `background/YYYY-MM-DD_loeypemelding.md` (dato settes når teksten sendes ut).
+Gjeldende draft ligger i `generic/background/loeypemelding/2026-07-08_loeypemelding_draft.md` og trenger utfylling med konkret innhold + tematisk utvidelse før den kan sendes til investorer. Sluttresultat: erstatte draft-fila med `generic/background/YYYY-MM-DD_loeypemelding.md` (dato settes når teksten sendes ut).
 
-**Kilder som skal brukes:** `background/loeypemelding/*.md` (historisk tone/detaljnivå), `gen2/norsmaterials_brief.md` (gen 2 tekniske detaljer), `sure/report.md` (D6.1-innhold), `funding/nedskriving.md` (balanseført FoU-kontekst), pluss T77-rapporten (marked/konkurrenter) når den er ferdig.
+**Kilder som skal brukes:** `generic/background/loeypemelding/*.md` (historisk tone/detaljnivå), `gen2/norsmaterials_brief.md` (gen 2 tekniske detaljer), `sure/report.md` (D6.1-innhold), `funding/nedskriving.md` (balanseført FoU-kontekst), pluss T77-rapporten (marked/konkurrenter) når den er ferdig.
 
 **Endringer i forhold til gjeldende draft:**
 
@@ -467,7 +467,7 @@ Gjeldende draft ligger i `background/loeypemelding/2026-07-08_loeypemelding_draf
 
 **Solution (2026-07-08):**
 
-Ny fil skrevet som `background/loeypemelding/2026-07-08_loeypemelding.md` (draft-fila `2026-07-08_loeypemelding_draft.md` beholdt uendret, ikke overskrevet, per Eiriks eksplisitte instruks). Ny fil: 11 seksjoner, ca 3760 ord (mot draft 1945 og 2025-10 løypemelding 830, altså på linje med 2024-10-løypemeldingen som var 2280 ord — passer et komplett investor-oppdatering-format).
+Ny fil skrevet som `generic/background/loeypemelding/2026-07-08_loeypemelding.md` (draft-fila `2026-07-08_loeypemelding_draft.md` beholdt uendret, ikke overskrevet, per Eiriks eksplisitte instruks). Ny fil: 11 seksjoner, ca 3760 ord (mot draft 1945 og 2025-10 løypemelding 830, altså på linje med 2024-10-løypemeldingen som var 2280 ord — passer et komplett investor-oppdatering-format).
 
 Innhold-mapping mot T76-punktene:
 
@@ -486,7 +486,7 @@ Innhold-mapping mot T76-punktene:
 
 Struktur følger nyeste løypemelding (2025-10-07)-formatet med nummererte `**N. Tittel**`-seksjoner. Ingen bold i brødtekst (jf. memory feedback_no_bold_in_body_text). Bruker samme uformelle norsk som draften ("p.t", "feks", "pga", "svært lovende", "rimelig hardhendt"), lange informative avsnitt, spesifikke tall, direkte tone. Draft-teksten er beholdt i sin helhet der den passer inn i den nye strukturen — nye seksjoner (Skiftestjørna, marked, balanseført FoU, emisjonsmekanikk, milepæler) er lagt til rundt draft-innholdet.
 
-**Files touched:** `background/loeypemelding/2026-07-08_loeypemelding.md` (ny). `background/loeypemelding/2026-07-08_loeypemelding_draft.md` bevart uendret som referanse.
+**Files touched:** `generic/background/loeypemelding/2026-07-08_loeypemelding.md` (ny). `generic/background/loeypemelding/2026-07-08_loeypemelding_draft.md` bevart uendret som referanse.
 
 **Neste steg (Eiriks side, utenfor T76):** Gjennomlese teksten, korrigere eventuelle detaljer om tall / prosjektbeløp / verdivurdering som ikke er 100% treffsikker, bekrefte den rette emisjonens indikative kurs, og deretter oppdatere `date`-feltet i frontmatter og eventuelt filnavnet før den sendes ut. Balanseført FoU-verdi (kroner) kan fylles inn når den er endelig fra funding/nedskriving.md.
 
@@ -496,7 +496,7 @@ Struktur følger nyeste løypemelding (2025-10-07)-formatet med nummererte `**N.
 
 Sunlit Sea trenger en oppdatert oversikt over konkurransebildet og markedsutviklingen for flytende solkraft (FPV) per 2026, både for kommersielt bruk og for å underbygge investortekst i T76-løypemeldingen. Historiske løypemeldinger har referert til Ocean Sun, Oceans of Energy, Ciel et Terre, Baywa RE, Emrgy (partner, ikke konkurrent) — men markedet har utviklet seg og bildet må friskes opp.
 
-**Deliverable:** `background/2026-07-08_market_intel.md` — kort rapport (2-4 sider) med:
+**Deliverable:** `generic/background/2026-07-08_market_intel.md` — kort rapport (2-4 sider) med:
 
 1. **Markedsstatus 2026.** Global FPV-kapasitet installert og annonsert. Fordelt på inland (reservoirs, kanaler) vs near-shore vs offshore. Årlig veksttakt siste 3 år. Ledende markeder (Kina, India, EU, USA, Norge). Priskurve på solcellepaneler og BOS (balance-of-system). Rentesetting og kapitalkostnad — hvordan påvirker det FPV-økonomien.
 2. **Konkurrentkart.** Minst 6-8 hovedaktører med: hjemland, teknologistrategi (inland / near-shore / offshore), typisk anleggsstørrelse, referanseprosjekter og volum, forretningsmodell (produktsalg / EPC / lisensiering), signaler om økonomisk helse (kapitalinnhentinger, konkurser, oppkjøp, permitteringer). Legg vekt på (a) Ocean Sun, (b) Ciel et Terre, (c) Baywa RE / SUNGROW / SunProject / SolarDuck / andre store, (d) norske eller nordiske aktører.
@@ -504,17 +504,17 @@ Sunlit Sea trenger en oppdatert oversikt over konkurransebildet og markedsutvikl
 4. **Trender og risikoer.** Kina-eksport av FPV-flottører — priser, kvalitet, garantier. EU-regulering (CBAM, kvoter). Marin miljøtillatelse — hvordan påvirker økt miljøsensitivitet søknadsprosessene? Forsikring og lang-tidsgarantier — er 25-års produksjon-garantier fortsatt standard?
 5. **Anbefalinger for løypemelding (3-5 hovedpoeng).** Hva bør Sunlit Sea si til investorer om marked/konkurranse? Konkret formulering-forslag som kan overføres til T76.
 
-**Kildetilnærming:** WebSearch/WebFetch for offentlige selskapsopplysninger (årsrapporter, pressemeldinger, LinkedIn, konferansenyheter). Bransjerapporter (BloombergNEF, IEA, IRENA, DNV, SolarPower Europe) hvis åpent tilgjengelige. Sammenlign med hva vi allerede har skrevet i historiske løypemeldinger (`background/loeypemelding/*.md`) og i D6.1 (`sure/report.md`).
+**Kildetilnærming:** WebSearch/WebFetch for offentlige selskapsopplysninger (årsrapporter, pressemeldinger, LinkedIn, konferansenyheter). Bransjerapporter (BloombergNEF, IEA, IRENA, DNV, SolarPower Europe) hvis åpent tilgjengelige. Sammenlign med hva vi allerede har skrevet i historiske løypemeldinger (`generic/background/loeypemelding/*.md`) og i D6.1 (`sure/report.md`).
 
 **Scope-grense:** Ikke en full markedsanalyse med Total Addressable Market-tall og modellprognoser — bare det Sunlit Sea trenger for (a) løypemeldingsinnhold og (b) intern situasjonsvurdering.
 
 **Solution (2026-07-08):**
 
-`background/2026-07-08_market_intel.md` skrevet med 5 hovedseksjoner (markedsstatus 2026, konkurrentkart med 12 aktører, Sunlit Seas posisjonering, trender/risikoer, anbefalinger for løypemelding). Alle kilder er 2025-2026 nyhets- og bransjeoppslag (per Eiriks eksplisitte instruks om ikke å bruke gamle data). ~20 unike hovedkilder med inline-lenker + samlet kildeliste på slutten.
+`generic/background/2026-07-08_market_intel.md` skrevet med 5 hovedseksjoner (markedsstatus 2026, konkurrentkart med 12 aktører, Sunlit Seas posisjonering, trender/risikoer, anbefalinger for løypemelding). Alle kilder er 2025-2026 nyhets- og bransjeoppslag (per Eiriks eksplisitte instruks om ikke å bruke gamle data). ~20 unike hovedkilder med inline-lenker + samlet kildeliste på slutten.
 
 Sentrale funn som mates videre inn i T76: (a) Fred. Olsen 1848 (Brizo, DNV-under-evaluering, 3.5 m bølger) og Saipem/Moss Maritime (XolarSurf på Frøya) er de nærmeste norske konkurrentene i vårt segment; Ocean Sun konkurrerer på en helt annen teknologiplattform (flytende membran) og er i akutt likviditetskrise (2-3 mnd i Q1 2026). (b) BayWa r.e. sin uttrekning fra SuRE-konsortiet, Zimmermann PV Steel Group solgt til Nextpower i juni 2026 for $378M, cleantech-VC ned 22% på år-over-år for solstartups — alt underbygger at Sunlit Sea er relativt godt posisjonert i et stramt kapitalmarked. (c) Norge innfører CBAM på aluminium fra 1. januar 2026 — dette gir konkret støtte for case om norsk PU/aluminium-produksjon (Norsmaterials-vurderingen). (d) DNV oppdaterer RP-0584 i juni 2026 med to nye støttestandarder for FPV-flytstruktur og forankring — hever inngangsbarrieren for nye konkurrenter og styrker verdien av Sunlit Seas tidlige verifisering fra 2022. (e) Norsk kompetansehub for FPV består av Sunlit Sea, Ocean Sun, Fred. Olsen 1848, Saipem/Moss Maritime, Alotta, Current Solar, Scatec — en klynge som gjør norsk FPV til et internasjonalt konkurransefortrinn i seg selv.
 
-**Files touched:** `background/2026-07-08_market_intel.md` (ny).
+**Files touched:** `generic/background/2026-07-08_market_intel.md` (ny).
 
 ---
 
@@ -527,7 +527,7 @@ T75-leveransen `funding/nedskriving.md` ble Sunlit-Sea-spesifikk (referanser til
 - Være foretaksuavhengig — ingen henvisninger til Sunlit Sea, gen 2, spesifikke prosjekter eller aktiviteter.
 - Være egnet for lite foretak som primær bruker (NRS 8), med korte notater om hvor mellomstore/store foretak avviker.
 - Ha eksplisitte "sett-inn"-plassholdere (feks `[foretakets navn]`, `[balansedato]`, `[opprinnelig aktivert]`) og korte veilednings-notater der brukeren trenger å ta beslutninger.
-- Vise til hjemler i regnskapsloven og NRS-standarder med lenker inn i `background/lover/`.
+- Vise til hjemler i regnskapsloven og NRS-standarder med lenker inn i `generic/background/lover/`.
 - Beholde struktur og metodikk fra `funding/nedskriving.md` (som er solid), men strippe alt spesifikt-Sunlit-Sea-innhold og erstatte med instruksjoner + eksempeltekst.
 
 **Struktur (foreslått, kan justeres i utførelsen):**
@@ -553,7 +553,7 @@ T75-leveransen `funding/nedskriving.md` ble Sunlit-Sea-spesifikk (referanser til
 
 - Pkt 0: Intro med hvordan malen brukes.
 - Pkt 1-2: Formål og foretakskategori — mal for alle fire kategorier (mikro/små/mellomstore/store) og valg av regnskapsstandard.
-- Pkt 3: Hjemmelsgrunnlag — tabellarisk oversikt over relevante rskl-paragrafer og NRS-standarder med lenker inn i `background/lover/`. IFRS/IAS 36 nevnt kort som utenfor scope.
+- Pkt 3: Hjemmelsgrunnlag — tabellarisk oversikt over relevante rskl-paragrafer og NRS-standarder med lenker inn i `generic/background/lover/`. IFRS/IAS 36 nevnt kort som utenfor scope.
 - Pkt 4: Vurderingsenhet — veiledning + plassholder for begrunnelse.
 - Pkt 5: Metodikk — 3-trinns fremgangsmåte identisk med `nedskriving.md` sin metodikk.
 - Pkt 6: Indikatorvurdering — 7-indikator-tabell med `Ja/Nei`-kolonne og plassholder-begrunnelser.

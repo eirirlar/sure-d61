@@ -9,7 +9,7 @@ utarbeidet: 2026-07-08
 
 Denne malen strukturerer gjennomføring og dokumentasjon av nedskrivingstest for anleggsmidler etter norsk regnskapslovgivning. Den er primært rettet mot små foretak (NRS 8), med korte notater der mellomstore og store foretak avviker. Bruk den ved å kopiere til en ny fil (feks `funding/nedskriving_YYYY.md`), fylle inn plassholdere merket `[…]` og fjerne de veilednings-notatene som er markert med `> Veiledning:` når teksten er endelig.
 
-Full ordlyd av siterte bestemmelser ligger i [`background/lover/`](../background/lover/).
+Full ordlyd av siterte bestemmelser ligger i [`generic/background/lover/`](../background/lover/).
 
 ---
 
@@ -59,7 +59,7 @@ Formålet er å oppfylle nedskrivningsplikten etter regnskapsloven § 5-3 tredje
 
 ## 3. Hjemmelsgrunnlag
 
-Nedskrivingstesten forankres i følgende bestemmelser. Utdrag av lovtekst ligger i `background/lover/`.
+Nedskrivingstesten forankres i følgende bestemmelser. Utdrag av lovtekst ligger i `generic/background/lover/`.
 
 ### 3.1 Regnskapsloven
 

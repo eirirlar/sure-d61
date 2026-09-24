@@ -40,4 +40,4 @@ Note the indirect-cost base: `L8 = 0.25 × (G8 + I8 + J8 + K8)` — subcontracti
 
 - Received from IFE on 2026-09-11 following months of delay at CINEA (CINEA has been occupied with formalising BayWa r.e.'s withdrawal from the consortium).
 - IFE's intent: Sunlit Sea fills in the numbers plus one-line justifications per column; IFE bundles it into the change notification submitted to the CINEA project officer.
-- This is Sunlit Sea's first substantive written input to CINEA since the BayWa r.e. pull-out — see [`background/loeypemelding/2026-07-16_loeypemelding.md`](../../background/loeypemelding/2026-07-16_loeypemelding.md) §5 for the extension context.
+- This is Sunlit Sea's first substantive written input to CINEA since the BayWa r.e. pull-out — see [`generic/background/loeypemelding/2026-07-16_loeypemelding.md`](../../background/loeypemelding/2026-07-16_loeypemelding.md) §5 for the extension context.

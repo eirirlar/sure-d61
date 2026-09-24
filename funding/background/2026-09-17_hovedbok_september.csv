@@ -1,0 +1,10 @@
+Bilagsnummer;Bilagsår;Bilagsbeskrivelse;Dato;Forfallsdato;Kontonummer;Kontonavn;Kundenummer;Kundenavn;Leverandørnummer;Leverandørnavn;Ansattnummer;Ansattnavn;Avdelingsnummer;Avdelingsnavn;Prosjektnummer;Prosjektnavn;Produktnummer;Produktnavn;Mva-kode;Mva Navn;Beskrivelse;Beløp;Valuta;Beløp valuta;Fakturanummer;Kunde Organisasjonsnummer;Leverandør Organisasjonsnummer;Mva-beløp
+"";;;2026-09-01;;1920;Handelsbanken 9051 13 17753 - Bedriftskonto;;;;;;;;;;;;;;;Inngående saldo;27490,33;;;;;;
+60;2026;Bankavstemming for september;2026-09-07;;1920;Handelsbanken 9051 13 17753 - Bedriftskonto;;;;;;;;;;;;;;;Bankgebyr: PRIS Abonnement Nettbedrift;-660,00;NOK;-660,00;;;;0,00
+60;2026;Bankavstemming for september;2026-09-07;;1920;Handelsbanken 9051 13 17753 - Bedriftskonto;;;;;;;;;;;;;;;Bankgebyr: PRIS Kostnad Nettbedrift;-13,50;NOK;-13,50;;;;0,00
+60;2026;Bankavstemming for september;2026-09-11;;1920;Handelsbanken 9051 13 17753 - Bedriftskonto;;;;;;;;;;;;;;;Overført til kto Spb Østfold: OVERFØRT Til: Sunlit-Sparebank 1 Østfold Akershus Betalt: 11.09.26Sunlit-Sparebank 1 Østfold Akershus;-25000,00;NOK;-25000,00;;;;0,00
+"";;;2026-09-01;;1924;Sparebank 1 .36297;;;;;;;;;;;;;;;Inngående saldo;47042,00;;;;;;
+60;2026;Bankavstemming for september;2026-09-11;;1924;Sparebank 1 .36297;;;;;;;;;;;;;;;Overført til kto Spb Østfold: OVERFØRT Til: Sunlit-Sparebank 1 Østfold Akershus Betalt: 11.09.26Sunlit-Sparebank 1 Østfold Akershus;25000,00;NOK;25000,00;;;;0,00
+"";;;2026-09-01;;7770;Bank og kortgebyrer;;;;;;;;;;;;;;;Inngående saldo;9414,90;;;;;;
+60;2026;Bankavstemming for september;2026-09-07;;7770;Bank og kortgebyrer;;;;;;;;;;;;;;;Bankgebyr: PRIS Abonnement Nettbedrift;660,00;NOK;660,00;;;;0,00
+60;2026;Bankavstemming for september;2026-09-07;;7770;Bank og kortgebyrer;;;;;;;;;;;;;;;Bankgebyr: PRIS Kostnad Nettbedrift;13,50;NOK;13,50;;;;0,00

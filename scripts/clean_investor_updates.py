@@ -1,6 +1,6 @@
-"""Clean investor-update .md files under `background/`.
+"""Clean investor-update .md files under `generic/background/loeypemelding/`.
 
-The pandoc/pdftotext conversions in `background/new/` leave three kinds of noise
+The pandoc/pdftotext conversions in `generic/background/new/` leave three kinds of noise
 in the resulting Markdown:
 
 1. **Top mail-header block** (PDF-derived files only) — Gmail print headers,
@@ -31,13 +31,13 @@ unsubscribe / trailing contact-info lines.
 ## Usage
 
     # Safe default — write <name>.cleaned.md sibling files
-    python scripts/clean_investor_updates.py background/*.md
+    python scripts/clean_investor_updates.py generic/background/loeypemelding/*.md
 
     # Dry-run — print per-file word-count before/after, no writes
-    python scripts/clean_investor_updates.py --dry-run background/*.md
+    python scripts/clean_investor_updates.py --dry-run generic/background/loeypemelding/*.md
 
     # In-place — overwrites originals; only use after a dry-run looks safe
-    python scripts/clean_investor_updates.py --in-place background/*.md
+    python scripts/clean_investor_updates.py --in-place generic/background/loeypemelding/*.md
 """
 
 from __future__ import annotations

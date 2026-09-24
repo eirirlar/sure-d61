@@ -346,7 +346,7 @@ IFE has developed a 3D FEM model of the Sunlit Sea prototype floater using their
 
 # Metal forming — material characterization and FEM modelling of AA5083-H111 deep-drawing
 
-Source: Collaboration with OsloMet (Sigbjørn Tveit, Prof. Aase Reyes, Ass. Prof. Emrah Erduran) and Speira GmbH R&D Bonn (Holger Aretz). Sunlit Sea ordered the Speira characterization, provided material samples to OsloMet, and is free to use this work in D6.1 scope. Documented across several sources in background/oslomet/.
+Source: Collaboration with OsloMet (Sigbjørn Tveit, Prof. Aase Reyes, Ass. Prof. Emrah Erduran) and Speira GmbH R&D Bonn (Holger Aretz). Sunlit Sea ordered the Speira characterization, provided material samples to OsloMet, and is free to use this work in D6.1 scope. Documented across several sources in generic/background/oslomet/.
 
 ## Collaboration context
 - Sigbjørn Tveit's PhD thesis "Forming and fatigue in floating photovoltaic structures — approaches based on continuum mechanics" (OsloMet, 2025, Avhandling nr. 35, ISBN 978-82-8364-680-1) conducted in direct collaboration with Sunlit Sea AS

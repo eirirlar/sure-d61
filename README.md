@@ -7,6 +7,7 @@ Activities:
 - `sure/` – SuRE WP6 (Horizon Europe FPV model chain, D6.1 delivered, D6.2 in preparation)
 - `gen2/` – Gen 2 product development (P3 → P4 → P5)
 - `funding/` – Grants, EU reporting, financial
+- `generic/` – cross-cutting / shared material that spans the three activities (historical investor updates, legal excerpts, market intel, outgoing customer correspondence). Split into `generic/background/` (inputs) and `generic/deliverable/` (outputs).
 
 Repo-level context and working rules are in `CLAUDE.md`. Task list is in `TASKS.md`; closed tasks in `ARCHIVE.md`.
 
@@ -16,7 +17,7 @@ Repo-level context and working rules are in `CLAUDE.md`. Task list is in `TASKS.
 
 ## PDF text extraction
 
-Sources under `background/` and `sure/background/` are mostly PDF. Always convert to text with `pdftotext` before reading — do **not** open PDFs page-by-page with the Read tool, it is expensive and loses structure.
+Sources under `generic/background/` and `*/background/` (`sure/background/`, `funding/background/`, `gen2/background/` etc.) are mostly PDF. Always convert to text with `pdftotext` before reading — do **not** open PDFs page-by-page with the Read tool, it is expensive and loses structure.
 
 ```bash
 pdftotext -layout "sure/background/somefile.pdf" - > sure/background/somefile.txt
@@ -158,11 +159,11 @@ The `.mmd` files are the canonical source (edit these). The `.png` files are wha
 
 ## Background convention
 
-`background/` at the repo root holds **cross-cutting** background material — the material that spans activities (SuRE, Gen 2, Commercial, Funding) or predates the activity split. Company-level investor updates, legal documents, funding history, board correspondence, general Sunlit Sea history all belong here. Activity-specific background stays under `sure/background/`, `gen2/background/` etc.
+`generic/background/` holds **cross-cutting** background material — the material that spans activities (SuRE, Gen 2, Commercial, Funding) or predates the activity split. Company-level investor updates, legal documents, funding history, board correspondence, general Sunlit Sea history all belong here. Activity-specific background stays under the activity's own folder: `sure/background/`, `gen2/background/`, `funding/background/`.
 
 ### File-naming convention
 
-Every file in any `background/` folder (root or activity-level) carries a date prefix:
+Every file in any `background/` folder (`generic/background/` or activity-level `*/background/`) carries a date prefix:
 
 ```
 YYYY-MM-DD_short_description.ext
@@ -176,18 +177,18 @@ Examples:
 
 The date is the date of the document (when it was written / issued / sent), not the day it was filed. When the exact date is unknown, use the best approximation and note the uncertainty in the file body.
 
-### Inbox: `background/new/`
+### Inbox: `generic/background/new/`
 
-Files that have not been processed yet land in `background/new/`. Typical sources: PDFs (scanned or exported), Word documents, PowerPoint decks, photos and screenshots, plain-text notes.
+Files that have not been processed yet land in `generic/background/new/` (or in an activity-level `*/background/new/` for activity-specific inputs). Typical sources: PDFs (scanned or exported), Word documents, PowerPoint decks, photos and screenshots, plain-text notes.
 
-At the start of every working session, check `background/new/` (and any `*/background/new/`) for unprocessed files. The `CLAUDE.md` working rules document this.
+At the start of every working session, check `generic/background/new/` (and any `*/background/new/`) for unprocessed files. The `CLAUDE.md` working rules document this.
 
 ### Conversion pipeline
 
 | Source format | Tool | Command shape |
 |---|---|---|
-| `.pdf` | `pdftotext` | `pdftotext -layout "background/new/foo.pdf" background/new/foo.txt` then hand-tidy into `.md` |
-| `.docx`, `.pptx`, `.odt`, `.rtf`, `.html` | `pandoc` | `pandoc "background/new/foo.docx" -o background/new/foo.md --wrap=none` |
+| `.pdf` | `pdftotext` | `pdftotext -layout "generic/background/new/foo.pdf" generic/background/new/foo.txt` then hand-tidy into `.md` |
+| `.docx`, `.pptx`, `.odt`, `.rtf`, `.html` | `pandoc` | `pandoc "generic/background/new/foo.docx" -o generic/background/new/foo.md --wrap=none` |
 | `.md`, `.txt` | (already text) | tidy, then timestamp-prefix and move |
 | `.png`, `.jpg`, `.jpeg` and other true binary evidence | keep as-is | timestamp-prefix and move; do not convert |
 
@@ -195,7 +196,7 @@ After conversion:
 
 1. Review the `.md` and add a short preamble at the top noting the source file name and the document's original date (if known).
 2. Rename to `YYYY-MM-DD_description.md`.
-3. Move to `background/`.
+3. Move to `generic/background/` (or the activity's `*/background/`).
 4. Remove the intermediate `.txt` from `pdftotext` — only the `.md` needs to stick around.
 5. Keep the original binary in `background/` **only** if it is the authoritative source (signed PDFs, signed contracts, presentations we might redistribute). Otherwise the `.md` supersedes it and the original can be dropped.
 
@@ -203,7 +204,7 @@ After conversion:
 
 ## Scripts
 
-Persistent helper scripts live in `scripts/` at the repo root — never scattered inside data folders like `background/`, `sure/`, etc. Follows the same pattern as the neighbouring `../fjordgata30` project.
+Persistent helper scripts live in `scripts/` at the repo root — never scattered inside data folders like `generic/`, `sure/`, `funding/`, `gen2/`. Follows the same pattern as the neighbouring `../fjordgata30` project.
 
 ### `scripts/md_image_to_html.py`
 
@@ -232,8 +233,8 @@ Dependencies are declared inline via PEP 723 script metadata (`python-docx`), so
 
 ```bash
 # In-place: pandoc first, then format the resulting docx
-pandoc background/loeypemelding/2026-07-16_loeypemelding.md -o background/loeypemelding/2026-07-16_loeypemelding.docx
-uv run scripts/format_docx.py background/loeypemelding/2026-07-16_loeypemelding.docx
+pandoc generic/background/loeypemelding/2026-07-16_loeypemelding.md -o generic/background/loeypemelding/2026-07-16_loeypemelding.docx
+uv run scripts/format_docx.py generic/background/loeypemelding/2026-07-16_loeypemelding.docx
 
 # Or output to a different path
 uv run scripts/format_docx.py input.docx output.docx
@@ -328,19 +329,19 @@ Renders as ordinary space in every renderer (PDF, DOCX, VS Code preview, GitHub)
 
 ### `scripts/clean_investor_updates.py`
 
-Strips mail-header noise, mid-body Gmail page-print repeats, and trailing signature blocks (`Mvh`, contact-info lines, Google Groups unsubscribe boilerplate) from the investor-update `.md` files under `background/`. Preserves the YAML frontmatter; leaves body content between top and bottom noise untouched.
+Strips mail-header noise, mid-body Gmail page-print repeats, and trailing signature blocks (`Mvh`, contact-info lines, Google Groups unsubscribe boilerplate) from the investor-update `.md` files under `generic/background/loeypemelding/`. Preserves the YAML frontmatter; leaves body content between top and bottom noise untouched.
 
 **Safe default (no in-place edits).** Writes a sibling `<name>.cleaned.md` for each input. Compare, then either rename manually or re-run with `--in-place`.
 
 ```bash
-# Safe default — writes background/*.cleaned.md
-python scripts/clean_investor_updates.py background/*.md
+# Safe default — writes generic/background/loeypemelding/*.cleaned.md
+python scripts/clean_investor_updates.py generic/background/loeypemelding/*.md
 
 # Dry-run — per-file word-count before/after, no writes
-python scripts/clean_investor_updates.py --dry-run background/*.md
+python scripts/clean_investor_updates.py --dry-run generic/background/loeypemelding/*.md
 
 # In-place — overwrites originals; only use after --dry-run looks safe
-python scripts/clean_investor_updates.py --in-place background/*.md
+python scripts/clean_investor_updates.py --in-place generic/background/loeypemelding/*.md
 ```
 
 The dry-run output flags any file that shrinks to below 70% of its original word count with a `!` marker — that is the pattern that would have caught the earlier truncation incident where two files silently lost ~90% of their content to an over-broad signature-start regex. Always dry-run before batch use.
@@ -368,7 +369,7 @@ Nested `**bold**` inside `**bold**` is collapsed, since Markdown cannot express 
 # raw.md is the unfiltered `pandoc source.docx -t markdown --wrap=none` output
 pandoc raw.md -f markdown -t gfm --wrap=none \
   --lua-filter=scripts/eu_proposal_template_format.lua \
-  -o background/eic/2026-09-09_sintef.md
+  -o generic/background/eic/2026-09-09_sintef.md
 ```
 
 Non-destructive by design: it only ever writes the `-o` target, so keep the raw Pandoc conversion next to the formatted one. Verify a run by comparing word counts of the plain-text renderings of both files:
@@ -443,12 +444,30 @@ Current contents:
 - `nedskriving.md` — original T75 draft. Placeholder-heavy; superseded by `nedskriving_2025.md` for the 2025 test but retained per instruction.
 - `2026-09-10_vedlegg_skattemelding_2025_prinsippendring.md` — short justification of the 2025 accounting principle change, for attachment to the 2025 tax return. Follows the auditor's 2026-09-10 guidance (2024 effect directly against retained earnings; 2024 tax depreciation reversed in the 2025 return). Tax depreciation amount is a placeholder (`XXX`) for the accountant to fill in.
 - `2026-09-10_svar_regnskapsforer_prinsippendring_skattemelding.md` — cover mail to the accountant sending the justification above, asking them to fill in the amount and confirm the tax paragraph.
+- `2026-09-17_mail_regnskapsforer_fortsatt_drift.md` — request to Orkla Regnskap for the numeric basis the board needs before responding to the auditor's forthcoming numbered letter on going-concern uncertainty (T106.01). Covers cash position, debt service schedule, fixed costs, tax/VAT/tvangsmulkt status, receivables, grant disbursements, equity composition, and the status of the T81 principle change.
+- `2026-09-17_styrets_vurdering_fortsatt_drift.md` — formal board assessment of going concern (T106.04). Standalone deliverable to auditor with cash position, inflows over 12 months, dokumenterte debt service plans (IN quarterly avdrag + SB1 renegotiated plan), risk assessment (aged supplier debt, receivables written down, pantstillelse), and conclusion that going-concern basis is upheld. Signed by Per Lindberg (styreleder) and Eirik Larsen (styremedlem), Oslo 17.09.2026.
+- `2026-09-17_note_fortsatt_drift_arsregnskap.md` — draft note for the 2025 annual accounts summarising the board's going concern assessment (T106.06). Written for insertion after existing note 11, gives basis for auditor to issue an emphasis-of-matter paragraph (ISA 570 pkt. 22) with unmodified opinion instead of a qualified opinion. Uses "vesentlig usikkerhet" wording explicitly.
+- `2026-09-17_mail_revisor_note_fortsatt_drift.md` — cover mail to auditor proposing the going concern note above, in response to her offer of the emphasis-of-matter route.
 
 `funding/background/` holds date-prefixed background material for the funding stream, plus the `nye/` inbox for unprocessed files.
 
 - `2026-08-21_vollsfjorden_solkraftanlegg/` — the Vollsfjorden floating-solar document set (T100), converted from the `nye/Vollsfjorden Solkraftanlegg/` inbox. 10 `.md` files + 9 extracted images in `images/<doc-stem>/` + one raw `.csv`. Two groups: `tillatelse_*` (Kystverket permit, Prosolar site plan D1, Grenland Havn referral letter, Skien kommune and Statsforvalteren consultation replies) and `ppa_*` / `enova` / `gammel_tuf_soknad_*` (PPA template + Vollsfjorden PPA draft in both PDF and DOCX form, Enova application draft, old Telemark utviklingsfond application 2025-0039). Folder date is the filing date, not a document date — the set spans 2025-02 to 2025-09.
 
 Open funding tasks carry the `[FUND]` tag in `TASKS.md`.
+
+### `generic/` — cross-cutting / shared
+
+Material that spans SuRE, Gen 2 and Funding, or predates the activity split. Two subfolders:
+
+- `generic/background/` — cross-cutting background inputs (date-prefixed). Contains company-level correspondence, historical investor updates, market intel, legal excerpts, and any other input material that is not the property of a single activity. Current subfolders:
+  - `new/` — inbox for unprocessed files (PDFs, DOCX, images → converted to .md).
+  - `lover/` — excerpts of Norwegian statutes and accounting standards (regnskapsloven, NRS, skfvl).
+  - `loeypemelding/` — historical investor updates (løypemeldinger), date-prefixed.
+  - `eic/` — EIC Transition proposal material (WP structure, MoM, partner correspondence, feedback, PES application drafts, proposal revision strategy, full Part B rewrite, archived call rules and web sources).
+  - `leads/` — commercial leads and prospect material (date-prefixed under per-lead subfolders).
+- `generic/deliverable/` — outgoing cross-cutting material (customer replies, quotes and pre-tender responses, generic company-level deliverables that do not belong to a single activity). Same `YYYY-MM-DD_short_description.ext` date-prefix convention as `background/`.
+
+Open cross-cutting tasks carry the `[GENERIC]` tag in `TASKS.md`.
 
 ---
 
@@ -460,11 +479,14 @@ sure-d61/
 ├── TASKS.md                   – open task list (T-numbered, single sequence across activities)
 ├── ARCHIVE.md                 – closed tasks
 ├── README.md                  – this document (only README in the repo)
-├── background/                – cross-cutting background material (date-prefixed files)
-│   ├── new/                   – inbox for unprocessed files (PDFs, DOCX, images → converted to .md)
-│   ├── lover/                 – excerpts of Norwegian statutes and accounting standards (regnskapsloven, NRS, skfvl)
-│   ├── loeypemelding/         – historical investor updates (løypemeldinger), date-prefixed
-│   └── eic/                   – EIC Transition proposal material (WP structure, MoM, partner correspondence, feedback, PES application drafts, proposal revision strategy, full Part B rewrite, archived call rules and web sources)
+├── generic/                   – cross-cutting / shared material
+│   ├── background/            – date-prefixed background inputs
+│   │   ├── new/               – inbox for unprocessed files (PDFs, DOCX, images → converted to .md)
+│   │   ├── lover/             – excerpts of Norwegian statutes and accounting standards (regnskapsloven, NRS, skfvl)
+│   │   ├── loeypemelding/     – historical investor updates (løypemeldinger), date-prefixed
+│   │   ├── eic/               – EIC Transition proposal material (WP structure, MoM, partner correspondence, feedback, PES application drafts, proposal revision strategy, full Part B rewrite, archived call rules and web sources)
+│   │   └── leads/             – commercial leads and prospect material
+│   └── deliverable/           – outgoing cross-cutting deliverables (customer replies, quotes, pre-tender responses)
 ├── scripts/                   – persistent helper scripts (see the *Scripts* section above)
 ├── sure/                      – SuRE WP6 activity
 ├── gen2/                      – Gen 2 product development
