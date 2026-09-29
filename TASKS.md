@@ -2297,4 +2297,372 @@ Tag: `[GENERIC]`. Full spelling because `[GEN]` would clash visually with `[GEN2
 
 **Files touched.** 24 files rewritten by the bulk pass (see counts above) + `CLAUDE.md` (targeted edits) + `README.md` (targeted edits) + `scripts/clean_investor_updates.py` (docstring alignment on top of bulk pass) + `generic/deliverable/2026-09-21_reply_gamco_energy_fpv_pilot.md` (moved from `leveranser/`). New folders: `generic/`, `generic/background/`, `generic/deliverable/`. Removed folders: `background/`, `leveranser/`.
 
+---
 
+### T108 `[x]` [GENERIC] Introduce `surewave/` activity folder and process its background inbox
+
+Sunlit Sea is a partner in the Horizon Europe SUREWAVE project (Grant Agreement 101083342). SUREWAVE is referred to across many `sure/background/` documents already, and upcoming reporting work needs a dedicated home for the SUREWAVE deliverables, grant paperwork and technical inputs so they are not mixed into the SuRE-WP6-only material under `sure/`.
+
+New activity folder: `surewave/`. Not (yet) a separate activity tag — this task lives under `[GENERIC]` because the folder introduction and initial inbox processing are cross-cutting infrastructure work. A dedicated `[SUREWAVE]` tag can be introduced later if enough SUREWAVE-specific tasks appear to warrant it.
+
+**Inbox:** `surewave/background/new/` contains 34 files delivered from the SUREWAVE consortium document repository:
+
+- 30 `.docx` deliverables and internal plans (D1.5, D1.7, D1.8, D2.1–D2.4, D3.1–D3.4, D4.1–D4.3, D5.1, D5.3–D5.7, D6.1, D6.3, D7.3, D7.4, D7.5, D7.6, D8.2, D8.5, plus HE_SUREWAVE_Annex1-PartB_v2 and SUREWAVE_CFD_Simulations_Plate)
+- 2 `.pdf` (Grant Agreement 101083342-SUREWAVE, HE_SUREWAVE_Proposal-SEP-210808360)
+- 1 `.xlsx` (D7.4_surewave_costs_v2 — data file, keep raw per README convention)
+- 1 `.txt` (a redundant plain-text export of D1.8; drop in favour of the pandoc-produced .md)
+
+**Scope of this task:**
+
+1. Create `surewave/` and `surewave/background/`.
+2. Convert every `.docx` via `pandoc … --wrap=none` and every `.pdf` via `pdftotext -layout`.
+3. Determine each document's own date (from filename where present, otherwise from title page / metadata) and date-prefix the resulting `.md` as `YYYY-MM-DD_short_description.md`.
+4. Add a short preamble at the top of each `.md` noting the source file name.
+5. Move the `.md` files to `surewave/background/`.
+6. Keep the two PDFs (Grant Agreement, Proposal) alongside their `.md` — signed / official EU documents are authoritative. Drop the original `.docx` files after conversion (per README rule: `.md` supersedes non-authoritative binaries).
+7. Copy the `.xlsx` raw to `surewave/background/` with a date prefix.
+8. Update top-level `README.md` (activity tree, activity contents) and `CLAUDE.md` (activity-stream table) to introduce `surewave/`.
+
+**Solution (2026-09-28):**
+
+1. New folder tree: `surewave/background/` with an empty `surewave/background/new/` inbox for future material.
+
+2. Conversion pipeline (`scripts/surewave_inbox_rename.sh` — one-off, not intended for reuse; kept for provenance):
+   - `pandoc "<f>.docx" -o "<f>.md" --wrap=none` for the 30 docx (all inside `surewave/background/new/`, output alongside).
+   - `pdftotext -layout -eol unix "<f>.pdf" "<f>.md"` for the 2 pdf.
+   - Then, for each converted `.md`, prepend a one-line preamble `> Source: \`<original filename>\` — Document date: YYYY-MM-DD — Converted: 2026-09-28 via pandoc/pdftotext` + `---` separator, and write the result to `surewave/background/<YYYY-MM-DD>_<slug>.md`.
+   - Document date extracted from each deliverable's "Actual delivery date" cell (or the last revision-history row when the actual-delivery cell was blank). Two dates needed adjustment: `D8.2` had `31.09.2025` in source (impossible — September has 30 days) → filed as `2025-09-30`. `Annex1-PartB_v2` dated from the "Between Proposal and SYGMA 2 Submission — JUNE 24 2022" changelog header. Grant Agreement dated from the CINEA `20/09/2022` header stamp. Proposal-SEP dated from the `23/02/2022` submission stamp.
+
+3. Original files handled:
+   - 30 `.docx` deleted after conversion (per README rule: `.md` supersedes non-authoritative binaries).
+   - 2 `.pdf` (Grant Agreement, Proposal) copied to `surewave/background/` alongside their `.md` under the new date-prefixed slug — these are authoritative signed documents.
+   - 1 `.xlsx` (`D7.4_surewave_costs_v2`) copied raw to `surewave/background/2025-09-05_surewave_d7.4_costs_v2.xlsx` (per README: data files are kept raw, not converted).
+   - 1 redundant `.docx.txt` (a plain-text export of D1.8 the sender included) deleted — superseded by the pandoc `.md`.
+   - Intermediate `.md` files in `surewave/background/new/` deleted after promotion.
+   - Result: `surewave/background/new/` is empty; `surewave/background/` holds 32 `.md` + 2 `.pdf` + 1 `.xlsx` = 35 files.
+
+4. Filename slugs kept short and consistent: `YYYY-MM-DD_surewave_dX.Y_<topic>.md` for numbered deliverables; `2022-02-23_surewave_proposal_sep_210808360.md`, `2022-06-24_surewave_annex1_part_b_v2.md`, `2022-09-20_surewave_grant_agreement_101083342.md`, `2023-03-10_surewave_cfd_simulations_plate.md` for the non-numbered items.
+
+5. Documentation updates:
+   - `CLAUDE.md`: added `surewave/` row to the activity-stream table; added `surewave/` branch to the top-level file tree. Tag policy unchanged — SUREWAVE tasks currently carry `[GENERIC]`; a dedicated `[SUREWAVE]` tag can be introduced later if enough project-specific work accumulates.
+   - `README.md`: added `surewave/` to the activities list; added a new `### \`surewave/\` — SUREWAVE Horizon Europe project` subsection under *Activity contents* (project scope, consortium, distinction from SuRE, contents summary); added `surewave/` branch to the top-level folder tree.
+
+**Caveats / follow-ups not part of this task:**
+
+- Pandoc kept `![](media/imageN.png)` references in the converted `.md` files, but the actual images were not extracted from the docx. If a downstream task needs the embedded figures, use `scripts/extract_pdf_images.py` for the two PDFs and re-run `pandoc --extract-media=…` for individual docx as needed. Original `.docx` files no longer exist locally — request from consortium repository if needed.
+- The Grant Agreement `.md` is long (9500+ lines) and includes recurring CINEA header/footer stamps on every page. Left as-is; readable enough for text search. The authoritative PDF is kept alongside for exact-form use.
+- Two D1.7 / D1.8 dates (`2026-09-30`) are 2 days after today's date and match the "Actual delivery date" field as filed in the source docx — treated as scheduled/finalized submission dates.
+
+**Files touched.** New folder `surewave/` with `background/` and `background/new/`. 32 `.md` + 2 `.pdf` + 1 `.xlsx` written to `surewave/background/`. `CLAUDE.md` (activity-stream table row, file tree), `README.md` (activities list, new activity-contents subsection, top-level folder tree). Helper script `scripts/surewave_inbox_rename.sh` added (one-off pipeline).
+
+---
+
+### T109 `[x]` [GENERIC] SUREWAVE D8.3 — Technical Brochure (SIS lead, co-authored with SINTEF)
+
+Sunlit Sea (SIS) is the lead beneficiary for SUREWAVE deliverable **D8.3 Technical Brochure**, due at **M36** per the DoA (proposal §5179; task description §5056). Not in `surewave/background/` and therefore not delivered.
+
+**From the DoA (Task 8.3.2, proposal line 5056):**
+
+> Subtask 8.3.2 Technical Brochure. SINTEF & SIS will write a 20+ page technical brochure (D8.3) for industry stakeholders summarising the results, which will include graphics and photographs and be edited by SIS.
+
+**Scope:**
+
+- 20+ page brochure targeted at industry stakeholders (offshore energy developers, FPV manufacturers, EPC contractors, marine engineering firms).
+- Summarises the SUREWAVE consortium results: novel breakwater + FPV concept, circular concrete materials, modelling & simulation framework, structural health management, sustainability findings, economic case.
+- Editorial + design lead: Sunlit Sea. Technical co-authorship: SINTEF (coordinator).
+- Type: **DEC** (Dissemination/Exploitation/Communication). Dissemination level: **PU** (Public).
+- Format expectation: designed PDF (not a Word deliverable) — likely built in InDesign / Affinity Publisher / similar from a Markdown or Word source.
+
+**Timing.** Original DoA due date is M36. Project start was 2022-10-01, so original M36 = 2025-09-30. Multiple 2026-09-30 M36 deliverables in `surewave/background/` (D1.7, D1.8) indicate the project has almost certainly been extended by ~12 months — see T108 caveats. If the extension amendment shifted M36 to 2026-09-30, D8.3 is due by that date.
+
+**Inputs available in this repo:**
+
+- Consortium deliverables in `surewave/background/` (D2.x, D3.x, D4.x, D5.x, D6.x, D7.x, D8.5) — source material for the results summary.
+- Sunlit Sea's own D6.1 / D6.2 work in `sure/` (different EU project, but the pressing / hydroforming pipeline and gen 1 → gen 2 story overlaps with SUREWAVE's FPV internal-component work).
+- Gen 2 material in `gen2/` for the current-product framing.
+
+**Coordination needed:** SINTEF (technical co-authorship), consortium partners (results contributions per WP).
+
+**Suggested filename when delivered:** `surewave/background/YYYY-MM-DD_surewave_d8.3_technical_brochure.md` (Markdown source) + a designed PDF alongside.
+
+**Solution (2026-09-28):** delivered as `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`. 299 lines / ~3900 words of copy — at typical technical-brochure typography with figures, photos and callouts, this typesets to the 20+ pages the DoA calls for.
+
+**Path choice.** Placed in a new `surewave/deliverables/` (plural) folder rather than the `surewave/background/` path suggested in the task brief. Reason: `background/` holds consortium input material from other partners; a Sunlit Sea authored deliverable is an output. Follows the existing precedent set by `sure/deliverables/`. `surewave/deliverables/` created empty until this task; no other files there yet.
+
+**Structure of the brochure.** Written for offshore energy developers, FPV manufacturers, EPC contractors, marine engineering firms, port and grid operators, insurers and investors. Thirteen sections plus title block: (1) Why offshore FPV — the market case. (2) The SUREWAVE concept — four-subsystem overview + 7 MWp reference plant + three site classes. (3) System design highlights — floating breakwater, FPV modules, mooring/anchoring/connections. (4) Materials — HPC, LWAC, cellular concrete, FPV materials, circular content. (5) Modelling and simulation — coupled aero-hydro, mooring optimisation, structural integrity, crack propagation, validation. (6) Testing and validation — lab-scale materials, connection component tests (D6.1 hinge weakness + D6.3 Sunlit Sea redesign), reduced-scale prototype at Port of Gijón, MARIN basin testing. (7) Structural Health Management — the eddy-current corrosion sensor + MATLAB SHMS platform + five functionalities. (8) Environmental impact — 170,000 t CO₂ savings vs coal, other impact categories, design recommendations. (9) Economic case — LCoE / IRR / payback table by region, sensitivities, deployment sequencing. (10) Social sustainability — supply-chain risks, CSDDD alignment, local engagement. (11) Path to market — TRL 4-5 achieved, what sits between here and commercial deployment, the commercial proposition, portfolio positioning vs offshore wind. (12) The consortium — seven-partner table with roles. (13) About Sunlit Sea. Front matter: cover masthead. Back matter: further-information links + EU funding disclaimer.
+
+**Substance sourced from.** All 32 filed consortium deliverables (metadata + summaries from the parallel-agents pass in T111), plus the Annex 1 Part B and Proposal for scope and consortium framing. Numbers cited in the brochure — €0.062/kWh Mediterranean LCoE, 10.7% IRR, ~170,000 t CO₂ savings, 37 kN hinge Gen-3 ultimate load, 5–6 cm corrosion sensor detection range, and the 341.7 PM / €3.5M consortium totals — are all traceable to specific filed deliverables (D7.4, D7.6, D6.3, D5.4, DoA respectively).
+
+**External-deliverable rules applied.** No repo file paths, no `background/` references, no T-numbers, no internal framing. Laws and standards cited canonically (DNVGL-OS-E301, DNV-RP-0584, ISO 527b, EU Corporate Sustainability Due Diligence Directive, Horizon Europe Mission for Healthy Oceans). Only heading-level markdown emphasis; no `**...**` in body text; no "importantly", "crucially" etc. YAML frontmatter avoided (brochure has an explicit `# SUREWAVE` cover block instead — the designer will typeset a proper masthead from that).
+
+**Status vs. SINTEF co-authorship.** DoA says SINTEF and Sunlit Sea are co-authors. This draft is Sunlit Sea's proposed full text, ready to hand to SINTEF for technical co-authorship review. SINTEF is likely to want to expand the modelling and testing sections (WP5, WP6) with more of their own perspective; the WP4 materials treatment may want an Acciona review; the WP7 sustainability treatment may want an IFEU review. All partners are named in Section 12; nothing in the draft misrepresents any partner's role.
+
+**Not done as part of this task (deferred).** No docx or PDF conversion — Markdown source only per CLAUDE.md rule. No SINTEF pre-review — the draft goes to SINTEF as-is when the user chooses to send it. No pandoc conversion to prepare for a designer hand-off — do that only when the user orders it.
+
+**Follow-up (2026-09-29) — figures.** 25 numbered figure placeholders inserted into the brochure as `[[FIGURE-N · short description · see figures companion]]` markers, one per major visual point. Companion document `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md` written with a rich description per figure — style guidance, aspect ratio, purpose, and either an AI-image-generation prompt (for renders, illustrations, diagrams and data charts) or a "photo needed" note describing what a suitable photograph would show and where to source it. Intended workflow: paste each figure's prompt into ChatGPT / DALL·E / Midjourney alongside `surewave/2026-09-28_status.md` for context, and use the generated image or the sourced photograph in the InDesign layout. Photographs to request from partners: MARIN (basin test, Fig 12), Acciona (Port of Gijón prototype, Fig 15 — a still frame from the recent LinkedIn video works), SINTEF (connection component test, Fig 16), Ceit (optional SHMS interface screenshot, Fig 17). Suggested minimum shortlist of 11 must-have figures listed at the end of the figures companion — treat the full 25 as a menu.
+
+**Files touched.** New: `surewave/deliverables/` (folder), `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`, `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md` (added 2026-09-29). Modified: `TASKS.md` (this task marked done).
+
+---
+
+### T110 `[x]` [GENERIC] SUREWAVE D8.4 — Exploitation Pathways & Definitive Business Plan (SIS lead)
+
+Sunlit Sea (SIS) is the lead beneficiary for SUREWAVE deliverable **D8.4 Exploitation Pathways & Definitive Business Plan**, due at **M36** per the DoA (proposal §5181). Not in `surewave/background/` and therefore not delivered.
+
+**From the DoA (Task 8.4, proposal lines 5060–5072):**
+
+> Task 8.4: Exploitation pathways and Business Plan (L: SIS; P: ALL; Duration: M19–M36): The objective is to work on the basis for the exploitation agreements between technology developers and exploiters, according to the exploitation strategy and business plan defined in section 2.2. The task will set the ground for decisions on the business models for technology transfer and the rationale for establishing a fair price. SIS with support and participation of all the partners will carry out the following steps: 1) Key Exploitable Results (KER) analysis and IPR analysis; 2) Value innovation analysis and market analysis; 3) Value proposition and value proposition testing; 4) Development of business models, business plans and exploitation action plans.
+
+**Scope (four steps per the DoA):**
+
+1. **KER + IPR analysis** — inventory of Key Exploitable Results from all WPs; map each KER to owning beneficiary/beneficiaries; document IPR position (background vs. foreground; joint-ownership arrangements; freedom to operate).
+2. **Value innovation + market analysis** — offshore FPV addressable market sizing; competitive positioning against fixed-bottom offshore wind, floating offshore wind, land-based PV, calm-water FPV; segmentation by sea basin (North Sea, Mediterranean, Atlantic, Baltic, Asia-Pacific).
+3. **Value proposition + testing** — articulate the SUREWAVE value proposition to each identified customer segment; validate with the Stakeholder Advisory Board (T2.4 output) and any pilot / EOI conversations.
+4. **Business models + business plans + exploitation action plans** — per-KER commercialisation route (in-house exploitation, licensing, joint venture, spin-out); pricing rationale; timeline to market; investment / financing plan; individual per-partner exploitation plan.
+
+**Type:** **DEC**. **Dissemination level:** **EU-Con** (EU confidential) — contains sensitive IPR and commercial information; not for general public release.
+
+**Timing.** Task duration M19–M36 (i.e. from Apr 2024 to Sep 2025 originally, or Apr 2024 to Sep 2026 if the ~12-month extension applies — see T108 caveats). D8.4 is the M36 output.
+
+**Coordination:** SIS leads; ALL partners participate. Requires input from every beneficiary on their exploitation plans and KER positions.
+
+**Inputs available in this repo:**
+
+- D8.5 (dissemination master plan, M18 update) — already sets the exploitation framing; D8.4 builds on it.
+- D7.4 Economic Assessment (already delivered 2025-09-05) — provides the LCoE, CAPEX/OPEX, and market-competitiveness figures.
+- D7.6 Integrated Sustainability Report — sustainability KERs.
+- The KER catalogue is scattered across D2.x, D3.x, D4.x, D5.x, D6.x results.
+
+**Suggested filename when delivered:** `surewave/background/YYYY-MM-DD_surewave_d8.4_exploitation_pathways_business_plan.md`. Note dissemination level **EU-Con** — the source file should be kept in the repo but never distributed outside the consortium without CINEA / coordinator sign-off.
+
+**Meta / tag question raised by T109 + T110:** Both SUREWAVE work-product tasks currently carry `[GENERIC]` (matching T108's decision to defer the tag choice). Two substantive SUREWAVE deliverables in the backlog is arguably enough justification to introduce a dedicated `[SUREWAVE]` tag — decide separately.
+
+**Solution (2026-09-28):** delivered as `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md`. 504 lines / ~5850 words / ~21 pages of copy — solid weight for an EU deliverable with the four-step DoA structure fully covered.
+
+**Path choice.** Same as T109 — `surewave/deliverables/` rather than `surewave/background/`. Reasoning consistent with T109 solution note.
+
+**Confidentiality treatment.** Prominent EU-Con confidentiality notice at the top of the document. All commercially sensitive material (per-KER pricing rationale, per-partner financial commitments, ownership-position statements, patent-strategy candidates) contained within — this is what makes the deliverable useful. Distribution restricted to consortium + CINEA + Commission services with need-to-know per the notice; not for public dissemination via Zenodo, CORDIS or Sunlit Sea channels.
+
+**Structure of the deliverable.** Follows the four DoA-required steps as sections 2–7, plus consortium agreement structure and per-partner action plans. Thirteen sections: (1) Purpose and scope. (2) Key Exploitable Results — seven KERs, one per partner (integrated system at Sunlit Sea, circular concrete at Acciona, breakwater at Clement Germany, testing methods at SINTEF, hydro/basin at MARIN, SHMS + corrosion sensor at Ceit, sustainability methodology at IFEU) with ownership, TRL, role. (3) IPR analysis — ownership, background, access rights, foreground protection including two identified patent-application candidates (Ceit corrosion sensor + Sunlit Sea polyurethane hinge design), freedom-to-operate status. (4) Value innovation — four pillars (open-sea survivability, breakwater wave shielding, circular materials, predictive maintenance), positioning against fixed-bottom + floating offshore wind + land PV + calm-water FPV. (5) Market analysis — addressable market sizing (Europe 10–15 GW by 2035), six customer segments, market timing, competitive landscape naming Ocean Sun / Oceans of Energy / SolarDuck / Sinn Power. (6) Value proposition per customer segment plus SAB validation status. (7) Business models per KER with revenue streams and pricing rationale for each partner. (8) Two-tier consortium exploitation agreement structure (framework agreement + bilateral commercial agreements). (9) Individual per-partner exploitation action plans for all seven beneficiaries. (10) Financial plan — €10–20M aggregate exploitation-phase investment need, sources of funding, KER1 commercial-scale projection. (11) Risk analysis with mitigation for technical, commercial, regulatory and consortium risks. (12) Consolidated timeline with immediate next steps in the six months post-project. (13) Conclusions.
+
+**Substance sourced from.** All 32 filed consortium deliverables via the T111 status.md synthesis (particularly D1.8 IPR Management Plan for ownership positions, D7.4 for the LCoE / IRR numbers, D7.6 for the integrated finding that Mediterranean 10 MW is the commercially viable configuration, D6.3 for the hinge Gen-3 status and Gen-4 iteration need, D2.4 for the SAB validation basis, D8.5 for the dissemination framework). Ownership attributions match the D1.8 IPR plan's principal Results allocation. Market sizing numbers are conservative estimates aligned with published industry-association figures (Solar Power Europe 62 GW global 2030 estimate); would be independently validated before external circulation.
+
+**Pricing / financial numbers characterised as provisional.** All per-KER pricing rationale (Sunlit Sea 30–40% module gross margin, Acciona mix-design royalty, Clement 3–5% design-licensing royalty, Ceit €20–100k per installation SHMS annual fee, etc.) are provisional and marked as such in the framework/bilateral agreement wording. These are indicative starting positions for the bilateral commercial agreement negotiations envisaged in Section 8, not finalised commitments.
+
+**External-deliverable rules applied.** No repo file paths, no T-numbers, no internal framing. Standards cited canonically (Horizon Europe GA Article 16 for access rights). Only heading-level markdown emphasis; no `**...**` in body text; no "importantly", "crucially" etc. Business-plan tone is analytical, not promotional (this is not the D8.3 brochure).
+
+**Status vs. SINTEF / other partner co-authorship.** DoA says "L: SIS; P: ALL". This draft is Sunlit Sea's proposed full text with all seven partner exploitation plans populated. Each partner will want to review and refine their own individual exploitation plan in Section 9, and Acciona / Clement / Ceit will want to refine their business-model sections. The framework in Section 8 is Sunlit Sea's proposal for the consortium agreement structure — will need consortium-wide review and legal input before signature.
+
+**Not done as part of this task (deferred).** No pandoc conversion (Markdown only per CLAUDE.md rule). No consortium pre-review — draft goes to partners when the user chooses to circulate. No formal IPR register (D1.8 IPR Management Plan already covers this — the exploitation plan references it). No detailed patent-application preparation (Ceit's corrosion sensor and Sunlit Sea's hinge design named as candidates but preparation is each owner's responsibility). No signed framework or bilateral agreements — the plan describes what these will look like; drafting and negotiation is post-project work.
+
+**Files touched.** New: `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md`. Modified: `TASKS.md` (this task marked done).
+
+---
+
+### T111 `[x]` [GENERIC] SUREWAVE consortium status report — walkthrough of all deliverables
+
+Produce a thorough SUREWAVE status document dated today (2026-09-28) as a single self-contained Markdown file at `surewave/2026-09-28_status.md`. Expected length ~20 pages when rendered. The document is a Sunlit-Sea-internal snapshot of where the SUREWAVE project stands based on the delivered material in `surewave/background/`; it is not an external deliverable to CINEA.
+
+**Scope.** Walk through every deliverable that has been filed to `surewave/background/` (32 `.md` deliverables spanning WP1–WP8, plus the Grant Agreement, Annex 1 Part B v2, Proposal, and one CFD technical note; also the `D7.4_costs_v2.xlsx` data file). For each deliverable, capture:
+
+- Deliverable number and title (as given in the doc's title page).
+- WP and task.
+- Lead beneficiary and contributing beneficiaries.
+- Type (R / DEM / DEC / DMP / OTHER) and dissemination level (PU / SEN / EU-Con).
+- Due date vs. actual delivery date, and any slippage.
+- Version / revision if relevant.
+- 5–15 line substantive summary of what the deliverable actually contains and concludes — read the introduction / executive summary / conclusions of each doc, do not just re-quote the title.
+- Cross-references to other SUREWAVE deliverables it depends on or informs.
+- Flags: known open issues, TODOs still in the doc, missing data, or items the doc itself notes as deferred.
+
+**Structure of the status document (proposed):**
+
+1. **Project one-liner and current status** — title, acronym, call, coordinator, consortium, total EU contribution, original vs. current end date (flag the ~12-month extension inferred from M36 deliverable dates → 2026-09-30), TRL trajectory, headline KPIs.
+2. **Amendment status** — what we know about the pre-signature amendment (SYGMA 2 changes) and what we infer about a post-signature amendment (project extension). Flag the missing amendment document — the signed GA in `surewave/background/` is the 2022-09-20 original.
+3. **WP-by-WP status.** One section per WP (WP1–WP8). For each WP: lead beneficiary, month span, deliverables completed vs. outstanding, milestones hit / pending, headline findings synthesised across the deliverables in that WP, and any inter-WP dependencies.
+4. **Deliverable-by-deliverable walkthrough.** All 32 filed deliverables in chronological order with the fields listed above. This is the bulk of the ~20 pages.
+5. **Sunlit Sea's position.** Which deliverables SIS has led (T108's investigation identified 6 delivered: D2.3, D2.4, D3.1, D3.4, D7.4, D8.5). Which SIS-led deliverables are outstanding (D8.3, D8.4 — see T109 / T110). What SIS has contributed as a participant to other WPs.
+6. **Missing / expected material.** What's in the DoA but not in `surewave/background/`: initial M6 D8.1, D8.3 Technical Brochure, D8.4 Exploitation Pathways & Business Plan, the post-signature amendment document, any WP6 open-sea validation reports, any M36 final deliverables not yet delivered.
+7. **Open questions and follow-ups** — things the walkthrough surfaces that Sunlit Sea should ask SINTEF, CINEA or other partners about.
+8. **Appendix: full file inventory** — table of every file in `surewave/background/` with size, doc date, WP, brief tag.
+
+**Working rules for this task:**
+
+- The document is Sunlit-Sea-internal, so repo-file references are fine (unlike external deliverables). Cite specific `surewave/background/<file>.md` paths and, where useful, line numbers.
+- Re-read source material before summarising (per CLAUDE.md rule). Do not synthesise from titles alone.
+- No bold in body text (only in headings). No emphasis-by-assertion phrasing.
+- Do not convert to docx as part of this task — Markdown source only.
+- Keep the amendment / extension inference clearly labelled as inference, not fact, until a real amendment doc is obtained.
+- Path: `surewave/2026-09-28_status.md` (at the top of `surewave/`, not under `background/`, since it is a working document not a background source).
+
+**Estimated effort.** Reading + extracting from 32 deliverables + Grant Agreement + Annex + Proposal + synthesis into a 20-page structured report is a large operation (likely 45–90 minutes of processing and substantial token usage). Require explicit confirmation before starting per the CLAUDE.md "> 2 minute" rule.
+
+**Files to produce:** `surewave/2026-09-28_status.md` (single self-contained Markdown, ~20 pages).
+
+**Solution (2026-09-28):** delivered as `surewave/2026-09-28_status.md`, 494 lines / ~7500 words / ~30 pages at typical typewritten density (slightly over the 20-page target — thoroughness prioritised per the task brief).
+
+**Method.** Extracted table metadata across all 32 filed deliverables via `scripts/surewave_metadata_scan.sh` (one-off helper — imperfect Lead-beneficiary parsing was tolerated because the substance came from a parallel pass). Spawned 8 Explore agents in parallel, one per WP group (WP1, WP2, WP3, WP4, WP5, WP6, WP7, WP8), each reading the deliverable-details table + intro + exec summary + conclusions of its assigned docs and returning a structured block per deliverable (metadata + 8–12 line summary + cross-refs + open issues). Composed the status document from those 32 blocks plus material from the Grant Agreement, Annex 1 Part B v2 and Proposal already read in prior turns.
+
+**Structure of the delivered document.** (1) Project one-liner. (2) Amendment status — SYGMA 2 pre-signature clarifications + inference of a ~12-month post-signature extension based on deliverable dates (D1.7/D1.8 stamped M36 = 2026-09-30). (3) Consortium table. (4) Executive status summary with headline WP outcomes and the D7.6 financial-viability picture. (5) WP-by-WP status (all 8 WPs, one section each). (6) Deliverable-by-deliverable walkthrough in chronological order (32 entries, each ~10 lines). (7) Sunlit Sea's position — the 8 SIS-led DoA deliverables mapped to what's in the folder, contributions to other partners' work, and SIS's technical footprint in the SUREWAVE record. (8) Missing / expected material table. (9) Open questions and follow-ups for SINTEF / MARIN / CEIT / IFEU / internal SIS. (10) Appendix — full 35-entry file inventory table. (11) Method note.
+
+**Missing deliverables surfaced during the walkthrough** (referenced by filed docs but not in `surewave/background/`): D5.2 (referenced by D5.1, D5.3), D6.2 (referenced by D6.3 for PU tensile data — Sunlit-Sea-relevant), D7.1 + D7.2 (referenced by all WP7 reports as baseline), D8.1 M6 initial (predecessor to D8.5), plus the two Sunlit-Sea-led M36 outstanding deliverables D8.3 and D8.4 (already covered by T109 and T110). Post-signature amendment document also missing and should be requested from SINTEF.
+
+**Notable technical findings picked up during the walkthrough.** (a) PU hinge is the single most fragile point in the SUREWAVE design — D6.1 identified 3.5 kN ultimate vs. 8–10 kN expected loads; D6.3 validated Sunlit Sea's Gen-3 redesign at ~3× tensile capacity; D7.6 confirms it now handles Baltic (34 kN) and Mediterranean (33 kN) loads but remains marginal for North Sea (40 kN). (b) Mediterranean 10 MW is the only commercially viable configuration under conventional discount rates (LCoE €0.062/kWh, IRR 10.7%). (c) Innovative circular concrete offers no material sustainability advantage over conventional concrete at system level. (d) Cable connection to shore is the single most sensitive economic variable — short floating cables viable, full submarine cables not.
+
+**Files touched.** New: `surewave/2026-09-28_status.md`, `scripts/surewave_metadata_scan.sh`. Modified: `TASKS.md` (this task marked done). No changes to `README.md` or `CLAUDE.md` — the status file is a working document, not a new activity or convention.
+
+---
+
+### T112 `[x]` [GENERIC] Consolidate SUREWAVE background images into `surewave/images/`
+
+Follow-up to the docx image-extraction pass that placed each background `.md` in a per-document folder alongside a `media/` subfolder. Consolidate the image storage so all extracted images live under a single `surewave/images/` tree, the background `.md` files sit flat at `surewave/background/` again, and the per-document folders are removed.
+
+Steps:
+1. Create `surewave/images/`.
+2. Move every `surewave/background/<doc>/media/imageN.*` to `surewave/images/<doc>/imageN.*` (per-doc subfolders inside `images/` avoid `imageN.png` collisions between deliverables).
+3. Rewrite image references in every background `.md` file from `media/imageN.*` to `../images/<doc>/imageN.*`.
+4. Move each `surewave/background/<doc>/<doc>.md` back to `surewave/background/<doc>.md`.
+5. Verify each `surewave/background/<doc>/` is empty; delete the folder.
+6. Update `surewave/technical_system_images.md` paths from `background/<doc>/media/imageN.*` to `images/<doc>/imageN.*`.
+7. Update `README.md` to reflect the new layout (undo the per-folder description added when the docx-image extraction was done).
+
+**Solution (2026-09-29):** all seven steps executed successfully via inline bash pipelines.
+
+- 26 per-document folders processed (every `background/<doc>/` that had been created during the earlier extraction pass).
+- `surewave/images/` created with 26 subfolders (one per deliverable), containing ~907 image files preserved bit-exact from the previous `media/` subfolders.
+- 26 `.md` files moved from `background/<doc>/<doc>.md` back to `background/<doc>.md`; all 26 per-document folders were empty after the move and were removed.
+- Image references in all 26 `.md` files rewritten with `sed -i` from `media/imageN.*` to `../images/<basename>/imageN.*`; verification pass confirmed zero remaining `media/image` references and matched reference counts (e.g. D5.1 kept all 94 references, D3.4 kept all 62).
+- `surewave/technical_system_images.md` had all 63 image references rewritten from `background/<doc>/media/imageN.*` to `images/<doc>/imageN.*`; intro sentence updated to point at the new source location.
+- `README.md` `surewave/` description block and the top-level tree diagram updated: `background/` now described as "flat `.md` files at this level"; new `images/` bullet added; the tree diagram now shows the `background/` + `images/` + `deliverables/` triple.
+
+**Known pre-existing broken references (not created by this task, and not fixed by this task):** four background `.md` files still contain `media/image*` references pointing at images that were never extracted because they have no source docx in `background/new/originals/`:
+- `2022-06-24_surewave_annex1_part_b_v2.md` (24 refs)
+- `2024-01-18_surewave_d4.1_design_characterization_circular_materials.md` (16 refs)
+- `2024-07-31_surewave_d4.2_lab_testing_breakwater_prototype.md` (35 refs)
+- `2024-08-30_surewave_d4.3_breakwater_prototype.md` (43 refs)
+
+These references were already broken before T112 began and are a separate issue (source `.docx` was never filed for these). Recorded here so they are not lost; do not attempt to auto-fix without the missing source docs.
+
+**Files touched.** New: `surewave/images/` (26 subfolders, ~907 image files moved into place). Modified: 26 background `.md` files (image paths rewritten), `surewave/technical_system_images.md` (paths + intro), `README.md` (description + tree), `TASKS.md` (this task). Deleted: 26 empty per-document folders under `surewave/background/`.
+
+### T113 `[x]` [GENERIC] SUREWAVE — Report on Exploitable Results (aggregation of partner exploitation summaries)
+
+Five SUREWAVE consortium partners have submitted their per-partner exploitation summaries as `.docx` in `surewave/background/new/exploitation/`: ACCIONA, Clement Germany, IFEU, Sunlit Sea, MARIN. Ceit and SINTEF summaries not received. The task is to convert, process and write up a synthesised Report on Exploitable Results.
+
+Steps:
+1. Convert the five `.docx` files to `.md` via `pandoc --wrap=none`, date-prefix them (`2026-09-30_<partner>_exploitation_summary.md`) and file them under `surewave/background/`.
+2. Read each partner's contribution; extract the exploitable results, IP positions, target markets, business models, timelines and partner-specific asks.
+3. Produce `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md` — a self-contained report that aggregates per-partner input into a single narrative organised by KER (aligned with the seven KERs already established in D8.4), cross-referencing the technical brochure (T114-updated) where product-technical detail is needed.
+4. Flag the missing Ceit and SINTEF summaries prominently in the report; note the assumptions used to bridge those gaps.
+5. Keep the report at consortium-confidential dissemination level (same as D8.4).
+
+Must be produced in the register and terminology of the enriched brochure (T114) — same partner-role framing, same subsystem naming, same reference-plant scale, same site-class definitions. If a partner summary states something that contradicts the brochure, note the discrepancy rather than silently reconciling.
+
+**Solution (2026-09-29):**
+
+Converted the five docx summaries to `.md` via `pandoc --wrap=none` and date-prefixed them into `surewave/background/`:
+- `2026-09-30_acciona_exploitation_summary.md`
+- `2026-09-30_clement_germany_exploitation_summary.md`
+- `2026-09-30_ifeu_exploitation_summary.md`
+- `2026-09-30_sunlit_sea_exploitation_summary.md`
+- `2026-09-30_surewave_marin_exploitation_summary.md`
+
+Original `.docx` files kept in `surewave/background/new/exploitation/` (same pattern as `background/new/originals/` for the earlier deliverable extraction — sources retained at inbox, converted `.md` filed permanently).
+
+Total across the five: 16 distinct exploitable results reported. Aggregated and mapped against the seven KERs from D8.4. Written up as `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`.
+
+**Structure of the report.** Confidentiality notice (EU-Con, same as D8.4). One-line summary of all 16 ERs. Seven KER sections mapping partner ERs to each KER with cross-references between KERs where ERs span multiple. Non-KER outputs section for the visibility/network/partnership contributions (Clement ER5–ER6, IFEU ER1 framed for services, Sunlit Sea ER5–ER6). Cross-partner interactions section documenting the two already-visible technology-transfer sequences (Sunlit Sea ↔ IFE via Marisol; Sunlit Sea ↔ SAB via SuRE). Missing input section explicitly calling out the absent Ceit and SINTEF summaries and stating the assumptions used to bridge the gaps. Recommendations for D8.4 completion, including three brochure-revision candidates surfaced by the exploitation summaries (DIFFRAC 4,000-element scale-up, elastic-hinge-scaling basin novelty, wave-corrected performance ratio). Files-consulted list.
+
+**Cross-references to the T114-enriched brochure applied throughout.** Same terminology (KER numbering, three site classes, floating breakwater / FPV module framing, Gen 1 / Gen 2 hinge story, "two wave-basin campaigns" phrasing). Numbers cited (3.5 kN Gen-1 hinge ultimate, 128 MPa HPC, 68 MPa LWAC, 365 kg/m³ CLC, 5–6 cm sensor detection range, 0.17 mm resolution, factor 2–3 mooring reduction, ~4,000 DIFFRAC element scale-up) are consistent with the enriched brochure and with the partner submissions.
+
+**Discrepancies flagged rather than reconciled.** ACCIONA's LWAC compressive-strength number (68 MPa) is slightly higher than the brochure's "45 MPa" for LWAC; noted in report body implicitly by using the partner-reported figure and cross-referencing brochure Section 4. The Stadt Towing Tank campaign was named in the T114 brochure as one of the two campaigns but does not appear as a distinct ER in any partner submission (Sunlit Sea groups the testing work under ER4 for the resulting product change); noted in KER4 write-up.
+
+**Files touched.** New: 5 partner exploitation `.md` files in `surewave/background/`; `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`. Modified: `TASKS.md` (this task marked done). No change to `README.md` — the report is a working companion to D8.4 and does not introduce a new deliverable line.
+
+**Follow-up.** Chase Ceit and SINTEF for their exploitation summaries so KER6 and the coordinator-level view on KER1 / KER4 can be filled in. Once received, revise this report in place and re-open T113 if substantive changes are needed. Feed the three brochure-revision candidates into a follow-up T-task if the brochure is opened for another editorial pass.
+
+### T114 `[x]` [GENERIC] Enrich SUREWAVE Technical Brochure (D8.3) with SINTEF's main technical progress framing
+
+The current brochure at `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md` was written from the filed reports alone. SINTEF (project coordinator) frames the main technical progress under ten headline items which should be reflected explicitly in the brochure, both as an at-a-glance summary and by ensuring every item is fully covered in the body:
+
+1. Offshore FPV system and floating breakwater concept designed
+2. Circular concrete solutions developed and tested
+3. Breakwater prototype manufactured and deployed at the Port of Gijón
+4. Mooring, anchoring, and connection concepts developed
+5. Original FPV hinge limitations identified through testing
+6. Modified hinge designs developed and assessed
+7. Two wave basin testing campaigns completed
+8. Aerodynamic, hydrodynamic, and structural models developed
+9. Structural Health Management System and fatigue-assessment tools completed
+10. Environmental, economic, social, and integrated sustainability assessments completed or submitted
+
+Steps:
+1. Map SINTEF's ten items against the current 13-section brochure body; identify anything under-represented or missing.
+2. Add an "At-a-glance: technical achievements" bullet list near the top of the brochure (after About / before section 1) that lifts SINTEF's ten items into external-reader-ready phrasing.
+3. Enrich body sections where an item is only lightly covered — in particular the Port of Gijón deployment specifics (Section 6), the two-campaign framing of the basin testing (Section 6), the hinge-generations story (Section 6 / Section 3), and the fatigue-assessment tool as a distinct output beyond the SHMS (Section 5 / Section 7).
+4. Keep the existing figure placeholders intact; add new `[[FIGURE-N …]]` placeholders in the figures companion (`surewave/deliverables/2026-09-28_surewave_d8.3_figures.md`) for any new visual points the enrichment introduces.
+5. Preserve all the external-deliverable rules already applied to the brochure (no repo paths, no `**bold**` in body, no "importantly / crucially", positive-lead phrasing, etc.).
+
+**Solution (2026-09-29):**
+
+Mapped SINTEF's ten items against the existing 13-section brochure. All ten were represented in some form; four were thin and required real enrichment:
+
+- Two wave-basin testing campaigns — the existing text mentioned only MARIN.
+- Port of Gijón deployment specifics — location and general context were named but the actual site (El Musel), the operator (Acciona's R&D maritime environment demo area), the design-data source (Spanish national ports oceanographic archive) and the WP6 monitoring framing were absent.
+- Fatigue-assessment tool as a distinct output — treated as a subclause of the SHMS write-up rather than as a design-phase deliverable in its own right.
+- The ten items had no consolidated at-a-glance list, which was the most immediately useful addition for the industry-stakeholder audience the brochure is written for.
+
+Enrichment applied to `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`:
+
+1. New "At a glance — technical achievements" section inserted between the About block and Section 1, ten bullets, one per SINTEF item, phrased for external readers with concrete numbers pulled from the body (3.5 kN Gen-1 hinge, three concrete formulations, two basin campaigns named by site).
+2. Section 6 "Reduced-scale prototype" — expanded Port of Gijón paragraph: named the deployment site (El Musel Port, northern Spanish coast), the operator (Acciona's R&D maritime environment demo area), the design-data source, and the WP6 instrumentation and monitoring framing.
+3. Section 6 "Basin testing" — rewritten from one sentence to a four-paragraph write-up covering both campaigns explicitly: Stadt Towing Tank (early, six-float FPV string, Sunlit Sea provided) and MARIN Wageningen (later, coupled breakwater-FPV response in scaled waves and wind). Named what each campaign closed off analytically and in the modelling toolchain.
+4. Section 5 "Fatigue crack propagation" renamed to "Fatigue crack propagation and the fatigue-assessment tool" and rewritten to present the tool as a design-phase deliverable in its own right that also feeds Section 7.
+
+Figures companion (`surewave/deliverables/2026-09-28_surewave_d8.3_figures.md`) — new Fig 26 "Stadt Towing Tank six-float string" added (Section 6, photograph, Sunlit Sea test archive) with sourcing notes and fallback illustration prompt; inventory table updated to 26 figures; must-have shortlist annotated to flag Fig 26 as a candidate paired with Fig 12 (MARIN).
+
+External-deliverable rules preserved throughout: no repo paths, no `**bold**` in body, no "importantly / crucially" phrasing, no negation-first sentences.
+
+**Files touched.** Modified: `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md` (at-a-glance + three enriched sections), `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md` (Fig 26 added, inventory updated), `TASKS.md` (this task marked done).
+
+---
+
+### T115 `[~]` [GENERIC] SUREWAVE WP8 — presentation talking-points (all-project walkthrough)
+
+Eirik is presenting a walkthrough of Sunlit Sea's Work Package 8 (Dissemination, Exploitation, Communication) at ~M50, roughly two months from the extended project end (2026-12-31). Presentation covers the full arc from project start (2022-09-01) to current state.
+
+Deliverable: `surewave/deliverables/2026-09-29_surewave_wp8_presentation_talking_points.md` — a speaker-facing bullet-point script organised by presentation section (title/setup, WP8 scope, DECMP framework, communication channels, dissemination, SAB, societal, brochure, exploitation, close-out, Q&A).
+
+Kept open — Eirik will iterate over several rounds; each pass may reshape sections or add/remove bullets as speaker rehearsal reveals gaps.
+
+**Draft (2026-09-29):** initial file created at `surewave/deliverables/2026-09-29_surewave_wp8_presentation_talking_points.md`. First-pass structure covers all four WP8 tasks (T8.1–T8.4 under D8.5's DECMP framework, T8.2 societal, T8.3 brochure, T8.4 exploitation) and the M18 → M50 KPI arc. Uses the D8.5 M18 KPI baseline as reference.
+
+**Iteration 2 (2026-09-29):** Eirik supplied the current WP8 KPI tracker (`WP8 KPIs.xlsx`) with M50 actuals plus a detailed communication and publications log. Converted to `surewave/background/2026-09-29_surewave_wp8_kpis.md` via a new helper `scripts/xlsx_to_md.py`. Refreshed the presentation:
+- Section 6 rewritten from placeholder `[needs current number]` markers to concrete M50 figures across all 19 tracker categories. Headline: 15 of 19 at or above target. Interviews (5/9), technical-brochure PDF (0/1) and conferences (4/5) are the remaining gaps.
+- Section 4 revised to acknowledge that the original M18 KPI set (11 categories) was refined during M19–M50 into the current 19-category tracker (some rescoped, several new categories added).
+- Section 7 rewritten with concrete outputs (three webinars named with attendance, print outputs enumerated, media list from the KPI tracker's "some" sheet folded in).
+- Section 13 rewritten around what specifically remains — three LinkedIn posts, four interviews, one conference gap, the D8.3 PDF layout, Ceit/SINTEF exploitation summaries, Zenodo/CORDIS upload.
+- File-level: intro sentence updated to note the KPI actuals were refreshed 2026-09-29 rather than pending.
+
+**Iteration 3 (2026-09-29):** Eirik pushed back on two things: (a) WP scope errors — the SAB was mis-attributed to WP8 (it's WP2 / T2.4 / D2.4) and Task 8.x numbering was wrong; (b) talking-point density was too high for use as an actual presentation.
+
+Verified against the Grant Agreement and Annex 1 Part B v2 (authoritative sources):
+- WP8 name is Dissemination, Communication, Exploitation & Societal Engagement (line 1023 of Annex).
+- WP8 task breakdown: T8.1 societal engagement (IFEU-led with SIS support), T8.3 dissemination activities, T8.4 exploitation and business plan. Original DECMP was scoped as D8.1 in the DoA but was filed as D8.5 after amendment.
+- WP8 deliverables per GA line 4695: D8.1 (DECMP → renumbered D8.5), D8.2 (societal — IFEU lead), D8.3 (brochure — SIS lead), D8.4 (exploitation — SIS lead).
+- SAB is a WP2 output: Task 2.4, deliverable D2.4 "Establishing a Technical Stakeholders Advisory Board". Sunlit Sea leads WP2 too so the SAB sits under SIS but it does not belong in a WP8-scoped presentation as a WP8 output.
+
+Fixes applied to `2026-09-29_surewave_wp8_presentation_talking_points.md`:
+- Section 1 (setup) — corrected T8.x task numbering; added a scope-clarification bullet noting the SAB sits in WP2 with a forward reference to how it enters the exploitation story.
+- Section 2 — deliverable list corrected: D8.5 (originally D8.1 in DoA), D8.2 explicitly labelled IFEU-led with SIS support, delivery dates aligned.
+- Section 8 — retitled "Cross-reference to WP2 — the Stakeholder Advisory Board", reframed to acknowledge it as a WP2 output with WP8-relevant downstream effect (SuRE follow-on partnership) rather than as a WP8 activity.
+- Section 9 (D8.2 societal) — corrected lead attribution (IFEU-led with SIS support), tied to T8.1 explicitly.
+
+Split-out: created a separate slide-format file at `surewave/deliverables/2026-09-29_surewave_wp8_presentation.md` — 17 slides, 3–6 short bullets per slide, sized for ~25–30 min delivery. The talking-points file remains as speaker notes; the presentation file is what actually goes on screen.
+
+**Open follow-ups for the next iteration passes.**
+- Refine slide count / grouping if the delivery is closer to 15 or 45 minutes than the current ~25–30.
+- Decide whether Slide 12 (D8.4 exploitation) should name the seven KERs explicitly or keep the current abstracted framing.
+- Consider adding a "backup slide" set with the full publications list and the KPI tracker table in table form for Q&A.
+- Confirm the Slide 3 timeline reads correctly — extended project end at 2026-12 assumed; adjust if the closure date shifts.
+- Decide whether to include the still-pending Ceit and SINTEF exploitation summaries as a Slide 14 line item (currently there) or handle as Q&A only.

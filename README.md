@@ -7,6 +7,7 @@ Activities:
 - `sure/` – SuRE WP6 (Horizon Europe FPV model chain, D6.1 delivered, D6.2 in preparation)
 - `gen2/` – Gen 2 product development (P3 → P4 → P5)
 - `funding/` – Grants, EU reporting, financial
+- `surewave/` – SUREWAVE Horizon Europe project (Grant Agreement 101083342) — consortium deliverables and grant paperwork. Sunlit Sea is a beneficiary; SINTEF coordinates.
 - `generic/` – cross-cutting / shared material that spans the three activities (historical investor updates, legal excerpts, market intel, outgoing customer correspondence). Split into `generic/background/` (inputs) and `generic/deliverable/` (outputs).
 
 Repo-level context and working rules are in `CLAUDE.md`. Task list is in `TASKS.md`; closed tasks in `ARCHIVE.md`.
@@ -381,6 +382,28 @@ pandoc OUT.md -f gfm -t plain --wrap=none | tr -s '[:space:]' '\n' | grep -vE '^
 
 A small drop (well under 1%) is expected: list numbers and trailing colons disappear when list items and task titles become headings.
 
+### `scripts/xlsx_to_md.py`
+
+Converts an `.xlsx` workbook to a Markdown document with one Markdown table per sheet. Uses `openpyxl` (no `pandas` required). Trims trailing empty rows and columns; escapes `|` and collapses newlines inside cells; renders integer-valued floats without the trailing `.0`.
+
+```bash
+python scripts/xlsx_to_md.py "input.xlsx" "output.md"
+```
+
+Written for the WP8 KPI tracker workbook (5 sheets: communication log, publications, KPIs, media links, options). Reusable for any small workbook that needs to be read as flat markdown rather than kept as a binary.
+
+### `scripts/emf_to_png.ps1`
+
+Rasterises `.emf` (Enhanced Metafile) vector files to `.png` for inline preview in Markdown viewers and slide decks. Uses Windows `System.Drawing` (GDI+) — Windows-only.
+
+```powershell
+powershell -File scripts/emf_to_png.ps1 -Root surewave/images -Scale 2
+```
+
+Recursive by default. Writes a sibling `.png` next to each `.emf` at the given scale (default 2×). Skips files that already have a `.png` sibling unless `-Force` is passed. Leaves the `.emf` original in place; delete the source EMFs separately once the PNGs are verified if you don't want to keep both formats.
+
+Used to rasterise the 83 EMF files under `surewave/images/*/` that were extracted from Word deliverables (most Markdown viewers cannot render EMF inline). After rasterisation the EMF sources were removed; PNG-only is the current stored form.
+
 ---
 
 ## Activity contents
@@ -455,6 +478,26 @@ Current contents:
 
 Open funding tasks carry the `[FUND]` tag in `TASKS.md`.
 
+### `surewave/` — SUREWAVE Horizon Europe project
+
+Consortium repository for the SUREWAVE project — *Structural reliable offshore floating PV solution integrating circular concrete floating breakwater* (Horizon Europe, Grant Agreement 101083342, HORIZON-CL5-2021-D3-03). Coordinator: SINTEF AS. Beneficiaries: SINTEF, Sunlit Sea, Ceit, MARIN, ACCIONA, Clement Germany, IFEU. Different project from SuRE (`sure/`) — the two are distinct EU projects with overlapping technical themes (offshore FPV, breakwaters, LCA).
+
+Sunlit Sea's role in SUREWAVE is smaller than in SuRE; this folder is primarily a reference archive of consortium deliverables that other Sunlit Sea work (SuRE, Gen 2, funding proposals) references.
+
+Contents:
+
+- `background/` — date-prefixed archive of SUREWAVE deliverables filed by other consortium partners, plus the Grant Agreement, Proposal, Annex 1 Part B, and one non-deliverable technical note (CFD simulations on plate). All deliverables sit as flat `.md` files at this level.
+  - Deliverables span WP1 (management), WP2 (requirements), WP3 (design), WP4 (materials & prototype), WP5 (structural integrity & SHMS), WP6 (ultimate strength), WP7 (sustainability: environmental, social, integrated), WP8 (dissemination, societal needs).
+  - Grant Agreement 101083342 (signed 2022-09-20) and the original Proposal (submitted 2022-02-23) are kept as authoritative PDFs alongside their pdftotext .md renditions.
+  - D7.4 cost data kept raw as `.xlsx` next to the corresponding Economic Assessment `.md`.
+- `images/` — pandoc-extracted images from every `.docx`-sourced background deliverable, organised in per-deliverable subfolders whose names match the `.md` basename (e.g. `images/2024-04-16_surewave_d5.1/imageN.*`). Image references in the background `.md` files use `../images/<basename>/imageN.*` so they resolve regardless of file location. Curated index at `2026-09-29_surewave_technical_system_images.md`.
+- `background/new/` — inbox for future SUREWAVE material.
+- `deliverables/` — Sunlit Sea authored SUREWAVE outputs (Sunlit Sea leads Work Packages 2 and 8 and is the lead beneficiary for eight DoA deliverables; those authored here live in this folder). Follows the same pattern as `sure/deliverables/`.
+- `2026-09-28_status.md` — internal snapshot of the whole SUREWAVE project based on all filed material (walkthrough of every delivered `.md` in `background/`). Working document, not an external deliverable.
+- `2026-09-29_surewave_technical_system_images.md` — curated index of images from `background/` that describe the technical system (global layout, floats, PV panel, hinges/brackets, floating breakwater, FB↔FPV connection, mooring, electrical). Each entry inline-embeds the image with a visually verified caption; source deliverable and figure number cited per entry.
+
+Open SUREWAVE-related tasks currently carry the `[GENERIC]` tag (folder introduction is cross-cutting infra). A dedicated `[SUREWAVE]` tag may be introduced later if enough project-specific tasks accumulate.
+
 ### `generic/` — cross-cutting / shared
 
 Material that spans SuRE, Gen 2 and Funding, or predates the activity split. Two subfolders:
@@ -490,7 +533,11 @@ sure-d61/
 ├── scripts/                   – persistent helper scripts (see the *Scripts* section above)
 ├── sure/                      – SuRE WP6 activity
 ├── gen2/                      – Gen 2 product development
-└── funding/                   – Grants, EU reporting, financial
+├── funding/                   – Grants, EU reporting, financial
+└── surewave/                  – SUREWAVE Horizon Europe project (Grant Agreement 101083342)
+    ├── background/            – Filed consortium deliverables, Grant Agreement, Proposal, Annex 1 Part B
+    ├── images/                – pandoc-extracted images per deliverable
+    └── deliverables/          – Sunlit Sea authored SUREWAVE outputs
 ```
 
 Repo name `sure-d61` predates the multi-activity restructure and has been retained.
