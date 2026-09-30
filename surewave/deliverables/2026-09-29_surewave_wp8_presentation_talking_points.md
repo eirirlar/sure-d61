@@ -122,7 +122,7 @@
 
 ## 11. D8.4 — exploitation pathways and business plan (delivered M36, 2026-09-28)
 
-- Deliverable owner: SIS lead, all partners participate. Dissemination level: EU-Confidential.
+- Deliverable owner: SIS lead, all partners participate. Dissemination level: restricted per the DoA (Sensitive or higher — verify the exact code with SINTEF at close-out).
 - Four-part structure per DoA: KER + IPR analysis, value innovation, business models, action plans.
 - Seven Key Exploitable Results identified:
     - KER1 — Integrated offshore FPV system.

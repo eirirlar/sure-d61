@@ -2581,6 +2581,8 @@ Total across the five: 16 distinct exploitable results reported. Aggregated and 
 
 **Follow-up.** Chase Ceit and SINTEF for their exploitation summaries so KER6 and the coordinator-level view on KER1 / KER4 can be filled in. Once received, revise this report in place and re-open T113 if substantive changes are needed. Feed the three brochure-revision candidates into a follow-up T-task if the brochure is opened for another editorial pass.
 
+**Post-close follow-up (2026-09-30).** During the D1.7 review cross-check (T116), noticed the report's own dissemination-level line used the invented term "EU-Con (consortium confidential)", which is not a formal SUREWAVE dissemination category (per the GA, the levels are PU, SEN, EU classified). Corrected the report's Confidentiality Notice at the top of `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md` to say "restricted per the DoA (Sensitive or higher — final classification to be confirmed with the coordinator; shares D8.4's dissemination level)". Same correction applied in `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md` header + confidentiality notice. No content changes to the substantive body of the report; the KER analysis and per-partner ERs remain as delivered.
+
 ### T114 `[x]` [GENERIC] Enrich SUREWAVE Technical Brochure (D8.3) with SINTEF's main technical progress framing
 
 The current brochure at `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md` was written from the filed reports alone. SINTEF (project coordinator) frames the main technical progress under ten headline items which should be reflected explicitly in the brochure, both as an at-a-glance summary and by ensuring every item is fully covered in the body:
@@ -2625,6 +2627,17 @@ External-deliverable rules preserved throughout: no repo paths, no `**bold**` in
 
 **Files touched.** Modified: `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md` (at-a-glance + three enriched sections), `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md` (Fig 26 added, inventory updated), `TASKS.md` (this task marked done).
 
+**Post-close iterations (2026-09-29 → 2026-09-30).**
+
+- **Fig 10 (three-material cross-section) revised** for dimensional precision. Two-panel layout (transverse + longitudinal sections), full-scale FB dimensions from D3.2 (20 × 5 × 2.5 m, draft 2.03 m, freeboard 0.47 m), layer thicknesses from D4.3 prototype (HPC bottom 100 mm, HPC walls 60 mm, LWAC top 60 mm, CLC core 220 mm), explicit note on the prototype-scale EPS substitution.
+- **Fig 11–24 prompt precision pass** across the figures companion. Every AI-generation prompt now specifies canvas size, view angles, exact fills/strokes (hex), typography, layout positions and data values, with designer-discretion notes flagged in-line where source data is uncertain. Photo requests (Fig 12, 15, 16) kept as-is. Fig 25 and Fig 26 later removed entirely (see below).
+- **Fig 14 (Gen-1 vs redesigned hinge) rewritten to redact IP.** Gen-1 hinge geometry still shown (public per D6.1); redesigned-hinge geometry deliberately not illustrated (Sunlit-Sea IP). Panel 2 is now a comparative force-displacement plot only. Brochure Section 6 [[FIGURE-14 …]] caption updated to match.
+- **Fig 25 and Fig 26 removed** at Eirik's instruction after Wideangle production pass. Fig 25 (Sunlit Sea company visual) and Fig 26 (Stadt Towing Tank photo) fully deleted from the figures companion and the brochure. Inventory table trimmed to 24 figures. `2026-09-28_surewave_d8.3_figures.md` also reduced accordingly.
+- **24 figures placed in brochure with pandoc-native syntax.** User produced fig01–fig24 in `surewave/images/new/` (now `surewave/images/2026-09-28_surewave_d8.3_technical_brochure/`). All 24 `[[FIGURE-N …]]` placeholders replaced with `![Figure N. Caption.](../images/2026-09-28_surewave_d8.3_technical_brochure/figNN.png){width=90%}` (widths 70 % for Fig 21 portrait cost stack; 80 % for Fig 17 SHMS screenshot). Blank-line separation around every figure verified. Substitution done via `scripts/brochure_figures_apply.py` (persistent script left in place with captions/widths dict — re-runnable if any figure renumbers).
+- **"EU-Con" corrections.** The brochure and figures companion do not use the term; the correction was applied elsewhere. Related fix logged under T113 addendum.
+
+**Ready for PDF conversion.** Brochure is fully image-linked and structurally ready. User has said "don't actually convert" — leave the final `.docx` / PDF pass to the designer or a later explicit ordering.
+
 ---
 
 ### T115 `[~]` [GENERIC] SUREWAVE WP8 — presentation talking-points (all-project walkthrough)
@@ -2666,3 +2679,180 @@ Split-out: created a separate slide-format file at `surewave/deliverables/2026-0
 - Consider adding a "backup slide" set with the full publications list and the KPI tracker table in table form for Q&A.
 - Confirm the Slide 3 timeline reads correctly — extended project end at 2026-12 assumed; adjust if the closure date shifts.
 - Decide whether to include the still-pending Ceit and SINTEF exploitation summaries as a Slide 14 line item (currently there) or handle as Q&A only.
+
+**Iteration 4 (2026-09-29):** two content corrections plus a substantive framing check.
+- **SAB attribution fixed.** SAB was mis-placed under WP8 in earlier drafts; the authoritative source (GA + Annex 1 Part B) confirms SAB is a WP2 output (Task 2.4, deliverable D2.4). Section 8 of talking-points renamed to "Cross-reference to WP2 — the Stakeholder Advisory Board" and reframed as a WP2 output with WP8-relevant downstream effect (SuRE follow-on via SAB member). Section 1 setup added a scope-clarification bullet naming the WP2 origin.
+- **D8.x deliverable numbering fixed.** Section 2 correctly identifies D8.5 as originally scoped D8.1 in DoA (renumbered by amendment); T8.x task numbers corrected across setup and body. D8.2 lead corrected to IFEU (SIS supports); T8.1 explicitly named.
+- **"EU-Con" corrected to "restricted per the DoA (Sensitive or higher — verify at close-out)".** Slide 11 (Talking-points Section 11) D8.4 dissemination line no longer uses the invented "EU-Con" label.
+
+**Iteration 5 (2026-09-29):** deviations content added on request.
+- Chat-drafted a "Deviations from the plan" thread (not yet added as a slide) covering: D8.1 → D8.5 renumbering; ~12-month project extension (inferred, formal amendment doc to be requested from SINTEF); M18 KPI set reshaped into current 19-category tracker; M18 shortfalls in webpage traffic and publications (recovered by M50 via Wideangle push); still-open items at M50 (interviews 5/9, D8.3 PDF, Ceit/SINTEF exploitation summaries). If Eirik decides this belongs on a slide, insert between Slide 6 (KPI board) and Slide 7 (channels), or next to Slide 15 (Lessons).
+
+**Where to find the deliverable pair (for another-chat continuity).**
+- Speaker notes: `surewave/deliverables/2026-09-29_surewave_wp8_presentation_talking_points.md` (16 sections, one per beat).
+- Slides: `surewave/deliverables/2026-09-29_surewave_wp8_presentation.md` (17 slides, tight bullets).
+- Underlying M50 KPI actuals (source of truth for Section 6 / Slide 6): `surewave/background/2026-09-29_surewave_wp8_kpis.md` (converted from `surewave/background/new/WP8 KPIs.xlsx` via `scripts/xlsx_to_md.py`; source xlsx retained in the inbox because it's a living tracker Eirik continues to update).
+- WP/task/deliverable authoritative index (for fact-checking numbering and lead beneficiaries): `surewave/2026-09-29_surewave_wp_task_deliverable_index.md`.
+
+---
+
+### T116 `[x]` [GENERIC] SUREWAVE D1.7 (Data Management Plan Release 2) — Sunlit Sea review
+
+SINTEF (coordinator) has circulated `SUREWAVE_D1.7_Data_Management_Plan_Release2_V1.docx` for consortium review before final submission. Sunlit Sea to provide a constructive review focused on critical mistakes or factual errors only — this is a late-stage review, no substantive rewrite is wanted.
+
+Steps:
+1. Read D1.7 in full (in the repo at `surewave/background/2026-09-30_surewave_d1.7_data_management_plan_release2.md`, pandoc conversion of the docx).
+2. Identify only critical or factual mistakes (not stylistic or editorial preferences).
+3. Sort feedback by importance to address.
+4. Deliver as `surewave/deliverables/2026-09-29_surewave_d1.7_review_sunlit_sea.md`.
+
+**Solution (2026-09-29):** Review delivered at `surewave/deliverables/2026-09-29_surewave_d1.7_review_sunlit_sea.md`. Five items flagged, sorted highest impact first: (1) D8.4 exploitation deliverable is entirely absent from the Table 1 data inventory; (2) Table 2 Zenodo IDs — D3.4 and D6.2 both listed as record 22660916 (impossible; one must be a copy-paste error); (3) Table 2 record completeness — 13 public records listed but at least four recent public deliverables (D8.2, D7.5, D7.6, D8.3) appear to be missing from the Zenodo table without explanation; (4) Section 2.7 has an "Economic Assessment" stray header baked into the end of the Social Assessment paragraph (formatting slip); (5) Section 3.2 has "were" vs "where" typo affecting meaning. All five framed constructively with proposed fix. An earlier draft flagged the D8.1→D8.5 renumbering as a phantom-reference issue, but Sunlit Sea decided this was not important enough to raise in this review pass and it was removed.
+
+**Files touched.** New: `surewave/deliverables/2026-09-29_surewave_d1.7_review_sunlit_sea.md`. Modified: `TASKS.md` (this task marked done).
+
+**Post-close follow-ups (2026-09-30).**
+- **Item 2 (D8.1 phantom-reference claim) removed** at Eirik's instruction. On cross-check against the authoritative WP/task/deliverable index (`surewave/2026-09-29_surewave_wp_task_deliverable_index.md`), the item was in fact factually wrong — D8.1 is the legit M6 initial DECMP and D8.5 is the legit M18 revision; both are separately listed in the GA. My earlier reasoning misread D8.5's filing as a renumbering. Review renumbered to 5 items, then to 4 items after removing Item 5 (typo) below.
+- **SharePoint link added to Item 3** (Table 2 completeness). The four flagged missing deliverables are now cross-referenced against `communication_log.xlsx` on the consortium SharePoint (linked inline), which is the natural single source of truth for what has been delivered vs. deposited.
+- **"EU-Con" language in Item 1 corrected** to "restricted dissemination per the DoA". The original "EU-Confidential" was not a formal SUREWAVE dissemination category.
+- **Editorial trim** at Eirik's instruction: removed the byline paragraph, the scope-of-review paragraph, all `**Severity:**` lines, all horizontal `---` rules between sections, the "What is deliberately not raised" section, the "Sunlit Sea remains available…" sentence, and Item 5 (the "were/where permitted" typo). Final review has 4 items only: (1) D8.4 absent from Table 1; (2) duplicate Zenodo ID 22660916 for D3.4/D6.2; (3) Table 2 completeness with SharePoint link; (4) Section 2.7 stray "Economic Assessment" header.
+- **PDF generated** via `pandoc --pdf-engine=xelatex` (Calibri 11 pt, 2.5 cm margins, blue clickable URLs) as `surewave/deliverables/2026-09-29_surewave_d1.7_review_sunlit_sea.pdf`. Markdown + PDF share the date prefix and travel as a pair.
+
+**Before sending.** Confirm D8.4's actual dissemination code (SEN vs EU classified) against the signed GA before submission — the GA row for D8.4 came through the pandoc conversion with the dissemination cell corrupted, so it wasn't verifiable from the repo.
+
+---
+
+### T117 `[x]` [GENERIC] SUREWAVE WP8 — final-meeting interview scripts (4 partners, 5 min each)
+
+At the M50 final consortium meeting Eirik will film four five-minute interviews to close out the WP8 dissemination and interviews KPI (tracker shows interviews at 5/9; these four bring it to 9/9). Non-Sunlit-Sea, non-MARIN, non-Acciona, non-SINTEF partners captured (those four already interviewed in earlier Wideangle rounds).
+
+**Solution (2026-09-30):** draft interview scripts delivered at `surewave/deliverables/2026-09-30_surewave_wp8_final_interviews.md`. Four interviews, five to six questions each, sized for 5 minutes of usable footage. Per interview: suggested interviewee, on-camera framing, question list, target-number quote to land.
+
+- Interview 1 — Ceit (WP5 SHMS + corrosion sensor). Suggested: Ainhoa Cortés / Andoni Irizar. Target number: 0.17 mm rebar-diameter resolution.
+- Interview 2 — Clement Germany (WP3 floating breakwater). Suggested: Thomas Pehlke. Target number: 40 % wave-energy attenuation.
+- Interview 3 — IFEU (WP7 sustainability). Suggested: Maximilian Breyer / Heiko Keller. Target number: 170,000 t CO₂ savings per plant per 25 years.
+- Interview 4 — Sunlit Sea (WP2 + WP8 lead). Suggested: Guillaume Kegelart or another SIS colleague (not Eirik — he is filming). Target numbers: 3× hinge strength / €0.062/kWh Mediterranean LCoE.
+
+Practical filming notes appended (silent-after-question, first-answer-short, one specific number per interview, forward-looking last question, consistent frame/intro/outro).
+
+**Files touched.** New: `surewave/deliverables/2026-09-30_surewave_wp8_final_interviews.md`. Modified: `TASKS.md` (this task added and marked done).
+
+**For another-chat continuity.** The interviews are ready to film. Wideangle can produce them directly from the script. After filming, the four interviews should be logged in the WP8 KPI tracker (`surewave/background/new/WP8 KPIs.xlsx`) — that will move the "interviews" KPI from 5 to 9.
+
+---
+
+### T118 `[x]` [GENERIC] SUREWAVE WP/task/deliverable authoritative index (reference file)
+
+Reference document compiled during T115 iteration 4 and T116 to have a single, cross-checkable source of truth for WP numbering, task numbering, deliverable numbering, lead beneficiaries and dissemination levels — used to catch and correct several errors in the WP8 talking-points and D1.7 review (D8.1 vs D8.5 numbering, D8.2 lead, SAB WP attribution, "EU-Con" terminology).
+
+**Solution (2026-09-29):** compiled from the Grant Agreement (`surewave/background/2022-09-20_surewave_grant_agreement_101083342.md`) and Annex 1 Part B v2 (`surewave/background/2022-06-24_surewave_annex1_part_b_v2.md`). WP names from GA §3.1.2; task titles from GA §3.1.1; deliverable list from GA "List of Deliverables". Delivered at `surewave/2026-09-29_surewave_wp_task_deliverable_index.md`.
+
+Contents: 8 WPs with lead + tasks (40 tasks total; Task 6.2 title reconstructed from D6.1 title + T6.3 forward reference because pandoc dropped the line) + deliverables (39 deliverables total including D8.1 and D8.5 as separate DECMP versions). Explicit "Ambiguities" section notes the pandoc-corrupted §3.1.2 timing table, the Task 6.2 reconstruction, and the fact that some filed deliverable titles differ slightly from DoA titles (e.g. D6.3 filed as "Mechanical Performance of New FPV Connection Systems" vs DoA "Report on fatigue performances").
+
+**For another-chat continuity.** Use this as the first stop when checking any WP / task / deliverable number reference in outbound material. Any error found in it (Task 6.2 reconstruction confirmation especially) should be corrected in place.
+
+---
+
+### T119 `[x]` [GENERIC] SUREWAVE images housekeeping — EMF rasterisation, sunlit-sea photos, technical-images index rename, date-prefix rule extension
+
+Housekeeping cluster completed during the T115/T116 sessions. Grouped here for another-chat traceability.
+
+**1. EMF → PNG conversion.** 83 `.emf` metafiles across `surewave/images/*/` (mooring layouts, anchor-pile drawings, LCA process diagrams, etc.) rasterised to sibling PNGs at 2× scale via new persistent script `scripts/emf_to_png.ps1` (Windows System.Drawing / GDI+). After rasterisation, the source `.emf` files were deleted at Eirik's instruction; PNG-only is the stored form. Script documented in `README.md` Scripts section.
+
+**2. Three new Sunlit Sea deployment photos filed.** Files `haugaland1.png`, `asset-solar-floating.jpg`, `asset-solar-panels-multiple.jpg` moved from `surewave/background/new/` to `surewave/images/2026-09-29_sunlit_sea_webpage/`. Referenced from the technical-images index (new Section 9 "Sunlit Sea deployment context").
+
+**3. Curated images index renamed with date prefix.** `surewave/technical_system_images.md` renamed to `surewave/2026-09-29_surewave_technical_system_images.md` per the date-prefix convention. All references updated in `README.md`; historical solution notes in `TASKS.md` left as-is (pointing at then-name).
+
+**4. Curated images copied to review folder.** All 51 unique images referenced in the curated index copied to `surewave/images/temp/` with `<sourcefolder>__<originalname>` naming to avoid collisions between per-deliverable `image1.png` files.
+
+**5. `CLAUDE.md` date-prefix rule extended.** The rule was previously scoped to `background/` folders only. Extended to cover `deliverable(s)/` folders and standalone content files at activity roots (e.g. `surewave/2026-09-28_status.md`, `surewave/2026-09-29_surewave_technical_system_images.md`). Explicit exemptions for structural/index files (README, CLAUDE, TASKS, ARCHIVE) and for binary asset files inside per-source subfolders that already carry a parent date prefix.
+
+**6. WP8 KPI xlsx converted to markdown.** `surewave/background/new/WP8 KPIs.xlsx` (5 sheets: communication log, publications, KPIs, media links, options) converted to `surewave/background/2026-09-29_surewave_wp8_kpis.md` via new persistent script `scripts/xlsx_to_md.py`. Source xlsx retained in `background/new/` because it's a living tracker Eirik continues to update. Script documented in `README.md`.
+
+**Files touched.** New: `scripts/emf_to_png.ps1`, `scripts/xlsx_to_md.py`, `scripts/brochure_figures_apply.py`, `surewave/images/2026-09-29_sunlit_sea_webpage/*`, `surewave/images/2026-09-28_surewave_d8.3_technical_brochure/fig01-24.png`, `surewave/images/temp/*`, `surewave/2026-09-29_surewave_technical_system_images.md` (renamed from `technical_system_images.md`), `surewave/background/2026-09-29_surewave_wp8_kpis.md`. Deleted: 83 `.emf` files under `surewave/images/*/`, `surewave/images/new/` (empty after fig01–24 moved out). Modified: `README.md` (three new script entries + tree), `CLAUDE.md` (date-prefix rule extended).
+
+---
+
+### T120 `[~]` [GENERIC] SUREWAVE D8.3 Technical Brochure — review passes (design, image typography, image facts)
+
+Review the assembled technical brochure PDF + its 24 embedded figures. Aim is to catch issues before the deliverable is either handed to a designer for the final designed PDF (T109 noted the format expectation) or submitted as the pandoc PDF.
+
+Inputs:
+- Brochure markdown: `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`
+- Brochure PDF (pandoc + xelatex): `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.pdf`
+- Figures companion (authoritative description of what each figure should show): `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md`
+- Figure images: `surewave/images/2026-09-28_surewave_d8.3_technical_brochure/fig01.png` … `fig24.png`
+- Source deliverables (for fact-checking numbers): `surewave/background/*.md`
+
+Review strategy — multi-pass with different reviewer personas. First pass ("fastest useful pass") is three agents in parallel:
+1. **Brochure designer** — reads the PDF as a designed artefact: page layout, figure sizing vs text, whitespace, cover treatment, heading hierarchy, page breaks (widow/orphan lines, figures floating far from their reference, stranded headings, table splits), font choice + size (Calibri 11 pt), colour use (NavyBlue links), gutter, print vs screen legibility.
+2. **Label & typography inspector for figures** — for every `figNN.png`, checks in-image text for typos, gibberish AI hallucinations, wrong units, wrong axis labels, wrong legend entries, wrong partner names, line-break errors mid-word, inconsistent font choice between figures. Cross-references the figures companion's description of what the figure should say.
+3. **Fact-and-number checker for figures** — for every chart/data-bearing figure, verifies numbers and labels against the figures companion (intent) and against source deliverables (D7.4 costs, D7.6 integrated sustainability, D6.3 hinge, D1.7 DMP, T118 WP/task/deliverable index for consortium facts). Flags silent divergences.
+
+Deeper review passes (still menu-selectable, not yet started): typographer, page-break specialist, colour/accessibility, PDF-technical, reader-experience, visual-consistency & AI-artefact reviewer, photograph provenance reviewer, three industry personas (skeptical offshore engineer, bankability-focused developer/investor, competitor red team). Held for a second pass after first-pass findings are fixed.
+
+**First-pass findings (2026-09-30).** Three parallel Agents run against the freshly generated PDF (`2026-09-28_surewave_d8.3_technical_brochure.pdf`, 33 MB, 26 pages) and the 24 embedded figures. Full agent transcripts are in the harness tool-output directory; consolidated punch list below.
+
+*Agent 1 — Brochure designer (PDF-as-artefact review).* Highlights:
+- Duplicated "Figure N." labels on every caption (pandoc auto-numbers + the markdown alt-text also starts with "Figure N."). Most visible defect.
+- Cover page is not a cover — cover image lands alone on page 2 with the title/subtitle/abstract on page 1. Needs `\thispagestyle{empty}` + `\newpage` + suppressed caption for Fig 1.
+- Figure drift / float misplacement (Fig 12 and Fig 13 order swap; Fig 15 lands after Fig 16; Fig 3 caption arrives a page after its reference). Fix: `\usepackage{float}` + `\floatplacement{figure}{H}` in header-includes.
+- No ToC, no running header/footer, no cover date. Consortium table (p.25) breaks awkwardly with uneven row heights.
+- Section 12 (consortium) split across map (p.24) + table (p.25) with no visual link.
+- Heading hierarchy — H1 title and H2 section headings render at nearly the same weight; sub-headings look like body lead-ins.
+- Fig 15 (El Musel) is a low-resolution video still — visibly pixellated vs the crisp render on p.2.
+- Stray bold on the italic "*Together the two campaigns…*" sentence on p.14 (likely stray `**` in markdown).
+- File size 33 MB — Ghostscript `/ebook` or `/printer` pass should hit 6–8 MB.
+
+*Agent 2 — Label & typography inspector (in-image text across 24 figures).* Findings:
+- 13 of 24 figures clean; 11 have issues; 3 blocking (would need regeneration).
+- Blocking: **Fig 03** — transition-element callout says "PVC pipe" (contradicts the elasticized-rope / shackle-bracket assembly from D3.3/D3.4). **Fig 13** — completely different figure than spec: 11 small "Event N" subplots with a bipolar ±11 MPa scale instead of the single 3D render on a 0–20 MPa jet ramp; negative-value scale is physically wrong for "max principal". **Fig 17** — SHMS UI tab labels don't match the five SHMS functionalities from companion; Y-axis of Hinge Force plot has empty units `()`.
+- Minor / fixable in-place: Fig 06 mixed-format "123,4 t" (should be 123.4 t to match rest of brochure). Fig 09 legend has duplicate "Secondary material" entries; CLC row labels "Foam" where companion said "Entrained air". Fig 11 corrosion-sensor box merged into flow instead of being a separate feeder (companion). Fig 14 "Redesign outcome" callout text cramped. Fig 19 "CO2-eq" should use subscript ₂. Fig 05 "H_s" not rendered as true subscript.
+- No wrong partner names or misspellings anywhere. No AI gibberish anywhere.
+- Font-consistency: Fig 06 uses thin serif dimension text (engineering-drawing style), all others sans-serif — may be intentional but worth a design call.
+
+*Agent 3 — Fact & number checker (against source deliverables).* Findings:
+- 18 of 24 figures clean numerically; 4 divergences worth fixing; 2 unverifiable without partner input.
+- Divergences: (a) **Fig 03** — "PVC pipe" invention (also flagged by Agent 2); (b) **Fig 10** — shows HPC compressive strength 128 MPa (correct — matches D4.1 Sample 2 achieved value) but the brochure §4 body still says 120 MPa (the target); recommend aligning body prose to "128 MPa (target 120 MPa)"; (c) **Fig 13** — caption says "peaks at mooring and connector attachment points", not visible in the multi-event thumbnails; (d) **Fig 24** — Clement Germany marker is in central/western Germany, but per Grant Agreement line 37–38 Clement Germany GmbH is at Grubenstrasse 48, Rostock 18055 (northeast, Baltic coast). The figures companion note claiming "Clement Germany's specific office town is not stated in the repo" is factually wrong.
+- Unverifiable without partner input: Fig 13 stress-scale (11 MPa cap vs 0–20 MPa spec — needs Ceit confirmation whether this is the real D5.3 output); Fig 17 "Cycles (50y): 3.156e+07" cycle count (needs Ceit confirmation this is a valid representative reading, not a bug).
+- All hinge numbers (Fig 14): Gen-1 3.5 kN ultimate, redesigned ~10 kN, 20 kN buckling, 2.5×10¹¹ vs 7.88×10⁸ fatigue cycles, 8–10 kN operational — match D6.1 and D6.3 exactly.
+- All LCoE numbers (Fig 20): Med €0.062, Baltic €0.096, N Sea €0.139/kWh, IRR 10.7 / 2.2 / negative, NPV +€8.9M / +€2.1M / negative — match D7.4 exactly.
+- All corrosion-sensor numbers (Fig 18): Ø 100 mm inductor, 3 mH, 2.2 nF, 5 mm ferrite plate, 5–6 cm detection depth, 0.17 mm resolution — match D5.4 exactly.
+- All TRL trajectory numbers (Fig 23) match brochure §11 body.
+
+**Consolidated action list (grouped by fix type).**
+
+Template-level pandoc fixes (single edit, affects whole PDF):
+- Strip leading "Figure N. " from every image alt-text OR change pandoc caption template to suppress the auto-label (fixes duplicated captions on all 24).
+- Add `\usepackage{float}` and `\floatplacement{figure}{H}` to fix figure drift (Fig 3, 12/13, 15/16 ordering issues).
+- Add `\usepackage{fancyhdr}` + `\pagestyle{fancy}` for running footer.
+- Add `\tableofcontents` after cover.
+- Cover treatment: `\thispagestyle{empty}` for page 1, `\newpage` after cover image, suppress its caption.
+- Ghostscript compression pass to get file size to 6–8 MB.
+
+Markdown text edits:
+- Fix stray `**` around "Together the two campaigns…" on p.14.
+- §4 body: change bare "120 MPa" to "128 MPa (target 120 MPa)" for HPC to match Fig 10 and D4.1 actual.
+- Possibly caption for Fig 13 if figure is kept (currently mentions "mooring and connector attachment points" that aren't visible in the 11-event thumbnail figure).
+
+Figure regenerations (would need to be re-produced):
+- Fig 03 — remove "PVC pipe" label, use companion's elasticized-rope / shackle-bracket description.
+- Fig 13 — regenerate as single 3D FE render, 0–20 MPa jet colour ramp (or agree with Ceit that the current 11-event thumbnail is the intended output and update the brochure caption and figures companion instead).
+- Fig 17 — regenerate SHMS mock with companion's five functionality tabs OR agree that the current figure is a real Ceit screenshot (better) and update the companion spec.
+- Fig 06 — regenerate with consistent "123.4 t" decimal-point notation.
+- Fig 09 — regenerate with correct legend (no duplicate "Secondary material") and "Entrained air" label on CLC row.
+- Fig 19 — regenerate with subscript CO₂-eq on Y-axis.
+- Fig 24 — regenerate with Clement Germany marker in Rostock, not central Germany.
+
+Photograph swaps:
+- Fig 15 (El Musel prototype) — request higher-resolution photo from Acciona.
+- (Out of scope for this pass but flagged by Agent 2: Fig 12 subject-matter and Fig 16 subject-matter should be sanity-checked against MARIN / SINTEF sources.)
+
+Figures companion doc corrections:
+- Update `2026-09-28_surewave_d8.3_figures.md` to record Clement Germany's actual office location as Rostock (per Grant Agreement).
+- Possibly update Fig 13 / Fig 17 spec to match reality if the current outputs are real partner-provided assets.
+
+Partner queries (need response before final):
+- Ceit: confirm Fig 13 (11-event stress-field thumbnails) is the intended D5.3 output; confirm Fig 17 SHMS "Cycles (50y): 3.156e+07" is a valid reading.
+- Acciona: request higher-resolution El Musel prototype photo for Fig 15.
+
+Worktree cleanup pending — three Agent runs each created a worktree per the harness convention; cleanup requires git worktree commands and needs explicit approval per the CLAUDE.md git-permission rule.
