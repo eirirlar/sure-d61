@@ -2583,6 +2583,8 @@ Total across the five: 16 distinct exploitable results reported. Aggregated and 
 
 **Post-close follow-up (2026-09-30).** During the D1.7 review cross-check (T116), noticed the report's own dissemination-level line used the invented term "EU-Con (consortium confidential)", which is not a formal SUREWAVE dissemination category (per the GA, the levels are PU, SEN, EU classified). Corrected the report's Confidentiality Notice at the top of `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md` to say "restricted per the DoA (Sensitive or higher — final classification to be confirmed with the coordinator; shares D8.4's dissemination level)". Same correction applied in `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md` header + confidentiality notice. No content changes to the substantive body of the report; the KER analysis and per-partner ERs remain as delivered.
 
+**Ceit partial input received (2026-09-30).** Ainhoa (Ceit) submitted the monitoring-system stream of the Ceit exploitation summary. Filed as `surewave/background/2026-09-30_ceit_exploitation_summary.md`. Content: ER1 — eddy-current monitoring technology transferred to two industrial applications (aeronautics air-gap inspection in metal--fibre / fibre--fibre assemblies; corrosion monitoring in reinforced-concrete via integration of eddy-current data with electrochemical sensor measurements). Exploitation route framed as industrial validation, application-specific adaptation, and collaboration with end users / technology integrators. A further Ceit contribution is expected from Aritz and will be appended to the same file when it arrives. Once Aritz's part is in, revise `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md` in place — particularly the KER6 (SHMS and corrosion sensor) section, which currently notes Ceit input as outstanding.
+
 ### T114 `[x]` [GENERIC] Enrich SUREWAVE Technical Brochure (D8.3) with SINTEF's main technical progress framing
 
 The current brochure at `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md` was written from the filed reports alone. SINTEF (project coordinator) frames the main technical progress under ten headline items which should be reflected explicitly in the brochure, both as an at-a-glance summary and by ensuring every item is fully covered in the body:
@@ -2856,3 +2858,170 @@ Partner queries (need response before final):
 - Acciona: request higher-resolution El Musel prototype photo for Fig 15.
 
 Worktree cleanup pending — three Agent runs each created a worktree per the harness convention; cleanup requires git worktree commands and needs explicit approval per the CLAUDE.md git-permission rule.
+
+**Non-image fixes applied (2026-09-30).**
+
+Applied to `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`:
+- Stripped leading `Figure N. ` from every one of the 24 image alt-texts via `sed -i -E 's/!\[Figure [0-9]+\. /![/g'` — pandoc now auto-numbers each figure once, no more "Figure 1: Figure 1. Cover — …" doubling. Note: because Fig 12/13 and Fig 15/16 appear in the markdown in a different order than their filenames (fig13 comes before fig12 in §5; fig16 comes before fig15 in §6), the auto-numbering will show the caption number that matches document order, not the filename number. Filenames only appear in the source, not to the reader, so this is only a mild internal inconsistency; a proper renumber/reorder is a later follow-up if desired.
+- Fixed the Setext-heading bug on p.14 where "Together the two campaigns closed the loop…" was inadvertently rendered as an H2 heading because `---` followed it without a blank line. Added the blank line.
+- §4 HPC compressive strength body prose changed from bare "120 MPa" to "128 MPa achieved (target 120 MPa)" to match Fig 10 and D4.1 Sample 2 actual.
+- Cover page treatment: added `\thispagestyle{empty}` (raw LaTeX) at the very top of the markdown to remove the page number from p.1, and `\newpage` before `## About this brochure` to force the body onto p.2. Also tagged the subtitle H2 with `{-}` so it's not listed in the ToC.
+
+New file `scripts/brochure_pandoc_header.tex` — LaTeX header-includes that:
+- Force figures to appear where they're written (`\usepackage{float}` + `\floatplacement{figure}{H}`) — fixes the float-drift issues (Fig 3 caption arriving late, Fig 12/13 order swap, Fig 15/16 order swap).
+- Add a running footer via `fancyhdr`: "SUREWAVE · D8.3 Technical Brochure · September 2026     p.N".
+- Tighter ToC line spacing.
+
+Pandoc command updated with `--include-in-header` and `--toc --toc-depth=2`.
+
+PDF regenerated at `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.pdf` (33.8 MB).
+
+**Second-pass caption/attribute fixes (2026-09-30, user-directed).**
+- Fig 12 (filename) caption changed: it does not show the MARIN coupled-basin model as originally scoped; the delivered photograph shows wave-basin loads on individual breakwater units. Caption updated to match. Figures companion `2026-09-28_surewave_d8.3_figures.md` §Fig 12 entry rewritten to record what the delivered image actually shows.
+- Fig 15 (filename, El Musel prototype photograph) width reduced from 90 % to 45 % in the brochure markdown, so the low-resolution video-still no longer visibly pixellates.
+- Fig 16 (filename, SINTEF component test) caption clarified from "hinge under tensile loading" to "polyurethane hinge component test … specimen under tensile loading" — makes the material explicit (the greyish PU specimen was misread as concrete by the typography reviewer).
+
+Filename-to-caption-number swap noted: after the `Figure N.` prefix strip, pandoc auto-numbers in document order, and the markdown places fig13.png before fig12.png (§5.3 before §5.5) and fig16.png before fig15.png (§6.2 before §6.3). Result: PDF caption "Figure 12" = filename fig13, "Figure 13" = filename fig12, "Figure 15" = filename fig16, "Figure 16" = filename fig15. Reader-visible numbering is continuous 1–24; only filenames are out of sync. A proper fix is a destructive rename of the four image files and needs explicit permission per the CLAUDE.md `rm`/rename rule — held.
+
+**Ghostscript compression (2026-09-30).** Ghostscript installed by user via `choco install ghostscript -y` (also pulled in `autohotkey.portable` as installer-driver dependency). Compression run via PowerShell with the `--%` stop-parsing token to preserve `-sOutputFile=` and `-dPDFSETTINGS=/ebook` verbatim:
+
+```
+& "C:\Program Files\gs\gs10.08.0\bin\gswin64c.exe" --% -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=<out.pdf> <in.pdf>
+```
+
+Result: 32.24 MB → 1.95 MB (94 % reduction, `/ebook` = 150 dpi). Compressed PDF at `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure_compressed.pdf`; original PDF kept alongside for print-quality comparison. Follow-up: decide whether to replace the 32 MB original with the 2 MB compressed version, or keep both.
+
+Image-related fixes remaining as previously listed (Fig 03 PVC label, Fig 06 decimal-comma, Fig 09 legend, Fig 13 caption / companion / partner confirm, Fig 17 caption / companion / partner confirm, Fig 19 CO₂ subscript, Fig 24 Clement Germany marker, Fig 15 Acciona higher-res photo request).
+
+**Files touched (this pass).** Modified: `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`, `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.pdf`, `TASKS.md` (this task). New: `scripts/brochure_pandoc_header.tex`. Not yet updated: `README.md` (needs a Scripts-section entry for `brochure_pandoc_header.tex` — will do together with any next-pass changes).
+
+**Image-related work remaining (deferred from this pass):**
+
+Figure regenerations (need new AI-image generation or partner-provided replacement):
+- **Fig 03** — remove "PVC pipe" label on the transition-element callout; correct wording is "elasticized-rope + shackle-bracket assembly" per D3.3/D3.4 (companion has the correct spec).
+- **Fig 06** — replace "123,4 t" with "123.4 t" (decimal point to match rest of brochure).
+- **Fig 09** — regenerate legend so there is only one "Secondary material" entry (currently duplicated with different colours); label the CLC row's foam segment as "Entrained air" per companion.
+- **Fig 13** — regenerate as a single 3D FE render, 0–20 MPa jet colour ramp, peaks at mooring/connector attachments (per companion). Alternative: agree with Ceit that the current 11-event thumbnail is the intended D5.3 output and update the brochure caption + figures companion to match. Requires Ceit input.
+- **Fig 17** — regenerate SHMS UI mock with the five functionality tabs from the companion (Material comparison · Degradation impact · Inspection intervals · Crack orientation · Quality control) with Hinge-Force plot Y-axis units filled in. Alternative: if the current image is a real Ceit MATLAB screenshot (preferred), keep it and update the figures companion. Requires Ceit input on the "Cycles (50y): 3.156e+07" value.
+- **Fig 19** — regenerate Y-axis label with proper subscript "CO₂-eq" (current shows inline "CO2-eq").
+- **Fig 24** — regenerate consortium map with Clement Germany marker in Rostock (northeastern Germany, Baltic coast — Grubenstrasse 48, Rostock 18055 per Grant Agreement line 37–38), not central Germany. Also correct the figures companion's incorrect note claiming Clement's office town isn't stated in the repo.
+
+Photograph swaps:
+- **Fig 15** — El Musel prototype photo is a low-resolution video still (visibly pixellated at 90 % width). Request higher-resolution photo from Acciona.
+- Out-of-scope but flagged: Fig 12 subject-matter (may not show what caption describes) and Fig 16 subject-matter (looks like a concrete beam test rather than a hinge tensile test) — needs sanity-check against MARIN and SINTEF sources.
+
+Figures companion doc corrections:
+- Update `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md` to record Clement Germany's actual office location (Rostock).
+- Update Fig 13 and Fig 17 specs to match reality if the current outputs are kept as real partner-provided assets.
+
+Partner queries (need response before final):
+- Ceit: confirm whether Fig 13 (11-event stress thumbnails at ±11 MPa) is the intended D5.3 output; confirm whether Fig 17's "Cycles (50y): 3.156e+07" is a valid representative reading.
+- Acciona: request a higher-resolution El Musel prototype photograph for Fig 15.
+
+Font-consistency note (flagged by Agent 2, non-blocking): Fig 06 uses thin serif dimension text (engineering-drawing style) while all other figures use sans-serif. Deliberate stylistic choice per the engineering-drawing companion spec — noted for a designer's call, not currently a defect.
+
+**Third-pass fixes (2026-09-30, user-directed second round).**
+
+Scope: downsample image DPI, drop the ToC, redesign the cover as a proper title page, shrink image widths, address whitespace-heavy pages, and collapse to a single compressed PDF.
+
+- **Images downsampled to consistent max resolution.** New persistent script `scripts/downsample_brochure_figures.ps1` (PowerShell + GDI+, same pattern as `emf_to_png.ps1`) creates a sibling folder `surewave/images/2026-09-28_surewave_d8.3_technical_brochure_lowres/` with copies at max 1000 px wide (aspect preserved). Originals in `surewave/images/2026-09-28_surewave_d8.3_technical_brochure/` untouched — retained per user instruction. Three already-small images (fig15, fig16, fig17) copied through as-is. Total source PNG payload 34.2 MB → 20.9 MB. Effective DPI at typical 70 % A4 display width ≈ 213 dpi across all images (well above the 150 dpi screen-brochure baseline).
+- **Brochure markdown repointed at lowres folder** via sed. All 24 `{width=90%}` reduced to `{width=70%}`; fig15 kept at 45 %; fig17 kept at 80 %.
+- **Cover rewritten as raw LaTeX title page** (`titlepage` env with TikZ overlay). Fig 1 rendered full-bleed at 35 % opacity behind a text stack: SUREWAVE (72 pt MidnightBlue bold), "Offshore floating photovoltaics for the open sea" (LARGE MidnightBlue bold), tagline (Large italic), tagline continuation (large italic), meta line (small). Absolute path used for `\includegraphics` inside TikZ overlay because pandoc's `--resource-path` copy step doesn't apply to raw LaTeX blocks. Trade-off noted: the LaTeX embeds the machine-specific absolute path `C:/dev/src/sure-d61/surewave/images/…`; portability to other machines requires either a path swap or a repo-relative absolute reference via `\graphicspath` — held as a follow-up.
+- **ToC removed.** `--toc --toc-depth=2` dropped from the pandoc call; matches the "capture reader attention immediately and hold it" brief.
+- **Figure placement loosened** from `\floatplacement{figure}{H}` (exact-position) to `\floatplacement{figure}{!ht}` (here-or-top with high priority, fall through to bottom or float page). Trade-off: some drift may return but whitespace-heavy pages should compress. If drift becomes visible, `[H]` can be reinstated for specific figures via inline raw LaTeX.
+- **Single compressed PDF.** The 32 MB uncompressed PDF and the 1.95 MB `_compressed.pdf` sibling both deleted. New build pipeline: pandoc → xelatex → 16.4 MB PDF → ghostscript `/ebook` → 1.94 MB PDF written to the primary path. Only one PDF file remains: `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.pdf`.
+- **Figures companion Fig 12 history restored.** Earlier in-place edit that overwrote the original scoping description with the delivered-content note has been reverted; original text now stands as-is, with a new "Revision (2026-09-30) — description update" section added *below* it explaining what was actually delivered. Follows the user's rule that image-related changes append below the original description rather than replacing.
+
+**Files touched (this pass).** Modified: `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md` (cover rewrite + image paths + widths), `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md` (Fig 12 history restore + revision block), `scripts/brochure_pandoc_header.tex` (loosened float placement, TikZ + xcolor svgnames), `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.pdf` (rebuilt at 1.94 MB), `TASKS.md` (this note). New: `scripts/downsample_brochure_figures.ps1`, `surewave/images/2026-09-28_surewave_d8.3_technical_brochure_lowres/*.png` (24 files). Deleted: `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure_compressed.pdf` (folded into main PDF via ghostscript pass), and the earlier 32 MB uncompressed PDF at the primary path (overwritten).
+
+**Not yet done (deferred).** `README.md` Scripts-section entries for `brochure_pandoc_header.tex` and `downsample_brochure_figures.ps1` still pending. Absolute path in the TikZ overlay is machine-specific — needs a `\graphicspath` approach for repo portability. Cover visual tuning (opacity, font sizes, colour choice) may need iteration once user sees the rendered result.
+
+**Figures companion addendums for regen queue (2026-09-30).** Seven "Revision request (2026-09-30)" blocks appended below the original prompts in `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md`, one per figure flagged in the first-pass review — Fig 03 (transition-element label), Fig 06 (decimal comma), Fig 09 (legend + Entrained air), Fig 13, Fig 17, Fig 19 (CO₂ subscript), Fig 24 (Clement Rostock). Follows the workflow rule that image regeneration is only actioned via addendums in that document. Fig 12 revision block already there from earlier pass.
+
+**Fig 13 and Fig 17 committed to Option B (2026-09-30).** User instruction: do not ask Ceit for regenerated screenshots of their own software; use the delivered outputs and adapt the surrounding brochure text. Actions taken:
+- Fig 13 brochure caption changed from "FE stress field … peaks at mooring and connector attachment points" to "Finite-element stress-field snapshots on the breakwater unit across eleven representative extreme-loading events (Ceit D5.3 output)." Companion addendum rewritten from "decision needed" to a committed Option B note.
+- Fig 17 brochure caption changed from "SHMS — degradation-tracking view with sensor data, filtered corrosion curve and residual-life estimates" to "SHMS — load-history, rainflow spectrum and representative-fatigue-cycle view, North Sea configuration (Ceit MATLAB SHMS build)." Companion addendum rewritten from "decision needed" to a committed Option B note.
+- The empty Y-axis units and the "Cycles (50y): 3.156e+07" readout in Fig 17 are accepted as artefacts of the delivered screenshot.
+- Ceit partner queries removed from the T120 pending list.
+
+PDF rebuilt with the two caption changes and ghostscript-compressed back to 1.94 MB. Note on gs invocation: the `--%` PowerShell stop-parsing token swallows shell redirects (adding `2>&1` after it hands the redirect operator to ghostscript as a filename, which errors "undefined filename in (2>&1)"). The working invocation uses no redirect (`-dQUIET` suppresses gs output, exit code alone signals success).
+
+### T121 `[ ]` [GENERIC] SUREWAVE — Update the exploitation report (D8.4 + Exploitable Results Report) against CINEA/HE exploitation requirements
+
+When the exploitation report is next opened (D8.4 `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md` and the companion `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`), verify it satisfies every exploitation obligation set out in the grant application, the signed Grant Agreement and current CINEA / Horizon Europe guidance. Requirements are consolidated below so a future update pass does not need to re-derive them from source.
+
+**Sources cross-checked (2026-09-30).**
+- Annex 1 / DoA (proposal): `surewave/background/2022-06-24_surewave_annex1_part_b_v2.md` and `surewave/background/2022-02-23_surewave_proposal_sep_210808360.md` — WP8 scope, tasks 8.2 + 8.4, D8.1 / D8.4 / D8.5 descriptions, 5-step exploitation methodology.
+- Signed Grant Agreement: `surewave/background/2022-09-20_surewave_grant_agreement_101083342.md` — Article 16 area (protection, exploitation, transfer/licensing, additional obligations, standardisation), Article 17 area (dissemination, open science, PEDR), lines ~8871–9312.
+- CINEA / Horizon Europe web: REA "Dissemination and exploitation" page; EC Funding & Tenders online manual "Dissemination and exploitation of project results"; FFG "Project results and IP in Horizon Europe"; Horizon Europe NCP Portal (Bridge2HE); IP Helpdesk Horizon Results Platform factsheet.
+
+**What the exploitation report must contain (DoA §Task 8.4 five-step methodology, D8.4 spec at Annex 1 §5356–5371).**
+1. Key Exploitable Results (KER) identification + IPR analysis per KER (owner, background used, foreground generated, protection route — patent / trade secret / copyright / know-how, territorial coverage, timing).
+2. Value-innovation analysis + market analysis (segments, size, competitive landscape, barriers).
+3. Value proposition + value-proposition testing per KER.
+4. Business models, business plans, exploitation action plans — both a joint exploitation plan (consortium-level synergies, joint IPR arrangements, access rights) and individual exploitation plans per beneficiary.
+5. Coordinated by SIS (WP8 lead); IPR managed by SINTEF; every partner contributes their own KER + individual exploitation plan.
+
+**Grant Agreement obligations that must be visibly discharged in the report (Article 16 area, GA lines ~8871–9312).**
+- **Best-efforts exploitation for 4 years post-project.** Each KER's exploitation action plan must have a concrete timeline extending into the 4-year post-project window (project end currently 2026-12-31 per T115; window runs to end-2030).
+- **1-year fallback → Horizon Results Platform.** For every KER, state whether exploitation is expected within 1 year post-project; if not, commit to publishing the KER on the Horizon Results Platform. Report should name the responsible partner for each HRP upload.
+- **Protection of results.** Each KER's IPR section must document the protection decision (protect / not protect / trade secret) with the "prospects for commercial exploitation" justification the GA requires.
+- **Standardisation.** Flag any KER that could feed European/international standards; commit to informing the granting authority (4-year window) and asking the standardisation body to include the funding statement.
+- **Transfer / exclusive licensing.** Document the consortium's process for the 45-day advance notification to other beneficiaries, and note the granting authority's right to object (4 years) if transferring to non-EU / non-associated entities.
+- **Access rights.** Confirm access-rights arrangements are consistent with the Consortium Agreement (background access royalty-free for implementation; results access under fair and reasonable conditions for exploitation; 1-year post-project request window).
+- **Additional exploitation obligations.** Check the call conditions for HORIZON-CL5-2021-D3-03 for any additional obligations (public-emergency clause, strategic-assets restrictions) and reflect them explicitly.
+- **PEDR update obligation.** GA line 9311: "the beneficiaries must provide and regularly update a plan for the exploitation and dissemination of results including communication activities." D8.4 is the final PEDR-cycle deliverable (D8.1 M6 → D8.5 M18 → D8.4 M36) and must show the update trajectory (what changed vs D8.5).
+
+**Horizon Europe support to consider using during the update.**
+- Horizon Results Booster — free EC consulting on DEC plans, business plans, commercialisation strategy. Worth booking before the final revision if timing allows.
+- Horizon Standardisation Booster — for any KER that heads toward standards.
+- Innovation Radar — EC-side identifier; check whether any SUREWAVE result has already been Radar-flagged and reflect it in the report.
+- EU IP Helpdesk — for IPR / transfer-licensing questions during drafting.
+
+**Consistency checks against companion documents.**
+- The seven KERs framed in D8.4 must line up 1:1 with the KER structure in the Exploitable Results Report (T113). Any renumbering must propagate.
+- The DECMP (D8.5, M18 revision) framing of exploitation strategy must be extended, not contradicted.
+- The Data Management Plan (D1.7, T116) has the open-access / CC-BY commitments — the exploitation report's protection-vs-openness choices must not conflict with the DMP.
+- The technical brochure (D8.3, T114 + T120) is the public-facing summary; any exploitation claim in D8.4 should be traceable to a technical fact in the brochure.
+
+**Missing partner input to chase before finalising** (from T113 follow-up).
+- Ceit exploitation summary — needed for KER6 (SHMS) and for one of the coordinator-level views on KER1 / KER4.
+- SINTEF exploitation summary — needed for the coordinator-level view on KER1 (system integration) and KER4 (hinge, mooring, connections).
+
+**Dissemination-level check.** D8.4 is listed in the DoA as SEN / restricted. Per T116 correction, use "restricted per the DoA (Sensitive or higher — final classification to be confirmed with the coordinator)" — do not invent "EU-Con" as a category. The KER summary that goes onto the Horizon Results Platform is a separate, public-facing extract, not the full D8.4 body.
+
+**Update 2026-09-30 — CRM + reference-doc + partner-form addition.**
+
+Question raised at the M50 meeting was whether there is a formalised form the WP8 leader should distribute to partners to fill out. **Answer: yes, but not as a Commission-supplied Word/Excel template.** The formalised structure lives inside the **Continuous Reporting Module (CRM)** in the EU Funding & Tenders Portal — Part A of the Periodic Report is auto-generated from what beneficiaries enter into ten CRM screens. What a WP8 leader distributes in practice is a partner-collection template that mirrors the CRM field structure, so partners can prepare inputs offline before the coordinator (SINTEF) enters them into the Portal.
+
+New reference material added to the repo:
+
+- `surewave/background/2026-09-30_exploitation_requirements_reference.md` — comprehensive reference document consolidating every exploitation-related rule, regulation, standard, best practice, agreement and consortium commitment. Twelve sections: purpose and scope; definitions from the HE MGA / periodic report template; GA Article 16 (ownership, protection, exploitation, transfer/licensing, access rights) and Article 17 (dissemination, open science, PEDR, visibility) and Article 18 relevant excerpts; SUREWAVE DoA commitments (WP8 scope, five tasks, five deliverables, five-step exploitation methodology, joint vs individual exploitation plans, KER framework with the seven KERs, impact KPIs promised in the proposal, preliminary market approach, DECMP M18 commitments); CINEA operational guidance (extended exploitation definition, HRP, HRB, Standardisation Booster, Innovation Radar, Open Research Europe, IP Helpdesk, CORDIS); the ten CRM screens with every field specified; open science / FAIR / DMP specifics; four-year post-project obligation matrix; roles and responsibilities (SIS WP8 leader, SINTEF IP manager, partner responsibilities, Consortium Agreement provisions); existing SUREWAVE artefact status against the reference; best practices from CINEA guidance; sources.
+- `surewave/deliverables/2026-09-30_surewave_partner_exploitation_input_template.md` (`.docx` companion alongside) — the distributable partner-collection form. Ten sections mirroring the ten CRM screens (Results / Results Ownership List / Publications / Datasets / IPR / Standards / Other results / Dissemination / Communication / Individual Exploitation Plan narrative). Each field with the exact single-choice, multi-select or free-text type the Portal expects, plus SUREWAVE-specific KER mapping fields (KER1–KER7). Return address: eirik.larsen@sunlitsea.no. Ready to distribute at the next WP8 collection round; `.docx` is the sendable version.
+
+**Ten CRM screens (from HE Periodic Report template V1.1, 01.05.2023).** Key ones for WP8:
+
+1. Results — one row per result; result-type dropdown (SCI/PROD/SERV/PROC/BUS/DSG/METH/PO/EVNT/STAFF/LEARN/INFRA); KER Y/N; description of high potential; audience/target group; steps undertaken towards exploitation; market maturity.
+2. **Results Ownership List — BLOCKING for the final Periodic Report.** Single/joint ownership; owner names; country; will owners exploit; form of availability (sale of IP / licensing / open access / open source / free licence / NDA / other / N/A); requires background access (Y/N + measures); requires third-party IPR access (Y/N/Not Known + measures).
+3. Publications — auto-populated from OpenAIRE; open access + licence type mandatory.
+4. Datasets — FAIR / EOSC / open access / licence.
+5. IPR — patents, trademarks, registered designs, utility models.
+6. Standards — activity type, bodies, references.
+7. Other results — software, workflows, protocols, prototypes.
+8. Dissemination activities — conferences, education/training, meetings, clustering, collaboration.
+9. Communication activities — press releases, website, social media, videos, brochures, events.
+10. Pathway to Impact — narrative linking results → outcomes → impacts.
+
+Warning printed directly on the Results screen in the template: *"You are obliged under the Grant Agreement to use the Horizon Results Platform to find interested parties to exploit your KERs if you have not been able to exploit them within one year after the end of the project (unless the obligation has been waived by the granting authority). Exploitation efforts must be continued up to four years after the end of the project, even when the Horizon Results platform is used."*
+
+**Additional follow-up steps for the update pass** (in addition to the checks above):
+
+- Verify with SINTEF whether the CRM screens have been populated by each beneficiary. This includes the Results Ownership List which will block the final Periodic Report if empty.
+- Verify with SINTEF that all publications, IPR filings, standards activities, and DEC activities across the consortium have been logged in the CRM. WP8 leader should audit CRM completeness before the final Periodic Report is locked.
+- Distribute the new partner input template (`surewave/deliverables/2026-09-30_surewave_partner_exploitation_input_template.docx`) to all partners at the next collection round. First pass sent to Ceit for feedback on the form design (SINTEF on copy) before distribution to full consortium. **Ceit partial input received 2026-09-30** — Ainhoa submitted the monitoring-system stream (`surewave/background/2026-09-30_ceit_exploitation_summary.md`); Aritz still to send the remainder. SINTEF exploitation summary still missing.
+- Update D8.4 to reflect any partner input received via the new template.
+- Consider engaging the Horizon Results Booster and Horizon Standardisation Booster before the final D8.4 revision — free EC service, book early because queues can be long.
+- Plan the post-project four-year exploitation reporting mechanism with the coordinator (SINTEF): who does CRM updates post-project, who handles HRP uploads at the 1-year fallback, who coordinates transfer notifications and access-rights requests.
+- Update the Report on Exploitable Results (`surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`) in place when Ceit and SINTEF summaries arrive.
+
+**Files touched (this update).** New: `surewave/background/2026-09-30_exploitation_requirements_reference.md`, `surewave/deliverables/2026-09-30_surewave_partner_exploitation_input_template.md` (+ `.docx` companion). Modified: `TASKS.md` (this task). Follow-up housekeeping (see below): three activity-root files moved into `surewave/background/`, image paths in the moved index file re-based, `CLAUDE.md` date-prefix examples generalised, `README.md` still to be updated in the next maintenance pass to reflect the new file layout.

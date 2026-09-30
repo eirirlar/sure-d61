@@ -1,0 +1,25 @@
+% Pandoc header-includes for SUREWAVE D8.3 technical brochure.
+% Used via `pandoc --include-in-header=scripts/brochure_pandoc_header.tex`.
+
+% Figures — prefer near-reference placement but allow float when needed
+% to avoid whitespace-heavy pages. Original constraint of [H] (exact
+% position) produced blank space when a figure didn't fit; [!ht] tries
+% here-or-top with high priority, falling through to bottom or float page
+% only when nothing else works.
+\usepackage{float}
+\floatplacement{figure}{!ht}
+
+% Running footer with project + deliverable + date + page number.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{SUREWAVE $\cdot$ D8.3 Technical Brochure $\cdot$ September 2026 \quad p.\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% TikZ for the cover-page image overlay (used in the front matter).
+\usepackage{tikz}
+
+% Named colours (NavyBlue etc) via svgnames option of xcolor.
+% pandoc loads xcolor already; add svgnames.
+\PassOptionsToPackage{svgnames}{xcolor}

@@ -2,15 +2,13 @@
 
 *Prepared for the M50 final consortium meeting · Eirik filming · 2026-09-30*
 
-Four interview scripts for the closing round of consortium interviews, one per non-Sunlit-Sea, non-MARIN partner (MARIN and Acciona and SINTEF already captured in earlier Wideangle rounds — see WP8 KPI tracker). Bringing these four home will take the interviews KPI from 5/9 to 9/9.
+Four interview scripts for the closing round of consortium interviews. Earlier Wideangle rounds captured Maria, Aritz, Thomas and Virgile; this round rotates to four different subjects, one per WP anchor: CEIT (WP5), IFEU (WP7), SINTEF (coordination + WP2/WP3 modelling) and MARIN (hydrodynamics).
 
 Each interview is sized for 5 minutes of usable footage — five to six questions with room for 40–60 second answers. Land the last question as an outro-friendly forward-looking beat.
 
 ---
 
-## Interview 1 · Ceit (WP5 lead — SHMS + corrosion sensor)
-
-Suggested interviewee: Ainhoa Cortés or Andoni Irizar (the sensor and SHMS authors from CEIT).
+## Interview 1 · Ainhoa Cortés · CEIT (WP5 — SHMS + corrosion sensor)
 
 On-camera framing: "Talk to us about the Structural Health Management System you've built for offshore floating PV."
 
@@ -25,31 +23,15 @@ Target-number quote to land: 0.17 mm rebar-diameter resolution.
 
 ---
 
-## Interview 2 · Clement Germany (WP3 lead — floating breakwater design)
+## Interview 2 · Guido Reinhardt · IFEU (WP7 — integrated sustainability)
 
-Suggested interviewee: Thomas Pehlke (D3.2 lead author).
+Guido is senior author across the D7 series (D7.1 definitions through D7.6 integrated sustainability). Pitch the questions to the elder-statesman view — the arc of the sustainability work, not the day-to-day detail.
 
-On-camera framing: "Clement has built floating breakwaters for marinas and ports for decades. This one is different — tell us why."
+On-camera framing: "IFEU led the sustainability assessment across the whole project. Tell us what this technology actually does for the planet, and what it doesn't."
 
-1. Clement has decades of experience with floating breakwaters. What made an offshore-solar-farm breakwater fundamentally different from a marina breakwater?
-2. You screened more than ten cross-sections and mooring layouts before landing on one. What won, and what lost?
-3. The final unit is 20 metres long, 5 metres wide, 2.5 metres high, 123 tonnes, and cuts more than 40 % of wave energy in the 1-to-3-second band where it matters most. How did you land on those numbers?
-4. Circular concrete from Acciona — cellular core, lightweight aggregate top, high-performance shell — changed what you could build. How?
-5. What does Clement take out of SUREWAVE that changes the company's product portfolio going forward?
-
-Target-number quote to land: 40 % wave-energy attenuation in the 1–3 second band.
-
----
-
-## Interview 3 · IFEU (WP7 lead — integrated sustainability)
-
-Suggested interviewee: Maximilian Breyer or Heiko Keller (both delivered D8.2 and the conference presentations).
-
-On-camera framing: "IFEU led the sustainability assessment. Tell us what this technology actually does for the planet, and what it doesn't."
-
-1. IFEU led the environmental, economic and social assessments. What's the single most important thing you learned about offshore floating PV?
-2. Your headline number is around 170,000 tonnes of CO₂ saved per plant over 25 years compared with coal. What sits behind that figure?
-3. You also flagged real limits — cable routing, marine-space use, offshore worker safety, supply chains going through high-risk regions. Where does offshore FPV genuinely help, and where does it just move the problem?
+1. IFEU has been on SUREWAVE from the very first sustainability definitions in D7.1 through to the integrated assessment in D7.6. Standing at the end of that arc — what's the single most important thing the project taught you about offshore floating PV?
+2. The headline number is around 170,000 tonnes of CO₂ saved per plant over 25 years compared with coal. What sits behind that figure, and how confident are you in it?
+3. You also flagged real limits — cable routing, marine-space use, offshore worker safety, supply chains reaching into high-risk regions. Where does offshore FPV genuinely help, and where does it just move the problem?
 4. Circular concrete was supposed to be a big environmental win. How did that actually land in the numbers?
 5. If a developer picks up this technology tomorrow, what's the one design decision that matters most for the sustainability outcome?
 
@@ -57,19 +39,35 @@ Target-number quote to land: 170,000 t CO₂ savings per plant over 25 years.
 
 ---
 
-## Interview 4 · Sunlit Sea (WP2 and WP8 lead)
+## Interview 3 · Balram Panjwani · SINTEF (coordinator + WP2/WP3 modelling)
 
-Suggested interviewee: not the person filming — Guillaume Kegelart (WP2 leader on the SIS side per D8.5) or another SIS colleague who can talk to the commercialisation story on camera.
+Balram sits in two chairs: overall project coordinator (SINTEF), and lead author on the aerodynamic-loads work (D2.3, Energies 2024 paper on breakwater aerodynamics, keeled-breakwater dynamics paper under submission). The script leans on the coordinator hat — that is what the video series does not otherwise capture — and lets him lift one technical result to make it concrete.
 
-On-camera framing: "Sunlit Sea led the framework and the exploitation side. Tell us what SUREWAVE changed for the company."
+On-camera framing: "Balram coordinated SUREWAVE from the SINTEF side for four years. Tell us what this consortium set out to do, and what it actually did."
 
-1. Sunlit Sea led the framework definition in WP2 and the exploitation activities in WP8. What did the project actually change for the company?
-2. Your first-generation hinge failed early in SUREWAVE mechanical testing — around 3.5 kN ultimate against 8-to-10 kN operational loads. That's a hard result to receive. What did you do with it?
-3. The redesigned hinge came out at roughly three times the strength of Gen 1 and is now the basis of the Gen 2 product moving forward inside the SuRE follow-on Horizon Europe project — with a former SUREWAVE Stakeholder Advisory Board member as a partner. How did that partnership come about?
-4. From a commercialisation angle — Mediterranean at 6.2 euro-cents per kilowatt-hour is the headline economic finding. Is it real, and when does the first customer see this deployed?
-5. What do you want someone watching this video five years from now to remember about SUREWAVE?
+1. You brought together nine partners across seven countries — a concrete plant, a breakwater specialist, a floating-PV company, three research institutes, a sensor lab, a hydrodynamics institute. Four years in — did that consortium do what you hoped it would do?
+2. From the coordinator seat, what was the hardest part of running SUREWAVE? And what was the thing that worked better than you expected?
+3. On your own technical side you led the aerodynamic loads and CFD work — the paper on breakwater aerodynamics, the moored keeled-breakwater simulations. What did you learn about how wind actually interacts with a protected floating PV plant?
+4. SUREWAVE has spawned a family of follow-on activities — NaturSea-PV, joint webinars, papers with partners you'd never worked with before. Where does this technology need to go next, and who takes it there?
+5. If someone asked you today "was it worth doing?" — what's the answer?
 
-Target-number quote to land: 3× hinge strength / €0.062/kWh Mediterranean LCoE.
+Target-number quote to land: consortium scale (9 partners / 7 countries / 4 years) or a specific aerodynamic-loads finding, whichever lands better in the moment.
+
+---
+
+## Interview 4 · Joep van der Zanden · MARIN (hydrodynamics)
+
+MARIN did what nobody else had done on this scale: extended the wave-diffraction solver DIFFRAC to run all 3660 interconnected FPV modules of a 2 MWp farm together on a supercomputer. Joep co-authored the Energies 2026 paper with Tim Bunnik and Naman Baderiya, and has represented MARIN at the Floating Solar in Europe symposium every year of the project.
+
+On-camera framing: "MARIN ran the hydrodynamics simulations for the full farm. Tell us what a 2 megawatt offshore solar array actually looks like in the water."
+
+1. Before SUREWAVE, how did people simulate wave loads on a floating PV array — and what was wrong with it?
+2. Your team scaled DIFFRAC up to run 3660 interconnected modules together, on a supercomputer, rather than picking a small subset and hoping it represents the whole. What did that unlock?
+3. The headline finding is that a ring of concrete breakwaters lowers connector loads on average — vertical loads and overturning moments drop by up to 50 % in steep irregular seas. Walk us through that result.
+4. You also found the breakwater ring creates its own problems — standing waves inside the ring, horizontal-motion amplification. How do designers deal with that?
+5. MARIN is now taking this into NaturSea-PV and other follow-on projects. What's the piece of SUREWAVE that outlives the project?
+
+Target-number quote to land: up to 50 % reduction in connector vertical loads / overturning moments in steep irregular seas.
 
 ---
 
@@ -80,4 +78,4 @@ Target-number quote to land: 3× hinge strength / €0.062/kWh Mediterranean LCo
 - Get one specific number per interview (target quotes noted per interview above). Numbers travel further than adjectives.
 - The last question is the outro-friendly one. Land the interview on a forward-looking beat so the Wideangle editor has a natural ending to cut to.
 - Consistency for the video series: all four subjects sit in the same frame (fixed shot, same background if possible), same intro card ("SUREWAVE · [partner] · [role]") and same outro card.
-- Ceit and Sunlit Sea interviews also serve the WP8 KPI — the tracker currently shows interviews at 5 / 9; these four bring it to 9 / 9.
+- Balram and Joep were captured briefly in earlier Wideangle rounds; these are the substantive final-meeting interviews. Flag to the editor which footage supersedes which so the final cut doesn't double up.
