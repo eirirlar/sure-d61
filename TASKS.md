@@ -3025,3 +3025,38 @@ Warning printed directly on the Results screen in the template: *"You are oblige
 - Update the Report on Exploitable Results (`surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`) in place when Ceit and SINTEF summaries arrive.
 
 **Files touched (this update).** New: `surewave/background/2026-09-30_exploitation_requirements_reference.md`, `surewave/deliverables/2026-09-30_surewave_partner_exploitation_input_template.md` (+ `.docx` companion). Modified: `TASKS.md` (this task). Follow-up housekeeping (see below): three activity-root files moved into `surewave/background/`, image paths in the moved index file re-based, `CLAUDE.md` date-prefix examples generalised, `README.md` still to be updated in the next maintenance pass to reflect the new file layout.
+
+**Action summary — who acts next (2026-10-01).** The detailed checklist above answers *what to update*; the grouping below answers *in what order and waiting for whom*.
+
+*Immediate (Eirik, this week):*
+
+- Send the drafted Ceit email with the partner input template attached (`.docx` from `surewave/deliverables/`), SINTEF on copy — this one email triggers both Ceit template feedback (Ainhoa) and the rest of the Ceit exploitation input (Aritz).
+- Chase SINTEF directly for their exploitation summary (coordinator-level view on KER1 system integration + KER4 hinge/mooring/connections). Not via the template rollout — they need a direct ping.
+- Ask SINTEF whether the CRM Results Ownership List is being populated per-beneficiary or centrally, and who drives collection. The ROL is the blocking item for the final Periodic Report.
+
+*Waiting on partners (no action until they respond):*
+
+- Ceit — Aritz's remaining exploitation input (completes KER6).
+- Ceit — Ainhoa's structural feedback on the template.
+- SINTEF — exploitation summary.
+- Chase after ~1 week of silence from any of the above.
+
+*Next round (once feedback and inputs are in):*
+
+- Refine the template based on Ceit feedback.
+- Distribute refined template to all seven consortium beneficiaries — ACCIONA, Ceit, Clement Germany, IFEU, MARIN, SINTEF, Sunlit Sea — as the formal CRM-aligned data collection round.
+- Revise `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md` in place with the completed Ceit (KER6) and SINTEF (KER1 / KER4) material.
+- Run D8.4 through the full T121 requirements checklist above.
+
+*Horizon items (not blocking, but to plan ahead):*
+
+- Confirm both Internal Exploitation Workshops under Subtask 8.2.2 of the DoA have actually taken place. If one is still outstanding, schedule it before project end (2026-12-31).
+- Apply to the Horizon Results Booster (free EC consulting on business plan / commercialisation). Queues can be long, book early.
+- Apply to the Horizon Standardisation Booster for any KER with standardisation potential — candidates are KER4 (SINTEF aero/mech testing methodologies), KER5 (MARIN basin methodologies), KER6 (Ceit SHMS methodologies).
+- Agree with SINTEF the post-project four-year exploitation-reporting mechanism (who does CRM updates after 2026-12-31, HRP uploads at end-2027 for KERs not yet exploited, coordinated transfer / licensing notifications).
+
+*External partner outreach (expected by the DoA 5-step methodology but lower priority than the internal chasing above):*
+
+- Step 3 of the Task 8.4 methodology — value-proposition testing — expects contact with prospective customers / end users / technology integrators per KER. Sunlit Sea's own KER1 (integrated FPV) draws on existing customer-pipeline conversations (Vollsfjorden, Enova pilot, Haugaland Kraft and similar) — these should be reflected in the D8.4 value-proposition section as evidence that step 3 has been done.
+- For subsystem KERs (KER2–KER7), external outreach is the owning partner's responsibility. The partner input template Section 10 asks each partner to describe their external contacts; WP8 does not need to do that outreach for them, only to prompt and consolidate.
+- No *new* consortium-partner search is required — the exploitation story runs on the existing seven beneficiaries plus each beneficiary's own commercial contacts.
