@@ -2545,7 +2545,7 @@ These references were already broken before T112 began and are a separate issue 
 
 **Files touched.** New: `surewave/images/` (26 subfolders, ~907 image files moved into place). Modified: 26 background `.md` files (image paths rewritten), `surewave/technical_system_images.md` (paths + intro), `README.md` (description + tree), `TASKS.md` (this task). Deleted: 26 empty per-document folders under `surewave/background/`.
 
-### T113 `[x]` [GENERIC] SUREWAVE — Report on Exploitable Results (aggregation of partner exploitation summaries)
+### T113 `[~]` [GENERIC] SUREWAVE — Report on Exploitable Results (aggregation of partner exploitation summaries)
 
 Five SUREWAVE consortium partners have submitted their per-partner exploitation summaries as `.docx` in `surewave/background/new/exploitation/`: ACCIONA, Clement Germany, IFEU, Sunlit Sea, MARIN. Ceit and SINTEF summaries not received. The task is to convert, process and write up a synthesised Report on Exploitable Results.
 
@@ -2583,7 +2583,17 @@ Total across the five: 16 distinct exploitable results reported. Aggregated and 
 
 **Post-close follow-up (2026-09-30).** During the D1.7 review cross-check (T116), noticed the report's own dissemination-level line used the invented term "EU-Con (consortium confidential)", which is not a formal SUREWAVE dissemination category (per the GA, the levels are PU, SEN, EU classified). Corrected the report's Confidentiality Notice at the top of `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md` to say "restricted per the DoA (Sensitive or higher — final classification to be confirmed with the coordinator; shares D8.4's dissemination level)". Same correction applied in `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md` header + confidentiality notice. No content changes to the substantive body of the report; the KER analysis and per-partner ERs remain as delivered.
 
-**Ceit partial input received (2026-09-30).** Ainhoa (Ceit) submitted the monitoring-system stream of the Ceit exploitation summary. Filed as `surewave/background/2026-09-30_ceit_exploitation_summary.md`. Content: ER1 — eddy-current monitoring technology transferred to two industrial applications (aeronautics air-gap inspection in metal--fibre / fibre--fibre assemblies; corrosion monitoring in reinforced-concrete via integration of eddy-current data with electrochemical sensor measurements). Exploitation route framed as industrial validation, application-specific adaptation, and collaboration with end users / technology integrators. A further Ceit contribution is expected from Aritz and will be appended to the same file when it arrives. Once Aritz's part is in, revise `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md` in place — particularly the KER6 (SHMS and corrosion sensor) section, which currently notes Ceit input as outstanding.
+**Ceit partial input received (2026-09-30).** Ainhoa (Ceit) submitted the monitoring-system stream of the Ceit exploitation summary. Filed as `surewave/background/2026-09-30_ceit_exploitation_summary.md`. Content: ER1 — eddy-current monitoring technology transferred to two industrial applications (aeronautics air-gap inspection in metal--fibre / fibre--fibre assemblies; corrosion monitoring in reinforced-concrete via integration of eddy-current data with electrochemical sensor measurements). Exploitation route framed as industrial validation, application-specific adaptation, and collaboration with end users / technology integrators. A further Ceit contribution is expected from Aritz and will be appended to the same file when it arrives. Once Aritz's part is in, revise `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md` in place — particularly the KER6 (SHMS and corrosion sensor) section, which currently notes the platform-integration side as pending.
+
+**Reopened (2026-10-02) — SINTEF exploitation plan received and integrated.** SINTEF (Balram Panjwani) delivered the SINTEF exploitation plan 2026-10-02, filed as `surewave/background/2026-10-02_sintef_exploitation_plan.md`. Six distinct exploitable results across aerodynamic modelling, hydrodynamic modelling (Energies publication), concrete FEA for cracking and damage, the Surewave-ANN concrete-modelling platform, concrete testing with Digital Image Correlation, and mechanical/fatigue testing of FPV connections. Four concrete follow-on vehicles named: CIRWIND (Horizon Europe), SFI BLUES, Mikroflexishape (national), and the GEOPON-led national project. SINTEF explicitly credits the SUREWAVE mechanical testing and failure-analysis results with supporting Sunlit Sea's Gen-3 polyurethane hinge development — a direct consortium-internal technology-transfer sequence worth highlighting in D8.4 and on the Horizon Results Platform entry for KER1 / KER4.
+
+Integration pass applied to `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`: opening paragraph updated (five → six partner submissions); summary list extended with the six SINTEF ERs (16 → 22 total); KER1 narrative updated to reflect that SINTEF's methods-focused summary does *not* resolve the integrated-system ownership/licensing question (open coordinator-level item); KER2 extended with SINTEF ER3 (concrete FEA), ER4 (Surewave-ANN) and ER5 (concrete testing + DIC) as methodological pillars under ACCIONA's material KER; KER4 extended with SINTEF ER6 (FPV connection testing) including the Gen-3 hinge sequence; KER5 extended with SINTEF ER1 and ER2 (aerodynamic/hydrodynamic modelling, with the Energies DOI); cross-partner interactions section grew from two to three visible sequences and now lists the four SINTEF follow-on vehicles; missing-input section rewritten to show SINTEF received and Ceit still partial; recommendations renumbered to replace "chase SINTEF" with "ask coordinator for integrated-system owner on KER1", and a new recommendation 8 added covering the four SINTEF follow-on vehicles as "best-efforts 4-year exploitation" evidence under GA Article 16; files-consulted list updated with the SINTEF and Ceit entries; closing line now says revision pending Aritz's Ceit input only.
+
+**Follow-up still outstanding.**
+- Ceit (Aritz) — SHMS platform integration side of KER6.
+- Coordinator-level view on KER1 as an integrated concept — SINTEF's per-method summary does not close this question; it is a WP8 lead item for D8.4.
+
+**Files touched (reopen pass).** Modified: `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`; `TASKS.md` (this task reopened `[~]` and this note added). New: none in this pass (the SINTEF background file was filed earlier the same day).
 
 ### T114 `[x]` [GENERIC] Enrich SUREWAVE Technical Brochure (D8.3) with SINTEF's main technical progress framing
 
@@ -2946,7 +2956,7 @@ Scope: downsample image DPI, drop the ToC, redesign the cover as a proper title 
 
 PDF rebuilt with the two caption changes and ghostscript-compressed back to 1.94 MB. Note on gs invocation: the `--%` PowerShell stop-parsing token swallows shell redirects (adding `2>&1` after it hands the redirect operator to ghostscript as a filename, which errors "undefined filename in (2>&1)"). The working invocation uses no redirect (`-dQUIET` suppresses gs output, exit code alone signals success).
 
-### T121 `[ ]` [GENERIC] SUREWAVE — Update the exploitation report (D8.4 + Exploitable Results Report) against CINEA/HE exploitation requirements
+### T121 `[x]` [GENERIC] SUREWAVE — Update the exploitation report (D8.4 + Exploitable Results Report) against CINEA/HE exploitation requirements
 
 When the exploitation report is next opened (D8.4 `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md` and the companion `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`), verify it satisfies every exploitation obligation set out in the grant application, the signed Grant Agreement and current CINEA / Horizon Europe guidance. Requirements are consolidated below so a future update pass does not need to re-derive them from source.
 
@@ -3026,6 +3036,77 @@ Warning printed directly on the Results screen in the template: *"You are oblige
 
 **Files touched (this update).** New: `surewave/background/2026-09-30_exploitation_requirements_reference.md`, `surewave/deliverables/2026-09-30_surewave_partner_exploitation_input_template.md` (+ `.docx` companion). Modified: `TASKS.md` (this task). Follow-up housekeeping (see below): three activity-root files moved into `surewave/background/`, image paths in the moved index file re-based, `CLAUDE.md` date-prefix examples generalised, `README.md` still to be updated in the next maintenance pass to reflect the new file layout.
 
+**Solution (2026-10-02) — full substantive rewrite of D8.4 against the CINEA/HE checklist.** `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md` rewritten end-to-end. Structure expanded from 13 to 19 sections. Every T121 checklist obligation now has a dedicated discharge in the document.
+
+Section-by-section delta against the previous edition:
+
+- Title block: edition label updated to "October 2026 edition (revision 2)" to signal substantive update.
+- Executive summary: expanded with the SINTEF-side follow-on vehicles (CIRWIND, SFI BLUES, Mikroflexishape, GEOPON), the Gen-3 polyurethane hinge SINTEF→Sunlit Sea technology-transfer sequence, and an explicit list of six discharge areas added in this revision (partner input, 4-year per-KER plan, HRP fallback, standardisation, transfer-licensing, PEDR trajectory).
+- Section 1 (Purpose and scope): expanded with explicit cross-reference to each GA Article 16 obligation and which section discharges it; CRM governance referenced.
+- Section 2 (Methodology and PEDR update trajectory): NEW. Documents the D8.1 → D8.5 → D8.4 PEDR cycle; sets out the delta vs D8.5 (M18) covering KER structure, per-KER evidence, market analysis, follow-on vehicles, business models, individual plans, governance; describes the partner-input methodology mirroring the ten CRM screens.
+- Section 3 (Key Exploitable Results): rewritten with per-KER structure now including explicit fields for exploitation route, territorial scope, target timing-to-market in addition to the previous owner / description / TRL / role. KER4 and KER5 updated to carry the SINTEF content from the 2026-10-02 submission. KER6 reflects Ceit's partial industrial-transfer position. KER interactions note the open integrated-system question.
+- Section 4 (IPR analysis): expanded. Section 4.4 (Foreground protection) now includes a per-KER table of protection decision + primary route + GA-required "prospects for commercial exploitation" justification, discharging Article 16.3 systematically.
+- Section 5 (Standardisation): NEW. Per-KER table of standardisation flag + target bodies/standards + status. Discharges GA Article 16.8.
+- Sections 6–8 (Value innovation / Market analysis / Value proposition): structure preserved; market analysis extended with KER4/KER5 SINTEF reuse into named vehicles; otherwise unchanged.
+- Section 9 (Business models): preserved per-KER structure; KER4/KER5 extended with SINTEF's follow-on vehicle pipeline and MARIN's DIFFRAC proprietary-product position; KER6 extended with Ceit's industrial transfers. New sub-section 9.7 on joint exploitation across the consortium.
+- Section 10 (Individual action plans — 4-year window): rewritten end-to-end. Each partner has an explicit 2027–2030 action plan with named milestones, decision points and financial envelope. Each KER has a 1-year HRP fallback declaration with named responsible partner. New sub-section 10.4 for SINTEF reflecting the methods-focused position and the four named follow-on vehicles. New sub-section 10.8 for consortium-level HRP coordination. Discharges GA Article 16.4 best-efforts obligation and the 1-year HRP fallback.
+- Section 11 (Consortium exploitation agreement structure): expanded. New sub-section 11.4 documents the 45-day advance-notification procedure for transfer and exclusive licensing (GA Article 16.6); new sub-section 11.5 covers the standardisation and public-emergency clauses linking into Section 16.
+- Section 12 (Follow-on vehicles): NEW. Lists the eight concrete follow-on vehicles already carrying SUREWAVE results forward at project end: SuRE, CIRWIND, SFI BLUES, Mikroflexishape, GEOPON, Marisol, Ceit industrial transfers, Gen-3 hinge sequence. Positioned as evidence that the 4-year best-efforts obligation is already instrumented.
+- Section 13 (Horizon Europe support): NEW. Documents the HRB engagement, HRP fallback use, Standardisation Booster, Innovation Radar monitoring, IP Helpdesk, Open Research Europe / CORDIS.
+- Section 14 (Financial plan): preserved.
+- Section 15 (Risk analysis): added new consortium risk — coordinator-level view on KER1 remaining open — with mitigation.
+- Section 16 (Additional exploitation obligations): NEW. Covers the public-emergency clause, strategic-assets restrictions, visibility of EU funding, open-science obligations. Discharges GA Article 18 and the HORIZON-CL5-2021-D3-03 call-condition items.
+- Section 17 (Governance and periodic reporting): NEW. Documents the ten CRM screens, the WP8-lead / coordinator / beneficiary responsibilities, and the post-project reporting cadence.
+- Section 18 (Timeline and next steps): expanded. Timeline now explicitly covers the 48–72-month closure of the 4-year obligation window; new row for the first HRP upload review at 6–12 months; new immediate-next-step for completing the Results Ownership List in the CRM.
+- Section 19 (Conclusions): rewritten to recap the discharged obligations and name the open integrated-system question as the first follow-up out of this edition.
+
+Document grew from ~504 lines / 5850 words / 21 pages to ~720 lines / ~9500 words / ~34 pages. Every T121 checklist item now has a visible discharge location in the document.
+
+**T121 checklist tracking (coverage status after this edition):**
+
+| Obligation | Discharged in | Status |
+|---|---|---|
+| DoA 5-step methodology | Sections 3, 6, 7–8, 9–10, 11 | COVERED |
+| GA 16.4 best-efforts 4-year | Section 10 (per-partner action plans) | COVERED |
+| GA 16.4 HRP fallback | Section 10 (per-KER declaration) | COVERED |
+| GA 16.3 protection decision + justification | Section 4.4 (per-KER table) | COVERED |
+| GA 16.8 standardisation | Section 5 (per-KER table) | COVERED |
+| GA 16.6 transfer / exclusive licensing (45-day) | Section 11.4 | COVERED |
+| GA 16.1 access rights | Section 4.3 | COVERED |
+| GA Article 18 / call conditions additional obligations | Section 16 | COVERED |
+| PEDR update trajectory (D8.1 → D8.5 → D8.4) | Section 2 | COVERED |
+| Consistency with Exploitable Results Report (7 KERs 1:1) | Section 3 (uses the same 7-KER structure; Report updated in parallel) | COVERED |
+| Consistency with DECMP (D8.5) framing | Section 2.2 (delta against D8.5) | COVERED |
+| Consistency with DMP (D1.7) | Section 16.4 (open-science / FAIR commitments) | COVERED |
+| Consistency with brochure (D8.3) | Sections 3 and 7 reference brochure TRL/economic/scenario figures | COVERED |
+| 10 CRM screens | Section 17.1 | COVERED |
+| Horizon Results Booster | Section 13.1 | COVERED |
+| Horizon Standardisation Booster | Section 13.3 | COVERED |
+| Innovation Radar | Section 13.4 | COVERED |
+| EU IP Helpdesk | Section 13.5 | COVERED |
+
+**Residual gaps carried out of T121.**
+
+- Ceit (Aritz) remaining input — SHMS platform-integration side of KER6 is still partially bridged from technical deliverables rather than from Ceit's own exploitation framing. Separate open follow-up on the T113 reopen trail.
+- Coordinator-level view on KER1 as a single integrated concept — Sunlit Sea's commercialisation-lead model is operational, but SINTEF's exploitation summary covers per-method only. Flagged as the first open follow-up out of this edition (Section 19) and as a consortium risk (Section 15.4). Should be resolved before the first commercial deployment.
+- Partner-side confirmation of each KER's protection decision (Section 4.4) — the table reflects the best current view from the partner submissions and the technical deliverables. Partners have the right to vary; variations captured in the next PEDR update.
+- Partner-side confirmation of standardisation flags (Section 5) — the table reflects reasonable positioning; no formal standardisation commitment made by partners yet. Updates captured in next PEDR update.
+- Partner-side confirmation of 4-year action plans (Section 10) — plans reflect the best current reading of partner intent. Partners asked to review and confirm in the first annual consortium review (Section 18 immediate-next-steps).
+
+**Companion document (Exploitable Results Report).** The companion report `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md` is kept consistent with the 7-KER frame of this revised D8.4. The report was updated separately under the T113 reopen pass (2026-10-02) to integrate SINTEF; no further changes needed for consistency with this D8.4 revision.
+
+**External-stand-alone check applied.** Document contains no repo file paths, no task numbers, no internal framing. Section 1 cites GA articles canonically. The Energies MDPI DOI is cited at <https://www.mdpi.com/1996-1073/17/19/4873> (consistent with the SINTEF submission and with Section 10.4). YAML frontmatter not used — the title block is Markdown headings.
+
+**Files touched (this pass).** Modified: `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md` (full rewrite); `TASKS.md` (this task closed and this note added). No change to the Exploitable Results Report in this pass — handled under T113. No `README.md` update needed (deliverable line unchanged; file is still at the same path with the same date prefix).
+
+**Docx conversion not performed.** Per CLAUDE.md: "Do not convert to docx automatically ... conversion to docx happens only when the user explicitly orders it." The .docx version of this deliverable is now out of date relative to the markdown. If a .docx is needed for CINEA submission, it should be regenerated via pandoc on explicit order.
+
+**Follow-up tasks that this rewrite could spawn (not created here; surface if useful).**
+- Dedicated task for the coordinator-level KER1 position (joint Sunlit Sea / SINTEF articulation of the integrated-system ownership and licensing basis).
+- Dedicated task for distribution of the revised D8.4 to all consortium partners for review and confirmation of per-partner action plans and KER-level decisions.
+- Dedicated task for completing the Results Ownership List in the CRM (coordinator-level work, SINTEF action).
+- Dedicated task for docx re-render of the revised D8.4 when ordered by the user.
+
 **Action summary — who acts next (2026-10-01).** The detailed checklist above answers *what to update*; the grouping below answers *in what order and waiting for whom*.
 
 *Immediate (Eirik, this week):*
@@ -3060,3 +3141,88 @@ Warning printed directly on the Results screen in the template: *"You are oblige
 - Step 3 of the Task 8.4 methodology — value-proposition testing — expects contact with prospective customers / end users / technology integrators per KER. Sunlit Sea's own KER1 (integrated FPV) draws on existing customer-pipeline conversations (Vollsfjorden, Enova pilot, Haugaland Kraft and similar) — these should be reflected in the D8.4 value-proposition section as evidence that step 3 has been done.
 - For subsystem KERs (KER2–KER7), external outreach is the owning partner's responsibility. The partner input template Section 10 asks each partner to describe their external contacts; WP8 does not need to do that outreach for them, only to prompt and consolidate.
 - No *new* consortium-partner search is required — the exploitation story runs on the existing seven beneficiaries plus each beneficiary's own commercial contacts.
+
+---
+
+### T122 `[x]` [GENERIC] SUREWAVE — Horizon Results Booster kickoff: prep for 2026-10-02 call
+
+Trigger: email from Balram (SINTEF coordinator) 2026-10-01, forwarding a message from Mikaela Tsakalidou (META Group) scheduling the Horizon Results Booster kickoff call for 2026-10-02 14:00 CEST (fallback 2026-10-05 12:00 CEST). Balram applied yesterday on the Project Officer's recommendation from the midterm review — the Project Officer had explicitly asked for Booster services even though the project is in its final two months before close (2026-12-31). META Group assigned Mikaela Tsakalidou + Rosellina Di Santo as mentors; both have signed the Non-Disclosure Agreement.
+
+This closes out the horizon-items step in T121 ("Apply to the Horizon Results Booster — free EC consulting on business plan / commercialisation. Queues can be long, book early.") that Balram actioned directly. The actionable new work is Sunlit Sea's engagement in the kickoff and whatever mentoring cycle follows.
+
+**Sunlit Sea's goals (in tension):**
+
+1. Comply with Project Officer advice — show up engaged, agree to a plausible roadmap. Non-compliance after an explicit Project Officer ask hurts the final review and the 4-year post-project reporting judgments.
+2. Minimise Sunlit Sea hours — the engagement is unbudgeted. Realistic estimate: 20–30 hours of Eirik's time across a full Pack 55 cycle. META Group has every incentive to maximise mentor hours.
+3. Push consortium-wide work to SINTEF; keep Sunlit Sea's scope to Key Exploitable Result 1 (integrated floating-photovoltaic system / Generation-3 polyurethane hinge) only.
+
+**Solution (2026-10-01):** meeting-prep document saved as `surewave/deliverables/2026-10-01_hrb_kickoff_meeting_prep.md`. Written to be opened on screen during the call and used as a live navigation aid. Sections:
+
+- Context block (Horizon Results Booster programme, three service packs on offer, how the application came about).
+- Goals in priority order.
+- Posture guidance ("positive and prepared, not enthusiastic — enthusiasm invites expansion").
+- Opening pitch (3 min script).
+- Minimum-viable roadmap proposal: Go-to-Market Support (Pack 55) only; integrated-FPV result only; five modules collapsed into 2–3 back-to-back working sessions over the next two weeks; expected wrap by Friday 2026-10-16 pending Project Officer approval of a further extension (most likely but not yet confirmed; fallback deadline Friday 2026-10-09). The engagement is a two-week sprint, not a multi-month cycle, and the schedule must stay compressible to the fallback date in case the extension is not approved.
+- Facts cheat-sheet (grant number, dates, person-months, seven Key Exploitable Results with owning partners, Deliverable 7.4 economic headlines, patent candidates, post-project obligations).
+- META Group upsell plays + canned deflections (table of 8 common probes with suggested responses).
+- Red lines (no open-ended scope, no new written material, no chasing other partners, no cross-project engagement with SuRE).
+- Decisions to extract before hanging up (5 concrete items).
+- Follow-up actions (ask Balram to confirm roadmap by email; send Mikaela a short recap).
+
+**Style convention applied.** All abbreviations expanded on first use per user preference during drafting: Horizon Results Booster not "HRB", Key Exploitable Result not "KER", Project Officer not "PO", Work Package 8 not "WP8", floating-photovoltaic not "FPV", polyurethane not "PU", Levelised Cost of Energy not "LCoE", Internal Rate of Return not "IRR", Horizon Results Platform not "HRP", Non-Disclosure Agreement not "NDA", Grant Agreement not "GA", Participant Identification Code not "PIC", Structural Health Management System not "SHMS", Continuous Reporting Module not "CRM", Month 48 not "M48", Generation-3 not "Gen-3". Service packs referred to by name with number in parentheses (Go-to-Market Support (Pack 55), Dissemination Support (Pack 51), Add-on Services (Pack 41)) — not the other way around.
+
+**Not done as part of this task (deferred).**
+
+- No pre-call outreach to Mikaela or Rosellina. Meet them cold on tomorrow's call.
+- No pre-sharing of Deliverable 8.4 or the Exploitable Results Report before the kickoff. Both are ready to go to Mikaela same-day after the kickoff — in the one-week sprint there is no slack for session-by-session "learn about the project" time, so pre-reading between the kickoff and the first working session (Mon or Tue) is now part of the plan.
+- No reply drafted to Balram beyond answering "yes 14:00" or "need Monday 12:00" on availability — the roadmap-confirmation email to Balram and the recap email to Mikaela are post-call actions.
+- No update to T121's action list. T121 remains the parent task for the exploitation workstream; T122 is a tactical kickoff-prep task that feeds into it.
+
+**Follow-up (2026-10-01) — kickoff presentation deck.** Added `surewave/deliverables/2026-10-01_hrb_kickoff_ker_presentation.md` — a short 8-slide markdown deck for Eirik to show the META Group mentors on tomorrow's call. Covers: SUREWAVE project at a glance, the seven Key Exploitable Results (one per partner), a deep dive on Key Exploitable Result 1 (Sunlit Sea's integrated floating-photovoltaic system / Generation-3 polyurethane hinge), the economic case from Deliverable 7.4 (Mediterranean 10 MW viable at €0.062/kWh), the focused ask of the Horizon Results Booster (three things, Key Exploitable Result 1 only; dissemination and intellectual-property work explicitly out of scope), and the proposed two-week sprint schedule. Written to the external-stand-alone rules — no repo file paths, no task numbers, no internal framing.
+
+**Follow-up (2026-10-01) — PDF conversion.** User ordered PDF conversion. Rendered via pandoc to a beamer slide-deck PDF: `surewave/deliverables/2026-10-01_hrb_kickoff_ker_presentation.pdf`. Toolchain: `pandoc 3.9.0.2 → beamer → xelatex (TeX Live 2026) → Metropolis theme → 16:9 aspect ratio`. Command: `pandoc input.md -t beamer --slide-level=2 --pdf-engine=xelatex -V theme=metropolis -V aspectratio=169 -o output.pdf`. Nine pages (title slide + section intro + seven content slides), 26 KB, screen-share ready.
+
+**Follow-up (2026-10-01) — folder relocation.** All three new files initially saved under `surewave/background/` by mistake. Moved to `surewave/deliverables/` per the Sunlit-Sea-authored = deliverables convention set by T109 and T110. Meeting-prep doc is strictly internal; presentation markdown and PDF go to external audience (META Group mentors). All three were put together in `deliverables/` for consistency with the task bundle.
+
+**Follow-up (2026-10-01) — PDF layout review and fixes.** User reported that the first PDF render had text cut off — e.g. on the Seven Key Exploitable Results slide only 5 of 7 rows were visible. Spawned a general-purpose agent to visually inspect each slide of the PDF against the markdown source and propose per-slide fixes (report-only, no edits).
+
+Agent's diagnosis: three slides overflowed because pandoc beamer rendered wide table cells across multiple wrapped lines, pushing content below the slide bottom. Specific fixes applied to the markdown source:
+
+- Seven Key Exploitable Results slide (page 4) — forced narrow first column with `|:--:|` alignment markers and explicit dash-width column widths; shortened row 2 and row 6 cell text; collapsed the two trailing paragraphs into one line.
+- Commercial case slide (page 6) — shortened the North Sea row's "negative at commercial discount rates" to "negative"; tightened all four route-to-market bullets to one line each.
+- Where Horizon Results Booster helps slide (page 7) — removed the standalone "Post-project context" paragraph (background info, not part of the ask).
+- Proposed sprint schedule slide (page 8) — explicit column widths in the ASCII dash pattern; shortened content cells (`UVP + market pressure-test on KER 1`, `Business-plan review, KER 1 (D8.4)`, `Reusable outputs for PR + HRP upload`); collapsed the two trailing bullets into one in-line sentence.
+
+Agent missed one slide — the Key Exploitable Result 1 slide (page 5), which also had the final defensibility bullet about the Generation-3 polyurethane hinge patent candidate cut off. Caught in a visual self-check of the re-rendered PDF using the Read tool. Second-pass fix: shortened four wrapping bullets to one line each (abbreviated "polyurethane" to "PU" in one place, dropped SINTEF reference and the parenthetical "Intellectual Property Rights Management Plan" expansion in the patent-candidate bullet, trimmed the ultimate-load-raised bullet, trimmed the integration-elements bullet).
+
+Final PDF verified visually with the Read tool: all 9 slides fit cleanly, no content clipped. Pandoc re-rendered three times across the fix cycle; no theme/engine changes needed.
+
+**Lesson for next time.** Agent review of a visual PDF is useful but not sufficient on its own — the agent missed one of four problem slides. Always do a direct Read-tool spot-check of the problem slides after applying fixes, especially slides that the agent said were fine (silent failures are the risk).
+
+**Files touched.** New: `surewave/deliverables/2026-10-01_hrb_kickoff_meeting_prep.md`, `surewave/deliverables/2026-10-01_hrb_kickoff_ker_presentation.md`, `surewave/deliverables/2026-10-01_hrb_kickoff_ker_presentation.pdf`. Modified: `TASKS.md` (this task).
+
+**Reopened (2026-10-02) — update the kickoff talking points and presentation to the post-SINTEF data state.** The meeting-prep doc and the kickoff presentation deck were originally drafted 2026-10-01 against the pre-SINTEF state of the exploitation workstream. SINTEF's exploitation plan arrived 2026-10-02 and was integrated into the Exploitable Results Report (T113 reopen pass) and into D8.4 (T121 full rewrite — now at October 2026 edition revision 2). Both HRB kickoff deliverables are now refreshed to match.
+
+Meeting prep (`surewave/deliverables/2026-10-01_hrb_kickoff_meeting_prep.md`) — edits applied:
+
+- Opening pitch (3-min script): updated to say "Deliverable 8.4 is at Revision 2 (October 2026 edition), and the companion Exploitable Results Report integrates six of seven partner submissions including SINTEF's exploitation plan received 2026-10-02." Avoids the stale "drafted" framing that pre-dated SINTEF.
+- Partner-input status line: rewritten to reflect that SINTEF has submitted (methods-focused view) and the coordinator-level integrated-system question is still open; Ceit's Aritz input still pending. Positioned as Balram's chase items, not Sunlit Sea's — reinforces the Section 10 push-to-SINTEF framing.
+- Facts cheat-sheet: added two new bullets. First: SINTEF's exploitation plan explicitly credits SUREWAVE mechanical and failure-analysis testing with supporting Sunlit Sea's Gen-3 polyurethane hinge development — direct consortium-internal technology-transfer sequence, strong defensibility fact if a mentor asks for external credibility on the hinge. Second: six named follow-on vehicles already carrying SUREWAVE results forward (CIRWIND, SFI BLUES, Mikroflexishape, GEOPON, SuRE, Marisol) — Balram's story to tell when the mentors probe the 4-year post-project obligation window; useful ammunition for the "push to SINTEF" framing.
+
+Presentation deck (`surewave/deliverables/2026-10-01_hrb_kickoff_ker_presentation.md`) — one edit applied:
+
+- Slide 5 (Key Exploitable Result 1): added a fourth defensibility bullet reading "External validation: SINTEF mechanical/fatigue testing supported Gen-3 hinge development". Deliberately short to avoid pushing the slide back into the overflow territory that the earlier agent review flagged. Previous passed through the earlier pass (patent-candidate bullet shortened by dropping an earlier SINTEF reference) — the fact is now explicit again, which is defensible now that SINTEF has confirmed it on paper.
+
+Other slides left untouched. The Seven Key Exploitable Results table (page 4) remains correct — owning partners unchanged. The Horizon Results Booster scope framing (page 7) remains correct — Sunlit Sea anchors on KER1, SINTEF handles consortium-wide.
+
+PDF re-rendered via pandoc beamer. Toolchain unchanged from the 2026-10-01 pass: `pandoc 3.9.0.2 → beamer → xelatex → Metropolis theme → 16:9 aspect ratio`. Command:
+
+```
+pandoc input.md -t beamer --slide-level=2 --pdf-engine=xelatex -V theme=metropolis -V aspectratio=169 -o output.pdf
+```
+
+Nine pages, 26 KB. Visual spot-check of slide 5 confirms the fourth defensibility bullet fits cleanly on one line with no overflow. Other slides unchanged in content and expected to render identically to the 2026-10-01 version — no further spot-check needed.
+
+**Status (2026-10-02).** Prep is current with the post-SINTEF data state. Task re-closed `[x]` — its scope was prep, and the prep deliverables are complete and verified. Post-call follow-ups (recap email to Mikaela, roadmap-confirm email to Balram) are closeout actions, not T122 work; if the HRB engagement spawns a mentoring cycle that produces its own workstream, a dedicated T-task should be opened for that cycle.
+
+**Files touched (reopen pass).** Modified: `surewave/deliverables/2026-10-01_hrb_kickoff_meeting_prep.md` (opening pitch, partner-input line, facts cheat-sheet additions); `surewave/deliverables/2026-10-01_hrb_kickoff_ker_presentation.md` (one new defensibility bullet on slide 5); `surewave/deliverables/2026-10-01_hrb_kickoff_ker_presentation.pdf` (re-render); `TASKS.md` (this task reopened `[~]` and this note added).

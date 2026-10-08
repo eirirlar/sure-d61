@@ -1,6 +1,6 @@
 # SUREWAVE WP8 — final-meeting interviews (four, five minutes each)
 
-*Prepared for the M50 final consortium meeting · Eirik filming · 2026-09-30*
+*Prepared for the M50 final consortium meeting · Wideangle filming · 2026-09-30*
 
 Four interview scripts for the closing round of consortium interviews. Earlier Wideangle rounds captured Maria, Aritz, Thomas and Virgile; this round rotates to four different subjects, one per WP anchor: CEIT (WP5), IFEU (WP7), SINTEF (coordination + WP2/WP3 modelling) and MARIN (hydrodynamics).
 

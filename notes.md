@@ -1,3 +1,1 @@
-The gamco answer:
-
-They have probably looked at our website and seen the gen 1 floats. We don't make them anymore. We will release gen2 soon. See the answer you wrote to the austrian developer, that was much better. We don't support custom angles or custom panel sizes, we have only one size. the customer cannot come with their own solar panel. We don't do anchoring and mooring that's not a part of our product, the customer must fix that themselves.
+Back to the technical report review task. You previously presented packages of review. What's the next suggested review action?
