@@ -1,0 +1,110 @@
+% Sunlit Sea slide theme — Beamer header-includes for pandoc.
+% Colors and typography follow the Sunlit Sea Visual Profile Overview.
+% Headings: Everett (Regular / Medium / Bold) from visual_profile/fonts/.
+% Body: Arial (secondary per profile).
+%
+% The absolute path to the Everett fonts folder is injected by
+% scripts/md_to_slides.py via a prelude -H include that defines
+% \sunlitFontsPath. A fallback is provided for direct pandoc invocation
+% so the compilation still succeeds (Arial will be used instead).
+
+\usepackage{fontspec}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{booktabs}
+
+% --- Fonts --------------------------------------------------------------
+% md_to_slides.py defines \everett and \everettMedium from the Everett
+% .ttf files under visual_profile/fonts/. Arial fallback kicks in if the
+% prelude isn't loaded (direct pandoc invocation without the wrapper).
+\setmainfont{Arial}
+\setsansfont{Arial}
+
+\providecommand{\everett}{\sffamily}
+\providecommand{\everettMedium}{\sffamily}
+
+% --- Sunlit Sea colors --------------------------------------------------
+\definecolor{sunlitBlack}{HTML}{101010}
+\definecolor{sunlitBlack800}{HTML}{3C3C3C}
+\definecolor{sunlitBlack700}{HTML}{595959}
+\definecolor{sunlitBlack600}{HTML}{737373}
+\definecolor{sunlitBlack500}{HTML}{929292}
+\definecolor{sunlitBlack300}{HTML}{CECECE}
+\definecolor{sunlitBlack100}{HTML}{EDEDED}
+\definecolor{sunlitBlack50}{HTML}{F5F5F5}
+
+\definecolor{sunlitYellow}{HTML}{FFE775}
+\definecolor{sunlitYellow50}{HTML}{FFF7C6}
+\definecolor{sunlitYellow100}{HTML}{FFF1A3}
+
+\definecolor{sunlitBlue200}{HTML}{CBD3F0}
+\definecolor{sunlitBlue600}{HTML}{5A62BA}
+\definecolor{sunlitBlue700}{HTML}{4B5494}
+\definecolor{sunlitBlue900}{HTML}{2F354F}
+
+% --- Beamer colors ------------------------------------------------------
+\setbeamercolor{normal text}{fg=sunlitBlack, bg=white}
+\setbeamercolor{alerted text}{fg=sunlitBlue900}
+\setbeamercolor{structure}{fg=sunlitBlue900}
+\setbeamercolor{frametitle}{fg=sunlitBlack, bg=white}
+\setbeamercolor{itemize item}{fg=sunlitBlue900}
+\setbeamercolor{itemize subitem}{fg=sunlitBlue600}
+\setbeamercolor{enumerate item}{fg=sunlitBlue900}
+
+% --- Fonts --------------------------------------------------------------
+\setbeamerfont{frametitle}{size=\Large, series=\mdseries}
+\setbeamerfont{normal text}{size=\normalsize}
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+
+% --- Hide navigation ----------------------------------------------------
+\setbeamertemplate{navigation symbols}{}
+
+% --- Footer: left strap, right page number ------------------------------
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.75\paperwidth,ht=2.75ex,dp=1.25ex,leftskip=1.5em]{footline}%
+      \color{sunlitBlack600}\footnotesize{\everett SUNLIT SEA}\hspace{0.75em}\textbar\hspace{0.75em}Årsregnskap 2025%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.75ex,dp=1.25ex,rightskip=1.5em]{footline}%
+      \hfill\color{sunlitBlack600}\footnotesize\insertframenumber\,/\,\inserttotalframenumber%
+    \end{beamercolorbox}%
+  }%
+}
+
+% --- Frame title: title + thin yellow underline -------------------------
+\setbeamertemplate{frametitle}{%
+  \vskip1.0ex%
+  \hspace{1.5em}{\everett\Large\color{sunlitBlack}\insertframetitle}\par%
+  \vskip0.4ex%
+  \hspace{1.5em}{\color{sunlitYellow}\rule{1.5em}{2.5pt}}%
+  \par\vskip0.8ex%
+}
+
+% --- Itemize bullets ----------------------------------------------------
+\setbeamertemplate{itemize item}{\color{sunlitBlue900}\raisebox{0.15ex}{\scalebox{0.8}{\textbullet}}}
+\setbeamertemplate{itemize subitem}{\color{sunlitBlue600}\raisebox{0.1ex}{\scalebox{0.9}{\textendash}}}
+
+% --- Tables: thin blue 900 rules ----------------------------------------
+\arrayrulecolor{sunlitBlue900}
+\renewcommand{\arraystretch}{1.15}
+
+% --- Sunlit Sea symbol (reconstructed from Sunlit_Sea_symbol_RGB_V1.svg)
+% SVG polygon points, y-flipped for TikZ (viewBox 26x22, native height 20).
+% #1 = color; #2 = pt-per-unit (so 3.4 ≈ 72pt tall, 2 ≈ 42pt, 1 ≈ 21pt).
+\newcommand{\sunlitsymbol}[2][sunlitBlack]{%
+  \begin{tikzpicture}[x=#2pt, y=#2pt, baseline=0pt]
+    \fill[#1] (17.9,21) -- (8.1,21) -- (0.8,1) -- (4.3,1) -- (11.4,20.4)
+      -- (11.4,1) -- (14.6,1) -- (14.6,20.4) -- (21.7,1) -- (25.2,1)
+      -- cycle;
+  \end{tikzpicture}%
+}
+
+% --- Big-number highlight -----------------------------------------------
+\newcommand{\bignum}[2]{%
+  {\everett\color{sunlitBlue900}\fontsize{36pt}{40pt}\selectfont\bfseries #1}\par\vskip0.3em%
+  {\color{sunlitBlack700}\normalsize #2}%
+}

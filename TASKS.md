@@ -3226,3 +3226,113 @@ Nine pages, 26 KB. Visual spot-check of slide 5 confirms the fourth defensibilit
 **Status (2026-10-02).** Prep is current with the post-SINTEF data state. Task re-closed `[x]` — its scope was prep, and the prep deliverables are complete and verified. Post-call follow-ups (recap email to Mikaela, roadmap-confirm email to Balram) are closeout actions, not T122 work; if the HRB engagement spawns a mentoring cycle that produces its own workstream, a dedicated T-task should be opened for that cycle.
 
 **Files touched (reopen pass).** Modified: `surewave/deliverables/2026-10-01_hrb_kickoff_meeting_prep.md` (opening pitch, partner-input line, facts cheat-sheet additions); `surewave/deliverables/2026-10-01_hrb_kickoff_ker_presentation.md` (one new defensibility bullet on slide 5); `surewave/deliverables/2026-10-01_hrb_kickoff_ker_presentation.pdf` (re-render); `TASKS.md` (this task reopened `[~]` and this note added).
+
+---
+
+### T123 `[x]` [FUND] Ny styrefullmakt til erverv av egne aksjer – sakspapir til ordinær generalforsamling 2026
+
+Den gamle fullmakten fra 29.11.2019 utløp etter to år og er ikke senere fornyet. Selskapet trenger ny fullmakt for å kunne håndtere henvendelser fra aksjonærer som ønsker å selge seg ut, uten å måtte innkalle ekstraordinær GF for hvert tilfelle. Fullmakten skal legges fram på ordinær GF 2026 som behandler årsoppgjør 2025.
+
+**Nøkkeltall innhentet fra aksjeeierbok (per 15.12.2025) og årsregnskap 2025:**
+
+- Totalt antall aksjer: 109 138, pålydende NOK 0,31, aksjekapital NOK 33 833
+- Beholdning egne aksjer: 4 680 aksjer (4,29 %); kapasitet igjen til 10 %-taket: 6 234 aksjer
+- Siste eksterne emisjonskurs: NOK 575 per aksje (oktober 2024)
+- Fri egenkapital per 31.12.2025: ca. NOK 662 000 — setter en reell øvre ramme uavhengig av fullmaktens pris- og pålydenderamme
+
+**Draftet fullmakt:**
+
+- Periode: 2 år
+- Pålydenderamme: NOK 3 383 (10 % av aksjekapitalen)
+- Prisintervall: NOK 0,31 (pålydende) til NOK 575 per aksje (siste eksterne emisjonskurs)
+- Standardformulering om at styret fritt kan velge måte for erverv/avhendelse, innenfor aksjeloven kap. 9, § 3-4, § 4-1
+
+Styret skal i utgangspunktet tilby pålydende til aksjonærer som ønsker å selge seg ut; prisintervallet gir handlingsrom til å avtale annen pris innenfor fullmakten der det er saklig grunnlag.
+
+**Filer:**
+
+- Flyttet til riktig lokasjon med datoprefiks: `funding/background/2025-12-15_aksjeeierbok_aksjonaerer.csv`, `funding/background/2025-12-15_aksjeeierbok_transaksjoner.csv` (fra `funding/background/nye/`)
+- Opprettet sakspapir: `funding/2026-10-09_genfors_sak_fullmakt_egne_aksjer.md` — inneholder bakgrunn, nøkkeltall, juridisk ramme og vedtaksforslag, kan brukes direkte som sak i innkallingen
+
+Vedtaksforslaget er ikke kjørt forbi revisor eller styret ennå; dette er utkast til diskusjon.
+
+---
+
+### T124 `[~]` [GENERIC] Produksjons-pipeline for brev på Sunlit Sea-brevmal
+
+Sunlit Sea har en offisiell brevmal (`generic/background/2026-10-10_sunlit_sea_letterhead.docx`) som alle utgående offisielle brev skal bruke. Chrome-elementene i malen:
+
+- Førstesidens Word-header har SUNLIT SEA-ordmerket (image1.png) ankret øverst sentrert og en vannmerke-bakgrunn (image2.png, cream "A"-silhuett nede til høyre) som dekker hele sida.
+- Default-header på etterfølgende sider har bare vannmerket.
+- Footere er tomme.
+- Sideoppsett: Letter 8.5×11", top-margin=0 (ordmerket står inne i topprommet), bottom/left/right-margin=1".
+
+Behov: generere `.docx` og `.pdf` av vilkårlig `.md` på denne malen, uten å måtte copy-paste innhold i Word og uten å installere nytt.
+
+**Løsning:**
+
+Ett wrapper-skript `scripts/md_to_letter.py` dekker begge formater:
+
+- `python scripts/md_to_letter.py input.md` → `input.docx`. Internt: `pandoc --reference-doc <letterhead.docx>`. Pandoc beholder sectPr (sidestørrelse, marger), styles, numbering, header/footer-referanser og de refererte header/footer-XML-filene med sine innebygde bilder, og bytter ut body med Markdown-innholdet.
+- `python scripts/md_to_letter.py --pdf input.md` → `input.pdf`. Internt: skriptet pakker ut ordmerke- og vannmerke-PNG-ene fra `<letterhead.docx>` on-the-fly, genererer en `eso-pic`-basert LaTeX header-include som plasserer dem på samme sideposisjoner som i Word (ordmerke sentrert horisontalt ~0.85 in fra toppen av side 1, vannmerke full-side bakgrunn på hver side), og kaller pandoc med `--pdf-engine=xelatex`. Ingen ekstraherte asset-filer committes — docx'en forblir eneste kilde.
+
+Begge veier verifisert mot `funding/2026-10-09_styreprotokoll_svar_revisors_nummerert_brev_nr2_2025.md`: både `.docx` og `.pdf` har ordmerke på side 1 topp og vannmerke på begge sider.
+
+**Caveat for innholds-forfattere:** Adresse-, møte- og signaturblokker som skal rendres som separate linjer må ha to blanke tegn (eller `\`) på slutten av hver linje — ellers slår markdown dem sammen til ett avsnitt. Mest synlig i PDF-output. Dokumentert i README under *Letter / letterhead output*.
+
+**Filer opprettet/endret:**
+
+- `scripts/md_to_letter.py` — wrapper med `.docx` og `--pdf` modi.
+- `README.md` — delseksjon "Letter / letterhead output" under "Document conversion (Pandoc)" + Scripts-oppføring for `md_to_letter.py`.
+- `CLAUDE.md` — ny regel under *Pandoc is the chosen conversion tool* som peker på skriptet for offisielle brev.
+- Verifisert med `funding/2026-10-09_styreprotokoll_svar_revisors_nummerert_brev_nr2_2025.md` → `.docx` + `.pdf`.
+
+**Status etter løsning:** `[~]` fordi en PDF har vært produsert og visuelt sjekket i chat men ikke bekreftet av bruker som endelig. Flippes til `[x]` når bruker har sett over og godkjent eller når første ekte brev er levert ut.
+
+### T125 `[x]` [FUND] EUPI-PV budget position document for Clement and SINTEF
+
+HORIZON-CL5-2026-11-D3-14 (EUPI-PV Partnership) is a €7.5M lump-sum HORIZON-IA for TRL 7-8 floating-PV demonstration ≥5 MW across multiple EU sea zones, deadline 2026-12-01. Sunlit Sea is positioning as technical lead for FPV delivery in the consortium forming around SINTEF, with Clement Germany as another consortium partner.
+
+Scope shift from the earlier Balram-meeting position (one site, €0.5-1.5M hardware supplier): Sunlit Sea now proposes to deliver the full 5000 kWp of Gen 2 FPV units across the consortium's EU demonstration sites, plus a project-dedicated FOAK pilot production line, plus technical lead on one or two WPs. Needed: a standalone position document for Clement and SINTEF stating the proposed scope, the share of the €7.5M lump sum Sunlit Sea claims, the real-cost build-up backing the claim, and the eligibility structure that keeps the claim defensible against the portal Q&A ruling on construction costs.
+
+**Deliverable:** `funding/deliverables/eupi_pv/2026-10-13_sunlit_sea_budget_proposal_eupi_pv.md`. English. Standalone — no repo paths, no task refs, no companion-doc references. Target length ~2 pages. Headline ask approximately €4.4M grant / €6.25M eligible real cost / €1.9M own co-financing.
+
+**Context files:**
+
+- `funding/background/eupi_pv/2026-08-04_horizon_cl5_2026_11_d3_14_call_text.md` — call text and portal Q&As (incl. the construction-cost ruling)
+- `funding/background/eupi_pv/2026-08-11_eu_call_evaluation_fpv_5mw_trl78.md` — Sunlit Sea's internal opportunity assessment (TRL constraints, 5 MW multi-zone requirement, consortium composition, EIC Transition dependency)
+- `funding/deliverables/eupi_pv/2026-10-01_balram_meeting_eupi_pv_talking_points.md` — Balram meeting prep (prior "one site" position)
+
+**Solution:**
+
+Standalone position document delivered at `funding/deliverables/eupi_pv/2026-10-13_sunlit_sea_budget_proposal_eupi_pv.md`. Structure:
+
+1. Context paragraph — call ID, lump-sum type, demonstration scale and TRL target, deadline.
+2. Headline — proposed scope and the three headline numbers.
+3. Site split and responsibility matrix — Gunneklevfjorden (3.2 MWp) end-to-end by Sunlit Sea; Clement's Portuguese nearshore site (~1.8 MWp) with Sunlit Sea on FPV + DC and Clement on permitting / mooring / grid.
+4. Budget build-up table — personnel, equipment, materials, subcontracting, G&W&S, travel, indirect at HE 25 % flat rate on direct ex-subcontracting.
+5. Lump-sum share — grant at 70 % IA rate, co-financing at 30 %, consortium envelope split.
+6. Eligibility structure — addresses the portal Q&A ruling that construction costs of the demonstration plant cannot be entirely funded. Frames the Sunlit Sea ask as the FOAK innovation delta (production line, FOAK unit premium, R&D personnel, dissemination) rather than the commercial installed value, which site owners recover through PPAs and national investment instruments.
+7. Preconditions — co-financing capacity (board confirmation), EIC Transition SUREWAVE dependency for Gen 2 TRL uplift, execution capacity needing staff-up during project, second-site eligibility (Portuguese nearshore, not Hainer See lake).
+8. Scope fallback — if the envelope doesn't accommodate the full share or EIC Transition is not awarded: one-site contribution at Gunneklevfjorden only, €0.8-1.5M.
+9. Next step — consortium alignment call before writing phase.
+
+Numbers (final version — see revision log below). Direct 4 400 000 (Personnel 1.3M + Equipment 1.5M + Materials 1.0M + Sub 0.4M + GWS 0.1M + Travel 0.1M), indirect 1 000 000 (25 % × direct ex-subcontracting = 25 % × 4 000 000), total 5 400 000, grant at 70 % ≈ 3 780 000 ≈ €3.75M (headline rounded to 50 % of the €7.5M lump sum), co-financing at 30 % ≈ €1.65M.
+
+Document is standalone — no repo paths, no task refs, no companion-doc references, no YAML `source:` field. YAML header carries `title`, `date`, `author` only, all intended for rendering. No bold in body text. No emphasis-by-assertion phrasing.
+
+Call eligibility check incorporated: the portal Q&A explicitly excludes inland waters (lakes, reservoirs, dams) from the offshore/nearshore scope. Hainer See as Clement's second-site option therefore fails eligibility and the document names Clement's Portuguese nearshore site as the only viable path.
+
+The accompanying docx has not been generated — convert on explicit order (`python scripts/md_to_letter.py` is for official letters only; the budget doc is a non-letterhead deliverable and converts via plain `pandoc <file>.md -o <file>.docx`).
+
+**Revision log:**
+
+- 2026-10-13 initial — €4.4M grant / €6.25M real cost / €1.9M co-financing; scope was 5000 kWp FPV delivery only, excluding anchoring, mooring, cables, inverters, grid-tie, pre-feasibility.
+- 2026-10-13 revision — €3.75M grant / €5.4M real cost / €1.65M co-financing. Scope expanded: Sunlit Sea takes Gunneklevfjorden end-to-end through grid connection + permitting + light mooring (made feasible by the capped-seabed subsea structure) + FPV and DC electrical at Clement's second site. Clement takes anchoring, mooring, permitting and grid at the second site. Materials line trimmed from €1.5M to €1.0M to fit the halved cap — rationale: only the FOAK premium is project-eligible under the construction-cost Q&A ruling, which is a cleaner story under tighter headroom.
+
+**Files touched:**
+
+- `funding/deliverables/eupi_pv/2026-10-13_sunlit_sea_budget_proposal_eupi_pv.md` (new; revised in-place).
+- `funding/background/eupi_pv/` and `funding/deliverables/eupi_pv/` subfolders created in a preceding step; call text, opportunity assessment and Balram talking points moved into them.
+- `README.md` — funding section updated with `eupi_pv/` subfolder entries under both background and deliverables, plus a per-file entry for the new budget doc.
+

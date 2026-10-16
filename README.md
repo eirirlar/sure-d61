@@ -136,6 +136,78 @@ Explanation of the flags:
 
 **Note – long code lines in PDF:** The default pandoc setup does *not* automatically break long lines in code blocks – lines wider than the page are visually cut (the text is still intact in the output, just not visible). Accepted for this project. Keep code lines short in the source when possible.
 
+### Letter / letterhead output
+
+Outgoing official letters on the Sunlit Sea letterhead are generated from a `.md` source via `scripts/md_to_letter.py`. The letterhead template at `generic/background/2026-10-10_sunlit_sea_letterhead.docx` is the single source of truth: for `.docx` it is passed to pandoc as `--reference-doc` so the SUNLIT SEA wordmark, cream "A" watermark, page size, margins and styles come across; for `.pdf` the wrapper extracts the wordmark + watermark PNGs from the same `.docx` on the fly and places them via an `eso-pic` LaTeX header-include that reproduces the Word positions.
+
+```bash
+# DOCX next to the .md
+python scripts/md_to_letter.py path/to/brev.md
+
+# PDF next to the .md (xelatex + eso-pic; no LibreOffice/Word needed)
+python scripts/md_to_letter.py --pdf path/to/brev.md
+
+# Custom output path (either format)
+python scripts/md_to_letter.py path/to/brev.md -o generic/deliverable/path.docx
+python scripts/md_to_letter.py --pdf path/to/brev.md -o generic/deliverable/path.pdf
+
+# Different letterhead (if a new version arrives)
+python scripts/md_to_letter.py path/to/brev.md --letterhead other_letterhead.docx
+```
+
+**Prerequisites:** `pandoc` on PATH (both formats), and `xelatex` from TeX Live on PATH (`--pdf` only). Both are already set up on the standard dev environment per the *Prerequisites – installation* section above.
+
+**Content conventions when writing the `.md`:** The template is intended for letter-shape content (address block, date, salutation, body, signature). Keep headings minimal — a short bold subject line as the opening is usually enough. If a heading is needed, use H2+ (H1 competes visually with the wordmark). Stacked address and signature blocks must have two trailing spaces at the end of each line (or a trailing `\`) so they do not fold into one paragraph (see the top-level *Markdown lists render correctly* rule) — the merge is especially visible in PDF output.
+
+**Signature block convention — single signer:** Use escaped underscores (`\_`) for the signature line and two-space line breaks for name/title stacking. Add 2–3 blank paragraphs (`\` on its own line) above the signature line to leave room for a physical signature:
+
+```
+Oslo, 9. oktober 2026
+
+\
+
+\
+
+\
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
+Per Lindberg  
+Styreleder
+```
+
+The backslash-escapes prevent pandoc from reading the underscores as a Markdown horizontal rule (which LaTeX would centre on the page, disconnecting the line from the name). With `\_` the underscores render as inline text — left-aligned, with the name and title on their own lines directly below. Works in both `.docx` and `.pdf` output.
+
+**Signature block convention — two signers side by side (PDF only):** Use pandoc's raw-LaTeX block syntax with `minipage`:
+
+~~~
+Oslo, 9. oktober 2026
+
+\
+
+\
+
+\
+
+```{=latex}
+\noindent
+\begin{minipage}[t]{0.45\textwidth}
+\rule{\linewidth}{0.4pt}\\
+Per Lindberg\\
+Styreleder
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+\rule{\linewidth}{0.4pt}\\
+Eirik Larsen\\
+Styremedlem
+\end{minipage}
+```
+~~~
+
+This renders two signature blocks side by side with the signature lines drawn by `\rule`. The `0.45\textwidth` minipages leave ~10% whitespace between the two blocks. `\hfill` pushes the second block to the right margin. Works in `.pdf` only — pandoc silently drops the raw-LaTeX block when producing `.docx`, so the `.docx` output will have no signature block in its place. For a `.docx` with side-by-side signatures, add them manually in Word after `md_to_letter.py` has produced the base `.docx`.
+
+**When the letterhead `.docx` is updated:** replace `generic/background/2026-10-10_sunlit_sea_letterhead.docx` with the new version (keep the date-prefixed filename pointing at the current one, or add a `--letterhead` flag to the call for a transition period). Both `.docx` and `.pdf` outputs pick up the new wordmark/watermark automatically on the next run.
+
 ---
 
 ## Mermaid figures
@@ -206,6 +278,52 @@ After conversion:
 ## Scripts
 
 Persistent helper scripts live in `scripts/` at the repo root — never scattered inside data folders like `generic/`, `sure/`, `funding/`, `gen2/`. Follows the same pattern as the neighbouring `../fjordgata30` project.
+
+### `scripts/md_to_letter.py`
+
+Produces a `.docx` or `.pdf` of a Markdown file on the Sunlit Sea letterhead (SUNLIT SEA wordmark on the first-page header, cream "A" watermark on every page, Letter page size, 1" margins).
+
+- `.docx` path: pandoc with `--reference-doc <letterhead.docx>` — the letterhead's headers, footers, images, page size, margins and styles are kept; the Markdown becomes the body.
+- `.pdf` path (`--pdf`): the wrapper extracts the wordmark + watermark PNGs from the letterhead `.docx` on the fly, writes a `eso-pic` LaTeX header-include that places them at the Word positions (wordmark centred ~0.85 in from top of page 1; watermark full-page background on every page), then calls pandoc with `--pdf-engine=xelatex`. No committed image assets, no manual Word step, no LibreOffice.
+
+Default letterhead: `generic/background/2026-10-10_sunlit_sea_letterhead.docx` (override with `--letterhead`). Default output: sibling file next to the input, with `.docx` or `.pdf` as appropriate (override with `-o`).
+
+```bash
+# Default: writes <input>.docx next to <input>.md
+python scripts/md_to_letter.py funding/2026-10-15_svar_myndighet.md
+
+# Produce PDF instead
+python scripts/md_to_letter.py --pdf funding/2026-10-15_svar_myndighet.md
+
+# Custom output path
+python scripts/md_to_letter.py funding/2026-10-15_svar_myndighet.md -o generic/deliverable/2026-10-15_svar_myndighet.docx
+```
+
+See the *Letter / letterhead output* subsection under *Document conversion* above for content-shape conventions.
+
+### `scripts/md_to_slides.py`
+
+Produces a PDF slide deck in Sunlit Sea's visual profile (Everett headlines + Arial body, yellow #FFE775 and blue #2F354F accents, dark title / section-divider slides) via pandoc → beamer → xelatex. 16:9 widescreen; thin yellow underline below each slide title; footer with `SUNLIT SEA | Årsregnskap 2025` strap and page counter.
+
+The theme lives in `scripts/sunlit_sea_slides_header.tex` and defines the color palette, frame title, footer, and `\bignum{tall}{beskrivelse}` helper. Everett .ttf files are read from `visual_profile/fonts/` — the wrapper writes a tiny prelude at build time that loads them from the absolute path so XeLaTeX finds them without the fonts being system-installed.
+
+```bash
+# Default: writes <input>.pdf next to <input>.md
+python scripts/md_to_slides.py generic/deliverable/2026-10-13_generalforsamling_arsregnskap_2025_slides.md
+
+# Custom output path
+python scripts/md_to_slides.py path/to/deck.md -o path/to/out.pdf
+```
+
+Markdown conventions for the deck:
+
+- `## Heading` begins a new frame (pandoc runs with `--slide-level=2`).
+- `## {.plain}` begins a chrome-free frame (no title, no footer); use for title slide, section dividers, closing slide. Fill with a raw `\begin{tikzpicture}[remember picture, overlay] ... \end{tikzpicture}` to paint the whole page.
+- For section dividers: `\fill[sunlitYellow] (current page.north west) rectangle (current page.south east);` then nodes for the "Del N" label and section title.
+- For big-number highlight blocks: `\bignum{2{,}2 MNOK}{Beskrivelse}` inside a `columns` layout.
+- Use raw `\begin{tabular}{@{}lrrr@{}}...\end{tabular}` for tables (markdown pipe-tables render but have less control over spacing / column emphasis). Keep inline `\color{sunlitBlue900}` inside raw tabular — pandoc preserves braces in raw latex blocks but escapes them in prose, so avoid `{\color{...}...}` in body text (use `\textcolor{sunlitBlue900}{\textbf{...}}` or plain `**bold**` instead).
+
+Reference deck: `generic/deliverable/2026-10-13_generalforsamling_arsregnskap_2025_slides.md` (annual general assembly presentation for Årsregnskap 2025).
 
 ### `scripts/md_image_to_html.py`
 
@@ -459,22 +577,44 @@ Grant applications, Horizon Europe periodic reporting, CINEA reviews, financial 
 
 Note: SuRE deliverables (D6.1, D6.2) live under `sure/` because they are the technical work products, not the funding-and-reporting side. Track funding-side artefacts here (periodic reports, financial statements, grant application drafts, CINEA correspondence, investor recaps).
 
-Current contents:
+Layout: outbound documents (letters, mails, notes, applications, board resolutions) live under `funding/deliverables/`. Working drafts, templates and accountant-sourced reconciliations stay at the activity root. Date-prefixed background inputs live under `funding/background/`.
+
+At the activity root:
 
 - `nedskriving_2025.md` — the substantive impairment test for the 2025 annual accounts (T79). All 7 indicators explicitly assessed with concrete reasoning drawn from the løypemelding narrative; conclusion is that no impairment is required. Only NOK amounts remain as placeholders, filled from the general ledger.
 - `nedskriving_mal.md` — company-independent template for impairment tests under Norwegian accounting rules (rskl § 5-3, NRS 8, NRS(F) Nedskrivning, NRS 4). 12 sections + checklist, applicable to micro/small/medium/large foretak. Reference for future testing years or other companies (T78).
-- `nedskriving_draft.md` — Eirik's short note framing the 2025 argument (external validation from Sintef/IFE, gen 1 → gen 2 transferability). Basis for T79.
-- `nedskriving.md` — original T75 draft. Placeholder-heavy; superseded by `nedskriving_2025.md` for the 2025 test but retained per instruction.
-- `2026-09-10_vedlegg_skattemelding_2025_prinsippendring.md` — short justification of the 2025 accounting principle change, for attachment to the 2025 tax return. Follows the auditor's 2026-09-10 guidance (2024 effect directly against retained earnings; 2024 tax depreciation reversed in the 2025 return). Tax depreciation amount is a placeholder (`XXX`) for the accountant to fill in.
-- `2026-09-10_svar_regnskapsforer_prinsippendring_skattemelding.md` — cover mail to the accountant sending the justification above, asking them to fill in the amount and confirm the tax paragraph.
+- `cinea_sellin_template.md` — reusable template for CINEA-facing project descriptions (used to rebuild the SuRE extension project description in T105).
+- `aktivering_reklassifisering.md`, `aktivering_regnskapsforer_mail.md`, `aktivering_regnskapsforer_mail2.md` — in-progress working notes and draft mails on the FoU-aktivering / reklassifisering line of work. No date prefix because they are drafts rather than filed outputs.
+- `1005 forskning og utvikling - oppdatert.md`, `2160 SUNLIT SEA AS_opptjente tilskudd - oppdatert avstemming.md` — accountant-sourced reconciliation reports for the FoU asset account and the deferred-grant liability. Un-prefixed names kept from the regnskapsfører's own filing.
+- `2025-12-31_bilag_383_prinsippendring.md` — regnskapsfører's calculation note for Bilag 383 (2025) covering the FoU 2021 opening balance, cumulative depreciation 2021–2024, the equity-side reversal, the reclassification to konto 1205 (pressverktøy), and the full depreciation of the remaining FoU 2021 balance in 2025.
+
+`funding/deliverables/` — outbound funding documents authored by Sunlit Sea (letters, cover mails, auditor packs, tax-return attachments, board resolutions, grant-application text):
+
+- `2026-07-14_mail_regnskapsforer_revisorpakke.md` — cover mail to Orkla Regnskap transmitting the first revisorpakke on prinsippendring, aktivering and nedskrivingstest.
+- `2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` — the auditor-pack itself, 13 sections, standalone deliverable to revisor. Covers prinsippendring, aktivering overview, vilkårsvurdering, tilskuddsbehandling, avskrivningsreversering, avskrivningsstart, balanseeffekt, nedskrivingstest, konklusjon. Rounded amounts; the `_eksakte_belop` sibling keeps the exact figures. The `.cleaned.md` variant is a mechanical cleanup of the same file.
+- `2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest_eksakte_belop.md` — reference copy of the revisorpakke with exact (non-rounded) NOK amounts, kept alongside the rounded delivery copy.
+- `2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest.cleaned.md` — cleanup-script output of the revisorpakke.
+- `2026-08-26_dialog_revisor_prinsippendring.md` — transcript / referat of the dialogue with revisor on how to split the prinsippendring into separate 2024 and 2025 effects, how to present the equity note, and how to structure the nedskrivingstest at two balance dates.
+- `2026-08-26_endringer_arsregnskap_2025_prinsippendring.md` — spec of the changes to the 2025 annual accounts stemming from the prinsippendring.
+- `2026-09-10_vedlegg_skattemelding_2025_prinsippendring.md` — short justification of the 2025 accounting principle change, for attachment to the 2025 tax return. Follows the auditor's 2026-09-10 guidance (2024 effect directly against retained earnings; 2024 tax depreciation reversed in the 2025 return).
+- `2026-09-11_sure_extension_budget_sunlit.md` — internal working draft of the budget to be entered into the SuRE extension budget sheet, with per-cell reasoning and cell references.
+- `2026-09-11_sure_extension_project_description.md` — outbound project description for the SuRE extension application, rebuilt from `cinea_sellin_template.md` in T105.
 - `2026-09-17_mail_regnskapsforer_fortsatt_drift.md` — request to Orkla Regnskap for the numeric basis the board needs before responding to the auditor's forthcoming numbered letter on going-concern uncertainty (T106.01). Covers cash position, debt service schedule, fixed costs, tax/VAT/tvangsmulkt status, receivables, grant disbursements, equity composition, and the status of the T81 principle change.
 - `2026-09-17_styrets_vurdering_fortsatt_drift.md` — formal board assessment of going concern (T106.04). Standalone deliverable to auditor with cash position, inflows over 12 months, dokumenterte debt service plans (IN quarterly avdrag + SB1 renegotiated plan), risk assessment (aged supplier debt, receivables written down, pantstillelse), and conclusion that going-concern basis is upheld. Signed by Per Lindberg (styreleder) and Eirik Larsen (styremedlem), Oslo 17.09.2026.
 - `2026-09-17_note_fortsatt_drift_arsregnskap.md` — draft note for the 2025 annual accounts summarising the board's going concern assessment (T106.06). Written for insertion after existing note 11, gives basis for auditor to issue an emphasis-of-matter paragraph (ISA 570 pkt. 22) with unmodified opinion instead of a qualified opinion. Uses "vesentlig usikkerhet" wording explicitly.
 - `2026-09-17_mail_revisor_note_fortsatt_drift.md` — cover mail to auditor proposing the going concern note above, in response to her offer of the emphasis-of-matter route.
+- `2026-09-28_note_immaterielle_eiendeler_arsregnskap.md` — draft note on immaterielle eiendeler for the 2025 annual accounts.
+- `eupi_pv/` — subfolder for the HORIZON-CL5-2026-11-D3-14 (EUPI-PV Partnership) grant-application thread. Authored material only: meeting prep, budget position, proposal text. Companion background (call text, internal opportunity assessment) lives in `funding/background/eupi_pv/`.
+  - `2026-10-01_balram_meeting_eupi_pv_talking_points.md` — talking points for the Balram (SINTEF) meeting on the EUPI-PV call. Positions Sunlit Sea as FPV-technology partner for one site, flags EIC Transition SUREWAVE dependency, lists mandatory consortium roles.
+  - `2026-10-13_sunlit_sea_budget_proposal_eupi_pv.md` — Sunlit Sea's proposed scope and budget for the EUPI-PV consortium (T125). Positions Sunlit Sea as technical lead for 5000 kWp FPV delivery across two EU nearshore sites, plus a project-dedicated FOAK pilot production line. Site split: Gunneklevfjorden (3.2 MWp) end-to-end by Sunlit Sea incl. electrical + grid connection + permitting + light mooring on the capped seabed; Clement's Portuguese nearshore site (~1.8 MWp) with Sunlit Sea on FPV + DC electrical, Clement on permitting + mooring + grid. Claims €3.75M of the €7.5M lump sum (50 %), backed by €5.4M in estimated real costs + €1.65M in own co-financing. Addresses the portal Q&A on construction-cost eligibility by framing the ask as the FOAK innovation delta. Flags that Hainer See (lake) fails eligibility under the offshore/nearshore scope restriction, so the second site must be Portuguese nearshore. Includes a scope fallback (single-site Gunneklevfjorden only, ~€0.8-1.5M) if EIC Transition SUREWAVE is not awarded or the envelope cannot accommodate the full share. Standalone English, no companion-doc dependencies.
+- `2026-10-09_genfors_sak_fullmakt_egne_aksjer.md` — generalforsamling case: styrefullmakt for erverv av egne aksjer.
+- `2026-10-09_styreprotokoll_svar_revisors_nummerert_brev_nr2_2025.md` + `.docx` — board resolution responding to the auditor's numbered letter no. 2 (2025).
+- `2026-10-09_vedlegg_skattemelding_2025_prinsippendring_kort.md` — short-form tax-return attachment on the 2025 accounting principle change.
 
-`funding/background/` holds date-prefixed background material for the funding stream, plus the `nye/` inbox for unprocessed files.
+`funding/background/` holds date-prefixed background material for the funding stream, plus the `nye/` inbox for unprocessed files. Per-application subfolders hold grouped material for a specific grant thread.
 
 - `2026-08-21_vollsfjorden_solkraftanlegg/` — the Vollsfjorden floating-solar document set (T100), converted from the `nye/Vollsfjorden Solkraftanlegg/` inbox. 10 `.md` files + 9 extracted images in `images/<doc-stem>/` + one raw `.csv`. Two groups: `tillatelse_*` (Kystverket permit, Prosolar site plan D1, Grenland Havn referral letter, Skien kommune and Statsforvalteren consultation replies) and `ppa_*` / `enova` / `gammel_tuf_soknad_*` (PPA template + Vollsfjorden PPA draft in both PDF and DOCX form, Enova application draft, old Telemark utviklingsfond application 2025-0039). Folder date is the filing date, not a document date — the set spans 2025-02 to 2025-09.
+- `eupi_pv/` — HORIZON-CL5-2026-11-D3-14 (EUPI-PV Partnership) grant-application thread. €7.5M lump-sum HORIZON-IA for TRL 7-8 floating PV demonstration ≥5 MW across multiple EU sea zones, deadline 2026-12-01. Holds the retrieved call text and Sunlit Sea's internal opportunity assessment. Companion authored material (meeting prep, budget position, proposal text) lives in `funding/deliverables/eupi_pv/`.
 
 Open funding tasks carry the `[FUND]` tag in `TASKS.md`.
 
@@ -533,6 +673,8 @@ sure-d61/
 ├── sure/                      – SuRE WP6 activity
 ├── gen2/                      – Gen 2 product development
 ├── funding/                   – Grants, EU reporting, financial
+│   ├── background/            – date-prefixed background inputs (nye/ inbox)
+│   └── deliverables/          – outbound funding documents (auditor packs, mails, notes, applications, board resolutions)
 └── surewave/                  – SUREWAVE Horizon Europe project (Grant Agreement 101083342)
     ├── background/            – Filed consortium deliverables, Grant Agreement, Proposal, Annex 1 Part B
     ├── images/                – pandoc-extracted images per deliverable
