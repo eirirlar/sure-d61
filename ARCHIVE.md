@@ -4,6 +4,17 @@ Completed tasks are moved here from `TASKS.md` once they are done and no longer 
 
 Legend: all entries here are `[x]` Done.
 
+## Index
+
+| Section | T-range | Theme |
+|---|---|---|
+| [D6.2 preparation](#d62-preparation) | — | Reserved for future D6.2 closures |
+| [D6.1 – Report quality (from analysis.md)](#d61--report-quality-from-analysismd) | T56–T69 | Repetition cleanup, structure, KPI additions |
+| [D6.1 – IFE review feedback (Nathan, v6_comments.docx)](#d61--ife-review-feedback-nathan-v6_commentsdocx) | T25–T55 | Tracked-change paragraphs, figures and §-level rewrites |
+| [Earlier D6.1 tasks (bulk)](#earlier-d61-tasks-bulk) | T70 | Figure placement, camelCase cleanup, section strengthening |
+| [Repo management / restructure](#repo-management--restructure) | T71, T73 | Scope broadening to all Sunlit Sea activities, `generic/background/` convention |
+| (post-split, FUND tasks) | T75–T79 | Nedskrivingstest, løypemeldingsdraft, markedskartlegging, mal, revidert nedskrivingstest |
+
 ---
 
 ## D6.2 preparation

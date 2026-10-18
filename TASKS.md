@@ -13,6 +13,87 @@ Blocked items are tagged **[BLOCKED — needs input from …]** with the specifi
 
 --
 
+## Index
+
+Flat list of every task in this file, sorted by T-number. `[ ]` not started · `[~]` in progress · `[x]` done.
+
+- T01 `[ ]` [SURE] Reduce repetition (Comment 446)
+- T02 `[ ]` [SURE] Deliver missing IFE figures
+- T03 `[ ]` [SURE] Add References section to the report
+- T04 `[ ]` [SURE] Add abbreviation list
+- T05 `[ ]` [SURE] Add list of figures
+- T06 `[ ]` [SURE] Resolve or flag TODO comments before submission
+- T07 `[ ]` [SURE] Resolve I-2 TODOs with IFE
+- T08 `[ ]` [SURE] Implement I-3 (thickness field transfer)
+- T09 `[ ]` [SURE] Resolve I-4 TODOs with IFE
+- T10 `[ ]` [SURE] Formalise I-5 (LCA with TNO)
+- T11 `[ ]` [SURE] Design 3DFloat→SiSim interface
+- T12 `[ ]` [SURE] Measure off-white PU absorptivity
+- T13 `[ ]` [SURE] Run thermal CFD for P4 geometry
+- T14 `[ ]` [SURE] Complete white PU UV testing at IFE
+- T15 `[ ]` [SURE] Complete adhesion testing on P3 samples
+- T16 `[ ]` [SURE] Get TNO LCA results
+- T17 `[ ]` [SURE] Complete P4 prototype
+- T18 `[ ]` [SURE] Mechanical simulation (SiSim) on P4
+- T19 `[ ]` [SURE] Resolve cast-on-frame vs separate-and-mount architecture decision
+- T20 `[ ]` [SURE] Multi-domain design screening
+- T21 `[ ]` [SURE] Full experimental testing details for D6.2
+- T22 `[ ]` [SURE] Structural modelling with infill
+- T23 `[ ]` [SURE] D6.2 must deliver on inter-model data-transfer
+- T24 `[ ]` [SURE] D6.2 framing
+- T72 `[~]` [GEN2] Norsmaterials partner brief (PU casting collaboration)
+- T74 `[ ]` [FUND] Investor recap for the past year — enrich Eirik's writeup with project content
+- T80 `[x]` [FUND] Anmodning til Skatteetaten om tvangsmulkt-utsettelse for skattemelding 2025
+- T81 `[x]` [FUND] Revisorspakke: prinsippendring aktivering av SuRE-utviklingskostnader + avskrivningsstopp + nedskrivingstest 2025
+- T82 `[x]` [FUND] Oppdater revisorpakken basert på regnskapsførers svar i mail 2
+- T83 `[x]` [FUND] Bygg inn teknologiplattform-narrativ (gen 1 / gen 2 / SuRE / Surewave) i revisorpakken
+- T84 `[x]` [FUND] PDF-layoutfiks i revisorpakken — NBSP i tall og mindre tabellfont
+- T85 `[x]` [FUND] Avrunding av alle beløp i revisorpakken til hele tusen kroner
+- T86 `[x]` [FUND] Rett TRL-nivå for gen 2 fra TRL 5-6 til TRL 4 i revisorpakken og TRL-figuren
+- T87 `[x]` [FUND] Oppdater løypemeldingen 2026-07-08 med prinsippendring-narrativ
+- T88 `[x]` [FUND] Klage over tvangsmulkt til Skatteetaten
+- T89 `[x]` [SURE] Cleanup av `sure/`-mappa for framtidig bruk
+- T90 `[x]` [SURE] Ekstraher bilder fra PDF-er i `sure/background/`
+- T91 `[x]` [SURE] Konverter .jp2 til .png og sett inn inline image-refs i background-.md-filer
+- T92 `[x]` [FUND] Foreslå optimal EIC Transition prosjektstruktur fra Sunlit Sea-perspektiv
+- T93 `[x]` [FUND] Rens SINTEF EIC WP-forslag docx og skriv diff-vurdering mot Sunlit Sea-forslag
+- T94 `[x]` [FUND] Skriv tilbakemeldingsdokument til SINTEF (Balram) på EIC-WP-forslag
+- T95 `[x]` [FUND] Konverter `generic/background/new/` til dato-stemplede .md-filer
+- T96 `[x]` [FUND] Flytt `leveranser/`-innhold til `generic/background/` og oppdater historikk
+- T97 `[x]` [FUND] Gjennomgang av krav til PES-midler (basert på T95-filene)
+- T98 `[x]` [FUND] Lag søknadsmal (utkast med feltinnhold) for PES-søknad ES765081 EIC_SUREWAVE_DEMO
+- T99 `[x]` [FUND] Skriv PES-vedlegg for ES765081 EIC_SUREWAVE_DEMO
+- T100 `[x]` [FUND] Convert Vollsfjorden PDFs to Markdown with extracted images
+- T101 `[x]` [FUND] Splitt nedskrivingstesten i revisorpakken i to separate vurderinger — per 31.12.2024 og per 31.12.2025
+- T102 `[x]` [FUND] Gjennomgå og gi revisjonsstrategi for EIC Transition-søknaden (SUREWAVE_EIC)
+- T103 `[x]` [FUND] Verifiser EIC-call-reglene mot Work Programme 2026 og skriv om hele søknaden
+- T104 `[~]` [FUND] Iterate EIC Transition proposal on Eirik's feedback rounds
+- T105 `[x]` [FUND] Apply CINEA sell-in template to SuRE extension proposal (Gunneklevfjorden / D6.4 extended)
+- T106 `[ ]` [FUND] Motargumentasjon mot revisors konklusjon om usikkerhet ved fortsatt drift
+- T107 `[x]` [GENERIC] Introduce `generic/` cross-cutting folder and migrate the old root-level background tree
+- T108 `[x]` [GENERIC] Introduce `surewave/` activity folder and process its background inbox
+- T109 `[x]` [GENERIC] SUREWAVE D8.3 — Technical Brochure (SIS lead, co-authored with SINTEF)
+- T110 `[x]` [GENERIC] SUREWAVE D8.4 — Exploitation Pathways & Definitive Business Plan (SIS lead)
+- T111 `[x]` [GENERIC] SUREWAVE consortium status report — walkthrough of all deliverables
+- T112 `[x]` [GENERIC] Consolidate SUREWAVE background images into `surewave/images/`
+- T113 `[~]` [GENERIC] SUREWAVE — Report on Exploitable Results (aggregation of partner exploitation summaries)
+- T114 `[x]` [GENERIC] Enrich SUREWAVE Technical Brochure (D8.3) with SINTEF's main technical progress framing
+- T115 `[~]` [GENERIC] SUREWAVE WP8 — presentation talking-points (all-project walkthrough)
+- T116 `[x]` [GENERIC] SUREWAVE D1.7 (Data Management Plan Release 2) — Sunlit Sea review
+- T117 `[x]` [GENERIC] SUREWAVE WP8 — final-meeting interview scripts (4 partners, 5 min each)
+- T118 `[x]` [GENERIC] SUREWAVE WP/task/deliverable authoritative index (reference file)
+- T119 `[x]` [GENERIC] SUREWAVE images housekeeping — EMF rasterisation, sunlit-sea photos, technical-images index rename, date-prefix rule extension
+- T120 `[~]` [GENERIC] SUREWAVE D8.3 Technical Brochure — review passes (design, image typography, image facts)
+- T121 `[x]` [GENERIC] SUREWAVE — Update the exploitation report (D8.4 + Exploitable Results Report) against CINEA/HE exploitation requirements
+- T122 `[x]` [GENERIC] SUREWAVE — Horizon Results Booster kickoff: prep for 2026-10-02 call
+- T123 `[x]` [FUND] Ny styrefullmakt til erverv av egne aksjer – sakspapir til ordinær generalforsamling 2026
+- T124 `[~]` [GENERIC] Produksjons-pipeline for brev på Sunlit Sea-brevmal
+- T125 `[x]` [FUND] EUPI-PV budget position document for Clement and SINTEF
+- T126 `[x]` [GENERIC] AI-collaboration-friendly restructure (3 phases)
+- T127 `[x]` [GENERIC] Define `generate-slides` skill — Sunlit Sea visual-profile slide decks
+- T128 `[~]` [GENERIC] Define `generate-surewave-docx` skill — apply SUREWAVE docx template to a `.md` file
+- T129 `[x]` [GENERIC] Define `generate-surewave-pptx` skill — apply SUREWAVE pptx template to a `.md` file
+
 ## Tasks
 
 ### T01 `[ ]` [SURE] Reduce repetition (Comment 446)
@@ -3335,4 +3416,338 @@ The accompanying docx has not been generated — convert on explicit order (`pyt
 - `funding/deliverables/eupi_pv/2026-10-13_sunlit_sea_budget_proposal_eupi_pv.md` (new; revised in-place).
 - `funding/background/eupi_pv/` and `funding/deliverables/eupi_pv/` subfolders created in a preceding step; call text, opportunity assessment and Balram talking points moved into them.
 - `README.md` — funding section updated with `eupi_pv/` subfolder entries under both background and deliverables, plus a per-file entry for the new budget doc.
+
+---
+
+### T126 `[x]` [GENERIC] AI-collaboration-friendly restructure (3 phases)
+
+Three-phase meta-task to restructure how documentation, files, and recurring workflows are organised in this repo so future AI (and human) sessions can orient quickly, find things reliably, and avoid repeating past mistakes.
+
+- T126.01 — Phase 1: documentation optimization. Slim `CLAUDE.md` and `README.md` by extracting long rule-elaborations and topic sections to a new `docs/` tree. Add TOCs to `README.md`, `TASKS.md` and `ARCHIVE.md`.
+- T126.02 — Phase 2: repo layout optimization. Introduce subfolder structure where flat spaces have grown crowded, add case-index files for the top 1–3 cross-cutting threads, codify the archive pattern for closed cases.
+- T126.03 — Phase 3: skills definition. Capture 3–7 recurring workflows as Claude Code skills under `.claude/skills/<name>/SKILL.md`.
+
+#### T126.01 `[x]` Phase 1 — documentation optimization
+
+Scope and target shape agreed with Eirik; see brief at top of the conversation.
+
+Extractions out of `CLAUDE.md` into `docs/rules/*.md` for rules with >5 lines of elaboration (batch-edits, date-prefix, git-gh-forbidden, destructive-ops, agent-worktrees, reread-source, follow-conventions). The SuRE background images section moves to `docs/sure_images.md`.
+
+Extractions out of `README.md` into topic files: `docs/pandoc_conversion.md` (Document conversion + Letter/letterhead), `docs/scripts.md` (all helper scripts), `docs/background_convention.md`.
+
+TOCs: `README.md` (section-heading list), `TASKS.md` (flat ID list), `ARCHIVE.md` (section table).
+
+Verify with grep for stale references.
+
+Solution:
+
+Created `docs/` tree:
+- `docs/rules/batch-edits.md`, `date-prefix.md`, `git-gh-forbidden.md`, `destructive-ops.md`, `agent-worktrees.md`, `reread-source.md`, `follow-conventions.md` — rule elaborations extracted verbatim from CLAUDE.md.
+- `docs/sure_images.md` — the full SuRE images reference (previously the trailing section of CLAUDE.md).
+- `docs/pandoc_conversion.md` — Document conversion (Pandoc) + Letter/letterhead subsection extracted from README.md.
+- `docs/scripts.md` — the full Scripts reference extracted from README.md, with a TOC up front linking to each script's own anchor.
+- `docs/background_convention.md` — Background convention extracted from README.md.
+
+Rewrote `CLAUDE.md`: 196 → 165 lines. Added a `## Pointers` block near the top listing `docs/` entry points. Rules that got extracted now carry a one-liner lead + a `See [docs/rules/<slug>.md]` link. Rule bullets under ~5 lines of elaboration stayed fully inline.
+
+Rewrote `README.md`: 684 → 268 lines. Added a `## Contents` TOC within the first 40 lines listing both the sections kept inline (PDF extraction, Mermaid figures, Activity contents, Folder layout) and the pointers to `docs/`. Kept the Activity contents section intact as the main navigation reference. The folder-layout tree now shows `docs/` and references `docs/scripts.md` under `scripts/`.
+
+Added TOCs:
+- `TASKS.md` — new `## Index` section between `## New items (unprocessed)` and `## Tasks`, listing every T# with status and title in flat ID order (71 entries, no sub-groupings).
+- `ARCHIVE.md` — new `## Index` table between the legend and the first section header, with one row per existing `##` section + a short descriptor + a T-range column.
+- `CLAUDE.md` — not strictly needed under 200 lines but the new `## Pointers` section performs the same orienting function for new sessions.
+
+Verified with grep that moved content now lives only in its new location (`cup_shape.png — Sample cup shape`, `Precedent: T73 investor-update`, `T80 delivered with 2 of 4 reasons`, `mermaid-filter.cmd`, `PUPPETEER_EXECUTABLE_PATH` all appear in exactly one file after the move). Existing solution-note references to "per README convention" / "per CLAUDE.md" in TASKS.md point to rules that still live in those files — not touched.
+
+Flagged for the user (not touched):
+- `notes.md` at repo root — 127 B, one orphan line from an earlier session (`Back to the technical report review…`).
+- `temp/2026-10-02_hrb_form_answers.md` — one file in a `temp/` folder.
+- `sure/report.md`, `sure/report_d6.2.md` at `sure/` root vs. the canonical `sure/deliverables/report_d6.1.md` + `sure/deliverables/report_d6.2.md`.
+
+**Files touched:**
+
+- `CLAUDE.md`, `README.md`, `TASKS.md`, `ARCHIVE.md` — rewritten / TOCs added.
+- `docs/` — new tree with 11 files (7 rule files + 4 topic files).
+
+#### T126.02 `[x]` Phase 2 — repo layout optimization
+
+Scope: introduce case indexes for cross-cutting threads; codify an archive pattern mirroring TASKS → ARCHIVE for documents; leave actual file moves and archival to explicit user requests per case.
+
+Solution:
+
+Created `cases/` top-level folder for cross-cutting case indexes (pointers only, no file duplication):
+
+- `cases/prinsippendring_arsregnskap_2025/INDEX.md` — timeline + status + source-document pointers + legal/source references + related T-numbers for the prinsippendring / aktivering FoU / nedskrivingstest / fortsatt drift thread. Spans `funding/` root + `funding/background/` + `funding/deliverables/` + `generic/background/lover/` + `generic/background/loeypemelding/`. 14+ T-numbers (T75–T88 cluster, T101, T106 and subtasks, T123).
+- `cases/eic_transition_surewave/INDEX.md` — timeline-grouped TOC of the ~37 files at `generic/background/eic/` plus related PES-application thread, SINTEF collaboration, proposal revision, partner outreach, budget. 10+ T-numbers.
+
+Added two rules to `CLAUDE.md` working rules:
+
+- **Archiving documents (per-case)** — pattern `<domain>/archive/<case>/`, Type 1 vs Type 2 distinction (Type 2 permanent-reference material never archived), explicit-user-request trigger per case.
+- **Case indexes (`cases/<case>/INDEX.md`)** — when to consult, when to create (threshold: cross-folder *and* 15+ files or 5+ T-numbers), what to include, how to maintain.
+
+Added `cases/` to `CLAUDE.md` Pointers section + folder-layout tree, and to `README.md` Contents list + folder-layout tree.
+
+Flat spaces not sub-grouped (deliberate):
+
+- `generic/background/eic/` stays flat — the EIC Transition thread is tightly chronological; sub-topical grouping would fragment timeline reading. The case index provides the navigation instead.
+- `surewave/background/` stays flat — all 48 files are date-prefixed consortium deliverables with the WP structure already in the filenames.
+- `generic/background/loeypemelding/` stays flat — naturally linear by date.
+
+No files moved, renamed, or deleted. No archiving performed (per rule: explicit user request per case).
+
+Flagged for user decision (not touched):
+
+- `notes.md` at repo root — 127 B orphan line from an earlier session.
+- `temp/2026-10-02_hrb_form_answers.md` — single file in `temp/`.
+
+Flagged in Phase 2 and subsequently resolved:
+
+- `generic/background/eic/mermaid-filter.err` — garbage; user authorised deletion. Deleted. User is adding the pattern to `.gitignore`.
+- `generic/background/eic/locations.md` — clarified as content (site candidates from Wavec and EDP for future EU applications). Documented in `cases/eic_transition_surewave/INDEX.md` under its own subsection; kept un-dated because the list is maintained rather than issued.
+- `sure/report.md` — stale D6.1 copy at `sure/` root (2026-05-06), diverged from the current `sure/deliverables/report_d6.1.md` (2026-07-31, T89 cleanup). User authorised deletion. Deleted.
+- `sure/report_d6.2.md` — straight duplicate of `sure/deliverables/report_d6.2.md` (byte-identical, both 668 lines). User authorised deletion. Deleted.
+
+**Files touched:**
+
+- `cases/prinsippendring_arsregnskap_2025/INDEX.md` (new).
+- `cases/eic_transition_surewave/INDEX.md` (new).
+- `CLAUDE.md` — two new working-rule bullets, Pointers entry, folder-layout tree entry.
+- `README.md` — new pointer paragraph + folder-layout tree entry.
+
+#### T126.03 `[x]` Phase 3 — skills definition
+
+Scope: capture 3–7 recurring workflows as Claude Code skills under `.claude/skills/<name>/SKILL.md`, add an index at `.claude/skills/README.md`, add a pointer from `CLAUDE.md`.
+
+Candidates considered: process-inbox, create-task, generate-letter, check-deliverable, extract-pdf-with-images, generate-report-with-mermaid, archive-task, clean-investor-updates, revisorpakke-update, generate-slides, surewave-deliverable-review.
+
+Solution:
+
+Defined 5 skills (top-ranked on frequency × error-history × procedural clarity):
+
+- `.claude/skills/process-inbox/SKILL.md` — convert `*/background/new/` → date-prefixed `.md` + move. Precedents: T73, T95, T100, T108, T119.
+- `.claude/skills/create-task/SKILL.md` — correct T-numbering across TASKS + ARCHIVE, activity-tag discipline, ascending-ID insert position + Index update.
+- `.claude/skills/generate-letter/SKILL.md` — `scripts/md_to_letter.py` for Sunlit Sea letterhead output (DOCX / PDF), with content-shape conventions and signature-block cases.
+- `.claude/skills/check-deliverable/SKILL.md` — pre-send checklist on external deliverables (stand-alone, YAML, typography, source freshness, converted-output check, Norwegian vocabulary).
+- `.claude/skills/extract-pdf-with-images/SKILL.md` — the T100 combined recipe (stage with final slugs → pdftotext → extract_pdf_images → JP2→PNG → metadata header → insert_pdf_page_images).
+
+Each SKILL.md carries YAML frontmatter (`name` + description with trigger phrases), when-to-use and when-not-to-use lines, step-by-step procedure, applicable rules (citing CLAUDE.md + `docs/rules/` where relevant), historical references (prior T-numbers), and known pitfalls.
+
+Also created `.claude/skills/README.md` as the index — defined skills table, candidates considered-but-not-defined list with rationale, promotion criteria for future candidates, note on how skills integrate with CLAUDE.md / docs / cases.
+
+Added a pointer in `CLAUDE.md` Pointers section so new sessions discover the skills folder.
+
+Not tested: skill invocation (`/process-inbox` etc.) only registers at session start, so verification happens next session. Per the brief: "Do not try to test skill invocation from the current session."
+
+**Files touched:**
+
+- `.claude/skills/process-inbox/SKILL.md` (new).
+- `.claude/skills/create-task/SKILL.md` (new).
+- `.claude/skills/generate-letter/SKILL.md` (new).
+- `.claude/skills/check-deliverable/SKILL.md` (new).
+- `.claude/skills/extract-pdf-with-images/SKILL.md` (new).
+- `.claude/skills/README.md` (new).
+- `CLAUDE.md` — Pointers section updated with `.claude/skills/` entry.
+
+---
+
+### T127 `[x]` [GENERIC] Define `generate-slides` skill — Sunlit Sea visual-profile slide decks
+
+Promote the earlier `generate-slides` candidate (noted in `.claude/skills/README.md`) to a defined skill. Rationale: `scripts/md_to_slides.py`, `scripts/sunlit_sea_slides_header.tex`, `visual_profile/fonts/`, and the colour-palette scaffolding were built for recurring branded presentations (board decks, GF, pitches, grant presentations, SUREWAVE WP8 outputs, EUPI-PV presentations) — not for the single 2026-10-13 generalforsamling deck. The error-prevention value of a skill is higher for slides than for letters because the slide pipeline has more that can go wrong (section-divider frames with raw TikZ, `\bignum` helper, table-vs-markdown-table choices, footer strap, section-divider `.plain` frames).
+
+**Deliverable:** `.claude/skills/generate-slides/SKILL.md`. Mirrors `generate-letter`:
+
+- When to use (branded decks) / when not (EU-deliverable reports stay plain pandoc).
+- `scripts/md_to_slides.py` invocation.
+- Markdown conventions for the deck (`## {.plain}` frames, TikZ section dividers, `\bignum{}`, raw tabular over pipe tables).
+- Content conventions (bold rules still apply).
+- Reference deck pointer (`generic/deliverable/2026-10-13_generalforsamling_arsregnskap_2025_slides.md`).
+- Known pitfalls (brace-escape in prose vs. raw tabular, Everett fonts path, two-space line breaks).
+
+Also update `.claude/skills/README.md` — move `generate-slides` from "candidates considered" to the defined-skills table.
+
+**Solution:**
+
+**Reopened** on Eirik's feedback after first close: the task was prematurely marked `[x]` based on file existence rather than end-to-end verification. Prompted the new CLAUDE.md "**'Done' means end-to-end functional, not scaffolded**" rule.
+
+Defined `.claude/skills/generate-slides/SKILL.md`:
+
+- YAML frontmatter with trigger phrases ("lag presentasjonen som pdf", "generate the slide deck", "slides in Sunlit Sea style").
+- When-to-use (branded decks: board, GF, pitch, grant presentations, WP8 outputs with Sunlit strap) and when-not-to-use (EU-deliverable reports → plain pandoc; letters → `generate-letter`; SUREWAVE presentations → `generate-surewave-pptx`).
+- Full `scripts/md_to_slides.py` invocation.
+- Markdown conventions for the deck: `## {.plain}` frames with raw TikZ overlays, section-divider `\fill[sunlitYellow]`, `\bignum{tall}{beskrivelse}`, raw `\begin{tabular}` for load-bearing tables with inline `\color{sunlitBlue900}` (allowed inside raw tabular but not in prose), standard CLAUDE.md typography rules on top.
+- Reference deck pointer: `generic/deliverable/2026-10-13_generalforsamling_arsregnskap_2025_slides.md`.
+- Rendered-output check (title slide, section dividers, yellow underline, footer strap, Everett font substitution warnings).
+- Known pitfalls: using plain `pandoc -t beamer`, brace-escape in prose vs. raw tabular, Everett fonts missing from `visual_profile/fonts/`, two-space line breaks in stacked blocks, TikZ anchor issues, Markdown pipe-tables for load-bearing data.
+
+**End-to-end verification:**
+
+- Dependencies confirmed on PATH: `pandoc` (`/c/ProgramData/chocolatey/bin/pandoc`), `xelatex` (`/c/texlive/2026/bin/windows/xelatex`).
+- Dependencies confirmed in repo: `scripts/md_to_slides.py`, `scripts/sunlit_sea_slides_header.tex`, `visual_profile/fonts/Everett-{Bold,Medium,Regular}-web.ttf`.
+- Pipeline run: `python scripts/md_to_slides.py generic/deliverable/2026-10-13_generalforsamling_arsregnskap_2025_slides.md -o /tmp/test_slides_verify.pdf`. Exit 0, produced 79565-byte PDF (same order of magnitude as production file at 79560 bytes), no xelatex font-substitution warnings.
+
+Updated `.claude/skills/README.md` — moved `generate-slides` from "candidates considered" to the defined-skills table.
+
+Updated `CLAUDE.md` Pointers section — added `generate-slides` to the list of defined skills.
+
+**Files touched:**
+
+- `.claude/skills/generate-slides/SKILL.md` (new).
+- `.claude/skills/README.md` — defined-skills table updated; "candidates" list no longer includes `generate-slides`.
+- `CLAUDE.md` — Pointers section updated; new "'Done' means end-to-end functional" rule added to Working rules.
+
+---
+
+### T128 `[~]` [GENERIC] Define `generate-surewave-docx` skill — apply SUREWAVE docx template to a `.md` file
+
+Received the SUREWAVE docx template on 2026-10-16; stored as `surewave/background/2026-10-16_surewave_docx_template.docx`. Define a skill for turning a `.md` deliverable into a SUREWAVE-branded `.docx` by passing the template as `--reference-doc` to pandoc.
+
+**Deliverable:** `.claude/skills/generate-surewave-docx/SKILL.md`.
+
+- When to use: outbound SUREWAVE deliverables (`surewave/deliverables/*.md` → `.docx`) that need the consortium brand (D-reports, WP8 outputs, consortium brochure sections).
+- When not to use: Sunlit-Sea-branded letters (→ `generate-letter`), Sunlit-Sea-branded slides (→ `generate-slides`), plain pandoc reports where branding does not matter (SuRE / D6.1 / D6.2).
+- Pandoc invocation with `--reference-doc=surewave/background/2026-10-16_surewave_docx_template.docx` + mermaid-filter + any post-processing (`scripts/format_docx.py` for table borders/widths if the deliverable has tables).
+- Content conventions (same global CLAUDE.md rules — no bold in body, external deliverables stand alone, YAML metadata handling).
+- When the template is updated: swap the referenced file and verify the next output.
+
+Also update `.claude/skills/README.md`.
+
+**Solution:**
+
+Received two SUREWAVE consortium templates in the inbox on 2026-10-16 (both mtime 2026-10-16, received date). Moved to `surewave/background/` with date-prefix:
+
+- `Word_templates.docx` → `surewave/background/2026-10-16_surewave_docx_template.docx`.
+- `Surewave_template.pptx` → `surewave/background/2026-10-16_surewave_pptx_template.pptx` (used by T129).
+
+Defined `.claude/skills/generate-surewave-docx/SKILL.md`:
+
+- YAML frontmatter with trigger phrases ("generate the SUREWAVE docx", "apply the SUREWAVE template", "convert this to a SUREWAVE deliverable").
+- When-to-use (SUREWAVE D-reports, WP8 outputs, consortium brochure sections) and when-not-to-use (Sunlit letters → `generate-letter`, Sunlit slides → `generate-slides`, SUREWAVE pptx → `generate-surewave-pptx`, SuRE D6.1/D6.2 → plain pandoc).
+- Pandoc invocation with `--reference-doc=surewave/background/2026-10-16_surewave_docx_template.docx` + `-F mermaid-filter.cmd` + `--wrap=none`, plus platform note on filter suffix.
+- Post-processing with `uv run scripts/format_docx.py` for table borders / column widths when the deliverable has load-bearing tables (and the `TABLE_WIDTHS_BY_STEM` convention when adding a new entry).
+- Rendered-output check (brand chrome, heading styles, YAML title block, tables, mermaid rendering).
+- Content conventions tied to CLAUDE.md "External deliverables stand alone", "No bold in body text", "Converted `.md` files must be self-contained", Mermaid deliverables.
+- Historical references: T109, T110, T111, T114, T116, T118, T120, T121.
+- Known pitfalls: wrong template file (Sunlit letterhead vs. SUREWAVE), stale template version, mermaid-filter missing/wrong suffix, no table borders without `format_docx.py`, YAML title block for internal metadata, internal references leaking out.
+
+Updated `.claude/skills/README.md` — new entry in the defined-skills table.
+
+Updated `CLAUDE.md` Pointers section — `generate-surewave-docx` added.
+
+Updated `README.md` surewave activity-contents section — templates registered as a bullet under `background/`.
+
+**End-to-end verification (second reopen):**
+
+Reopened again. Second close was still premature: Eirik opened the generated docx and found the cover page content (banner, hero image, title block, disclaimer, deliverable-details table) was missing — pandoc `--reference-doc` replaces the body entirely, so the template's cover was lost. Also: page numbers were static across all pages because `w:updateFields` was absent from `settings.xml`.
+
+Full fix required a real wrapper, not a one-line pandoc call. Built `scripts/md_to_surewave_docx.py`:
+
+- Uses the SUREWAVE docx template as the *starting document* (so cover + headers + footers + section properties are preserved).
+- Reads metadata from YAML frontmatter in the `.md` OR from a sidecar `<input>.meta.yaml` (frontmatter wins). For the brochure specifically — whose `.md` has a LaTeX titlepage and no YAML — created a sidecar at `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.meta.yaml` so the original `.md` stays untouched per Eirik's constraint.
+- Fills cover placeholders: text-box content for "Deliverable number: DX.X" → "Deliverable number: D8.3" and "Title: XXXXXXX" → "Title: Technical Brochure"; table-cell substitutions for WP, Task, Dissemination level, Deliverable type, Lead beneficiary, Due date, Delivery date, Document name using `CELL_LABEL_TO_KEY` mapping across all tables with first-match-wins to leave the reference tables (dissemination definitions, deliverable type definitions) alone.
+- Converts the body (minus YAML) with pandoc + `--reference-doc` + `--resource-path <input dir>` so relative image paths resolve.
+- Uses `docxcompose.Composer` to append the body to the filled template; handles image re-embedding and style merging correctly.
+- Injects `<w:updateFields w:val="true"/>` into `word/settings.xml` via zip-level manipulation so Word evaluates PAGE/NUMPAGES fields on open.
+- Dependencies declared via PEP 723 (`python-docx`, `docxcompose`, `pyyaml`, `lxml`) — `uv run` installs on the fly.
+
+**End-to-end run on `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`:**
+
+- Metadata: 10 fields loaded from sidecar.
+- Pandoc exit 0. Body converted with 29 images embedded (brochure has 21 inline figures + template preserved 8).
+- Verified in generated docx: text-box "Deliverable number: D8.3" ✓, "Title: Technical Brochure" ✓, table cells WP8 / 8.3 / PU / 2026-09-30 / R / 2026-09-28 / Sunlit Sea AS ✓, `w:updateFields` present in settings.xml ✓, section properties with titlePg + default/first headers + default footer intact ✓, 17 Overskrift2 (pandoc-mapped Heading2) + 24 Overskrift3 (Heading3) + 21 CaptionedFigure styles in body ✓.
+- Original `.md` and `.pdf` untouched per Eirik's constraint.
+
+**First reopen (now subsumed):** Initial close was premature because the skill referenced `scripts/format_docx.py` for table post-processing, but that script was documented in `docs/scripts.md` without actually existing in `scripts/`. Caught when Eirik asked the skill to produce the D8.3 Technical Brochure docx and the post-process step failed with `Failed to spawn: scripts/format_docx.py` / `The system cannot find the file specified`.
+
+Fix:
+
+- Ported `scripts/format_docx.py` into this repo. Adapted from `../fjordgata30/scripts/format_docx.py` with two deliberate differences:
+  - Keyed on filename stem (`TABLE_WIDTHS_BY_STEM: dict[str, list[list[float]]]`) rather than fjordgata30's positional `TABLE_WIDTHS` list — the by-stem form was already what `docs/scripts.md` documented, and it avoids the "one new table in doc A shifts doc B's widths by one" problem.
+  - Added PEP 723 inline script metadata declaring `python-docx>=1.1` so `uv run` installs the dependency on the fly into an ephemeral env — no permanent `pip install` required.
+- The dict starts empty (one commented example row). Entries are added per deliverable as needed; without an entry, the script applies borders only and logs a note.
+- `--borders-only` flag works as documented.
+
+End-to-end run on real deliverable (`surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`):
+
+- Pandoc conversion: `pandoc <file.md> -o <file.docx> --reference-doc=surewave/background/2026-10-16_surewave_docx_template.docx --wrap=none`. Exit 0, 18 MB docx (21 inline images embedded), no warnings. No mermaid-filter needed (0 mermaid blocks in source).
+- Post-process: `uv run scripts/format_docx.py <file.docx> --borders-only`. Exit 0, 1 table processed (the LCoE/NPV/IRR/Payback regions table), borders applied.
+- Original `.md` and `.pdf` untouched per Eirik's constraint.
+
+Defined `.claude/skills/generate-surewave-docx/SKILL.md`:
+
+- YAML frontmatter with trigger phrases ("generate the SUREWAVE docx", "apply the SUREWAVE template", "convert this to a SUREWAVE deliverable").
+- When-to-use (SUREWAVE D-reports, WP8 outputs, consortium brochure sections) and when-not-to-use (Sunlit letters → `generate-letter`, Sunlit slides → `generate-slides`, SUREWAVE pptx → `generate-surewave-pptx`, SuRE D6.1/D6.2 → plain pandoc).
+- Pandoc invocation with `--reference-doc=surewave/background/2026-10-16_surewave_docx_template.docx` + `-F mermaid-filter.cmd` + `--wrap=none`, plus platform note on filter suffix (`.cmd` on Git Bash / Windows, none on Linux/macOS).
+- Post-processing with `uv run scripts/format_docx.py` for table borders / column widths when the deliverable has load-bearing tables (and the `TABLE_WIDTHS_BY_STEM` convention when adding a new entry).
+- Rendered-output check (brand chrome, heading styles, YAML title block, tables, mermaid rendering).
+- Content conventions tied to CLAUDE.md "External deliverables stand alone", "No bold in body text", "Converted `.md` files must be self-contained", Mermaid deliverables.
+- Historical references: T109, T110, T111, T114, T116, T118, T120, T121.
+- Known pitfalls: wrong template file (Sunlit letterhead vs. SUREWAVE), stale template version, mermaid-filter missing/wrong suffix, no table borders without `format_docx.py`, YAML title block for internal metadata, internal references leaking out.
+
+Updated `.claude/skills/README.md` — new entry in the defined-skills table.
+
+Updated `CLAUDE.md` Pointers section — `generate-surewave-docx` added.
+
+Updated `README.md` surewave activity-contents section — templates registered as a bullet under `background/`.
+
+**Files touched:**
+
+- `scripts/md_to_surewave_docx.py` (new; the wrapper).
+- `scripts/format_docx.py` (new in first reopen; ported from `../fjordgata30/scripts/format_docx.py` with by-stem keying and PEP 723 metadata).
+- `.claude/skills/generate-surewave-docx/SKILL.md` (rewritten to document the wrapper, metadata model, pitfalls, references).
+- `docs/scripts.md` — new section for `md_to_surewave_docx.py`.
+- `surewave/background/2026-10-16_surewave_docx_template.docx` (moved from `generic/background/new/`).
+- `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.meta.yaml` (new sidecar metadata — the brochure `.md` has a LaTeX titlepage so YAML frontmatter wasn't viable without touching the source).
+- `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.docx` (produced end-to-end; original `.md` and `.pdf` untouched).
+- `.claude/skills/README.md`, `CLAUDE.md`, `README.md` — updated.
+
+---
+
+### T129 `[x]` [GENERIC] Define `generate-surewave-pptx` skill — apply SUREWAVE pptx template to a `.md` file
+
+Received the SUREWAVE pptx template on 2026-10-16; stored as `surewave/background/2026-10-16_surewave_pptx_template.pptx`. Define a skill for turning a `.md` deliverable into a SUREWAVE-branded `.pptx` by passing the template as `--reference-doc` to pandoc.
+
+**Deliverable:** `.claude/skills/generate-surewave-pptx/SKILL.md`.
+
+- When to use: SUREWAVE presentations (WP8 interviews, consortium status decks, final-event talks).
+- When not to use: Sunlit-Sea-branded slide decks (→ `generate-slides`), plain Beamer/pandoc outputs.
+- Pandoc invocation with `-o output.pptx --reference-doc=surewave/background/2026-10-16_surewave_pptx_template.pptx`.
+- Markdown conventions for pandoc → pptx (slide-level per heading, limitations on tikz / raw-latex passthrough compared to the Sunlit beamer path).
+- Content conventions and known pitfalls (pandoc pptx is more limited than beamer — flag what will not survive, suggest manual PowerPoint touch-ups where necessary).
+
+Also update `.claude/skills/README.md`.
+
+**Solution:**
+
+Defined `.claude/skills/generate-surewave-pptx/SKILL.md`:
+
+- YAML frontmatter with trigger phrases ("generate the SUREWAVE pptx", "apply the SUREWAVE pptx template", "convert this to a SUREWAVE presentation").
+- When-to-use (SUREWAVE WP8 presentations, final-event talks, interview decks, consortium status presentations) and when-not-to-use (Sunlit slides → `generate-slides`, Sunlit letters → `generate-letter`, SUREWAVE docx → `generate-surewave-docx`, CINEA SuRE presentations → plain pandoc or PowerPoint-direct).
+- Pandoc invocation with `--reference-doc=surewave/background/2026-10-16_surewave_pptx_template.pptx` + `-F mermaid-filter.cmd` + `--slide-level=2` + `--wrap=none`.
+- Markdown conventions for the pandoc → pptx path (one slide per `## Heading`, pipe-tables ok, images ok, `::: notes :::` for speaker notes), and explicit flagging of limitations vs. the Sunlit beamer path (TikZ, `\bignum`, `columns`, raw tabular — all silently dropped in pptx output).
+- Rendered-output check (slide masters applied, title/body fonts, footer, images not clipped, speaker notes present).
+- Explicit "flag what will not survive" step for the handover between pandoc output and manual PowerPoint touch-up: complex multi-column layouts, vector diagrams other than mermaid, animations and transitions, custom table styling, raw-LaTeX blocks.
+- Historical references: T115, T117, T122, with pointer to existing WP8 presentation `.md` sources.
+- Known pitfalls: wrong template file, expecting Sunlit beamer features, slide masters not fully applied (manual touch-up expected), mermaid-filter missing/wrong suffix, YAML title block for internal metadata, image sizing / clipping.
+
+**End-to-end verification (after reopen):**
+
+Reopened alongside T127 and T128 on Eirik's feedback; verified by running the pipeline on a real deliverable rather than just confirming scaffolding.
+
+- Pandoc conversion: `pandoc surewave/deliverables/2026-09-29_surewave_wp8_presentation.md -o /tmp/test_wp8_pptx_verify.pptx --reference-doc=surewave/background/2026-10-16_surewave_pptx_template.pptx --slide-level=2 --wrap=none`. Exit 0, 515 KB pptx produced.
+- Two pandoc warnings surfaced about missing layout names in the reference template ("Section Header", "Content with Caption") — pandoc falls back to its *default* unbranded layouts for those slide types. This is an inherent limitation of pandoc → pptx when the reference template does not name its layouts with pandoc's expected strings. Content slides using "Title and Content" (the common case) are branded correctly.
+- Added an explicit "Known pitfalls" entry in the SKILL.md documenting the exact warning strings, the slide types affected, and the two fix paths (manual PowerPoint touch-up vs. renaming layouts in the template via Slide Master view).
+
+Updated `.claude/skills/README.md` — new entry in the defined-skills table.
+
+Updated `CLAUDE.md` Pointers section — `generate-surewave-pptx` added.
+
+Templates in `surewave/background/` already registered in `README.md` (done under T128).
+
+**Files touched:**
+
+- `.claude/skills/generate-surewave-pptx/SKILL.md` (new).
+- `surewave/background/2026-10-16_surewave_pptx_template.pptx` (moved from `generic/background/new/` under T128).
+- `.claude/skills/README.md`, `CLAUDE.md` — updated.
+
+---
 

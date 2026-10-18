@@ -14,6 +14,29 @@ Repo-level context and working rules are in `CLAUDE.md`. Task list is in `TASKS.
 
 **Single README:** this file is the only README in the repo. Do not create per-folder README files — describe folder contents here, in the *Activity contents* section below.
 
+## Contents
+
+- [PDF text extraction](#pdf-text-extraction) — `pdftotext -layout` for all PDF reading
+- [Document conversion (Pandoc)](#document-conversion-pandoc) — pointer to `docs/pandoc_conversion.md`
+- [Mermaid figures](#mermaid-figures) — `<activity>/figures/` layout
+- [Background convention](#background-convention) — pointer to `docs/background_convention.md`
+- [Scripts](#scripts) — pointer to `docs/scripts.md`
+- [Activity contents](#activity-contents) — per-folder file inventory
+- [Folder layout (top level)](#folder-layout-top-level)
+
+See also the `docs/` directory:
+
+- [`docs/pandoc_conversion.md`](docs/pandoc_conversion.md) — full Pandoc + mermaid-filter installation, DOCX/PDF commands, Letter/letterhead output
+- [`docs/scripts.md`](docs/scripts.md) — reference for every helper script in `scripts/`
+- [`docs/background_convention.md`](docs/background_convention.md) — background inbox pipeline and conversion recipes
+- [`docs/sure_images.md`](docs/sure_images.md) — descriptions of images in `sure/images/`
+- [`docs/rules/`](docs/rules/) — long-form elaboration of individual working rules
+
+And the `cases/` directory for cross-cutting threads (pointers only, no file duplication):
+
+- [`cases/prinsippendring_arsregnskap_2025/INDEX.md`](cases/prinsippendring_arsregnskap_2025/INDEX.md) — prinsippendring, aktivering FoU, nedskrivingstest, fortsatt drift (årsregnskap 2025 cycle)
+- [`cases/eic_transition_surewave/INDEX.md`](cases/eic_transition_surewave/INDEX.md) — EIC Transition SUREWAVE application thread
+
 ---
 
 ## PDF text extraction
@@ -30,183 +53,9 @@ pdftotext -layout "sure/background/somefile.pdf" - > sure/background/somefile.tx
 
 ## Document conversion (Pandoc)
 
-Pandoc is the chosen conversion tool for `.docx`, `.pptx` and `.pdf`. All conversions in this project must support Mermaid diagrams inline in the Markdown source (e.g. `sure/deliverables/report_d6.1.md` embeds Mermaid in fenced code blocks). This is handled by **`mermaid-filter`** — a Pandoc filter that intercepts ```` ```mermaid ```` blocks, renders them to PNG at conversion time and embeds the images in the output. The filter must be system-installed (not `node_modules/` per project).
+Pandoc is the chosen conversion tool for `.docx`, `.pptx` and `.pdf`. All conversions in this project support Mermaid diagrams inline in the Markdown source via `mermaid-filter`.
 
-### Prerequisites – installation
-
-The project needs three system packages: `pandoc` (conversion), **Node managed via nvm** + `mermaid-filter` (mermaid rendering), and TeX Live with xelatex (PDF only). Node is installed via `nvm` (Node Version Manager) so the Node version is explicit and user-local — not tied to the system package manager.
-
-**Windows (Chocolatey, PowerShell as administrator):**
-
-```powershell
-choco install pandoc
-choco install nvm
-# Open a new PowerShell/CMD for nvm to appear on PATH:
-nvm install lts
-nvm use lts
-npm install -g mermaid-filter
-# For PDF: TeX Live 2026 (download installer from https://tug.org/texlive/)
-```
-
-**Linux (Ubuntu/Debian):**
-
-```bash
-sudo apt install pandoc
-sudo apt install texlive-xetex texlive-fonts-extra   # for PDF
-```
-
-Install nvm by following the command from the README at <https://github.com/nvm-sh/nvm> (the install-script URL has a version number that changes — use the official one). Then:
-
-```bash
-# After nvm-install, start a new shell or: source ~/.bashrc
-nvm install --lts
-nvm use --lts
-npm install -g mermaid-filter    # note: no sudo – nvm is user-local
-```
-
-**Manual Chromium download (critical on Node 24+):** `mermaid-filter` pulls in puppeteer 19 (outdated), and the install hook that should download Chromium silently skips on modern Node (24+). Without Chromium the filter fails with `spawn … chrome.exe ENOENT`. Run the download manually after `npm install -g mermaid-filter`:
-
-```bash
-# Windows (Git Bash) – adjust the Node version in the path if needed:
-cd /c/ProgramData/nvm/v<version>/node_modules/mermaid-filter/node_modules/puppeteer
-node install.js
-
-# Linux (nvm):
-cd ~/.nvm/versions/node/v<version>/lib/node_modules/mermaid-filter/node_modules/puppeteer
-node install.js
-```
-
-End result: Chromium (~150 MB) downloaded to `~/.cache/puppeteer/chrome/win64-<revision>/` (Windows) or `~/.cache/puppeteer/chrome/linux-<revision>/` (Linux). One-time per machine.
-
-**Fallback – point to an already-installed Chrome/Edge:** If manual download fails, point puppeteer at a system-installed Chromium-based browser:
-
-```bash
-# Windows – Chrome:
-export PUPPETEER_EXECUTABLE_PATH="/c/Program Files/Google/Chrome/Application/chrome.exe"
-# Windows – Edge (also Chromium):
-export PUPPETEER_EXECUTABLE_PATH="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
-# Linux:
-export PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
-```
-
-Add to `~/.bashrc` for permanent effect.
-
-**Note on nvm and `npm -g`:** With nvm, everything is installed user-locally under `~/.nvm/versions/node/<version>/`. Never use `sudo npm install -g` — it breaks PATH and creates write-permission chaos.
-
-**Note on Ubuntu <22.04 / minimal installs:** Puppeteer-Chromium needs a set of shared libraries that normally come with desktop installs. If mermaid-filter fails with "missing library", run: `sudo apt install libnss3 libatk-bridge2.0-0 libxkbcommon0 libgbm1 libasound2`.
-
-### Usage – standard commands
-
-Runtime environment: **Git Bash on Windows** (MINGW64) is standard in this project. On Linux/macOS replace `mermaid-filter.cmd` with `mermaid-filter` — see the platform note below.
-
-**DOCX (the D6.1 / D6.2 delivery format):**
-
-```bash
-cd sure/deliverables
-pandoc report_d6.1.md -o "D6.1 Sunlit model chain_v8.docx" -F mermaid-filter.cmd --toc --toc-depth=2
-```
-
-**PDF:**
-
-```bash
-cd sure/deliverables
-pandoc report_d6.1.md -o report_d6.1.pdf \
-  -F mermaid-filter.cmd \
-  --pdf-engine=xelatex \
-  -V documentclass=scrartcl \
-  -V geometry:margin=1in \
-  -V mainfont="Times New Roman" \
-  -V monofont="Consolas" \
-  --number-sections=false
-```
-
-Explanation of the flags:
-
-| Flag | Effect |
-|---|---|
-| `-F mermaid-filter.cmd` | Pandoc filter that pre-processes the AST and replaces mermaid blocks with rendered PNGs. Works on inline mermaid in the `.md` and on blocks imported via `include`. No effect if the `.md` has no mermaid – safe to keep as a default flag. |
-| `--pdf-engine=xelatex` | Uses xelatex from TeX Live (needed for Unicode characters – "≥", "–", "€" – and TrueType fonts). |
-| `-V documentclass=scrartcl` | KOMA-Script article class – cleaner typography and better margin handling than the default `article`. |
-| `-V geometry:margin=1in` | 1 inch margin on all sides. |
-| `-V mainfont="Times New Roman"` | Main body font (system font on Windows; installed via TeX Live `fonts-extra` on Linux). |
-| `-V monofont="Consolas"` | Mono font for code blocks. The default (Latin Modern Mono) lacks Unicode box-drawing characters (├, ─, └, │) and produces "Missing character" warnings on ASCII trees. Consolas is Windows standard and covers the full box-drawing range. Linux alternative: `DejaVuSansMono` (in `texlive-fonts-extra`). |
-| `--number-sections=false` | Do not auto-number headings – the report already uses explicit numbering. |
-
-**Platform note – filter name:** On Windows npm creates three files per bin (`mermaid-filter`, `mermaid-filter.cmd`, `mermaid-filter.ps1`). Pandoc does an *exact filename* lookup and does not respect Windows' `PATHEXT` mechanism, so from **Git Bash / MINGW64** the `.cmd` suffix must be included. From **PowerShell/CMD** `-F mermaid-filter` also works. From **Linux/macOS** only `mermaid-filter` exists (no `.cmd`) — use that.
-
-**Note – long code lines in PDF:** The default pandoc setup does *not* automatically break long lines in code blocks – lines wider than the page are visually cut (the text is still intact in the output, just not visible). Accepted for this project. Keep code lines short in the source when possible.
-
-### Letter / letterhead output
-
-Outgoing official letters on the Sunlit Sea letterhead are generated from a `.md` source via `scripts/md_to_letter.py`. The letterhead template at `generic/background/2026-10-10_sunlit_sea_letterhead.docx` is the single source of truth: for `.docx` it is passed to pandoc as `--reference-doc` so the SUNLIT SEA wordmark, cream "A" watermark, page size, margins and styles come across; for `.pdf` the wrapper extracts the wordmark + watermark PNGs from the same `.docx` on the fly and places them via an `eso-pic` LaTeX header-include that reproduces the Word positions.
-
-```bash
-# DOCX next to the .md
-python scripts/md_to_letter.py path/to/brev.md
-
-# PDF next to the .md (xelatex + eso-pic; no LibreOffice/Word needed)
-python scripts/md_to_letter.py --pdf path/to/brev.md
-
-# Custom output path (either format)
-python scripts/md_to_letter.py path/to/brev.md -o generic/deliverable/path.docx
-python scripts/md_to_letter.py --pdf path/to/brev.md -o generic/deliverable/path.pdf
-
-# Different letterhead (if a new version arrives)
-python scripts/md_to_letter.py path/to/brev.md --letterhead other_letterhead.docx
-```
-
-**Prerequisites:** `pandoc` on PATH (both formats), and `xelatex` from TeX Live on PATH (`--pdf` only). Both are already set up on the standard dev environment per the *Prerequisites – installation* section above.
-
-**Content conventions when writing the `.md`:** The template is intended for letter-shape content (address block, date, salutation, body, signature). Keep headings minimal — a short bold subject line as the opening is usually enough. If a heading is needed, use H2+ (H1 competes visually with the wordmark). Stacked address and signature blocks must have two trailing spaces at the end of each line (or a trailing `\`) so they do not fold into one paragraph (see the top-level *Markdown lists render correctly* rule) — the merge is especially visible in PDF output.
-
-**Signature block convention — single signer:** Use escaped underscores (`\_`) for the signature line and two-space line breaks for name/title stacking. Add 2–3 blank paragraphs (`\` on its own line) above the signature line to leave room for a physical signature:
-
-```
-Oslo, 9. oktober 2026
-
-\
-
-\
-
-\
-
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  
-Per Lindberg  
-Styreleder
-```
-
-The backslash-escapes prevent pandoc from reading the underscores as a Markdown horizontal rule (which LaTeX would centre on the page, disconnecting the line from the name). With `\_` the underscores render as inline text — left-aligned, with the name and title on their own lines directly below. Works in both `.docx` and `.pdf` output.
-
-**Signature block convention — two signers side by side (PDF only):** Use pandoc's raw-LaTeX block syntax with `minipage`:
-
-~~~
-Oslo, 9. oktober 2026
-
-\
-
-\
-
-\
-
-```{=latex}
-\noindent
-\begin{minipage}[t]{0.45\textwidth}
-\rule{\linewidth}{0.4pt}\\
-Per Lindberg\\
-Styreleder
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.45\textwidth}
-\rule{\linewidth}{0.4pt}\\
-Eirik Larsen\\
-Styremedlem
-\end{minipage}
-```
-~~~
-
-This renders two signature blocks side by side with the signature lines drawn by `\rule`. The `0.45\textwidth` minipages leave ~10% whitespace between the two blocks. `\hfill` pushes the second block to the right margin. Works in `.pdf` only — pandoc silently drops the raw-LaTeX block when producing `.docx`, so the `.docx` output will have no signature block in its place. For a `.docx` with side-by-side signatures, add them manually in Word after `md_to_letter.py` has produced the base `.docx`.
-
-**When the letterhead `.docx` is updated:** replace `generic/background/2026-10-10_sunlit_sea_letterhead.docx` with the new version (keep the date-prefixed filename pointing at the current one, or add a `--letterhead` flag to the call for a transition period). Both `.docx` and `.pdf` outputs pick up the new wordmark/watermark automatically on the next run.
+Full installation steps (pandoc, nvm + Node + mermaid-filter, TeX Live), standard DOCX / PDF command invocations, and letter/letterhead output are documented in [`docs/pandoc_conversion.md`](docs/pandoc_conversion.md).
 
 ---
 
@@ -232,295 +81,29 @@ The `.mmd` files are the canonical source (edit these). The `.png` files are wha
 
 ## Background convention
 
-`generic/background/` holds **cross-cutting** background material — the material that spans activities (SuRE, Gen 2, Commercial, Funding) or predates the activity split. Company-level investor updates, legal documents, funding history, board correspondence, general Sunlit Sea history all belong here. Activity-specific background stays under the activity's own folder: `sure/background/`, `gen2/background/`, `funding/background/`.
+`generic/background/` holds **cross-cutting** background material; activity-specific background stays under the activity's own folder (`sure/background/`, `gen2/background/`, `funding/background/`). Date-prefix naming convention `YYYY-MM-DD_short_description.ext` applies throughout.
 
-### File-naming convention
-
-Every file in any `background/` folder (`generic/background/` or activity-level `*/background/`) carries a date prefix:
-
-```
-YYYY-MM-DD_short_description.ext
-```
-
-Examples:
-
-- `2025-11-14_investor_update_q3.md`
-- `2024-02-01_shareholder_agreement.pdf`
-- `2023-06-08_board_meeting_minutes.md`
-
-The date is the date of the document (when it was written / issued / sent), not the day it was filed. When the exact date is unknown, use the best approximation and note the uncertainty in the file body.
-
-### Inbox: `generic/background/new/`
-
-Files that have not been processed yet land in `generic/background/new/` (or in an activity-level `*/background/new/` for activity-specific inputs). Typical sources: PDFs (scanned or exported), Word documents, PowerPoint decks, photos and screenshots, plain-text notes.
-
-At the start of every working session, check `generic/background/new/` (and any `*/background/new/`) for unprocessed files. The `CLAUDE.md` working rules document this.
-
-### Conversion pipeline
-
-| Source format | Tool | Command shape |
-|---|---|---|
-| `.pdf` | `pdftotext` | `pdftotext -layout "generic/background/new/foo.pdf" generic/background/new/foo.txt` then hand-tidy into `.md` |
-| `.docx`, `.pptx`, `.odt`, `.rtf`, `.html` | `pandoc` | `pandoc "generic/background/new/foo.docx" -o generic/background/new/foo.md --wrap=none` |
-| `.md`, `.txt` | (already text) | tidy, then timestamp-prefix and move |
-| `.png`, `.jpg`, `.jpeg` and other true binary evidence | keep as-is | timestamp-prefix and move; do not convert |
-
-After conversion:
-
-1. Review the `.md` and add a short preamble at the top noting the source file name and the document's original date (if known).
-2. Rename to `YYYY-MM-DD_description.md`.
-3. Move to `generic/background/` (or the activity's `*/background/`).
-4. Remove the intermediate `.txt` from `pdftotext` — only the `.md` needs to stick around.
-5. Keep the original binary in `background/` **only** if it is the authoritative source (signed PDFs, signed contracts, presentations we might redistribute). Otherwise the `.md` supersedes it and the original can be dropped.
+Full file-naming convention, `*/background/new/` inbox handling, and the conversion pipeline for incoming PDF/DOCX/PPTX/images are in [`docs/background_convention.md`](docs/background_convention.md).
 
 ---
 
 ## Scripts
 
-Persistent helper scripts live in `scripts/` at the repo root — never scattered inside data folders like `generic/`, `sure/`, `funding/`, `gen2/`. Follows the same pattern as the neighbouring `../fjordgata30` project.
-
-### `scripts/md_to_letter.py`
-
-Produces a `.docx` or `.pdf` of a Markdown file on the Sunlit Sea letterhead (SUNLIT SEA wordmark on the first-page header, cream "A" watermark on every page, Letter page size, 1" margins).
-
-- `.docx` path: pandoc with `--reference-doc <letterhead.docx>` — the letterhead's headers, footers, images, page size, margins and styles are kept; the Markdown becomes the body.
-- `.pdf` path (`--pdf`): the wrapper extracts the wordmark + watermark PNGs from the letterhead `.docx` on the fly, writes a `eso-pic` LaTeX header-include that places them at the Word positions (wordmark centred ~0.85 in from top of page 1; watermark full-page background on every page), then calls pandoc with `--pdf-engine=xelatex`. No committed image assets, no manual Word step, no LibreOffice.
-
-Default letterhead: `generic/background/2026-10-10_sunlit_sea_letterhead.docx` (override with `--letterhead`). Default output: sibling file next to the input, with `.docx` or `.pdf` as appropriate (override with `-o`).
-
-```bash
-# Default: writes <input>.docx next to <input>.md
-python scripts/md_to_letter.py funding/2026-10-15_svar_myndighet.md
-
-# Produce PDF instead
-python scripts/md_to_letter.py --pdf funding/2026-10-15_svar_myndighet.md
-
-# Custom output path
-python scripts/md_to_letter.py funding/2026-10-15_svar_myndighet.md -o generic/deliverable/2026-10-15_svar_myndighet.docx
-```
-
-See the *Letter / letterhead output* subsection under *Document conversion* above for content-shape conventions.
-
-### `scripts/md_to_slides.py`
-
-Produces a PDF slide deck in Sunlit Sea's visual profile (Everett headlines + Arial body, yellow #FFE775 and blue #2F354F accents, dark title / section-divider slides) via pandoc → beamer → xelatex. 16:9 widescreen; thin yellow underline below each slide title; footer with `SUNLIT SEA | Årsregnskap 2025` strap and page counter.
-
-The theme lives in `scripts/sunlit_sea_slides_header.tex` and defines the color palette, frame title, footer, and `\bignum{tall}{beskrivelse}` helper. Everett .ttf files are read from `visual_profile/fonts/` — the wrapper writes a tiny prelude at build time that loads them from the absolute path so XeLaTeX finds them without the fonts being system-installed.
-
-```bash
-# Default: writes <input>.pdf next to <input>.md
-python scripts/md_to_slides.py generic/deliverable/2026-10-13_generalforsamling_arsregnskap_2025_slides.md
-
-# Custom output path
-python scripts/md_to_slides.py path/to/deck.md -o path/to/out.pdf
-```
-
-Markdown conventions for the deck:
-
-- `## Heading` begins a new frame (pandoc runs with `--slide-level=2`).
-- `## {.plain}` begins a chrome-free frame (no title, no footer); use for title slide, section dividers, closing slide. Fill with a raw `\begin{tikzpicture}[remember picture, overlay] ... \end{tikzpicture}` to paint the whole page.
-- For section dividers: `\fill[sunlitYellow] (current page.north west) rectangle (current page.south east);` then nodes for the "Del N" label and section title.
-- For big-number highlight blocks: `\bignum{2{,}2 MNOK}{Beskrivelse}` inside a `columns` layout.
-- Use raw `\begin{tabular}{@{}lrrr@{}}...\end{tabular}` for tables (markdown pipe-tables render but have less control over spacing / column emphasis). Keep inline `\color{sunlitBlue900}` inside raw tabular — pandoc preserves braces in raw latex blocks but escapes them in prose, so avoid `{\color{...}...}` in body text (use `\textcolor{sunlitBlue900}{\textbf{...}}` or plain `**bold**` instead).
-
-Reference deck: `generic/deliverable/2026-10-13_generalforsamling_arsregnskap_2025_slides.md` (annual general assembly presentation for Årsregnskap 2025).
-
-### `scripts/md_image_to_html.py`
-
-Rewrites Markdown image references `![caption](path){width=Npx}` into HTML `<figure>` / `<img>` / `<figcaption>` blocks. Reason: Pandoc's `{width=Npx}` image-attribute syntax is Pandoc-only — VS Code preview, GitHub Flavored Markdown and most other renderers show it as literal text after the image. HTML `<img>` width attributes work in every renderer that supports raw HTML in Markdown (essentially all of them), and Pandoc passes them through to its docx/pdf output. Wrapping in `<figure>` + `<figcaption>` also makes the caption visible in every renderer, whereas plain `![alt](path)` shows the alt text only when the image fails to load.
-
-Safe default writes a `<name>.htmlimg.md` sibling; use `--in-place` to overwrite once the sibling looks right. `--dry-run` reports how many image references would be rewritten without touching anything.
-
-```bash
-# Safe default — writes gen2/norsmaterials_brief.htmlimg.md
-python scripts/md_image_to_html.py gen2/norsmaterials_brief.md
-
-# Overwrite in place (only after dry-run looks safe)
-python scripts/md_image_to_html.py --in-place gen2/norsmaterials_brief.md
-
-# Different default width (used when the input has no explicit width)
-python scripts/md_image_to_html.py --width 600 gen2/norsmaterials_brief.md
-```
-
-Preserves indentation, so images that live under bullet points stay under those bullet points in the output.
-
-### `scripts/format_docx.py`
-
-Post-processes a Pandoc-generated `.docx` file to fix two things Pandoc handles poorly by default: (1) tables have no visible borders, and (2) all table columns are given equal width regardless of content. The script uses `python-docx` to add thin grey borders (0.5 pt, `#BFBFBF`) to every cell in every table, and sets column widths per table from a `TABLE_WIDTHS_BY_STEM` dict keyed on the input filename stem (basename without `.docx`).
-
-Dependencies are declared inline via PEP 723 script metadata (`python-docx`), so `uv run` installs them on the fly into a user-local ephemeral env — no system install required.
-
-```bash
-# In-place: pandoc first, then format the resulting docx
-pandoc generic/background/loeypemelding/2026-07-16_loeypemelding.md -o generic/background/loeypemelding/2026-07-16_loeypemelding.docx
-uv run scripts/format_docx.py generic/background/loeypemelding/2026-07-16_loeypemelding.docx
-
-# Or output to a different path
-uv run scripts/format_docx.py input.docx output.docx
-
-# Borders only, skip column widths (for docs not in TABLE_WIDTHS_BY_STEM)
-uv run scripts/format_docx.py input.docx --borders-only
-```
-
-Adapted from the same-named script in `../fjordgata30/scripts/` — mechanics are identical, only `TABLE_WIDTHS_BY_STEM` is Sunlit-Sea-tailored. When a new deliverable with tables is generated, add a new dict entry keyed on the input filename stem, with one width row per table in the order they appear in the document.
-
-### `scripts/extract_pdf_images.py`
-
-Extracts embedded images from PDF files into per-document folders. Uses `pypdf` + `Pillow` via `uv run` PEP 723 script metadata — no permanent Python install needed. Preserves original image format (PNG/JPEG/JP2) via each embedded image's own bytes.
-
-Output layout: `<output-dir>/<pdf-stem>/img-<page>-<idx>.<ext>`. Skips existing files without `--force`. Prints per-file summary with images-per-page distribution.
-
-```bash
-# Extract from four background PDFs into sure/background/images/<stem>/
-uv run scripts/extract_pdf_images.py \
-  "sure/background/foo.pdf" "sure/background/bar.pdf" \
-  --output-dir sure/background/images/
-
-# Overwrite existing extracted images
-uv run scripts/extract_pdf_images.py "sure/background/foo.pdf" --output-dir sure/background/images/ --force
-```
-
-Use this when a PDF's text extraction (via `pdftotext`) loses embedded figures, photos or diagrams that the .md conversion still needs to reference. Extracted images can then be linked into the .md file as `![](images/<pdf-stem>/img-XXX-YY.png)`.
-
-Alternative for slide-decks where "the image is the whole slide" (vector graphics + text): use `pdftoppm -png -r 150 file.pdf out_prefix` to render each page as an image. This script targets only embedded raster images.
-
-### `scripts/insert_pdf_page_images.py`
-
-Inserts inline markdown image references into a pdftotext-derived `.md` file, one image group per PDF page. Companion to `extract_pdf_images.py`: extraction gives you the image files organised by page; this script hooks them back into the text at the appropriate page boundaries so the images render inline in Markdown viewers and downstream Pandoc conversions.
-
-Expects the `.md` file to contain form-feed (`\f`) page separators as pdftotext outputs them, and expects images at `<images-dir>/<md-stem>/img-<page:03d>-<idx>.*` (the layout that `extract_pdf_images.py` produces).
-
-Images are appended at the *end* of each page's text (readers see the source text first, then the visuals). Safe by default — writes to `<name>.imgref.md` sibling; `--promote` overwrites in place.
-
-```bash
-# Dry-run
-uv run scripts/insert_pdf_page_images.py \
-  sure/background/2025-03-12_uv_minipatch_preliminary_results.md \
-  --images-dir sure/background/images/
-
-# Promote after verifying
-uv run scripts/insert_pdf_page_images.py \
-  sure/background/*.md --images-dir sure/background/images/ --promote
-```
-
-#### Combined recipe: batch PDF → Markdown with linked images
-
-The two scripts above compose into the standard inbox-processing pipeline (used for T100). Both scripts key on the file **stem**, so the `.md` stem must equal the `.pdf` stem — stage copies of the PDFs under their final slug names first, then convert.
-
-```bash
-STAGE=/tmp/stage; OUT=<activity>/background/YYYY-MM-DD_<set_name>
-mkdir -p "$STAGE" "$OUT/images"
-cp "<inbox>/Some Long Name.pdf" "$STAGE/short_slug.pdf"          # 1. stage with final names
-
-for f in "$STAGE"/*.pdf; do                                       # 2. text (\f page breaks preserved)
-  pdftotext -layout -eol unix "$f" "$OUT/$(basename "$f" .pdf).md"
-done
-
-uv run scripts/extract_pdf_images.py "$STAGE"/*.pdf --output-dir "$OUT/images/"   # 3. images
-find "$OUT/images" -name '*.jp2' -exec sh -c 'convert "$1" "${1%.jp2}.png" && rm "$1"' _ {} \;  # 4. JP2 → PNG
-
-uv run scripts/insert_pdf_page_images.py "$OUT"/*.md --images-dir "$OUT/images/" --promote  # 5. link
-```
-
-Step 4 matters: `pdfimages`/`pypdf` hand back JPEG 2000 (`.jp2`) for some scanner and CAD output, and no Markdown viewer renders it. Convert before linking.
-
-Prepend a metadata header (document date, issuer, source path, conversion method) to each `.md` after step 2 — the insert script treats a header before the first `\f` as part of page 1 and leaves it alone.
-
-Non-PDF inbox files go through pandoc in the same pass: `pandoc in.docx -t markdown --wrap=none --extract-media="$OUT/images/<stem>" -o "$OUT/<stem>.md"`. Data files (`.csv`, `.xlsx`) are copied over raw — do not convert them to Markdown.
-
-### `scripts/nbsp_numbers.py`
-
-Binds thousands-separated number groups in Markdown with non-breaking space (NBSP, U+00A0) so that pandoc + xelatex does not break numbers like `18 570 858` across line boundaries in narrow PDF table columns. Regex-based, idempotent, character-count-neutral (only swaps space for NBSP inside `\d \d{3}` boundaries).
-
-Safe by default — writes to `<name>.cleaned.md` sibling and prints word/line/char counts (should be identical before and after) plus NBSP substitution count plus sample changed lines. Use `--promote` to overwrite in place after inspecting dry-run output.
-
-```bash
-# Dry-run — writes funding/*.cleaned.md sibling
-python scripts/nbsp_numbers.py funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md
-
-# Overwrite in place after dry-run looks safe
-python scripts/nbsp_numbers.py --promote funding/2026-07-14_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md
-```
-
-Character/word/line counts must be identical before and after — a delta of anything other than zero means the regex hit something it should not have. The NBSP substitution count should match the number of thousand-separator boundaries actually in the document. Both are visible in the dry-run output.
-
-Renders as ordinary space in every renderer (PDF, DOCX, VS Code preview, GitHub) — only the line-break behaviour changes.
-
-### `scripts/clean_investor_updates.py`
-
-Strips mail-header noise, mid-body Gmail page-print repeats, and trailing signature blocks (`Mvh`, contact-info lines, Google Groups unsubscribe boilerplate) from the investor-update `.md` files under `generic/background/loeypemelding/`. Preserves the YAML frontmatter; leaves body content between top and bottom noise untouched.
-
-**Safe default (no in-place edits).** Writes a sibling `<name>.cleaned.md` for each input. Compare, then either rename manually or re-run with `--in-place`.
-
-```bash
-# Safe default — writes generic/background/loeypemelding/*.cleaned.md
-python scripts/clean_investor_updates.py generic/background/loeypemelding/*.md
-
-# Dry-run — per-file word-count before/after, no writes
-python scripts/clean_investor_updates.py --dry-run generic/background/loeypemelding/*.md
-
-# In-place — overwrites originals; only use after --dry-run looks safe
-python scripts/clean_investor_updates.py --in-place generic/background/loeypemelding/*.md
-```
-
-The dry-run output flags any file that shrinks to below 70% of its original word count with a `!` marker — that is the pattern that would have caught the earlier truncation incident where two files silently lost ~90% of their content to an over-broad signature-start regex. Always dry-run before batch use.
-
-### `scripts/eu_proposal_template_format.lua`
-
-Pandoc Lua filter that makes EU proposal-template documents (EIC Transition, Horizon Europe application forms) readable after a `.docx` → Markdown conversion. The Word templates wrap every guidance note, every answer field and every work-package description in a table. Plain Pandoc renders those as ASCII grid tables hundreds of characters wide (a 160 KB `.docx` produced a 499 KB `.md`), and with `-t gfm` the ones Pandoc cannot express as pipe tables come out as raw HTML.
-
-What the filter does:
-
-| Input | Output |
-|---|---|
-| 1-column table | header row → blockquote (guidance), body rows → ordinary text |
-| label/value table (work-package boxes) | `**Label:** value`, or a bold label followed by the block content |
-| simple data table | left alone — stays a real Markdown table |
-| `1. **Excellence**` list item | `## Excellence` |
-| `Task 1.1: …` paragraph | `### Task 1.1: …` |
-| bullet list that is only `{.mark}` guidance | blockquote |
-| `[text]{.mark}` | plain text |
-| `[text]{.underline}` / `Underline` | bold (italics would nest illegally inside the templates' italic guidance runs) |
-
-Nested `**bold**` inside `**bold**` is collapsed, since Markdown cannot express it.
-
-```bash
-# raw.md is the unfiltered `pandoc source.docx -t markdown --wrap=none` output
-pandoc raw.md -f markdown -t gfm --wrap=none \
-  --lua-filter=scripts/eu_proposal_template_format.lua \
-  -o generic/background/eic/2026-09-09_sintef.md
-```
-
-Non-destructive by design: it only ever writes the `-o` target, so keep the raw Pandoc conversion next to the formatted one. Verify a run by comparing word counts of the plain-text renderings of both files:
-
-```bash
-pandoc IN.md  -t plain --wrap=none | tr -s '[:space:]' '\n' | grep -vE '^[-+|]*$' | grep -c .
-pandoc OUT.md -f gfm -t plain --wrap=none | tr -s '[:space:]' '\n' | grep -vE '^[-+|]*$' | grep -c .
-```
-
-A small drop (well under 1%) is expected: list numbers and trailing colons disappear when list items and task titles become headings.
-
-### `scripts/xlsx_to_md.py`
-
-Converts an `.xlsx` workbook to a Markdown document with one Markdown table per sheet. Uses `openpyxl` (no `pandas` required). Trims trailing empty rows and columns; escapes `|` and collapses newlines inside cells; renders integer-valued floats without the trailing `.0`.
-
-```bash
-python scripts/xlsx_to_md.py "input.xlsx" "output.md"
-```
-
-Written for the WP8 KPI tracker workbook (5 sheets: communication log, publications, KPIs, media links, options). Reusable for any small workbook that needs to be read as flat markdown rather than kept as a binary.
-
-### `scripts/emf_to_png.ps1`
-
-Rasterises `.emf` (Enhanced Metafile) vector files to `.png` for inline preview in Markdown viewers and slide decks. Uses Windows `System.Drawing` (GDI+) — Windows-only.
-
-```powershell
-powershell -File scripts/emf_to_png.ps1 -Root surewave/images -Scale 2
-```
-
-Recursive by default. Writes a sibling `.png` next to each `.emf` at the given scale (default 2×). Skips files that already have a `.png` sibling unless `-Force` is passed. Leaves the `.emf` original in place; delete the source EMFs separately once the PNGs are verified if you don't want to keep both formats.
-
-Used to rasterise the 83 EMF files under `surewave/images/*/` that were extracted from Word deliverables (most Markdown viewers cannot render EMF inline). After rasterisation the EMF sources were removed; PNG-only is the current stored form.
+Persistent helper scripts live in `scripts/` at the repo root. Each script is documented in [`docs/scripts.md`](docs/scripts.md) with purpose, invocation, inputs/outputs and safety notes.
+
+Current scripts:
+
+- `md_to_letter.py` — Markdown → DOCX/PDF on the Sunlit Sea letterhead
+- `md_to_slides.py` — Markdown → PDF slide deck in the Sunlit Sea visual profile
+- `md_image_to_html.py` — rewrite Markdown image refs into HTML `<figure>` blocks
+- `format_docx.py` — post-process Pandoc docx (table borders + column widths)
+- `extract_pdf_images.py` — extract embedded images from PDFs
+- `insert_pdf_page_images.py` — inline image refs into pdftotext `.md`
+- `nbsp_numbers.py` — NBSP between thousand-separator digit groups
+- `clean_investor_updates.py` — strip mail-headers / signatures from investor updates
+- `eu_proposal_template_format.lua` — Pandoc Lua filter for EU proposal templates
+- `xlsx_to_md.py` — xlsx workbook → one Markdown table per sheet
+- `emf_to_png.ps1` — rasterise `.emf` to `.png` (Windows GDI+)
 
 ---
 
@@ -548,7 +131,7 @@ Contents:
 - `notes.txt` – loose working notes.
 - `sure_dow_extract.txt` – DoW extract.
 - `figures/` – Mermaid sources (`.mmd`) + rendered PNGs used inline in the reports.
-- `images/` – photos, CAD/mesh screenshots, empirical figures used in the reports. See `CLAUDE.md` for per-image descriptions.
+- `images/` – photos, CAD/mesh screenshots, empirical figures used in the reports. Per-image descriptions in [`docs/sure_images.md`](docs/sure_images.md).
 - `background/` – DoW extract, external reports, source PDFs (and Markdown conversions of them) and other date-prefixed background material. Some files here (e.g. `Prod v2 roadmap`) may move to `gen2/background/` when Gen 2 material is separated.
 
 The aluminium pressing simulation pipeline lives as a neighbouring project at `../thepressing/` — not part of this repo.
@@ -630,6 +213,7 @@ Contents:
   - Deliverables span WP1 (management), WP2 (requirements), WP3 (design), WP4 (materials & prototype), WP5 (structural integrity & SHMS), WP6 (ultimate strength), WP7 (sustainability: environmental, social, integrated), WP8 (dissemination, societal needs).
   - Grant Agreement 101083342 (signed 2022-09-20) and the original Proposal (submitted 2022-02-23) are kept as authoritative PDFs alongside their pdftotext `.md` renditions.
   - D7.4 cost data kept raw as `.xlsx` next to the corresponding Economic Assessment `.md`.
+  - Consortium templates: `2026-10-16_surewave_docx_template.docx` and `2026-10-16_surewave_pptx_template.pptx`. Used as pandoc `--reference-doc` targets by the `generate-surewave-docx` and `generate-surewave-pptx` skills.
   - Working documents produced by Sunlit Sea for internal / WP-leader use: `2026-09-28_status.md` (project status snapshot), `2026-09-29_surewave_technical_system_images.md` (curated index of technical-system images from `background/`), `2026-09-29_surewave_wp_task_deliverable_index.md` (authoritative index of WPs, tasks and deliverables compiled from the GA and Annex 1), `2026-09-30_exploitation_requirements_reference.md` (comprehensive WP8 exploitation-requirements reference consolidating GA articles, DoA commitments, CINEA guidance and Continuous Reporting Module structure).
 - `images/` — pandoc-extracted images from every `.docx`-sourced background deliverable, organised in per-deliverable subfolders whose names match the `.md` basename (e.g. `images/2024-04-16_surewave_d5.1/imageN.*`). Image references in the background `.md` files use `../images/<basename>/imageN.*` so they resolve regardless of file location. Curated index at `background/2026-09-29_surewave_technical_system_images.md`.
 - `background/new/` — inbox for future SUREWAVE material.
@@ -661,6 +245,15 @@ sure-d61/
 ├── TASKS.md                   – open task list (T-numbered, single sequence across activities)
 ├── ARCHIVE.md                 – closed tasks
 ├── README.md                  – this document (only README in the repo)
+├── docs/                      – topic-level documentation
+│   ├── pandoc_conversion.md   – Pandoc + mermaid-filter installation and commands, Letter/letterhead output
+│   ├── scripts.md             – reference for every helper script in scripts/
+│   ├── background_convention.md – background inbox pipeline, date-prefix rules, conversion recipes
+│   ├── sure_images.md         – per-image descriptions for images in sure/images/
+│   └── rules/                 – long-form elaboration of individual working rules
+├── cases/                     – case indexes for cross-cutting threads (pointers only, no file duplication)
+│   ├── prinsippendring_arsregnskap_2025/INDEX.md
+│   └── eic_transition_surewave/INDEX.md
 ├── generic/                   – cross-cutting / shared material
 │   ├── background/            – date-prefixed background inputs
 │   │   ├── new/               – inbox for unprocessed files (PDFs, DOCX, images → converted to .md)
@@ -669,7 +262,7 @@ sure-d61/
 │   │   ├── eic/               – EIC Transition proposal material (WP structure, MoM, partner correspondence, feedback, PES application drafts, proposal revision strategy, full Part B rewrite, archived call rules and web sources)
 │   │   └── leads/             – commercial leads and prospect material
 │   └── deliverable/           – outgoing cross-cutting deliverables (customer replies, quotes, pre-tender responses)
-├── scripts/                   – persistent helper scripts (see the *Scripts* section above)
+├── scripts/                   – persistent helper scripts (see docs/scripts.md)
 ├── sure/                      – SuRE WP6 activity
 ├── gen2/                      – Gen 2 product development
 ├── funding/                   – Grants, EU reporting, financial
