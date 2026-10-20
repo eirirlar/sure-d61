@@ -99,6 +99,7 @@ Flat list of every task in this file, sorted by T-number. `[ ]` not started · `
 - T133 `[x]` [FUND] EUPI-PV — Work instruction for Olle Roman at Gotland North (Storugns) from today through operative FPV installation
 - T134 `[x]` [FUND] EUPI-PV — Fix rendering and ChatGPT prompts in Olle leave-of-absence presentation
 - T135 `[x]` [GENERIC] Cleanup — subagent-propagated false FPV geometry ("flat-flush-to-water, 0.4 m, zero tilt") across docs, rules and deliverables
+- T136 `[ ]` [GENERIC] Create `docs/project_facts.md` as canonical facts file referenced from CLAUDE.md
 
 ## Tasks
 
@@ -4169,6 +4170,71 @@ Authoritative spec confirmed: panel sits approximately 6 cm above water at the l
 **Verification:**
 
 Final grep for `flat-flush|flat flush|flush with the water|0.4 m above|zero tilt` across the repo shows every remaining occurrence is either (a) a corrected string containing the right spec in context, (b) the T135 Index/task block itself describing the problem, (c) a quoted-as-evidence occurrence inside `docs/rules/subagent-outputs.md` or TASKS.md T135 solution notes, or (d) the historical record under the correction-headed subagent file.
+
+---
+
+### T136 `[x]` [GENERIC] Create `docs/project_facts.md` as canonical facts file referenced from CLAUDE.md
+
+**Solution.** Combed `generic/background/loeypemelding/2026-07-16_loeypemelding.md` (most recent), `generic/deliverable/2026-10-19_nearshore_floating_solar_gotland_project_intro.md`, `generic/deliverable/2026-10-19_olle_roman_work_instruction_gotland_north.md`, `cases/eic_transition_surewave/INDEX.md`, `gen2/norsmaterials_brief.md`, `funding/background/eupi_pv/2026-08-04_horizon_cl5_2026_11_d3_14_call_text.md`, `funding/deliverables/eupi_pv/2026-10-13_sunlit_sea_budget_proposal_eupi_pv.md`, `surewave/background/2022-09-20_surewave_grant_agreement_101083342.md`, `generic/background/eic/*` (EIC Transition thread), the recent Skatteetaten letters (for current head-office address, Grønnegata 10, 0350 Oslo), `generic/background/2026-10-02_arsregnskap_2025.md`, `generic/background/2026-09-30_revisor_nummerert_brev_nr2_2025.md` (auditor identity) and the neighbour `../stotte/data/sunlit_sea/project_cards.json` (for SuRE grant ID 101135567 and SUREWAVE project dates). Where the løypemelding dated 2026-07-16 and the SUREWAVE Grant Agreement signed 2022-09-20 disagreed on head office (Oslo vs Trondheim), the user's 2026-10-20 in-session correction (Oslo) prevailed as the newest input.
+
+Files created / changed:
+
+- `docs/project_facts.md` — new canonical lookup file. Sections: Company, People, Products, Current projects, Predecessor / reference projects, Grant / funding reference identifiers, Sites, Industrial / commercial counterparties, Legal and standards references in current use, Maintenance. One line per fact; no narrative, no history-as-explanation. Includes the three specific corrections called out in the task problem statement: head office Oslo, Sunlit Sea CONNECT product name (not "Sunlit Sea CONNECT gen. 2"), and Nearshore floating solar Gotland (not SUREWAVE Gotland).
+- `CLAUDE.md` — Pointer-section line added for `docs/project_facts.md`; the existing "Read these first" rule extended to name `docs/project_facts.md`; new working rule "Project facts are canonical in `docs/project_facts.md`" added immediately after.
+
+**Problem the task solves.** Drafts repeatedly inherit stale phrasing from older background files — product names, place names, people, grant references — because there is no canonical source of current project facts. Concrete examples from the Olle Roman deliverables session on 2026-10-19/20:
+
+- Sunlit Sea's head office is Oslo. Drafts said "Trondheim" (because SINTEF, the SUREWAVE / EUPI-PV consortium coordinator, is in Trondheim and that phrasing was inherited).
+- The current product is "Sunlit Sea CONNECT"; "gen 2" is a generation label, not part of the product name. Drafts said "Sunlit Sea CONNECT gen. 2" as if that were the full name, because `gen2/norsmaterials_brief.md` uses that construction.
+- The planned Gotland install is "Nearshore floating solar Gotland" (a Horizon Europe EUPI-PV application under HORIZON-CL5-2026-11-D3-14). Drafts said "SUREWAVE Gotland" because SUREWAVE is the predecessor project whose technology is being reused — the two were conflated.
+
+Each required explicit user correction in-session. A canonical facts file read before drafting would catch these.
+
+**Deliverable.** `docs/project_facts.md`. One line per fact, grouped by category. Terse — this is a lookup, not prose. Draft section outline:
+
+- **Company:** Sunlit Sea AS. Head office (city). Owner.
+- **People:** Eirik Larsen (technical lead, Sunlit Sea). Olle Roman (civilian site coordinator for the Gotland North demonstrator, Försvarsmakten officer on tjänstledigt utan lön). Add others as they surface.
+- **Products:** Sunlit Sea CONNECT (second-generation product; "gen 2" or "gen. 2" is a generation label, NOT part of the product name). Gen 1 commercial installations with capacity and site (Mannheim Cablepark; Skiftestjørna). Pipeline (Skien havn, Storavatnet, Gunneklevfjorden).
+- **Current projects:** Nearshore floating solar Gotland (Horizon Europe EUPI-PV, HORIZON-CL5-2026-11-D3-14, submission 1 December 2026, SINTEF-coordinated, Sunlit Sea as technology-provider partner, ~1 MWp off Kappelshamnsviken, paired with ~4 MW German demonstrator). EIC Transition SUREWAVE (separate parallel application lifting Sunlit Sea's gen 2 TRL).
+- **Predecessor / reference projects:** SUREWAVE (Horizon Europe, Grant Agreement 101083342, 2022-2026, SINTEF coordinator, 7 partners from NO/ES/DE/NL). SuRE WP6 (D6.1 status, D6.2 status).
+- **Grant / funding references:** full identifiers (GA 101083342 = SUREWAVE; HORIZON-CL5-2026-11-D3-14 = EUPI-PV; EIC Transition call reference). Deadlines.
+- **Sites:** site coordinates and short descriptions for Kappelshamnsviken / Storugns, Skiftestjørna, Storavatnet, Gunneklevfjorden, Skien havn, Mannheim Cablepark.
+- **Industrial / commercial counterparties:** Nordkalk (Storugns), SigmaRoc (UK, Nordkalk's owner), EV PowerCharge AS (Skiftestjørna PPA), Rixen (Mannheim customer). One-line relationship to Sunlit Sea each.
+- **Legal references in current use:** canonical citations for Vattenverksamhet (Miljöbalken 11 kap.), Miljöbalken 6 kap. (MKB), Kulturmiljölagen 2 kap., Ellagen, EIFS 2018:2, aksjeloven, regnskapsloven etc. — brief "when to cite" form.
+
+**Source material and discovery.** Facts should be verifiable from at least one background file. Comb all of:
+
+- `generic/background/` (including dated subfolders — `loeypemelding/`, `eic/`, `eupi_pv/`, `lover/`, year-dated folders)
+- `generic/deliverable/` for recent deliverables that establish current naming
+- `gen2/` (and `gen2/norsmaterials_brief.md` specifically — note this file uses the deprecated "Sunlit Sea CONNECT gen. 2" phrasing, so it's an *example of what to correct*, not a source of truth for product naming)
+- `sure/background/`, `sure/deliverables/`
+- `funding/background/` (especially `eupi_pv/`, `nye/`), `funding/deliverables/` (especially `eupi_pv/`), `funding/nedskriving_2025.md`
+- `surewave/background/`, `surewave/deliverables/`
+- `cases/*/INDEX.md` (cross-cutting case indexes)
+- `docs/sure_images.md`, `docs/surewave_configurations.md`, `docs/background_convention.md`
+
+**Read thoroughly, not head-of-file.** Many background files are long (several hundred lines). Do NOT rely on `head`, `grep | head -N`, or first-100-line scans — read each candidate file in full (or `pdftotext -layout` for PDFs). The relevant fact is often buried mid-document (e.g. a specific installation capacity in a quarterly løypemelding table, or a company-structure change note in a mid-year investor update).
+
+**Recency wins on conflict.** Where two background files disagree, the newer file is authoritative. The repo convention is `YYYY-MM-DD_<slug>.<ext>` date-prefixing (see `docs/rules/date-prefix.md`), so file dates are visible from the filename. For files without a date prefix, use `git log --format=%aI --follow -1 -- <file>` to get the file's last modification date. Example precedent from the 2026-10-19/20 session: older løypemeldinger and investor updates referred to Sunlit Sea's office as Trondheim; the current state (confirmed by the user in-session on 2026-10-20) is Oslo. The newer the file, the more weight it carries — and when the user corrects a fact in-session, that correction is the newest input and overrides every file.
+
+**Integration into the workflow.** Two edits required in `CLAUDE.md`:
+
+1. Extend the "Read these first" rule (currently names `README.md`, `TASKS.md`, `ARCHIVE.md`) to also name `docs/project_facts.md`.
+2. Add a new rule under *Working rules*:
+
+   > **Project facts are canonical in `docs/project_facts.md`.** Consult it before drafting any deliverable that names a proper noun, place, product, grant, site or counterparty. Do not inherit phrasing from older background files without cross-checking the facts file. If a background file contradicts the facts file, the facts file wins — the background file is historical context, not current state.
+
+Also update the "Pointers" section near the top of `CLAUDE.md` to list the new file.
+
+**Maintenance protocol.** Facts drift slowly because background is stable, but update when: (a) a new project, counterparty or site is added; (b) the user corrects a fact in-session — append or correct the line in the facts file as part of the correction, not later; (c) a product renames, a person's role changes, or a company moves.
+
+**Scope boundaries — out of scope for this task.**
+
+- A full stakeholder map, contact book or address list. Those live in individual deliverables or specialised catalogues (`docs/sure_images.md`-style).
+- Narrative or explanatory prose about any fact. One line per fact; no "because" clauses, no history, no justification.
+- Fixing the other failure modes seen in the same session (grep false negatives from unsupported regex features; local-fix bias where a user correction gets applied to one line but not to the pattern it was an instance of). Those are separate issues; track as new T-tasks if the user wants.
+
+**Done means:** `docs/project_facts.md` exists with all applicable sections populated from background material; `CLAUDE.md` is updated with the extended "Read these first" rule, the new "Project facts are canonical" working rule, and a Pointer-section line; the file reads correctly as a lookup table (no prose).
 
 ---
 
