@@ -30,9 +30,15 @@ HEADER_TEX = Path(__file__).with_name("sunlit_sea_slides_header.tex")
 FONTS_DIR = REPO_ROOT / "visual_profile" / "fonts"
 
 
-def _font_prelude(path: Path) -> Path:
-    """Write a prelude that loads Everett before the main header include."""
+def _font_prelude(path: Path, md_dir: Path) -> Path:
+    """Write a prelude that loads Everett and sets \\graphicspath to md_dir.
+
+    Relative image paths in raw \\includegraphics inside the markdown resolve
+    from the markdown's directory, matching pandoc's --resource-path for
+    markdown-syntax images.
+    """
     fonts_abs = path.resolve().as_posix() + "/"
+    md_abs = md_dir.resolve().as_posix() + "/"
     content = (
         "\\usepackage{fontspec}\n"
         f"\\newfontfamily\\everett[Path={fonts_abs}, Extension=.ttf, "
@@ -40,6 +46,8 @@ def _font_prelude(path: Path) -> Path:
         "BoldFont=Everett-Bold-web]{Everett}\n"
         f"\\newfontfamily\\everettMedium[Path={fonts_abs}, "
         "Extension=.ttf]{Everett-Medium-web}\n"
+        "\\usepackage{graphicx}\n"
+        f"\\graphicspath{{{{{md_abs}}}}}\n"
     )
     tmp = Path(tempfile.mkstemp(suffix=".tex", prefix="sunlitfonts_")[1])
     tmp.write_text(content, encoding="utf-8")
@@ -58,11 +66,12 @@ def build(input_md: Path, output_pdf: Path) -> None:
 
     output_pdf.parent.mkdir(parents=True, exist_ok=True)
 
-    prelude = _font_prelude(FONTS_DIR) if FONTS_DIR.is_dir() else None
+    prelude = _font_prelude(FONTS_DIR, input_md.parent) if FONTS_DIR.is_dir() else None
     try:
         cmd = ["pandoc", str(input_md), "-t", "beamer",
                "--pdf-engine=xelatex",
                "--slide-level=2",
+               f"--resource-path={input_md.parent}",
                "-V", "aspectratio=169",
                "-V", "lang=nb-NO",
                "-V", "classoption=aspectratio=169"]

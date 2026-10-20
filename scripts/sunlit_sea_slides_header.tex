@@ -62,12 +62,19 @@
 % --- Hide navigation ----------------------------------------------------
 \setbeamertemplate{navigation symbols}{}
 
+% --- Footer context: per-deck label shown after "SUNLIT SEA |" in the
+% footer. Each deck overrides this at the top of its markdown with a raw
+% LaTeX block: \renewcommand{\sunlitDeckContext}{Deck label}
+\providecommand{\sunlitDeckContext}{}
+
 % --- Footer: left strap, right page number ------------------------------
 \setbeamertemplate{footline}{%
   \leavevmode%
   \hbox{%
     \begin{beamercolorbox}[wd=.75\paperwidth,ht=2.75ex,dp=1.25ex,leftskip=1.5em]{footline}%
-      \color{sunlitBlack600}\footnotesize{\everett SUNLIT SEA}\hspace{0.75em}\textbar\hspace{0.75em}Årsregnskap 2025%
+      \color{sunlitBlack600}\footnotesize{\everett SUNLIT SEA}%
+      \edef\sunlitTempContext{\sunlitDeckContext}%
+      \ifx\sunlitTempContext\empty\else\hspace{0.75em}\textbar\hspace{0.75em}\sunlitDeckContext\fi%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.75ex,dp=1.25ex,rightskip=1.5em]{footline}%
       \hfill\color{sunlitBlack600}\footnotesize\insertframenumber\,/\,\inserttotalframenumber%

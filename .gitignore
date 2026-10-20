@@ -2,3 +2,4 @@ report.docx
 **/*.err
 surewave/deliverables/*.pdf
 temp/
+.claude/worktrees/

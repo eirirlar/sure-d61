@@ -227,7 +227,7 @@ Material that spans SuRE, Gen 2 and Funding, or predates the activity split. Two
 
 - `generic/background/` — cross-cutting background inputs (date-prefixed). Contains company-level correspondence, historical investor updates, market intel, legal excerpts, and any other input material that is not the property of a single activity. Current subfolders:
   - `new/` — inbox for unprocessed files (PDFs, DOCX, images → converted to .md).
-  - `lover/` — excerpts of Norwegian statutes and accounting standards (regnskapsloven, NRS, skfvl).
+  - `lover/` — excerpts of Norwegian statutes and accounting standards (aksjeloven, regnskapsloven, NRS, skfvl). All paragraph files are verbatim from Lovdata — see `docs/rules/lovparagrafer.md` and the `last-ned-paragraf` skill for the download/verification pipeline.
   - `loeypemelding/` — historical investor updates (løypemeldinger), date-prefixed.
   - `eic/` — EIC Transition proposal material (WP structure, MoM, partner correspondence, feedback, PES application drafts, proposal revision strategy, full Part B rewrite, archived call rules and web sources).
   - `leads/` — commercial leads and prospect material (date-prefixed under per-lead subfolders).
@@ -257,7 +257,7 @@ sure-d61/
 ├── generic/                   – cross-cutting / shared material
 │   ├── background/            – date-prefixed background inputs
 │   │   ├── new/               – inbox for unprocessed files (PDFs, DOCX, images → converted to .md)
-│   │   ├── lover/             – excerpts of Norwegian statutes and accounting standards (regnskapsloven, NRS, skfvl)
+│   │   ├── lover/             – excerpts of Norwegian statutes and accounting standards (aksjeloven, regnskapsloven, NRS, skfvl)
 │   │   ├── loeypemelding/     – historical investor updates (løypemeldinger), date-prefixed
 │   │   ├── eic/               – EIC Transition proposal material (WP structure, MoM, partner correspondence, feedback, PES application drafts, proposal revision strategy, full Part B rewrite, archived call rules and web sources)
 │   │   └── leads/             – commercial leads and prospect material

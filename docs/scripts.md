@@ -4,8 +4,10 @@ Persistent helper scripts live in `scripts/` at the repo root — never scattere
 
 ## Contents
 
+- [`md_to_pdf.py`](#md_to_pdfpy) — dispatcher: Markdown → PDF via the right Sunlit Sea wrapper (slides / report / letter)
 - [`md_to_letter.py`](#md_to_letterpy) — Markdown → DOCX/PDF on the Sunlit Sea letterhead
 - [`md_to_slides.py`](#md_to_slidespy) — Markdown → PDF slide deck in the Sunlit Sea visual profile
+- [`md_to_sunlit_report.py`](#md_to_sunlit_reportpy) — Markdown → PDF long-form report in the Sunlit Sea visual profile
 - [`md_to_surewave_docx.py`](#md_to_surewave_docxpy) — Markdown → SUREWAVE consortium branded DOCX (cover + body)
 - [`md_image_to_html.py`](#md_image_to_htmlpy) — rewrite Markdown image refs into HTML `<figure>` blocks
 - [`format_docx.py`](#format_docxpy) — post-process Pandoc docx (table borders + column widths)
@@ -17,6 +19,39 @@ Persistent helper scripts live in `scripts/` at the repo root — never scattere
 - [`xlsx_to_md.py`](#xlsx_to_mdpy) — xlsx workbook → one Markdown table per sheet
 - [`emf_to_png.ps1`](#emf_to_pngps1) — rasterise `.emf` to `.png` (Windows GDI+)
 - [`render_docx_pdf.sh`](#render_docx_pdfsh) — sandboxed LibreOffice docx → PDF (does not trip Windows Controlled Folder Access)
+
+## `md_to_pdf.py`
+
+Dispatcher that produces a Sunlit Sea-styled PDF from any Markdown deliverable, routing to the correct underlying wrapper based on the file's declared template type.
+
+The template is picked in this order:
+
+1. CLI `--template slides|report|letter` (override, mainly for debugging).
+2. The `sunlit_template:` field in the file's YAML frontmatter.
+3. Inference from the markdown shape — slide-chrome `## {.plain}` + TikZ overlay → `slides`; three or more `## N.`-style numbered sections → `report`; Norwegian signoff (`Vennlig hilsen`, `Mvh`) → `letter`.
+4. If still ambiguous: exits with a prompt to add the YAML field.
+
+Convention for new Markdown deliverables that will be rendered to PDF: declare the template explicitly in the YAML header so the dispatcher is deterministic.
+
+```yaml
+---
+sunlit_template: slides     # or: report, letter
+...
+---
+```
+
+```bash
+# Default: writes <input>.pdf next to <input>.md, dispatched by YAML/inference
+python scripts/md_to_pdf.py generic/deliverable/2026-10-19_...project_intro.md
+
+# Custom output path
+python scripts/md_to_pdf.py path/to/input.md -o path/to/out.pdf
+
+# Explicit override
+python scripts/md_to_pdf.py path/to/input.md --template report
+```
+
+Behind the scenes the dispatcher invokes `md_to_slides.py`, `md_to_sunlit_report.py` or `md_to_letter.py --pdf`. Each underlying wrapper remains available directly when a specific flag (letter `.docx` output, etc.) or a custom code path is needed.
 
 ## `md_to_letter.py`
 
@@ -63,6 +98,28 @@ Markdown conventions for the deck:
 - Use raw `\begin{tabular}{@{}lrrr@{}}...\end{tabular}` for tables (markdown pipe-tables render but have less control over spacing / column emphasis). Keep inline `\color{sunlitBlue900}` inside raw tabular — pandoc preserves braces in raw latex blocks but escapes them in prose, so avoid `{\color{...}...}` in body text (use `\textcolor{sunlitBlue900}{\textbf{...}}` or plain `**bold**` instead).
 
 Reference deck: `generic/deliverable/2026-10-13_generalforsamling_arsregnskap_2025_slides.md` (annual general assembly presentation for Årsregnskap 2025).
+
+## `md_to_sunlit_report.py`
+
+Produces a long-form PDF report in Sunlit Sea's visual profile — A4 article class, Arial body, Everett section headings, yellow accent under the document title, "SUNLIT SEA" running strap top-left, page numbers bottom-right, auto-generated table of contents. For documents too long or structurally wrong for a slide deck: work instructions, internal briefs, background memos, multi-section reports.
+
+The theme lives in `scripts/sunlit_sea_report_header.tex` and defines the colour palette, section-heading typography (Everett), running header / footer, widow-and-orphan protection, Swedish hyphenation patterns and TOC styling. Everett `.ttf` files are read from `visual_profile/fonts/` via a prelude the wrapper writes at build time; `\graphicspath{}` is also set so relative image refs in raw `\includegraphics{...}` resolve from the markdown's directory.
+
+```bash
+# Default: writes <input>.pdf next to <input>.md
+python scripts/md_to_sunlit_report.py generic/deliverable/<name>.md
+
+# Custom output path
+python scripts/md_to_sunlit_report.py path/to/report.md -o path/to/out.pdf
+```
+
+Markdown conventions for the report:
+
+- `## Heading` renders as a numbered section (`1.`, `2.`, …); numbering is manual in the markdown.
+- `### Subheading` renders as a numbered subsection in Everett (`1.1`, `7.3`, …).
+- Bulleted lists (`- item`) and bold-run-in paragraphs (`**label.** explanation…`) both render cleanly.
+- Raw LaTeX blocks (`\begin{tabular}{...}`) pass through.
+- Pandoc's TOC is enabled; the TOC title ("Contents") picks up Sunlit Sea styling automatically.
 
 ## `md_to_surewave_docx.py`
 

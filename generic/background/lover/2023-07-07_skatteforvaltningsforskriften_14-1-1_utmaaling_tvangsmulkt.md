@@ -1,8 +1,8 @@
 ---
-title: "Forskrift til skatteforvaltningsloven (skatteforvaltningsforskriften) § 14-1-1 — Utmåling av tvangsmulkt"
-kilde: https://lovdata.no/dokument/SF/forskrift/2016-11-23-1360/§14-1-1
-sist_endret: "Forskrifter 24. januar 2017 nr. 66 og 7. juli 2023 nr. 1257"
-hentet: 2026-07-09
+kilde: "Forskrift til skatteforvaltningsloven (skatteforvaltningsforskriften)"
+lovnr: "2016-11-23 nr. 1360"
+url: https://lovdata.no/dokument/SF/forskrift/2016-11-23-1360/§14-1-1
+hentet: 2026-10-19
 ---
 
 # § 14-1-1. Utmåling av tvangsmulkt

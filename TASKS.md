@@ -93,6 +93,12 @@ Flat list of every task in this file, sorted by T-number. `[ ]` not started · `
 - T127 `[x]` [GENERIC] Define `generate-slides` skill — Sunlit Sea visual-profile slide decks
 - T128 `[~]` [GENERIC] Define `generate-surewave-docx` skill — apply SUREWAVE docx template to a `.md` file
 - T129 `[x]` [GENERIC] Define `generate-surewave-pptx` skill — apply SUREWAVE pptx template to a `.md` file
+- T130 `[x]` [GENERIC] Innkorporér fjordgata30-reglene om verbatim lovsitering og curl-only Lovdata-henting
+- T131 `[x]` [FUND] Konsekvensutredning: hvilke leveranser er berørt av feilsitert regnskapsloven § 5-6 (og øvrige T130-funn)
+- T132 `[x]` [FUND] EUPI-PV — Forsvarsmakten presentation for Olle Roman tjänstledigt request (Gotland North site coordinator)
+- T133 `[x]` [FUND] EUPI-PV — Work instruction for Olle Roman at Gotland North (Storugns) from today through operative FPV installation
+- T134 `[x]` [FUND] EUPI-PV — Fix rendering and ChatGPT prompts in Olle leave-of-absence presentation
+- T135 `[x]` [GENERIC] Cleanup — subagent-propagated false FPV geometry ("flat-flush-to-water, 0.4 m, zero tilt") across docs, rules and deliverables
 
 ## Tasks
 
@@ -3337,6 +3343,12 @@ Styret skal i utgangspunktet tilby pålydende til aksjonærer som ønsker å sel
 
 Vedtaksforslaget er ikke kjørt forbi revisor eller styret ennå; dette er utkast til diskusjon.
 
+**Oppfølging (etter sakspapir-leveransen):**
+
+- **2026-10-16:** Ordinær generalforsamling vedtok fullmakten under sak 6. Protokoll signert av møteleder (Eirik Larsen) og medunderskriver (Michael Sars Norum). Protokollen ligger i `generic/background/new/Protokoll Genfors Sunlit Sea 2026.txt` (ikke konvertert ennå).
+- **Etter 2026-10-16:** Signert protokoll levert til Foretaksregisteret, som er en forutsetning for at styret kan utnytte fullmakten (aksjeloven § 9-4 fjerde ledd: *"Generalforsamlingens beslutning skal meldes til Foretaksregisteret og må være registrert før aksjer kan erverves i henhold til fullmakten."*).
+- **Fanget etter signering:** Regnskapsfører påpekte at sakspapiret og protokollen bygger på en foreldet versjon av `aksjeloven § 9-2` (10 %-regelen fra før 2013). Dagens regel er at netto bokført pålydende av egne aksjer ikke kan bringe aksjekapitalen under minstekravet (NOK 30 000). Riktig ramme: NOK 3 833 totalt pålydende; av dette er NOK 1 832 allerede bundet, resterende NOK 2 001 ≈ 6 455 aksjer. Vedtaket er fortsatt lovlig fordi protokollens egen cap (NOK 3 383) er strammere enn den utdaterte 10 %-regelen tilsa, og uansett innenfor dagens lovlige ramme. Konkludert i chat 2026-10-19 at det ikke lages addendum til den signerte protokollen — se også T130 (regel-innstramming etter funnet) og T131 (konsekvensutredning).
+
 ---
 
 ### T124 `[~]` [GENERIC] Produksjons-pipeline for brev på Sunlit Sea-brevmal
@@ -3748,6 +3760,415 @@ Templates in `surewave/background/` already registered in `README.md` (done unde
 - `.claude/skills/generate-surewave-pptx/SKILL.md` (new).
 - `surewave/background/2026-10-16_surewave_pptx_template.pptx` (moved from `generic/background/new/` under T128).
 - `.claude/skills/README.md`, `CLAUDE.md` — updated.
+
+---
+
+### T130 `[x]` [GENERIC] Innkorporér fjordgata30-reglene om verbatim lovsitering og curl-only Lovdata-henting
+
+T123 (ny styrefullmakt til erverv av egne aksjer) ble levert med foreldet lovtekst. Jeg siterte aksjeloven § 9-2 "10 %-taket" fra hukommelsen; den regelen ble endret før 31.12.2025 til at netto bokført pålydende av egne aksjer ikke kan bringe aksjekapitalen under minstekravet (NOK 30 000, jf. asl. § 3-1). Feilen ble oppdaget av regnskapsfører etter at genforsprotokollen var signert. Konkret konsekvens: sakspapiret og den signerte protokollen oppgir pålydende-ramme NOK 3 383 og 10 914 aksjer; riktig ramme er NOK 3 833 totalt / NOK 2 001 resterende / 6 455 aksjer.
+
+Nabo-repoet `../fjordgata30` har etablert et regelverk som nøyaktig forebygger denne feilen — basert på en audit (fjordgata30 T157, 06.10.2026) der WebFetch var funnet å returnere systematiske parafraser av lovsitater. Reglene finnes der både som kjernepunkter i `CLAUDE.md`, som utdypninger i `docs/arbeidsregler/`, og som en operativ skill `.claude/skills/last-ned-paragraf/` som bruker `curl` + BeautifulSoup via `uv run`.
+
+Sure-d61 har allerede en konvensjon fra T75 om å lagre lovutdrag i `generic/background/lover/` med `YYYY-MM-DD_<lov>_<para>_<beskrivelse>.md`-filnavn (dato = ikrafttredelses- eller publiseringsdato for gjeldende versjon). Konvensjonen er bare brukt for regnskapsloven og skatteforvaltningsloven; den er ikke dekket av en eksplisitt regel eller en skill, og `check-deliverable` pkt. 5 nevner den bare som "or similar". Resultatet er at konvensjonen ble hoppet over for aksjeloven i T123.
+
+**Omfang:**
+
+1. Legg to nye arbeidsregler inn i `CLAUDE.md` — verbatim lovsitering og curl-only Lovdata-henting (WebFetch-forbud for lovsitater).
+2. Opprett `docs/rules/lovparagrafer.md` og `docs/rules/webfetch.md` som utdypninger.
+3. Opprett `.claude/skills/last-ned-paragraf/SKILL.md` tilpasset sure-d61 (én målmappe `generic/background/lover/`, filnavn med dato-prefiks).
+4. Registrér skillen i `.claude/skills/README.md`.
+5. Styrke `check-deliverable` pkt. 5 med eksplisitt henvisning til ny regel og skill.
+6. End-to-end-verifisering: last ned aksjelovens §§ 3-1, 3-4, 4-1, 9-2, 9-3, 9-4 via skillen og lagre i `generic/background/lover/`. Dette backfiller T123-manglene og beviser at pipelinen virker.
+
+**Ikke i scope:** Oppdatering av det signerte T123-sakspapiret eller protokollen — avklart tidligere i samtalen at vi ikke lager addendum. T130 handler kun om å forhindre gjentakelse.
+
+**Løsning (2026-10-19):**
+
+1. **To nye arbeidsregler i `CLAUDE.md`** under *Working rules*, plassert etter *Re-read source material* siden de hører hjemme i samme kilde-hygiene-cluster:
+   - *Law paragraphs are cited against a verbatim downloaded source — never from memory* — gjelder både leveranser og chat-utkast. Peker på `docs/rules/lovparagrafer.md`.
+   - *WebFetch is forbidden for law citations and formal statements from forvaltningsorganer* — bruk `curl` via Bash. Peker på `docs/rules/webfetch.md`. Inkluderer bruker-override-regelen fra fjordgata30 (hvis bruker sier "bruk curl" blir WebFetch forbudt for resten av samtalen).
+
+2. **To nye utdypninger i `docs/rules/`** adaptert fra fjordgata30s `docs/arbeidsregler/`:
+   - `docs/rules/lovparagrafer.md` — tilpasset sure-d61 (én målmappe `generic/background/lover/`, dato-prefikset filnavn-konvensjon fra T75). Inneholder historisk referanse til T75, T123 og fjordgata30 T157.
+   - `docs/rules/webfetch.md` — WebFetch-risiko, default-regel, bruker-override, praktisk Lovdata-mønster.
+
+3. **Ny skill `.claude/skills/last-ned-paragraf/SKILL.md`** med operativ oppskrift: curl via Bash, BeautifulSoup via `uv run --with beautifulsoup4` (ingen system-wide install nødvendig), metadata-header-mal, verifiseringssteg. Dokumenterer kjente Lovdata-URL-mønstre for aksjeloven, regnskapsloven, skatteforvaltningsloven, forvaltningsloven. Registrert i `.claude/skills/README.md`.
+
+4. **`check-deliverable` pkt. 5 styrket** — eksplisitt steg: "If a law paragraph, subsection or sentence is cited: confirm the paragraph exists as a verified `.md` file in `generic/background/lover/` with metadata header and verbatim text, and that the citation matches that file word-for-word. If not, stop and either (a) run `last-ned-paragraf`, or (b) rephrase without the paragraph name. Never cite a specific § from memory." Peker på `docs/rules/lovparagrafer.md` og T123-presedens.
+
+5. **End-to-end-verifisering — skillen kjørt mot ekte Lovdata.** Lastet ned seks aksjelov-paragrafer som T123 skulle hatt verifisert:
+   - `generic/background/lover/2012-01-01_aksjeloven_3-1_aksjekapital_minste_tillatte.md` (minste tillatte aksjekapital NOK 30 000)
+   - `generic/background/lover/2013-07-01_aksjeloven_3-4_forsvarlig_egenkapital_likviditet.md`
+   - `generic/background/lover/1999-01-01_aksjeloven_4-1_likebehandling.md`
+   - `generic/background/lover/2013-07-01_aksjeloven_9-2_erverv_egne_aksjer.md` (den endrede regelen — ikke 10 %-regelen fra treningsdataene mine)
+   - `generic/background/lover/2021-01-01_aksjeloven_9-3_fri_egenkapital_erverv.md`
+   - `generic/background/lover/2013-07-01_aksjeloven_9-4_styrefullmakt_erverv.md`
+   Dato-prefiks er ikrafttredelses-dato for gjeldende versjon av paragrafen (fra Lovdatas fotnote-tabell). Alle filer har metadata-header (`kilde`, `lovnr`, `url`, `hentet: 2026-10-19`) og verbatim paragraftekst med ledd-markører `(1)`, `(2)` osv.
+
+6. **README-oppdatering:** `generic/background/lover/`-beskrivelsen oppdatert (lagt til aksjeloven i enumerasjonen, lenke til ny regel og skill). Både prose-seksjonen og ASCII-tre-seksjonen.
+
+**Teknisk oppdagelse under end-to-end:** Lovdata svarer 303 på `https://lovdata.no/lov/<lovnr>/§<n>` og redirecter til `https://lovdata.no/dokument/NL/lov/<lovnr>/§<n>`. Skillen bruker `curl -sL` for å følge redirecten. Paragraf-containeren er `div#PARAGRAF_<n>.paragraf`. Fotnotetabellen med "ikr. D måned Y" ligger inne i samme container; siste match brukes som filnavn-dato. Månedsnavn kan være både fulle ("juni") og forkortede ("jan", "sep", "sept") — begge må håndteres.
+
+**Sidefunn fra `aksjeloven § 9-4 (4)` — relevant for T123-oppfølging:** "Generalforsamlingens beslutning skal meldes til Foretaksregisteret og må være registrert før aksjer kan erverves i henhold til fullmakten." Dette er en meldeplikt jeg feilaktig avvåpnet i chat-diskusjonen før T130 ("Brønnøysund — ikke relevant"). Oppdatering 2026-10-19: brukeren bekrefter at signert protokoll fra genfors 2026-10-16 allerede er levert til Foretaksregisteret; T123-oppfølgingen er dekket, ingen videre handling. Flaggens her for sporing.
+
+**Files touched:**
+
+- `CLAUDE.md` — to nye regler.
+- `README.md` — oppdatert beskrivelse av `generic/background/lover/`.
+- `TASKS.md` — denne T130-blokken.
+- `docs/rules/lovparagrafer.md` (ny).
+- `docs/rules/webfetch.md` (ny).
+- `.claude/skills/last-ned-paragraf/SKILL.md` (ny).
+- `.claude/skills/README.md` — ny skill registrert.
+- `.claude/skills/check-deliverable/SKILL.md` — pkt. 5 styrket.
+- `generic/background/lover/*.md` — 6 nye aksjelov-paragrafer.
+
+**Opprydding:** Midlertidig `.tmp_lover/` opprettet for curl-nedlastning og slettet etter at `.md`-filene var skrevet. Ingen Agent-tool ble brukt, så ingen `.claude/worktrees/`-opprydding nødvendig.
+
+---
+
+### T131 `[x]` [FUND] Konsekvensutredning: hvilke leveranser er berørt av feilsitert regnskapsloven § 5-6 (og øvrige T130-funn)
+
+T130 (verifisering av `generic/background/lover/` mot Lovdata) avdekket at T75-nedlastingen av `regnskapsloven § 5-6` fra juli 2026 hadde en helt annen og lengre tekst (586 tegn) enn gjeldende Lovdata-versjon (355 tegn). Den gjeldende versjonen har stått uendret siden 1. juli 2021, så T75-filen må ha vært feil ved selve nedlastingen. Alle leveranser som bygget på T75-lovfilen har siterat eller resonnert mot feil ordlyd.
+
+T130 flagget også to andre funn med mulig leveranse-impact: (a) `aksjeloven § 9-2` i T123-sakspapiret siterte 10 %-regelen som har vært fjernet siden 1. juli 2013; brukeren har allerede besluttet å ikke lage addendum til den signerte protokollen, men andre interne eller eksterne tekster kan være påvirket. (b) `aksjeloven § 9-4 (4)` sier at genforsmøtets fullmakt må meldes til Foretaksregisteret før første erverv — en meldeplikt vi ikke tidligere har vært inne på.
+
+**Scope:**
+
+1. Identifisér alle filer som siterer / resonnerer mot `regnskapsloven § 5-6`. For hver: sammenlign det siterte eller argumentatoriske mot gjeldende versjon i `generic/background/lover/2021-07-01_regnskapsloven_5-6_forskning_og_utvikling.md`. Marker som (a) ingen reell konsekvens — argumentet står seg uansett formulering, (b) formulering må oppdateres men konklusjon står, eller (c) resonnementet må revurderes.
+2. Samme gjennomgang for `aksjeloven § 9-2` sitater utenfor T123-sakspapiret (chat-utkast, interne notater, revisor-korrespondanse).
+3. Flagg Foretaksregister-meldeplikten fra § 9-4 (4) som en operativ gjøremål når T123-fullmakten skal brukes.
+4. For hver leveranse som trenger revisjon: beskriv kort hva som må endres, uten å endre filen selv (brukeren avgjør om revidert versjon skal produseres som egen oppgave).
+
+**Ikke i scope:**
+
+- Produksjon av oppdaterte versjoner av leveranser — kun identifikasjon og vurdering av behov.
+- Oppdatering av det signerte T123-sakspapiret eller genforsprotokollen — allerede avgjort at vi ikke lager addendum.
+- Dyptgående juridisk analyse av om prinsippendrings-vedtaket er påvirket — det er en større revisor- og kontinuerlig-vurderings-sak hvis det skulle vise seg at feil hjemmelsgrunnlag undergraver vedtaket.
+
+**Løsning (2026-10-19):**
+
+Hovedfunn: Konklusjonene i leveransene står seg, men hjemmelshenvisningene gjør det ikke. T75-pakken bygget på en versjon av `regnskapsloven § 5-6` som ikke har eksistert siden 1. juli 2021 — med egen ledd-struktur og en firevilkårs-liste for aktivering. Dagens § 5-6 har bare fire setninger uten ledd-nummerering, og firevilkårs-listen ligger i NRS 8 / NRS 19, ikke i loven. Konkret betyr dette at *selve adgangen til å aktivere* fortsatt er lovlig for Sunlit Sea, men *hjemmelsgrunnlaget* som siteres i leveransene (§ 5-6 (2) / § 5-6 (4)) er feil for gjeldende rett.
+
+**Nullstillingsreferanse:** Gjeldende § 5-6 lyder i sin helhet: *"Utgifter til egen forskning skal kostnadsføres. Utgifter til egen utvikling kan kostnadsføres. Balanseførte utviklingsutgifter skal vurderes etter vurderingsregelen for anleggsmidler i § 5-3. Dersom den økonomiske levetiden for balanseførte utviklingsutgifter ikke kan anslås pålitelig, skal balanseførte utviklingsutgifter avskrives over maksimalt ti år."* Ingen ledd, ingen firevilkårs-liste, ingen eksplisitt "små foretaks valgrett".
+
+**Dekningstabell per fil:**
+
+| Fil | Rolle | Feil-sitat | Fakta vs. gjeldende § 5-6 | Konklusjon står? | Allerede sendt? | Anbefalt handling |
+|---|---|---|---|---|---|---|
+| `funding/deliverables/2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (+ `.cleaned.md`, `_eksakte_belop.md`) | Revisorpakke til Berntsen Mortensen | «§ 5-6 fjerde ledd gir små foretak valgrett»; «§ 5-6 annet ledd oppstiller fire vilkår for at utviklingsutgifter kan aktiveres» (seksjonsoverskrift + brødtekst) | Dagens § 5-6 har ikke ledd og ikke fire-vilkårsliste. De fire vilkårene er i NRS 8 (kap. 4.3.1.1) som bygger på NRS 19 Immaterielle eiendeler. Små foretaks "valgrett" er nå strukturelt dekket av at loven åpner for at utviklingsutgifter "kan kostnadsføres" (og dermed også kan la være) — regimet står i NRS 8. | Ja — vilkårene er faktisk oppfylt, bare under NRS 8, ikke § 5-6 (2) | Ja (juli 2026) | Vurder å sende kort korreksjonsnotat til revisor der hjemmelen flyttes fra § 5-6 (2)/(4) til NRS 8. Alternativt: revisor har trolig egen oppfatning av hjemmelsgrunnlaget og har ikke stolt blindt på vår sitering, så praktisk impact kan være lav. Men hvis revisor skulle få kritikk fra sitt eget kontrollorgan for å ha godtatt vår feil-sitering, går den tilbake til oss. |
+| `generic/background/2026-10-02_arsregnskap_2025.md` | **Signert årsregnskap 2025** (note «Endring av regnskapsprinsipp», linje 111) | «aktiveres når vilkårene i regnskapsloven § 5-6 annet ledd er oppfylt» | Dagens § 5-6 har ikke annet ledd | Ja | Ja — signert, godkjent av genfors 2026-10-16, levert | Kan ikke korrigeres uten formelt tillegg til årsregnskapet, som er en større sak. Praktisk anbefaling: ingen aktiv korreksjon for 2025, men formuleringen må oppdateres i 2026-noten. Hvis skatteetaten eller revisor-kontrollorgan oppdager og konfronterer, forklares det som transkriptfeil i noten — selve prinsippendringen og dens vilkårsvurdering er korrekt (bare feilaktig henvist). |
+| `funding/deliverables/2026-09-10_vedlegg_skattemelding_2025_prinsippendring.md` | Vedlegg til skattemelding 2025 (lang form) | «Vilkårene for balanseføring i regnskapsloven § 5-6 er oppfylt» | Impliserer at § 5-6 inneholder vilkår. Teknisk sett nevner § 5-6 "balanseførte utviklingsutgifter" uten å oppstille vilkår for når det er lovlig. Vilkårene ligger i NRS 8. | Ja | **Nei — ikke sendt ennå** (skattemelding venter på tvangsmulkt-saken) | **Fiks før utsending**: formuleringen bør bli «Utgiftene oppfyller aktiveringsvilkårene for utviklingsutgifter i NRS 8 (jf. regnskapsloven § 5-6 om adgangen til balanseføring av utviklingsutgifter)». |
+| `funding/deliverables/2026-10-09_vedlegg_skattemelding_2025_prinsippendring_kort.md` | Samme vedlegg i kort form | Samme formulering, linje 18 | Samme | Ja | Nei | **Fiks før utsending** — samme omformulering som over. |
+| `funding/deliverables/2026-09-17_styrets_vurdering_fortsatt_drift.md` | Styrevurdering fortsatt drift (del av revisorkommunikasjon) | «aktiveres når vilkårene i regnskapsloven § 5-6 annet ledd er oppfylt» (linje 156) | § 5-6 har ikke annet ledd | Ja | Trolig ja (fulgte revisorpakke-oppfølging) | Oppdater før eventuell senere versjon eller re-sending. Hvis dokumentet allerede er endelig, lav praktisk impact. |
+| `funding/nedskriving_mal.md` | **Mal** for framtidige nedskrivingstester | Tabell-rad: «§ 5-6 — Forskning og utvikling — aktiveringsvilkår og små foretaks valgrett» (linje 71) | «Små foretaks valgrett» finnes ikke lenger som eksplisitt lovhjemmel | Ikke en konklusjon, men en malrad | — (mal, ikke sendt) | **Oppdater nå** — ellers propageres feilen inn i hver fremtidige nedskrivingstest. Endre til «§ 5-6 — Forskning og utvikling (gir adgang til balanseføring av egne utviklingsutgifter; vilkår for aktivering i NRS 8 pkt. 4.3.1.1)». |
+| `funding/nedskriving_2025.md` | Internt arbeidsdokument for 2025-nedskrivingstest | Linje 25 «regnskapsloven § 5-6 annet ledd»; linje 40 «Regnskapsloven § 5-6 — vilkårene for aktivering av utviklingsutgifter» | Samme problem | Ja | — (internt) | Oppdater når brukt neste gang. Lav urgency fordi internt. |
+| `funding/aktivering_reklassifisering.md` | Internt notat om prinsippendringen | «regnskapsloven § 5-6, som tillater kostnadsføring av utgifter til egen forskning og utvikling» (linje 5) | **Dette er faktisk korrekt** — dagens § 5-6 sier nettopp dette («Utgifter til egen forskning skal kostnadsføres. Utgifter til egen utvikling kan kostnadsføres»). Siterer loven generelt og refererer kriteriene til NRS 19. | Ja | — (internt) | **Ingen handling** — denne er riktig sitert. |
+
+**Aksjeloven § 9-2 (fra T123):**
+Grep gjennom hele repoet viser at kun det signerte T123-sakspapiret (`funding/deliverables/2026-10-09_genfors_sak_fullmakt_egne_aksjer.md`) siterer 10 %-regelen. Alle andre forekomster i repoet er task-notater, skill-referanser og metadata — ikke sitater i leveranser. Allerede avklart tidligere i samtalen at vi ikke lager addendum til den signerte protokollen. Ingen videre T131-handling.
+
+**Foretaksregister-meldeplikt (aksjeloven § 9-4 fjerde ledd):**
+Den verifiserte paragraften sier eksplisitt: «Generalforsamlingens beslutning skal meldes til Foretaksregisteret og må være registrert før aksjer kan erverves i henhold til fullmakten.» Jeg sa det motsatte i chat tidligere i samtalen («Brønnøysund — ikke relevant»). Status 2026-10-19: brukeren bekrefter at signert protokoll fra genfors 2026-10-16 allerede er levert til Foretaksregisteret, så meldeplikten er oppfylt. Ingen leveranser hadde propagert feilen; eneste sted det stod skrevet var i mitt tidligere chat-svar.
+
+**Alvorlighetsgrad samlet:**
+
+- *Lavest realistisk kritikk:* Konklusjonene om at vilkårene for aktivering er oppfylt er fortsatt riktige — bare feilaktig forankret i § 5-6 (2)/(4) i stedet for NRS 8. En revisor eller skattekontroll som leser nøye vil kunne påpeke feil hjemmelsreferanse, men ikke undergrave vedtaket.
+- *Praktisk kritikk:* Signert årsregnskap 2025 inneholder en lovreferanse som ikke stemmer. Dette er ikke uvanlig i norsk regnskapspraksis — mange noter har foreldede § -henvisninger. Men formelt er det en feil.
+- *Metodisk kritikk:* Hele årsaken til dette er at T75 bygget på en § 5-6-versjon som ikke har vært gjeldende siden 1. juli 2021. Det var kildehygieniske skritt T75 ikke tok (verifisere mot gjeldende Lovdata), som T130 nå har etablert som fast rutine via `last-ned-paragraf`-skillen og CLAUDE.md-regelen.
+
+**Konkrete handlingspunkter (ikke utført i T131, overlatt til brukerens beslutning):**
+
+1. **Før skattemelding 2025 sendes:** Oppdater `funding/deliverables/2026-09-10_vedlegg_skattemelding_2025_prinsippendring.md` og `funding/deliverables/2026-10-09_vedlegg_skattemelding_2025_prinsippendring_kort.md` for å ankre vilkårshenvisningen i NRS 8, ikke § 5-6 (2). Dette er den eneste leveransen som ikke er sendt ennå og dermed kan rettes helt uten følger.
+2. **Opprydding i interne arbeidsdokumenter:** Oppdater `funding/nedskriving_mal.md` og `funding/nedskriving_2025.md` ved neste bruk, slik at ikke feilen propageres til framtidige nedskrivingstester eller revisorpakker.
+3. **Vurdér korreksjonsnotat til revisor** for T75-revisorpakken. Dette er en bedømmelsessak — hvis Berntsen Mortensen allerede har trukket sine egne konklusjoner om hjemmelsgrunnlaget, kan et sent korreksjonsnotat skape mer støy enn verdi. Hvis derimot vi forventer at pakken refereres i noter til neste års regnskap, bør hjemmelsgrunnlaget stilles rett nå.
+4. **Signert årsregnskap 2025:** Ingen aktiv korreksjon. Pass på at samme feil ikke gjentas i 2026-regnskapets note om endring av regnskapsprinsipp.
+5. ~~**Foretaksregisterets meldeplikt:** Når T123-fullmakten skal brukes første gang — send signert genforsprotokoll til Foretaksregisteret FØRST, deretter kjøp.~~ Oppdatert 2026-10-19: brukeren bekrefter at signert protokoll allerede er levert til Foretaksregisteret. Punktet er dekket.
+
+**Files touched:**
+- `TASKS.md` — T131 opprettet og ferdigstilt.
+- Ingen leveransefiler er endret i T131; endringer er flaggede, ikke utført.
+
+---
+
+### T132 `[x]` [FUND] EUPI-PV — Forsvarsmakten presentation for Olle Roman tjänstledigt request (Gotland North site coordinator)
+
+**Correction (2026-10-19):** This task was created under the mistaken label "EIC Transition". The actual proposal is the EUPI-PV Partnership call HORIZON-CL5-2026-11-D3-14, submission deadline 2026-12-01. The already-submitted EIC Transition SUREWAVE application (September 2026, T104) is a separate proposal. Titles above and in TASKS.md summary corrected; original solution notes below retain the historical "EIC Transition" wording as a record of what the deliverable was generated against.
+
+**Rename (2026-10-19):** The deliverable was initially filed as `2026-10-19_forsvarsmakten_presentation_olle_tjanstledigt.md` (Swedish). Renamed to `2026-10-19_olle_leave_of_absence_presentation.md` (English, per repo convention). Sibling images folder renamed from `..._forsvarsmakten_presentation_images/` to `..._olle_leave_of_absence_presentation_images/`. Historical path references in the solution notes below are superseded.
+
+Context: the EUPI-PV SUREWAVE application (HORIZON-CL5-2026-11-D3-14, December 2026 deadline) proposes two demonstration sites — approximately 4 MWp in Germany and 1 MWp at Gotland North. Olle Roman, well known by Sunlit Sea, lives and works on Gotland and is proposed as site coordinator for the Gotland North demonstrator. He is currently employed 100 % by Forsvarsmakten (Swedish Armed Forces) and needs to request *tjänstledigt utan lön* (leave without pay) at 10–30 % utilisation, non-uniformly distributed with bursts of activity, for approximately 24 months.
+
+Olle needs a short, self-contained presentation to hand to his employer in support of the leave-without-pay request. The audience is Forsvarsmakten line management on Gotland. The presentation must:
+
+- Explain what SUREWAVE / the EIC Transition demonstrator is at a non-technical level — a European Horizon-funded clean-energy demonstration project with a 1 MWp installation on Gotland.
+- Explain Olle's role: part-time site coordinator for the Gotland installation (permits, local liaison, survey oversight, logistics coordination).
+- State the practical ask: approval for leave without pay at 10–30 % for ~24 months, bursty rather than steady.
+- **Tone down any apparent overlap with Olle's current Forsvarsmakten role.** No framing that positions the project as adjacent to defence capabilities, dual-use infrastructure, strategic autonomy, military energy resilience, critical infrastructure protection, or anything similar — even where such framing would be factually defensible. The employer will read overlap as a conflict and reject the leave request. Default to a straightforward civilian clean-energy framing: EU climate goals, Baltic solar potential, Gotland regional industrial co-location (Storugns cement works), typical commercial renewables milestones.
+- Emphasise that the engagement does not compete with or substitute for Forsvarsmakten activity; it is an external civilian engagement in Olle's own time (unpaid leave).
+- Be short: 5–8 slides, including title and ask slide.
+
+**Deliverable:**
+
+- `generic/deliverable/2026-10-19_forsvarsmakten_presentation_olle_tjanstledigt.md` — Markdown source in the Sunlit Sea `generate-slides` deck convention (`## Heading` per frame, title slide, section if useful, closing ask slide).
+- Every visual slide includes a prose block headed `**Image description for ChatGPT:**` giving a precise, generative-model-ready description (framing, composition, lighting, mood, colour palette, style, camera angle, aspect ratio). Image descriptions take visual inspiration from the SUREWAVE Technical Brochure (D8.3) imagery — technical-but-approachable isometric cutaways, open-sea FPV photography, Baltic/Nordic daylight — while staying consistent with the civilian, non-defence framing above.
+- Do not generate the PDF (`generate-slides` pipeline) unless explicitly ordered. The deck is a Markdown deliverable here.
+
+**Context files:**
+
+- `cases/eic_transition_surewave/INDEX.md` — case background and current state.
+- `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md` — SUREWAVE visual reference and non-technical narrative tone to echo.
+- `.claude/skills/generate-slides/SKILL.md` — slide convention and deck pipeline rules.
+
+**Solution (2026-10-19):**
+
+Written as a seven-slide Markdown source at `generic/deliverable/2026-10-19_forsvarsmakten_presentation_olle_tjanstledigt.md`, in Swedish (audience: Forsvarsmakten line management on Gotland). Deck structure: title, project overview, Gotland site, how the technology works, Olle's role, scope and timeline, formal request, contact. Follows the Sunlit Sea `generate-slides` convention (one frame per `## Heading`; `## {.plain}` title slide; TikZ chrome; Everett + Arial palette inherited from the pipeline). Not auto-converted to PDF.
+
+**Framing choices:**
+
+- Pure civilian clean-energy framing throughout. No "strategic autonomy", "critical infrastructure", "energy resilience", "dual-use" or similar language — even where factually defensible, this framing would raise the employer's conflict-of-interest instincts and reject the leave request.
+- Explicit civilian / non-overlapping disclaimers appear twice (slide 3 last bullet, slide 5 third bullet) and once as positive framing (slide 7 "icke-konkurrerande, tidsbegränsat externt uppdrag utanför Forsvarsmaktens verksamhetsområde"). These are kept short so the deck does not look defensive.
+- Gotland local relevance anchored in the Nordkalk limestone/port industrial area at Storugns (not Cementa — Cementa is in Slite further south; verified via web search).
+- Workload described concretely as 10–30 % with phase-level breakdown so the HR reader can see the burst shape and compare against Forsvarsmakten operational demands.
+
+**Image descriptions — iteration 2 (2026-10-19):**
+
+The first iteration carried ChatGPT image-generation prompts for the four visual slides. User flagged them as bogus (abstract style references like "echoing the visual language of a Horizon Europe technical brochure"; negation-heavy prompts; unrealistic expectations of what the model would render). Second iteration: five parallel Sonnet critics (DALL-E prompt engineering, civilian-framing watchdog, FPV industrial visualisation, Nordic documentary photography, alternative-media strategist) reviewed all four descriptions. Outputs at `generic/background/eic/olle_image_critique/01-05_*.md`.
+
+**Convergent finding across four of five critics: don't use ChatGPT for this deck at all.** For a Forsvarsmakten HR audience, real published photographs and verifiable sources carry institutional authority that synthetic renders cannot — and attentive HR readers can detect AI-generated faces/hands as "thin pitch". The man-on-jetty-from-behind composition on slide 5 is literally the surveillance-officer / coast-guard trope in Nordic image-model training data and is unfixable with incremental prompt engineering; it must be redesigned regardless of medium.
+
+**Image blocks rewritten with primary → fallback → ChatGPT-last-resort structure:**
+
+- Slide "Projektet i korthet" — primary: `surewave/images/2026-09-28_surewave_d8.3_technical_brochure_lowres/fig01.png` (aerial hero from the published SUREWAVE Technical Brochure, cropped to 16:9); fallback: `asset-solar-panels-multiple.jpg` cropped to the array only; ChatGPT prompt only if forced.
+- Slide "Platsen på Gotland" — primary: Google Earth Pro oblique screenshot at 57.84413, 18.79715 (five-minute task, instantly verifiable by HR reader); fallbacks: Nordkalk press image or OpenStreetMap export; ChatGPT prompt only if forced, and rewritten to avoid cliff/turquoise/high-sun errors.
+- Slide "Hur tekniken fungerar" — primary: `asset-solar-floating.jpg` (Sunlit Sea's own close-up of actual flat-flush-to-water FPV modules in sea conditions); fallback: SUREWAVE brochure fig03 (labelled 3D render of the four subsystems); ChatGPT prompt only if forced.
+- Slide "Olles roll" — primary: **drop the image entirely**, replace with a two-column text layout (role bullets + time commitment). Fallback: real photo of Olle himself from any civilian site if he has one. ChatGPT strongly discouraged on this slide; if the user still wants to generate, the jetty composition is abandoned in favour of a community-hall briefing scene.
+
+**Known failure modes documented in the new blocks (for anyone reaching for a ChatGPT prompt here or elsewhere):**
+
+- Negation primes attention. Writing "no military elements" causes the model to attend to "military" and render related content. The safer approach is silence — never mention military in any prompt.
+- Abstract style references ("echoing the visual language of a Horizon Europe technical brochure") are meaningless to the model when the referent is not in training data. Replace with concrete palette + lighting + style words.
+- Compound constraints get partially executed — the model prioritises early concepts and drops late ones. Keep prompts tight.
+- "Isometric cutaway" + maritime installation reads as tactical/surveillance diagram.
+- "Cinematic drone photography" is visually identical to military drone surveillance footage.
+- "Barge-shaped" concrete floating units read as military pontoon-bridge equipment.
+- Baltic water is grey-blue to grey-green, never turquoise.
+- Northern Gotland at Storugns is a flat limestone pavement coast, not a cliff coast — models will render Dover-style cliffs if "cliffs" appears in the prompt.
+- At 57.84°N even midsummer noon sun is ~55°, not overhead; "high-sun midday" renders Mediterranean lighting.
+- AI-generated human portraits remain detectable; use real photos of real people or no portrait at all.
+
+**Files touched:**
+
+- `generic/deliverable/2026-10-19_forsvarsmakten_presentation_olle_tjanstledigt.md` (new).
+- `TASKS.md` — this T132 block.
+
+**Not done, left to user decision:**
+
+- No PDF generation. Per CLAUDE.md "Do not convert to docx automatically" — if the user wants the rendered deck, order `python scripts/md_to_slides.py generic/deliverable/2026-10-19_forsvarsmakten_presentation_olle_tjanstledigt.md`.
+- No image generation. Image prompts are drafted; the user runs them through ChatGPT (or similar) and places the returned image files alongside the `.md`, inserting them with pandoc `![caption](path){width=X%}` syntax before PDF generation.
+
+---
+
+### T133 `[x]` [FUND] EUPI-PV — Work instruction for Olle Roman at Gotland North (Storugns) from today through operative FPV installation
+
+**Correction (2026-10-19):** This task was created under the mistaken label "EIC Transition". The actual proposal is the EUPI-PV Partnership call HORIZON-CL5-2026-11-D3-14, submission deadline 2026-12-01. The already-submitted EIC Transition SUREWAVE application (September 2026, T104) is a separate proposal. Titles above and in TASKS.md summary corrected; original solution notes below retain the historical "EIC Transition" wording as a record of what the deliverable was generated against.
+
+Context: with Olle Roman's leave-without-pay request (T132) in flight, we need a working instruction for him. The 1 MWp Gotland North demonstrator in the EUPI-PV SUREWAVE application sits adjacent to a cement works at Storugns in northern Gotland (candidate coordinates 57.84413130696096, 18.797146765302983 — verify site name and ownership). Between today and an operative, functioning FPV installation on the water, there is a long tail of pre-installation groundwork: permitting with Länsstyrelsen Gotland and the Swedish Transportstyrelsen / Sjöfartsverket for marine installations; grid-connection discussions with the local DSO (Gotlands Energi / Vattenfall Eldistribution) and offtake dialogue with the cement works for behind-the-meter PPA; bathymetric and wind/wave survey; marine spatial-planning check against the Gotland municipality plan and the Swedish Marine Spatial Plan; environmental baseline (seabed habitat, bird/mammal, benthic flora); fisheries and local-user stakeholder engagement; port-of-staging logistics; EIA scope and application; coastal zone and shoreline (strandskydd) procedure; onshore interconnect design; local community liaison; cement works operational interface (vessel traffic, water intake, dust); heritage/archaeology clearance; and more.
+
+Olle will not come up with every strand of this on his own. We need a comprehensive, phased work instruction that lists every reasonable workstream, pre-sorted into phases, with triggers, dependencies, approximate time-on-task per phase, and reporting cadence back to Sunlit Sea.
+
+**Method — iterative, agent-assisted brainstorm.**
+
+- Spawn ~8 Sonnet subagents in parallel. Each has a distinct persona covering a different angle on the problem — e.g. Swedish marine permitting lawyer; coastal environmental consultant; Gotland municipality liaison; local renewables project manager; grid / DSO engineer; cement-plant operations liaison; offshore survey logistics manager; Swedish regulatory and civilian-aviation / coast-guard liaison. Each agent produces a brainstorm of problems to solve and tasks to perform in Gotland between now and operative installation, with as much Gotland-specific and SUREWAVE-specific grounding as possible.
+- **Agents must not use `isolation: "worktree"`.** Each agent writes its brainstorm to its own file under `generic/background/eic/olle_brainstorm/<persona>.md`.
+- An orchestrator pass (Opus) reads all brainstorm files, dedupes, sorts, phases, and merges into a single structured work instruction at `generic/deliverable/2026-10-19_olle_roman_work_instruction_gotland_north.md`.
+- The user drives iteration — the first merged version is a starting point, not the final deliverable; expect to iterate on it with the user.
+
+**Scope of the merged work instruction (minimum):**
+
+- Verified site identification (name of the cement works, ownership, land/water tenure at the proposed coordinates, planned/existing adjacent uses).
+- Phased task list from today → "signed EIC grant" → "detailed design" → "permits in hand" → "ready to install" → "operative installation", with gating criteria between phases.
+- Permitting workstreams by authority (national, regional, municipal), with ballpark lead times.
+- Stakeholder map (cement works operator, DSO, offtaker candidates, municipality, Länsstyrelsen, Sjöfartsverket / Kustbevakningen, fisheries, local community, archaeology/heritage, Swedish Marine Spatial Planning).
+- Site data acquisition workstreams (bathymetry, metocean, wind, seabed, benthic, biota, archaeology) and when each must start.
+- Grid and offtake dialogue plan.
+- Health & safety and marine-operation groundwork.
+- Reporting cadence back to Sunlit Sea and go/no-go decision points.
+- Risks and blockers Olle should flag early.
+
+**Deliverable:**
+
+- `generic/background/eic/olle_brainstorm/<persona>.md` — one file per subagent (eight files).
+- `generic/deliverable/2026-10-19_olle_roman_work_instruction_gotland_north.md` — single merged, phased work instruction.
+- Do not convert to docx or PDF without an explicit order.
+
+**Context files:**
+
+- `cases/eic_transition_surewave/INDEX.md` — case background.
+- `generic/background/eic/locations.md` — reference list of candidate deployment sites.
+- Candidate Gotland North coordinates: 57.84413130696096, 18.797146765302983 (near Storugns cement works, northern Gotland).
+
+**Solution (2026-10-19):**
+
+**Site identification corrected.** The industrial facility at Storugns is Nordkalk's limestone quarry (Klinthagen) + handling terminal + port — not a cement works. Cementa / Heidelberg Materials is at Slite further south. Nordkalk is owned by UK-listed SigmaRoc Group (acquired 2021). Storugns handles approximately 400 vessel calls and 2.7 million tonnes of limestone per year, shipping to Swedish and Finnish steel mills. Verified via web search; sources archived in the merged work instruction. Lärbro socken (not Hangvar) is the socken administrative unit covering the Storugns coastline.
+
+**Method executed.** Eight Sonnet subagents launched in parallel, each with a distinct persona:
+
+1. Agneta Lindqvist — Swedish marine permitting lawyer (miljöbalken, vattenverksamhet, strandskydd, MKB, Natura 2000, Gotland case law) → `01_agneta_marine_permitting_lawyer.md` (~2 500 words).
+2. Dr. Hans Kjellgren — marine environmental consultant (MKB, benthic habitat, Baltic bird migration, marine mammals, seasonal survey programme) → `02_hans_marine_environmental_consultant.md` (~4 300 words).
+3. Lars Petersson — Swedish grid / DSO engineer (Gotland DSO interface, nätanslutning, grid-code compliance, PPA options, protection coordination) → `03_lars_grid_dso_engineer.md` (~4 700 words).
+4. Ingrid Nordman — industrial-liaison / stakeholder manager for the Nordkalk / Storugns interface (post-Klinthagen sensitivities, SigmaRoc Scope 2, PPA structure, operational interface) → `04_ingrid_industrial_liaison.md` (~5 000 words).
+5. Mats Sjöberg — offshore project logistics manager (port of staging, breakwater casting, Baltic vessel market, anchor installation, ice window, marine insurance) → `05_mats_offshore_logistics.md` (~4 700 words).
+6. Elin Bjurström — Gotland local stakeholder engagement specialist (socken-level dialogue, post-Klinthagen community mood, local media, fishing/tourism/cultural actors) → `06_elin_local_stakeholder.md` (~4 100 words).
+7. Dr. Johanna Westman — marine archaeologist / cultural heritage specialist (KML pre-1850 rule, RAÄ Fornsök, Baltic wreck survey, Visby World Heritage buffer, mooring-footprint archaeological risk) → `07_johanna_marine_archaeology.md` (~4 600 words).
+8. Pierre Dufour — EU project manager / cross-regulatory orchestrator (EIC Transition lump-sum milestone exposure, 24-month sequencing, cross-regulatory sweep incl. the procedural MSA civilian consultation, reporting cadence, risk register) → `08_pierre_project_manager.md` (~4 500 words).
+
+All eight files landed under `generic/background/eic/olle_brainstorm/` in the main repo (~260 KB total; the agents wrote to absolute paths rather than isolated worktrees).
+
+**Opus-level synthesis.** Merged into a single phased work instruction at `generic/deliverable/2026-10-19_olle_roman_work_instruction_gotland_north.md` (~9 700 words). Structure: project context → Olle's role boundaries → three guiding principles → civilian framing do-not-do list → six-phase sequencing (Phase 0 pre-grant through Phase 5 installation campaign) → eight workstream deep-dives (permits, grid, environment, Nordkalk, community, archaeology, logistics, PM) → consolidated stakeholder map → open questions to verify before anything downstream.
+
+**Framing emphases carried through:**
+
+- Civilian clean-energy framing throughout. Explicit do-not-do list for defense / dual-use / critical-infrastructure language (section 5 of the merged work instruction). MSA civilian consultation is a project-level procedural step owned by Sunlit Sea's project office — Olle keeps a status trace only, never initiates or conducts it.
+- Three guiding principles: relationship before announcement; Nordkalk must never feel surprised; permit stack and grid queue are both long-lead critical path that must start pre-grant.
+- Realistic timeline: 9-18 months Vattenverksamhet, 6-12 months MKB, 18-36 months grid connection, 9-18 months archaeology clearance — stacked serially these exceed the window, so parallel execution with pre-grant opening moves is a structural requirement, not a nice-to-have.
+
+**Open items the user drives next iteration on:** 20 verification questions in section 10 of the merged work instruction, in priority order. Highest priority: confirm fastighet ownership of the water surface via Lantmäteriet (changes almost everything downstream); confirm Natura 2000 overlap (binary — if yes, Gotland site may not fit the EIC window at all); confirm Storugns port approach line does not cross the FPV footprint (if it does, geometry needs to change before any other geometry work).
+
+**Agent worktree cleanup.** No `.claude/worktrees/` folder was created despite agent spawns (likely because agents were launched with `run_in_background: true` and no explicit `isolation: "worktree"`; this harness variant appears not to require worktrees in that mode). Nothing to clean up.
+
+**Files touched:**
+
+- `generic/background/eic/olle_brainstorm/01-08_*.md` (eight new).
+- `generic/deliverable/2026-10-19_olle_roman_work_instruction_gotland_north.md` (new).
+- `TASKS.md` — this T133 block.
+
+**Not done, left to user decision:**
+
+- No conversion to docx or PDF. The Markdown is the deliverable; order conversion separately if the user wants to hand a formatted document to Sunlit Sea's project office.
+- The 20 open questions in section 10 of the merged work instruction are the agenda for the next iteration round.
+
+---
+
+### T134 `[x]` [FUND] EUPI-PV — Fix rendering and ChatGPT prompts in Olle leave-of-absence presentation
+
+Context: the first beamer render of `generic/deliverable/2026-10-19_olle_leave_of_absence_presentation.md` (produced via `python scripts/md_to_slides.py` on 2026-10-19) exposed four rendering defects and one content-quality defect. The user flagged the output as unusable in its current state.
+
+**Rendering defects (confirmed by inspecting the generated PDF):**
+
+1. **Title slide — fallback markdown bleeds through the TikZ chrome.** A "markdown-preview fallback" bold summary line was added above the TikZ block in an attempt to make the title slide readable in VS Code Markdown Preview. In the beamer output, `remember picture, overlay` draws the TikZ alongside, not on top of, the normal frame content, so the fallback text renders as ghost text over the yellow "SUREWAVE Gotland" headline. The approach was wrong; revert to the plain TikZ pattern used by the reference deck (`2026-10-13_generalforsamling_arsregnskap_2025_slides.md`).
+2. **Title slide — subtitle overflow.** "Floating solar power in the Baltic — site coordinator role for Olle Rom" is cut off at the right edge; "an" overflows. Shorten the subtitle or reduce the font size.
+3. **Footer hardcoded to the reference deck's context.** Every page reads `SUNLIT SEA | Årsregnskap 2025 N/8`. The "Årsregnskap 2025" string comes from `scripts/sunlit_sea_slides_header.tex`. Parameterise the context so each deck can set its own (via YAML metadata field or `-V` wrapper arg) without touching the shared header.
+4. **"Image for this slide" author notes render as slide content.** The deck mixes two kinds of content in the same markdown body: slide prose for the Försvarsmakten HR reader, and detailed assembly notes for whoever builds the final deck (asset filepaths, ChatGPT prompts, reasoning, "do not include" lists). The notes dominate pages 2–5, overflow the slide area, and get cut off mid-sentence. HTML-comment them in place (`<!-- ... -->`) so pandoc skips them in the beamer output, or move to a sidecar `.md` file next to the deck. Decision needed on which approach.
+
+**Content-quality defect:**
+
+5. **ChatGPT prompts are "skeletons", not standalone high-quality prompts.** The current image-guidance blocks label the ChatGPT prompts as "prompt skeleton" and treat them as a template the user is expected to adapt. The user's framing: *"I want a prompt that stands on its own legs and is estimated to give a perfect image back from ChatGPT. Not a skeleton."* Rewrite each ChatGPT prompt as a complete, standalone, high-quality prompt that can be pasted into ChatGPT as-is (alongside the uploaded reference images named in the block) and is expected to produce a usable image on the first run. Drop the word "skeleton". Keep the "do not include" lists where they help the model avoid known failure modes.
+
+**Deliverable:**
+
+- `generic/deliverable/2026-10-19_olle_leave_of_absence_presentation.md` — all five defects fixed.
+- Possibly `scripts/sunlit_sea_slides_header.tex` or `scripts/md_to_slides.py` edits to parameterise the footer context (not committed to a specific mechanism — depends on the chosen approach for defect 3).
+- Possibly a sidecar `*_image_notes.md` file if the user prefers that over HTML-commenting the notes in place (defect 4).
+
+**Verification:**
+
+- Re-render via `python scripts/md_to_slides.py` after each defect fix. The acceptance criterion is a PDF where the title slide chrome is clean (no ghost text, subtitle fits), the footer reads a sensible per-deck context string, and no page cuts off slide content.
+- Open the resulting PDF and inspect; do not mark done on the strength of a clean pandoc exit code alone.
+
+**Context files:**
+
+- `generic/deliverable/2026-10-19_olle_leave_of_absence_presentation.md` — the deck.
+- `generic/deliverable/2026-10-19_olle_leave_of_absence_presentation.pdf` — the first (bad) render for reference.
+- `generic/deliverable/2026-10-13_generalforsamling_arsregnskap_2025_slides.md` — the reference deck that uses the plain TikZ pattern correctly.
+- `scripts/md_to_slides.py` — the slides wrapper.
+- `scripts/sunlit_sea_slides_header.tex` — theme header where the footer context is defined.
+- `.claude/skills/generate-slides/SKILL.md` — skill documentation.
+- `docs/rules/image-guidance.md` — the rule for ChatGPT prompts; also needs its wording tightened if it uses "skeleton" anywhere.
+
+**Solution (2026-10-19):**
+
+Defects 1–4 (rendering) and defect 5 (prompt quality) all addressed. The deck now re-renders to an 8-page PDF (title + 8 content slides) with no overflow, no bleed, correct per-deck footer context, and no author-notes leaking into slide content.
+
+**Approach taken:**
+
+- **Defect 1 — title slide bleed.** Reverted the earlier "markdown-preview fallback" hack. The title slide is now the plain `## {.plain}` + raw TikZ pattern used by the reference deck. No markdown text in the frame body for TikZ to compete with.
+- **Defect 2 — subtitle overflow.** Split the subtitle from one long 16pt line ("Floating solar power in the Baltic — site coordinator role for Olle Roman") into two short 16pt lines inside the TikZ node ("Floating solar power in the Baltic" / "Site coordinator role for Olle Roman"), both fitting the slide width with margin to spare.
+- **Defect 3 — hardcoded footer.** Parameterised in `scripts/sunlit_sea_slides_header.tex`:
+    - Added `\providecommand{\sunlitDeckContext}{}` as an empty default.
+    - Rewrote the footer template to use an `\edef`-based empty test: `\edef\sunlitTempContext{\sunlitDeckContext}\ifx\sunlitTempContext\empty\else ...\fi` (reliable, unlike direct `\ifx\sunlitDeckContext\empty` which fails when the macro was defined via `\providecommand{...}{}` because the token-level comparison against `\empty` can be false even with the same expansion).
+    - Convention for each deck: inside the first `## {.plain}` frame body, add a raw-LaTeX line `\gdef\sunlitDeckContext{Deck context label}`. `\gdef` has global scope and breaks out of beamer's frame-scoping, so the override persists for all subsequent frames. Putting it OUTSIDE a `##` frame (as `\renewcommand` before the first heading) creates an unwanted empty opening frame — do not do that.
+    - Updated both decks to follow the new convention: `2026-10-19_olle_leave_of_absence_presentation.md` sets `Olle leave-of-absence request`; `2026-10-13_generalforsamling_arsregnskap_2025_slides.md` sets `Årsregnskap 2025` (keeping its previous footer label).
+- **Defect 4 — "Image for this slide" notes.** All eight image-note blocks wrapped in HTML comments `<!-- ... -->`. Pandoc's markdown reader treats these as raw HTML and the beamer writer skips them; the notes stay in the markdown source for whoever assembles the final deck, but never appear in the PDF.
+- **Scope-and-timeline overflow.** Split what was one slide ("Scope and timeline") into two: slide 6 "Scope" (three bullets about workload shape, length, location) and slide 7 "Timeline — the four phases" (just the table). Both now fit on their respective slides with room to spare. Also shortened phase names in the table ("Startup" instead of "Startup phase", "Investigation" instead of "Investigation phase", etc.) so column 1 does not wrap.
+- **Defect 5 — ChatGPT prompts.** Rewrote both ChatGPT prompts (slide 2 nearshore re-render; slide 4 composite breakwater+matrix scene) as standalone, high-quality, paste-ready instructions. Each prompt now opens with "Create a photorealistic image, 16:9 aspect ratio, documentary photography style", explicitly describes each attached reference image, names the geometric and material features to preserve, specifies the setting in positive language (not relying on a "do not include" list of forbidden words), and lists the composition requirements (camera angle, lighting, emptiness of people/boats/wildlife). Dropped the word "skeleton". Prompts now sit inside the HTML-commented image-notes blocks (per defect 4) rather than as slide content.
+
+**Files touched:**
+
+- `generic/deliverable/2026-10-19_olle_leave_of_absence_presentation.md` — full rewrite of title slide, scope-timeline split into two slides, all image notes wrapped in HTML comments, both ChatGPT prompts rewritten as standalone, `\gdef\sunlitDeckContext{...}` added inside first frame.
+- `generic/deliverable/2026-10-13_generalforsamling_arsregnskap_2025_slides.md` — `\gdef\sunlitDeckContext{Årsregnskap 2025}` added inside first frame so the parameterised footer keeps its original label.
+- `scripts/sunlit_sea_slides_header.tex` — `\providecommand{\sunlitDeckContext}{}` default added; footer template rewritten to use `\edef`-based empty test and conditionally render the context after `SUNLIT SEA |`.
+
+**Verification:**
+
+Re-rendered `python scripts/md_to_slides.py generic/deliverable/2026-10-19_olle_leave_of_absence_presentation.md` and read the PDF page-by-page. All five defects visually resolved; no new regressions.
+
+**Not done, left to user decision:**
+
+- The ChatGPT prompts themselves still need to be executed by the user (per the earlier scope decision when the OpenAI API key turned out to be scoped to exclude image generation). The user said: *"Nvm then I'll just do it manually."* Prompts are ready to copy-paste from the markdown source into ChatGPT alongside the named reference-image uploads.
+- The `generate-slides` SKILL.md does not yet document the per-deck `\gdef\sunlitDeckContext{...}` convention. Add on next SKILL maintenance pass or when it comes up.
+
+---
+
+### T135 `[x]` [GENERIC] Cleanup — subagent-propagated false FPV geometry across docs, rules and deliverables
+
+Context: during T132 (image-prompt critique for the Olle presentation) one of the five Sonnet subagents (`generic/background/eic/olle_image_critique/03_fpv_industrial_visualization.md`) asserted that the Sunlit Sea FPV sits at *"~0.4–0.5 m above sea level"* with *"zero tilt angle, no walkways between panels, no pontoon floats visible"*. The subagent cited no source. The claim was false on both axes: the authoritative Gen 2 spec (`gen2/norsmaterials_brief.md` line 44) gives *"Distance PV → water: 6 cm at the lowest edge — the panel sits at a 2° tilt, so the opposite edge sits higher"*, and the FDS (`sure/background/2024-08-27_fds_nextgen_product.md` line 212) notes *"Float/PV may have a few degrees angle for shedding off water"*.
+
+The false claim propagated this session into: the Olle deck image prompts (slide 2 and slide 4), `docs/sure_images.md`, `docs/rules/image-guidance.md`, the SUREWAVE D8.3 figures spec, and this task file's T132 solution notes. Discovered when the user pointed out the image evaluation of `fpv1.png` was using the wrong geometry benchmark.
+
+**Scope — clean up every propagation and prevent recurrence:**
+
+1. Correct the FPV geometry language in every affected file to match the authoritative spec: *"nearly flush with the water surface — approximately 6 cm above the waterline at the lowest edge, with a slight 2° tilt across each panel for drainage; the panels integrate with the aluminium floats, no separate raised pontoon raft."*
+2. Add a correction header to `03_fpv_industrial_visualization.md` so the file is flagged as containing an uncorrected false geometry claim and not re-cited as a source.
+3. Add a working rule to CLAUDE.md: **"Treat agent/subagent outputs as hypotheses, not sources."** Elaboration in `docs/rules/subagent-outputs.md`.
+4. Elaborate the subagent-outputs rule in `docs/rules/subagent-outputs.md` with the T135 precedent recorded as the canonical example.
+
+**Deliverables:**
+
+- Updated: `docs/sure_images.md`, `docs/rules/image-guidance.md`, `generic/deliverable/2026-10-19_olle_leave_of_absence_presentation.md`, `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md`, `CLAUDE.md`.
+- Correction header prepended to: `generic/background/eic/olle_image_critique/03_fpv_industrial_visualization.md`.
+- New file: `docs/rules/subagent-outputs.md`.
+
+**Context files:**
+
+- `gen2/norsmaterials_brief.md` — the authoritative Gen 2 spec (line 44 for freeboard + tilt).
+- `sure/background/2024-08-27_fds_nextgen_product.md` — the FDS (line 212 for drainage angle intent).
+- `generic/background/eic/olle_image_critique/03_fpv_industrial_visualization.md` — origin of the false claim.
+
+**Solution (2026-10-19):**
+
+Authoritative spec confirmed: panel sits approximately 6 cm above water at the lowest edge, with a slight 2° tilt across each panel for drainage; panels integrate directly with the aluminium float (no separate raised pontoon raft). Primary source: `gen2/norsmaterials_brief.md` line 44, reinforced by `sure/background/2024-08-27_fds_nextgen_product.md` line 212.
+
+**Files touched:**
+
+- `docs/sure_images.md` — corrected the `asset-solar-floating.jpg` entry from "Flat-flush-to-water geometry" to the real spec with citation to `gen2/norsmaterials_brief.md`.
+- `docs/rules/image-guidance.md` — corrected the "Generic-prompt error" precedent text from "flat-flush-to-water, polyurethane hinges, pressed-aluminium pan" to the real spec with citation.
+- `generic/deliverable/2026-10-19_olle_leave_of_absence_presentation.md` — three locations fixed: slide 2 ChatGPT prompt (attachment 1 description), slide 4 image-options list (option 1 asset photo description + option 3 CAD snapshot guidance), slide 4 composite ChatGPT prompt (attachment 1 description). All now describe the panels as "nearly flush with the water surface — approximately 6 centimetres above the waterline at the lowest edge, with a slight 2° tilt across each panel for drainage; the panels integrate directly with the aluminium floats; no separate raised pontoon raft."
+- `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md` — Fig 3 prompt text corrected from "floating flush with the water" to the real spec with citation. (The D8.3 brochure PDF is already issued; the fix is to the figures-spec template for future figures.)
+- `generic/background/eic/olle_image_critique/03_fpv_industrial_visualization.md` — correction header prepended warning readers that lines 19, 40, 87 contain false geometry claims and the file should not be cited as a source. Body text preserved as historical record of the subagent's output.
+- `CLAUDE.md` — new working rule added: "Treat agent/subagent outputs as hypotheses, not sources." Placed after the "Image guidance in deliverables" rule.
+- `docs/rules/subagent-outputs.md` — new rule elaboration with the T135 precedent recorded as the canonical example and a checklist for subagent-heavy workflows.
+- `TASKS.md` — this T135 block.
+
+**Not fixed (deliberate):**
+
+- `TASKS.md` T132 solution notes (line 3944) retain the "flat-flush-to-water" wording as a historical snapshot of what the slide-image block said at the time. The correction trail runs via T135 and the correction header on the subagent file.
+- Line 42 of `03_fpv_industrial_visualization.md` ("zero tilt angle, no walkways between panels, no pontoon floats visible") kept in body text — the file-level correction header at the top of the file flags the whole file as not-to-cite, which is simpler than annotating each wrong assertion inline.
+- The D8.3 brochure PDF itself (already issued, Fig 3 was AI-generated against the then-current prompt that said "flush with the water"). The figures spec is updated for future figures; the issued brochure is not retroactively corrected.
+
+**Verification:**
+
+Final grep for `flat-flush|flat flush|flush with the water|0.4 m above|zero tilt` across the repo shows every remaining occurrence is either (a) a corrected string containing the right spec in context, (b) the T135 Index/task block itself describing the problem, (c) a quoted-as-evidence occurrence inside `docs/rules/subagent-outputs.md` or TASKS.md T135 solution notes, or (d) the historical record under the correction-headed subagent file.
 
 ---
 

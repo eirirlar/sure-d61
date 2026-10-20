@@ -1,8 +1,8 @@
 ---
-title: "Lov om skatteforvaltning (skatteforvaltningsloven) § 14-1 — Tvangsmulkt"
-kilde: https://lovdata.no/lov/2016-05-27-14/§14-1
-sist_endret: "Lov 25. april 2025 nr. 12 og lov 20. juni 2025 nr. 64, begge i kraft 1. januar 2026"
-hentet: 2026-07-09
+kilde: "Lov om skatteforvaltning (skatteforvaltningsloven)"
+lovnr: "2016-05-27 nr. 14"
+url: https://lovdata.no/dokument/NL/lov/2016-05-27-14/§14-1
+hentet: 2026-10-19
 ---
 
 # § 14-1. Tvangsmulkt

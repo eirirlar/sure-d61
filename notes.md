@@ -1,1 +1,3 @@
-Back to the technical report review task. You previously presented packages of review. What's the next suggested review action?
+I don't think we need more images than the map and the fpv2 image.
+
+Now the text. Don't ask Olle employer about anything. Keep it short and simple what the project is about from Sunlit Seas perspective, focus on where we're heading as a company, what societal mission we're on (green energy for the planet utilizing underutilized area at sea and lakes). Talk about the importance of energy diversification in todays political landscape. Etc. Give the listener a feeling that "yes, giving Olle leave to work on this is a good thing". But don't ask them. That's up to Olle.

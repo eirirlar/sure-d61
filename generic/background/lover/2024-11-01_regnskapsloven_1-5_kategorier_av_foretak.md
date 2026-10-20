@@ -1,8 +1,8 @@
 ---
-title: "Lov om årsregnskap (regnskapsloven) § 1-5 — Kategorier av foretak og konsern"
-kilde: https://lovdata.no/lov/1998-07-17-56/§1-5
-sist_endret: "Lov 21. juni 2024 nr. 42 (i kraft 1. november 2024 iflg. res. 11. oktober 2024 nr. 2454)"
-hentet: 2026-07-08
+kilde: "Lov om årsregnskap mv. (regnskapsloven)"
+lovnr: "1998-07-17 nr. 56"
+url: https://lovdata.no/dokument/NL/lov/1998-07-17-56/§1-5
+hentet: 2026-10-19
 ---
 
 # § 1-5. Kategorier av foretak og konsern
@@ -10,15 +10,17 @@ hentet: 2026-07-08
 (1) Som mikroforetak regnes regnskapspliktige som på balansedagen overskrider én eller ingen av følgende tre terskler:
 
 a. balansesum: 5 millioner kroner
-b. salgsinntekter: 10 millioner kroner
-c. gjennomsnittlig antall ansatte i regnskapsåret: 10 årsverk
 
-Med mindre noe annet er fastsatt, skal mikroforetak følge reglene for små foretak.
+b. salgsinntekter: 10 millioner kroner
+
+c. gjennomsnittlig antall ansatte i regnskapsåret: 10 årsverk
 
 (2) Som små foretak regnes regnskapspliktige som på balansedagen overskrider én eller ingen av følgende tre terskler:
 
 a. balansesum: 84 millioner kroner
+
 b. salgsinntekter: 168 millioner kroner
+
 c. gjennomsnittlig antall ansatte i regnskapsåret: 50 årsverk
 
 (3) Som mellomstore foretak regnes regnskapspliktige som ikke er mikroforetak, små foretak eller store foretak.
@@ -26,7 +28,9 @@ c. gjennomsnittlig antall ansatte i regnskapsåret: 50 årsverk
 (4) Som store foretak regnes regnskapspliktige som på balansedagen overskrider minst to av følgende tre terskler:
 
 a. balansesum: 290 millioner kroner
+
 b. salgsinntekter: 580 millioner kroner
+
 c. gjennomsnittlig antall ansatte i regnskapsåret: 250 årsverk
 
 (5) Som små konsern regnes konsern som på balansedagen oppfyller vilkårene for små foretak i annet ledd, beregnet etter reglene i tolvte ledd. Med mindre noe annet er fastsatt, skal små konsern følge reglene for små foretak.

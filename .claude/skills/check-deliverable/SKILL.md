@@ -49,13 +49,25 @@ The reader does not have the rest of the repo.
 ### 5. Source freshness
 
 - If the deliverable draws on a `background/` file: re-read that background file *now*, before signing off. Facts may have been added since task start. See `docs/rules/reread-source.md` (T80 precedent).
-- If a canonical reference (law text, NRS, grant call text) is cited, confirm the citation matches the current version in `generic/background/lover/` or similar.
+- If a law paragraph, subsection or sentence is cited (`aksjeloven § 9-2 annet ledd`, `regnskapsloven § 5-3 tredje ledd` etc.): confirm the paragraph exists as a verified `.md` file in `generic/background/lover/` with metadata header (`kilde`, `lovnr`, `url`, `hentet`) and verbatim text, and that the citation matches that file word-for-word. If the paragraph is not in `generic/background/lover/`, stop and either (a) run the `last-ned-paragraf` skill to download it from Lovdata via curl, or (b) rephrase to general language without the paragraph name. Never cite a specific `§` from memory. See `docs/rules/lovparagrafer.md` (T123 precedent).
+- For other canonical references (NRS, NRS(F), grant call text, template documents), confirm the citation matches the current version stored in `generic/background/lover/` or the relevant `background/` folder.
 
 ### 6. Norwegian-language deliverables
 
 If the deliverable is in Norwegian, verify finance/clean-tech vocabulary is Norwegian not English (see CLAUDE.md "Norwegian-language deliverables" table): `fornybar-teknologi` not `cleantech`, `egenkapital` not `equity`, etc. Currency and units follow the number: `15 mrd USD`, `10 mill. NOK`, `0.060 EUR`.
 
-### 7. Converted-output check (if applicable)
+### 7. Image-generation prompts (if applicable)
+
+If the deliverable contains ChatGPT / DALL-E / Midjourney image-generation prompts — including prompts hidden inside HTML comments as assembler notes — audit prompt-reference coherence for each prompt:
+
+- Enumerate every distinct visual element the prompt describes: product geometry (matrix, breakwater, hinge, specific component), setting (water, sky, shoreline), scene actors (people, boats), lighting, atmosphere.
+- For each element, decide whether it is **product-specific** (geometry invented by the model will not match the real thing — e.g. SUREWAVE breakwater, Sunlit Sea FPV matrix, specific industrial equipment) or **generic** (model's defaults are acceptable — e.g. "calm sea", "overcast daylight", "limestone shoreline").
+- Every product-specific element must have a corresponding reference image uploaded with the prompt and named explicitly in the attachment list. If the prompt describes the element only in text, flag it: the model will invent its own interpretation from training data and the result rarely matches the real product.
+- Verify provenance of each referenced image per `docs/sure_images.md` (real photo / CAD render / AI concept render). Flag any attachment labelled or implied to be a photograph when it is actually an AI render.
+- Verify the configuration described in the prompt matches the deliverable's use case per `docs/surewave_configurations.md`. The open-sea ring layout and the nearshore directional layout are not interchangeable.
+- Precedent (2026-10-19): the slide 2 prompt in `generic/deliverable/2026-10-19_olle_leave_of_absence_presentation.md` described SUREWAVE concrete breakwater pontoons in the scene but uploaded only the matrix reference. The breakwater would have been invented from text alone — generic rubble breakwater or floating dock, not the double-keel concrete design. Fixed by uploading `surewave/images/2023-08-08_surewave_d3.2_floating_breakwater_design/image12.png` as attachment 2 and tying the breakwater description to it. Earlier (same session) a prompt described "small orange mooring buoys at the perimeter" based on misreading water lilies in a Blender lake-scene render as SUREWAVE mooring — SUREWAVE actual mooring is catenary chain to seabed anchors, entirely underwater. Both errors would have been caught by this check.
+
+### 8. Converted-output check (if applicable)
 
 If a `.docx` or `.pdf` already exists:
 
@@ -77,6 +89,7 @@ All of CLAUDE.md "Language and tone", plus:
 - CLAUDE.md "**Converted `.md` files must be self-contained**" (for the self-containedness check from the other direction)
 - CLAUDE.md "**Do not convert to docx automatically**"
 - CLAUDE.md "**Norwegian-language deliverables**" vocabulary table
+- CLAUDE.md "**Image guidance in deliverables uses existing project assets, not invented ChatGPT prompts**" + `docs/rules/image-guidance.md` + `docs/sure_images.md` + `docs/surewave_configurations.md`
 
 ## Historical references
 
@@ -94,3 +107,4 @@ All of CLAUDE.md "Language and tone", plus:
 - **Keeping internal file paths.** `(see funding/background/…)` is the easy one to miss — it is often added during drafting as a working reference.
 - **Not re-reading the background.** The T80 pattern repeats whenever the user has filled in background between task start and drafting.
 - **Fixing without surfacing.** This skill reports findings; the user decides whether to accept each one. Do not silently rewrite.
+- **Image-generation prompts that reference objects without providing a reference image.** The model invents geometry from text, which almost never matches a real engineered product. Enumerate every product-specific visual element and verify each has a reference image attached and named in the prompt.

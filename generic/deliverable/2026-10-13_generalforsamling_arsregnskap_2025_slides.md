@@ -1,5 +1,7 @@
 ## {.plain}
 
+\gdef\sunlitDeckContext{Årsregnskap 2025}
+
 \begin{tikzpicture}[remember picture, overlay]
   \fill[sunlitBlack] (current page.north west) rectangle (current page.south east);
   \node[anchor=north west, inner sep=0pt] at ([xshift=1.5cm, yshift=-1.2cm]current page.north west) {%

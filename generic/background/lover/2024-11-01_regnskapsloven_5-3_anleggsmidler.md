@@ -1,8 +1,8 @@
 ---
-title: "Lov om årsregnskap (regnskapsloven) § 5-3 — Anleggsmidler"
-kilde: https://lovdata.no/lov/1998-07-17-56/§5-3
-sist_endret: "Lov 21. juni 2024 nr. 42 (i kraft 1. november 2024 iflg. res. 11. oktober 2024 nr. 2454)"
-hentet: 2026-07-08
+kilde: "Lov om årsregnskap mv. (regnskapsloven)"
+lovnr: "1998-07-17 nr. 56"
+url: https://lovdata.no/dokument/NL/lov/1998-07-17-56/§5-3
+hentet: 2026-10-19
 ---
 
 # § 5-3. Anleggsmidler
