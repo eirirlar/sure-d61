@@ -6,6 +6,8 @@ Legend: all entries here are `[x]` Done.
 
 ## Index
 
+For a flat per-task TOC with GitHub anchors, see [`ARCHIVE_INDEX.md`](ARCHIVE_INDEX.md) (script-maintained). The table below is thematic grouping only.
+
 | Section | T-range | Theme |
 |---|---|---|
 | [D6.2 preparation](#d62-preparation) | — | Reserved for future D6.2 closures |

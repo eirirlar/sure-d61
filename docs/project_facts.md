@@ -27,12 +27,12 @@ Last reviewed: 2026-10-20.
 ## Products
 
 - Sunlit Sea CONNECT — the second-generation product currently in development. "Sunlit Sea CONNECT" is the full product name. "Gen 2" / "gen. 2" is a generation label; it is NOT part of the product name. Do not write "Sunlit Sea CONNECT gen. 2" in external copy.
-- Gen 1 — first-generation product; commercial deployments ongoing. Factory at Askim wound down autumn 2024; Gen 1 line discontinued.
+- Gen 1 — first-generation product; commercial deployments ongoing. Factory at Askim wound down autumn 2024; Gen 1 line discontinued. Panel: 537 Wp; similar footprint to the Gen 2 710–740 Wp class (Gen 2 gain is cell efficiency, not panel area).
 - Gen 1 commercial references in operation:
     - Mannheim Cablepark, Germany — 60 kWp, in operation since 2023. Customer: Rixen Cableway.
     - Skiftestjørna, Haugaland Næringspark (Tysvær), Norway — 105 kWp, in operation since autumn 2024, under Sunlit Sea's own develop-operate-sell model with a PPA to EV PowerCharge AS running to end October 2026.
 - Gen 2 current state: TRL 4-5 (sources vary 4–6 depending on the dimension — floater system vs integrated demonstrator; verify against the specific deliverable's framing). Prototype 3 cast at Tongge (Weihai, China). Prototype 4 in casting, in-house 3D-printed moulds in Norway in parallel.
-- Gen 2 physical spec headlines (external-facing): standard 710–740 Wp glass/glass PV panel in a cast polyurethane frame; aluminium 5083-H111 bottom plate (0.8 mm, base case flat); 6 cm freeboard at the lowest panel edge, 2° tilt. Not "0.4–0.5 m above water" and not "zero tilt" (precedent: T135).
+- Gen 2 physical spec headlines (external-facing): standard 710–740 Wp glass/glass PV panel in a cast polyurethane structure; the panel rests slightly above water (not "0.4–0.5 m above water" — precedent: T135); architecturally fixed (non-adjustable) tilt (not "zero tilt" — precedent: T135). Hedge-level distinctions when drafting external copy — commit to: the cast PU structure, the standard glass/glass panel class, the fact of a small freeboard, the fact of a fixed non-adjustable tilt. Do NOT commit externally to: the specific tilt value (2° is current internal estimate, confirmed at design freeze), the specific freeboard value (6 cm is current internal base case, confirmed at design freeze), the bottom-plate material or alloy (aluminium 5083-H111 flat is current internal base case, likely but not certain), a specific design-life figure such as "25 years" (not validated or certified; internal engineering target only — externally, defer to the DNV ST-C108 framework and the issued workmanship warranty). State internal base-case values as indicative / to be confirmed, not as promises.
 
 ## Current projects
 

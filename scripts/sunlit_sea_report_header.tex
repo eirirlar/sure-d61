@@ -127,9 +127,22 @@
 % --- Links -------------------------------------------------------------
 \usepackage[colorlinks=true, linkcolor=sunlitBlue900, urlcolor=sunlitBlue700, citecolor=sunlitBlue700]{hyperref}
 
-% --- Tables: thin blue 900 rules ----------------------------------------
-\arrayrulecolor{sunlitBlue900}
-\renewcommand{\arraystretch}{1.15}
+% --- Tables: thin light-grey rules + inter-row separators --------------
+% booktabs rules (\toprule/\midrule/\bottomrule) rendered in a light grey
+% at 0.3pt. A thin 0.3pt grey hrule is injected after every row break
+% inside longtable (pandoc's default table environment), giving each row
+% a subtle separator without the heaviness of a full ruled table.
+\arrayrulecolor{sunlitBlack300}
+\setlength{\heavyrulewidth}{0.3pt}
+\setlength{\lightrulewidth}{0.3pt}
+\renewcommand{\arraystretch}{1.3}
+
+\makeatletter
+\AtBeginEnvironment{longtable}{%
+  \let\sunlit@orig@eol\\%
+  \def\\{\sunlit@orig@eol\noalign{{\color{sunlitBlack300}\hrule height 0.3pt}}}%
+}
+\makeatother
 
 % --- Paragraph spacing and line stretch --------------------------------
 \usepackage{setspace}

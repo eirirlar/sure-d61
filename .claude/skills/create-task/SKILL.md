@@ -43,13 +43,9 @@ description: Create a new T-numbered task in `TASKS.md` with the correct next T-
 
    For a task that is already partly done or that has a known approach, add a `**Context files:**` list and/or a `**Deliverable:**` line. If blocked, use `**[BLOCKED — needs input from PERSON/ORG]**` on its own line.
 
-5. **Insert at the right position.** Tasks in `TASKS.md` are sorted ascending by T-number — never append to the bottom without checking. Use the `## Index` section at the top of `TASKS.md` to find the right insert point, then insert into the main `## Tasks` block between the preceding and following T# headers. Subtasks sort under their parent.
+5. **Insert at the right position.** Tasks in `TASKS.md` are sorted ascending by T-number — never append to the bottom without checking. Consult `TASKS_INDEX.md` (script-maintained flat TOC) to find the right insert point, then insert the task block into the `## Tasks` section between the preceding and following `### T<n>` headers. Subtasks sort under their parent.
 
-6. **Update the Index.** Add a new bullet to the `## Index` section in the same ascending order:
-
-   ```
-   - T<N> `[ ]` [TAG] <Title>
-   ```
+6. **Regenerate the indexes.** Run `python scripts/rebuild_task_indexes.py`. This rewrites `TASKS_INDEX.md` and `ARCHIVE_INDEX.md` from the master task files. Never hand-edit the index files — the next regeneration will overwrite the edit. See the *Task index files* rule in `CLAUDE.md`.
 
 7. **Confirm with the user.** Report the new T-number, the chosen tag, and the insert position.
 
@@ -75,4 +71,4 @@ description: Create a new T-numbered task in `TASKS.md` with the correct next T-
 - **Reusing an archived T-number** — the grep must cover both `TASKS.md` and `ARCHIVE.md`, not just one.
 - **Wrong activity tag** — `[GENERIC]` is a catch-all, but overusing it hides real activity signal. Prefer the specific activity tag when the task is anchored in one stream.
 - **Starting the task immediately after creating it** — these are two separate user instructions; wait for the second one.
-- **Forgetting the Index** — the TOC at the top of `TASKS.md` must stay in sync with the task body or the Phase 1 investment degrades over time.
+- **Forgetting to regenerate the indexes** — `TASKS_INDEX.md` and `ARCHIVE_INDEX.md` are script-maintained. After inserting a new task block, run `python scripts/rebuild_task_indexes.py`. `--check` surfaces drift without writing.

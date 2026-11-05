@@ -15,91 +15,7 @@ Blocked items are tagged **[BLOCKED — needs input from …]** with the specifi
 
 ## Index
 
-Flat list of every task in this file, sorted by T-number. `[ ]` not started · `[~]` in progress · `[x]` done.
-
-- T01 `[ ]` [SURE] Reduce repetition (Comment 446)
-- T02 `[ ]` [SURE] Deliver missing IFE figures
-- T03 `[ ]` [SURE] Add References section to the report
-- T04 `[ ]` [SURE] Add abbreviation list
-- T05 `[ ]` [SURE] Add list of figures
-- T06 `[ ]` [SURE] Resolve or flag TODO comments before submission
-- T07 `[ ]` [SURE] Resolve I-2 TODOs with IFE
-- T08 `[ ]` [SURE] Implement I-3 (thickness field transfer)
-- T09 `[ ]` [SURE] Resolve I-4 TODOs with IFE
-- T10 `[ ]` [SURE] Formalise I-5 (LCA with TNO)
-- T11 `[ ]` [SURE] Design 3DFloat→SiSim interface
-- T12 `[ ]` [SURE] Measure off-white PU absorptivity
-- T13 `[ ]` [SURE] Run thermal CFD for P4 geometry
-- T14 `[ ]` [SURE] Complete white PU UV testing at IFE
-- T15 `[ ]` [SURE] Complete adhesion testing on P3 samples
-- T16 `[ ]` [SURE] Get TNO LCA results
-- T17 `[ ]` [SURE] Complete P4 prototype
-- T18 `[ ]` [SURE] Mechanical simulation (SiSim) on P4
-- T19 `[ ]` [SURE] Resolve cast-on-frame vs separate-and-mount architecture decision
-- T20 `[ ]` [SURE] Multi-domain design screening
-- T21 `[ ]` [SURE] Full experimental testing details for D6.2
-- T22 `[ ]` [SURE] Structural modelling with infill
-- T23 `[ ]` [SURE] D6.2 must deliver on inter-model data-transfer
-- T24 `[ ]` [SURE] D6.2 framing
-- T72 `[~]` [GEN2] Norsmaterials partner brief (PU casting collaboration)
-- T74 `[ ]` [FUND] Investor recap for the past year — enrich Eirik's writeup with project content
-- T80 `[x]` [FUND] Anmodning til Skatteetaten om tvangsmulkt-utsettelse for skattemelding 2025
-- T81 `[x]` [FUND] Revisorspakke: prinsippendring aktivering av SuRE-utviklingskostnader + avskrivningsstopp + nedskrivingstest 2025
-- T82 `[x]` [FUND] Oppdater revisorpakken basert på regnskapsførers svar i mail 2
-- T83 `[x]` [FUND] Bygg inn teknologiplattform-narrativ (gen 1 / gen 2 / SuRE / Surewave) i revisorpakken
-- T84 `[x]` [FUND] PDF-layoutfiks i revisorpakken — NBSP i tall og mindre tabellfont
-- T85 `[x]` [FUND] Avrunding av alle beløp i revisorpakken til hele tusen kroner
-- T86 `[x]` [FUND] Rett TRL-nivå for gen 2 fra TRL 5-6 til TRL 4 i revisorpakken og TRL-figuren
-- T87 `[x]` [FUND] Oppdater løypemeldingen 2026-07-08 med prinsippendring-narrativ
-- T88 `[x]` [FUND] Klage over tvangsmulkt til Skatteetaten
-- T89 `[x]` [SURE] Cleanup av `sure/`-mappa for framtidig bruk
-- T90 `[x]` [SURE] Ekstraher bilder fra PDF-er i `sure/background/`
-- T91 `[x]` [SURE] Konverter .jp2 til .png og sett inn inline image-refs i background-.md-filer
-- T92 `[x]` [FUND] Foreslå optimal EIC Transition prosjektstruktur fra Sunlit Sea-perspektiv
-- T93 `[x]` [FUND] Rens SINTEF EIC WP-forslag docx og skriv diff-vurdering mot Sunlit Sea-forslag
-- T94 `[x]` [FUND] Skriv tilbakemeldingsdokument til SINTEF (Balram) på EIC-WP-forslag
-- T95 `[x]` [FUND] Konverter `generic/background/new/` til dato-stemplede .md-filer
-- T96 `[x]` [FUND] Flytt `leveranser/`-innhold til `generic/background/` og oppdater historikk
-- T97 `[x]` [FUND] Gjennomgang av krav til PES-midler (basert på T95-filene)
-- T98 `[x]` [FUND] Lag søknadsmal (utkast med feltinnhold) for PES-søknad ES765081 EIC_SUREWAVE_DEMO
-- T99 `[x]` [FUND] Skriv PES-vedlegg for ES765081 EIC_SUREWAVE_DEMO
-- T100 `[x]` [FUND] Convert Vollsfjorden PDFs to Markdown with extracted images
-- T101 `[x]` [FUND] Splitt nedskrivingstesten i revisorpakken i to separate vurderinger — per 31.12.2024 og per 31.12.2025
-- T102 `[x]` [FUND] Gjennomgå og gi revisjonsstrategi for EIC Transition-søknaden (SUREWAVE_EIC)
-- T103 `[x]` [FUND] Verifiser EIC-call-reglene mot Work Programme 2026 og skriv om hele søknaden
-- T104 `[~]` [FUND] Iterate EIC Transition proposal on Eirik's feedback rounds
-- T105 `[x]` [FUND] Apply CINEA sell-in template to SuRE extension proposal (Gunneklevfjorden / D6.4 extended)
-- T106 `[ ]` [FUND] Motargumentasjon mot revisors konklusjon om usikkerhet ved fortsatt drift
-- T107 `[x]` [GENERIC] Introduce `generic/` cross-cutting folder and migrate the old root-level background tree
-- T108 `[x]` [GENERIC] Introduce `surewave/` activity folder and process its background inbox
-- T109 `[x]` [GENERIC] SUREWAVE D8.3 — Technical Brochure (SIS lead, co-authored with SINTEF)
-- T110 `[x]` [GENERIC] SUREWAVE D8.4 — Exploitation Pathways & Definitive Business Plan (SIS lead)
-- T111 `[x]` [GENERIC] SUREWAVE consortium status report — walkthrough of all deliverables
-- T112 `[x]` [GENERIC] Consolidate SUREWAVE background images into `surewave/images/`
-- T113 `[~]` [GENERIC] SUREWAVE — Report on Exploitable Results (aggregation of partner exploitation summaries)
-- T114 `[x]` [GENERIC] Enrich SUREWAVE Technical Brochure (D8.3) with SINTEF's main technical progress framing
-- T115 `[~]` [GENERIC] SUREWAVE WP8 — presentation talking-points (all-project walkthrough)
-- T116 `[x]` [GENERIC] SUREWAVE D1.7 (Data Management Plan Release 2) — Sunlit Sea review
-- T117 `[x]` [GENERIC] SUREWAVE WP8 — final-meeting interview scripts (4 partners, 5 min each)
-- T118 `[x]` [GENERIC] SUREWAVE WP/task/deliverable authoritative index (reference file)
-- T119 `[x]` [GENERIC] SUREWAVE images housekeeping — EMF rasterisation, sunlit-sea photos, technical-images index rename, date-prefix rule extension
-- T120 `[~]` [GENERIC] SUREWAVE D8.3 Technical Brochure — review passes (design, image typography, image facts)
-- T121 `[x]` [GENERIC] SUREWAVE — Update the exploitation report (D8.4 + Exploitable Results Report) against CINEA/HE exploitation requirements
-- T122 `[x]` [GENERIC] SUREWAVE — Horizon Results Booster kickoff: prep for 2026-10-02 call
-- T123 `[x]` [FUND] Ny styrefullmakt til erverv av egne aksjer – sakspapir til ordinær generalforsamling 2026
-- T124 `[~]` [GENERIC] Produksjons-pipeline for brev på Sunlit Sea-brevmal
-- T125 `[x]` [FUND] EUPI-PV budget position document for Clement and SINTEF
-- T126 `[x]` [GENERIC] AI-collaboration-friendly restructure (3 phases)
-- T127 `[x]` [GENERIC] Define `generate-slides` skill — Sunlit Sea visual-profile slide decks
-- T128 `[~]` [GENERIC] Define `generate-surewave-docx` skill — apply SUREWAVE docx template to a `.md` file
-- T129 `[x]` [GENERIC] Define `generate-surewave-pptx` skill — apply SUREWAVE pptx template to a `.md` file
-- T130 `[x]` [GENERIC] Innkorporér fjordgata30-reglene om verbatim lovsitering og curl-only Lovdata-henting
-- T131 `[x]` [FUND] Konsekvensutredning: hvilke leveranser er berørt av feilsitert regnskapsloven § 5-6 (og øvrige T130-funn)
-- T132 `[x]` [FUND] EUPI-PV — Forsvarsmakten presentation for Olle Roman tjänstledigt request (Gotland North site coordinator)
-- T133 `[x]` [FUND] EUPI-PV — Work instruction for Olle Roman at Gotland North (Storugns) from today through operative FPV installation
-- T134 `[x]` [FUND] EUPI-PV — Fix rendering and ChatGPT prompts in Olle leave-of-absence presentation
-- T135 `[x]` [GENERIC] Cleanup — subagent-propagated false FPV geometry ("flat-flush-to-water, 0.4 m, zero tilt") across docs, rules and deliverables
-- T136 `[ ]` [GENERIC] Create `docs/project_facts.md` as canonical facts file referenced from CLAUDE.md
+See [`TASKS_INDEX.md`](TASKS_INDEX.md) — script-maintained flat TOC with GitHub anchors. Regenerated by `python scripts/rebuild_task_indexes.py` after any status toggle, new task, resolution block or archive move.
 
 ## Tasks
 
@@ -3858,7 +3774,7 @@ Hovedfunn: Konklusjonene i leveransene står seg, men hjemmelshenvisningene gjø
 | Fil | Rolle | Feil-sitat | Fakta vs. gjeldende § 5-6 | Konklusjon står? | Allerede sendt? | Anbefalt handling |
 |---|---|---|---|---|---|---|
 | `funding/deliverables/2026-07-16_revisorpakke_prinsippendring_aktivering_nedskrivingstest.md` (+ `.cleaned.md`, `_eksakte_belop.md`) | Revisorpakke til Berntsen Mortensen | «§ 5-6 fjerde ledd gir små foretak valgrett»; «§ 5-6 annet ledd oppstiller fire vilkår for at utviklingsutgifter kan aktiveres» (seksjonsoverskrift + brødtekst) | Dagens § 5-6 har ikke ledd og ikke fire-vilkårsliste. De fire vilkårene er i NRS 8 (kap. 4.3.1.1) som bygger på NRS 19 Immaterielle eiendeler. Små foretaks "valgrett" er nå strukturelt dekket av at loven åpner for at utviklingsutgifter "kan kostnadsføres" (og dermed også kan la være) — regimet står i NRS 8. | Ja — vilkårene er faktisk oppfylt, bare under NRS 8, ikke § 5-6 (2) | Ja (juli 2026) | Vurder å sende kort korreksjonsnotat til revisor der hjemmelen flyttes fra § 5-6 (2)/(4) til NRS 8. Alternativt: revisor har trolig egen oppfatning av hjemmelsgrunnlaget og har ikke stolt blindt på vår sitering, så praktisk impact kan være lav. Men hvis revisor skulle få kritikk fra sitt eget kontrollorgan for å ha godtatt vår feil-sitering, går den tilbake til oss. |
-| `generic/background/2026-10-02_arsregnskap_2025.md` | **Signert årsregnskap 2025** (note «Endring av regnskapsprinsipp», linje 111) | «aktiveres når vilkårene i regnskapsloven § 5-6 annet ledd er oppfylt» | Dagens § 5-6 har ikke annet ledd | Ja | Ja — signert, godkjent av genfors 2026-10-16, levert | Kan ikke korrigeres uten formelt tillegg til årsregnskapet, som er en større sak. Praktisk anbefaling: ingen aktiv korreksjon for 2025, men formuleringen må oppdateres i 2026-noten. Hvis skatteetaten eller revisor-kontrollorgan oppdager og konfronterer, forklares det som transkriptfeil i noten — selve prinsippendringen og dens vilkårsvurdering er korrekt (bare feilaktig henvist). |
+| `generic/background/2026-10-13_arsregnskap_2025.md` | **Signert årsregnskap 2025** (note «Endring av regnskapsprinsipp», linje 126) | «aktiveres når vilkårene i regnskapsloven § 5-6 annet ledd er oppfylt» | Dagens § 5-6 har ikke annet ledd | Ja | Ja — signert, godkjent av genfors 2026-10-16, levert | Kan ikke korrigeres uten formelt tillegg til årsregnskapet, som er en større sak. Praktisk anbefaling: ingen aktiv korreksjon for 2025, men formuleringen må oppdateres i 2026-noten. Hvis skatteetaten eller revisor-kontrollorgan oppdager og konfronterer, forklares det som transkriptfeil i noten — selve prinsippendringen og dens vilkårsvurdering er korrekt (bare feilaktig henvist). |
 | `funding/deliverables/2026-09-10_vedlegg_skattemelding_2025_prinsippendring.md` | Vedlegg til skattemelding 2025 (lang form) | «Vilkårene for balanseføring i regnskapsloven § 5-6 er oppfylt» | Impliserer at § 5-6 inneholder vilkår. Teknisk sett nevner § 5-6 "balanseførte utviklingsutgifter" uten å oppstille vilkår for når det er lovlig. Vilkårene ligger i NRS 8. | Ja | **Nei — ikke sendt ennå** (skattemelding venter på tvangsmulkt-saken) | **Fiks før utsending**: formuleringen bør bli «Utgiftene oppfyller aktiveringsvilkårene for utviklingsutgifter i NRS 8 (jf. regnskapsloven § 5-6 om adgangen til balanseføring av utviklingsutgifter)». |
 | `funding/deliverables/2026-10-09_vedlegg_skattemelding_2025_prinsippendring_kort.md` | Samme vedlegg i kort form | Samme formulering, linje 18 | Samme | Ja | Nei | **Fiks før utsending** — samme omformulering som over. |
 | `funding/deliverables/2026-09-17_styrets_vurdering_fortsatt_drift.md` | Styrevurdering fortsatt drift (del av revisorkommunikasjon) | «aktiveres når vilkårene i regnskapsloven § 5-6 annet ledd er oppfylt» (linje 156) | § 5-6 har ikke annet ledd | Ja | Trolig ja (fulgte revisorpakke-oppfølging) | Oppdater før eventuell senere versjon eller re-sending. Hvis dokumentet allerede er endelig, lav praktisk impact. |
@@ -4175,7 +4091,7 @@ Final grep for `flat-flush|flat flush|flush with the water|0.4 m above|zero tilt
 
 ### T136 `[x]` [GENERIC] Create `docs/project_facts.md` as canonical facts file referenced from CLAUDE.md
 
-**Solution.** Combed `generic/background/loeypemelding/2026-07-16_loeypemelding.md` (most recent), `generic/deliverable/2026-10-19_nearshore_floating_solar_gotland_project_intro.md`, `generic/deliverable/2026-10-19_olle_roman_work_instruction_gotland_north.md`, `cases/eic_transition_surewave/INDEX.md`, `gen2/norsmaterials_brief.md`, `funding/background/eupi_pv/2026-08-04_horizon_cl5_2026_11_d3_14_call_text.md`, `funding/deliverables/eupi_pv/2026-10-13_sunlit_sea_budget_proposal_eupi_pv.md`, `surewave/background/2022-09-20_surewave_grant_agreement_101083342.md`, `generic/background/eic/*` (EIC Transition thread), the recent Skatteetaten letters (for current head-office address, Grønnegata 10, 0350 Oslo), `generic/background/2026-10-02_arsregnskap_2025.md`, `generic/background/2026-09-30_revisor_nummerert_brev_nr2_2025.md` (auditor identity) and the neighbour `../stotte/data/sunlit_sea/project_cards.json` (for SuRE grant ID 101135567 and SUREWAVE project dates). Where the løypemelding dated 2026-07-16 and the SUREWAVE Grant Agreement signed 2022-09-20 disagreed on head office (Oslo vs Trondheim), the user's 2026-10-20 in-session correction (Oslo) prevailed as the newest input.
+**Solution.** Combed `generic/background/loeypemelding/2026-07-16_loeypemelding.md` (most recent), `generic/deliverable/2026-10-19_nearshore_floating_solar_gotland_project_intro.md`, `generic/deliverable/2026-10-19_olle_roman_work_instruction_gotland_north.md`, `cases/eic_transition_surewave/INDEX.md`, `gen2/norsmaterials_brief.md`, `funding/background/eupi_pv/2026-08-04_horizon_cl5_2026_11_d3_14_call_text.md`, `funding/deliverables/eupi_pv/2026-10-13_sunlit_sea_budget_proposal_eupi_pv.md`, `surewave/background/2022-09-20_surewave_grant_agreement_101083342.md`, `generic/background/eic/*` (EIC Transition thread), the recent Skatteetaten letters (for current head-office address, Grønnegata 10, 0350 Oslo), `generic/background/2026-10-13_arsregnskap_2025.md`, `generic/background/2026-09-30_revisor_nummerert_brev_nr2_2025.md` (auditor identity) and the neighbour `../stotte/data/sunlit_sea/project_cards.json` (for SuRE grant ID 101135567 and SUREWAVE project dates). Where the løypemelding dated 2026-07-16 and the SUREWAVE Grant Agreement signed 2022-09-20 disagreed on head office (Oslo vs Trondheim), the user's 2026-10-20 in-session correction (Oslo) prevailed as the newest input.
 
 Files created / changed:
 
@@ -4237,4 +4153,261 @@ Also update the "Pointers" section near the top of `CLAUDE.md` to list the new f
 **Done means:** `docs/project_facts.md` exists with all applicable sections populated from background material; `CLAUDE.md` is updated with the extended "Read these first" rule, the new "Project facts are canonical" working rule, and a Pointer-section line; the file reads correctly as a lookup table (no prose).
 
 ---
+
+### T137 `[x]` [GENERIC] Script-maintained TOC files for TASKS.md and ARCHIVE.md
+
+Ported the TOC-automation pattern from `../stotte` to this repo. Before: `TASKS.md` had a hand-maintained `## Index` section at the top listing every task, which drifted silently — T136 was listed as `[ ]` while its actual `### T136` header already said `[x]`. There was no automation and no drift check.
+
+**Solution.**
+
+- New `scripts/rebuild_task_indexes.py` — standard-library-only Python port of the index portion of `../stotte/.claude/skills/archive-tasks/archive_tasks.py`. Reads `### T<n> \`[s]\` title` headers from `TASKS.md` and `ARCHIVE.md`, writes flat per-task TOCs to `TASKS_INDEX.md` and `ARCHIVE_INDEX.md` with GitHub-style anchor links. `--check` flag exits non-zero on drift, no writes.
+- New `TASKS_INDEX.md` (83 entries: `[x]` 50 · `[~]` 7 · `[ ]` 26) and `ARCHIVE_INDEX.md` (53 entries, all `[x]`) at the repo root.
+- Stripped the stale inline flat index from `TASKS.md`, replaced with a one-line pointer to `TASKS_INDEX.md` and the regeneration command.
+- Kept the themed-range table at the top of `ARCHIVE.md` intact (orthogonal navigation by theme, not a flat per-task list) and added a one-line pointer to `ARCHIVE_INDEX.md` above it.
+- New working rule in `CLAUDE.md` (under *Archiving tasks*): never hand-edit the index files; run the script after any status toggle, resolution block, new task or archive move; `--check` surfaces drift.
+- Documented the script in `docs/scripts.md` with the standard per-script section (usage, drift check, anchor algorithm, ported-from note).
+- Listed the script in the README.md *Scripts* bullet list and added the two index files to the top-level folder layout.
+
+Difference from stotte: this repo does task archiving as manual explicit-ask moves between `TASKS.md` and `ARCHIVE.md`, so only the index-regeneration portion of the stotte script was ported — not the archiving logic. The index script is index-only (`--check` / default write), no archiving flags.
+
+**Files touched.**
+
+- `scripts/rebuild_task_indexes.py` (new)
+- `TASKS_INDEX.md` (new, generated)
+- `ARCHIVE_INDEX.md` (new, generated)
+- `TASKS.md` — inline `## Index` section replaced with pointer
+- `ARCHIVE.md` — one-line pointer above the themed-range table
+- `CLAUDE.md` — new *Task index files* working rule
+- `docs/scripts.md` — new section documenting the script
+- `README.md` — scripts bullet + folder-layout entries
+
+---
+
+### T138 `[x]` [GENERIC] Energy-yield estimator (CLI script + report skill)
+
+Several deliverables need a preliminary annual-production number for an FPV site: RFP responses (COWI/DTU Risø, Gunneklevfjorden, Skien havn, Storavatnet, Gotland), investor-facing løypemeldinger and market intel notes, and internal commercial-pipeline sizing. Today each estimate is ad-hoc. Build a repeatable estimator that takes a minimum input and produces a defensible figure with its assumptions explicit.
+
+**Minimum input the estimator must accept.**
+
+- `lat`, `lng` — WGS84 decimal degrees.
+- `capacity_kwp` — installed DC capacity.
+
+That alone must produce a usable annual AC yield number. Everything else defaults, and every default is printed in the output so the reader sees what was assumed.
+
+**Richer inputs when available (override the defaults).**
+
+- `tilt_deg` — module tilt (default: 2° for CONNECT; override for other systems).
+- `azimuth_deg` — 0° = south, +90° = west (default: 180° south-facing in N hemisphere, 0° north-facing in S).
+- `module_class` — monofacial / bifacial (default: monofacial glass-glass per CONNECT).
+- `water_body` — fjord / lake / reservoir / nearshore-sea / open-sea (affects albedo and cooling bonus).
+- `system_losses_pct` — total DC-to-AC derating excluding temperature (default: 14 % — soiling, mismatch, DC cables, inverter, AC cables, availability).
+- `fpv_cooling_bonus_pct` — DC uplift from water cooling vs land reference (default: conservative 2 %; see methodology note).
+- `year` or `tmy` — specific calendar year or typical meteorological year (default: PVGIS TMY).
+
+**How missing parameters resolve.**
+
+The estimator calls the PVGIS 5.2 API (EU JRC, free, no key) with lat/lng and uses PVGIS TMY irradiation at the site. All optional parameters fall back to the defaults above. When the FPV cooling bonus and water-body albedo defaults are used, the output flags them as *preliminary assumption, not site-measured* so the reader does not mistake the figure for a bankable yield.
+
+PVGIS is the baseline because it is free, globally covered, maintained by the European Commission's JRC, documented and already treated as reference in EU-funded reporting. NASA POWER is a fallback if PVGIS is down.
+
+**Deliverables.**
+
+1. `scripts/estimate_yield.py` — CLI script. Reads a YAML input file *or* CLI args (the two-input minimum path). Writes a JSON result file and prints a short human-readable summary to stdout. PEP 723 inline dependencies (`requests`, `pyyaml`, `pandas`, `matplotlib`); `uv run` installs on the fly, no system Python install required. Follows the project script convention (sandboxed, documented in `docs/scripts.md`, no touches outside the given paths).
+2. `docs/energy_yield_methodology.md` — one-page methodology: inputs, defaults, data sources, the FPV cooling bonus literature basis, loss-factor breakdown, uncertainty bounds, and what the estimator explicitly does *not* do (no coupled float thermal model; no wind-aerated tilt adjustment; no bathymetry-dependent albedo; not a P50/P75/P90 bankable yield).
+3. `.claude/skills/estimate-yield/SKILL.md` — skill definition that drives the script and formats the result as an inline Markdown report block suitable for pasting into any deliverable. The report block includes:
+    - Headline numbers table (annual AC yield in MWh, specific yield in kWh/kWp, capacity factor).
+    - Monthly production chart (matplotlib → PNG written next to the invoking `.md`, referenced inline).
+    - Assumptions-used table (lat, lng, tilt, azimuth, loss factors, cooling bonus, data source, TMY year — the actual values consumed, so the reader can audit).
+    - Sensitivity on the two or three parameters that move the number most (tilt ±5°, azimuth ±30°, FPV cooling bonus 0–5 %).
+    - Caveats paragraph with the "preliminary, not bankable" language.
+4. Entry in `docs/scripts.md` and bullet in `README.md` per the project convention.
+
+**Trigger pattern for the skill.** User says *"estimate yield for Risø"* / *"yield number for Gunneklevfjorden"* / *"what does a 3 MWp pilot at <lat,lng> produce per year"* / *"add a yield block to this RFP"* — skill fires, prompts for the two minimum inputs if not supplied, calls the script, formats the Markdown block, writes it where the user asked.
+
+**Scope boundaries — explicitly out of scope for this task.**
+
+- No coupled thermal model of the float (that is SuRE D6.1 / D6.2 territory — T13 for CFD, future work for the float-level derating).
+- No wind-driven tilt variation (CONNECT tilt is architecturally fixed per §4.2 of project facts).
+- No shading analysis from site obstructions — only horizon-based diffuse masking as supplied by PVGIS.
+- No LCOE / NPV / cashflow output. That belongs in a commercial-model script, not here.
+- Not a design optimiser. Fixed inputs, single run, one number out.
+
+**Done means.** `python scripts/estimate_yield.py --lat 55.6915 --lng 12.0809 --kwp 35` runs on a clean machine, calls PVGIS, prints an annual AC yield in MWh with its assumption list; the skill produces a Markdown block that renders a headline table + monthly chart + assumptions audit + caveats; both are documented in the standard places.
+
+**Solution.**
+
+- `scripts/estimate_yield.py` — PVGIS 5.2 backend, PEP 723 inline deps (`requests`, `pyyaml`, `matplotlib`), `uv run` handles installation. Minimum-input CLI (`--lat/--lng/--kwp`) plus overrides for tilt, azimuth, system losses, FPV cooling bonus, water body, module class and reference year. YAML input file also supported (`--yaml`), CLI flags take precedence. Outputs: JSON to stdout; optional `--md-out` writes a Markdown report block; optional `--chart-out` (auto-named from `--md-out` if omitted) writes a matplotlib monthly bar chart; optional `--json-out` persists the full JSON to a file. `--no-sensitivity` skips the 4 extra PVGIS calls used for the sensitivity table.
+- `docs/energy_yield_methodology.md` — inputs, defaults, PVGIS behaviour, over-sea nudge rationale, FPV cooling bonus literature basis, loss-factor breakdown, sensitivity scope, and explicit non-scope list (no coupled float thermal model, no wind tilt variation, no bathy albedo, no local shading, no LCOE, not a design optimiser, not bankable).
+- `.claude/skills/estimate-yield/SKILL.md` — skill definition: when to use, when not to use, procedure, output shape, applicable CLAUDE.md rules, historical references (first run is the Risø RFP response), known pitfalls.
+- `docs/scripts.md` — long-form entry for the script with full CLI, overrides, YAML, over-sea handling, and relationship to the skill.
+- `README.md` — scripts bullet and `docs/` pointer to the methodology doc.
+
+**Design calls worth recording.**
+
+- **PVGIS 5.2 as baseline** (free, no key, EU JRC, ~5 km grid). NASA POWER as a future fallback. PVsyst is out of scope by design — this estimator is for RFP / pipeline / investor material, not bankable yield.
+- **Over-sea nudge.** PVGIS rejects sea coordinates with a 400 "Location over the sea" response. The script catches that and sweeps an expanding 500 m-step grid out to ~5 km for the nearest land cell. Nudged coordinate appears in the assumption audit. Sites farther than 5 km from land error out explicitly.
+- **FPV cooling bonus defaults to 2 %.** Conservative end of the published range (2 %–10 %). Default stays until a measured bonus value lands from SuRE / Gen 2 thermal work; override via `--fpv-cooling-bonus`.
+- **Azimuth in compass convention** (0 = N, 90 = E, 180 = S, 270 = W). PVGIS uses aspect (0 = S); the script converts internally. Caller facing compass is less error-prone for RFP users.
+- **Sensitivity scope** is tilt ±5°, azimuth ±30°, cooling bonus 0 % and 5 %. Intended to answer "how much would the number change if the assumptions were a little different" without pretending to be a formal uncertainty analysis.
+- **Markdown report shape** matches the project's deliverable conventions: headline table, chart, assumptions table, sensitivity table, caveats. No bold in body text (only `**…**` section headers, standalone). Methodology doc is referenced by path so a sceptical reader has somewhere to look.
+
+**End-to-end verification against the Risø site** (55.6915 N, 12.0809 E, 35 kWp, defaults for everything else):
+
+- Input is over the fjord. Nudge resolved to the nearest PVGIS land grid cell at (55.6865, 12.0809) — within one grid cell.
+- PVGIS annual AC yield: 29.6 MWh/y land equivalent, 30.2 MWh/y after the 2 % FPV cooling bonus.
+- Specific yield 861 kWh/kWp (reasonable for Denmark at 2° tilt; optimum-tilt reference for Denmark is ~1000 kWh/kWp).
+- DC-nameplate capacity factor 9.8 %.
+- Sensitivity table rendered cleanly; chart PNG produced with the Sunlit Sea dark-blue bar colour (#2F354F) and a clean seasonal envelope (summer peak ~5 MWh/month, winter trough ~0.2 MWh/month).
+- Markdown report assembles correctly for pasting into §2.8 of the COWI/DTU RFP response.
+
+**Files touched.**
+
+- `scripts/estimate_yield.py` (new)
+- `docs/energy_yield_methodology.md` (new)
+- `.claude/skills/estimate-yield/SKILL.md` (new)
+- `docs/scripts.md` — new section
+- `README.md` — scripts bullet and docs/ pointer
+
+---
+
+### T139 `[x]` [GENERIC] Upgrade energy-yield estimator to match Simuleringsrapport reference format
+
+The T138 estimator produces a usable but lean output: headline table, monthly chart, assumptions audit, sensitivity, caveats. The reference `generic/background/2026-09-17_simuleringsrapport_blekinge_mulighetsstudie.pdf` sets a richer target format that Sunlit Sea has already been using for mulighetsstudier. User instruction: *"The simulation should aim to produce something similar."* Lift the estimator to that target.
+
+**Gap against the reference.**
+
+1. KPI headline card row — six metrics at the top (antall paneler, installert effekt, POA-innstråling, PR, estimert produksjon, spesifikk yield). Current output has a 3-row table.
+2. Panel configuration and area — the reference starts from available water surface area + panel dimensions + gap, derives slot area and packing factor, and lands on panel count + installed kWp. Current estimator only accepts `--kwp` directly.
+3. GHI → POA break-out — reference shows horizontal irradiation (GHI) as a regional statistic and the tilted-plane POA with explicit tilt gain. Current estimator hides this inside PVGIS and only reports the integrated yield.
+4. PR decomposition — reference breaks PR into nine named loss components (temperature coefficient, inverter, DC cable, AC cable, mismatch, soiling, LID, availability, transformer) summing to PR. Current estimator takes a single lumped `--losses` value.
+5. Energy production section with the explicit formula E = P_peak × H × PR, equivalent operating hours, DC-nameplate capacity factor. Current estimator shows CF but not the formula or equivalent hours.
+6. Scenario-based sensitivity (Low / Base / High) with GHI ±5 % and PR ±3/+2 pp — gives a single yield range number. Current estimator shows per-parameter sensitivity rows (tilt ±5°, azimuth ±30°, cooling bonus endpoints), which is useful but reads differently.
+7. Assumptions and limitations as a 3-column table (tema / antakelse-eller-begrensning / anbefalt neste steg) — actionable rather than an audit list.
+8. Rendering via `md_to_sunlit_report.py` (Sunlit Sea visual profile — Everett headlines, blue + green accents, Arial body). Current output is plain Markdown without template-specific YAML.
+
+**Approach.**
+
+Stay on PVGIS as the data source (the over-sea nudge works; pvlib would add a dependency and a day of work for marginal fidelity gain). PVGIS already returns POA (H(i)_y) and AC yield (E_y) separately — extract both. PR is computed as E_y / (peakpower × H(i)_y), which in principle matches 1 − Σ loss components to within numerical error. User supplies the loss components; their sum is handed to PVGIS as `loss`; the computed PR is shown back and compared against the sum-of-components to flag any inconsistency.
+
+Panel configuration: add `--area`, `--panel-width`, `--panel-height`, `--panel-wp`, `--gap-mm` flags. When `--area` is supplied, derive kWp. When `--kwp` is supplied directly, the configuration section marks the derivation as *not from area*. Defaults match CONNECT: 2384 × 1303 mm panels at 740 Wp, 100 mm gap (from the reference report).
+
+Scenario sensitivity: Low = GHI × 0.95 × (PR − 0.03), High = GHI × 1.05 × (PR + 0.02), rendered as a Low/Base/High summary table. Keep the per-parameter sensitivity (tilt / azimuth / cooling bonus) available but demoted to an appendix or `--full-sensitivity` flag.
+
+Report structure: YAML frontmatter `sunlit_template: report`, title, date, location string. Six sections mirroring the reference: *Panelkonfigurasjon og areal*, *Solinnstråling og POA-analyse*, *Tapsbudsjett — PR-dekomponering*, *Energiproduksjon*, *Sensitivitetsanalyse*, *Nøkkelantakelser og begrensninger*. KPI headline row as a two-row, three-column Markdown table (close enough to the reference's cards without requiring new LaTeX macros in the report template).
+
+**Deliverables.**
+
+1. `scripts/estimate_yield.py` — upgraded. Backwards-compatible on the minimum input (`--lat`, `--lng`, `--kwp`); adds area-mode and loss-decomposition flags.
+2. `docs/energy_yield_methodology.md` — revised to cover the POA break-out, loss decomposition, scenario-sensitivity derivation and the relationship to the Simuleringsrapport reference.
+3. `.claude/skills/estimate-yield/SKILL.md` — revised output shape, revised usage examples; points at the reference PDF as the target format.
+4. `docs/scripts.md` — entry updated with the new flags.
+5. End-to-end verification against the Blekinge/Kronoberg site from the reference (56.63° N, 14.65° E, ~6.5 MWp, 30 000 m²) and against Risø (55.6915 N, 12.0809 E, 35 kWp) for the minimum-input regression.
+
+**Scope boundaries — explicitly out of scope.**
+
+- No pvlib dependency. PVGIS is the backend.
+- No new KPI card LaTeX macro in `scripts/sunlit_sea_report_header.tex`. Approximate with a Markdown table.
+- No bifacial gain model (still a note on the roadmap, not implemented).
+- No LCOE / NPV / cashflow (still a separate commercial-model task, not touched).
+- No temperature-weighted monthly cooling bonus (still flat multiplier).
+
+**Done means.** Running `uv run scripts/estimate_yield.py --lat 56.63 --lng 14.65 --area 30000 --panel-wp 750` produces a Markdown report whose section structure and content granularity matches the Simuleringsrapport reference; the numbers for the Blekinge case come out in the same ballpark as the reference (±10 % on annual yield is acceptable, given the reference used a different GHI estimate); the minimum-input Risø case still works and still returns ~30 MWh/y; all documentation reflects the new output shape.
+
+**Solution.**
+
+The estimator was rebuilt around a decoupled model in which PVGIS supplies physical irradiation (POA via `PVcalc` at `loss=0`, GHI via `MRcalc`) and the user supplies the loss decomposition. AC yield is computed as `E = POA × kWp × PR × (1 + FPV cooling bonus)` where `PR = 100 − Σ losses`. This matches the methodology the reference Simuleringsrapport uses and makes the loss components meaningful as user-tunable inputs.
+
+- `scripts/estimate_yield.py` — rewritten. New flags: `--area` (area-based capacity derivation from panel geometry); `--panel-width`, `--panel-height`, `--panel-wp`, `--gap-mm` (panel configuration); nine `--loss-<component>` flags for the PR decomposition; `--location-name` for the report subtitle. Backwards-compatible on the minimum `--lat`/`--lng`/`--kwp` input. YAML frontmatter `sunlit_template: report` dispatches to `md_to_sunlit_report.py` for PDF rendering in the Sunlit Sea visual profile. Output is a six-section report (Panelkonfigurasjon og areal, Solinnstråling og POA-analyse, Tapsbudsjett / PR-dekomponering, Energiproduksjon, Sensitivitetsanalyse, Nøkkelantakelser og begrensninger) preceded by a two-row headline KPI block. PVGIS's own AC yield at `loss=0` is kept as a cross-check in Section 3 so the user can see whether the component-based PR is optimistic or conservative relative to PVGIS's crystSi model. PVGIS's over-sea nudge from the T138 version is preserved.
+- `docs/energy_yield_methodology.md` — rewritten to describe the decoupled model, the nine-component default loss decomposition (sum 10 %, PR 90 %, matches reference), the GHI/POA breakout, the Low/Base/High scenario formula, the FPV cooling bonus literature basis, and the explicit non-scope list (no pvlib dependency, no bifacial, no coupled thermal, no LCOE, not bankable).
+- `.claude/skills/estimate-yield/SKILL.md` — rewritten. Points at the reference PDF as the target format. New procedure covers area-based and capacity-based invocation paths; new output shape documented in full; historical references updated with both Risø and Blekinge verification runs.
+- `docs/scripts.md` — entry rewritten with the new flags, area-mode example, PR cross-check behaviour and dispatcher chain.
+
+**End-to-end verification.**
+
+Blekinge/Kronoberg reference case (56.63 N / 14.65 E, 30 000 m² → 8 608 panels × 750 Wp → 6.456 MWp DC):
+
+- Estimated production: 5 863 MWh/y (reference: 6 320 MWh/y, delta −7.2 %, within the ±10 % target).
+- PR: 90.0 % (matches the reference's 90 % assumption exactly — both use the same component list).
+- POA: 989 kWh/m²/år (reference: 1 088; delta −9.1 % — the gap is entirely in the irradiation source, not in the loss model). PVGIS at those exact coordinates gives the lower number; the reference used an unspecified source that was more optimistic.
+- Scenario range: 5 384 – 6 293 MWh/y (spread ±8 % around base, same shape as reference).
+- PVGIS cross-check: implied PR 92.0 %, which the report notes as "komponentsum er sannsynligvis konservativ sammenlignet med PVGIS-modellen" — honest flag that the user-component list under-predicts yield slightly vs PVGIS's internal crystSi model.
+
+Risø minimum-input regression (55.6915 N / 12.0809 E, 35 kWp):
+
+- Estimated production: 34.2 MWh/y (T138 gave 30.2 MWh/y). Delta is explained by the methodology change: T138 passed the lumped 14 % loss to PVGIS which then also applied its own ~6 % temperature derating (double-counting), producing an effective PR of 83 %. T139 decouples and uses PR = 90 % from the user components. The T139 figure is consistent with the reference methodology; the T138 figure was more conservative.
+- PVGIS over-sea nudge still works at Risø — lookup moved to the nearest land grid cell (55.6865, 12.0809), flagged in Section 6.
+
+PDF rendering through `python scripts/md_to_pdf.py` (dispatcher reads `sunlit_template: report` from YAML frontmatter and routes to `md_to_sunlit_report.py`) produces a four-page PDF matching the Simuleringsrapport style: Sunlit Sea header strap, section numbering, clean tables, embedded monthly chart with the Sunlit Sea dark-blue palette, Everett headlines + Arial body.
+
+**Non-reproductions of the reference.**
+
+- KPI headline cards in the reference are big-number boxes with light borders; the T139 output uses a plain markdown table that renders cleanly in the report template but lacks the card visual. Lifting to true cards would need a new LaTeX macro in `scripts/sunlit_sea_report_header.tex`. Out of scope for T139 per the task boundaries.
+- The reference's right-column "tapsbudsjettet visualisert" (running subtraction from 100 %) is not reproduced. The same information is in the loss table left column.
+
+**Files touched.**
+
+- `scripts/estimate_yield.py` (rewritten)
+- `docs/energy_yield_methodology.md` (rewritten)
+- `.claude/skills/estimate-yield/SKILL.md` (rewritten)
+- `docs/scripts.md` — entry rewritten
+
+---
+
+### T140 `[x]` [GENERIC] SUREWAVE Horizon Results Booster — Market Definition Canvas and Value Proposition Canvas for Sunlit Sea KER1
+
+Raluca Cibu-Buzac (META Group, new HRB lead mentor replacing Mikaela/Rosellina from the kickoff) emailed Eirik and Balram on 2026-11-04 10:29 asking for Sunlit Sea's filled Market Definition Canvas and Value Proposition Canvas by Thursday 2026-11-05 at noon, for a Booster UVP workshop on Friday 2026-11-06.
+
+Scope anchored on KER1 only (Sunlit Sea's integrated FPV platform / Gen-3 polyurethane hinge) — same posture as T122 kickoff: Sunlit Sea commits on its own result, other 6 KERs sit with their owning partners.
+
+Input context already in repo:
+
+- `surewave/background/2026-10-23_hrb_g2m_exploitation_pillars_training.md` — Raluca's training deck. Slide 23 lists her specific written questions on Sunlit Sea's KER (customer-segment profiles, top 3–5 adopter problems, geographic scope, floating-wind-hybrid market, differentiators beyond headline, pitch deck availability, funding beyond EIC Transition / VCs, Blueinvest cohort).
+- `surewave/deliverables/2026-10-18_surewave_exploitation_intentions_table.md` — Sunlit Sea's prior submission to the Booster; mentor's feedback on slide 23 is written against this.
+- `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md` Section 7 — per-KER business case.
+- `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`.
+- `docs/project_facts.md` — product name Sunlit Sea CONNECT; proper-noun lookups.
+
+Template templates themselves are behind HRB authentication; probed `/Resources`, `/Content/Templates`, `/Downloads` and common asset paths — all either 404 or redirect to homepage. Canvases will be written in canonical public Strategyzer/HRB shape (Market Definition Canvas: segments, problems, alternatives, geography, size, trends, barriers, regulatory; Value Proposition Canvas: customer profile — jobs/pains/gains — and value map — products & services / pain relievers / gain creators / fit). Cover email to flag the shape assumption so Raluca can port if her exact template field names differ.
+
+**Deliverable:** two canvas files under `surewave/deliverables/` (date-prefix 2026-11-05), one cover email draft, follow-up to the user to confirm before sending.
+
+**Solution (2026-11-05):**
+
+Processed the HRB inbox first (`/process-inbox` on `surewave/background/new/`):
+
+- `surewave/background/2026-10-23_hrb_g2m_exploitation_pillars_training.pptx` — authoritative META Group training deck kept.
+- `surewave/background/2026-10-23_hrb_g2m_exploitation_pillars_training.md` — pandoc conversion with 7 extracted media files under `..._media/ppt/media/`. Slide 23 is the mentor's written feedback on Sunlit Sea's KER1 against the 2026-10-18 Exploitation Intentions Table.
+- `surewave/background/2026-10-23_hrb_g2m_available_resources.md` — tidied resource list.
+
+Attempted to download the two canvas templates from `horizonresultsbooster.eu` via curl with Chrome user-agent (user authorised). Probed `/Resources`, `/Resources/Index`, `/Content/Resources`, `/Content/Templates`, `/Downloads`, Pack 55 service page, and direct asset paths (`/Content/HRB/Templates/2.3_G2M_Market_Definition_Canvas_template.docx` etc.). All either 404 or redirect to homepage — the templates sit behind authentication (`/User/UserAccountPage`). Google-search workaround denied by the sandbox classifier as scope escalation. Wrote the canvases in the canonical public Strategyzer / HRB shape instead, flagged the shape assumption in the cover email so Raluca can port if her exact template field names differ.
+
+Canvases drafted:
+
+- `surewave/deliverables/2026-11-05_surewave_hrb_market_definition_canvas_ker1.md` — nine sections: segments & profiles (6 segments with ranking rationale), problems per segment (top 5 per primary + 4 per secondary), alternatives, geography (Mediterranean primary; Baltic / North Sea / Nordic nearshore / global tracked), market size (62 GW global 2030; 10–15 GW European 2035; SOM 50 MW/yr by 2033), trends, barriers, regulatory, open items.
+- `surewave/deliverables/2026-11-05_surewave_hrb_value_proposition_canvas_ker1.md` — Osterwalder shape: customer jobs (functional / social / emotional), pains (7), gains (7); value map: products & services (5), pain relievers (7), gain creators (6); fit statement; secondary-segment deltas for offshore-wind co-location and coastal industrial off-takers; workshop open items.
+
+Both canvases answer Raluca's slide-23 written feedback directly: top 5 adopter problems per segment, three new differentiators (commissioning time from standard quays, mass-manufacturability on standard press equipment, standard 710–740 Wp glass-glass module class vs custom-adapted competitors), funding options beyond EIC Transition (EUPI-PV, Enova, Skattefunn, strategic-investor route preferred over VC), pitch deck status (SUREWAVE D8.3 technical brochure and current EIC Transition / EUPI-PV materials available; dedicated investor deck not yet drafted), Blueinvest cohort review flagged for pre-workshop completion.
+
+Cover email drafted: `surewave/deliverables/2026-11-05_hrb_canvases_cover_email_to_raluca.md`. To Raluca (booster@meta-group.com), cc Balram.
+
+`/check-deliverable` run on both canvases: no `**bold**` in body, no emphasis-by-assertion phrasing, no repo file paths or task numbers, no YAML title block, English not Norwegian, no image prompts. One "not just X" construction kept (line 57 Market Definition Canvas) — positive claim leads, negation follows, passes the rule.
+
+**Template port (2026-11-05, same day):** Eirik located and downloaded the two actual canvas templates from the HRB participant area and placed them in `surewave/background/new/`. Processed through `/process-inbox`:
+
+- `surewave/background/2024-12-17_hrb_g2m_market_definition_canvas_template.pdf` — authoritative template kept (PDF metadata: title "JTBD Market Definition Canvas", author "META Knowledge to Market", created 2024-12-17 via Canva).
+- `surewave/background/2024-12-17_hrb_g2m_value_proposition_canvas_template.pptx` — authoritative template kept.
+- `surewave/background/2024-12-17_hrb_g2m_value_proposition_canvas_template.md` — pandoc text extract for easy reference.
+
+The Market Definition Canvas turned out to be the Anthony Ulwick / Strategyn Jobs-to-be-Done form (seven boxes: Product → Job Executor → Abstracted Job Executor → centre market-definition sentence → Function of the Product → Other Products Used and their Functions → Abstracted Job Statement), not the segment/geography/market-size form originally drafted. Full rewrite into the JTBD shape. Content (customer types, differentiators, economics, pipeline) largely ported from the first draft but completely reorganised.
+
+The Value Proposition Canvas is the standard Strategyzer seven-section form. Reshaped lightly: removed the "secondary-segment deltas" section (violates the template's explicit one-segment-at-a-time rule), added explicit Customer Segment declaration at the top, dropped "Open items for the workshop" footer (not part of the template shape). Content preserved. Added one new gain creator (commissioning from standard quays, which fits a gain-creator slot more cleanly than a differentiator list).
+
+`/check-deliverable` re-run on both canvases: one bold-in-body violation caught in the Market Definition Canvas (the centre market-definition sentence used `**` on "offshore renewable energy project developers" and "delivering...". Switched to italics (allowed for defined terms per CLAUDE.md). No other violations.
+
+**Open on this task — awaiting Eirik's decision:**
+
+- docx or pdf conversion of the two canvases before sending (per CLAUDE.md "Do not convert to docx automatically" rule — conversion only on explicit instruction). Options: leave as Markdown and attach `.md` directly; convert to generic `.docx` via pandoc; or fill the actual template layouts (PDF has AcroForm fields; pptx is layout-driven) with the content from the Markdown canvases. The template-fill option produces output closest to what Raluca expects visually but takes longer.
+- Approval of the cover email wording (and whether to send yourself or have Balram on copy only).
+
+**Files touched.** New: `surewave/background/2026-10-23_hrb_g2m_exploitation_pillars_training.{md,pptx}`, `..._media/`, `surewave/background/2026-10-23_hrb_g2m_available_resources.md`, `surewave/background/2024-12-17_hrb_g2m_market_definition_canvas_template.pdf`, `surewave/background/2024-12-17_hrb_g2m_value_proposition_canvas_template.{md,pptx}`, `surewave/deliverables/2026-11-05_surewave_hrb_market_definition_canvas_ker1.md` (rewritten to JTBD shape), `surewave/deliverables/2026-11-05_surewave_hrb_value_proposition_canvas_ker1.md` (reshaped), `surewave/deliverables/2026-11-05_hrb_canvases_cover_email_to_raluca.md`. Modified: `TASKS.md` (this task), `TASKS_INDEX.md` (regenerated).
 

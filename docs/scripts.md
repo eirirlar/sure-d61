@@ -19,6 +19,8 @@ Persistent helper scripts live in `scripts/` at the repo root — never scattere
 - [`xlsx_to_md.py`](#xlsx_to_mdpy) — xlsx workbook → one Markdown table per sheet
 - [`emf_to_png.ps1`](#emf_to_pngps1) — rasterise `.emf` to `.png` (Windows GDI+)
 - [`render_docx_pdf.sh`](#render_docx_pdfsh) — sandboxed LibreOffice docx → PDF (does not trip Windows Controlled Folder Access)
+- [`rebuild_task_indexes.py`](#rebuild_task_indexespy) — regenerate `TASKS_INDEX.md` and `ARCHIVE_INDEX.md` from the master task files
+- [`estimate_yield.py`](#estimate_yieldpy) — preliminary annual AC yield estimator for an FPV site (PVGIS 5.2 + FPV cooling bonus)
 
 ## `md_to_pdf.py`
 
@@ -399,3 +401,65 @@ OUTDIR=/some/other/dir scripts/render_docx_pdf.sh <input.docx>
 Used mainly during iteration on `md_to_surewave_docx.py` / `md_to_letter.py` output when the generated docx needs visual inspection without opening Word.
 
 Environment prerequisites: LibreOffice installed on PATH or at the default location above. `cygpath` must be available (ships with Git Bash) for the `/tmp/...` → Windows path conversion.
+
+## `rebuild_task_indexes.py`
+
+Regenerates `TASKS_INDEX.md` and `ARCHIVE_INDEX.md` from `TASKS.md` and `ARCHIVE.md`. Both index files are flat per-task TOCs — one line per task with status marker, title and a GitHub-style anchor link into the source file — so a reader does not have to grep the master files to see what is open or what has been solved.
+
+Standard library only; no PEP 723 dependencies.
+
+```bash
+# Rewrite both index files from current TASKS.md + ARCHIVE.md
+python scripts/rebuild_task_indexes.py
+
+# Check for drift (exits non-zero if the stored indexes do not match
+# what regeneration would produce)
+python scripts/rebuild_task_indexes.py --check
+```
+
+Run after any edit that touches a task header in `TASKS.md` or `ARCHIVE.md`: status toggle, title change, new task, resolution block, or move between the two files. Never hand-edit `TASKS_INDEX.md` or `ARCHIVE_INDEX.md`; the next regeneration will overwrite the edit.
+
+Anchor rule mirrors GitHub's: lowercase the full heading text, replace whitespace with hyphens, strip anything that is not ASCII alphanumeric / hyphen / underscore, collapse repeated hyphens, strip leading/trailing hyphens. Handles the zero-padded T-numbers in this repo (`T01`…`T09`) and the unpadded ones from `T10` onward via the same regex.
+
+Ported from `../stotte/.claude/skills/archive-tasks/archive_tasks.py` (index portion only — this repo keeps task archiving as a manual explicit-ask move rather than as a script).
+
+## `estimate_yield.py`
+
+Preliminary annual AC yield estimator for a floating-PV site. Produces a six-section *Mulighetsstudie*-style Markdown report matching the Sunlit Sea *Simuleringsrapport* format (reference artefact: `generic/background/2026-09-17_simuleringsrapport_blekinge_mulighetsstudie.pdf`). Rendered via `md_to_sunlit_report.py` through the YAML frontmatter `sunlit_template: report`.
+
+Calls PVGIS 5.2 (EU JRC, free, no key) for POA irradiation (via PVcalc at `loss=0`) and GHI (via MRcalc). Computes yield as `E = POA × kWp × PR × (1 + FPV cooling bonus)` where PR comes from the user-supplied loss decomposition (nine named components summing to 10 % by default). PEP 723 inline dependencies (`requests`, `pyyaml`, `matplotlib`); `uv run` installs on the fly.
+
+Minimum input: `--lat`, `--lng`, and either `--kwp` (direct capacity) or `--area` (available water surface in m², capacity derived from panel geometry). Everything else defaults, and every default appears in the output. Full methodology in [`energy_yield_methodology.md`](energy_yield_methodology.md).
+
+```bash
+# Area-based (preferred when available water surface is the fixed quantity)
+uv run scripts/estimate_yield.py \
+  --lat 56.63 --lng 14.65 --area 30000 --panel-wp 750 \
+  --location-name "Blekinge/Kronoberg, Sverige" \
+  --md-out generic/deliverable/<name>.feasibility_study.md
+
+# Capacity-based (when kWp is the fixed quantity)
+uv run scripts/estimate_yield.py \
+  --lat 55.6915 --lng 12.0809 --kwp 35 \
+  --location-name "DTU Risø, Roskilde" \
+  --md-out generic/deliverable/<name>.feasibility_study.md
+
+# From a YAML input file (CLI flags still override)
+uv run scripts/estimate_yield.py --yaml site.yaml --md-out out.md
+
+# Override loss components (each --loss-<component> flag independent)
+uv run scripts/estimate_yield.py --lat ... --kwp ... \
+  --loss-temperature-coefficient 4.0 --loss-soiling 0.2 \
+  --fpv-cooling-bonus 3.5 --md-out out.md
+
+# PDF rendering through the dispatcher (reads sunlit_template: report from YAML)
+python scripts/md_to_pdf.py <name>.feasibility_study.md
+```
+
+Azimuth uses the compass convention (0 = N, 90 = E, 180 = S, 270 = W); the script converts internally to PVGIS aspect. All nine loss components (temperature coefficient, inverter, DC cable, AC cable, mismatch, soiling, LID, availability, transformer) are independently adjustable via `--loss-<name>` flags.
+
+**Over-sea handling.** PVGIS refuses lat/lng that fall over open water. The script catches the error and auto-nudges to the nearest land grid cell in an expanding 500 m-step search out to ~5 km. Because the PVGIS data grid is ~5 km, the nudged value is an acceptable approximation for a near-shore FPV site. The nudged coordinate appears in the assumption audit (Section 6) when nudging happened. Sites farther than 5 km from the nearest land point error out — those need a different data source.
+
+**PVGIS cross-check.** The estimator displays PVGIS's own AC yield at `loss=0` (crystSi model with internal temperature and spectral derating) alongside the user-component-based figure. When the two PR values diverge by more than 1 pp, the report flags the component list as optimistic or conservative relative to PVGIS. This keeps the user-supplied loss decomposition honest.
+
+Used by the `estimate-yield` skill, which drives the script and routes the output through `md_to_pdf.py` for PDF rendering in the Sunlit Sea visual profile. The script is standalone — the skill is a convention wrapper around it, not a hard dependency.

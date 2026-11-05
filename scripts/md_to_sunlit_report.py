@@ -62,6 +62,11 @@ def build(input_md: Path, output_pdf: Path) -> None:
     output_pdf.parent.mkdir(parents=True, exist_ok=True)
 
     prelude = _font_prelude(FONTS_DIR, input_md.parent) if FONTS_DIR.is_dir() else None
+    # Pandoc needs the exact filter filename on Windows (PATHEXT is not honoured
+    # by pandoc's filter lookup). Try the .cmd variant first, then the bare
+    # name. If mermaid-filter is not installed, skip silently — files without
+    # mermaid blocks render fine without it.
+    mermaid_filter = shutil.which("mermaid-filter.cmd") or shutil.which("mermaid-filter")
     try:
         cmd = ["pandoc", str(input_md),
                "--pdf-engine=xelatex",
@@ -71,6 +76,8 @@ def build(input_md: Path, output_pdf: Path) -> None:
                "--number-sections=false",
                "--toc",
                "--toc-depth=2"]
+        if mermaid_filter:
+            cmd += ["-F", mermaid_filter]
         if prelude:
             cmd += ["-H", str(prelude)]
         cmd += ["-H", str(HEADER_TEX),
