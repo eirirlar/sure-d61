@@ -14,6 +14,8 @@ Reporting period: 01/10/2022 – 31/03/2024
 
 Sunlit Sea AS has reviewed the Draft Audit Report dated 23/10/2026 and submits the following comments. The beneficiary accepts the net adjustment of EUR 6 941,00 identified in the report; the adjustment amounts are not contested. The beneficiary disagrees with the classification of Findings 2, 3, 4, 5, 7 and 8 as "potentially systemic or recurrent in nature" and with the characterisation of simultaneous charging in Finding 7; both points are set out in the sections below.
 
+During the audit and in subsequent communications before the Draft Audit Report, the beneficiary sought clarification on the correct day-equivalent and daily-rate methodology. The beneficiary now understands the Article 6.2.A.1 method as applied in the auditors' recalculation and has implemented it in the internal grant-cost tracking workbook.
+
 Corrective measures have been implemented or are being implemented as described per finding.
 
 ## On the "potentially systemic or recurrent" classification
@@ -71,7 +73,7 @@ Accepted. The reclassified amount is calculated as the Annex 2a unit cost (EUR 2
 
 The beneficiary accepts the EUR 15 000,00 adjustment. Kodeworks AS was selected without competitive tendering and is wholly owned by the CFO of the beneficiary, who is also an SME owner of the beneficiary. On that basis the beneficiary agrees that the arrangement did not meet the conditions under Article 6.2.B of the grant agreement and its annotations, and the subcontract is rejected in full.
 
-The beneficiary notes its disagreement with the characterisation that costs were charged simultaneously under the personnel costs category and the subcontracting costs category for the same hours. All records and documentation relevant to this question were presented to the auditors during the on-site audit of 26–30 January 2026. The beneficiary does not resubmit existing material and does not submit new documentation in response to the Draft Audit Report. The adjustment amount is not contested.
+The hours claimed under personnel categories (A.2 as originally reported, A.4 after reclassification) are the hours recorded in Werkz against SUREWAVE tasks by Eirik Larsen personally; the Kodeworks AS invoices cover distinct work by Kodeworks AS and are not derived from those Werkz entries. There is no overlap of recorded hours between the two cost categories, and the beneficiary therefore does not accept the characterisation that costs were charged "simultaneously under the personnel costs category and the subcontracting costs category" for the same hours. All records and documentation relevant to this question were presented to the auditors during the on-site audit of 26–30 January 2026. The beneficiary does not resubmit existing material and does not submit new documentation in response to the Draft Audit Report. The adjustment amount is not contested.
 
 Going forward, related-party transactions will be either avoided or subjected to formal competitive tendering with documented conflict-of-interest disclosure. The procurement policy described in Section 3.2 of the audit report is being updated to include a threshold-based competitive tendering requirement and a related-party transaction protocol with written conflict-of-interest declarations.
 
@@ -93,7 +95,7 @@ The beneficiary requests the following corrections in the Final Audit Report:
 
 ## Signature
 
-[date — to be filled in on submission]
+5 November 2026
 
 Eirik Larsen  
 Chief Financial Officer  

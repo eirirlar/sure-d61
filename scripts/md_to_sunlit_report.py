@@ -67,15 +67,28 @@ def build(input_md: Path, output_pdf: Path) -> None:
     # name. If mermaid-filter is not installed, skip silently — files without
     # mermaid blocks render fine without it.
     mermaid_filter = shutil.which("mermaid-filter.cmd") or shutil.which("mermaid-filter")
+    # TOC on by default; a YAML frontmatter line `toc: false` skips it.
+    include_toc = True
+    try:
+        head = input_md.read_text(encoding="utf-8").splitlines()
+        if head and head[0].strip() == "---":
+            for line in head[1:50]:
+                if line.strip() == "---":
+                    break
+                if line.strip().lower().startswith("toc:") and "false" in line.lower():
+                    include_toc = False
+                    break
+    except (OSError, UnicodeDecodeError):
+        pass
     try:
         cmd = ["pandoc", str(input_md),
                "--pdf-engine=xelatex",
                f"--resource-path={input_md.parent}",
                "-V", "lang=en",
                "-V", "documentclass=article",
-               "--number-sections=false",
-               "--toc",
-               "--toc-depth=2"]
+               "--number-sections=false"]
+        if include_toc:
+            cmd += ["--toc", "--toc-depth=2"]
         if mermaid_filter:
             cmd += ["-F", mermaid_filter]
         if prelude:

@@ -1,19 +1,29 @@
-([Standard Representation Letter to be printed on Beneficiary\'s letterhead]{.mark})
+---
+internal_title: Letter of Representation — BAEA487006 — SUREWAVE
+sunlit_template: letter
+---
 
-\[[Insert date]{.mark}\]
+\vspace{1em}
 
-To the European Commission,
+\begin{flushright}
+Oslo, 5 November 2026
+\end{flushright}
 
-(1) This Representation Letter is provided in connection with your audit of the financial statements of Sunlit Sea AS submitted to the Agency for the below Research and Innovation Grant Agreements and related periods.
+To the European Commission
 
-  ------------------------------------------------------------------------
-  Grant Agreement number   Grant Agreement acronym   Audited period
-  ------------------------ ------------------------- ---------------------
-  101083342                SUREWAVE                  1
+\vspace{0.5em}
 
-  ------------------------------------------------------------------------
+**Re: Letter of Representation — Audit BAEA487006 — Project 101083342 SUREWAVE**
 
-(2) We note that the audit was carried out in accordance with the dispositions of the Regulation (EU) No 2021/695 of the European Parliament and of the Council of 28 April 2021 establishing Horizon Europe -- the Framework Programme for Research and Innovation, laying down its rules for participation and dissemination. Audit provisions are further set out in the Grant Agreement.
+\vspace{0.5em}
+
+(1) This Representation Letter is provided in connection with your audit of the financial statements of Sunlit Sea AS submitted to the Agency for the below Research and Innovation Grant Agreement and related period.
+
+| Grant Agreement number | Grant Agreement acronym | Audited period |
+| --- | --- | --- |
+| 101083342 | SUREWAVE | 1 |
+
+(2) We note that the audit was carried out in accordance with the dispositions of the Regulation (EU) No 2021/695 of the European Parliament and of the Council of 28 April 2021 establishing Horizon Europe — the Framework Programme for Research and Innovation, laying down its rules for participation and dissemination. Audit provisions are further set out in the Grant Agreement.
 
 (3) We acknowledge our responsibility for the fair presentation of the financial statements in accordance with the contractual provisions disclosed in the Grant Agreement.
 
@@ -23,17 +33,17 @@ To the European Commission,
 
 - We have made available to you all books of accounts and all documentation supporting the transactions recorded in the accounting records.
 
-- We have made available to you all other records and relevant information, which might impact upon or otherwise affect the contractual eligibility of the costs claimed under the various Grant Agreement noted above (including minutes of relevant management meetings) and no such information has been withheld.
+- We have made available to you all other records and relevant information, which might impact upon or otherwise affect the contractual eligibility of the costs claimed under the Grant Agreement noted above (including minutes of relevant management meetings) and no such information has been withheld.
 
-- There have been no transactions with or otherwise involving the management or employees of the Beneficiary (or other entities in which they have an involvement, which might otherwise be deemed or construed to be a \"related party transaction\" as defined by International Accounting Standard No. 24 (Related Party Disclosures) that are relevant to the audit of the financial statements.
+- With the exception of the Kodeworks AS subcontract disclosed to and examined by the auditors (see Finding 7 of the Draft Audit Report and the beneficiary's observations thereon), there have been no transactions with or otherwise involving the management or employees of the Beneficiary (or other entities in which they have an involvement) that might otherwise be deemed or construed to be a "related party transaction" as defined by International Accounting Standard No. 24 (Related Party Disclosures) and that are relevant to the audit of the financial statements.
 
 - The financial statements are free of material misstatements, including omissions.
 
-- The expenditure transactions recorded in respect of the financial statements subject to audit were met solely from funding received from the EU budget or from the Beneficiary\'s own resources, and not from funds received from other funding agencies or institutions. In particular, we confirm that the costs items declared for the project have not been included for any other financial contribution.
+- The expenditure transactions recorded in respect of the financial statements subject to audit were met solely from funding received from the EU budget or from the Beneficiary's own resources, and not from funds received from other funding agencies or institutions. In particular, we confirm that the cost items declared for the project have not been included for any other financial contribution.
 
-- The expenditure has been declared according to the type activities in which it is involved.
+- The expenditure has been declared according to the type of activities in which it is involved.
 
-- The Beneficiary has complied with all aspects of the Grant Agreement that could have a material effect on the financial statements in the event of non-compliance. There has been no non-compliance with requirements of regulatory authorities that could have a material effect on the financial statement in the event of non-compliance.
+- The Beneficiary has complied with all aspects of the Grant Agreement that could have a material effect on the financial statements in the event of non-compliance. There has been no non-compliance with requirements of regulatory authorities that could have a material effect on the financial statements in the event of non-compliance.
 
 - All revenues, i.e. financial transfers or their equivalent to us from third parties, contributions in kind from third parties and income generated by the project, have been taken into account in the financial statements, in accordance with Article 22.3.4 of the Grant Agreement.
 
@@ -41,61 +51,50 @@ To the European Commission,
 
 - We have acted in compliance with the conditions and agreements as set out in the consortium agreement.
 
-- No event has occurred after the end of the audited periods that could have a material effect on the financial statements being audited.
+- No event has occurred after the end of the audited period that could have a material effect on the financial statements being audited.
 
-- Nothing has come to our attention during the period of the financial statements under review, including management actions and/or other matters of material importance that might be considered to represent financial irregularities, fraud or an illegal act that would have a consequential impact upon the eligibility of the costs originally claimed. Nevertheless, if such actions and/or matters have occurred, sufficient and appropriate measures have been taken to correct them and to prevent repetition, and they have all been disclosed to the auditors.
+- Nothing has come to our attention during the period of the financial statements under review, including management actions and/or other matters of material importance, that might be considered to represent financial irregularities, fraud or an illegal act that would have a consequential impact upon the eligibility of the costs originally claimed. Nevertheless, if such actions and/or matters have occurred, sufficient and appropriate measures have been taken to correct them and to prevent repetition, and they have all been disclosed to the auditors.
 
-(5) We confirm by indicating YES for each statement below and signing the Representation Letter regarding the costs charged to the project:
+(5) We confirm, regarding the costs charged to the project:
 
-**[\
-]{.mark}**
+| Reference | Yes/No | Statement |
+| --- | --- | --- |
+| Article 6.1(a)(iv) | Yes | — have been incurred in connection with the project as described in Annex 1 of the Grant Agreement; |
+| Article 6.1(a)(iv) | Yes | — are necessary for the implementation of the project; |
+| Article 6.1(a)(vii) | Yes | — are reasonable and justified; |
+| Article 6.1(a)(vii) | Yes | — comply with the principle of sound financial management, in particular regarding economy and efficiency; |
+| Article 6.3(a)(vii) | Yes | — are not excessive and reckless; |
+| Article 6.3(b) | Yes | — are not declared under any other EU grants (or grants awarded by an EU Member State, non-EU country or other body implementing EU budget); |
+| Article 6.3(a)(ix), Article 32 | Yes | — are not incurred during suspension of the implementation of the project; |
+| Article 6.3(a)(x) | N/A | — for assets contributed in-kind: no in-kind asset contributions from third parties were declared for the audited period; |
+| Article 6.5(a)(x) | N/A | — for goods, works and services contributed in-kind: no in-kind contributions of goods, works or services from third parties were declared for the audited period; |
+| Article 12.1 | No | — are incurred in absence of conflict of interest. |
 
-+---------------------------------+-----+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Article 6.1(a)(iv)              | Yes | \- have been incurred in connection with the project as described in Annex 1 of the Grant Agreement;                                                                                                                 |
-+:================================+:====+======================================================================================================================================================================================================================+
-| Article 6.1(a)(iv)              | Yes | \- are necessary for the implementation of the project;                                                                                                                                                              |
-+---------------------------------+-----+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Article 6.1(a)(vii)             | Yes | \- are reasonable and justified;                                                                                                                                                                                     |
-+---------------------------------+-----+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Article 6.1(a)(vii)             | Yes | \- comply with the principle of sound financial management, in particular regarding economy and efficiency;                                                                                                          |
-+---------------------------------+-----+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Article 6.3 (a)(vii)            | Yes | \- are not excessive and reckless;                                                                                                                                                                                   |
-+---------------------------------+-----+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Article 6.3 (b)                 | Yes | \- are not declared under any other EU grants (or grants awarded by an EU Member State, non-EU country or other body implementing EU budget), except:                                                                |
-|                                 |     |                                                                                                                                                                                                                      |
-|                                 |     | \- if the project grant is combined with an operating grant running the same period and the beneficiary can demonstrate that the operating grant does not cover any (direct or indirect) costs of the project grant; |
-+---------------------------------+-----+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Article 6.3 (a)(ix), Article 32 | Yes | \- are not incurred during suspension of the implementation of the project;                                                                                                                                          |
-+---------------------------------+-----+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Article 6.3 (a)(x),             | Yes | *[Applicable, as optional, in case you declare the following]{.mark}:*                                                                                                                                               |
-|                                 |     |                                                                                                                                                                                                                      |
-|                                 |     | \- for assets contributed in-kind: consider obtaining representation letters from the third parties;                                                                                                                 |
-+---------------------------------+-----+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Article 6.5 (a)(x),             | Yes | *[Applicable, as optional, in case you declare the following]{.mark}:*                                                                                                                                               |
-|                                 |     |                                                                                                                                                                                                                      |
-|                                 |     | \- for goods, works and services contributed in-kind: consider obtaining representation letters from the third parties;                                                                                              |
-+---------------------------------+-----+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Article 12.1                    | Yes | \- are incurred in absence of conflict of interest.                                                                                                                                                                  |
-+---------------------------------+-----+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Comment regarding the NO above:
 
-  ---------------------------------------------------------------------------------------------------
-  In case of a NO for any of the above statement(s), please explain and comment in the field below.
-  ---------------------------------------------------------------------------------------------------
+Article 12.1 — No. The Draft Audit Report identifies a conflict of interest in relation to the Kodeworks AS subcontract (Finding 7). Kodeworks AS is wholly owned by the Chief Financial Officer of the beneficiary, who is also an SME owner of the beneficiary. The beneficiary accepts the EUR 15 000,00 adjustment rejecting the Kodeworks AS costs in full, and the related-party transaction is disclosed in paragraph (4) above. The beneficiary's observations on the Draft Audit Report are set out in Annex 3.
 
-  ---------------------------------------------------------------------------------------------------
-
-We have read the draft of your audit report and are in agreement with the content. In particular, we accept the proposed adjustments and the recommendations made and will implement the latter as soon as practicable.
+We have read the Draft Audit Report. We accept the proposed adjustments and the recommendations made, and have implemented or are implementing the latter, as set out in the beneficiary's observations on the Draft Audit Report. We do not share the auditors' classification of certain findings as "potentially systemic or recurrent in nature", and we do not share the characterisation that costs were charged for the same hours under both the personnel costs category and the subcontracting costs category, as set out in those observations.
 
 Yours sincerely,
 
-For and on behalf of \[[insert name of the Beneficiary]{.mark}\]
+For and on behalf of Sunlit Sea AS,
 
-\[[Insert name]{.mark}\]
-
-Authorised Executive Officer
-
-For and on behalf of \[[insert name of the Beneficiary]{.mark}\]
-
-\[[Insert name]{.mark}\]
-
-Authorised Financial Officer
+```{=latex}
+\vspace{3em}
+\noindent\begin{minipage}[t]{0.47\textwidth}\raggedright
+\rule{\linewidth}{0.4pt}\\[0.3em]
+Per Filip Lindberg\\
+Authorised Executive Officer\\
+(CEO, styrets leder)\\[1.5em]
+Place: \rule{4cm}{0.4pt}\\[0.8em]
+Date: \rule{4cm}{0.4pt}
+\end{minipage}\hfill\begin{minipage}[t]{0.47\textwidth}\raggedright
+\rule{\linewidth}{0.4pt}\\[0.3em]
+Eirik Larsen\\
+Authorised Financial Officer\\
+(CFO, board member)\\[1.5em]
+Place: \rule{4cm}{0.4pt}\\[0.8em]
+Date: \rule{4cm}{0.4pt}
+\end{minipage}
+```
