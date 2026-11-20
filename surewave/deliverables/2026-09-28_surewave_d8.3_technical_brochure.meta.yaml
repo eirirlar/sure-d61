@@ -4,7 +4,16 @@ work_package: WP8
 task: "8.3"
 document_name: D8.3 – Technical Brochure
 lead_beneficiary: Sunlit Sea AS
+contributing_beneficiaries: SINTEF AS
 dissemination_level: PU
 deliverable_type: R
 due_date: "2026-09-30"
-delivery_date: "2026-09-28"
+delivery_date: "2026-11-18"
+disclaimer_authority: European Climate, Infrastructure and Environment Executive Agency (CINEA)
+version_history:
+  - ["0.1", "30/10/2026", "Eirik Larsen, Sunlit Sea AS", "Draft report"]
+  - ["0.2", "05/11/2026", "Balram Panjwani, SINTEF AS", "Review-1"]
+  - ["0.3", "16/11/2026", "Guido", ""]
+  - ["1", "17/11/2026", "Eirik Larsen", "Final report"]
+number_figures: true
+strip_horizontal_rules: true

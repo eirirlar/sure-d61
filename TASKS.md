@@ -2594,7 +2594,7 @@ Total across the five: 16 distinct exploitable results reported. Aggregated and 
 Integration pass applied to `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`: opening paragraph updated (five → six partner submissions); summary list extended with the six SINTEF ERs (16 → 22 total); KER1 narrative updated to reflect that SINTEF's methods-focused summary does *not* resolve the integrated-system ownership/licensing question (open coordinator-level item); KER2 extended with SINTEF ER3 (concrete FEA), ER4 (Surewave-ANN) and ER5 (concrete testing + DIC) as methodological pillars under ACCIONA's material KER; KER4 extended with SINTEF ER6 (FPV connection testing) including the Gen-3 hinge sequence; KER5 extended with SINTEF ER1 and ER2 (aerodynamic/hydrodynamic modelling, with the Energies DOI); cross-partner interactions section grew from two to three visible sequences and now lists the four SINTEF follow-on vehicles; missing-input section rewritten to show SINTEF received and Ceit still partial; recommendations renumbered to replace "chase SINTEF" with "ask coordinator for integrated-system owner on KER1", and a new recommendation 8 added covering the four SINTEF follow-on vehicles as "best-efforts 4-year exploitation" evidence under GA Article 16; files-consulted list updated with the SINTEF and Ceit entries; closing line now says revision pending Aritz's Ceit input only.
 
 **Follow-up still outstanding.**
-- Ceit (Aritz) — SHMS platform integration side of KER6.
+- ~~Ceit (Aritz) — SHMS platform integration side of KER6.~~ Received (mail of 2026-10-05), filed 2026-11-19 as Exploitable Result 2 in `surewave/background/2026-09-30_ceit_exploitation_summary.md`, which is now marked complete. Two routes: contract R&D/consultancy built on the project's FE modelling, loading interpretation and crack-propagation methods; and co-development of customised SHMS tools with industrial partners using the SHMS demonstrator's architecture. Not yet integrated into the Exploitable Results report (KER6 section, missing-input section) or D8.4 (§3 KER6, §9.5, §10.6).
 - Coordinator-level view on KER1 as an integrated concept — SINTEF's per-method summary does not close this question; it is a WP8 lead item for D8.4.
 
 **Files touched (reopen pass).** Modified: `surewave/deliverables/2026-09-30_surewave_exploitable_results_report.md`; `TASKS.md` (this task reopened `[~]` and this note added). New: none in this pass (the SINTEF background file was filed earlier the same day).
@@ -4419,3 +4419,788 @@ The Value Proposition Canvas is the standard Strategyzer seven-section form. Res
 
 **Files touched.** New: `surewave/background/2026-10-23_hrb_g2m_exploitation_pillars_training.{md,pptx}`, `..._media/`, `surewave/background/2026-10-23_hrb_g2m_available_resources.md`, `surewave/background/2024-12-17_hrb_g2m_market_definition_canvas_template.pdf`, `surewave/background/2024-12-17_hrb_g2m_value_proposition_canvas_template.{md,pptx}`, `surewave/deliverables/2026-11-05_surewave_hrb_market_definition_canvas_ker1.md` (rewritten to JTBD shape), `surewave/deliverables/2026-11-05_surewave_hrb_value_proposition_canvas_ker1.md` (reshaped), `surewave/deliverables/2026-11-05_hrb_canvases_cover_email_to_raluca.md`. Modified: `TASKS.md` (this task), `TASKS_INDEX.md` (regenerated).
 
+
+### T141 `[x]` [GENERIC] SUREWAVE Horizon Results Booster — Characterisation table, exploitation roadmap, risk assessment and BOSAT for Sunlit Sea KER1
+
+Follow-up to T140. After the Booster UVP workshop on 2026-11-06, Raluca Cibu-Buzac (META Group, Horizon Results Booster) sent the workshop slides and four G2M templates to fill for Sunlit Sea's KER1, ahead of the combined Exploitation Strategy Seminar + Business Planning workshop on Thursday 2026-11-12 at 13:00 CET:
+
+1. Characterisation table (`02_G2M_Characterisation table_template.docx`)
+2. Exploitation roadmap (`06_G2M_exploitation roadmap template.docx`)
+3. Risk assessment and priority map (`10_G2M_Risks_Assessment_and_Priority_Map.xlsx`)
+4. BOSAT — Business Opportunity Self-Assessment Tool (`11_G2M_BOSAT_template.xlsx`)
+
+Original deadline Tuesday 2026-11-10 (missed). Reminder email 2026-11-11: send the three draft exploitation files by noon CET on 2026-11-12, before the workshop. Recipients: Raluca (booster@meta-group.com), cc Balram Panjwani (SINTEF). Raluca also invites re-sent canvases if the workshop changed them (the workshop slide 44 already carries a revised nearshore-framed UVP statement).
+
+**Deliverable:** filled versions of all four templates in their original formats under `surewave/deliverables/` (date prefix 2026-11-11), a Markdown source for each, and a cover email draft.
+
+**Solution (2026-11-11).**
+
+Inbox `surewave/background/new/` processed. Templates kept as authoritative sources (date = docx/xlsx modified date), Markdown extracts added for the docx/pptx:
+
+- `surewave/background/2025-03-10_hrb_g2m_characterisation_table_template.{docx,md}`
+- `surewave/background/2024-11-29_hrb_g2m_exploitation_roadmap_template.{docx,md}`
+- `surewave/background/2025-12-09_hrb_g2m_risk_assessment_priority_map_template.xlsx` (only the *KER Risk Assessment Map* sheet is visible; the other six sheets are hidden and partly broken with `#REF!`. They are left untouched)
+- `surewave/background/2024-02-22_hrb_g2m_bosat_template.xlsx`
+- `surewave/background/2026-11-06_hrb_g2m_uvp_workshop.{pptx,md}` + `_media/`. Slide 44 has the nearshore-framed UVP agreed in the workshop. It is used as the UVP in the characterisation table.
+
+Deliverables (Markdown source + filled template in the original format):
+
+- `surewave/deliverables/2026-11-11_surewave_hrb_characterisation_table_ker1.{md,docx}`: all 12 fields filled. KER reframed to nearshore and sheltered coastal waters per the workshop UVP.
+- `surewave/deliverables/2026-11-11_surewave_hrb_exploitation_roadmap_ker1.{md,docx}`: actions Jan–Jun 2027, roles, 10 milestones with KPI and date, indicative 1-year and 3-year costs and revenues, other coverage sources.
+- `surewave/deliverables/2026-11-11_surewave_hrb_risk_assessment_ker1.{md,xlsx}`: 21 risks across the six categories. 2 come out *Action* (cost outside the best sites; buyers waiting for a track record), 3 sit between Control and No Action (feasibility 5), and 16 are *Control*.
+- `surewave/deliverables/2026-11-11_surewave_hrb_bosat_ker1.{md,xlsx}`: all 59 questions answered, with a note on each.
+- `surewave/deliverables/2026-11-11_hrb_exploitation_files_cover_email_to_raluca.md`: cover email draft.
+
+Filling script: `scripts/fill_hrb_g2m_templates.py` (documented in `docs/scripts.md`). It edits the OOXML directly so BOSAT form controls and the charts survive. The docx outputs were rendered via `scripts/render_docx_pdf.sh` and inspected visually. The BOSAT linked cells were verified: all 59 have an index, and 57 radio ticks sit on the selected option row. I5 and F11 are ticked one row off because those radios have irregular anchors. The scores are correct regardless. `/check-deliverable` was run and is clean.
+
+Numbers that are my estimates and need Eirik's check before sending: the costs and revenues in the roadmap (supply price €0.30–0.40/W derived from the D8.4 figure of €3–4M per 10 MW; volumes from the Norwegian pipeline), and the team and IP answers in BOSAT (Tm2, Tm6, Tm13, Tm14, IP4, F2, F5).
+
+**Follow-up (2026-11-11) — extended team.** Eirik added the extended team to the files: IFE personnel (simulation), Rixen Cableway (sales in Germany), Metsolar in Lithuania (module integration), Haitai Solar personnel (frame work) and Weihai Tongge (PU prototyping). The following were updated: BOSAT notes on Tm2, Tm4, Tm7, Tm9 and M7; Use model and Early Adopters channels in the characterisation table; Roles in the roadmap; the casting-vendor and key-person risks in the risk map. All four outputs were regenerated. The BOSAT scores are unchanged. The new partners were added to `docs/project_facts.md`.
+
+**Follow-up (2026-11-11): framing of the Chinese partners.** Haitai Solar's role is corrected to solar panel frame design. Following discussion with Eirik, Weihai Tongge and Haitai Solar are now presented as prototyping suppliers, not as team members. The changes:
+
+- BOSAT Tm2, Tm4 and Tm7: the European partners (IFE, Metsolar, Rixen Cableway) are named. The Asian suppliers are described generically, with series production planned in Europe.
+- Characterisation table, Use model: the same framing.
+- Roadmap, Roles: the two suppliers are named once, as prototyping suppliers in Asia until series production moves to Europe.
+- Risk map: the casting risk now reads "a supplier in China", and the key-person mitigation lists only the European partners.
+
+Rationale: the earlier canvases claim a European supply chain for the heavy components, EU and Nordic funding favours European resilience, and Gotland is a sensitive location. In public material such as the Horizon Results Platform profile, EU proposals and investor decks, the Chinese suppliers should be named only where declaring subcontractors is required. All four outputs were regenerated.
+
+**Follow-up (2026-11-11): original file names for the filled files.** At Eirik's request the filled files now keep Raluca's original file names with the template marker removed, in the folder `surewave/deliverables/2026-11-11_hrb_g2m_ker1/`. This is a deliberate exception to the repo's date-prefix naming, so META Group can match each file to the template it sent:
+
+- `02_G2M_Characterisation table.docx` (received as `02_G2M_Characterisation table_template (2).docx`; the ` (2)` duplicate-download suffix was dropped)
+- `06_G2M_exploitation roadmap.docx` (received as `06_G2M_exploitation roadmap template.docx`, where the marker is ` template` with a space)
+- `10_G2M_Risks_Assessment_and_Priority_Map.xlsx` (name unchanged; it had no template marker)
+- `11_G2M_BOSAT.xlsx` (received as `11_G2M_BOSAT_template.xlsx`)
+
+The files are filled in place in the original templates. A part-by-part comparison against the templates confirms it: in the docx files only `word/document.xml` changed and the other 50 parts are byte-identical; in the risk map only `workbook.xml` and the visible sheet changed; in the BOSAT only `sheet1.xml`, `workbook.xml` and the 59 ticked radio controls changed. The Markdown files next to the folder are the content sources the script reads. The blank templates in `surewave/background/` keep their date-prefixed names. The cover email attachment list has been updated.
+
+**Follow-up (2026-11-11): more realistic timeline.** Eirik found the roadmap quarters optimistic. The new milestone dates add slack between steps:
+- Design freeze Q2 2027 (prototype 4 is still in casting).
+- Skien havn in operation Q3 2027.
+- Freedom-to-operate review Q3 2027.
+- DNV design-basis assessment started Q4 2027.
+- Gunneklevfjorden financed Q4 2027 and in operation Q3 2028.
+- Technology readiness level 6 in Q4 2027 with EIC Transition funding, otherwise 2028.
+- Storavatnet investment decision 2029.
+- First 10 MW-class contract 2030.
+
+Revenues were cut to match. 2027 is now about €0.2–0.4 million (Skien havn only). 2029 is now about €1–2 million per year, with 4–5 MWp in operation.
+
+Consistent date changes were made in the characterisation table (Timing; IP Strategy), the risk map (two interventions and the summary), BOSAT (IP8, F10) and the cover email. The project facts file still lists Skien havn as "Target install Q1 2027" and Gunneklevfjorden as "Q2–Q3 2027". These are site-level targets and have been left unchanged until Eirik confirms new ones.
+
+**Follow-up (2026-11-11): BOSAT appears empty in LibreOffice.** Eirik reported that BOSAT is not filled in. The file contains the answers: the KER name in D2, the option index in all 59 linked `H` cells, and a radio tick for each question. Two causes were found.
+
+1. The script ticked the radio buttons only in Excel's newer control part (`ctrlProps`), not in the legacy VML drawing. The script now writes `<x:Checked>` in the VML drawing too.
+2. LibreOffice does not support Excel option-button groups that are linked to a cell. On opening the file, it overwrites each linked `H` cell with TRUE/FALSE and shows all buttons unticked. The scores are lost the same way. A test copy with the VML cell links removed displays all 59 ticks in LibreOffice, which confirms the cause.
+
+The risk map was also refilled after Eirik closed it, so all four files now have the new timeline.
+
+Resolution, at Eirik's request: the radio buttons are replaced by text marks. Column E, which held a "." next to each option, now shows `[x]` for the chosen option and `[ ]` for the others. The 270 radio controls were removed from the sheet, the ctrlProps parts and the VML drawing; the 59 group boxes were kept. The answer index in `H` remains, so the scores and the radar chart still work.
+
+`surewave/deliverables/2026-11-11_hrb_g2m_ker1/11_G2M_BOSAT.pdf` was rendered from the actual file with `LO_RECALC=1 scripts/render_docx_pdf.sh`. This is a new option that makes LibreOffice recalculate on load, so the radar chart shows the scores. Checks on the PDF:
+
+- It contains exactly 59 `[x]`.
+- Each `[x]` matches the selected answer in the Markdown source; a script compared all 59 with no mismatches.
+- The radar chart is drawn with the scores, checked visually.
+
+This also fixes the two ticks (I5, F11) that the earlier radio approach had placed one row off.
+
+**Follow-up (2026-11-13): Lean Canvas.** After the Exploitation Strategy session on 2026-11-13, a Lean Canvas for KER1 was drafted from the characterisation table, roadmap and workshop discussion: `surewave/deliverables/2026-11-13_surewave_hrb_lean_canvas_ker1.md` (iteration #1, all template boxes incl. Alternative solutions and Early adopters). Asian prototyping suppliers are not named, in line with the public-material framing above. Not converted to docx; the template file from META Group has not been received yet.
+
+**Follow-up (2026-11-14): meeting summary.** Summary of the 2026-11-13 Exploitation Strategy / Business Planning session written from the recording transcript (machine-translated to Norwegian), Raluca's expert notes in the returned characterisation table, roadmap and risk map, and the session slides: `surewave/background/2026-11-13_hrb_exploitation_strategy_business_planning_meeting_summary.md`. Uncertain names and figures from the transcript are marked *(unclear)*. The source files are still in `surewave/background/new/` and have not been processed.
+
+
+### T142 `[ ]` [GENERIC] SUREWAVE Horizon Results Booster — value chain analysis for Sunlit Sea KER1
+
+Feedback from Raluca Cibu-Buzac (META Group) at the Booster Exploitation Strategy / Business Planning session on 2026-11-13. It is a comment on the key-person-dependency risk in the KER1 risk map (`surewave/deliverables/2026-11-11_surewave_hrb_risk_assessment_ker1.md`, Financial/Management row: "Document design and processes; extended team through partners (IFE simulation, Metsolar module integration, Rixen Cableway sales); recruit engineering and project staff with the funding round"). Her note: "Value chain analysis is relevant, to manage the complexity of deployments."
+
+Do not start until Eirik asks for it.
+
+**Deliverable (when started):** a value chain analysis for KER1 covering deployment from site screening to operation and sale. Map who does what (Sunlit Sea, IFE, Metsolar, Rixen Cableway, prototyping suppliers, Clement, Ceit, Prosolar, DNV, offtakers and site hosts), what each step depends on, and where the complexity and single points of failure sit. Use it to sharpen the key-person and partnership interventions in the risk map, and the Roles and Actions in the exploitation roadmap (`surewave/deliverables/2026-11-11_surewave_hrb_exploitation_roadmap_ker1.md`). Consider the possible Metsolar joint venture (discussed in the same session) as a value-chain option.
+
+**Context files:** T141 deliverables in `surewave/deliverables/2026-11-11_hrb_g2m_ker1/` and the Markdown sources next to it; `docs/project_facts.md` (partners).
+
+
+### T143 `[x]` [GENERIC] SUREWAVE Horizon Results Booster — final versions of the KER1 exploitation files and Lean Canvas, sent back to Raluca
+
+Raluca Cibu-Buzac (META Group) returned the three KER1 exploitation files with her notes after the 2026-11-13 session. In her email of 13 November she asked for the final versions back, plus the Lean Canvas. Her overall verdict was very high quality with no major changes needed; the notes below are the revisions worth making. Meeting summary: `surewave/background/2026-11-13_hrb_exploitation_strategy_business_planning_meeting_summary.md`.
+
+Revisions to consider:
+
+- Characterisation table:
+  - data or examples showing the size of the end-user problems
+  - the social and environmental angle: remote and island grids, evaporation reduction, preferably also an angle tied to the breakwater
+  - what support is needed to reach more customers, linked to growth in market share
+- Exploitation roadmap:
+  - a timeline per activity, aligned with the milestones
+  - where the technical activities sit in the TRL roadmap (reuse the EIC Transition TRL plan)
+- Risk map:
+  - move risk 3 (access rights) to IP/Legal and risk 4 (monitoring subsystem) to Market or Technology
+  - risk 1: say why Europe is preferred for casting
+  - risk 9: add evidence for breakwater cost from the SUREWAVE economic assessment
+  - risk 7: mention alternative or reinforced materials, and INAM
+  - risk 21: add a brief funding strategy with timeline, sources and amounts
+  - risk 23: point to the value chain analysis (T142)
+  - risk 6: tie it to the TRL roadmap
+- Lean Canvas: move the draft `surewave/deliverables/2026-11-13_surewave_hrb_lean_canvas_ker1.md` into Raluca's template (`09_G2M_Lean Canvas template (3).pptx`, still in `surewave/background/new/`).
+
+**Deliverable:**
+- updated Markdown sources, and the filled files in `surewave/deliverables/2026-11-11_hrb_g2m_ker1/` (same names as in T141, produced with `scripts/fill_hrb_g2m_templates.py`)
+- the Lean Canvas in its template format
+- a short cover email to Raluca (cc Balram)
+
+Process the `surewave/background/new/` inbox first, so the expert files and templates are filed.
+
+**Timing:** after the SUREWAVE final report (week of 17 November), and before the December Booster workshop.
+
+**Solution (2026-11-14).**
+
+Inbox `surewave/background/new/` processed into `surewave/background/`:
+- `2026-11-13_hrb_expert_feedback_characterisation_table_ker1.{docx,md}` and `2026-11-13_hrb_expert_feedback_exploitation_roadmap_ker1.{docx,md}`: Raluca's annotated files
+- `2026-11-13_hrb_expert_feedback_risk_assessment_ker1.xlsx`: annotated risk map, kept raw
+- `2026-11-13_hrb_g2m_business_planning_workshop.{pptx,md}` + `_media/`: session slides
+- `2024-11-29_hrb_g2m_business_plan_template.{docx,md}` and `2023-11-23_hrb_g2m_lean_canvas_template.{pptx,md}`: templates, dated by their modified date
+- `2026-11-13_hrb_business_planning_meeting_recording.srt`: raw transcript, plus `2026-11-13_hrb_business_planning_meeting_transcript.md`, merged per speaker with names inferred
+
+Revised sources (all dated "final version, 14 November 2026"):
+- Characterisation table:
+  - evidence for the end-user problems (the pipeline sites, and the connector failure in the first MARIN campaign), with published market studies left for T144.03
+  - social and environmental benefits
+  - support needed to reach more customers
+  - Timing: TRL dates corrected
+- Exploitation roadmap:
+  - a timeline for each action
+  - the TRL each technical step leads to
+  - the EIC Transition month plan (design freeze M12, commissioning M22, TRL 6 at M36)
+  - M7 changed to "TRL 6 for sheltered sites, Q2 2028"
+  - EIC share of about €750,000 and the local development fund (about €150,000) added to the funding sources
+- Risk map:
+  - risk 3 moved to IP/Legal and risk 4 to Technological
+  - risk 1: why Europe is preferred
+  - risk 9: breakwater cost evidence from D7.4 (conventional to lightweight concrete €1.3–1.5 million for 10 MW, about 15 % of the €9.3 million total investment)
+  - risk 7: alternative materials and INAM
+  - risk 21: funding strategy
+  - risk 23: value chain analysis
+  - risk 6: TRL link
+  - ratings unchanged (2 Action, 16 Control, 3 border)
+- Lean Canvas source condensed to fit the boxes.
+
+TRL correction: the T141 roadmap said "TRL 6 in Q4 2027 with EIC Transition". The submitted EIC Transition proposal reaches TRL 6 at month 36 of a three-year project, around 2030 if it starts in 2027. The files now separate TRL 6 for sheltered sites (Skien havn after its first winter, 2028) from TRL 6 for exposed sites with breakwater (end of EIC Transition). The TRL 5 at design freeze and TRL 6 in 2028 are Sunlit Sea estimates for Eirik to confirm.
+
+Script: `scripts/fill_hrb_g2m_templates.py` gained the `lean` kind for the Lean Canvas pptx, and `risk` now grows row heights so long cells are not clipped. Documented in `docs/scripts.md`.
+
+Outputs regenerated in `surewave/deliverables/2026-11-11_hrb_g2m_ker1/`:
+- `02_G2M_Characterisation table.docx`
+- `06_G2M_exploitation roadmap.docx`
+- `10_G2M_Risks_Assessment_and_Priority_Map.xlsx`
+- `09_G2M_Lean Canvas.pptx` (new)
+
+BOSAT was not regenerated (unchanged). All four were rendered through `scripts/render_docx_pdf.sh` and inspected: the canvas text fits every box, and no risk-map cell is clipped. `/check-deliverable` is clean.
+
+Cover email draft: `surewave/deliverables/2026-11-15_hrb_final_files_and_business_plan_cover_email_to_raluca.md (combined T143/T144 draft)`. Not sent.
+
+Open points for Eirik:
+- "Generation 2 requested by customers in Norway, Germany and the UK": the UK comes from the machine-translated transcript.
+- `docs/project_facts.md` still lists the old site install targets (Skien havn Q1 2027, Gunneklevfjorden Q2–Q3 2027).
+
+### T144 `[x]` [GENERIC] SUREWAVE Horizon Results Booster — KER1 business plan sections 2–5, revised from the Booster feedback
+
+Raluca asked Sunlit Sea to write sections 2–5 of the G2M Business Plan template for KER1 and send them to her before the second business-plan workshop in December 2026. The sections are: 2 The organisation, 3 The product/service, 4 The market, 5 The business model and marketing strategy. Sections 6–9 (team, operative plan, financials, resources) and the Option 1 financial plan annex come after that workshop, so they are out of scope here.
+
+Starting point: the business plan already written for SUREWAVE D8.4, `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md` (T110). It is a consortium document with restricted dissemination. It uses the earlier offshore framing and covers all seven KERs, so only Sunlit Sea's own KER1 content may be reused in the Booster plan. The Booster version is reframed to nearshore and sheltered coastal waters, following the workshop UVP and the T141 files.
+
+Booster feedback to build in (from the meeting summary):
+- one UVP per customer segment
+- assumptions stated and backed by data
+- channels added step by step
+- data on the size of the problems
+- the business model changing with scale (technology supplier, then EPC, then IPP)
+- the breakwater supply scenarios
+- a pricing model that answers the "too expensive outside the best sites" risk
+
+Keep the European pricing paradox (European vs Chinese components) as internal background, not a headline.
+
+Template guidance: 20–30 pages for the whole plan, with credible sources. The question lists are on slides 23–34 of `G2M-D_BusinessPlanning.pptx`. Information can be taken from the characterisation table, the Market Definition Canvas, the Value Proposition Canvas, the Lean Canvas and the exploitation intentions table.
+
+**Deliverable:**
+- a Markdown source `surewave/deliverables/YYYY-MM-DD_surewave_hrb_business_plan_ker1.md` for sections 2–5
+- the filled `12_G2M_Business_Plan_template.docx`
+- a cover email to Raluca
+
+Subtasks T144.01–T144.07 collect the input for each section, and T144.08 assembles the result.
+
+**Context files:**
+- the meeting summary (above)
+- the T140 and T141 deliverables
+- D8.4
+- `surewave/background/new/12_G2M_Business_Plan_template.docx` and `G2M-D_BusinessPlanning.pptx` (to be filed)
+- `docs/project_facts.md`
+
+**Solution (2026-11-14).**
+
+Sections 2–5 written in `surewave/deliverables/2026-11-14_surewave_hrb_business_plan_ker1.md` (about 4,400 words) and filled into META Group's template as `surewave/deliverables/2026-11-11_hrb_g2m_ker1/12_G2M_Business_Plan.docx`. The file sits in the same folder as the other Booster files and keeps the template file name without the marker, as in T141. The template's chapter numbering gives Organisation = 2, Product/service = 3, Market = 4, Business model and marketing = 5, matching Raluca's numbering. Sections 1 and 6–9 keep the template guidance for later. The rendered docx is 14 pages, inspected via `scripts/render_docx_pdf.sh`. `/check-deliverable` is clean: no bold, no internal paths, no emphasis phrasing, and the Asian suppliers are not named.
+
+Script: new `bizplan` kind in `scripts/fill_hrb_g2m_templates.py`, documented in `docs/scripts.md`.
+
+Cover email draft: `surewave/deliverables/2026-11-15_hrb_final_files_and_business_plan_cover_email_to_raluca.md (combined T143/T144 draft)`. Not sent.
+
+Sources used: `docs/project_facts.md`; T140/T141 files; D8.4 (KER1 parts only); D7.4 (cost figures); the submitted EIC Transition proposal (`generic/background/eic/2026-09-16_1302_eic_surewave_proposal_v1.md`); the Booster meeting summary. Web: SolarPower Europe (664 GW in 2025); Wood Mackenzie via pv magazine 2024-11-20, fetched and checked (77 GW by 2033, 1.7 GW added in 2024, Europe figures, capex premium, the 440 MW Taiwan and 1 GW CHN Energy projects); World Bank/SERIS Where Sun Meets Water (1.3 GWp by end 2018; 404 GW at 1 % reservoir coverage, from secondary coverage of the report); NZIA non-price criteria (30 % or 6 GW); company news on Ocean Sun, Fred. Olsen 1848 BRIZO, SolarDuck, Oceans of Energy and BlueNewables (search summaries, not opened page by page).
+
+Choices made:
+- D8.4's "62 GW offshore FPV by 2030 (SolarPower Europe)" was not reused, because it could not be verified. No top-down nearshore market size is given; the plan sizes the market bottom-up from the pipeline and says so.
+- The Ocean Sun cease-and-desist history is not mentioned. Competition is described as collaborative.
+- The European versus Asian component price gap is described neutrally under pricing (cost against resilience preferences), as agreed in the meeting.
+- "UK" was replaced by Denmark (on record) as an inbound lead, also in the T143 characterisation table, which was regenerated.
+
+Open points for Eirik:
+- Placeholders still to check: the founding year (2019, from the public website); ownership ("Norwegian private investors", from BOSAT); the earlier patent ("covered the Generation 1 float construction", from the meeting).
+- The promotion budget is stated only as part of the €0.3 million business development line.
+- Revenue for 2028 and 2030 is left to the financial annex.
+
+**Follow-up (2026-11-14): deeper research.** At Eirik's request, five research agents (Opus) ran in parallel, about 5–10 minutes each, one per perspective. Their findings are filed in `surewave/background/2026-11-14_hrb_business_plan_research/`:
+- `market.md`
+- `competitors.md`
+- `customers_regulation.md`
+- `business_model_finance.md`
+- `technology_standards_ip.md`
+
+Each file has key findings, detailed notes, gaps and sources marked primary or secondary.
+
+The findings were treated as hypotheses. The ones used were checked before the merge:
+- Norway's 10 MW licensing threshold: regjeringen.no, fetched with curl.
+- 8.7 GW of floating PV worldwide: IEA PVPS fact sheet.
+- Statnett grid queue: Statnett's half-year report 2026, fetched with curl. The figure used is about 3,500 MW of mature applications in H1 2026; the agent's "16 GW queue" came from a secondary source and was replaced.
+- Hollandse Kust Noord withdrawal: CrossWind, 1 May 2026.
+- BRIZO DNV review for 3.5 m significant wave height: confirmed. The agent's "3 MW island" and "ready in H1 2027" could not be confirmed and were left out.
+
+The business plan was rewritten with the merged material. It is now about 6,500 words and 15 pages of filled sections; the docx was regenerated and checked.
+
+Main changes:
+- Market:
+  - IEA PVPS figures (8.7 GW end-2024; 1.6 GW end-2018 replaces the World Bank 1.3 GWp)
+  - offshore floating PV at TRL 3–5, with nearshore as its own category
+  - EU solar slowdown and negative prices
+  - Ember's hydropower potential; Spanish and Dutch marine potential
+  - Norway: NVE on grid and land limits, the Statnett queue, zone prices
+  - the Chinese 1 GW plant is pile-mounted; Taiwan's 373 MWac plant is on leased coastal water
+- Barriers: lender and insurer requirements, the DNV and IEC standards, certification, and permitting in Norway, Sweden and Germany.
+- Customers: Nordic PPA patterns, the Eksfin guarantee threshold, shore power demand, the CSRD cut-back.
+- Competitor table rebuilt:
+  - Oceans of Energy withdrawn
+  - BlueNewables now 2 × 500 kW
+  - BRIZO named as the closest competitor
+  - added Saipem / Moss Maritime, Swimsol, new entrants and the Asian players
+- New subsection "Technology risks and qualification": storm failure modes, hinge fatigue, PU hydrolysis and the limits of IEC TS 62788-7-2, aluminium galvanic corrosion, biofouling.
+- IP: the crowded patent landscape, the FTO scope, what an EU design can protect, and trade-secret requirements.
+- Business model: comparable companies (Swimsol, inland develop-and-sell, the Soltec EPC lesson); the pricing section now matches the NREL float cost curve to the D7.4 figure of €0.21/W at 10 MW; the Nordic price-threshold argument; the LCOE caveat (€0.062/kWh is the Mediterranean case).
+- The "Enova supports early floating solar" line was replaced by Sunlit Sea's own Enova pre-project grant.
+
+No `.claude/worktrees/agent-*` folders were left behind.
+
+**Follow-up (2026-11-15): review after Eirik's feedback.** Eirik pointed out that Per Lindberg's role as inventor of Gen 1 and lead on Gen 2 R&D was missing. My first fix pasted his CV and employment history into section 2, which repeated his message instead of using it. The text now says, in one sentence, that Per invented Gen 1 and leads Gen 2 R&D. CV details are kept for section 6 (team), and the employment arrangement is left out of the external text; it is recorded in `docs/project_facts.md`.
+
+A full read-through then fixed the same pattern of research dumped into the plan:
+- IP and technology sections now lead with what Sunlit Sea does, instead of the patent landscape and competitors' storm failures.
+- Unverified design claims were removed (electrical isolation of fasteners, fouling weight already in the design).
+- EU design fees, CSRD and the competitors' cash positions were removed.
+- EV PowerCharge was removed as a current counterparty; the PPA ended in October 2026.
+- The duplicated strengths/weaknesses paragraph was removed.
+- The Soltec case was cut to a single lesson.
+
+The docx was regenerated (17 pages).
+
+**Follow-up (2026-11-15): review round with four reviewers.** Four Opus agents reviewed the plan independently: Booster evaluator, investor, fact-checker and editor. Their reviews are in `surewave/background/2026-11-15_hrb_business_plan_review/`. The plan was rewritten from 6,100 to 4,800 words (15 pages docx), and the T143 companion files were corrected to match.
+
+Applied:
+- Company profile opens with what Sunlit Sea does. Per's role is stated as inventor of Gen 1 and lead on Gen 2 R&D; nothing about his employment elsewhere.
+- Economic objectives added.
+- Market section restructured: summary first, then a market-size table (total, serviceable, obtainable), with sector detail cut by about 40 % and a verdict after the five forces.
+- IPP model per Eirik: on own plants Sunlit Sea earns power sales under PPAs, and the floats are an investment, not a sale. Sales forecast updated: 2027 about €0.1–0.3M, 2028 about €1.0–1.5M from Gunneklevfjorden supply and engineering. The roadmap revenue was changed to match.
+- D7.4 figures (€209/kWp, €0.21/W) removed as kit-price benchmarks: D7.4 describes the SUREWAVE concrete-pontoon reference concept (checked at D7.4 lines 567–575). The characterisation table now attributes €0.062/kWh to that reference concept.
+- The Q4 price was replaced by SSB 2025 annual industry prices (fetched with curl): 62.5 øre/kWh for service industries and 42 øre/kWh for power-intensive industry, both before grid tariff and taxes.
+- Design registration is described as a decision by Q3 2027, not as existing protection.
+- Bottom plate hedged as 'aluminium in the current design' (facts-file rule), in the plan, characterisation table and Lean Canvas.
+- NREL structural cost: 'about four times'. NZIA criteria apply 'from the end of 2025'.
+- Tracker margin comparison removed.
+- Sunlit Sea row added to the competitor table.
+- Repetition removed; terms explained (Enova, IFE, Ceit, Clement, øre).
+- Social and environmental benefits added; a target for developer/IPP early adopters added.
+- Roadmap 2029 MWp now includes Gotland.
+- Facts file EIC line corrected: TRL 6 at month 36, not by end 2027.
+
+Not applied:
+- The UVP was kept verbatim, because it was agreed in the Booster workshop.
+- Wave rating and break-even year were not invented; they are left to the design basis and the financial plan.
+- Target market share is deferred to the financial plan.
+
+Open points for Eirik:
+- Gunneklevfjorden is assumed to be owned by an SPV that buys kit and engineering, with Sunlit Sea holding an equity share.
+- The 2027/2028 revenue figures are estimates.
+- The facts file still lists the older install dates for Skien havn and Gunneklevfjorden.
+
+#### T144.01 `[x]` [GENERIC] Section 2 — the organisation
+
+Collect and write:
+- mission
+- short- and long-term objectives
+- strengths, weaknesses and success factors
+- history: founding, Generation 1 in operation since 2023, the earlier patent and its status, the former Norwegian factory and the move to subcontracting
+- ownership and funding to date
+- the extended team through partners
+
+Check names and dates against `docs/project_facts.md`.
+
+#### T144.02 `[x]` [GENERIC] Section 3 — the product/service, current and future
+
+Current product: Generation 1 (what is sold, references, small kit sales). Future products: Generation 2, the edge system, and site engineering and the planning tool as services.
+
+For each, cover:
+- stage of development and TRL (Generation 2 is at TRL 4–5)
+- launch date or time to market
+- materials and technology
+- IP status: no patent; registered design and trade secrets; the IAM service from January 2027
+- selling prices
+- current customer portfolio
+- the value chain of the offer (link to T142)
+- the main development phases, with the investment needed for each (reuse the EIC Transition TRL roadmap and the costs in the T141 roadmap)
+
+#### T144.03 `[x]` [GENERIC] Section 4 — market size and sector analysis (secondary research)
+
+Find and cite credible market assessments of floating solar, and of nearshore or offshore floating solar. Candidates to check:
+- World Bank / ESMAP and SERIS floating solar market reports and handbook
+- DNV reports and outlooks
+- IEA PVPS
+- SolarPower Europe
+- national figures for Norway, the Baltic and the Mediterranean
+
+Cover:
+- market size, stage of development and growth
+- barriers to entry
+- the role of innovation
+- policy and regulation (EU industrial and net-zero policy, Norwegian permitting)
+
+The slides suggest summarising the sector with Porter's five forces.
+
+Also collect data showing the size of the end-user problems, which Raluca asked for: land scarcity for coastal industry, and calm-water FPV failing in waves.
+
+Record each source with its date, and verify figures against the source document itself, not a summary.
+
+#### T144.04 `[x]` [GENERIC] Section 4 — competitor analysis
+
+A fuller competitor analysis than the one in the characterisation table. Competitors:
+- Ocean Sun
+- SolarDuck
+- Oceans of Energy
+- Fred. Olsen 1848
+- Saipem / Moss Maritime
+- Ciel & Terre and other inland FPV suppliers
+- offshore and nearshore FPV players in Asia
+
+For each, cover:
+- concept and target conditions
+- TRL and references
+- known prices or cost per watt
+- partnerships and funding
+- strengths and weaknesses against KER1
+
+Add the substitutes: onshore solar, power purchase agreements, offshore wind.
+
+End with how Sunlit Sea defends its advantage (slide 25): know-how, speed to market, integration with customers and suppliers, economies of scale, brand.
+
+#### T144.05 `[~]` [GENERIC] Section 4 — customer needs and evidence (primary research)
+
+Document customer behaviour and needs from Sunlit Sea's own contacts:
+- the Norwegian early adopters: Aaltvedt Betong, Hærøya Industripark, Haugaland Næringspark
+- Storugns on Gotland
+- Rixen Cableway
+- the inbound Generation 2 leads (UK, Germany, Denmark and others)
+
+Consider short structured interviews or a written questionnaire to two or three of them, covering needs, decision criteria and an acceptable price.
+
+Write one UVP per customer segment (coastal industry and ports; developers and IPPs), as Raluca advised.
+
+**Status (2026-11-14):** `[~]`. The business plan uses the existing evidence (pipeline sites, hosts' commitments, inbound leads) and states that structured interviews are planned for early 2027. The interviews are not done. Interview guide for two or three early adopters:
+1. What would the plant replace (grid power, a remote power purchase agreement, rooftop solar)?
+2. What does power cost you today, and what price would make a 10–15-year agreement attractive?
+3. Who decides, and what do they need to see (references, DNV assessment, warranty, insurance)?
+4. What site constraints worry you (permits, shipping lanes, seabed, ice, visual impact)?
+5. Would you rather buy power, lease the water area, or own the plant?
+6. What would make you choose a competitor or do nothing?
+
+#### T144.06 `[x]` [GENERIC] Section 5 — business model, actors and pricing
+
+How Sunlit Sea makes money, and who is involved:
+- Revenue streams: platform supply per watt, site engineering fees, and develop-operate-sell in the Nordics.
+- How the model shifts with scale: technology supplier at 1–2 MW projects, EPC contractor around 100 MW, IPP later.
+- Breakwater supply scenarios: Sunlit Sea fronts the delivery and buys from Clement; the customer buys directly; or Clement leads with Sunlit Sea as subcontractor.
+- Subcontracted manufacturing: Metsolar in Lithuania, casting suppliers, packing and shipping to site.
+- Pricing strategy: cost basis per watt, target margins, and price compared with onshore solar and calm-water FPV.
+
+Build on the T142 value chain analysis where it is ready. Reuse the earlier five-year models of technology-supplier, EPC and IPP sales if they can be found.
+
+#### T144.07 `[x]` [GENERIC] Section 5 — marketing strategy, channels and sales forecast
+
+Cover:
+- why these segments and early adopters were chosen
+- geography (Nordics first, then the Baltic and the Mediterranean), with its advantages and disadvantages
+- sales and promotion channels, added step by step: direct sales with local contractors, Rixen Cableway, industrial parks, Enova and EU projects, the Horizon Results Platform, the European Cluster Collaboration Platform, industry events, LinkedIn
+- a sales forecast consistent with the pipeline in the T141 roadmap
+- the planned spend on promotion
+- branding and reputation
+
+#### T144.08 `[x]` [GENERIC] Assemble sections 2–5, check against the exploitation files, send to Raluca
+
+1. Write the Markdown source from T144.01–T144.07.
+2. Check that it is consistent with the T143 final files and the Lean Canvas.
+3. Run `/check-deliverable`.
+4. Fill `12_G2M_Business_Plan_template.docx`.
+5. Draft the cover email to Raluca (cc Balram).
+
+### T145 `[x]` [GENERIC] SUREWAVE D8.3 technical brochure — replace breakwater and mooring figures after Clement Germany review
+
+Thomas Pehlke (Clement Germany) reviewed the issued D8.3 brochure (2026-11-18). The breakwater section's figures misrepresent the design: the cross-section must not narrow towards the bottom, the mooring is a slack catenary with long shock-absorbing chains, the hull has transverse interior walls, and the unit has a deep draft and low freeboard. Thomas does not want many measurements shown. Eirik prefers the public brochure not to be copy-ready. The compromise is to use Clement's own graphics, which are technically correct and carry almost no dimensions, instead of AI images.
+
+**Solution (2026-11-18).**
+- Clement's seven graphics are filed under `surewave/images/2026-11-18_clement_d8.3_figure_inputs/original/` (copied from `temp/`, renamed; the `temp/` copies are left for Eirik to delete). Prepared versions sit in the same folder: `plant_layout_and_mooring_plan.png` (D3.3 panel-count callout blanked), `breakwater_unit_exterior_interior.png`, `moored_ring.png`, `breakwater_sections.png`, plus the single unit views.
+- Brochure `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`:
+  - Section 2: AI cutaway (`fig03`) removed. Plant text corrected to a ring of 56 breakwater units with two crossing bridge-pontoon lines (D3.3). Layout figure swapped for Clement's plan + mooring plan. Site-class AI figure (`fig05`) replaced by a three-item list (a pipe table was tried first, but the SUREWAVE docx template breaks pandoc tables: cells render as loose paragraphs in LibreOffice, reproduced with a minimal test file and with plain `pandoc --reference-doc`, so the fault is in the template).
+  - Section 3: breakwater paragraph states the rectangular section with side walls continuing as keels, transverse interior walls, 2.03 m draft with less than 0.5 m freeboard (D3.2). The unit drawing is swapped for Clement's exterior and interior views. The mooring paragraph states the slack catenary. The mooring figure is swapped for Clement's moored ring.
+  - Section 4: cross-section figure swapped for Clement's sections. The material legend is dropped.
+- Figures companion `2026-09-28_surewave_d8.3_figures.md`: revision block records the four faults, the withdrawn figures and their replacements.
+- `docs/sure_images.md`: new section for the Clement folder; fig03/04/05/06/08/10 marked withdrawn. `docs/surewave_configurations.md`: reference-plant description corrected and breakwater geometry recorded.
+- Check render: a pandoc + xelatex PDF in the session scratchpad (20 pages). New figures and table render correctly; Fig 2 floats to the top of the next page after the site table.
+
+**Second pass (2026-11-18): Thomas's margin comments.** The marked-up draft (`temp/SUREWAVE__D8.3_technical_brochure_commented_TP.docx`) had 11 comments, recorded in `surewave/background/2026-11-18_clement_d8.3_brochure_review_comments.md`. Values checked against D2.1 (site table) and D5.1 (optimised chain diameters). Applied:
+- The Fig 2 cutaway (`fig03`) is restored at Thomas's request, captioned "schematic illustration … not to scale".
+- The site-class list now gives median and fifty-year significant wave heights (0.6/0.5/1.6 m and 4.4/7.0/12.3 m), with one sentence explaining the median. The extremes sentence is corrected: wind up to 26 m/s, current 1.2 m/s, largest individual waves above 14 m at the harsh site.
+- Attenuation: transmission coefficient about 0.4 in the 1–3 s band, so wave height is reduced by about 60 %. This replaces the wrong ">40 % of wave energy".
+- Keels: they increase the draft without reducing stability or metacentric height.
+- Chains: nominal 90/66/70 mm, specified 107/87/87 mm with the 16 mm allowance. The 40-year/replacement sentence and the unverified "North Sea uses more mooring lines" claim are removed. The Section 9 mention of chain replacement at year 40 is kept, because that is the economic model's actual assumption (D7.4).
+- Figure comments 2, 4, 7, 10 and 11 are already covered by the Clement graphics. Comment 7's D3.2 p. 12 isometric is the same model as the Clement isometric in use.
+- PDF rebuilt without `--toc`. The ToC was dropped in the T120 third pass, and the first rebuild today wrongly re-added it from an older note.
+
+**Third pass (2026-11-18): merge with the partner-edited v1.** `temp/SUREWAVE__D8.3_technical_brochure_v1.docx` (last saved by Balram Panjwani, revision rows 0.3–0.5) has no Word comments or tracked changes. The partners edited the text directly. The circulated docx had also been hand-edited in Word, so the Markdown source had drifted from what partners saw. The source was brought in line with v1, keeping today's Clement changes:
+- Content from v1: Gijón (Spain); XS1/XS2/XS3 (twice); Krystaline and waterproofing-admixture wording removed from HPC and the durability test; LWAC 1800 kg/m³, Sample 18 only, low-carbon cement + waterproofing admixture; circular-concrete composition figure (`fig09`) removed; prototype mooring "connected to gravity anchors"; six-bullet nine-month exposure conclusions after the Gijón photo; "Three wave-basin campaigns" with the two-campaign MARIN text; CO₂ paragraph's coal argument replaced by the long-term coal-reduction framing; TRL caption "commercial plan"; Fig 1 caption "(2026 estimates)"; marin.nl and clement-systems.com removed from partner blurbs; ifeu name in English; "First edition" + closing disclaimer kept in the PDF only (fenced `{=latex}` block), as v1 removed them from the docx, which carries the disclaimer on its cover.
+- Wording repaired where the v1 edits left broken grammar: LWAC paragraph ("Optimised mixe", "combinationsAnd"), HPC missing full stop, CO₂ sentence rewritten to say the same thing in readable form. The circular-content sentence keeps the original list, because the v1 edit only produced "fly ash and glass … and silica fume". "At a glance" drops "two" before "wave-basin campaigns" to match the new count of three.
+- Cover elements from v1 now come from the meta sidecar through new wrapper features: contributing beneficiary SINTEF AS, version history 0.1–1, delivery date 2026-11-18, CINEA in the disclaimer, `Figure N:` caption numbering, no horizontal rules. New `scripts/surewave_docx_filter.lua`, wrapper extended, both documented in `docs/scripts.md`.
+- Check: a paragraph diff of the rebuilt docx against v1 leaves only today's intended changes, the two wording repairs, and the cover banner (v1 holds it in a table; the template draws it as a banner).
+
+**Fourth pass (2026-11-18): Thomas's final reply.** "No further comments". He sent a nicer version of Figure 6, the moored ring without background and with the PV arrays inside. Filed as `original/clement_moored_ring_with_pv_transparent.png`, flattened to `moored_ring_with_pv.png`, and swapped into the mooring figure with an updated caption. docx and PDF rebuilt.
+
+**Fifth pass (2026-11-18): Eirik's decisions on the open points.**
+1. CO₂ paragraph: the coal-at-peak reason is restored, and the partners' long-term coal-reduction goal follows as its own sentence.
+2. Partner numbers (LWAC, nine-month prototype findings) are accepted as written. Verification is the partners' responsibility.
+3. Version rows 0.4 and 0.5 (no author) are removed from the meta sidecar.
+4. The transition element is the PVC pipe (Eirik). The `fig03` label is correct, so the 2026-09-30 regeneration request is marked withdrawn in the figures companion. The brochure text now describes the transition element as a floating PVC pipe attached with elasticized ropes, and `docs/project_facts.md` records the fact.
+5. The sections figure stays without material labels, and the question to Clement is dropped.
+
+**Sixth pass (2026-11-19): MARIN feedback (Joep van der Zanden).** The connector loads in the brochure (34/33/40 kN design loads, 8–10 kN operational band) were computed for the 2 MWp design, not for the 7 MWp plant in Figure 3, because 2 MWp was the limit of MARIN's coupled simulations. Joep expects the 7 MWp maximum connector loads to be of the same order, since the plant splits into four sub-farms of about 2 MWp each, but they depend on layout and surface mooring. Applied: "computed for a 2 MWp farm" in At a glance and in the component-test paragraph, plus three sentences after the hinge ULS paragraph in Section 6 explaining the 2 MWp basis and the expected order of magnitude for 7 MWp. docx and PDF rebuilt.
+
+**Notes.**
+- `.docx` (SUREWAVE wrapper, 22 pages, checked via `render_docx_pdf.sh`) and `.pdf` (pandoc + xelatex + ghostscript `/ebook`) regenerated on Eirik's order 2026-11-18. While building, found that the PDF dropped Unicode sub/superscripts (CO₂ printed as "CO", 10⁸ as "10"; Latin Modern has no such glyphs, so the issued October PDF probably had the same fault). Fixed in the source with pandoc syntax (`CO~2~`, `m^3^`, `10^8^`) on 6 lines, which renders correctly in both PDF and docx. Ghostscript must run from PowerShell: Git Bash rewrites `/ebook` into a path.
+- Publication of Clement's graphics in the brochure is implicitly accepted, since Thomas sent a further figure for it. The material-zone question was dropped (decision 5).
+- The cover image `fig01` (AI) was not reviewed by Clement and is kept.
+
+### T146 `[~]` [GENERIC] SUREWAVE Final Technical Report — Sunlit Sea paste-in instructions per heading
+
+SINTEF (Balram Panjwani) asked all partners on 2026-10-14 to update the SUREWAVE Final Technical Report (Part B) for their own activities, covering reporting period 2 (April 2024 – September 2026), and forwarded the Project Officer's (Baris) and CINEA's requirements for content and financial explanations. The report is a single shared docx on SINTEF's Teams, edited live by all partners (comments from SINTEF, MARIN, ACCIONA and Clement up to 2026-11-19). Sunlit Sea cannot replace the file, so its contributions have to go in by hand: copy a block of text, paste it under a named heading, replace or delete a named passage.
+
+The task is to write a local instruction file that says, heading by heading, exactly what Sunlit Sea pastes where. Each entry names the location in the docx (section number + heading + the first words of the paragraph or table cell to anchor on), the action (insert after / replace / delete / fill table cell), and the finished text ready to paste. Text must follow the report's own register and Baris's requirements (period-only work, short opening paragraph per WP, deliverable/milestone table with due date, submission date and lateness remarks, targets-vs-actuals table, explicit deviations).
+
+**Scope (from the 2026-11-19 read of the working copy):**
+
+1. WP8 (Sunlit Sea is WP leader) — full rewrite of the period content. Reporting period reads 01.10.2022 (should be 01.04.2024). Publishable summary and progress are still M18/M36 text ("We are developing a master plan…", "update in M27", "November 2036" twice). Missing: opening paragraph on RP2 work, Task 8.4 progress, D8.3 delivery, final workshop and interviews, Results Booster, deviations and corrective actions (empty), deliverables/milestones table, targets-vs-actuals table for dissemination/communication/exploitation (source: WP8 KPI tracker). Publications table gaps: Eibar et al. 2026 (Fatigue & Fracture of Engineering Materials & Structures), Ceit 2025 SIF conference paper, Losada et al. Electronics 2024; "Balram Palwani" typo; two "to be added" cells (MARINE 2025, DCIS 2023 dates).
+2. WP2 (Sunlit Sea has reporting responsibility) — WP leader field names Guillaume Kegelart (former employee) → Eirik Larsen. Deviations sentence mixes "last six months" with M19–M48. Add RP2 opening paragraph and Task 2.4 SAB activity in the period (SAB workshop 2024-11-19).
+3. WP3 Tasks 3.1 / 3.5 and WP7 Task 7.4 — check only; already filled. WP3 can state completed in the previous period.
+4. Deliverables table (section 1.1) — submission dates and lateness remarks for D7.4, D8.3, D8.4, including whether the Project Officer was informed in advance.
+5. Section 1.3 Impact — new SME subsection answering "Does (or will) the work carried out have an impact on SMEs?" (consortium SMEs Sunlit Sea, Clement Germany, IFEU; SME industry in general). Flag to the coordinator that the gender-dimension subsection is also missing.
+6. Section 1.4 — check consistency with D8.4 (seven KERs; Mediterranean IRR reads 10.6 % in the report, 10.7 % in D8.4/D7.6 — verify against D7.4 and correct whichever is wrong).
+7. Section 4 Open science — Sunlit Sea Zenodo records and any Sunlit Sea public deliverables still to upload (D8.1, D8.5, D8.3); point out the possible D3.4 (SEN) open record to the coordinator.
+8. Section 5.2 Use of resources — new Sunlit Sea (SIS) entry: period-1 adjustment following the audit (subcontracting moved to personnel costs), confirmation that personnel costs are based on actual time records (or explanation of a > ±25 % rate deviation), and explanation of any per-WP PM/budget deviation above 20 %. Coordinate wording with Marit Eggen per the 2026-11-11 meeting. Numbers come from Eirik's final calculations, not from this repo.
+
+Before drafting: take a fresh copy of the live docx from Teams (the inbox copy will be stale), and anchor every instruction on text that exists in that copy. Do not convert or regenerate the docx — the instruction file is Markdown only.
+
+**Deliverable:** `surewave/deliverables/<date>_surewave_final_technical_report_sunlit_sea_paste_in.md` — one section per paste location, in document order.
+
+**Context files:**
+- `surewave/background/new/SUREWAVE _Final_Technical_report_v0.docx` — working copy saved by Balram 2026-11-19 (file to `surewave/background/` as part of this task)
+- `surewave/background/2026-09-29_surewave_wp8_kpis.md` — KPI targets and actuals
+- `surewave/background/2026-10-06_surewave_wp8_kpi_partner_responses.md` — partner dissemination input
+- `surewave/background/2026-11-19_surewave_zenodo_community_snapshot.md` — open-science evidence
+- `surewave/background/2026-11-11_sintef_mote_sluttrapport_budsjett.md` — financial adjustment agreement with SINTEF
+- `surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md`, `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.meta.yaml`
+- `surewave/background/2026-09-29_surewave_wp_task_deliverable_index.md`, `surewave/background/2022-06-24_surewave_annex1_part_b_v2.md` (original impact, open-science and gender commitments)
+
+**Drafted (2026-11-19).** New: `surewave/deliverables/2026-11-19_surewave_final_technical_report_sunlit_sea_paste_in.md` — 21 entries in document order (location, anchor quote, action, paste-ready text): deliverables-table dates (D7.4, D8.3, D8.4); WP2 leader, period summary, Task 2.4, objective status, deviations, deliverables/milestones table (D2.1–D2.4, MS1); WP3 and section 1.4 check-only; D7.4 lateness remark; WP8 reporting period, publishable summary, full progress block (O1–O4 with explicit status, Tasks 8.1–8.5), significant results, exploitation, deviations (D8.3, D8.4 late), corrective actions, deliverables/milestones table (D8.1–D8.5, MS7) and targets-vs-actuals table; publications-table fixes (Panjwani typo, MARINE 2025 and DCIS dates) and four added rows; new SME subsection in 1.3; Zenodo paragraph for section 4 plus notes for the coordinator (missing uploads, possible D3.4 open record); replacement of the 5.1 publication-target row (ten peer-reviewed publications, against the report's nine) and a flag that the 5.1 "D1.4 / D7.6" row looks copied from another project; three Sunlit Sea (2SIS) entries for 5.2 (time-records confirmation, PM deviations, RP1 audit adjustment subcontracting → personnel). Also filed: `surewave/background/2026-11-19_surewave_final_technical_report_working_copy.md` (Markdown snapshot of the 2026-11-19 working copy, images omitted). Findings: the report's Mediterranean IRR of 10.6 % matches D7.4's results table (D7.4's own summary says 10.7 %), so §1.4 needs no change; D8.4 should use 10.6 % for consistency.
+
+**Remaining before `[x]`:** Eirik resolves the 25 `[CONFIRM]` / `[FIGURE]` markers (5.2 amounts from his final calculations, Project Officer notification for late deliverables, D8.4 submission date, SAB workshop format); Ceit confirms the Perez-Diego acknowledgement and the 2025 conference venue; Clement and IFEU confirm their SME paragraphs; Eirik pastes into the live Teams document. The inbox docx `surewave/background/new/SUREWAVE _Final_Technical_report_v0.docx` is still in place, awaiting Eirik's decision to delete.
+
+### T147 `[~]` [GENERIC] SUREWAVE D8.4 — structure proposal for agreement with SINTEF
+
+Before rewriting D8.4, agree its structure with the coordinator (Balram Panjwani, SINTEF), so the rewrite does not start on foundations that change later. Revision 2 (`surewave/deliverables/2026-09-28_surewave_d8.4_exploitation_pathways_business_plan.md`) treats all seven KERs at similar depth, and its KER1 content predates the Horizon Results Booster business plan (`surewave/deliverables/2026-11-14_surewave_hrb_business_plan_ker1.md`).
+
+Proposed structure: (1) map all KERs; (2) weight them by stated criteria (readiness, owner's commercial intent, relation to the global solution, proposal commitments — Annex 1 names the global solution P1 "Offshore FPV plant" as marketed by Sunlit Sea and R2–R10 as exploited by their developers; objective O8 asks for one definitive business plan for the solution; Task 8.4 asks for the basis of exploitation agreements between technology developers and exploiters); (3) write the rest in proportion — full business plan for KER1, agreement/fair-price level for KERs that supply KER1, exploitation pathway and four-year action plan for each partner's standalone routes, plus GA Article 16–17 obligations.
+
+**Deliverable:** a short inline email to Balram setting out the proposed structure.
+
+**Drafted (2026-11-19).** Inline email to Balram, no attachment: `surewave/deliverables/2026-11-19_d8.4_structure_cover_email_to_balram.md`. Gives the Grant Agreement basis in one sentence, the seven KERs with owners, the weighting criteria and the three depths, and asks whether he agrees. A separate two-page structure note was drafted first and dropped on Eirik's instruction (keep it in the mail, short); the Results Ownership List and partner-form questions were dropped as insignificant. Sent by Eirik 2026-11-19; awaiting Balram's reply. Eirik decided to proceed with T148 on the assumption that Balram agrees; revisit if his answer changes the structure. Stays `[~]` until he replies.
+
+### T148 `[ ]` [GENERIC] SUREWAVE D8.4 — revision 3 rewrite on the agreed structure
+
+Restructure D8.4 to the outline agreed in T147. KER1 business plan built on the Booster business plan (15 November 2026) and its review files in `surewave/background/2026-11-15_hrb_business_plan_review/`; financial section left open for the Booster financial plan due after the December 2026 workshop. Per-partner pathways limited to what partners submitted (exploitation summaries in `surewave/background/2026-09-30_*_exploitation_summary.md`, `2026-10-02_sintef_exploitation_plan.md`); remove business-model and pricing claims about other partners that their summaries do not support.
+
+Also in this task: add Ceit Exploitable Result 2 (SHMS, received 2026-10-05) to KER6 and update the Exploitable Results report (closes T113); correct the passages claiming partner input was collected through the CRM-mirroring form (revision 2 lines 86 and 708); state the dissemination level as Sensitive (GA) instead of "to be confirmed"; check consistency with the Final Technical Report §1.4 (Mediterranean IRR 10.6 vs 10.7 %, check against D7.4), D8.3 and the Zenodo snapshot; edition line → revision 3.
+
+Open decisions for Eirik: Gunneklevfjorden install year (Booster plan 2028 vs project facts Q2–Q3 2027); how much pipeline and pricing detail goes into a document circulated to all partners and CINEA.
+
+Proceeding on the assumption that Balram agrees with the T147 structure (Eirik, 2026-11-19); adjust if his reply says otherwise.
+
+### T149 `[ ]` [GENERIC] SUREWAVE D8.4 — partner review round
+
+Send revision 3 to all partners with a one-week deadline. Each partner checks its own KER entry, ownership row and exploitation pathway; all review the agreement framework. Integrate replies. If Balram's answer to T147 says the Results Ownership List is not populated, pre-fill it per partner from existing input and collect confirmation in the same round.
+
+Waits on: T148.
+
+### T150 `[ ]` [GENERIC] SUREWAVE D8.4 — final check, docx and submission to coordinator
+
+Run `/check-deliverable` on the final Markdown; generate the SUREWAVE docx with `/generate-surewave-docx` when Eirik orders it and check the rendered file; send to SINTEF for portal submission. Record the submission date for the deliverables table in the Final Technical Report (T146). D8.4 was due 2026-09-30.
+
+Waits on: T149.
+
+### T151 `[~]` [GENERIC] SUREWAVE WP8 — verify KPI actuals against primary evidence
+
+The WP8 KPI tracker (`surewave/background/2026-09-29_surewave_wp8_kpis.md`, converted from Eirik's `WP8 KPIs.xlsx` of 2026-09-29) is the only source for the WP8 actuals that go into the Final Technical Report (T146) and D8.4. It is seven weeks old and partly unverified (LinkedIn followers had already moved from 672 to 694 by 2026-11-19). Before comparing against the D8.5 / Grant Agreement targets, verify each actual against primary evidence: publisher / Crossref / OpenAIRE records for publications (incl. grant 101083342 acknowledgement), Zenodo, the SUREWAVE LinkedIn page, surewave.eu, the media articles themselves, partner replies of 30 Sep – 6 Oct 2026, and files in the repo.
+
+**Deliverable:** `surewave/background/<date>_surewave_wp8_kpi_verification.md` — per KPI: verified actual, evidence, date checked, flag where it disagrees with the tracker or cannot be verified from outside; plus a short list of items only Eirik can confirm. Then feeds T146 entries 13–15 and 20.
+
+**Done externally (2026-11-19).** New: `surewave/background/2026-11-19_surewave_wp8_kpi_verification.md`. Sources checked with curl: Crossref (award filter 101083342 and per-DOI records), OpenAIRE (37 SUREWAVE results), Zenodo, the public LinkedIn page, surewave.eu News and Publications, YouTube oEmbed, the tracker's media links. Results against the tracker:
+- Peer-reviewed publications 9, not 10: six journal articles carry grant 101083342 in Crossref, plus MARINE 2025 (DOI 10.23967/marine.2025.163) and two Ceit 2024 congress papers. Sensors 2025 (Perez-Diego) names a different EU award in Crossref; Ceit's 2025 conference paper has no record found. Either could make the tenth.
+- Rewritten the same day to cover all 22 KPIs (19 tracker lines + D8.5's conference workshops, SAB workshops, newsletters) with an itemised list per KPI and an evidence level per item (V external record / P partner / R report text / E Eirik). Exact counts: conferences 13 (tracker 4), presentations 17, web events 5, joint events 4, LinkedIn followers 694, videos 5 (tracker 2; D8.5 had 3 at M18), journalistic articles 10, posters 2, newsletters 2 of 5 (surewave.eu PDFs, Jul and Sep 2023 — a deviation), SAB workshops 1 of 2, conference workshops 1 of 3; brochure, infographics, factsheets, flyers, roll-ups: no files found. Webpage visits flagged: D8.5 reported ~800 at M18 against 50,000+ in the tracker by end 2024. Revised again the same day on Eirik's point that tracker-only items are self-asserted: evidence levels are now V (proven: the item itself or an independent public record), O (own surewave.eu news), L (URL with archive.org copy, content unchecked — fetching archived copies of firewall-blocked sites was refused by the permission system), P (partner's written reply), S (tracker or report text only — not evidence), E (Sunlit Sea records only). Summary now separates found from proven: publications 7 proven of 9 found, conferences 3 of 13, presentations 5 of 17, articles 4 of 10, videos 4 of 5, joint events 2 of 4, newsletters 2 of 5 target; nothing proven yet for interviews, visits, posts, workshops and print material. New findings: DCIS 2023 paper credits WATEREYE (SUREWAVE named as continuation); the NaturSea-PV kick-off page lists William Otto (MARIN) as speaker with no SUREWAVE mention, contradicting MARIN's reply. Evidence requests per partner listed at the end of the file. Paste-in KPI table now shows Proven and Listed columns. Eirik's rule (2026-11-19): surewave.eu news items count as proof when they document a concrete countable thing; applied to the CINEA Solar PV clustering event of 25 Apr 2024 (presentations 6 proven, posters 2, joint events 3, conference workshops 1).
+
+**Online round with six parallel Opus agents (2026-11-19).** Agents covered Ceit publications, IFEU conferences, MARIN events and articles, Sunlit Sea/SINTEF/CINEA events, ACCIONA/Clement media, and videos/interviews/print. Their key findings were re-checked with curl before use. No agent worktrees were created (`.claude/worktrees/` empty), so no cleanup was needed. Result, rewritten into the verification file: publications 10 proven (Ceit's three congress papers found in GEF Revista vol. 8 and 9 and the MZT 2024 collection, all acknowledging 101083342; Sensors 2025 removed — funded by WILLOW only); conferences 9 proven (3 weak); presentations 12 (2 weak; SINTEF's SFI BLUES lecture of 27 Oct 2023 found in the national research registry); web events 5 (the 19 Nov 2024 "HEU SUREWAVE Lunch Webinar" recording proves the SAB workshop; the tracker's 30 Oct 2026 concrete webinar is very likely the final workshop of 30 Sep 2026); videos 4 + 2 recordings; articles 9 proven, 5 listed only; interviews 5, all LinkedIn clips of 3–18 Nov 2026 (after RP2); joint events 3. Contradicted or not found: NaturSea-PV kick-off talk (organiser lists William Otto, no SUREWAVE), Seagriculture 2023 (not in organiser's programme), Intersolar 2023, PTEC event, Clement interview video, ISNRE 2025, EU PVSEC 2026. Below target on present evidence: interviews 5/9, newsletters 2/5, SAB workshops 1/2, conference workshops 1/3; nothing found for infographics, factsheets, flyers, roll-ups, brochure. Paste-in file updated to these figures (publication target now met; deviation list now interviews, newsletters, workshops and print material).
+- Preprints: 3 with DOIs (report text says 5 prepared).
+- Zenodo: D8.1, an earlier D2.1 record and a 2024 wave-basin dataset sit on Zenodo outside the community; CORDIS lists D3.4 and D8.2 as public. Corrected in the Zenodo snapshot note.
+Updated with the verified figures: `surewave/deliverables/2026-11-19_surewave_final_technical_report_sunlit_sea_paste_in.md` (WP8 summary, O2 status now "largely achieved", Subtask 8.3.1, significant results, new deviation for 9/10 publications, KPI table rebuilt with verified actuals and D8.5 targets, Zenodo paragraph, entry 20 now keeps the coordinator's nine) and `surewave/background/2026-11-19_surewave_zenodo_community_snapshot.md`.
+
+**Remaining before `[x]`:** Eirik confirms LinkedIn posts, Matomo visits, the nine interviews, print material (infographics, factsheets, flyers, roll-ups, poster), newsletters, SAB and conference workshops, and the Intersolar / Seagriculture / CINEA events; Ceit confirms the two publication candidates. Then set targets in the paste-in KPI table.
+
+### T152 `[x]` [GENERIC] SUREWAVE — suggest topics for three more newsletters
+
+D8.5 set a target of 5 SUREWAVE newsletters; only two were issued (Newsletter I, July 2023; Newsletter II, September 2023 — both on surewave.eu/pdf/ and now also in `surewave/background/new/` as `Newsletter_I_Surewave.pdf` and `Newsletter_II_Surewave.pdf`). The KPI verification (T151) lists newsletters as the one clearly unmet communication KPI. The project runs to 31 December 2026, so three more issues can still be published.
+
+Task: propose topics for Newsletter III, IV and V. For each issue: working title, three to four items with a one-line description, the source deliverable or result each item draws on, suitable images from the catalogued assets (`docs/sure_images.md`; respect provenance and the open-sea vs nearshore configuration rules in `docs/surewave_configurations.md`), and a suggested publication date before 31 December 2026. Match the format of the first two issues (three pages, same tone).
+
+Candidate material: second-period results not yet covered by a newsletter — wave-basin campaigns and the 2 MW hydrodynamic simulations (MARIN), redesigned hinge and connection testing (SINTEF, Sunlit Sea), the Port of Gijón breakwater prototype and its nine-month exposure (ACCIONA, Ceit), structural health management and corrosion sensor (Ceit), sustainability and economic results (IFEU, Sunlit Sea, D7.3–D7.6), the technical brochure (D8.3), the interview clips of November 2026, webinars with BAMBOO and NaturSea-PV, the final workshop on sustainable concrete, publications and Zenodo datasets.
+
+Also part of the task: file the two newsletter PDFs from `surewave/background/new/` to `surewave/background/` as date-prefixed Markdown (per `/process-inbox`) so their content can be checked against for overlap.
+
+Note for the final report: issues published after 30 September 2026 fall outside reporting period 2. The WP8 deviation on newsletters should then say that the remaining issues were published at project close.
+
+**Method:** use three or four Opus agents in parallel, each given a distinct reader persona and asked to propose and critique newsletter topics from that reader's point of view — e.g. an offshore energy developer, an investor, a policy officer at CINEA, and an engineer at a partner research institute. Give each agent the same source pointers (deliverables in `surewave/background/`, D8.3, the KPI verification file) and the two existing newsletters. Merge their proposals into one set of three issues. Agent output is a hypothesis, not a source (`docs/rules/subagent-outputs.md`): use the personas for choosing and framing topics, and verify every fact, figure or claim against the deliverables before it goes into the topic list.
+
+**Deliverable:** `surewave/deliverables/<date>_surewave_newsletter_topics_iii_v.md`.
+
+**Solved (2026-11-20).** Filed the two existing newsletters from `surewave/background/new/` as `surewave/background/2023-07-06_surewave_newsletter_i.md` and `surewave/background/2023-09-14_surewave_newsletter_ii.md` (pdftotext, dated by PDF creation date; the PDFs remain in `new/` pending Eirik's decision). Ran four parallel Opus persona agents (offshore developer, investor, CINEA policy officer, research engineer) on the same sources; all converged on three themes. Merged into `surewave/deliverables/2026-11-20_surewave_newsletter_topics_iii_v.md`: III "Tested at scale" (basin campaigns, hinge redesign incl. North Sea margin, connection tests, 2 MW simulation with its cost caveat), IV "From recycled concrete to nine months at sea" (concrete strengths, lab durability, Gijón exposure, SHMS and sensor), V "Cost, carbon and what comes next" (LCOE by basin, cable lever, carbon and social footprint, open results and contacts), with source, image and provenance per item and suggested dates 3, 15 and 29 Dec 2026. Every figure was re-checked against the named deliverable. Pre-publication fixes listed: D8.3 vs D7.4 on cable cost (€0.09–0.11 vs €0.076/kWh) and on circular-concrete economics; IRR 10.6/10.7 % both in D7.4; Gijón figures to confirm with ACCIONA/Ceit (D6.4 not in repo); context of the CO₂ figures (170k/180k/160k). Side finding: Newsletter I documents SUREWAVE at Intersolar Europe and Seagriculture 2023 — added to the KPI verification file (conferences 9 → 11) and the T146 paste-in table. No agent worktrees created. Not done: writing the newsletters themselves.
+
+### T153 `[~]` [GENERIC] SUREWAVE Newsletter III — "Tested at scale"
+
+Write and produce SUREWAVE Newsletter III (target publication late November 2026) from the topic proposal in `surewave/deliverables/2026-11-20_surewave_newsletter_topics_iii_v.md` (Newsletter III section): basin campaigns at MARIN, hinge redesign with the North Sea margin, connection tests, and the 2 MWp DIFFRAC simulation with its cost caveat.
+
+Rigor: same standard as the D8.3 technical brochure PDF (T109, T114, T120, T145):
+1. Re-read every source deliverable named in the topic file before drafting; every figure and claim in the text is traceable to a deliverable section, recorded in a source companion (`<date>_surewave_newsletter_iii_sources.md`), the way `2026-09-28_surewave_d8.3_figures.md` records figure provenance.
+2. Format follows Newsletters I and II (`surewave/background/2023-07-06_surewave_newsletter_i.md`, `2023-09-14_surewave_newsletter_ii.md`): about three A4 pages, masthead "NEWSLETTER III", short intro, the project one-liner, item articles, "What's next", contacts, EU funding disclaimer. Plain tone; no "revolutionary/groundbreaking"; no emphasis-by-assertion; no bold in body text.
+3. Images only from the catalogued assets (`docs/sure_images.md`, low-res brochure folder and Clement folder); provenance checked; AI-generated figures labelled as illustrations; open-sea ring images carry no nearshore claims (`docs/surewave_configurations.md`); fig01/fig03 not used.
+4. PDF built like the brochure: pandoc + xelatex with a newsletter header file in `scripts/` (masthead, footer "SUREWAVE · Newsletter III · December 2026 · p.N", float placement), pandoc sub/superscript syntax instead of Unicode (CO~2~, 10^11^), then ghostscript `/ebook` compression. Document the build in `docs/scripts.md`.
+5. Review passes on the rendered PDF, as in T120: (a) layout/design review of the PDF as an artefact (page count, figure placement, whitespace, captions), (b) label and typography check of every embedded figure, (c) fact check of every number against the source companion. Run `/check-deliverable` before calling it done. Open the rendered PDF and look at every page.
+6. Partner check: the items on MARIN's work (basin campaigns, 2 MWp simulation) and on SINTEF's tests go to those partners for a factual check before publication (draft the request mail; do not send).
+
+**Deliverables:** `surewave/deliverables/<date>_surewave_newsletter_iii.md`, `…_newsletter_iii.pdf`, `…_newsletter_iii_sources.md`. Do not publish to surewave.eu or send to the mailing list without Eirik's order.
+
+**Draft produced (2026-11-20).** Files: `surewave/deliverables/2026-11-20_surewave_newsletter_iii.md` (source), `2026-11-20_surewave_newsletter_iii.pdf` (3 pages, 122 KB after ghostscript `/ebook`), `2026-11-20_surewave_newsletter_iii_sources.md` (source of every claim, figure provenance, issues found in D8.3). New `scripts/newsletter_pandoc_header.tex` (masthead colours, `Figure N:` captions at 90 % width, widow/club control, footer via `
+lfooter`, `nlbox` shaded box, TikZ EU emblem), documented in `docs/scripts.md`. Steps done: (1) every source re-read; (2) format of Newsletters I–II (masthead, intro, project box, four items, open-results list, what's next, contacts, EU disclaimer); (3) images from the catalogue only — fig12 (real basin photo, caption neutral on location) and Clement's moored ring (open-sea, caption notes the smaller simulated ring); (4) pandoc + xelatex + ghostscript build; (5) two parallel review agents on the rendered PDF — layout (caption orientation, figure legibility, page balance, number/unit breaks, rope/wire wording) and fact/label check against D6.1, D6.3, Bunnik 2026, D8.3 and the final-report working copy. Fixes applied: brochure fig14 dropped (AI-drawn curves labelled "measured"); fatigue stress stated as SINTEF's conservative value and "rough first estimate"; tensile gain "more than doubled" (final report 3.69 → 8.36 kN) instead of "three times"; 50 % vertical-load reduction limited to oblique waves; "failed" not "broke" for the steel wires; Zenodo dataset labelled first campaign; DOIs as https links (all six resolve); non-breaking spaces between numbers and units; "In numbers" box; contact labels not bold; closing block pinned to the foot of page 3. `/check-deliverable` greps: no bold in body, no emphasis-by-assertion, no repo paths. Every page of the final PDF viewed.
+
+**Remaining before `[x]`:** (6) partner check — send to MARIN (Joep van der Zanden: basin campaigns, 2 MWp simulation, whether fig12 is a MARIN photo) and SINTEF (Virgile Delhaye: hinge and connection items, and the 37 kN ULS with the 33/34/40 kN design loads, which only D8.3 states). Draft mail:
+
+> Subject: SUREWAVE Newsletter III – quick factual check of your items
+> Hi Joep / Hi Virgile, we are publishing SUREWAVE Newsletter III in early December. Attached is the draft (3 pages). Could you check the items on your work — Joep: the two basin campaigns and the 2 MWp simulation, and whether the basin photo (Figure 1) is from MARIN; Virgile: the hinge and connection test results, including the 37 kN ultimate limit state and the 33/34/40 kN design loads. Corrections by Friday would be great. Regards, Eirik
+
+Then publish on Eirik's order. Dated November 2026 (Eirik, 2026-11-20): the earliest truthful date is the actual publication date, so the issue goes out in late November rather than early December; a line under the masthead states that it covers results from the 2024–2026 test and modelling campaigns. Backdating was declined because the issue counts toward the newsletter KPI reported to CINEA. "What's next" section removed on Eirik's instruction (2026-11-20); page 3 now starts with the "In numbers" box (forced page break) followed by the open-results list, with the contact and EU block pinned to the foot of the page; figure widths 80 % (fig12) and 90 % (ring). Partner check: draft sent to MARIN by Eirik on 2026-11-20; awaiting reply. LinkedIn post for the issue drafted: `surewave/deliverables/linkedin_posts.md` (Eirik posts the week of 23 Nov). Rewritten 2026-11-20 as a LinkedIn document post: the newsletter PDF is uploaded as the document, so it shows in the feed as a swipeable three-page document with page 1 as the cover; the post text introduces the four items and points to the open-results page. Chosen over images (not zoomable or downloadable) and over a link (less reach). SINTEF check (hinge and connection items, 37 kN ULS and 33/34/40 kN loads) not yet sent. Also found: D8.3 has three errors the newsletter avoids (fig14 legend "measured", 11 MPa called design stress, "41 kN requirement" vs D6.1's 42 kN) — listed in the sources companion; fix in D8.3 when convenient.
+
+### T154 `[~]` [GENERIC] SUREWAVE Newsletter IV — "From recycled concrete to nine months at sea"
+
+Write and produce SUREWAVE Newsletter IV (target publication about 15 December 2026) from the Newsletter IV section of `surewave/deliverables/2026-11-20_surewave_newsletter_topics_iii_v.md`: circular concrete strengths, lab durability, the nine-month Gijón exposure, structural health monitoring and the eddy-current sensor (field corrosion detection stated as not yet demonstrated).
+
+Rigor: identical to T153 (steps 1–6), with these specifics: the Gijón figures rest on D8.3 and the final-report working copy because D6.4 is not in the repo — get them confirmed by ACCIONA and Ceit (draft the request mail) before the PDF is called final; make no economic claim for the circular concrete (D7.4 finds conventional breakwaters cheaper); request a lab photo and a fouling close-up from ACCIONA if usable images are missing. Reuse the newsletter header and build steps from T153.
+
+**Deliverables:** `surewave/deliverables/<date>_surewave_newsletter_iv.md`, `.pdf`, `_sources.md`. Not published without Eirik's order.
+
+**Draft produced (2026-11-20).** Files: `surewave/deliverables/2026-11-20_surewave_newsletter_iv.md`, `2026-11-20_surewave_newsletter_iv.pdf`, `2026-11-20_surewave_newsletter_iv_sources.md`. Built with `scripts/newsletter_pandoc_header.tex` + xelatex + ghostscript `/ebook`; every page of the final PDF viewed; `/check-deliverable` greps clean (no bold in body, no emphasis-by-assertion, no repo paths). 3 pages, 104 KB. Title adjusted to "From recycled concrete to the water" with a harbour caveat (El Musel does not reproduce the extreme open-sea design conditions). Images: Clement breakwater sections (full-scale design, enlarged transverse section) and fig15 (Photo: ACCIONA); fig17 (SHMS screenshot with ±1,500 kN hinge-force axis) and fig18 (AI) not used. Review agents: layout (no blocking; clarity fixes) and fact check (LWAC 49 vs 68 MPa per D4.1, pull-out weakness in the core not the bond per D4.2, harbour caveat, figure captions/credit, chloride and corrosion wording) — all applied and recorded in the `_sources.md` "Changes after review" section. Five DOIs resolve. Dated December 2026 (Eirik). **Remaining before `[x]`:** partner check — ACCIONA (Aurora María Casado Barrasa: materials, lab tests, prototype, Gijón results incl. LWAC density 1800 vs ~2000 kg/m³ and reuse of the Gijón photo) and Ceit (Ainhoa Cortés, Aritz Dorronsoro: monitoring system, sensor, accelerometers). Draft mail: "Subject: SUREWAVE Newsletter IV – quick factual check. Hi María / Hi Ainhoa, we are publishing SUREWAVE Newsletter IV in December. Attached is the draft (3 pages). Could you check the items on your work — María: the concrete mixes, laboratory tests, the Gijón prototype and inspection results, and whether we may use the photo of the prototype at El Musel; Ainhoa: the monitoring system, the corrosion sensor and the accelerometer results. Corrections within a week would be great. Regards, Eirik". Then publish on Eirik's order.
+
+### T155 `[~]` [GENERIC] SUREWAVE Newsletter V — "Cost, carbon and what comes next"
+
+Write and produce SUREWAVE Newsletter V, the final issue (target publication about 29 December 2026), from the Newsletter V section of `surewave/deliverables/2026-11-20_surewave_newsletter_topics_iii_v.md`: cost of energy by sea basin, the grid-connection lever, carbon and social footprint, open results with DOIs, next steps and contacts.
+
+Rigor: identical to T153 (steps 1–6), with these specifics: use D7.4 figures for cost of energy and the cable sensitivity (not D8.3's €0.09–0.11/kWh); omit IRR, or use the figure the final technical report uses; state the CO~2~ saving as "around 170,000 t per reference plant" with its D7.3 context; list DOIs from the Zenodo snapshot and the KPI verification file and check each resolves; IFEU checks the sustainability item before publication (draft the request). Reuse the newsletter header and build steps from T153.
+
+**Deliverables:** `surewave/deliverables/<date>_surewave_newsletter_v.md`, `.pdf`, `_sources.md`. Not published without Eirik's order.
+
+**Draft produced (2026-11-20).** Files: `surewave/deliverables/2026-11-20_surewave_newsletter_v.md`, `2026-11-20_surewave_newsletter_v.pdf`, `2026-11-20_surewave_newsletter_v_sources.md`. Built with `scripts/newsletter_pandoc_header.tex` + xelatex + ghostscript `/ebook`; every page of the final PDF viewed; `/check-deliverable` greps clean (no bold in body, no emphasis-by-assertion, no repo paths). 2 pages, 70 KB (final issue; one double-sided sheet). Image: fig20 LCOE chart (prepared for D8.3 from D7.4); fig19 (CO₂ chart with identical 170,000 t per site) and fig21 (cable infographic using D8.3's unsupported €0.09–0.11/kWh) not used. Review agents: layout (two-page format, DOI breaks, chart/text lifetime mismatch) and fact check (9 MWp LCA plant and 160–180 kt North Sea range instead of "170,000 t reference layout", D7.3 durability caveat, co-location wording, four breakwater options and "marginal or no improvement", "can have higher impacts", "typically") — all applied and recorded in `_sources.md`. Known and accepted: the chart repeats D7.4's internally inconsistent Baltic IRR 2.2 % / NPV +€2.1 M; text omits IRR and payback. Six DOIs and the Zenodo community URL resolve. Dated December 2026 (Eirik). **Remaining before `[x]`:** partner check — IFEU (Heiko Keller, Maximilian Breyer: climate, environment, social items) and SINTEF (Balram Panjwani: overall check of the final issue). Draft mail: "Subject: SUREWAVE Newsletter V – quick factual check. Hi Heiko / Hi Balram, we are publishing the final SUREWAVE newsletter at the end of December. Attached is the draft (2 pages). Heiko: could you check the climate, environment and social-supply-chain items? Balram: could you give the whole issue a final look as coordinator? Corrections within a week would be great. Regards, Eirik". Then publish on Eirik's order.
+
+### T156 `[~]` [GENERIC] SUREWAVE D7.4 — revision after Project Officer request Ares(2026)9755377
+
+On 16 October 2026 the Project Officer (Baris Adiloglu) asked for a revision of D7.4 *Report on economic assessment* (Sunlit Sea lead). Balram forwarded the request on 2026-11-20 and asked for the revised version as soon as possible. The request: since the Grant Agreement describes D7.4 as a "full system analysis, from cradle to grave", the report should briefly explain how end-of-life activities (decommissioning, potential reuse or recycling) are treated, list relevant costs left out of the model (e.g. the substation), and state the aspects outside the assessment as scope limitations.
+
+Balram was the last to edit the portal version, so the repo Markdown (`surewave/background/2025-09-05_surewave_d7.4_economic_assessment.md`) cannot be assumed to match it. Steps:
+
+1. Sync: compare the current docx (`temp/D7.4_Economic_Assessment.docx`) with the repo Markdown and bring the Markdown in line with the docx.
+2. Draft the revision in the Markdown: a new scope and system boundary section (in the model / outside the model / sensitivity only, tied to the input names in `2025-09-05_surewave_d7.4_costs_v2.xlsx`), a rewritten §4.4 on end of life, a consistent decommissioning paragraph in the recommendations chapter, a pointer from the summary, and version and revision history. The year-25 PV reinstallation must be described as the workbook actually treats it. The model is not re-run in this revision. *(Superseded 2026-11-20: the workbook review found cost-model errors that fall within the Project Officer's question; whether D7.4 waits for a rebuilt model is being decided under T157.)*
+3. Apply the same changes to the docx, keeping the template, formatting and figures, so Eirik can re-upload it to the portal.
+4. Short response note to Balram listing the changes by section.
+
+**Context files:**
+- `temp/D7.4_Economic_Assessment.docx` — current portal version
+- `temp/Rejection_Letter (2).pdf` — Project Officer revision request
+- `surewave/background/2025-09-05_surewave_d7.4_economic_assessment.md`, `surewave/background/2025-09-05_surewave_d7.4_costs_v2.xlsx`
+- `surewave/background/2022-09-20_surewave_grant_agreement_101083342.md` (D7.4 description, "cradle to grave")
+
+**Deliverables:** updated Markdown, revised docx for portal upload, response note in `surewave/deliverables/`.
+
+**Revision drafted (2026-11-20).**
+
+Files:
+- `surewave/background/2025-09-05_surewave_d7.4_economic_assessment.md`: synced to the portal docx, then revised.
+- `surewave/deliverables/2026-11-20_surewave_d7.4_economic_assessment_rev2.docx`: the portal docx with the same edits. It was edited in place in `word/document.xml` (lxml), with template, styles and figures kept, revision-history row 2.0 added, and fields set to update on open so the TOC picks up the new sections. Verified by converting it back with pandoc and diffing paragraph by paragraph against the Markdown: only formatting differences remain. Not checked visually, since there is no LibreOffice/Word on this machine.
+- `surewave/deliverables/2026-11-20_reply_panjwani_d7.4_revision.md`: email to Balram plus a response to the Project Officer for the portal.
+
+Content changes:
+- New §2.4 Scope and System Boundary: table of included / sensitivity only / outside the assessment. The substation is stated as a scope limitation.
+- §4.4 rewritten: PV replacement in year 25, decommissioning in year 50, materials, aligned with the D7.3 §3.2.4 end-of-life scenario.
+- All figures updated to the v3 model (T157): executive summary, §1.1, chapters 5–9, Appendix A.
+- §3.2.1 "Conventional" breakwater cost corrected to €1,221,594.
+- Text/model mismatches corrected:
+  - PV modules €400 → €500/kWp
+  - O&M table values, now including structure maintenance
+  - "O&M years 26–50 reduced 10–15 %" removed
+  - scenario table (±15–25 %) replaced by the model's ±4 %
+  - degradation and wave-loss values
+  - yield adjustments (unmodelled DC/inverter loss and downtime claims removed, the 8 % cooling gain added)
+  - price sensitivity (NPV −27 %, not −10 %)
+  - cable cost per 100 km
+  - "Barents Sea" typo
+- check-deliverable run.
+
+**Remaining before `[x]`:**
+- Eirik opens the docx in Word (update the TOC, look it over), answers the open points below, sends to Balram and uploads the v3 workbook to Zenodo as a new version.
+- Open points:
+  - `solar_energy_target_price` has Dir +1 in in_gen, so the pessimistic case uses a *higher* price (0.1248) and the optimistic case a lower one. Probably a sign error. Fixing it changes pes/opt NPV/IRR in the text.
+  - Are the specific yields (898/927/1306 kWh/kWp) net of DC/inverter losses? The text now states only the adjustments the model makes.
+  - Dissemination level: the portal docx says SEN, the Grant Agreement says PU.
+  - The Zenodo link points to the v2 record until the new version is uploaded.
+  - The email commits Eirik to sending corrected preprint and final-report text and to contacting IFEU. Trim if unwanted.
+
+**Price direction fixed (2026-11-20).**
+- **Correction:** `solar_energy_target_price` had Dir +1 in the v2 inputs, so the pessimistic case sold electricity at the higher price. The builder now sets Dir −1 (`DIR_CORRECTIONS` in `build_d74_workbook.py`, documented in the workbook README sheet and in the changelog as correction 11).
+- **New tests:** a test checks every Dir input by input (pessimistic value alone must lower NPV, optimistic alone must raise it; 9 sites/sizes), with a negative control on the v2 inputs that flags exactly the price. Further tests check the price variants in the workbook and the pes < base < opt ordering of NPV and LCOE. 19 tests pass (about 5 min).
+- **Workbook:** rebuilt; base cases unchanged.
+- **Report, Markdown and docx:** the price row added to the §5.5 scenario table; scenario ranges updated in §7.3 (m_10 payback 8–13 years, ROI 44–112 %; b_10 payback 17 or –, ROI −21 to 24 %; n_10 ROI −56 to −26 %), §9.1.1 (IRR 13.3–18.2 %) and §9.1.2 (Baltic optimistic NPV €2.3M).
+- **Checks:** the docx and Markdown were compared as multisets of all numbers and words, and are identical.
+- **Open:** the yield source sentence (D2.1 Table 24, PVsyst) is not yet added to §6.1.1; the dissemination level (SEN vs PU) and the TOC/PDF question are still open.
+
+### T157 `[x]` [GENERIC] SUREWAVE D7.4 cost model — working Excel workbook v3 with end-of-life costs, corrected formulas and tests
+
+While preparing the T156 revision (Project Officer request Ares(2026)9755377: explain end-of-life treatment and list costs excluded from the model), a review of `surewave/background/2025-09-05_surewave_d7.4_costs_v2.xlsx` found that the model differs from what D7.4 says it does. Several errors fall directly within the Project Officer's question ("note any relevant costs excluded from the model"), so the revision cannot answer it accurately without either fixing the model or listing unintended exclusions. Eirik evaluates this task before deciding whether T156 waits for it.
+
+**Source and deliverable.** The model was built in Google Sheets (original: https://docs.google.com/spreadsheets/d/18GXuRtmWr8jiVRxwQTwvQ2eyZ_LNCYSoG4ALdnriY8c). The xlsx in the repo and on Zenodo is a Drive export of it, and the export is lossy: formulas Excel does not support were written as `__xludf.UNSUPPORTED(...)` with the last Google Sheets result frozen as a fallback (e.g. `pontoons!AA4`, `AA5`, the pontoon totals). The deliverable is a workbook that works in Excel: every output recalculates in Excel from its inputs, with no frozen values. Google Sheets is the source to read, not the target to keep.
+
+**Findings (read from the xlsx export, sheet `out_loc` unless stated, 2026-11-20, column L = m_10). Each must be re-checked against the Google Sheets original in step 1, since the export may differ from it:**
+
+1. LCOE omits the reinstallation capital cost. `lcoe` (row 26) `=(L23+L25+L29)/(L24+L28)` counts second-life production (row 28, degradation reset at year 25) and second-life O&M (row 29), but not `total_solar_reinstall_cost` (row 27, €636k discounted for m_10). NPV (row 31) does include row 27. D7.4 §4.4 and §7.2 state the reinstallation is included in LCOE ("adds approximately €0.004–0.008/kWh"). Adding row 27 alone moves LCOE: m_10 0.062 → 0.066, b_10 0.096 → 0.101, n_10 0.139 → 0.146 €/kWh.
+2. Discounting uses `(1 − r)^t` instead of `1/(1 + r)^t` in rows 24, 25 and 27–29 (factor 0.108 instead of 0.130 at 25 years and 8.5 %); rows 27–29 carry an extra `(1 − r)` factor.
+3. IRR (row 34) is computed on cash flows already multiplied by `(1 − r)^t`, and over years 0–24 only. The reported IRR is therefore a return in excess of the discount rate, not an ordinary IRR. Payback (row 33) is also on discounted flows, years 0–24.
+4. Cost inputs defined but not used by any formula: `maintenance_pontoons_equipment_cost`, `_fuel_cost`, `_personnel_cost` (in_loc rows 9–11; m_10 €103k/yr), `inverters_transformers_cost` (row 15; m_10 €240k), `scada_system` (inter_gen C5, €39k). The D7.4 annex definitions say CAPEX includes inverters "including any replacement costs" and OPEX includes pontoon O&M. Also unused but probably harmless: `anchors_count`, `pontoons_count`, `solar_pipe_distance`, `pipe_wavebreaker_distance`.
+5. No end-of-life costs: no structural decommissioning at year 50 (§4.4 gives €798k for m_10, equal to the pontoon installation inputs, and excludes it), no removal of the second PV set at year 50, no disposal/recycling cost or residual value. It is unclear whether `replacement_of_pv_system_*` covers removal of the first PV set.
+6. The sensitivity sheets (`sens_discounts`, `sens_subsea_cable`, `sens_pontoons`) are hard-coded from an older run (m_10 "no subsea cable": CAPEX 9.49M, LCOE 0.0625, IRR 10.69 % vs live 9.44M, 0.0622, 10.83 %). This is the source of the 10.6 / 10.7 / 10.8 % IRR spread across documents.
+7. Subsea cable and substation: the base case connects via 300 m floating MV cable to a floating substation whose cost is in neither the base case nor the subsea sensitivity; the subsea alternative is `(€150 + €50)/m × distance_to_shore` with no losses, landing or onshore substation. D7.4 describes the cable treatment five different ways (§3.2.2, §5.2 text, §5.2 table, §7.5.1, §9.4 note), and the §9.4 figure (€3,000–4,000/kW for 100 km) does not match the model (~€1,900/kW at €200/m for 10.4 MW).
+8. Freight lookup uses the wrong key. `solar_freight_cost` (row 15) `=rings × panel_transport_km × containers × VLOOKUP(L$13, freight!A:B, 2, TRUE)` looks up `L13` (`total_pvc_cost`, €69,987) instead of `L10` (container count, 36), so every case gets the cheapest rate in the table (€0.706/km, the 10,946-container band) instead of the rate for its container count (€1.037/km for 36 containers). m_10: €73.7k in the model, €108.3k with the correct key.
+9. Pontoon totals do not recalculate in Excel. `pontoons!AA4` and `AA5` (total pontoon cost per installation size, which feeds `total_pontoon_cost` in all 27 columns) are `IFERROR(__xludf.UNSUPPORTED("SUMPRODUCT({FILTER(…),FILTER(…)})+SUM(FILTER(…))"), <frozen value>)`. In the Excel copy, changing pontoon weights or material prices has no effect on the results. Other `pontoons` columns use `MAP`/`LAMBDA`/`MINIFS`/`FILTER`; `out_loc` uses `SEQUENCE`/`SCAN`/`LAMBDA`. These need Excel 365/2021 at least, and some may not survive export at all.
+
+**Indicative effect of fixing 1–5** (rough in-memory replica, not a verified result; must be reproduced by the rebuilt model): m_10 LCOE ~0.071, NPV ~8.9M, IRR ~19 %; b_10 ~0.113, ~0.9M, ~9.5 %; n_10 ~0.162, ~−5.0M, ~4 %. The overall message (Mediterranean viable, North Sea not) holds; Baltic moves from moderate to marginal; the IRR rises because finding 3 understated it.
+
+**Proposed approach (for evaluation):**
+
+1. Fetch the original with formulas intact through the Google Sheets API (`spreadsheets.get` with `includeGridData=true`, fields `userEnteredValue` + `effectiveValue` per cell), which returns each cell's formula exactly as written in Google Sheets and its computed value. Store a dated snapshot (formulas and values per sheet, as JSON plus a readable Markdown dump) in `surewave/background/`. New script `scripts/fetch_gsheet.py`. Only the OAuth login is borrowed from `../kodeworks/docs/src/fetch_from_drive.py`: read-only scope (`spreadsheets.readonly` or `drive.readonly`), `secrets/credentials.json` + `secrets/token.json` (git-ignored, per machine), Eirik runs the first browser consent himself (`! python scripts/fetch_gsheet.py <link>`). Its download method (Drive export to xlsx) is not used: that is what produced the lossy v2 file. Prerequisites needing Eirik's approval: installing `google-api-python-client`, `google-auth`, `google-auth-oauthlib` (no `pyproject.toml` or venv in this repo yet; the kodeworks repo uses `uv`); an OAuth client for the Google account that owns the sheet.
+2. Map the model. From the snapshot, document every formula chain from inputs to outputs (`in_gen`/`in_loc` → `inter_gen` → `pontoons`/`freight` → `out_loc` → `summary`/`sens_*`), list which formulas use Google-only or Excel-365-only functions, and re-check findings 1–9 against the original. Output: a short model description that also serves as the basis for D7.4 Appendix A.
+3. Python reference model (only as far as needed for testing). Port the calculation to `scripts/`, reading inputs from the workbook. First reproduce the Google Sheets results exactly, errors included, to prove the port is faithful; then apply the corrections one at a time, each as a switch, so the effect of each correction can be quantified for the changelog. The Python code is a test oracle; it does not replace the workbook.
+4. Excel workbook v3 (the deliverable). Same sheet structure and parameter names as v2, so D7.4 Appendix A and existing readers can follow it. Formulas restricted to functions that work in desktop Excel and LibreOffice (no `LAMBDA`, `MAP`, `SCAN`, `FILTER`, `SEQUENCE`): the year-dependent calculations go into an explicit year-by-year cash-flow sheet (years 0–49, one row per cost or revenue line), and the pontoon selection uses `SUMIFS`/`MINIFS`/`INDEX`/`MATCH`. New explicit inputs for end-of-life items. Sensitivity sheets computed live from the model, not pasted. How to produce it is a decision for Eirik: generate the workbook from a Python build script (`openpyxl`, formulas written as text, reproducible) or edit the xlsx by hand in Excel from a cell-by-cell change list.
+5. Tests. Recalculate the v3 xlsx headless with LibreOffice via a sandboxed wrapper (`-env:UserInstallation` temp profile, as in `scripts/render_docx_pdf.sh`; never `soffice` directly) and compare every output in all 27 case columns with the Python model to a tolerance. Unit tests for discounting, LCOE, NPV, IRR (against a hand-computed example), year-25 reinstallation, year-50 decommissioning, freight band lookup and pontoon selection. A check that every input in `in_gen`/`in_loc` is used by some formula or documented as unused, and that no cell contains `UNSUPPORTED` or a frozen fallback. Final acceptance: Eirik opens v3 in Excel, changes a few inputs (a pontoon material price, the discount rate, a container count), and the results move as expected. Excel is not installed on this machine, so this step cannot be automated here.
+6. Changelog: table of every change (finding, change, effect on each headline figure), with a short factual reason. This feeds the T156 revision note to the Project Officer and the D7.4 text.
+7. Decisions for Eirik before step 4: whether payback and IRR stay on 25 years or move to 50; whether the substation stays outside the system boundary (stated as such) or gets a sourced cost; cost basis for disposal/recycling and residual value; whether inverter replacement (year ~12–15) is added; build script vs hand edit (step 4).
+
+**Downstream (separate tasks once the numbers are final):** D7.4 text (T156), D7.6 (IFEU, quotes LCOE/IRR/NPV), D8.3 brochure, D8.4 (T148), final technical report §1.4 (T146), Booster business plan, Newsletter V (T155), the techno-economic preprint with Balram, and a new version of the Zenodo dataset (10.5281/zenodo.17534609).
+
+**Effort:** substantial. The workbook is more complex than its ~15 output rows suggest: a pontoon sub-model with design selection, the freight bands, 27 case columns, and Google-Sheets-specific dynamic-array formulas that have to be rewritten for Excel. Rough split: fetch and model map ½ day; Python reference and tests 1 day; workbook v3 1–1½ days; changelog and Excel acceptance ½ day. Total 3–4 working days, plus setup time for Google API access. To be re-estimated after step 2.
+
+**Deliverables:** `surewave/background/<date>_surewave_d7.4_costs_gsheet_snapshot.{json,md}` (original with formulas); `surewave/deliverables/<date>_surewave_d7.4_costs_v3.xlsx` (working Excel workbook); `scripts/fetch_gsheet.py` and the reference model and tests in `scripts/` (documented in `docs/scripts.md`); `surewave/deliverables/<date>_surewave_d7.4_costs_v3_changelog.md`.
+
+**Context files:**
+- Google Sheets original: https://docs.google.com/spreadsheets/d/18GXuRtmWr8jiVRxwQTwvQ2eyZ_LNCYSoG4ALdnriY8c
+- `../kodeworks/docs/src/fetch_from_drive.py` and `../kodeworks/docs/.claude/skills/fetch-from-drive/SKILL.md` — OAuth login pattern only, for `scripts/fetch_gsheet.py` (its xlsx export is not used; read only, do not write there)
+- `surewave/background/2025-09-05_surewave_d7.4_costs_v2.xlsx` — current Excel export (Zenodo version), lossy
+- `surewave/background/2025-09-05_surewave_d7.4_economic_assessment.md` — D7.4 text, synced to the portal docx 2026-11-20; Appendix A documents the workbook parameters
+- `temp/Rejection_Letter (2).pdf` — Project Officer request
+- `surewave/deliverables/2026-11-19_reply_panjwani_preprint_review.md` — earlier note to Balram on the IRR and LCOE issues
+
+**Built and tested (2026-11-20).** Done without Google API access. The repo xlsx export turned out to preserve every formula: 1,890 formulas, of which only two (`pontoons!AA4`, `AA5`) are wrapped in `UNSUPPORTED`, and those keep the original Google formula text inside the wrapper. Step 1 (Sheets API fetch) was therefore skipped; no packages were installed and no OAuth was set up. Still open: a comparison with the current Google original, in case the sheet has changed since the 2025-09-05 export.
+
+Files:
+- `surewave/deliverables/2026-11-20_surewave_d7.4_costs_v3.xlsx` — the workbook: 14 sheets, 72 case columns, year-by-year `cf` sheet, live sensitivity sheets, README sheet with conventions, system boundary and changes. Saved after a LibreOffice recalculation, so results show in Excel Protected View.
+- `surewave/deliverables/2026-11-20_surewave_d7.4_costs_v3_changelog.md` — corrections, v2 vs v3 results, effect of each correction, sensitivities, verification, open points. Source for the T156 revision note.
+- New scripts: `scripts/d74_cost_model.py` (reference model; v2 replica + v3 with per-correction switches), `scripts/build_d74_workbook.py`, `scripts/test_d74_cost_model.py`, `scripts/d74_changelog.py`, `scripts/recalc_xlsx.sh` (sandboxed LibreOffice recalculation). All documented in `docs/scripts.md`.
+- Also changed: `README.md` (surewave background and deliverables), `.gitignore` (`__pycache__/`, `.pytest_cache/`).
+
+Findings added during the work, beyond 1–9 above:
+- `replacement_of_pv_system_*` was not multiplied by `rings_count` (5 × 2 MW cases).
+- The pontoon total added the pontoon counts (91) to the euro figure.
+- The base case uses pontoon design O0 Conv Ref, which D7.4 §3.2.1 does not name.
+
+Verification: `python -m pytest -p no:cacheprovider scripts/test_d74_cost_model.py` → 16 passed (incl. two display checks added after the first delivery showed ### cells). The Python v2 replica reproduces all 27 × 31 cached v2 outputs exactly. The LibreOffice-recalculated v3 matches the Python v3 model in all 72 columns. Other checks: no error values, no frozen values, no non-portable functions; inputs propagate; cash-flow timing is correct.
+
+Key results (8.5 %, €0.12/kWh):
+- m_10: LCOE 0.0622 → 0.0764, NPV €8.98M → €7.27M, IRR 10.8 % → 15.6 %.
+- b_10: 0.0958 → 0.1205, €2.16M → −€0.06M, so Baltic 10 MW is now break-even.
+- n_10: 0.1387 → 0.1735, −€2.86M → −€5.85M.
+
+Defaults taken on the step-7 decisions, all adjustable as inputs or in the builder:
+- IRR on full-life undiscounted cash flows (highest root in [−10 %, 50 %]); payback discounted, full life.
+- Substation outside the boundary.
+- Decommissioning factors 1.0; PV disposal €0/kW; residual value 0.
+- Inverters and transformers replaced at year 25.
+- Base case keeps the cheapest pontoon design; built by script.
+
+**Remaining before `[x]`:** Eirik opens the workbook in desktop Excel and changes a few inputs to confirm that the results move (Excel is not installed on the build machine). Eirik confirms or changes the defaults above. Compare with the current Google Sheets original, if it has been edited since the export.
+
+**Portability requirement (Eirik, 2026-11-20):** the build and tests must work on other computers without LibreOffice (now a rule in CLAUDE.md). Planned change, not yet made:
+- Tests evaluate the built workbook with the `formulas` library (as in `../stotte`), not `recalc_xlsx.sh`. Extend the comparison to every formula's output, not just the 16 key rows.
+- The `###` check uses only the pure-Python width test. The LibreOffice render test is dropped from the suite, or made optional.
+- The deliverable gets its stored results without LibreOffice: build it with `xlsxwriter`, which can write each formula with its result taken from the Python model.
+- Both libraries are already installed here (`formulas` 1.3.4, `xlsxwriter` 3.3.1). List them as dependencies in `docs/scripts.md`.
+- Check first: does `formulas` support every function used (`IRR`, approximate `VLOOKUP`, `SUMIFS`, `INDEX`/`MATCH`, `SUMPRODUCT` over array expressions), and how long it takes on about 65,000 formulas?
+
+**Portability rebuild done (2026-11-20).** The build and tests no longer use LibreOffice; this supersedes the LibreOffice-based parts above.
+- `build_d74_workbook.py` now assembles the workbook with openpyxl, evaluates every formula with the `formulas` library, and writes the deliverable with xlsxwriter, storing each formula's result next to it. Build time about 2 minutes.
+- `d74_cost_model.py` now produces every out_loc row and the year-by-year cash flows.
+- The new `test_d74_cost_model.py` (15 tests, about 2.5 minutes) checks every one of the 62,207 formula cells against an independent expected value from the Python model. A coverage test fails if any formula cell lacks one.
+- Before the switch, all 62,207 results from `formulas` agreed with a LibreOffice recalculation of the same workbook.
+- `scripts/recalc_xlsx.sh` and `scripts/xlsx_preview.py` were deleted.
+- `render_docx_pdf.sh` was reverted. The Work/Temp path redirect did not stop the Controlled Folder Access blocks: one accidental LibreOffice run during the rebuild produced 8 more blocks, at 21:32–21:33.
+- Inverter decision applied: `inverters_transformers_cost` is CAPEX only and covers the replacements (D7.4 §4.3.1). There is no year-25 inverter replacement. m_10 is now LCOE 0.0762, NPV €7.30M, IRR 15.6 %; b_10 is 0.1203, −€0.03M, 8.5 %.
+- Changelog and `docs/scripts.md` updated.
+- Defaults settled by Eirik: IRR and payback over 50 years, substation outside the boundary (consistent with D7.4 §3.2.2, D7.5, D7.6, D8.3, D8.4 and the final technical report), PV disposal €0/kW, decommissioning factor 1 (per D7.4 §4.4), residual value 0.
+
+**Remaining before `[x]`:**
+- Excel acceptance by Eirik.
+- Decision: keep O0 (conventional) as the base-case pontoon design, or switch to a SUREWAVE design.
+- Comparison with the current Google Sheets original.
+
+**Done (2026-11-20).** Eirik tested the workbook in Excel with four prepared edits: discount rate, CC concrete price, m_10 pontoon maintenance and the decommissioning factor. Each was checked against expected cell values computed by the Python model, and all matched with "nothing to report". The Google Sheets original has not changed since the export. The base-case pontoon design stays O0 (conventional), as D7.4 §3.2.1, §7.5.2 and Appendix A.3.6 already state. The only fix needed in the report is the "Conventional" breakwater figure in the §3.2.1 table (€1,341,740 → €1,221,594), handled in T156.

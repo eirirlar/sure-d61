@@ -16,7 +16,7 @@ Last reviewed: 2026-10-20.
 ## People
 
 - Eirik Larsen — board member, technical lead; acting administration, product development, sales, FoU follow-up. Billed to Sunlit Sea via KodeWorks AS; costs held within FoU budgets.
-- Per Lindberg (Per Filip Lindberg) — CEO and styrets leder. Permanent employee of Akershus Energi from 2026-01-01; retains Sunlit Sea CEO/chair role part-time, primarily on project development and Gen 2 advisory.
+- Per Lindberg (Per Filip Lindberg) — co-founder (2019), inventor of Gen 1, CEO and styrets leder, owner. PhD semiconductor physics (UiO, 2016); earlier REC (cell production), Multiconsult (senior technical consultant, solar/BESS, 2016–2019). Led Sunlit Sea from concept to commercialisation (production line, R&D, patenting, capital, Horizon Europe funding). Hired out from Sunlit Sea as consultant to Akershus Energi ~2024-05 to 2025-12-31; from 2026-01-01 employed directly by Akershus Energi because Sunlit Sea could not afford the salary (temporary). Continues as owner, CEO and chair, primarily on Gen 2 R&D (corrected by Eirik 2026-11-15; the 2026-07-16 løypemelding said "prosjektutvikling og rådgivning på gen 2"). CV: `generic/background/new/CV_Per_Lindberg.pdf` (not yet processed).
 - Olle Roman — civilian site coordinator for the Nearshore floating solar Gotland demonstrator. Försvarsmakten officer on tjänstledigt utan lön; Sunlit Sea role is strictly civilian and must not be framed as defence, dual-use, critical-infrastructure or energy-security in any medium.
 - Nina — previous regnskapsfører (name only; former).
 - Taeo Laue, Guillaume Kegelart — former engineers; no longer employed.
@@ -37,7 +37,7 @@ Last reviewed: 2026-10-20.
 ## Current projects
 
 - Nearshore floating solar Gotland — Horizon Europe EUPI-PV application. Call HORIZON-CL5-2026-11-D3-14 (EUPI-PV Partnership, HORIZON-IA lump sum, €7.5M per project, 4 projects total, €30M envelope). Submission 2026-12-01, 17:00 Brussels time. SINTEF-coordinated consortium; Sunlit Sea as technology-provider partner. Scope: ~1 MWp off Kappelshamnsviken (Gotland, Sweden) paired with ~4 MW nearshore demonstrator in Germany — meeting the call's ≥5 MW multi-sea-zone requirement. Target TRL 7-8 by project end. Project start preliminarily H2 2027 if funded; installation window May–September 2029.
-- EIC Transition SUREWAVE — Horizon Europe EIC Transition proposal lifting Sunlit Sea's Gen 2 CONNECT to TRL 6 by end 2027, built on SUREWAVE results. Call HORIZON-EIC-2026-TRANSITIONOPEN (lump-sum IA, 100% funding intensity, €100M envelope). Submission deadline 2026-09-16; proposal iteration continuing (T104). SINTEF-coordinated, with Clement and possible EDP (Portugal) involvement.
+- EIC Transition SUREWAVE — Horizon Europe EIC Transition proposal lifting the SUREWAVE protected FPV (CONNECT with directional breakwater) from TRL 4 to TRL 6 at project month 36 (three-year project; about 2030 if started 2027), built on SUREWAVE results. Submitted 2026-09-16; decision expected December 2026 – January 2027. Sunlit Sea share about €750k. Call HORIZON-EIC-2026-TRANSITIONOPEN (lump-sum IA, 100% funding intensity, €100M envelope). Submission deadline 2026-09-16; proposal iteration continuing (T104). SINTEF-coordinated, with Clement and possible EDP (Portugal) involvement.
 - Norwegian commercial pipeline (develop-operate-sell / direct sales):
     - Skien havn — 350 kWp, Aaltvedt Betong PPA offtaker, dispensation via Skien Havn via Prosolar (2-year permit), Telemark Utviklingsfond and Enova indicating support. Target install Q1 2027.
     - Gunneklevfjorden (inside Hærøya Industripark, Porsgrunn) — 3.2 MWp. HIP-SPV. Enova forprosjekt active (1 MNOK secured). Mooring on Hydro-remediated capped seabed, accepted by Miljødirektoratet as treating authority. Prosolar engaged as local contractor. Target install Q2–Q3 2027.
@@ -45,7 +45,7 @@ Last reviewed: 2026-10-20.
 
 ## Predecessor / reference projects
 
-- SUREWAVE — Horizon Europe. Grant Agreement 101083342, call HORIZON-CL5-2021-D3-03. Nominal duration 2022-10-01 to 2026-09-30; extended 12 months to 2026-12-31 for ACCIONA breakwater demonstrator in Spain. Coordinator: SINTEF AS. Beneficiaries (7): SINTEF (NO), Sunlit Sea (NO), Ceit (ES), MARIN (NL), ACCIONA (ES), Clement Germany (DE), IFEU (DE). Sunlit Sea role: FPV floater partner. Open-sea reference plant = full-ring breakwater; Gotland demonstrator uses the directional-breakwater variant (see `docs/surewave_configurations.md`).
+- SUREWAVE — Horizon Europe. Grant Agreement 101083342, call HORIZON-CL5-2021-D3-03. Nominal duration 2022-10-01 to 2026-09-30; extended 12 months to 2026-12-31 for ACCIONA breakwater demonstrator in Spain. Coordinator: SINTEF AS. Beneficiaries (7): SINTEF (NO), Sunlit Sea (NO), Ceit (ES), MARIN (NL), ACCIONA (ES), Clement Germany (DE), IFEU (DE). Sunlit Sea role: FPV floater partner. Open-sea reference plant = full-ring breakwater; Gotland demonstrator uses the directional-breakwater variant (see `docs/surewave_configurations.md`). Transition element = the floating PVC pipe between the concrete breakwater and the FPV array, attached with elasticized ropes (D3.4 §2.4; confirmed by Eirik 2026-11-18).
 - SuRE — Horizon Europe. Grant Agreement 101135567, call HORIZON-CL5-2023-D3-01-03. Duration October 2024 – 2027. Coordinator: Institute for Energy Technology (IFE). Sunlit Sea role: WP6 — FPV model chain. D6.1 (Model chain description) submitted; D6.2 (Multi-domain design screening) in preparation. BayWa r.e. withdrew autumn 2025; IFE recommended ~€0.4M scope expansion for Sunlit Sea pending CINEA decision. Support intensity 70%.
 - Skattefunn — ongoing. 19% support intensity (counts as 25% against statsstøtteregelverket). 2026 is the third and final year of the current period; new application needed for continuation from 2027.
 
@@ -79,9 +79,13 @@ Last reviewed: 2026-10-20.
 - Haugaland Næringspark (HNP) — host at Storavatnet. Reguleringsprocess at park level is prerequisite to byggesøknad on the FPV site.
 - Enova — Norwegian state enterprise. 1 MNOK forprosjekt-grant secured for Gunneklevfjorden; further Enova support indicated as project matures. Also indicated for Skien havn.
 - Innovasjon Norge — Norwegian state enterprise. Two outstanding loans to Sunlit Sea: ~3 MNOK and ~0.5 MNOK remaining. Loans will not convert to grants (confirmed 2026).
-- Tongge (Weihai, China) — current PU casting vendor; cast Gen 2 Prototype 3 in a multi-part aluminium mould.
+- Tongge (Weihai, China; "Weihai Tongge") — current PU casting and prototyping vendor; cast Gen 2 Prototype 3 in a multi-part aluminium mould.
+- Haitai Solar — extended-team partner; personnel on solar panel frame design for Gen 2. Earlier material pairs it with Tongge in the cast-PU supply arrangement (Prototype 3, autumn 2025).
+- Metsolar (Lithuania) — PV module manufacturer; collaboration on Gen 2 panel integration (panel cavity / infill design, module pricing, LCOE modelling). Contact: Matas Rudzikas.
+- Rixen Cableway also acts as Sunlit Sea's sales channel in Germany (in addition to being the Mannheim Gen 1 customer).
+- IFE personnel count as part of Sunlit Sea's extended team (Gen 2 structural simulation), in addition to IFE's SuRE coordinator role.
 - Norsmaterials — Norwegian PU specialist in Sandane. Partner candidate for Gen 2 PU formulation, mould design, cure behaviour. Not yet contracted.
-- SINTEF AS (PIC 910945140) — coordinator of both SUREWAVE and the EIC Transition SUREWAVE and EUPI-PV applications. Based in Trondheim.
+- SINTEF AS (PIC 910945140) — coordinator of both SUREWAVE and the EIC Transition SUREWAVE and EUPI-PV applications. Based in Trondheim. SUREWAVE financial/reporting contact: Marit Eggen. SINTEF EU advisor (rules, audits): Oddvar (surname not recorded).
 - IFE (Institute for Energy Technology) — coordinator of SuRE; also runs SiSim FEM simulations for Gen 2 floater.
 - Ocean Sun, Fred. Olsen 1848, Saipem / Moss Maritime, Ciel & Terre, SolarDuck, Oceans of Energy — competitors. Ciel & Terre is also a partner in the SuRE consortium.
 

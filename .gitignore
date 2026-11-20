@@ -3,3 +3,5 @@ report.docx
 surewave/deliverables/*.pdf
 temp/
 .claude/worktrees/
+__pycache__/
+.pytest_cache/

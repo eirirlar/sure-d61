@@ -1,3 +1,6 @@
-I don't think we need more images than the map and the fpv2 image.
+● The four files to send are in surewave/deliverables/2026-11-11_hrb_g2m_ker1/:
 
-Now the text. Don't ask Olle employer about anything. Keep it short and simple what the project is about from Sunlit Seas perspective, focus on where we're heading as a company, what societal mission we're on (green energy for the planet utilizing underutilized area at sea and lakes). Talk about the importance of energy diversification in todays political landscape. Etc. Give the listener a feeling that "yes, giving Olle leave to work on this is a good thing". But don't ask them. That's up to Olle.
+  - 02_G2M_Characterisation table.docx
+  - 06_G2M_exploitation roadmap.docx
+  - 09_G2M_Lean Canvas.pptx
+  - 10_G2M_Risks_Assessment_and_Priority_Map.xlsx

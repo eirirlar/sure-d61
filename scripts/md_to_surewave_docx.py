@@ -45,6 +45,14 @@ Metadata fields (all optional; unknown keys are tolerated):
     deliverable_type      R | DEM | DEC | OTHER
     due_date              e.g. "2026-09-30"
     delivery_date         e.g. "2026-09-28"
+    contributing_beneficiaries  e.g. "SINTEF AS"
+    version_history       list of [version, date, author, comments] rows for
+                          the cover's Document Version table
+    disclaimer_authority  replaces "the granting authority" in the cover
+                          disclaimer, e.g. the full CINEA name
+    number_figures        true -> prefix figure captions with "Figure N: "
+    strip_horizontal_rules  true -> drop markdown `---` rules from the docx
+                          (the last two via scripts/surewave_docx_filter.lua)
 """
 
 import argparse
@@ -65,6 +73,7 @@ W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 W = f"{{{W_NS}}}"
 
 DEFAULT_TEMPLATE = Path("surewave/background/2026-10-16_surewave_docx_template.docx")
+FILTER_PATH = Path(__file__).resolve().parent / "surewave_docx_filter.lua"
 
 
 # -------------------- metadata loading --------------------
@@ -133,6 +142,7 @@ CELL_LABEL_TO_KEY = {
     "Delivery date": "delivery_date",
     "Delivery date:": "delivery_date",
     "Actual delivery date": "delivery_date",
+    "Contributing beneficiaries": "contributing_beneficiaries",
 }
 
 # Default placeholder values in template cells that should be scrubbed to empty
@@ -288,6 +298,61 @@ def fill_textboxes(doc, meta: dict) -> None:
                     t.text = ""
                 # Make sure the first run preserves spaces
                 texts[0].set(f"{{{'http://www.w3.org/XML/1998/namespace'}}}space", "preserve")
+
+
+def fill_version_history(doc, meta: dict) -> int:
+    """Fill the cover's "Document Version | Date | Author | Comments" table from
+    meta["version_history"], a list of [version, date, author, comments] rows.
+    Rows are written into the template's empty rows in order; extra rows are
+    appended by copying the last row. Returns the number of rows written."""
+    rows = meta.get("version_history") or []
+    if not rows:
+        return 0
+    import copy
+    for table in doc.tables:
+        tbl = table._tbl
+        trs = tbl.findall(f"{W}tr")
+        if not trs:
+            continue
+        first_tcs = trs[0].findall(f"{W}tc")
+        if not first_tcs or not _cell_runs_text(first_tcs[0]).startswith("Document Version"):
+            continue
+        body_trs = trs[1:]
+        while len(body_trs) < len(rows):
+            new_tr = copy.deepcopy(body_trs[-1] if body_trs else trs[0])
+            (body_trs[-1] if body_trs else trs[0]).addnext(new_tr)
+            body_trs.append(new_tr)
+        for tr, row in zip(body_trs, rows):
+            tcs = tr.findall(f"{W}tc")
+            for tc, value in zip(tcs, list(row) + [""] * (len(tcs) - len(row))):
+                _set_tc_text(tc, "" if value is None else str(value))
+        return len(rows)
+    return 0
+
+
+def replace_disclaimer_authority(doc, meta: dict) -> int:
+    """Replace "the granting authority" in the cover disclaimer with
+    meta["disclaimer_authority"] (e.g. the full CINEA name). Works per paragraph
+    so a phrase split across runs is still found."""
+    new = meta.get("disclaimer_authority")
+    if not new:
+        return 0
+    old = "the granting authority"
+    count = 0
+    for p in doc.element.body.iter(f"{W}p"):
+        # Only this paragraph's own text, not text in nested text boxes/drawings.
+        texts = [t for t in p.iter(f"{W}t")
+                 if next(t.iterancestors(f"{W}p")) is p]
+        if not texts:
+            continue
+        joined = "".join((t.text or "") for t in texts)
+        if old in joined:
+            texts[0].text = joined.replace(old, f"the {new}")
+            texts[0].set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
+            for t in texts[1:]:
+                t.text = ""
+            count += 1
+    return count
 
 
 # -------------------- strip reference/QA tables after cover --------------------
@@ -570,7 +635,11 @@ def main() -> int:
             "--reference-doc", str(template_path),
             "--resource-path", str(md_path.parent.resolve()),
             "--wrap=none",
+            "--lua-filter", str(FILTER_PATH),
         ]
+        for key in ("number_figures", "strip_horizontal_rules"):
+            if meta.get(key):
+                cmd += ["-M", f"{key}=true"]
         print(f"pandoc: {' '.join(cmd)}")
         subprocess.run(cmd, check=True)
 
@@ -582,6 +651,12 @@ def main() -> int:
         fill_paragraph_placeholders(template_doc, meta)
         fill_cover_table(template_doc, meta)
         fill_textboxes(template_doc, meta)
+        n_rows = fill_version_history(template_doc, meta)
+        if n_rows:
+            print(f"version history: {n_rows} row(s) written")
+        n_disc = replace_disclaimer_authority(template_doc, meta)
+        if n_disc:
+            print(f"disclaimer authority replaced in {n_disc} paragraph(s)")
         removed = strip_reference_tail(template_doc)
         print(f"stripped {removed} reference/placeholder elements from template tail")
 

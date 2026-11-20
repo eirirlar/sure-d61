@@ -21,6 +21,10 @@ Persistent helper scripts live in `scripts/` at the repo root — never scattere
 - [`render_docx_pdf.sh`](#render_docx_pdfsh) — sandboxed LibreOffice docx → PDF (does not trip Windows Controlled Folder Access)
 - [`rebuild_task_indexes.py`](#rebuild_task_indexespy) — regenerate `TASKS_INDEX.md` and `ARCHIVE_INDEX.md` from the master task files
 - [`estimate_yield.py`](#estimate_yieldpy) — preliminary annual AC yield estimator for an FPV site (PVGIS 5.2 + FPV cooling bonus)
+- [`build_d74_workbook.py`](#build_d74_workbookpy) — build the SUREWAVE D7.4 cost workbook v3 (Excel) from the v2 workbook
+- [`d74_cost_model.py`](#d74_cost_modelpy) — Python reference model for the D7.4 cost workbook (test oracle, v2 replica + corrected v3)
+- [`test_d74_cost_model.py`](#test_d74_cost_modelpy) — pytest suite: v2 replica, v3 workbook vs Python, portability, input propagation
+- [`d74_changelog.py`](#d74_changelogpy) — v2 → v3 result tables for the D7.4 changelog
 
 ## `md_to_pdf.py`
 
@@ -180,9 +184,65 @@ Known fields substituted on the cover:
 | `due_date` | `Due delivery date` row | Deliverable details table |
 | `delivery_date` | `28.11.2022` (default) | Deliverable details table |
 
+Optional extra fields (added 2026-11-18 so that hand edits made in Word to the circulated D8.3 docx can be reproduced from source):
+
+| Field | Effect |
+|---|---|
+| `contributing_beneficiaries` | Fills the `Contributing beneficiaries` cell. |
+| `version_history` | List of `[version, date, author, comments]` rows written into the cover's Document Version table; rows are added if the template runs out. |
+| `disclaimer_authority` | Replaces "the granting authority" in the cover disclaimer (e.g. with the full CINEA name). |
+| `number_figures: true` | Prefixes every figure caption with `Figure N:`. Pandoc's docx writer does not number captions. |
+| `strip_horizontal_rules: true` | Drops Markdown `---` rules from the docx body. They stay in the LaTeX/PDF build. |
+
+The last two are implemented in `scripts/surewave_docx_filter.lua`, which the wrapper always passes to pandoc (both behaviours are off unless the meta key is set). To keep a block out of the docx but in the PDF, put it in a fenced ```` ```{=latex} ```` raw block.
+
 The wrapper only substitutes the first occurrence of each label, so the SUREWAVE reference tables (Dissemination level definitions, Deliverable type definitions, QA review table) further down the cover are left intact.
 
 Used by the `generate-surewave-docx` skill.
+
+Known limitation: pandoc pipe tables do not survive the SUREWAVE reference doc. The cells render as loose paragraphs (seen in LibreOffice; reproduced with plain `pandoc --reference-doc` on a minimal file), so the fault is in the template, not the wrapper. Use lists instead of tables in SUREWAVE deliverables, or fix the template's table style first.
+
+### D8.3 technical brochure PDF (`brochure_pandoc_header.tex`)
+
+The D8.3 brochure PDF is built with plain pandoc + xelatex using `scripts/brochure_pandoc_header.tex` (float placement, running footer, TikZ cover), then compressed with ghostscript:
+
+```bash
+# from surewave/deliverables/ (Git Bash)
+pandoc 2026-09-28_surewave_d8.3_technical_brochure.md -o <scratch>/full.pdf --pdf-engine=xelatex \
+  --include-in-header=../../scripts/brochure_pandoc_header.tex \
+  -V geometry:margin=2cm -V classoption=svgnames -V colorlinks
+```
+
+```powershell
+# compression: run from PowerShell, because Git Bash rewrites /ebook into a path
+& "C:\Program Files\gs\gs10.08.0\bin\gswin64c.exe" --% -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=surewave\deliverables\2026-09-28_surewave_d8.3_technical_brochure.pdf <scratch>\full.pdf
+```
+
+Notes:
+
+- No `--toc`: the table of contents was dropped deliberately (T120 third pass).
+- `classoption=svgnames` is required for the `MidnightBlue` colour on the cover.
+- `geometry:margin=2cm` and `colorlinks` were reconstructed on 2026-11-18. The September build command was never recorded, so these may differ from the first issue.
+- Use pandoc sub/superscript syntax (`CO~2~`, `m^3^`) instead of Unicode `₂`/`³`, because Latin Modern has no such glyphs.
+- The build takes about 5–6 minutes.
+
+### SUREWAVE newsletters PDF (`newsletter_pandoc_header.tex`)
+
+Newsletters III–V (T153–T155) are built like the D8.3 brochure: plain pandoc + xelatex with `scripts/newsletter_pandoc_header.tex`, then ghostscript compression. The header gives figure placement, `Figure N:` captions, blue section headings, a running footer, a shaded box (`nlbox`) for the project one-liner and contacts, and a TikZ EU emblem (`\euemblem{2cm}`, no image file needed). Each newsletter sets its own footer text at the top of the Markdown with `\renewcommand{\nlfooter}{SUREWAVE $\cdot$ Newsletter III $\cdot$ December 2026}`.
+
+```bash
+# from surewave/deliverables/ (Git Bash)
+pandoc 2026-11-20_surewave_newsletter_iii.md -o <scratch>/full.pdf --pdf-engine=xelatex \
+  --include-in-header=../../scripts/newsletter_pandoc_header.tex --resource-path=. \
+  -V geometry:a4paper,margin=2cm -V classoption=svgnames -V colorlinks -V mainfont="Segoe UI"
+```
+
+```powershell
+# compression (PowerShell; Git Bash rewrites /ebook into a path)
+& "C:\Program Files\gs\gs10.08.0\bin\gswin64c.exe" --% -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=surewave\deliverables\<newsletter>.pdf <scratch>\full.pdf
+```
+
+Notes: use pandoc sub/superscript syntax (`CO~2~`, `10^11^`) rather than Unicode; the build takes under a minute. Each issue has a `_sources.md` companion recording the source of every fact and the provenance of every figure.
 
 ## `md_image_to_html.py`
 
@@ -396,11 +456,62 @@ SOFFICE=/other/path/soffice.exe scripts/render_docx_pdf.sh <input.docx>
 
 # Override output directory (default: /tmp/sw_pdfs)
 OUTDIR=/some/other/dir scripts/render_docx_pdf.sh <input.docx>
+
+# Spreadsheets: recalculate all formulas on load, so charts and formula cells
+# show current values instead of the cached ones stored in the file
+LO_RECALC=1 scripts/render_docx_pdf.sh <input.xlsx>
 ```
+
+The wrapper also accepts `.xlsx` and other formats LibreOffice can open. Each output is named `<stem>.pdf`.
 
 Used mainly during iteration on `md_to_surewave_docx.py` / `md_to_letter.py` output when the generated docx needs visual inspection without opening Word.
 
 Environment prerequisites: LibreOffice installed on PATH or at the default location above. `cygpath` must be available (ships with Git Bash) for the `/tmp/...` → Windows path conversion.
+
+## SUREWAVE D7.4 cost model (T157)
+
+Four scripts maintain the D7.4 techno-economic cost workbook. The deliverable is the Excel workbook; the Python code exists to build it reproducibly and to test it. No desktop applications (Excel, LibreOffice) are needed, so the scripts run on any machine with Python.
+
+Python packages: `openpyxl`, `xlsxwriter`, `formulas` (pulls in `numpy`), `pytest` for the tests (`pip install openpyxl xlsxwriter formulas pytest`).
+
+### `build_d74_workbook.py`
+
+```bash
+python scripts/build_d74_workbook.py surewave/background/2025-09-05_surewave_d7.4_costs_v2.xlsx <out.xlsx>     # ~2 min
+```
+
+Carries the v2 input sheets over unchanged (plus the end-of-life inputs appended to `in_gen`), and rebuilds `pontoons`, `out_loc`, `cf` (year-by-year cash flows), `summary`, `sens_*` and `README` with formulas that work in desktop Excel. Case columns: 27 main cases plus 45 sensitivity cases (discount rate 2–10 %, subsea cable, pontoon design). Pipeline: `build_openpyxl()` assembles the formulas, `evaluate()` calculates every formula with the `formulas` library, and `write_with_results()` writes the file with xlsxwriter, storing each formula's result next to it, so Excel shows numbers even in Protected View. `evaluate(..., inputs=..., model=...)` recalculates after changing input cells without reloading (~20 s).
+
+### `d74_cost_model.py`
+
+Reads the input sheets of a v2 or v3 workbook. `v2_outputs(inp, case)` reproduces v2 exactly, errors included. `v3_outputs(inp, case, fixes=..., overrides=...)` is the corrected model; `fixes` is a subset of `V3_FIXES` (default: all), so each correction can be switched off to measure its effect; `overrides` takes `discount_rate`, `cable` and `pontoon_design` for sensitivity cases. With all fixes it also returns every out_loc row and the year-by-year cash flows (`o["cf"]`), so every workbook cell has an independent expected value. Command line: `python scripts/d74_cost_model.py <xlsx> --mode v2|v3 --cases m_10 b_10`.
+
+### `test_d74_cost_model.py`
+
+```bash
+python -m pytest -p no:cacheprovider scripts/test_d74_cost_model.py     # ~2.5 min
+```
+
+15 tests. Builds v3 in a temp folder and evaluates it with `formulas`. Checks:
+
+- v2 replica vs cached v2 values (27 × 31).
+- Every formula cell of v3 (62,207) has an expected value from the Python model (coverage test), and every result matches (input variants, inter_gen, pontoon grid, all out_loc rows in all 72 columns, every cf cell, summary, sensitivity sheets).
+- The delivered file stores the same formulas and results.
+- Every number fits its column in its number format (no `###`, with a negative control).
+- No error values, non-portable functions or defined names.
+- Every input used or documented-unused.
+- Input changes propagate and agree with the model (pontoon price; discount rate with an end-of-life factor).
+- IRR, freight-band, pontoon and cash-flow-timing unit tests.
+
+Run after any change to the builder, the model or the v2 inputs. `-p no:cacheprovider` keeps `.pytest_cache` out of the repo.
+
+### `d74_changelog.py`
+
+```bash
+PYTHONIOENCODING=utf-8 python scripts/d74_changelog.py <v2.xlsx> [<v3.xlsx>]
+```
+
+Prints Markdown tables: base-case results v2 vs v3, and the leave-one-out effect of each correction on the 10 MW cases. With a v3 file it also checks the stored results against the model. Used for `surewave/deliverables/2026-11-20_surewave_d7.4_costs_v3_changelog.md`.
 
 ## `rebuild_task_indexes.py`
 
@@ -463,3 +574,38 @@ Azimuth uses the compass convention (0 = N, 90 = E, 180 = S, 270 = W); the scrip
 **PVGIS cross-check.** The estimator displays PVGIS's own AC yield at `loss=0` (crystSi model with internal temperature and spectral derating) alongside the user-component-based figure. When the two PR values diverge by more than 1 pp, the report flags the component list as optimistic or conservative relative to PVGIS. This keeps the user-supplied loss decomposition honest.
 
 Used by the `estimate-yield` skill, which drives the script and routes the output through `md_to_pdf.py` for PDF rendering in the Sunlit Sea visual profile. The script is standalone — the skill is a convention wrapper around it, not a hard dependency.
+
+## `fill_hrb_g2m_templates.py`
+
+Fills the Horizon Results Booster (META Group) G2M templates from Markdown sources: characterisation table (`.docx`), exploitation roadmap (`.docx`), risk assessment and priority map (`.xlsx`), BOSAT self-assessment questionnaire (`.xlsx`), Lean Canvas (`.pptx`) and Business Plan (`.docx`). Edits the OOXML parts directly with `lxml` so the BOSAT radio-button form controls, charts, comments and hidden sheets survive (openpyxl would drop them). Never modifies the template; always writes a new output file.
+
+```bash
+python scripts/fill_hrb_g2m_templates.py characterisation <template.docx> <source.md> <out.docx>
+python scripts/fill_hrb_g2m_templates.py roadmap          <template.docx> <source.md> <out.docx>
+python scripts/fill_hrb_g2m_templates.py risk             <template.xlsx> <source.md> <out.xlsx>
+python scripts/fill_hrb_g2m_templates.py bosat            <template.xlsx> <source.md> <out.xlsx>
+python scripts/fill_hrb_g2m_templates.py lean             <template.pptx> <source.md> <out.pptx>
+python scripts/fill_hrb_g2m_templates.py bizplan          <template.docx> <source.md> <out.docx>
+```
+
+Source conventions:
+
+- docx kinds: one `## <field label>` section per template row (labels matched ignoring case and punctuation); the KER title comes from `## KER name` (characterisation) or `## KER title` (roadmap). `-` lists become bullet paragraphs; Markdown tables are flattened to one line per row.
+- `risk`: one Markdown table with columns Category | Risk | Crit. | Prob. | Intervention | Feas.; categories as in the template (max 5 rows each). Risk grade and conclusion are written as cached values and the workbook is flagged for full recalculation on open. Rows whose text needs more than the template's fixed height are grown (about 50 characters per line in the risk column, 75 in the intervention column).
+- `bosat`: one Markdown table Code | Selected answer | Note, answer text verbatim from the questionnaire option. The script writes the option index to the hidden `H` cell, which drives the score and the radar chart. It marks each option in column E as `[x]` (chosen) or `[ ]`, and removes the template's radio buttons (from the sheet's `<controls>`, the `ctrlProps` parts with their rels and content types, and the legacy VML drawing). The group-box controls are kept. The radio buttons were dropped because LibreOffice does not support Excel option-button groups linked to a cell: on opening, it overwrites the linked `H` cells with TRUE/FALSE and shows every button unticked. With text marks, the output looks the same in Excel and LibreOffice. To produce a PDF, use `LO_RECALC=1 scripts/render_docx_pdf.sh <out.xlsx>`, so that the chart is drawn from the current scores. KER name comes from the H1 title after the em dash.
+- `lean`: one `## <box>` section per canvas box (Problem, Solution, Key metrics, Unique Value Proposition, Unfair advantage, Channels, Customer segments, Cost structure, Revenue streams), with `### Alternative solutions` under Problem and `### Early adopters` under Customer segments, plus `## KER name`. Line 3 of the file carries the date (`14 November 2026`) and `Iteration #N`. The script keeps the template's red box headings, removes the hint text and inserts the content as 8 pt bullet paragraphs (plain paragraphs for non-list text). Keep each box short: the boxes do not grow. Render with `scripts/render_docx_pdf.sh <out.pptx>` to check fit.
+- `bizplan`: one `## <chapter>` section per template chapter to fill, matching the template's Heading 1 text (The organisation, The product/service, The market, The business model and marketing strategy, and so on). Chapters without a section keep the template's yellow guidance text, so the plan can be filled in instalments. Inside a section: `### ` becomes a Heading 2 (numbered by the template), `- ` items use the template's bullet list, lines starting `1. ` stay as separate numbered paragraphs, and Markdown tables become Word tables (template table grid, shaded header row, 9 pt, left-aligned). The KER name for the title comes from the H1 after the em dash and replaces `[name of the KER]`.
+
+Templates live in `surewave/background/` (`*_hrb_g2m_*_template.*`). First used in T141. The T141 outputs are written to `surewave/deliverables/2026-11-11_hrb_g2m_ker1/` under META Group's original file names without the template marker (an exception to the date-prefix convention, so the recipient can match each file to its template), e.g.:
+
+```bash
+B=surewave/background D=surewave/deliverables O="$D/2026-11-11_hrb_g2m_ker1"
+python scripts/fill_hrb_g2m_templates.py characterisation $B/2025-03-10_hrb_g2m_characterisation_table_template.docx $D/2026-11-11_surewave_hrb_characterisation_table_ker1.md "$O/02_G2M_Characterisation table.docx"
+python scripts/fill_hrb_g2m_templates.py roadmap $B/2024-11-29_hrb_g2m_exploitation_roadmap_template.docx $D/2026-11-11_surewave_hrb_exploitation_roadmap_ker1.md "$O/06_G2M_exploitation roadmap.docx"
+python scripts/fill_hrb_g2m_templates.py risk $B/2025-12-09_hrb_g2m_risk_assessment_priority_map_template.xlsx $D/2026-11-11_surewave_hrb_risk_assessment_ker1.md "$O/10_G2M_Risks_Assessment_and_Priority_Map.xlsx"
+python scripts/fill_hrb_g2m_templates.py bosat $B/2024-02-22_hrb_g2m_bosat_template.xlsx $D/2026-11-11_surewave_hrb_bosat_ker1.md "$O/11_G2M_BOSAT.xlsx"
+python scripts/fill_hrb_g2m_templates.py lean $B/2023-11-23_hrb_g2m_lean_canvas_template.pptx $D/2026-11-13_surewave_hrb_lean_canvas_ker1.md "$O/09_G2M_Lean Canvas.pptx"
+python scripts/fill_hrb_g2m_templates.py bizplan $B/2024-11-29_hrb_g2m_business_plan_template.docx $D/2026-11-14_surewave_hrb_business_plan_ker1.md "$O/12_G2M_Business_Plan.docx"
+```
+
+The `lean` kind and the row-height growth in `risk` were added in T143; the `bizplan` kind in T144.

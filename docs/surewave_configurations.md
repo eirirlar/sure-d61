@@ -4,13 +4,16 @@ This note exists so deliverables, image prompts and investor material do not con
 
 ## Open-sea reference plant
 
-Documented in `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`. 7 MWp installed on a 346 m diameter circular footprint; sixty-eight 14 × 14 FPV matrices packed inside a full-ring perimeter of external floating breakwater units, with two internal linear breakwater lines dividing the array into sub-farms. Validated across three European sea-basin classes (Baltic mild, Mediterranean mid, North Sea harsh).
+Documented in `surewave/deliverables/2026-09-28_surewave_d8.3_technical_brochure.md`. 7 MWp installed on a 346 m diameter circular footprint; sixty-eight 14 × 14 FPV matrices (D3.4) packed inside a full ring of 56 floating breakwater units, with two crossing lines of bridge pontoons (17 + 18 units, D3.3) dividing the array into four sub-farms. Slack-catenary mooring with long chains, running from the ring to anchors both outside and inside the footprint. Validated across three European sea-basin classes (Baltic mild, Mediterranean mid, North Sea harsh). D3.3's layout study assumed a 10 MWp basis with about 18,600 panels of 537 Wp; the 7 MWp / 68-matrix figure is the later D3.4 system design and is what the brochure states.
+
+Breakwater unit geometry (Clement Germany, confirmed in Thomas Pehlke's 2026-11-18 brochure review): rectangular cross-section that does not narrow towards the bottom, side walls continuing down as two keels, transverse interior walls, deep draft (2.03 m) and low freeboard (0.47 m).
 
 The full-ring breakwater is the design-basis configuration for open-sea deployment: wave exposure is omnidirectional, so the breakwater perimeter is omnidirectional. Reference images:
 
+- `surewave/images/2026-11-18_clement_d8.3_figure_inputs/` — Clement Germany CAD graphics (plant layout, mooring plan, moored ring, unit renders, sections). Authoritative geometry; used in the D8.3 brochure from 2026-11-18.
 - `surewave/images/2026-09-28_surewave_d8.3_technical_brochure_lowres/fig01.png` — AI-generated concept render of the full installation (cover image).
-- `surewave/images/.../fig03.png` — AI-generated vector illustration with labelled subsystems.
-- `surewave/images/.../fig04.png` — plan view, 346 m diameter.
+- `surewave/images/.../fig03.png` — AI-generated vector illustration with labelled subsystems. Breakwater geometry is schematic (narrowing keel, high freeboard, short steep chain). Kept in the brochure at Clement's request, captioned as not to scale; do not use it for geometry.
+- `surewave/images/.../fig04.png` — AI plan view, 346 m diameter. Superseded by the Clement layout 2026-11-18.
 
 A 420 kWp pilot-scale variant is noted in D8.4 Section 2 as a mild-sea pilot stepping stone, but uses the same perimeter architecture.
 

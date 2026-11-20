@@ -130,7 +130,22 @@ All brochure figures (fig01 through fig24) have their generation prompts and pro
 - `fig21.png` — Mediterranean 10 MW CAPEX composition. **Infographic.**
 - `fig22.png` through `fig24.png` — Consortium / partner figures. **Mixed — see figures spec.**
 
+**Withdrawn from the brochure 2026-11-18** after Clement Germany's review (Thomas Pehlke): fig04, fig05, fig06, fig08 and fig10. fig03 stays in the brochure at Thomas's request, captioned as a schematic illustration, not to scale. fig09 (circular concrete composition) was removed by the partners in the v1 review round, also on 2026-11-18. Their breakwater and mooring geometry is technically wrong in one or more of four ways: the cross-section narrows towards the bottom, the mooring reads as taut instead of slack catenary, there are no transverse interior walls, and the freeboard is high instead of low. Do not reuse them for breakwater geometry. The files remain in the folder as the record of what was issued in September 2026. Replaced by the Clement graphics below.
+
 **Important for deliverables:** fig01, fig03 and fig04 all show the full-ring open-sea reference plant. They do not represent nearshore configurations (Gotland, Hainer See). Do not use these to illustrate a nearshore demonstrator — see [`docs/surewave_configurations.md`](surewave_configurations.md).
+
+---
+
+## `surewave/images/2026-11-18_clement_d8.3_figure_inputs/` — Clement Germany graphics for the D8.3 brochure
+
+Sent by Thomas Pehlke (Clement Germany) on 2026-11-18 as replacements for the brochure's breakwater and mooring figures. **CAD renders and drawings by Clement Germany.** Credit "Graphics: Clement Germany" in captions. Authoritative geometry for the SUREWAVE breakwater unit and the open-sea reference ring.
+
+- `original/` — the seven files as received, renamed: `clement_input_fig3_plant_layout.pdf`, `clement_input_fig3_2_mooring_plan.pdf`, `clement_input_fig4_unit_render.png`, `clement_breakwater_isometric_transparent.png`, `clement_input_fig7_moored_ring.png`, `clement_input_fig9_longitudinal_section.png`, `clement_input_fig9_2_transverse_section.png`. The `figN` numbers refer to the brochure numbering at the time of the review.
+- `plant_layout_and_mooring_plan.png` — plan layout (the panel-count and panel-size callout is blanked out, because it is the D3.3 10 MWp basis) next to the mooring plan. Brochure Section 2.
+- `breakwater_unit_render.png`, `breakwater_unit_isometric.png`, `breakwater_unit_exterior_interior.png` — solid exterior and transparent interior (transverse walls) views, plus a side-by-side composite. Brochure Section 3.
+- `moored_ring.png` — the full ring with slack-catenary chains to outer and inner anchors. Superseded in the brochure by the next file.
+- `moored_ring_with_pv.png` — the same moored ring with the FPV matrices inside, sent by Thomas Pehlke later on 2026-11-18 (original `original/clement_moored_ring_with_pv_transparent.png`, transparent background flattened onto white). Brochure Section 3, mooring.
+- `breakwater_sections.png` — longitudinal section above an enlarged transverse section, not to common scale. No material labels, because the zones are not identified by Clement. Brochure Section 4.
 
 ---
 

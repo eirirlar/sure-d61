@@ -38,6 +38,19 @@ mkdir -p "$OUTDIR"
 PROFILE_DIR=$(mktemp -d -t sw_lo_profile.XXXXXX)
 trap 'rm -rf "$PROFILE_DIR"' EXIT
 
+# Optional: LO_RECALC=1 makes Calc recalculate all formulas when loading
+# .xlsx files (OOXMLRecalcMode=0 "always"), so charts and formula cells are
+# rendered from current inputs instead of the cached values in the file.
+if [[ "${LO_RECALC:-0}" == "1" ]]; then
+    mkdir -p "$PROFILE_DIR/user"
+    cat > "$PROFILE_DIR/user/registrymodifications.xcu" <<'XCU'
+<?xml version="1.0" encoding="UTF-8"?>
+<oor:items xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<item oor:path="/org.openoffice.Office.Calc/Formula/Load"><prop oor:name="OOXMLRecalcMode" oor:op="fuse"><value>0</value></prop></item>
+</oor:items>
+XCU
+fi
+
 # Convert the mktemp path (Git Bash /tmp/...) to a Windows path for the URI.
 WIN_PROFILE=$(cygpath -w "$PROFILE_DIR" | sed 's|\\|/|g')
 
@@ -54,7 +67,7 @@ WIN_PROFILE=$(cygpath -w "$PROFILE_DIR" | sed 's|\\|/|g')
 echo "---"
 echo "outputs in $OUTDIR:"
 for f in "$@"; do
-    stem=$(basename "$f" .docx)
+    stem=$(basename "$f"); stem="${stem%.*}"
     out="$OUTDIR/${stem}.pdf"
     if [[ -f "$out" ]]; then
         size=$(stat -c '%s' "$out")
