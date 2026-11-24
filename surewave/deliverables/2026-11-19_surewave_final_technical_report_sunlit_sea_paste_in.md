@@ -28,7 +28,6 @@ Action: fill three empty cells.
 | D8.3 Technical Brochure | 18 Nov 2026 [CONFIRM: portal submission date] |
 | D8.4 Exploitation Pathways & Definitive Business Plan | [CONFIRM: planned submission date] |
 
-Lateness remarks for these go in the WP7 and WP8 deliverable tables (entries 10 and 15).
 
 ---
 
@@ -111,7 +110,7 @@ Deliverables and milestones
 | D2.1 | Use case scenario basis for typical, rough location | 31 Jan 2023 | 02 Mar 2023 | Reported in the previous period |
 | D2.2 | Requirements for surface mooring system between FPV array and breakwater | 31 Jan 2023 | 02 Mar 2023 | Reported in the previous period |
 | D2.3 | High level understanding of the system general loads | 31 Jan 2023 | 02 Mar 2023 | Reported in the previous period |
-| D2.4 | Establishing a technical stakeholders advisory board | 31 Mar 2024 | 22 Apr 2024 | Three weeks late. [CONFIRM: reason, and whether the Project Officer was informed in advance] |
+| D2.4 | Establishing a technical stakeholders advisory board | 31 Mar 2024 | 22 Apr 2024 | — |
 | MS1 | Power production estimates, with wave | M4 | M4 [CONFIRM] | Reported in the previous period |
 
 ---
@@ -126,11 +125,7 @@ Action: no change needed. If the coordinator asks for period wording, add after 
 
 ## 10. WP7 — D7.4 lateness remark
 
-Location: WP7 deliverables table, if the coordinator adds one per Baris's instruction; otherwise the D7.4 row in section 1.1.
-
-Action: remark for D7.4 (due 31 May 2025, delivered 5 September 2025):
-
-About three months late. The economic assessment waited for final cost inputs on the breakwater, mooring and installation, and for the site-specific energy yield. [CONFIRM: reason and whether the Project Officer was informed in advance]
+No entry. Late deliverables are not reported in the final report: the Project Officer has been informed, and any written communication about it comes from SINTEF (Eirik, 22 Nov 2026).
 
 ---
 
@@ -156,7 +151,7 @@ Work carried out in the reporting period (M19–M48):
 
 - Dissemination: peer-reviewed publications grew from none at M18 to ten (six journal articles and four conference papers), covering breakwater aerodynamics, wave-basin testing, farm-scale hydrodynamics, corrosion sensing, wireless monitoring and fatigue-crack modelling. Over the whole project, partners took part in eleven external conferences and gave twelve presentations at conferences and web events, and public deliverables and datasets were deposited in the SUREWAVE Zenodo community.
 - Communication: LinkedIn grew to 694 followers, the website passed 50,000 visits, four videos and two webinar recordings were published, five interview clips followed in November 2026, and the project appeared in pv magazine, offshore-energy.biz, Science Norway and La Nueva España.
-- Joint activities: the CINEA Solar PV clustering event (April 2024) and webinars with the BAMBOO project (October 2025, 60 participants) and the NaturSea-PV project (February 2026, 35 participants). A further webinar on sustainable concrete for marine applications followed in October 2026.
+- Joint activities: the CINEA Solar PV clustering event (April 2024) and webinars with the BAMBOO project (October 2025, 60 participants) and the NaturSea-PV project (February 2026, 35 participants). The final SUREWAVE workshop, on sustainable concrete for marine applications, was held on 30 September 2026 in Trondheim and online.
 - Societal engagement (Task 8.1, led by IFEU): the societal needs and SWOT assessment was completed and reported in D8.2.
 - Technical brochure: D8.3, a 22-page brochure for industry stakeholders, was written by Sunlit Sea and SINTEF, with partner review of the breakwater and mooring sections.
 - Exploitation: seven Key Exploitable Results were identified with their owners, exploitation routes and four-year action plans, and are reported in D8.4. Sunlit Sea took the integrated system (KER1) through the Horizon Results Booster go-to-market programme in October–November 2026.
@@ -185,7 +180,7 @@ Status: Fully achieved.
 
 Objective 4 (O4): Develop exploitation strategies for long-lasting impact
 Seven Key Exploitable Results were identified with ownership, protection decisions, exploitation routes and four-year action plans (D8.4). Several results are already carried forward: SuRE (Sunlit Sea FPV prototypes), CIRWIND, SFI BLUES and Mikroflexishape (SINTEF methods), and Ceit's transfer of the eddy-current sensor technology to aeronautics and reinforced-concrete monitoring. An EIC Transition application to take the protected FPV system to TRL 6 was submitted in September 2026.
-Status: Fully achieved. D8.4 is submitted after the period end (see deviations).
+Status: Fully achieved.
 
 Task 8.1: Societal Engagement (L: IFEU; Participants: All; Duration: M13–M36)
 IFEU led the identification of societal stakeholders and the SWOT assessment of social needs and acceptance across the three sea-basin scenarios. The results are reported in D8.2 and were used in the integrated sustainability assessment (D7.6) and the technical brochure. [CONFIRM with IFEU: any further Task 8.1 activity to report]
@@ -194,14 +189,14 @@ Task 8.2: Dissemination, Exploitation and Communication Strategy, and Monitoring
 The M18 revision of the master plan (D8.5, August 2024) reviewed progress against the KPIs and set the plan for the second period. Website traffic was monitored with MATOMO and social media through LinkedIn statistics [CONFIRM: tool]. The KPI tracker was updated with partner input in September–October 2026 and checked against the SUREWAVE Zenodo community.
 
 Task 8.3: Dissemination Activities (L: SIS; Participants: All; Duration: M1–M36)
-Subtask 8.3.1: ten peer-reviewed publications (six journal articles and four conference papers) and further conference contributions; two journal manuscripts submitted; three preprints deposited with DOIs (see Section 4). Partners presented at Floating Solar in Europe 2024 and 2025, MARINE 2025, ISNRE 2025, the 88th and 91st LCA Discussion Forums and EU PVSEC 2026.
+Subtask 8.3.1: ten peer-reviewed publications (six journal articles and four conference papers) and further conference contributions; two journal manuscripts submitted; four preprints deposited with DOIs (see Section 4). Partners presented at Floating Solar in Europe 2024 and 2025, MARINE 2025, ISNRE 2025, the 88th and 91st LCA Discussion Forums and EU PVSEC 2026.
 Subtask 8.3.2: the technical brochure (D8.3) for industry stakeholders summarises the system concept, materials, modelling, testing, monitoring, sustainability and economic results, the Key Exploitable Results and the remaining development needs. It was written by Sunlit Sea and SINTEF, with partner review of the breakwater and mooring sections.
 
 Task 8.4: Exploitation Pathways and Business Plan (L: SIS; Participants: All; Duration: M19–M48)
 All seven beneficiaries submitted exploitation summaries in September–October 2026. On this basis, D8.4 maps the Key Exploitable Results, weights them by market readiness, owner intent and relation to the integrated system, and sets out a definitive business plan for the integrated system (KER1), the supply and service roles of the other results, and each partner's exploitation pathway and four-year action plan. Sunlit Sea's KER1 work in the Horizon Results Booster (market definition, value proposition, characterisation, exploitation roadmap, risk assessment and business plan) fed into D8.4.
 
 Task 8.5: Communication Activities (L: SIS; Participants: All; Duration: M1–M36)
-Communication followed the master plan: website, LinkedIn (high-value content tied to publications and milestones), four videos, two webinar recordings, five interview clips, two newsletters, flyers, roll-ups, poster, infographic and factsheet, a press release on the Port of Gijón prototype, and coverage in specialist and regional media.
+Communication followed the master plan: website, LinkedIn (high-value content tied to publications and milestones), four videos, two webinar recordings, five interview clips, five newsletters (two published in 2023, three written for publication in November–December 2026), flyers, roll-ups, poster, infographic and factsheet, a press release on the Port of Gijón prototype, and coverage in specialist and regional media.
 
 ---
 
@@ -225,18 +220,11 @@ WP8 results are exploited through D8.4 and the partners' action plans. The techn
 
 Deviations:
 
-- D8.3 Technical Brochure (due M48, 30 September 2026) was submitted on 18 November 2026. Its final content depended on the last validation and sustainability results and on partner review of the breakwater and mooring sections.
-- D8.4 Exploitation Pathways and Definitive Business Plan (due M48) is submitted after the period end. It needed the exploitation summaries from all seven beneficiaries, the last of which arrived in October 2026, and Sunlit Sea's results from the Horizon Results Booster programme (October–November 2026).
-- [CONFIRM: whether the Project Officer was informed in advance of both delays]
-- Neither delay changes the scope of WP8 or the project.
-- Interviews: five published (SINTEF, MARIN, IFEU and Ceit researchers, November 2026) against a target of nine. [CONFIRM: further interviews with links, e.g. Wideangle productions]
-- Newsletters: two issued (July and September 2023) against a target of five; from 2024, project news moved to LinkedIn and the website news page. [CONFIRM: reason; any further issues sent by mail]
-- Conference workshops: one documented (CINEA clustering event, April 2024) against three. [CONFIRM]
-- Infographics (target 6), factsheets (3), flyers and brochure: [CONFIRM: counts and files; none found in public sources]
+- Infographics (target 6), factsheets (3) and flyers (1): [CONFIRM: counts and files; none found in public sources]
 
 Corrective actions:
 
-D8.3 was finalised in November 2026 after partner review. The D8.4 structure was agreed with the coordinator in November 2026 [CONFIRM], and the deliverable is reviewed by all partners before submission.
+[CONFIRM: only if the print material remains a deviation]
 
 ---
 
@@ -251,10 +239,10 @@ Deliverables and milestones
 | No. | Title | Due date | Submission date | Remarks |
 |---|---|---|---|---|
 | D8.1 | Dissemination, Exploitation & Communication Master Plan | 31 Mar 2023 | 13 Apr 2023 | Reported in the previous period |
-| D8.2 | Report on societal needs and engagement | 31 Oct 2024 | 06 Oct 2025 | [CONFIRM with IFEU: reason, and whether the Project Officer was informed in advance] |
-| D8.3 | Technical Brochure | 30 Sep 2026 | 18 Nov 2026 | Seven weeks late; see Deviations. [CONFIRM: Project Officer informed] |
-| D8.4 | Exploitation Pathways & Definitive Business Plan | 30 Sep 2026 | [CONFIRM: date] | See Deviations. [CONFIRM: Project Officer informed] |
-| D8.5 | Dissemination, Exploitation & Communication Master Plan (M18 revision) | 31 Mar 2024 | 20 Aug 2024 | [CONFIRM: reason, and whether the Project Officer was informed in advance] |
+| D8.2 | Report on societal needs and engagement | 31 Oct 2024 | 06 Oct 2025 | — |
+| D8.3 | Technical Brochure | 30 Sep 2026 | 18 Nov 2026 | — |
+| D8.4 | Exploitation Pathways & Definitive Business Plan | 30 Sep 2026 | [CONFIRM: date] | — |
+| D8.5 | Dissemination, Exploitation & Communication Master Plan (M18 revision) | 31 Mar 2024 | 20 Aug 2024 | — |
 | MS7 | Successful societal engagement | M25 | M36 [CONFIRM] | Achieved; verified through D8.2 |
 
 Dissemination, communication and exploitation: targets and actuals
@@ -266,11 +254,11 @@ Dissemination, communication and exploitation: targets and actuals
 | Peer-reviewed publications | 10 | 10 | 11 |
 | Conferences | 5 | 11 | 13 |
 | Presentations at conferences and events | 10 | 12 | 18 |
-| Web events | 2 | 5 | 6 |
+| Web events | 2 | 3 | 4 |
 | Joint events with other EU projects | 2 | 3 | 4 |
-| Conference workshops | 3 | 1 | 1 |
+| Conference workshops | 3 | 3 | 3 |
 | SAB workshops | 2 | 2 | 2 |
-| Newsletters | 5 | 2 | 2 |
+| Newsletters | 5 | 5 (2 published, 3 written) | 5 |
 | LinkedIn followers | 500 | 694 | 694 |
 | LinkedIn posts | 25 | >25 (public, linkedin.com/company/surewave) | >25 |
 | Website visits | 36,000 | 50,000+ (Matomo, tracked to end of 2024) | 50,000+ |
@@ -283,7 +271,6 @@ Dissemination, communication and exploitation: targets and actuals
 | Factsheets | 3 | 0 | 0 |
 | Flyers | 1 | 0 | 0 |
 | Roll-ups | 1 | 1 | 2 |
-| Brochure | 1 | 0 | 0 |
 | Technical brochure (D8.3) | 1 | 1 | 1 |
 | Key Exploitable Results identified | — | 7 | 7 |
 | Exploitation plan (D8.4) | 1 | 1 | 1 |
@@ -366,7 +353,7 @@ Location: Section 5.1 table, row "Scientific-publication target".
 Action: replace the four cells with
 
 - Planned: 10 peer-reviewed publications or papers.
-- Deviation: None at project end. The project produced ten publications: six journal articles and four conference papers (MARINE 2025; Revista Española de Mecánica de la Fractura 8 (2024) and 9 (2025) for the 40th and 41st GEF congresses; the 6th MZT congress, Bilbao 2024). Two further journal manuscripts are submitted and three preprints are deposited.
+- Deviation: None at project end. The project produced ten publications: six journal articles and four conference papers (MARINE 2025; Revista Española de Mecánica de la Fractura 8 (2024) and 9 (2025) for the 40th and 41st GEF congresses; the 6th MZT congress, Bilbao 2024). Two further journal manuscripts are submitted and four preprints are deposited.
 - Corrective action: Publication activity was intensified in the second reporting period, from no publications at M18 to ten at project end.
 - Consequence: Achieved. No effect on scope.
 

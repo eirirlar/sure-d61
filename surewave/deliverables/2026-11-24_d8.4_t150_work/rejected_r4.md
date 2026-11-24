@@ -1,0 +1,12 @@
+- F8 (D6.4, D7.6 amended due dates): REJECTED – amended due dates not in the records; added to owner action 4.
+- 6 (mid-2027 vs Q3 2027): REJECTED for D8.4 – D8.4 follows roadmap M3 (Q3 2027), consistent with commissioning mid-2027; financial plan alignment added as owner action 8b.
+- 9 (Booster business plan team line): REJECTED – the companion line matches docs/project_facts.md l.18; D8.4 4.2 aligned to "product development of the site-planning tool"; noted in Q91.
+- 10 (risk assessment €1.3–1.5M, "first breakwater site", IFE): REJECTED – the risk assessment is a repo file, not a companion copy in this pass; owner question Q91.
+- 13 (SolarDuck, DNV URLs in research notes): REJECTED – no text change asked; the notes are repo files.
+- 14 (Zenodo …431 vs …432): REJECTED for text – no change needed if same record; owner action 8a.
+- 1 major (one home per item): REJECTED – reserved for the separate pass (brief); small local cuts made (4.1 CONNECT bullet, 6.1, 6.5 second campaign, Section 10 EIC timing, R1 Stadt sentence).
+- 13 (counting rule reason): REJECTED – D8.5 l.316 says "Newsletters Published", so the proposed reason has no source; Q69 updated with this.
+- 21 (Generation 1 in 6.1): REJECTED – D63 and Sunlit Sea's input state the Generation 1 float; 4.1 and 7.1 now say so too.
+- 7 (visits vs page views): REJECTED for text – owner fact; owner question Q84.
+- 5 (Generation 1 runs ahead of Q28): REJECTED – D63; Q28 reduced to the patent question.
+- 15 (D8.3 revised version status): REJECTED – owner action 5 (portal check).

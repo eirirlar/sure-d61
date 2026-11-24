@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" font-family="TeX Gyre Heros, Helvetica, Arial, sans-serif">
+<title>SUREWAVE integrated modelling toolchain (schematic)</title>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1F5373"/></marker></defs>
+<rect x="10" y="20" width="180" height="165" rx="10" fill="#E6EEF4" stroke="#1F5373" stroke-width="1.6"/>
+<text x="100.0" y="47.5" font-size="15.5" fill="#1F5373" text-anchor="middle" font-weight="bold">Site conditions</text>
+<text x="100.0" y="65.0" font-size="15.5" fill="#1F5373" text-anchor="middle" font-weight="bold">and load cases</text>
+<text x="100.0" y="86.5" font-size="13" fill="#333333" text-anchor="middle">Three sea sites;</text>
+<text x="100.0" y="102.0" font-size="13" fill="#333333" text-anchor="middle">25 years of ERA5 wind</text>
+<text x="100.0" y="117.5" font-size="13" fill="#333333" text-anchor="middle">and wave hindcast;</text>
+<text x="100.0" y="133.0" font-size="13" fill="#333333" text-anchor="middle">design load cases</text>
+<text x="100.0" y="173.0" font-size="12" fill="#1F5373" text-anchor="middle" font-weight="bold">SINTEF · Sunlit Sea</text>
+<rect x="210" y="20" width="180" height="165" rx="10" fill="#DFF1F3" stroke="#2E8F9C" stroke-width="1.6"/>
+<text x="300.0" y="47.5" font-size="15.5" fill="#1B545C" text-anchor="middle" font-weight="bold">Coupled aero-</text>
+<text x="300.0" y="65.0" font-size="15.5" fill="#1B545C" text-anchor="middle" font-weight="bold">hydrodynamics</text>
+<text x="300.0" y="86.5" font-size="13" fill="#333333" text-anchor="middle">Diffraction and time-</text>
+<text x="300.0" y="102.0" font-size="13" fill="#333333" text-anchor="middle">domain models; CFD for</text>
+<text x="300.0" y="117.5" font-size="13" fill="#333333" text-anchor="middle">damping and wind loads</text>
+<text x="300.0" y="173.0" font-size="12" fill="#1B545C" text-anchor="middle" font-weight="bold">MARIN · SINTEF</text>
+<rect x="410" y="20" width="180" height="165" rx="10" fill="#DFF1F3" stroke="#2E8F9C" stroke-width="1.6"/>
+<text x="500.0" y="47.5" font-size="15.5" fill="#1B545C" text-anchor="middle" font-weight="bold">Mooring</text>
+<text x="500.0" y="65.0" font-size="15.5" fill="#1B545C" text-anchor="middle" font-weight="bold">optimisation</text>
+<text x="500.0" y="86.5" font-size="13" fill="#333333" text-anchor="middle">Surrogate models and</text>
+<text x="500.0" y="102.0" font-size="13" fill="#333333" text-anchor="middle">genetic algorithm; up to</text>
+<text x="500.0" y="117.5" font-size="13" fill="#333333" text-anchor="middle">56 % less mooring mass</text>
+<text x="500.0" y="133.0" font-size="13" fill="#333333" text-anchor="middle">in selected cases</text>
+<text x="500.0" y="173.0" font-size="12" fill="#1B545C" text-anchor="middle" font-weight="bold">MARIN</text>
+<rect x="610" y="20" width="380" height="165" rx="10" fill="#1F5373" stroke="#1F5373" stroke-width="1.6"/>
+<text x="626.0" y="47.5" font-size="15.5" fill="#FFFFFF" text-anchor="start" font-weight="bold">What the chain can be used for</text>
+<text x="626.0" y="75.0" font-size="14" fill="#FFFFFF" text-anchor="start">•</text>
+<text x="640.0" y="75.0" font-size="14" fill="#FFFFFF" text-anchor="start">System design and mooring layout</text>
+<text x="640.0" y="93.0" font-size="14" fill="#FFFFFF" text-anchor="start">for a given site</text>
+<text x="626.0" y="118.0" font-size="14" fill="#FFFFFF" text-anchor="start">•</text>
+<text x="640.0" y="118.0" font-size="14" fill="#FFFFFF" text-anchor="start">Remaining-life prediction of the</text>
+<text x="640.0" y="136.0" font-size="14" fill="#FFFFFF" text-anchor="start">critical reinforcement</text>
+<text x="626.0" y="161.0" font-size="14" fill="#FFFFFF" text-anchor="start">•</text>
+<text x="640.0" y="161.0" font-size="14" fill="#FFFFFF" text-anchor="start">Inspection and maintenance planning</text>
+<rect x="410" y="240" width="180" height="165" rx="10" fill="#EAF2DF" stroke="#7E9F4C" stroke-width="1.6"/>
+<text x="500.0" y="267.5" font-size="15.5" fill="#3F5A1E" text-anchor="middle" font-weight="bold">Structural finite-</text>
+<text x="500.0" y="285.0" font-size="15.5" fill="#3F5A1E" text-anchor="middle" font-weight="bold">element assessment</text>
+<text x="500.0" y="306.5" font-size="13" fill="#333333" text-anchor="middle">Global model and sub-</text>
+<text x="500.0" y="322.0" font-size="13" fill="#333333" text-anchor="middle">models of the reinforced-</text>
+<text x="500.0" y="337.5" font-size="13" fill="#333333" text-anchor="middle">concrete breakwater;</text>
+<text x="500.0" y="353.0" font-size="13" fill="#333333" text-anchor="middle">critical locations</text>
+<text x="500.0" y="393.0" font-size="12" fill="#3F5A1E" text-anchor="middle" font-weight="bold">Ceit</text>
+<rect x="610" y="240" width="180" height="165" rx="10" fill="#EAF2DF" stroke="#7E9F4C" stroke-width="1.6"/>
+<text x="700.0" y="267.5" font-size="15.5" fill="#3F5A1E" text-anchor="middle" font-weight="bold">Fatigue crack</text>
+<text x="700.0" y="285.0" font-size="15.5" fill="#3F5A1E" text-anchor="middle" font-weight="bold">propagation</text>
+<text x="700.0" y="306.5" font-size="13" fill="#333333" text-anchor="middle">New stress-intensity</text>
+<text x="700.0" y="322.0" font-size="13" fill="#333333" text-anchor="middle">solutions for cracks in</text>
+<text x="700.0" y="337.5" font-size="13" fill="#333333" text-anchor="middle">rebar; crack growth and</text>
+<text x="700.0" y="353.0" font-size="13" fill="#333333" text-anchor="middle">remaining life</text>
+<text x="700.0" y="393.0" font-size="12" fill="#3F5A1E" text-anchor="middle" font-weight="bold">Ceit</text>
+<rect x="810" y="240" width="180" height="165" rx="10" fill="#DDEDE6" stroke="#4F8A73" stroke-width="1.6"/>
+<text x="900.0" y="267.5" font-size="15.5" fill="#24543F" text-anchor="middle" font-weight="bold">Structural Health</text>
+<text x="900.0" y="285.0" font-size="15.5" fill="#24543F" text-anchor="middle" font-weight="bold">Management System</text>
+<text x="900.0" y="306.5" font-size="13" fill="#333333" text-anchor="middle">MATLAB application;</text>
+<text x="900.0" y="322.0" font-size="13" fill="#333333" text-anchor="middle">four-year inspection</text>
+<text x="900.0" y="337.5" font-size="13" fill="#333333" text-anchor="middle">cycle plus event-</text>
+<text x="900.0" y="353.0" font-size="13" fill="#333333" text-anchor="middle">triggered checks</text>
+<text x="900.0" y="393.0" font-size="12" fill="#24543F" text-anchor="middle" font-weight="bold">Ceit</text>
+<rect x="410" y="460" width="180" height="165" rx="10" fill="#EAF2DF" stroke="#7E9F4C" stroke-width="1.6"/>
+<text x="500.0" y="487.5" font-size="15.5" fill="#3F5A1E" text-anchor="middle" font-weight="bold">Concrete property</text>
+<text x="500.0" y="505.0" font-size="15.5" fill="#3F5A1E" text-anchor="middle" font-weight="bold">prediction</text>
+<text x="500.0" y="526.5" font-size="13" fill="#333333" text-anchor="middle">Machine learning predicts</text>
+<text x="500.0" y="542.0" font-size="13" fill="#333333" text-anchor="middle">compressive strength</text>
+<text x="500.0" y="557.5" font-size="13" fill="#333333" text-anchor="middle">from the concrete mix;</text>
+<text x="500.0" y="573.0" font-size="13" fill="#333333" text-anchor="middle">stand-alone screening</text>
+<text x="500.0" y="613.0" font-size="12" fill="#3F5A1E" text-anchor="middle" font-weight="bold">SINTEF</text>
+<rect x="610" y="460" width="180" height="165" rx="10" fill="#FBF1D6" stroke="#C89207" stroke-width="1.6"/>
+<text x="700.0" y="487.5" font-size="15.5" fill="#7A5600" text-anchor="middle" font-weight="bold">Corrosion</text>
+<text x="700.0" y="505.0" font-size="15.5" fill="#7A5600" text-anchor="middle" font-weight="bold">monitoring</text>
+<text x="700.0" y="526.5" font-size="13" fill="#333333" text-anchor="middle">Eddy-current sensor</text>
+<text x="700.0" y="542.0" font-size="13" fill="#333333" text-anchor="middle">designed to track section</text>
+<text x="700.0" y="557.5" font-size="13" fill="#333333" text-anchor="middle">loss of embedded rebar</text>
+<text x="700.0" y="613.0" font-size="12" fill="#7A5600" text-anchor="middle" font-weight="bold">Ceit</text>
+<rect x="10" y="240" width="380" height="385" rx="10" fill="#F3F5F7" stroke="#808080" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="26.0" y="267.5" font-size="15.5" fill="#1F5373" text-anchor="start" font-weight="bold">Validation of the chain</text>
+<text x="26.0" y="295.0" font-size="14" fill="#333333" text-anchor="start">Finite-element models against ABS and</text>
+<text x="26.0" y="313.0" font-size="14" fill="#333333" text-anchor="start">DNV guidance and concrete tests (Ceit)</text>
+<text x="26.0" y="377.0" font-size="14" fill="#333333" text-anchor="start">Hydrodynamic models against towing-tank</text>
+<text x="26.0" y="395.0" font-size="14" fill="#333333" text-anchor="start">and wave-basin tests (MARIN)</text>
+<text x="26.0" y="459.0" font-size="14" fill="#333333" text-anchor="start">Crack growth against published</text>
+<text x="26.0" y="477.0" font-size="14" fill="#333333" text-anchor="start">fracture-mechanics results (Ceit)</text>
+<text x="26.0" y="541.0" font-size="14" fill="#333333" text-anchor="start">Corrosion sensor operated on the breakwater</text>
+<text x="26.0" y="559.0" font-size="14" fill="#333333" text-anchor="start">prototype at sea; detection of corrosion</text>
+<text x="26.0" y="577.0" font-size="14" fill="#333333" text-anchor="start">in the field still to be shown</text>
+<polyline points="190,102 210,102" fill="none" stroke="#1F5373" stroke-width="2.2" marker-end="url(#ah)"/>
+<polyline points="390,102 410,102" fill="none" stroke="#1F5373" stroke-width="2.2" marker-end="url(#ah)"/>
+<polyline points="590,102 610,102" fill="none" stroke="#1F5373" stroke-width="2.2" marker-end="url(#ah)"/>
+<polyline points="380,185 430,240" fill="none" stroke="#1F5373" stroke-width="2.2" marker-end="url(#ah)"/>
+<text x="396" y="224" font-size="12" font-style="italic" fill="#1F5373" text-anchor="end">connector and mooring loads</text>
+<polyline points="590,322 610,322" fill="none" stroke="#1F5373" stroke-width="2.2" marker-end="url(#ah)"/>
+<polyline points="790,322 810,322" fill="none" stroke="#1F5373" stroke-width="2.2" marker-end="url(#ah)"/>
+<polyline points="790,542 900,542 900,405" fill="none" stroke="#1F5373" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#ah)"/>
+<text x="892" y="440" font-size="12" font-style="italic" fill="#1F5373" text-anchor="end">sensor-data interface</text>
+<polyline points="900,240 900,185" fill="none" stroke="#1F5373" stroke-width="2.2" marker-end="url(#ah)"/>
+</svg>

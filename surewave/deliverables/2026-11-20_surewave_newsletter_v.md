@@ -19,7 +19,7 @@ Welcome to the fifth and final SUREWAVE newsletter. The project ends on 31 Decem
 
 ```{=latex}
 \begin{nlbox}
-\small SUREWAVE develops and tests a floating photovoltaic (FPV) system for open-sea conditions, in which a ring of floating breakwaters made of circular concrete shields the solar array from waves. Partners: SINTEF (coordinator), Sunlit Sea, Ceit, MARIN, ACCIONA, Clement Germany and IFEU.
+\small SUREWAVE develops and tests a floating photovoltaic (FPV) system for open-sea conditions, in which a ring of floating breakwaters made of circular concrete shields the solar array from waves. Partners: SINTEF (coordinator), Sunlit Sea, Ceit, MARIN, ACCIONA, Clement Germany and IFEU (Institute for Energy and Environmental Research Heidelberg).
 \end{nlbox}
 ```
 
@@ -45,9 +45,9 @@ The breakwater material matters much less. Of the four concrete options assessed
 
 # Climate and environment
 
-IFEU's life-cycle assessment modelled a 9 MWp plant. Even at the North Sea site, the least sunny of the three, it saves 160,000 to 180,000 t of CO~2~-equivalent over 25 years compared with electricity from coal, depending on the layout; sunnier sites save more. These results assume a durability that the components, in particular the hinges between the solar modules, have not yet shown in practice.
+IFEU's life-cycle assessment modelled a 9 MWp plant. Even at the North Sea site, the least sunny of the three, it can save more than 160,000 to 180,000 t of CO~2~-equivalent over 25 years compared with electricity from coal, depending on the layout; sunnier sites save more. These results assume a durability that the components, in particular the hinges between the solar modules, have not yet shown in practice.
 
-Vessel fuel for installation, maintenance and dismantling dominates the plant's own impacts, followed by the solar panels, breakwaters and anchoring; the cable to shore becomes significant beyond about 50 km. Compared with the saving against fossil power, the choice between circular and conventional concrete for the breakwaters makes no relevant difference to greenhouse-gas emissions. Offshore floating solar can have higher impacts than solar on land and wind power, because it needs more material and vessel work, so it complements those sources rather than replacing them.
+The quantities of vessel fuel used for installation, maintenance and dismantling dominate the plant's own impacts, followed by the solar panels, breakwaters and anchoring; the cable to shore becomes significant beyond about 50 km. Compared with the saving against fossil power, the choice between circular and conventional concrete for the breakwaters makes no relevant difference to greenhouse-gas emissions. Offshore floating solar can have higher impacts than solar on land and wind power, because it needs more material and vessel work, so it complements those sources to achieve a faster decarbonisation, rather than replacing them.
 
 Locally, the main concerns are noise from piling anchors, shading of light-dependent habitats, anchor chains disturbing migratory fish and marine mammals, and cable routes through coastal habitats. The plant can also act as an artificial reef. These effects depend on the site and need case-by-case assessment.
 
@@ -71,7 +71,7 @@ SUREWAVE has taken offshore floating solar with a breakwater from technology rea
 \textsc{In numbers}\\[0.2em]
 Cost of energy, 10~MW plant: €0.062/kWh (Mediterranean), €0.096/kWh (Baltic), €0.139/kWh (North Sea)\\
 Submarine cable to shore instead of a nearby substation: €0.076/kWh in the Mediterranean (vs €0.062/kWh)\\
-Climate benefit, 9~MWp plant in the North Sea: 160,000--180,000~t CO\textsubscript{2}-eq saved over 25 years against coal
+Climate benefit, 9~MWp plant in the North Sea: more than 160,000--180,000~t CO\textsubscript{2}-eq saved over 25 years against coal
 \end{nlbox}
 ```
 

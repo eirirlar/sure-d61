@@ -9,6 +9,7 @@ Persistent helper scripts live in `scripts/` at the repo root — never scattere
 - [`md_to_slides.py`](#md_to_slidespy) — Markdown → PDF slide deck in the Sunlit Sea visual profile
 - [`md_to_sunlit_report.py`](#md_to_sunlit_reportpy) — Markdown → PDF long-form report in the Sunlit Sea visual profile
 - [`md_to_surewave_docx.py`](#md_to_surewave_docxpy) — Markdown → SUREWAVE consortium branded DOCX (cover + body)
+- [`md_to_surewave_docx_from_delivered.py`](#md_to_surewave_docx_from_deliveredpy) — Markdown → SUREWAVE DOCX built on a copy of an accepted deliverable (default D7.4 v2.0)
 - [`md_image_to_html.py`](#md_image_to_htmlpy) — rewrite Markdown image refs into HTML `<figure>` blocks
 - [`format_docx.py`](#format_docxpy) — post-process Pandoc docx (table borders + column widths)
 - [`extract_pdf_images.py`](#extract_pdf_imagespy) — extract embedded images from PDFs
@@ -25,6 +26,11 @@ Persistent helper scripts live in `scripts/` at the repo root — never scattere
 - [`d74_cost_model.py`](#d74_cost_modelpy) — Python reference model for the D7.4 cost workbook (test oracle, v2 replica + corrected v3)
 - [`test_d74_cost_model.py`](#test_d74_cost_modelpy) — pytest suite: v2 replica, v3 workbook vs Python, portability, input propagation
 - [`d74_changelog.py`](#d74_changelogpy) — v2 → v3 result tables for the D7.4 changelog
+- [`hrb_financial_model.py`](#hrb_financial_modelpy) — Sunlit Sea KER1 financial plan: assumptions and Python three-statement model 2027–2031
+- [`build_hrb_financial_workbook.py`](#build_hrb_financial_workbookpy) — the same model as an Excel workbook with formulas
+- [`test_hrb_financial_model.py`](#test_hrb_financial_modelpy) — pytest suite: statements tie, workbook vs Python in all scenarios
+- [`breakwater_classes.py`](#breakwater_classespy) — floating breakwater classes for nearshore sites, indicative cost per metre, coverage formula and standard sites
+- [`test_breakwater_classes.py`](#test_breakwater_classespy) — tests: Macagno against D3.2, class criterion, ring calibration against D7.4, coverage geometry
 
 ## `md_to_pdf.py`
 
@@ -126,6 +132,20 @@ Markdown conventions for the report:
 - Bulleted lists (`- item`) and bold-run-in paragraphs (`**label.** explanation…`) both render cleanly.
 - Raw LaTeX blocks (`\begin{tabular}{...}`) pass through.
 - Pandoc's TOC is enabled; the TOC title ("Contents") picks up Sunlit Sea styling automatically.
+
+## `md_to_surewave_docx_from_delivered.py`
+
+Builds a SUREWAVE deliverable `.docx` from Markdown on a copy of a deliverable already accepted on the portal (default `surewave/deliverables/2026-11-20_surewave_d7.4_economic_assessment_rev2.docx`), so cover, styles, headers, footers and page setup are those of a file known to work. Everything belonging to the shell deliverable is removed or overwritten: cover number and title, Deliverable details, version table, executive summary, reviewer names and comments in the Deliverable Review table, the cached table of contents (Word rebuilds it on open), the whole body, the shell's figures in the package, comment authors and document properties. The script prints any paragraph that still contains shell text and is not in the Markdown.
+
+```bash
+uv run scripts/md_to_surewave_docx_from_delivered.py <input.md> [--meta <meta.yaml>] [-o <out.docx>] [--shell <delivered.docx>]
+```
+
+- Input layout: title block, front sections as `## <Heading>` (e.g. Confidentiality notice, Executive summary), then body sections from `## 1. `. Front sections go before the Deliverable Review table in the shell's executive-summary heading style; body headings shift one level up (`##` → Heading 1).
+- Meta: `<input>.meta.yaml` (deliverable_number, title, work_package, task, document_name, lead_beneficiary, dissemination_level, deliverable_type, due_date, delivery_date, version_history, optional author).
+- Tables get thin grey borders and a shaded header row, no bold. Pandoc body styles map to the shell's `Normal0`.
+- Packages: python-docx, docxcompose, pyyaml, lxml (PEP 723, `uv run`). Reuses `inject_update_fields` from `md_to_surewave_docx.py`.
+- First use: D8.4 (T150), 2026-11-23.
 
 ## `md_to_surewave_docx.py`
 
@@ -243,6 +263,20 @@ pandoc 2026-11-20_surewave_newsletter_iii.md -o <scratch>/full.pdf --pdf-engine=
 ```
 
 Notes: use pandoc sub/superscript syntax (`CO~2~`, `10^11^`) rather than Unicode; the build takes under a minute. Each issue has a `_sources.md` companion recording the source of every fact and the provenance of every figure.
+
+### SUREWAVE one-page infographics (`infographic_pandoc_header.tex`, `toolchain_figure.py`)
+
+One-page A4 infographics for SUREWAVE (first use: the modelling-toolchain infographic, T159) are built with plain pandoc + xelatex using `scripts/infographic_pandoc_header.tex`: SUREWAVE template colours (`swdark` #1F5373, `swteal`, `swblue`, `swlight`), no page number, compact lists and headings, a TikZ EU emblem (`\euemblem{1.5cm}`) and `\swrule`. Page geometry, font (TeX Gyre Heros, shipped with TeX Live) and size are set in the Markdown YAML. The SUREWAVE logo is `surewave/images/surewave_logo.png`, cropped from the header image of the consortium docx template.
+
+The toolchain diagram is defined once in `scripts/toolchain_figure.py` (boxes, text lines, arrows; standard library only), which writes the same figure as SVG (for web and LinkedIn reuse) and as TikZ (`.tikz.tex`, read by xelatex with `\input`, so no SVG converter such as rsvg-convert or Inkscape is needed). Edit the script, never the generated files.
+
+Rebuild the infographic in one step with `scripts/build_toolchain_infographic.py` (standard library only; needs pandoc and xelatex on PATH). It regenerates the SVG and TikZ figure, renders the page, and checks with `pdfinfo` that the result is exactly one page (exits with an error otherwise). It writes only the three generated files in `surewave/deliverables/`.
+
+```bash
+python scripts/build_toolchain_infographic.py
+```
+
+Output: `surewave/deliverables/2026-11-22_surewave_modelling_toolchain_infographic.pdf`. The PDF stays on disk for upload but is not tracked: `.gitignore` excludes `surewave/deliverables/*.pdf`, so anyone with the repo recreates it with the command above. Look at a `pdftoppm -r 110 -png` render before use.
 
 ## `md_image_to_html.py`
 
@@ -468,6 +502,32 @@ Used mainly during iteration on `md_to_surewave_docx.py` / `md_to_letter.py` out
 
 Environment prerequisites: LibreOffice installed on PATH or at the default location above. `cygpath` must be available (ships with Git Bash) for the `/tmp/...` → Windows path conversion.
 
+## Google Sheets models: `fetch_gsheet.py`, `compare_gsheet_xlsx.py`
+
+A Drive download of a Google Sheet to `.xlsx` is lossy: functions Excel lacks are wrapped in `__xludf.UNSUPPORTED(...)` with a frozen value, and formulas can be replaced by their last result without any trace in the file. Analysis of a model built in Google Sheets therefore starts from an API snapshot, not from a download (rule in `CLAUDE.md`, skill `fetch-gsheet-formulas`).
+
+```bash
+python scripts/fetch_gsheet.py <sheet link or ID> [--out surewave/background] [--name surewave_d7.4_costs]
+python scripts/compare_gsheet_xlsx.py <snapshot.json> <download.xlsx> [--out report.md]
+python -m pytest -p no:cacheprovider scripts/test_compare_gsheet_xlsx.py     # ~15 s, no API needed
+```
+
+- `fetch_gsheet.py` reads the sheet with the Google Sheets API (`spreadsheets.get`, `includeGridData`): for every cell the text as entered (formula or typed value) and the value Google computed, plus named ranges, sheet properties and the Drive last-modified time. Writes `<date>_<name>_gsheet_snapshot.json` (full response) and `.md` (per sheet: every formula, every constant, spill cells marked).
+- `compare_gsheet_xlsx.py` compares the snapshot with a download cell by cell and writes `<date>_<name>_gsheet_vs_download.md`: formulas lost in the download, formulas wrapped as UNSUPPORTED, formula text that differs, formulas only in the download, typed values that differ, computed values that differ, cells or sheets on one side only. Formula text is compared after removing Excel prefixes (`_xlfn.` etc.), an outer `ARRAYFORMULA(...)`, whitespace and case outside string literals.
+- The test builds a fake snapshot from the D7.4 download itself and checks that the self-comparison is clean and that planted differences are caught.
+- Sign-in: an OAuth client of type "Desktop app" in `secrets/credentials.json` (git-ignored, per machine; created in Google Cloud Console with the Google Sheets API and the Google Drive API enabled). Scopes are read-only (`spreadsheets.readonly`, `drive.metadata.readonly`). The first run opens the browser for consent and stores `secrets/token.json`; the user runs it, Claude does not start it.
+- Not covered: Apps Script bound to the sheet. Check Extensions → Apps Script in the sheet by hand.
+- Packages: `google-api-python-client`, `google-auth`, `google-auth-oauthlib`, `openpyxl`, `pytest`.
+- The sign-in URL is printed (no browser is opened); Claude runs the script in the background and gives the user the URL, the browser then redirects to localhost and the script continues.
+
+### `fetch_drive_file.py`
+
+```bash
+python scripts/fetch_drive_file.py <Drive link or file ID> <output path>
+```
+
+Downloads an uploaded Drive file (xlsx, pdf, docx, …) byte for byte (`files.get` with `alt=media`), sets the output's modification time to the Drive last-modified time and prints the Drive metadata (name, MIME type, size, MD5, created and modified time, version). Native Google files are refused; use `fetch_gsheet.py` for those. Use it for xlsx files stored on Drive and edited in Google Sheets, such as the D7.4 cost model: the Sheets API cannot read them, and a "Download as xlsx" from Google Sheets is a re-save. Own token `secrets/token_drive.json`, scope `drive.readonly`; sign-in URL printed as for `fetch_gsheet.py`.
+
 ## SUREWAVE D7.4 cost model (T157)
 
 Four scripts maintain the D7.4 techno-economic cost workbook. The deliverable is the Excel workbook; the Python code exists to build it reproducibly and to test it. No desktop applications (Excel, LibreOffice) are needed, so the scripts run on any machine with Python.
@@ -609,3 +669,64 @@ python scripts/fill_hrb_g2m_templates.py bizplan $B/2024-11-29_hrb_g2m_business_
 ```
 
 The `lean` kind and the row-height growth in `risk` were added in T143; the `bizplan` kind in T144.
+
+## `hrb_financial_model.py`
+
+Single source of the assumptions and an independent Python implementation of the Sunlit Sea KER1 financial plan (Horizon Results Booster, T158): income statement, cash flow and balance sheet for 2027–2031 in kEUR, four scenarios for public funding (`base`, `eic`, `eu_upside`, `downside`, set by the switches `sw_sure_ext`, `sw_eic`, `sw_eupi`), sensitivities, a worked unit-economics example for a 3.2 MWp Norwegian plant, and a second worked example (`breakwater_example`, `BW_EXAMPLE`) for a kit-buyer plant with a light breakwater on an inland lake, using `scripts/breakwater_classes.py`. The EIC scenario includes the first commercial plant at the demonstrator lake in 2031 (`eic_followon_mw`). Assumptions are in the `INPUTS` (scalar), `YEARLY` (per year) and `UNIT` dictionaries, each with unit and source note; notes marked `[CONFIRM]` are estimates without a primary figure. Contains Sunlit Sea's costs, prices and pipeline: confidential.
+
+```bash
+python scripts/hrb_financial_model.py                                  # summary of all scenarios
+PYTHONIOENCODING=utf-8 python scripts/hrb_financial_model.py --md      # Markdown tables used in the plan
+PYTHONIOENCODING=utf-8 python scripts/hrb_financial_model.py --md --scenario base
+```
+
+`compute(scenario, overrides)` returns every model line per year; `overrides` replaces any input by name (used for sensitivities, including the combined commercial downside). `unit_economics()` (with opex escalation, inverter replacement and the investment support needed to match the host's value), `kpis()` and `breakeven_kit_mw()` (scenario-aware; result before tax or EBITDA, with or without EPC) give the headline figures. `quarterly_cash()` allocates the 2027–2028 annual flows to quarters with stated timing assumptions (quarters add up to the annual net cash flow), `outlook()` gives an indicative EBITDA for 2032–2035, `leverage_table()` EBITDA at different kit volumes and `cap_table()` indicative ownership after the two rounds. Generation 2 development before first use (2027) is capitalised with its grants deferred, as in the 2025 accounting policy (input `capitalise`). Standard library only. The tables in `surewave/deliverables/2026-11-22_surewave_hrb_financial_plan_ker1.md` are pasted from the `--md` output; regenerate and re-paste after changing an assumption.
+
+## `build_hrb_financial_workbook.py`
+
+```bash
+python scripts/build_hrb_financial_workbook.py surewave/deliverables/2026-11-22_surewave_hrb_financial_plan_ker1.xlsx     # ~3 s
+```
+
+Writes the model as a workbook with formulas (sheets `README`, `inputs`, `yearly`, `model`, `unit`), so readers can change inputs and see the statements update; the `model` sheet ends with a balance check. Saved in the base scenario. Reuses `evaluate()` and `write_with_results()` from `build_d74_workbook.py`, so every formula's result is stored next to it. The output file is git-ignored (rebuild it from the script). Python packages: `openpyxl`, `xlsxwriter`, `formulas`.
+
+## `test_hrb_financial_model.py`
+
+```bash
+python -m pytest -p no:cacheprovider scripts/test_hrb_financial_model.py     # ~5 s
+```
+
+Checks that the three statements tie in every scenario, that every model and unit-economics cell of the workbook equals the Python model in all four scenarios (switches set through the inputs sheet), that the delivered file stores the results and uses only portable functions, the direction of key inputs, a minimum cash buffer, hand-computed unit-economics values, and the break-even-volume function. Run after any change to the model or the builder.
+
+## `breakwater_classes.py`
+
+Light, medium and heavy floating breakwater classes for mild, medium and rough nearshore wave conditions, with weak, medium and strong anchoring (T162). Plus a coverage formula (T163) that turns plant capacity, exposure sector and class into a breakwater layout (arc, straight or ring), length, units and cost, with an optional host share for dual-use breakwaters.
+
+```bash
+PYTHONIOENCODING=utf-8 python scripts/breakwater_classes.py --md              # tables for the note (~20 s)
+python scripts/breakwater_classes.py --site 3200 60 medium --host-share 0.5   # one site: kWp, exposure in degrees, class
+```
+
+Physics:
+- Macagno transmission (as in D3.2 and D5.1), integrated over fetch-limited JONSWAP spectra (SPM 1984 growth curves, adjusted wind).
+- Two sizing criteria on the transmitted spectrum: short waves of 3 s and less, and the total height for the platform.
+- `search_section()` finds the lightest cross-section per wave class; `roll_period()` gives a rough stability check.
+- The end extension uses a straight-edge diffraction approximation.
+
+Costs are built up from the D7.4 v2.0 10 MW ring: material, pontoon installation, anchors and chains, from cost model v3. Assumptions cover what D7.4 does not contain: fabrication, couplings and fenders, transport, supplier factor, mobilisation, open-arc anchoring.
+
+Reference values are in `REF` with their source; assumptions to confirm are in `ASSUMPTIONS`. Used by `surewave/deliverables/2026-11-23_surewave_breakwater_classes_nearshore.md`. Standard library only.
+
+## `test_breakwater_classes.py`
+
+```bash
+python -m pytest -p no:cacheprovider scripts/test_breakwater_classes.py     # ~20 s
+```
+
+Checks:
+- Macagno reproduces D3.2's result for the SUREWAVE unit and does not overflow.
+- The dispersion and growth-curve helpers, and that the spectrum without a breakwater returns Hs.
+- Every class meets both criteria, and no chosen class is lighter than the search result.
+- Class costs are ordered and below the open-sea reference, and the heavy material cost equals D7.4 per metre.
+- The ring geometry is within 10 % of D7.4's 1,120 m.
+- Coverage is monotonic with the full-ring cap, cost per kWp falls with plant size, and the host share works.

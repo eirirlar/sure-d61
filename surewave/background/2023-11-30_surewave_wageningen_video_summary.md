@@ -1,0 +1,7 @@
+# "The SUREWAVE project's journey continues in Wageningen" video, 30 November 2023 — summary
+
+Short video (99 s) with a single narrator, published 30 November 2023 on Sunlit Sea's YouTube channel: https://www.youtube.com/watch?v=Xhb2Bjy3di4. Filmed at the consortium's 12-month meeting at MARIN in Wageningen, with the wave-tank tests. The video's description lists the consortium: SINTEF, MARIN, Ceit, Sunlit Sea, ACCIONA, IFEU and Clement Germany. Also counted in the WP8 KPIs as video 1 (basin tests at MARIN).
+
+Narration:
+
+> Floating photovoltaic systems for renewable energy are a viable option for large-scale offshore deployment. The EU-funded project SUREWAVE is developing an innovative floating PV concept with an external breakwater that protects the internal floating PV against extreme offshore conditions. SUREWAVE has three major innovations: first, an innovative breakwater; second, an innovative circular material with a reduced CO2 footprint; and third, numerical tools to understand the structural integrity of the complete system. The wave-tank experiments are essential to make sure that the design and the numerical models represent real-life behaviour, and that the SUREWAVE design meets the standards required for offshore installation. Having all consortium members present is crucial for observing and interpreting the results together. After a successful demonstration of the SUREWAVE concept, we can unlock massive deployment, both in Europe and internationally.

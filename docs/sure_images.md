@@ -104,7 +104,6 @@ A `renders.bak` folder sits alongside `renders/`; treat as backup, do not cite f
 
 - `asset-solar-floating.jpg` — Sunlit Sea's close-up of actual FPV modules in real sea conditions. Panels sit nearly flush with the water (approximately 6 cm freeboard at the lowest edge, 2° tilt for drainage; see `gen2/norsmaterials_brief.md` line 44). Dark Baltic-like water, water droplets on the panel surface. **Photo.** Also duplicated at `surewave/images/2026-09-29_sunlit_sea_webpage/`.
 - `asset-solar-panels-multiple.jpg` — Deployed array on water with a figure in a yellow drysuit visible on the left. **Photo.** Crop the drysuit figure out when the deliverable is for an audience that does not need the person. Also duplicated at `surewave/images/2026-09-29_sunlit_sea_webpage/`.
-- `d8.3_frontpage_preview.png` — Preview of the SUREWAVE D8.3 Technical Brochure front page. **Derived from the brochure PDF cover; the cover image itself is AI-generated (see fig01 below).**
 - `haugaland1.png` — Haugaland deployment reference image. **Photo.** (Content not confirmed from file inspection — read before citing details.)
 
 ---
@@ -113,7 +112,11 @@ A `renders.bak` folder sits alongside `renders/`; treat as backup, do not cite f
 
 All brochure figures (fig01 through fig24) have their generation prompts and provenance recorded in `surewave/deliverables/2026-09-28_surewave_d8.3_figures.md`. Summary provenance:
 
-- `fig01.png` — Cover hero image, full-ring open-sea installation. **AI concept render.** Not a photograph.
+- `fig01.png` — Former cover hero image (until 2026-11-23), full-ring open-sea installation. **AI concept render.** Not a photograph. Replaced on the PDF cover by `surewave/images/2026-11-23_solarring_kurzer_seegang_cover.png` (see below).
+
+Cover image from 2026-11-23:
+
+- `surewave/images/2026-11-23_solarring_kurzer_seegang_cover.png` ("Solarring, kurzer Seegang", 1106 × 1422 px) — Top-down view of a full-ring installation: a circular breakwater around a square-gridded FPV array split into four quadrants by cross walkways, in a short-period sea. **Render.** Not a photograph. Supplied by Eirik on 2026-11-23; the German file name suggests it came from Clement Germany, but who made it and how is not recorded. Full-ring reference plant, so the same rule as fig01 applies: do not use it for nearshore deliverables. Used on the cover of the D8.3 brochure PDF (height fitted to the page, sides cropped, 35 % opacity).
 - `fig02.png` — Market opportunity bar chart. **Infographic.**
 - `fig03.png` — Integrated SUREWAVE system, isometric cutaway with labelled subsystems. **AI vector illustration.** Full-ring reference plant.
 - `fig04.png` — Reference plant plan view, 346 m circular. **CAD / vector drawing.** Full-ring reference plant.
@@ -125,6 +128,7 @@ All brochure figures (fig01 through fig24) have their generation prompts and pro
 - `fig10.png` through `fig12.png` — Section 4 materials and manufacturing figures. **Mixed — see figures spec.**
 - `fig13.png` — Mooring eye stress distribution. **FEM output** (real Ceit FE output, 11-event bipolar colour scale; see T120 solution notes).
 - `fig14.png` through `fig16.png` — Section 5 modelling / testing figures. **Mixed — see figures spec.**
+- `fig11.png` (modelling toolchain) — **AI-generated diagram with factual errors** (FLOW-3D, "2–3× chain reduction", "5 functionalities", mooring optimisation feeding the SHMS, no machine-learning tool). Superseded by the vector redraw `surewave/deliverables/2026-11-22_surewave_modelling_toolchain_figure.svg` (T159); do not reuse fig11.
 - `fig17.png` — SHMS load-history / rainflow spectrum. **FEM / software output** (Ceit MATLAB build).
 - `fig18.png` through `fig20.png` — Section 6 operational / lifecycle figures. **Mixed — see figures spec.**
 - `fig21.png` — Mediterranean 10 MW CAPEX composition. **Infographic.**
@@ -162,6 +166,9 @@ Notable:
 - `surewave/images/2024-11-07_surewave_d5.3_structural_integrity_assessment/` — D5.3 structural integrity figures. Mix of CAD renders, FEM outputs, and extracted DOCX images.
 - `surewave/images/wavebreaker_mooring.svg` — Sunlit Sea schematic sketch (SVG) of the mooring architecture for a nearshore SUREWAVE deployment: shows the connection between the Clement breakwater pontoon, the PVC-pipe transition system and the FPV matrix. Used as "Image C" reference upload in the ChatGPT prompt for the Olle leave-of-absence deck slide 2 and other nearshore composite visualisations. **Hand-authored schematic.**
 - `surewave/images/eu_flag.png`, `eu_flag.svg` — European Union flag emblem (official).
+- `surewave/images/eu_funded_by_lockup.jpg` — official "Funded by the European Union" lockup (emblem + text), taken unchanged from the header image of the SUREWAVE consortium docx template. Use this rather than a redrawn emblem where the GA Art. 17 lockup is required.
+- `surewave/images/surewave_logo.png` — SUREWAVE logo, cropped from the consortium docx template header (238 × 65 px raster; no vector source in the repo, so it prints soft above about 4 cm width).
+- `surewave/deliverables/2026-11-22_surewave_modelling_toolchain_figure.svg` (+ `.tikz.tex`) — SUREWAVE modelling-toolchain data-flow diagram. **Vector drawing, drawn from verified deliverable content** (D2.1, D2.3, D5.1, D5.3–D5.7, final technical report); generated by `scripts/toolchain_figure.py`. Replaces the AI-generated brochure Fig 11 for any new use (T159).
 
 ---
 

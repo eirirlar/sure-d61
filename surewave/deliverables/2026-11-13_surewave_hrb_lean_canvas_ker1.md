@@ -1,6 +1,6 @@
 # Lean Canvas — KER1 Sunlit Sea CONNECT floating photovoltaic platform
 
-Horizon Results Booster G2M input · Sunlit Sea AS · 14 November 2026 · Iteration #1
+Horizon Results Booster G2M input · Sunlit Sea AS · 23 November 2026 · Iteration #2 (revenue, cost and segment boxes revised to match the financial plan of 22 November 2026) · confidential: contains Sunlit Sea's costs and prices, for the Booster mentors only
 
 The canvas summarises the exploitation strategy at a glance. Each box is kept short enough to fit the G2M Lean Canvas template; the characterisation table and the exploitation roadmap carry the detail.
 
@@ -62,27 +62,27 @@ Our SUREWAVE-validated nearshore floating solar platform helps coastal industry 
 
 - Coastal industry and ports with local power demand and no land
 - Developers and independent power producers building 0.3–10 MW plants on coastal water
-- Nordics first, then the Baltic and the Mediterranean
+- Norway first, then Germany and the Baltic; Mediterranean after 2031
 
 ### Early adopters
 
 - Aaltvedt Betong, Skien havn (350 kWp)
-- Hærøya Industripark, Gunneklevfjorden (3.2 MWp)
+- Herøya Industripark, Gunneklevfjorden (3.2 MWp)
 - Haugaland Næringspark, Storavatnet (3.2 MWp)
-- Storugns, Gotland (~1 MWp)
+- Storugns, Gotland (~1 MWp, if EUPI-PV is applied for and funded)
 - Rixen Cableway, Germany
 
 ## Cost structure
 
 - Development and testing: prototypes, test campaigns, DNV design-basis assessment
-- Production: moulds, casting, bottom plates, module integration with a European partner
+- Production: moulds, casting (lowest-cost qualified source), plates, module integration and packing with Metsolar
 - Distribution: transport, quay assembly, mooring and breakwater
 - People: small core team plus partners; project development and permits
-- Equity in own reference plants until they are sold
+- Skien havn plant; minority share at Gunneklevfjorden
 
 ## Revenue streams
 
-- Platform supply per watt (€0.30–0.40/W for the floating system)
-- Site engineering fees (8–12 % of project capital cost)
-- Power sales under power purchase agreements from own plants
-- Sale of operating plants to long-term owners
+- EPC delivery of the first Norwegian plants (€0.70–0.73/W)
+- Kit incl. panel (about €500/kWp, margin 44–49 %)
+- Site engineering (about 4 % of plant cost for kit buyers)
+- Power sales from Skien havn (PPA)

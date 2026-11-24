@@ -61,7 +61,8 @@ INPUT_FILL = PatternFill("solid", fgColor="FFF2CC")
 EOL_INPUTS = [
     # name, unit, value, dir, comment
     ("decommissioning_pontoons_cost_factor", "factor", 1.0, 1,
-     "Cost of removing breakwater, pontoons, anchors and moorings at end of life, as a multiple of the "
+     "Cost of removing breakwater, pontoons and mooring chains at end of life (anchor piles and part of the chains "
+     "stay on the seabed, as in the D7.3 end-of-life scenario), as a multiple of the "
      "pontoon installation cost (installation_pontoons_* in in_loc). 1 = removal mirrors installation "
      "(marine crane handling, towing)."),
     ("decommissioning_pv_system_cost_factor", "factor", 1.0, 1,
@@ -575,8 +576,9 @@ README_LINES = [
     "of the removed modules. Module degradation restarts after reinstallation.",
     "- Inverters and transformers: inverters_transformers_cost is CAPEX in year 0 and covers the inverter replacements over "
     "the life (12-15 year cycles), as D7.4 §4.3.1 describes; no separate replacement cash flow.",
-    "- End of life in the last operating year: removal of breakwater, pontoons, anchors and moorings, and of the last PV "
-    "layer; disposal; minus any residual value (inputs in in_gen, section End of life).",
+    "- End of life in the last operating year: removal of breakwater, pontoons and mooring chains (anchor piles and part "
+    "of the chains stay on the seabed, as in D7.3), and of the last PV layer; disposal; minus any residual value "
+    "(inputs in in_gen, section End of life).",
     "- Discount factor 1/(1+r)^t. LCOE = discounted lifetime cost / discounted lifetime production. NPV = discounted revenue "
     "- discounted lifetime cost. IRR on undiscounted net cash flows over the full life; because reinstallation and "
     "decommissioning are late outflows, the cash flows can have more than one IRR, and the model reports the highest "
@@ -593,7 +595,7 @@ README_LINES = [
     "- Not included: substation, development and permitting, seabed lease, grid connection fees, insurance, financing "
     "costs, contingency, environmental monitoring, curtailment.",
     "",
-    "Changes from version 2 (see the D7.4 revision note for the effect of each change on the results):",
+    "Changes from version 2 (D7.4 version 2.0, Section 2.5, gives the effect on the headline results):",
     "- LCOE includes the reinstallation capital cost (v2 counted second-life production but not its cost).",
     "- Discounting with 1/(1+r)^t (v2: (1-r)^t), CAPEX in year 0 and operation from year 1.",
     "- IRR on undiscounted cash flows over the full life (v2: discounted flows, first 25 years only).",

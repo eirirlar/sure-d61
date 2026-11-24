@@ -1,0 +1,23 @@
+# Findings rejected in round 3 (with reasons)
+
+- r3disp_A.md: - 20: REJECTED – the date is sourced: ACCIONA's covering e-mail of 26 November 2025 (surewave/background/2025-11-26_acciona_exploitation_and_media_email.md, "I have just uploaded ACCIONA's expected exploitation summary"); text kept.
+- r3disp_A.md: - 6: REJECTED (cover) – D1rr sets "Due date in the amended Grant Agreement: 30 September 2026 (month 48)"; confirmation against the Portal GA added to owner questions.
+- r3disp_A.md: - 10: REJECTED – the workshop record shows the review: 2026-11-06_hrb_g2m_uvp_workshop.md l.1, "Slides 12-20 review Sunlit Sea's Market Definition Canvas; slides 29-38 review the Value Proposition Canvas"; cover e-mail 5 November. Text "submitted and reviewed in the value-proposition workshop" holds.
+- r3disp_A.md: - 4: FIXED (my parts, D54) – 3.2 KER1/KER2/KER3 and 3.4 R1/R2/R3/R4 now summarise and point to 4.1, 6.2, 6.3, 7.1: TRL "TRL 4–5 (Section 4.1)"; Gijón credit in full only in 6.2; 123 t → "(Section 6.3)", 120 t sentence dropped; LWAC history only in 3.1 step 4 (pointer from KER2 and R3); SuRE extension in exec summary cut to one clause; ownership statement → pointer to 7.1. HPC 400/500 sentence kept in 3.1, KER2 and R3 per D34 (fixed wording). REJECTED in part (g): the 2.5 own-share paragraph keeps its first sentence on WP2 and the SAB, which D40 keeps in 2.5.
+- r3disp_A.md: - 11: REJECTED – owner action, not text (status per D10r); listed under owner questions.
+- r3disp_C.md: - r3_cinea.md#F10: REJECTED for 4.6 until the owner answers – the resubmission date of D7.4 v2.0 to the granting authority is in no source; owner question 1. Reach-table part: NOT MINE (2.5)
+- r3disp_C.md: - r3_cinea.md#F13: REJECTED for now – the counts of lender/insurer documents and developer discussions are in no repo source; owner question 2. Text of 4.3.1 kept
+- r3disp_C.md: - r3_facts.md#12: REJECTED – no change needed (reviewer: TaiyangNews figure is newer and correct)
+- r3disp_C.md: - r3_facts.md#13: REJECTED for D8.4 – 4.2 and 4.4.1 already use "structural simulation"; the risk-assessment companion is NOT MINE
+- r3disp_C.md: - r3_cold.md#10: REJECTED for now – no source states that the SUREWAVE array's pressed-aluminium float is the Generation 1 float (D3.1, D7.6 and D8.3 describe aluminium floats without naming a generation; D53 says only "aluminium floats"); 4.1 now says "The SUREWAVE reference design uses floats of pressed marine-grade aluminium sheets"; owner question 3
+- r3disp_C.md: - r3_cold.md#14: REJECTED for now – the plant's status after October 2026 is in no source (project_facts gives the PPA end only); owner question 4
+- r3disp_C.md: - r3_owner.md#14: REJECTED for now – the stages were removed for confidentiality (r2_writing#3) and the reviewer marks it an owner decision; text kept; owner question 5
+- r3disp_C.md: - r3_writing.md#4: REJECTED for now – site types are allowed by the owner decision; dropping the 4.4 "Site type" column is the owner's call; owner question 6
+- r3disp_C.md: - r3_writing.md#5: REJECTED for now – reviewer rates the risk low and leaves it to the owner; owner question 7
+- r3disp_C.md: - r3_writing.md#30: REJECTED for part 3 – no instance; "close to ten times" is a multiplier, not a count
+- r3disp_C.md: - r3_writing.md#31: REJECTED for part 3 – the only spelled-out quarter is "the fourth quarter of 2025", the period of the NVE report it cites; all milestones use Q-notation
+- r3disp_E.md: - r3_partners#6: FIXED – 7.1 gives D1.8's qualifier for the breakwater (D1.8 Table 2). REJECTED in part: "no such contribution has been documented" is not in D1.8, which asks for a confirmation (now in 7.4)
+- r3disp_E.md: - r3_cold#7: FIXED in part – Section 9's strategic-assets bullet shortened to a pointer to Section 13. REJECTED for the other four bullets: Section 13 points to Section 9 for transfers and licences and does not hold the 30-day objection, the notice content or the 60-day objection period of the granting authority. Deleting them would lose GA content
+- r3disp_F.md: - r3_facts.md#14: REJECTED – reviewer confirms no change needed (A.10 follows D2.4's member list).
+- r3disp_F.md: - r3_owner.md#11: REJECTED for the text – the video does not exist yet (D10r); A.15 unchanged. Owner question 7.
+- r3disp_F.md: - r3_owner.md#17: REJECTED for now – no source gives the topic of the Pehlke interview; owner question 9.

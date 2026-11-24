@@ -1,0 +1,22 @@
+# Findings rejected in round 2 (with reasons)
+
+- r2disp_A.md: r2_cinea.md#F2: FIXED – cover per D1r/D1rr: "51 months, after extensions of 12 and 3 months"; "Due date in the amended Grant Agreement: 30 September 2026 (month 48)". Submission-date field and "completed after its due date" sentence REJECTED – D1r (due month is the amended one; do not call it late).
+- r2disp_A.md: r2_cinea.md#F7: REJECTED in D8.4 – D34 fixes the D4.1 wording and D22 forbids citing the final report; the cross-document conflict is an OWNER QUESTION 2.
+- r2disp_A.md: r2_cinea.md#F21: REJECTED in part – the table of contents is generated at conversion; a version/reviewer table needs the reviewer's name after review (no placeholders): OWNER QUESTION 3.
+- r2disp_A.md: r2_cinea.md#F27: REJECTED for 2.3 – the December workshop status is updated at submission (existing owner question 4).
+- r2disp_A.md: r2_owner.md#22: REJECTED – process item; statuses are updated at submission (existing owner question 4); no "[submission date]" placeholder in the title block.
+- r2disp_A.md: r2_cold.md#6: REJECTED here – moving the criteria between 2.4 and 3.3 is a move between sections; left to the D40 restructure pass.
+- r2disp_B.md: - r2_cinea#F27: REJECTED as a text change – statuses dated 23 November 2026 are updated on submission day (owner question 4 of round 1).
+- r2disp_B.md: - r2_cold#15: REJECTED for now – channel and cost of the May 2024 campaign are not in any source (KPI record §17 gives only the 29 May 2024 e-mail); OWNER QUESTION.
+- r2disp_B.md: - r2_owner#16: REJECTED for now – the only record of the meeting's content is the final technical report working copy (D22); OWNER QUESTION.
+- r2disp_B.md: - r2_owner#22: REJECTED as a text change – process (submission-day checklist).
+- r2disp_C.md: - r2_partners#M3: REJECTED – Energies 19(7) 1609 full text, Section 4 (surewave/background/2026-03-25_bunnik_... l.122): "Results of this second campaign (measured motions of FPV modules and breakwater) are used for numerical model validation". Wording sharpened to "measured motions of the modules and the breakwater"
+- r2disp_C.md: - r2_facts#15: REJECTED – D6.3 Conclusions (2025-02-12_surewave_d6.3.md l.857): "The compression behaviour has been significantly improved, which will avoid earlier buckling and snapping loads". Text now cites that conclusion directly
+- r2disp_C.md: - r2_writing#4: REJECTED – the reviewer rates it low risk (financing terms not in D8.4); generalised plan figures are an owner decision. Flagged as OWNER QUESTION 7
+- r2disp_D.md: - r2_owner#22: REJECTED as a text change – a submission-day process (status of EUPI-PV, EIC, SuRE extension, December Booster workshop); the reviewer itself calls it "not a text change now". Items in my parts that change: the EU-upside scenario (4.7), the 2029 bullet (4.9), the EIC and EUPI-PV rows (Section 10). Listed under OWNER QUESTIONS.
+- r2disp_D.md: - r2_cinea#F27: REJECTED as a text change – submission checklist (as r2_owner#22); see OWNER QUESTIONS.
+- r2disp_D.md: - r2_writing#2: REJECTED – D41: the generalised 2030–2031 revenue stays by owner decision; repeated as an OWNER QUESTION with the reviewer's estimate.
+- r2disp_D.md: - r2_writing#3: REJECTED for my lines – the site types in 4.7 ("a harbour, an industrial basin and a lake") are allowed by the owner decision on generalised figures; the identifying combination the reviewer names is in 4.3.1 (NOT MINE).
+- r2disp_D.md: - r2_writing#7: REJECTED – "EDP R&D / CNET" is the name the EIC proposal itself gives the applicant (proposal l.26); kept with "Portugal".
+- r2disp_E.md: - r2_cinea#F7: REJECTED for D8.4 text – D34 fixes the D4.1 wording and D22 bars the final report as a source; conflict listed as OWNER QUESTION
+- r2disp_E.md: - r2_cold#5: REJECTED – Section 13's obligation lists stay as text: D17 asks for each obligation with its own GA time limit, and CINEA (F24, F6) and the coordinator (#22) asked this round for more exact Annex 5 wording, which a compact table would lose; the move of transfer rules out of Section 9 is a D40 matter

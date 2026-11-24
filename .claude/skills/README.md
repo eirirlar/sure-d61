@@ -14,6 +14,7 @@ Skills defined here register at session start. Each lives at `.claude/skills/<na
 | [`generate-surewave-pptx`](generate-surewave-pptx/SKILL.md) | Produce a SUREWAVE-branded `.pptx` from `.md` via pandoc `--reference-doc` on the consortium template | SUREWAVE WP8 presentations, final-event talks, interview decks |
 | [`check-deliverable`](check-deliverable/SKILL.md) | Pre-send checklist on an outgoing deliverable (stand-alone, typography, YAML, source freshness) | Before converting or sending any external deliverable |
 | [`extract-pdf-with-images`](extract-pdf-with-images/SKILL.md) | Batch PDF → Markdown with embedded images inlined per page (the T100 combined recipe) | PDF set with figures that must survive into the `.md` |
+| [`fetch-gsheet-formulas`](fetch-gsheet-formulas/SKILL.md) | Snapshot a Google Sheet with every formula and computed value via the Sheets API, and compare it with any xlsx download | Before analysing, rebuilding or quoting a model built in Google Sheets |
 | [`last-ned-paragraf`](last-ned-paragraf/SKILL.md) | Last ned lovparagraf verbatim fra Lovdata via `curl` + BeautifulSoup, lagre i `generic/background/lover/` med metadata-header. **WebFetch forbudt** | ALLTID før en leveranse eller chat-utkast refererer en konkret paragraf, ledd eller punktum |
 
 ## Candidates considered, not yet defined

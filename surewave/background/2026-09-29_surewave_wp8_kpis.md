@@ -1,5 +1,7 @@
 # WP8 KPIs
 
+> Superseded by `2026-11-19_surewave_wp8_kpi_verification.md` (verified actuals, evidence and decisions per KPI). This file is the tracker as of 29 Sep 2026 and is not updated.
+
 ### communication
 
 | Communication Activity Name | Date | Location | Link | Description | Presenter | How? Communication channel* | Who? Target audience* | Outcome* | Status* |

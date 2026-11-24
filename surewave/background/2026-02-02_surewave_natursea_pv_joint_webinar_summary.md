@@ -1,0 +1,61 @@
+# Joint SUREWAVE / NaturSea-PV webinar, 2 February 2026 — summary
+
+"From Machine Learning to High Fidelity Modelling of Concrete for Offshore Applications". Online webinar hosted jointly by the Horizon Europe projects SUREWAVE and NaturSea-PV, about 96 minutes. Recording: https://www.youtube.com/watch?v=MXqq15eV-iQ (published on YouTube on 9 Feb 2026). Counted in the WP8 KPIs as a conference workshop and as a joint event with another EU project.
+
+## Participants
+
+- Host and moderator: Balram Panjwani (SINTEF, SUREWAVE coordinator).
+- Co-host: Adriana (NaturSea-PV).
+- Presenters: Virgile Delhaye (SINTEF Industry, SUREWAVE); Neven Ukrainczyk (Technical University of Darmstadt, NaturSea-PV); Max (Technical University of Darmstadt, NaturSea-PV); Aritz (Ceit, SUREWAVE).
+- Attendance: 24 participants at the start.
+
+## Introduction — Balram Panjwani and Adriana
+
+- Both projects were funded under the same call, with a common goal: to develop and test innovative offshore floating PV using circular materials, with durable, reliable and sustainable concrete-based substructures and predictive modelling tools, to improve lifetime, reliability and maintainability and reduce degradation and levelised cost of energy.
+- SUREWAVE: a protective breakwater of circular material that filters out high-frequency waves, so the floating PV sees more benign waves; new sustainable materials alongside.
+- NaturSea-PV: a substructure inspired by nature (a water lily), developed into the final design for extreme conditions; eco ultra-high-performance concrete (UHPC) with low-clinker cements and geopolymers; bio-based coatings against fouling and against chloride and sulphate ingress; societal assessment of effects on sea users, animals and vegetation; laboratory validation and scale-up to prototype elements.
+
+## 1. Prediction of concrete properties with machine learning — Virgile Delhaye (SINTEF, SUREWAVE)
+
+- Work carried out in SUREWAVE, mainly by his SINTEF colleague Afaf. Ongoing; a paper is to be submitted in 2026 to Construction and Building Materials.
+- Motivation: optimising concrete components (pontoons, breakwaters, wind substructures) by tuning concrete properties or geometry needs fast prediction of mechanical properties from the mix. Concrete is hard to model physically because of strong interactions between constituents.
+- Challenges: much data exists, but databases are not unified and properties are stored differently, which makes interpretation hard; linking mix inputs to the correct outputs (interpretability); choosing the most suitable algorithm.
+- Database: built with strict criteria from open publications, requiring traceable data, known test conditions and full recipes. Object-oriented, hierarchical classification: level 0 (liquid activator, binder, aggregate, chemical admixture, additive), with finer subclasses at levels 1 and 2 (for example cementitious and non-cementitious binders). Only 240 data points met the criteria. Additives were poorly documented. Deeper levels give fewer points per category and weaker correlations. Single trends (for example binder or normal-weight aggregate ratio) affect strength and density, but parameters interact, which is why machine learning suits the problem.
+- Algorithms (open-source, Python scikit-learn): decision-tree regressor, random-forest regressor and neural-network regressor, each used both as one multi-output model and as separate single-output models in a wrapper, predicting density and compressive strength.
+- Results: random forest performed best, at level 1 (enough detail with enough points per category); accuracy drops at level 2. Density is easier to predict than compressive strength, which is more sensitive to material details. Separate models per output predict better, but make it harder to find an optimal mix because the outputs are no longer linked. Random forest weights binder (cement) and aggregates most; the neural network spreads importance more evenly across constituents.
+- Conclusions: database structure is critical; machine learning is sensitive to dataset size and to many zero-valued inputs at fine levels, so more and better data points are needed. Two applications were built in SUREWAVE: one to build and classify concrete databases from published collections, one to load training data and run the algorithms.
+
+## 2. Thermodynamic modelling of cement hydration and concrete durability — Neven Ukrainczyk (TU Darmstadt, NaturSea-PV)
+
+- Part of NaturSea-PV work package 3, a predictive toolkit for the durability of UHPC with steel fibres, ending in a probabilistic toolkit for the reliability of floating UHPC structures. Other strands: atomistic modelling of new bio-based coatings (Manzano's group), mesoscale modelling of chloride ingress including cracks and coatings, and a mesoscale mechanical model (Bordeaux group). Existing probabilistic parameters are for normal concrete; the simulations are to provide them for UHPC.
+- Hydration by mass balance: water plus cement forms C-S-H (itself 25–35 % nano gel pores) and portlandite, with chemical shrinkage; this predicts capillary porosity and phase assemblage. In UHPC (water/cement 0.15) water is the limiting reactant: much of the cement never hydrates and capillary porosity comes only from chemical shrinkage.
+- Thermodynamic modelling, explained with CO2 speciation and calcite solubility (equilibrium constants, mass balance, charge balance, solubility products), scaled to hundreds of unknowns with GEMS or PHREEQC. Inputs: blended cement composition (slag, silica fume) and temperature. Outputs: phase assemblage, pore solution (its conductivity links measured resistivity to effective diffusivity), temperature rise, and seawater effects.
+- Results: at water/cement 0.25, water limits the degree of reaction of clinker and slag; higher curing temperature (20, 40, 60 °C) increases it. Predicted porosity was validated against measurements with promising agreement; the deviation may come from air voids not being modelled and from slag reactivity. Seawater attack modelled as dissolution of phases and precipitation of expansive phases such as thaumasite and Friedel's salt.
+- Chloride diffusion: a RILEM committee works on test methods for blended cements. With steel fibres, accelerated (electrical) methods cannot be used, leaving natural diffusion, which is very slow; SEM/EDX quantification of chlorides near the surface gave diffusion coefficients around 10⁻¹⁴ m²/s.
+- Cracks open and close under cyclic load; a demonstration showed water drawn into a crack by capillary action and pushed out again as the crack closes. They still matter for durability. The probabilistic approach compares uncracked and cracked concrete under wave loading and predicts rebar corrosion for different cover depths.
+- Conclusions: the model supports mix design and curing optimisation (including CO2 curing) and seawater durability prediction; mesoscale simulations are needed because steel fibres make standard diffusivity tests inapplicable; everything is to be combined in an analytical, probabilistic toolkit with UHPC-specific parameters to predict service life of floating UHPC structures.
+
+## 3. High-fidelity simulation of mass transport in complex 3D structures — Max (TU Darmstadt, NaturSea-PV)
+
+- Chloride ingress into fibre-reinforced UHPC cannot be described with code equations for homogeneous concrete: CT scans show the steel fibres dominate the structure.
+- Experiments are slow and not transferable (the rapid chloride migration test does not work with fibres; every new mix needs new tests) and are descriptive rather than predictive. The aim is a predictive simulation framework for virtual prototyping, parameter identification and service-life prediction.
+- Workflow: geometry, meshing, solving, results.
+  - Geometry: automatically generated from fibre length, diameter and volume fraction and from the number and shape of internal and external cracks (CT geometry would not allow parameters to vary). Microstructure elements: fibres, cracks, and interfacial transition zones (ITZ) around the fibres.
+  - Meshing: ITZ about 30 µm in a 10 cm domain, handled with hierarchical meshing (snappyHexMesh); up to 28 million cells. ITZ cells are detected by distance and refined; bulk UHPC and ITZ get different diffusion coefficients.
+  - Solver: OpenFOAM, a transient diffusion equation extended with spatially varying fields and non-linear chloride binding (Freundlich isotherm, with saturation), with properties updated every time step. Binding is especially important in UHPC.
+  - Critical path: where fibres touch, connected ITZs with higher diffusivity let chlorides penetrate much deeper locally. The simulations show this, and the framework can find the fibre volume fraction at which such paths form.
+- Capabilities: feedback to mix design (acceptable fibre fractions), prediction of service life and maintenance timing for a given mix, flexibility for other mixes (for example eco-UHPC) and much faster than experiments.
+- In Q&A: 28 million cells take about 8 hours; reducing to about 2 million cells gives about 1 hour with little change in results, as long as the ITZ refinement keeps the ITZs connected. The framework links geometry, meshing, solving and post-processing in one loop for HPC runs. Corrosion is treated as the time for chloride thresholds to reach a given depth or rebar; the focus is shifting to a probabilistic approach (variation in fibre orientation and content). In dense UHPC, natural diffusion is nearly nil, so crack width and propagation become the main question. Validation is still open, because experimental data for diffusion in the ITZ are lacking; so far parameter studies with different bulk and ITZ diffusion coefficients.
+
+## 4. High-fidelity modelling of reinforced concrete — Aritz (Ceit, SUREWAVE)
+
+- Ceit leads SUREWAVE work package 5 (predictive modelling and simulation tools for material properties and structural integrity management), focusing on structural integrity. Described the project as basically finished.
+- Goal: predict the mechanical behaviour of the floating breakwater. Inputs: geometry designed and optimised by Clement; load history calculated by MARIN (applied as volume forces; time series converted to equivalent fatigue cycles, with extreme events isolated); new circular concrete mixes developed by ACCIONA and tested by SINTEF.
+- Concrete model: Abaqus Concrete Damaged Plasticity, with different compressive and tensile behaviour, hardening and softening, using a reference stress–strain curve shape. Parameters calibrated automatically against SINTEF's three-point bending tests on ACCIONA beams, tested in two perpendicular directions; the beams varied in wall thickness, giving many data points. Peak force and displacement were reproduced well for two very different mixes, including a high-performance concrete, information not otherwise available in the literature for these non-standard mixes.
+- Reinforcement: about 1,000 rebars (±20 %) in the breakwater, modelled with the embedded element technique (independent meshes, local stiffening of the concrete). 3D and 1D rebar elements worked best; 2D membrane elements over-stiffened the matrix.
+- Global simulation located stress hotspots; sub-models with finer meshes and 3D brick rebar elements, driven by the global displacement fields, resolved local rebar stresses. These feed the crack propagation algorithms developed in the work package and the structural health management system, which predicts rebar life (rather than concrete degradation).
+- In Q&A (questions from an attendee): the short plateau after peak tensile strength is a calibration parameter that aids numerical stability; it was exaggerated in the figure. Boundary conditions: half the breakwater with symmetry; connector loads from MARIN applied as volume forces; mooring forces applied in a designated volume. The worst-case loading came from peaks in MARIN's time series, corresponding to particularly strong events.
+
+## Closing
+
+Balram proposed a joint publication between the presenters of both projects on concrete modelling for offshore applications, covering the complementary aspects presented. Adriana welcomed the idea and suggested discussing it in the following days; Balram agreed.

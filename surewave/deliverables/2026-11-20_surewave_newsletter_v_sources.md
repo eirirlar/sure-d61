@@ -20,7 +20,7 @@ Companion to `2026-11-20_surewave_newsletter_v.md`. Files are under `surewave/ba
 | Sharing infrastructure with offshore wind is the most promising route | D7.4 §7.5.1 (hybrid energy platforms); D7.3 Key results ("connection to existing offshore facilities such as an offshore wind farm can significantly reduce the environmental impacts"); D8.3 §11 |
 | Conventional breakwater gave the best economic result; HPC raised investment cost without improving the economics | D7.4 §7.5.2 ("the conventional design consistently yields the most favourable results. HPC designs … significantly higher CAPEX, with marginal or no improvement") |
 | 9 MWp plant, North Sea: 160,000–180,000 t CO₂-eq saved over 25 years vs coal depending on layout; sunnier sites save more | D7.3 Key results ("saving of around 170,000 tonnes of CO2 compared to electricity generation from coal over a 25-year operating period"). D7.3 also gives > 180,000 t (North Sea, uniform) and > 160,000 t (North Sea, split) |
-| Vessel fuel dominates; then panels, breakwaters, anchoring; cable relevant beyond about 50 km | D7.3 Key results (LCA) |
+| Quantities of vessel fuel dominate; then panels, breakwaters, anchoring; cable relevant beyond about 50 km | D7.3 Key results (LCA) ("dominated in particular by the quantities of vessel fuel") |
 | Circular concrete gives no relevant GHG saving vs conventional; minor next to the saving vs fossil power | D7.3 Key results ("Innovative breakwaters") |
 | Higher impacts than land PV and wind; complements rather than replaces | D7.3 Key results ("Comparison with other renewable energy sources"); Conclusions ("can complement the portfolio") |
 | Local concerns: piling noise, shading, anchor chains and migratory species, cable routes through coastal habitats; artificial-reef effect; case-by-case | D7.3 Key results (local environmental impacts) |
@@ -48,3 +48,5 @@ Two review agents (layout; fact and label check). Applied: base case adds the 50
 Known and accepted: the chart (fig20) prints D7.4's summary values, including Baltic "IRR 2.2 % · NPV +€2.1 M", which are mutually inconsistent at an 8.5 % discount rate — an inconsistency inside D7.4 itself. The newsletter text does not repeat IRR or payback. Replace the chart with an LCOE-only version if a cleaner figure is wanted.
 
 D7.4's repo copy carries "Dissemination level: SEN", while the Grant Agreement lists D7.4 as PU (WP index); the Zenodo record is public. Confirm with the coordinator if in doubt.
+
+Partner review (IFEU, Heiko Keller, comments in the PDF, 2026-11-23). Applied: IFEU written out in full in the project box; "it saves" changed to "it can save more than", in line with D7.3 "> 160,000 t" (split) and "> 180,000 t" (uniform); vessel-fuel sentence changed to the plural "dominate", with "quantities of vessel fuel" as the subject, following D7.3; "to achieve a faster decarbonisation" added to the closing sentence of the climate section.

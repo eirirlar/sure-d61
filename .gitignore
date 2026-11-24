@@ -1,7 +1,20 @@
 report.docx
 **/*.err
 surewave/deliverables/*.pdf
+surewave/deliverables/*_hrb_financial_plan_ker1.xlsx
 temp/
 .claude/worktrees/
 __pycache__/
 .pytest_cache/
+
+# Google OAuth client and token (per machine)
+secrets/
+
+# Word documents and PDFs are not kept in git (Eirik, 2026-11-24); the Markdown sources are.
+*.docx
+*.pdf
+# Exceptions: templates and shells the conversion scripts need on every machine
+!generic/background/2026-10-10_sunlit_sea_letterhead.docx
+!surewave/background/2026-10-16_surewave_docx_template.docx
+!surewave/background/*_hrb_g2m_*_template.docx
+!surewave/deliverables/2026-11-20_surewave_d7.4_economic_assessment_rev2.docx
