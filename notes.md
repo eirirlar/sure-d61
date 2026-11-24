@@ -1,2 +1,0 @@
-
-The task to update the technical report on the teams folder (i don't remember it's task id). It needs to be specified with the same level of detail as the D8.4 task. We need to write as thoroughly as we can our parts of the report. I've redownload the report, it's in ./temp/SUREWAVE _Final_Technical_report_v0.docx. Convert to .md. The previous version can be overwritten.

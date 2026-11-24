@@ -144,6 +144,7 @@ uv run scripts/md_to_surewave_docx_from_delivered.py <input.md> [--meta <meta.ya
 - Input layout: title block, front sections as `## <Heading>` (e.g. Confidentiality notice, Executive summary), then body sections from `## 1. `. Front sections go before the Deliverable Review table in the shell's executive-summary heading style; body headings shift one level up (`##` → Heading 1).
 - Meta: `<input>.meta.yaml` (deliverable_number, title, work_package, task, document_name, lead_beneficiary, dissemination_level, deliverable_type, due_date, delivery_date, version_history, optional author).
 - Tables get thin grey borders and a shaded header row, no bold. Pandoc body styles map to the shell's `Normal0`.
+- Column widths follow the content (2026-11-24): before pandoc runs, each pipe table's separator row is rewritten so every column gets at least its longest word (capitals counted wider, words split at hyphens and slashes) and the remaining width, at least 40 %, goes to the text-heavy columns; pandoc is run with `--columns=20` so the relative widths apply. Table cells are left-aligned, since the shell's justified body style opens gaps in narrow columns. The Markdown source is not changed. Check the result with `scripts/render_docx_pdf.sh` and a page-by-page look; a table with many text-heavy columns can still need fewer columns in the source.
 - Packages: python-docx, docxcompose, pyyaml, lxml (PEP 723, `uv run`). Reuses `inject_update_fields` from `md_to_surewave_docx.py`.
 - First use: D8.4 (T150), 2026-11-23.
 

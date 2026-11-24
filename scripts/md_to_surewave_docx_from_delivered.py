@@ -115,11 +115,69 @@ def split_md(md: str) -> tuple[list[tuple[str, str]], str]:
     return front, body_md
 
 
+def _cells(line: str) -> list[str]:
+    return [c.strip() for c in line.strip().strip("|").split("|")]
+
+
+def size_pipe_tables(md: str) -> str:
+    """Rewrite each pipe table's separator row so pandoc gives columns widths
+    in proportion to their content, instead of equal widths.
+
+    Pandoc derives relative column widths from the dash counts of the separator
+    row. Widths are allocated in characters of an assumed text width
+    (TEXT_CHARS): every column first gets its longest word plus padding, so no
+    word is broken, and the remaining width is shared in proportion to each
+    column's mean cell length beyond its longest word, so text-heavy columns get most of
+    it. Alignment colons are kept. The Markdown source file is not changed.
+    """
+    TEXT_CHARS = 85
+    lines = md.split("\n")
+    sep_re = re.compile(r"^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?\s*$")
+    i = 0
+    while i < len(lines):
+        if i > 0 and lines[i - 1].lstrip().startswith("|") and sep_re.match(lines[i]):
+            head = _cells(lines[i - 1])
+            seps = _cells(lines[i])
+            j = i + 1
+            rows = []
+            while j < len(lines) and lines[j].lstrip().startswith("|"):
+                rows.append(_cells(lines[j]))
+                j += 1
+            n = len(seps)
+            mins, wants = [], []
+            for k in range(n):
+                col = [r[k] for r in [head] + rows if k < len(r)]
+                # words can break at hyphens and slashes, so measure the parts
+                longest_word = max((len(w) + 0.4 * sum(ch.isupper() for ch in w) for c in col for w in re.split(r"[\s/\-–]+", c) if w), default=3)  # capitals are wider
+                mean_len = sum(len(c) for c in col) / max(len(col), 1)
+                mins.append(min(longest_word, 12) + 5)
+                wants.append(max(mean_len - longest_word, 0))
+            # at least 40 % of the width goes to text-heavy columns, even when
+            # the minimum widths alone would fill the page
+            extra = max(TEXT_CHARS - sum(mins), 0.4 * TEXT_CHARS)
+            wsum = sum(wants) or 1
+            weights = [m + extra * w / wsum for m, w in zip(mins, wants)]
+            total = sum(weights)
+            new = []
+            for k, s in enumerate(seps):
+                dashes = "-" * max(3, round(100 * weights[k] / total))
+                left = ":" if s.startswith(":") else ""
+                right = ":" if s.endswith(":") else ""
+                new.append(left + dashes + right)
+            lines[i] = "|" + "|".join(new) + "|"
+            i = j
+        else:
+            i += 1
+    return "\n".join(lines)
+
+
 def pandoc(md_text: str, out: Path, shell: Path, tmp: Path, shift: int) -> None:
     src = tmp / (out.stem + ".md")
-    src.write_text(md_text, encoding="utf-8")
+    src.write_text(size_pipe_tables(md_text), encoding="utf-8")
+    # --columns=20: every pipe table wider than 20 characters gets relative
+    # column widths from its separator row (see size_pipe_tables).
     cmd = ["pandoc", str(src), "-o", str(out), "--reference-doc", str(shell), "--wrap=none",
-           f"--shift-heading-level-by={shift}"]
+           "--columns=20", f"--shift-heading-level-by={shift}"]
     subprocess.run(cmd, check=True)
     doc = Document(str(out))
     for ps in doc.element.body.iter(f"{W}pStyle"):
@@ -139,6 +197,15 @@ def add_table_borders(doc_path: Path) -> None:
         for side in ("top", "left", "bottom", "right", "insideH", "insideV"):
             e = etree.SubElement(b, f"{W}{side}")
             e.set(f"{W}val", "single"); e.set(f"{W}sz", "4"); e.set(f"{W}space", "0"); e.set(f"{W}color", "BFBFBF")
+        # cell text left-aligned: the shell's body style is justified, which
+        # opens wide gaps between words in narrow columns
+        for p in tbl.iter(f"{W}p"):
+            pPr = p.find(f"{W}pPr")
+            if pPr is None:
+                pPr = etree.Element(f"{W}pPr"); p.insert(0, pPr)
+            for old in pPr.findall(f"{W}jc"):
+                pPr.remove(old)
+            jc = etree.SubElement(pPr, f"{W}jc"); jc.set(f"{W}val", "left")
         # header row: light shading (no bold, per the repo's typography rule)
         tr = tbl.find(f"{W}tr")
         if tr is not None:

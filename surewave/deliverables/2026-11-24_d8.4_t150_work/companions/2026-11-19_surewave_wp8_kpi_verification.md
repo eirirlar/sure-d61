@@ -22,32 +22,32 @@ The second reporting period runs to the end of the project, 31 December 2026 (D8
 
 | # | KPI | Target (source) | Tracker 29 Sep | Proven (V + O) | Of which weak | Unproven items | Status vs target |
 |---|---|---|---|---|---|---|---|
-| 1 | Peer-reviewed publications | More than 10 (GA); 10 (D8.5) | 10 | 10 | 0 | 1 (EU PVSEC) | Not met for the GA: 10 papers, of which 7 with stated peer review and 3 congress papers without (items 8–10); D8.4 §2.5 status "Not met" |
+| 1 | Peer-reviewed publications | More than 10 (GA); 10 (D8.5) | 10 | 10 | 0 | 1 (EU PVSEC) | Met: the GA target is read as 10 or more publications, peer review not required (project lead's reading, Eirik 24 Nov 2026); 10 papers, of which 7 with stated peer review and 3 congress papers without (items 8–10) |
 | 2 | Conferences | 5 (tracker) | 4 | 11 | 3 | 3 (incl. DeepWind, P) | Met; D8.4 total 14 (11 proven + DeepWind, ISNRE, EU PVSEC) |
 | 3 | Presentations | 10 (D8.5) | 10 | 12 | 2 | 6 | Met; D8.4 total 15 (12 proven + ISNRE, EU PVSEC, PTEC) |
 | 4 | Brochure | 1 (tracker only) | 1 | covered by D8.3 | — | — | Met: the Grant Agreement, Annex 1 and D8.5 specify one brochure, the technical brochure D8.3 (see 18); no separate brochure is required (Eirik, 22 Nov 2026) |
 | 5 | Web events | 2 (tracker) | 3 | 3 | 0 | 1 | Met (two events moved to 20, Eirik 22 Nov 2026); D8.4 total 4 (3 proven + PTEC) |
 | 6 | LinkedIn followers | 500 (D8.5) | 672 | 694 | — | — | Met |
-| 7 | LinkedIn posts | 25 (tracker) | 25 | At least 34: 25 by 29 Sep in the tracker + 9 public posts 1 Oct – 18 Nov 2026 | — | — | Met (Eirik, 20 Nov 2026); D8.4 §2.5 and Annex A.21 give at least 34 on 18 Nov 2026 |
-| 8 | Infographics | 6 (D8.5) | 1 | 5 (4 surewave.eu news graphics + CINEA poster) | — | — | 5 of 6; not met (counted under the loose definition, Eirik 22 Nov 2026) |
+| 7 | LinkedIn posts | 25 (tracker) | 25 | 34 by 18 Nov 2026: 25 by 29 Sep in the tracker + 9 public posts 1 Oct – 18 Nov 2026 | — | — | Met (Eirik, 20 Nov 2026); D8.4 §2.5 gives 40 by 31 Dec 2026: 34 + 6 scheduled (24 Nov, 1, 8, 15, 22 and 29 Dec; Eirik 24 Nov 2026) |
+| 8 | Infographics | 6 (D8.5) | 1 | 5 (4 surewave.eu news graphics + CINEA poster) | — | — | 6 of 6; met: five published (counted under the loose definition, Eirik 22 Nov 2026) and the modelling toolchain infographic scheduled for LinkedIn on 15 Dec 2026 (counted, Eirik 24 Nov 2026) |
 | 9 | Factsheets | 3 (D8.5) | 1 | 3 (project overview, BRIDGE entry, CINEA poster) | — | — | Met (double counting accepted, Eirik 22 Nov 2026) |
 | 10 | Posters | 1 (tracker) | 1 | 2 | 1 | 1 (DeepWind, SINTEF, P) | Met |
 | 11 | Roll-ups | 1 (GA, tracker) | 2 | 1 (second size unconfirmed) | — | — | Met |
-| 12 | Videos | 2, an introduction and a final summary (GA); 2 (D8.5) | 2 | 5 produced + 2 recordings | 0 | 1 (Clement) | Partly met: number met, no final summary video (D8.4 §2.5) |
+| 12 | Videos | 2, an introduction and a final summary (GA); 2 (D8.5) | 2 | 5 produced + 2 recordings | 0 | 1 (Clement) | Met: the concept explainer is the introduction; the videos together constitute the final summary (Eirik 24 Nov 2026) |
 | 13 | Flyers | 1 (GA) | 2 | 1 (the project overview, also counted as a factsheet) | — | — | Met (double counting accepted, Eirik 22 Nov 2026) |
-| 14 | Journalistic articles | 6 (GA, D8.5) | 10 | 8 (acciona.com counted as press release) | 0 | 4 | Met |
+| 14 | Journalistic articles | 6 (GA, D8.5) | 10 | 7 (SINTEF's project-start news and acciona.com counted as press releases) | 0 | 4 | Met |
 | 15 | Interviews | 9 (GA, D8.5) | 5 | 5 published (Nov 2026) + 4 held in 2024 (the ACCIONA interview is published on LinkedIn; the records show the recording, not the publication date, of the other three; D8.4 Annex A.14) | 0 | 4 | Met (9), accepted by Eirik 20 Nov 2026 |
-| 16 | Press releases | GA: start and milestones | 1 | 1 | 0 | 1 | Partly met: one at the prototype milestone (ACCIONA, 11 Oct 2024); none at the start, which SINTEF's news article of 1 Nov 2022 announced (D8.4 §2.5) |
+| 16 | Press releases | GA: start and milestones | 1 | 2 | 0 | 1 | Met: SINTEF's project-start news article (1 Nov 2022) at the start and ACCIONA's announcement (11 Oct 2024) at the prototype milestone (Eirik 24 Nov 2026) |
 | 17 | Webpage visits | 36,000 (D8.5, GA) | 50,000+ | 50,000+ (own Matomo record) | — | — | Met |
 | 18 | Technical brochure | 1 (GA) | 0 | 1 (written; delivered 18 Nov 2026, revised after the partner reviews of 18 and 19 Nov 2026) | — | — | Met (written counts as delivered, Eirik 22 Nov 2026) |
 | 19 | Joint events with other EU projects | 2 (D8.5) | 2 | 3 | 0 | 1 (contradicted) | Met |
-| 20 | Conference workshops | More than 3 (GA); 3 (D8.5) | — | 3 | 0 | — | Met for D8.5; not met for the GA (two SUREWAVE-hosted workshops counted here, Eirik 22 Nov 2026) |
+| 20 | Conference workshops | 3 (GA, read as 3 or more; Eirik 24 Nov 2026); 3 (D8.5) | — | 3 | 0 | — | Met (two SUREWAVE-hosted workshops counted here, Eirik 22 Nov 2026) |
 | 21 | SAB workshops | 2 (D8.5) | — | 2 | 0 | — | Met (second meeting confirmed by Eirik 20 Nov 2026) |
 | 22 | Newsletters | 5 (D8.5) | — | 5 (2 published, 3 written) | 0 | — | Met (written counts as delivered, Eirik 22 Nov 2026) |
-| 23 | Preprints (open science) | — | — | 4 (preprints.org records) | — | — | Reported separately from peer-reviewed publications (added 23 Nov 2026) |
+| 23 | Preprints (open science) | — | — | 5 (preprints.org records) | — | — | Reported separately from peer-reviewed publications (added 23 Nov 2026) |
 | 24 | Journal manuscripts submitted | — | — | 0 | — | 2 (SINTEF, P) | Reported separately; the first is the journal version of preprint 1 (same title), the second is on a machine-learning concrete model (D8.4 Annex A.3) |
 
-Exceptions, as stated in the D8.4 §2.5 headline: peer-reviewed publications (more than 10 in the GA; 10 papers, of which 7 with stated peer review), conference workshops (more than 3 in the GA; 3), infographics (5 of 6; the sixth is scheduled), the final summary video (not produced) and a press release at the start of the project (none). The reach targets of the GA and D8.5 (citations, readership, webinars and workshops combined, media mentions, brochure distribution, web visits a year, contacts from joint events, final-conference attendance, social actors after the project, the new PhD, the four R&D lines, the two internal trainings, D8.5's goal-level targets, and D8.5's two new commercial agreements or partnerships, met for partnerships with SuRE and CIRCWIND, with no commercial agreement yet) are in the second table of D8.4 §2.5 with their status: of the 22, three are met and one is met for 2024 only, three are partly met, five are not met, seven were not measured, the new PhD is not shown, and two are open or apply after the project (D8.4 §2.5 and executive summary). The item-by-item record of each indicator is in D8.4 Annex A, in the order of the first table of §2.5.
+D8.4 §2.5 headline: all 21 targets met (GA, D8.5 and WP8 tracker targets counted alike; publications read as 10 or more, peer review not required; Eirik 24 Nov 2026). The reach targets of the GA and D8.5 (citations, readership, webinars and workshops combined, media mentions, brochure distribution, web visits a year, contacts from joint events, final-conference attendance, social actors after the project, the new PhD, the four R&D lines, the two internal trainings, D8.5's goal-level targets, and D8.5's two new commercial agreements or partnerships, met for partnerships with SuRE and CIRCWIND, with no commercial agreement yet) are in the second table of D8.4 §2.5 with their status: of the 22, 18 are met, two partly met (citations, final-conference attendance) and two not met (new PhD, separate replication guide); statuses set by Eirik 24 Nov 2026, the PhD and guide rows to be checked with Balram Panjwani (SINTEF) (D8.4 §2.5 and executive summary). The item-by-item record of each indicator is in D8.4 Annex A, in the order of the first table of §2.5.
 
 ## 1. Peer-reviewed publications — proven 10
 
@@ -81,6 +81,7 @@ Counted separately from the peer-reviewed publications above, which stay at 10. 
 | 2 | 11 Nov 2026 | Technological Risk Assessment of a Breakwater-Protected Offshore Floating Photovoltaic System Across Three European Sea Basins | Panjwani (SINTEF) | 10.20944/preprints202611.1173.v1 | V; abstract names SUREWAVE |
 | 3 | 16 Nov 2026 | Marine Exposure Performance of a Circular-Concrete Floating Breakwater Prototype: Biofouling, Chloride Ingress and Structural Monitoring | Ruiz Maestre, Chozas, Casado (ACCIONA), Panjwani (SINTEF), Thibbotuwa, Irizar, Olaizola, Cortés (Ceit) | 10.20944/preprints202611.1592.v1 | V (record) |
 | 4 | 17 Nov 2026 | Experimental Characterization of Critical Connections in an Offshore Floating Photovoltaic System | Delhaye, Panjwani (SINTEF) | 10.20944/preprints202611.1612.v1 | V (record) |
+| 5 | 23 Nov 2026 | Economic Assessment of Breakwater-Protected Offshore Floating Photovoltaics Across Three European Sea Basins (preprint of D7.4) | Larsen (Sunlit Sea), Panjwani (SINTEF) | 10.20944/preprints202611.2292.v1 | V (Crossref record, checked 24 Nov 2026) |
 
 All four are after RP2 (30 Sep 2026); number 1 was posted the day after. Number 1 is the SINTEF preprint Balram Panjwani asked to have counted on 23 Nov 2026; it was not in this record before. The report text says five preprints were prepared; four are found.
 
@@ -161,7 +162,7 @@ Correction to the tracker: its "Webinar Sustainable Concrete for Marine Applicat
 
 Public SUREWAVE company page, 19 Nov 2026 (V). Tracker 29 Sep: 672. D8.5 at M18: 371.
 
-## 7. LinkedIn posts — at least 34
+## 7. LinkedIn posts — 34 by 18 Nov 2026, 40 by 31 Dec 2026 with the scheduled posts
 
 The public page shows only the latest posts: 10 dated 29 Sep – 18 Nov 2026 (nine after RP2). E: total up to 30 Sep 2026 from the page's admin statistics.
 
@@ -175,7 +176,7 @@ The roll-up artwork (InDesign export, 5 Jun 2023, 85 × 200 cm) is described in 
 
 The thread also asks for a second, smaller roll-up (80 × 120 cm) to meet one fair's size limit; whether it was produced is not shown (tracker counts 2). The roll-ups were made for the trade fairs in mid-June 2023 ("da vi drar tidlig neste uke"), which supports Sunlit Sea's attendance at Intersolar Europe 2023 (Munich, 14–16 Jun 2023) but not a presentation there.
 
-## 8. Infographics — 5
+## 8. Infographics — 5 published, 1 scheduled (6 counted)
 
 Neither the Grant Agreement nor D8.5 defines an infographic. D8.5 describes them as graphics that "visually communicate key project data and insights" and are posted on social media. Under that loose definition, Eirik decided on 22 Nov 2026 that the four graphics below count. Most LinkedIn posts up to autumn 2025 were also posted as news on surewave.eu, which carries no dates; the images were checked on 22 Nov 2026.
 
@@ -233,7 +234,7 @@ Unproven: Clement Germany interview video, Rostock, April 2024 (P, X — not fou
 
 D8.5 reported 3 videos at M18; the tracker's 2 was below that.
 
-## 14. Journalistic articles — proven 9, counted 8
+## 14. Journalistic articles — proven 9, counted 7
 
 | # | Date | Outlet | Headline | Evidence | Level |
 |---|---|---|---|---|---|
@@ -257,7 +258,7 @@ Listed only (content not read; sites block automated access):
 | late 2024 | Tellkes | (El Musel breakwater) | Page removed (404); archive.org copy; search snippet names SUREWAVE | L |
 | 1 Oct 2025 | La Nueva España | Un cajón de 3,40 metros de eslora anclado al fondo del mar…: así se ensaya en Gijón el futuro de los campos solares marinos | Google News record (returned for the query "surewave"); archive.org copy | L |
 
-Independent outlets among the proven items: 3, 6, 7, 8, 9 (five). Partner-published: 1, 2, 4, 5. Article total 8: item 5 is counted under press releases (16). With the four L items read in a browser, independent coverage would reach eight or nine.
+Independent outlets among the proven items: 3, 6, 7, 8, 9 (five). Partner-published: 1, 2, 4, 5. Article total 7: items 1 and 5 are counted under press releases (16). With the four L items read in a browser, independent coverage would reach eight or nine.
 
 ## 15. Interviews — proven 5, all after RP2
 
@@ -285,13 +286,13 @@ These five clips cover four people. The tracker's pre-September interviews ("Wid
 
 Checked and excluded: NTNU Energy Transition Podcast #24 "Floating Solar (with Per Lindberg, CEO of Sunlit Sea)", published 9 June 2022 (podcast RSS feed anchor.fm/s/580ae2b0; listed on ntnu.edu/energytransition/podcast). It is the only episode with Per Lindberg. It was published before the project started (1 Oct 2022; Grant Agreement signed 20 Sep 2022), and its description does not mention SUREWAVE, so it cannot count as a SUREWAVE interview. The podcast's Oslo Innovation Week episodes (live recording 22 Sep 2023, #62 interview from the week) do not feature Sunlit Sea. E: the remaining interviews, with links.
 
-## 16. Press releases — proven 1
+## 16. Press releases — proven 2
 
 | # | Date | Item | Evidence | Level |
 |---|---|---|---|---|
 | 1 | 11 Oct 2024 | ACCIONA announcement of its SUREWAVE work (reprinted by Global Renewable News and reported by Offshore Energy; La Nueva España listed only) | acciona.com article; counted here only, not under articles (Eirik, decision for D8.4 §2.5) | V |
 
-No separate press release was found in ACCIONA's newsroom or on the Port of Gijón site. SINTEF's project-start news (1 Nov 2022) announced the start; it is counted as a journalistic article (14.1). Count each publication once, under either articles or press releases.
+No separate press release was found in ACCIONA's newsroom or on the Port of Gijón site. SINTEF's project-start news article (1 Nov 2022, item 14.1) is the press release at the start (Eirik 24 Nov 2026); it is counted here, not under articles. Count each publication once, under either articles or press releases.
 
 ## 17. Webpage visits — 50,000+ (own Matomo record)
 
