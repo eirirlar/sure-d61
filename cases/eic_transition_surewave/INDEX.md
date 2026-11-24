@@ -82,7 +82,7 @@ Open:
 
 - T104 — Iterate EIC Transition proposal on Eirik's feedback rounds.
 
-Closed (still in `TASKS.md`):
+Closed (archived in `ARCHIVE.md`):
 
 - T92 — Foreslå optimal EIC Transition prosjektstruktur.
 - T93 — Rens SINTEF EIC WP-forslag docx og skriv diff-vurdering.

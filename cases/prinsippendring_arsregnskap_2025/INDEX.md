@@ -95,7 +95,7 @@ Closed (in `ARCHIVE.md`):
 - T78 — Foretaksuavhengig mal for nedskrivingstest med lovreferanser.
 - T79 — Revidert nedskrivingstest for 2025 med substansiell argumentasjon.
 
-Closed (still in `TASKS.md`):
+Closed (archived in `ARCHIVE.md`):
 
 - T80 — Anmodning til Skatteetaten om tvangsmulkt-utsettelse.
 - T81 — Revisorspakke prinsippendring / aktivering / nedskrivingstest 2025.
