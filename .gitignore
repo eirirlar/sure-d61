@@ -18,3 +18,4 @@ secrets/
 !surewave/background/2026-10-16_surewave_docx_template.docx
 !surewave/background/*_hrb_g2m_*_template.docx
 !surewave/deliverables/2026-11-20_surewave_d7.4_economic_assessment_rev2.docx
+.claude/settings.local.json
