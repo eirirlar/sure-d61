@@ -18,4 +18,6 @@ secrets/
 !surewave/background/2026-10-16_surewave_docx_template.docx
 !surewave/background/*_hrb_g2m_*_template.docx
 !surewave/deliverables/2026-11-20_surewave_d7.4_economic_assessment_rev2.docx
+# Decks built from Markdown by scripts/build_final_review_decks.py; the .md sources are kept, the .pptx are not
+surewave/deliverables/2026-12-02_surewave_final_review_*.pptx
 .claude/settings.local.json

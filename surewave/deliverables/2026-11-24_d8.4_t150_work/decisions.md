@@ -1,5 +1,7 @@
 # T150 global decisions (apply in every part; they override ledger suggestions where they differ)
 
+Note (2026-11-24): the owner decisions recorded in `docs/project_facts.md` on 2026-11-24 (KPI readings, TRL 5 for the integrated system, hinge naming, financial disclosure, LCA in SuRE, breakwater sizing, prototypes) override any decision below that conflicts with them.
+
 D1 Project end: 31 December 2026 (three-month extension; docs/project_facts.md is canonical, CORDIS not yet updated). Four-year period to 31 December 2030; one-year windows to 31 December 2027. Do not add a footnote. Coordinator: SINTEF AS (as in the Grant Agreement).
 
 D2 TRL: integrated SUREWAVE concept TRL 5 (D7.6, final report); CONNECT platform TRL 4–5; directional-breakwater configuration for exposed sites starts at TRL 4 (EIC proposal), which is why the EIC proposal says TRL 4. Say this explicitly once (Section 4.1) and keep the same wording elsewhere. "Validated" claims: wave-basin tests of the integrated system at MARIN; nine months of sea exposure of a reduced-scale concrete breakwater prototype in the Port of Gijón (without the PV array).

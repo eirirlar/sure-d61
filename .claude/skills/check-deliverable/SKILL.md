@@ -52,6 +52,8 @@ The reader does not have the rest of the repo.
 - If a law paragraph, subsection or sentence is cited (`aksjeloven § 9-2 annet ledd`, `regnskapsloven § 5-3 tredje ledd` etc.): confirm the paragraph exists as a verified `.md` file in `generic/background/lover/` with metadata header (`kilde`, `lovnr`, `url`, `hentet`) and verbatim text, and that the citation matches that file word-for-word. If the paragraph is not in `generic/background/lover/`, stop and either (a) run the `last-ned-paragraf` skill to download it from Lovdata via curl, or (b) rephrase to general language without the paragraph name. Never cite a specific `§` from memory. See `docs/rules/lovparagrafer.md` (T123 precedent).
 - For other canonical references (NRS, NRS(F), grant call text, template documents), confirm the citation matches the current version stored in `generic/background/lover/` or the relevant `background/` folder.
 
+- Run `python scripts/check_deprecated_wording.py <file>`: no outdated phrasing from `docs/deprecated_wording.md` (hinge generations, old KPI counts, old TRL wording and the like). Canonical facts are in `docs/project_facts.md`.
+
 ### 6. Norwegian-language deliverables
 
 If the deliverable is in Norwegian, verify finance/clean-tech vocabulary is Norwegian not English (see CLAUDE.md "Norwegian-language deliverables" table): `fornybar-teknologi` not `cleantech`, `egenkapital` not `equity`, etc. Currency and units follow the number: `15 mrd USD`, `10 mill. NOK`, `0.060 EUR`.
@@ -74,6 +76,7 @@ If a `.docx` or `.pdf` already exists:
 - Open it. Do not skip to "the markdown looks fine".
 - Verify YAML metadata rendering is intentional (title block visible / absent as planned).
 - Check table rendering (borders, column widths — see `scripts/format_docx.py` for pandoc docx table fixing).
+- Render the whole document and look at every page: `scripts/render_docx_pdf.sh` (LibreOffice, sandboxed) and `scripts/pdf_contact_sheets.py`. Tables first: columns sized to their content (no wide near-empty columns next to squeezed text), no words broken inside short columns, cells left-aligned. Then page breaks and near-empty pages. Report the page count. LibreOffice runs only when the user has asked for the render (see the Defender note in CLAUDE.md).
 - Check that numbers do not break across lines in narrow PDF columns (use `scripts/nbsp_numbers.py` if they do).
 
 ## Applicable rules

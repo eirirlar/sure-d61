@@ -10,6 +10,7 @@ Persistent helper scripts live in `scripts/` at the repo root — never scattere
 - [`md_to_sunlit_report.py`](#md_to_sunlit_reportpy) — Markdown → PDF long-form report in the Sunlit Sea visual profile
 - [`md_to_surewave_docx.py`](#md_to_surewave_docxpy) — Markdown → SUREWAVE consortium branded DOCX (cover + body)
 - [`md_to_surewave_docx_from_delivered.py`](#md_to_surewave_docx_from_deliveredpy) — Markdown → SUREWAVE DOCX built on a copy of an accepted deliverable (default D7.4 v2.0)
+- [`md_to_template_pptx.py`](#md_to_template_pptxpy) — Markdown slides → pptx filled into a copy of a reference deck (keeps its layouts and footer)
 - [`md_image_to_html.py`](#md_image_to_htmlpy) — rewrite Markdown image refs into HTML `<figure>` blocks
 - [`format_docx.py`](#format_docxpy) — post-process Pandoc docx (table borders + column widths)
 - [`extract_pdf_images.py`](#extract_pdf_imagespy) — extract embedded images from PDFs
@@ -20,6 +21,8 @@ Persistent helper scripts live in `scripts/` at the repo root — never scattere
 - [`xlsx_to_md.py`](#xlsx_to_mdpy) — xlsx workbook → one Markdown table per sheet
 - [`emf_to_png.ps1`](#emf_to_pngps1) — rasterise `.emf` to `.png` (Windows GDI+)
 - [`render_docx_pdf.sh`](#render_docx_pdfsh) — sandboxed LibreOffice docx → PDF (does not trip Windows Controlled Folder Access)
+- [`pdf_contact_sheets.py`](#pdf_contact_sheetspy) — PDF pages to contact-sheet images for a page-by-page visual check
+- [`check_deprecated_wording.py`](#check_deprecated_wordingpy) — report outdated phrasing listed in `docs/deprecated_wording.md`
 - [`rebuild_task_indexes.py`](#rebuild_task_indexespy) — regenerate `TASKS_INDEX.md` and `ARCHIVE_INDEX.md` from the master task files
 - [`estimate_yield.py`](#estimate_yieldpy) — preliminary annual AC yield estimator for an FPV site (PVGIS 5.2 + FPV cooling bonus)
 - [`build_d74_workbook.py`](#build_d74_workbookpy) — build the SUREWAVE D7.4 cost workbook v3 (Excel) from the v2 workbook
@@ -475,6 +478,46 @@ powershell -File scripts/emf_to_png.ps1 -Root surewave/images -Scale 2
 Recursive by default. Writes a sibling `.png` next to each `.emf` at the given scale (default 2×). Skips files that already have a `.png` sibling unless `-Force` is passed. Leaves the `.emf` original in place; delete the source EMFs separately once the PNGs are verified if you don't want to keep both formats.
 
 Used to rasterise the 83 EMF files under `surewave/images/*/` that were extracted from Word deliverables (most Markdown viewers cannot render EMF inline). After rasterisation the EMF sources were removed; PNG-only is the current stored form.
+
+## `check_deprecated_wording.py`
+
+Reports every hit of the outdated phrases listed in `docs/deprecated_wording.md` (pattern, replacement, decision) in the Markdown files of `surewave/deliverables/` and `docs/`. Skips `background/`, `archive/`, work folders (`*_work/`), delivered documents (D8.3, D7.4), the archive of published posts in `linkedin_posts.md` and lines that quote a rule ("Do not use").
+
+```bash
+python scripts/check_deprecated_wording.py [path ...]
+```
+
+- Exit code 1 on any hit. Standard library only; reads Markdown, writes nothing.
+- Run before any outgoing SUREWAVE document (part of `/check-deliverable`) and whenever a fact in `docs/project_facts.md` changes; add the old phrasing to `docs/deprecated_wording.md` at the same time. First use: T167, 2026-11-24.
+
+## `pdf_contact_sheets.py`
+
+Renders every page of a PDF to a small image (`pdftoppm`) and combines them into contact sheets of eight pages, for a fast page-by-page visual check of a rendered deliverable: table column widths, broken words, page breaks, empty pages.
+
+```bash
+OUTDIR="$(pwd)/temp/render" bash scripts/render_docx_pdf.sh <file.docx>
+uv run scripts/pdf_contact_sheets.py temp/render/<file>.pdf [-o <out_dir>] [--per 8] [--dpi 45]
+```
+
+- Output: `<out_dir>/sheet_NN.png` (default `temp/<pdf stem>_sheets/`).
+- Needs `pdftoppm` (poppler) on PATH; Python package pillow (PEP 723, `uv run`).
+- Reads only the given PDF and writes only into the output folder. First use: D8.4 (T150), 2026-11-24.
+
+## `md_to_template_pptx.py`
+
+Builds a `.pptx` from a Markdown slide source by filling a copy of a reference deck with python-pptx, keeping the deck's masters, layouts, date and slide-number footer and end slide. Written for the SUREWAVE final review meeting (T168), where the coordinator's review deck has layouts pandoc cannot map ("Title", "End slide") and pandoc drops the footer.
+
+```bash
+python scripts/md_to_template_pptx.py surewave/deliverables/2026-12-02_surewave_final_review_wp8.md --pdf
+```
+
+The template and the footer date come from the deck's YAML front matter (`pptx_template:` as a repo-relative path, `footer_date:`); `--template` and `--date` override them. `--pdf` also renders a PDF next to the pptx through `render_docx_pdf.sh` (sandboxed LibreOffice, optional; the pptx build itself needs no desktop application). The built `.pptx` of the final review decks are git-ignored: the Markdown is the source, and the coordinator's review deck is kept as `surewave/background/2026-11-23_surewave_final_review_template.pptx`.
+
+- Input: Markdown with one `## Heading` per slide; `{layout="Title"}` / `{layout="End slide"}` after a heading picks a layout (default "Title and Content"); `-` bullets with two-space sub-bullets; one pipe table per slide; `![caption](path){side=right|full}` for an image; `::: notes` blocks become speaker notes. YAML front matter is skipped.
+- Output: `<deck>.pptx` next to the source (or `-o`). The template's own slides are dropped; the date and slide-number placeholders are cloned from its first content slide, with `--date` replacing the template's automatic date field by fixed text.
+- Requires python-pptx and Pillow; `--pdf` also needs LibreOffice and bash.
+- Layout: the content area runs from below the template's title to above its footer, aligned with the title; body 22 pt, sub-bullets 19 pt, tables 16 pt.
+- Limits: one table and one image per slide; text height is estimated, so check the render for overflow.
 
 ## `render_docx_pdf.sh`
 

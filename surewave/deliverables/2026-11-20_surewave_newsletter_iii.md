@@ -35,7 +35,7 @@ The same campaign showed a weakness: the original polyurethane hinges buckled un
 
 # A hinge that failed, and the one that replaced it
 
-The FPV modules are joined by flexible polyurethane hinges, so the array can follow the waves. In SINTEF's laboratory tests, the first-generation hinge failed at about 3.5 kN in tension on average, below the 8 to 10 kN operational loads expected from the coupled hydrodynamic analysis, and it had little resistance to compression.
+The FPV modules are joined by flexible polyurethane hinges, so the array can follow the waves. In SINTEF's laboratory tests, the corner hinges of the Generation 1 floats failed at a mean of 3.69 kN in tension, below the 8 to 10 kN operational loads expected from the coupled hydrodynamic analysis, and it had little resistance to compression.
 
 Sunlit Sea redesigned the hinge, and SINTEF tested it in a second round. The redesigned connection more than doubled the tensile capacity of the first generation, and its buckling strength rose to about 20 kN. For fatigue, SINTEF took the highest stress reached in the tests, about 11 MPa, as a conservative value; at that stress the extrapolated life is 2.5 × 10^11^ load cycles, against the 7.88 × 10^8^ cycles needed for 25 years of service. SINTEF describes this as a rough first estimate. Production is the remaining sensitivity: shrinkage during casting left gaps of 1 to 2 mm between the mating parts, which calls for strict quality control in series production.
 
